@@ -8,6 +8,18 @@
 
 #import <Foundation/Foundation.h>
 
+//typedef NS_ENUM(NSUInteger, trackerType) {
+//    <#MyEnumValueA#>,
+//    <#MyEnumValueB#>,
+//    <#MyEnumValueC#>,
+//};
+
 @interface ASTrackerModel : NSObject
+
+@property (nonatomic) NSString *trackerName;
+@property (nonatomic) NSString *trackerNumber;
+@property (nonatomic) NSString *imeiNumber;
+@property (nonatomic) NSString *trackerType;
+@property (nonatomic, assign) BOOL isChoosed;
 
 @end
