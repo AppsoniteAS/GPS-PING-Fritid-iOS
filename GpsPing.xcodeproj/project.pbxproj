@@ -44,6 +44,9 @@
 		AB8946711C4E3372002E86C8 /* ASAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB8946701C4E3372002E86C8 /* ASAboutViewController.m */; };
 		AB8946721C4E3372002E86C8 /* ASAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB8946701C4E3372002E86C8 /* ASAboutViewController.m */; };
 		AB8946731C4E3372002E86C8 /* ASAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB8946701C4E3372002E86C8 /* ASAboutViewController.m */; };
+		AB8946791C4E67BC002E86C8 /* Connect.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB8946781C4E67BC002E86C8 /* Connect.storyboard */; };
+		AB89467B1C4E67C9002E86C8 /* Geofence.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB89467A1C4E67C9002E86C8 /* Geofence.storyboard */; };
+		AB89467D1C4E67D8002E86C8 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB89467C1C4E67D8002E86C8 /* Profile.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -115,6 +118,9 @@
 		AB89466D1C4E334B002E86C8 /* About.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = About.storyboard; sourceTree = "<group>"; };
 		AB89466F1C4E3372002E86C8 /* ASAboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASAboutViewController.h; sourceTree = "<group>"; };
 		AB8946701C4E3372002E86C8 /* ASAboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASAboutViewController.m; sourceTree = "<group>"; };
+		AB8946781C4E67BC002E86C8 /* Connect.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Connect.storyboard; sourceTree = "<group>"; };
+		AB89467A1C4E67C9002E86C8 /* Geofence.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Geofence.storyboard; sourceTree = "<group>"; };
+		AB89467C1C4E67D8002E86C8 /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		D56B56EC24DC9B71F55AC4BB /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -188,12 +194,9 @@
 			children = (
 				A68C1B881C4D2550000E2BA6 /* Tools */,
 				A68C1BA11C4E4798000E2BA6 /* Model */,
-				A68C1BA01C4E4788000E2BA6 /* Main screen */,
-				A68C1B9F1C4E477B000E2BA6 /* Trackers */,
-				AB89466C1C4E331C002E86C8 /* About */,
+				AB89467E1C4E6B2B002E86C8 /* UI */,
 				A68C1B341C4CE460000E2BA6 /* AppDelegate.h */,
 				A68C1B351C4CE460000E2BA6 /* AppDelegate.m */,
-				A68C1B891C4E2B91000E2BA6 /* Settings.storyboard */,
 				A68C1B3D1C4CE460000E2BA6 /* Assets.xcassets */,
 				A68C1B3F1C4CE460000E2BA6 /* LaunchScreen.storyboard */,
 				A68C1B421C4CE460000E2BA6 /* Info.plist */,
@@ -299,11 +302,57 @@
 		AB89466C1C4E331C002E86C8 /* About */ = {
 			isa = PBXGroup;
 			children = (
-				AB89466D1C4E334B002E86C8 /* About.storyboard */,
 				AB89466F1C4E3372002E86C8 /* ASAboutViewController.h */,
 				AB8946701C4E3372002E86C8 /* ASAboutViewController.m */,
+				AB89466D1C4E334B002E86C8 /* About.storyboard */,
 			);
 			name = About;
+			sourceTree = "<group>";
+		};
+		AB8946741C4E614B002E86C8 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				A68C1B891C4E2B91000E2BA6 /* Settings.storyboard */,
+			);
+			name = Settings;
+			sourceTree = "<group>";
+		};
+		AB8946751C4E6770002E86C8 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				AB89467C1C4E67D8002E86C8 /* Profile.storyboard */,
+			);
+			name = Profile;
+			sourceTree = "<group>";
+		};
+		AB8946761C4E6781002E86C8 /* Connect */ = {
+			isa = PBXGroup;
+			children = (
+				AB8946781C4E67BC002E86C8 /* Connect.storyboard */,
+			);
+			name = Connect;
+			sourceTree = "<group>";
+		};
+		AB8946771C4E6789002E86C8 /* Geofence */ = {
+			isa = PBXGroup;
+			children = (
+				AB89467A1C4E67C9002E86C8 /* Geofence.storyboard */,
+			);
+			name = Geofence;
+			sourceTree = "<group>";
+		};
+		AB89467E1C4E6B2B002E86C8 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				A68C1BA01C4E4788000E2BA6 /* Main screen */,
+				AB8946741C4E614B002E86C8 /* Settings */,
+				A68C1B9F1C4E477B000E2BA6 /* Trackers */,
+				AB8946761C4E6781002E86C8 /* Connect */,
+				AB8946771C4E6789002E86C8 /* Geofence */,
+				AB8946751C4E6770002E86C8 /* Profile */,
+				AB89466C1C4E331C002E86C8 /* About */,
+			);
+			name = UI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -421,13 +470,16 @@
 				A68C1B801C4D24DC000E2BA6 /* Roboto-Medium.ttf in Resources */,
 				A68C1B3E1C4CE460000E2BA6 /* Assets.xcassets in Resources */,
 				A68C1B7B1C4D24DC000E2BA6 /* Roboto-Condensed.ttf in Resources */,
+				AB8946791C4E67BC002E86C8 /* Connect.storyboard in Resources */,
 				AB89466E1C4E334B002E86C8 /* About.storyboard in Resources */,
 				A68C1B831C4D24DC000E2BA6 /* Roboto-Thin.ttf in Resources */,
 				A68C1B771C4D24DC000E2BA6 /* Roboto-Bold.ttf in Resources */,
 				A68C1B781C4D24DC000E2BA6 /* Roboto-BoldCondensed.ttf in Resources */,
 				A68C1B761C4D24DC000E2BA6 /* Roboto-BlackItalic.ttf in Resources */,
+				AB89467B1C4E67C9002E86C8 /* Geofence.storyboard in Resources */,
 				A68C1B7E1C4D24DC000E2BA6 /* Roboto-Light.ttf in Resources */,
 				A68C1B811C4D24DC000E2BA6 /* Roboto-MediumItalic.ttf in Resources */,
+				AB89467D1C4E67D8002E86C8 /* Profile.storyboard in Resources */,
 				A68C1B3C1C4CE460000E2BA6 /* Main.storyboard in Resources */,
 				A68C1B8C1C4E35DB000E2BA6 /* Trackers.storyboard in Resources */,
 				A68C1B821C4D24DC000E2BA6 /* Roboto-Regular.ttf in Resources */,
