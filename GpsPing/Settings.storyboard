@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Settings-->
@@ -17,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" alpha="0.40000000596046448" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="oe1-JU-YHi">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="oe1-JU-YHi">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rjD-Tr-BuN" customClass="ASButton">
@@ -167,15 +168,19 @@
                             <constraint firstItem="Kfl-41-9LE" firstAttribute="centerX" secondItem="sNL-nd-5hY" secondAttribute="centerX" id="SDm-jj-kKZ"/>
                             <constraint firstItem="2Pk-J7-6Zh" firstAttribute="centerX" secondItem="JDK-kP-sdS" secondAttribute="centerX" id="SME-hR-znd"/>
                             <constraint firstItem="Spw-UR-dvL" firstAttribute="height" secondItem="sNL-nd-5hY" secondAttribute="height" id="U01-9d-1Vb"/>
+                            <constraint firstItem="oe1-JU-YHi" firstAttribute="leading" secondItem="JDK-kP-sdS" secondAttribute="leading" id="VWF-rX-QYZ"/>
                             <constraint firstItem="7up-XZ-0BL" firstAttribute="top" secondItem="cTF-za-rkp" secondAttribute="bottom" constant="90" id="Vdz-DX-2xk"/>
                             <constraint firstItem="ZiE-JM-x69" firstAttribute="height" secondItem="knz-l4-dZl" secondAttribute="height" id="X9L-Hm-x5X"/>
                             <constraint firstItem="cTF-za-rkp" firstAttribute="top" secondItem="Kfl-41-9LE" secondAttribute="bottom" id="Xos-pM-gSu"/>
                             <constraint firstItem="Spw-UR-dvL" firstAttribute="top" secondItem="Xdm-N5-bVT" secondAttribute="bottom" id="YbH-e9-UQo"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="oe1-JU-YHi" secondAttribute="bottom" id="a1u-Ee-FUo"/>
                             <constraint firstItem="sNL-nd-5hY" firstAttribute="top" secondItem="2Pk-J7-6Zh" secondAttribute="bottom" id="aNq-Nf-E69"/>
                             <constraint firstItem="Kfl-41-9LE" firstAttribute="centerX" secondItem="JDK-kP-sdS" secondAttribute="centerX" id="h69-Sb-ths"/>
                             <constraint firstItem="rjD-Tr-BuN" firstAttribute="top" relation="greaterThanOrEqual" secondItem="2b3-AY-oor" secondAttribute="bottom" constant="20" id="hlA-RK-sPD"/>
                             <constraint firstItem="2Pk-J7-6Zh" firstAttribute="top" secondItem="W98-wL-GO6" secondAttribute="bottom" id="oek-PT-syz"/>
                             <constraint firstItem="knz-l4-dZl" firstAttribute="top" secondItem="2b3-AY-oor" secondAttribute="bottom" id="oqJ-og-efh"/>
+                            <constraint firstAttribute="topMargin" secondItem="oe1-JU-YHi" secondAttribute="top" id="rpp-J7-cnN"/>
+                            <constraint firstAttribute="trailing" secondItem="oe1-JU-YHi" secondAttribute="trailing" id="scH-6I-zjs"/>
                             <constraint firstItem="Kfl-41-9LE" firstAttribute="top" secondItem="tUt-jc-XWF" secondAttribute="bottom" id="tXW-Dz-s0K"/>
                             <constraint firstItem="rjD-Tr-BuN" firstAttribute="centerX" secondItem="JDK-kP-sdS" secondAttribute="centerX" id="trJ-Yv-Dfm"/>
                             <constraint firstItem="sNL-nd-5hY" firstAttribute="height" secondItem="Kfl-41-9LE" secondAttribute="height" id="uGe-hk-vhA"/>
