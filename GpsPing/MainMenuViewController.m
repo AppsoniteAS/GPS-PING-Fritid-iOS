@@ -6,14 +6,14 @@
 //  Copyright © 2016 Robin Grønvold. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "MainMenuViewController.h"
 
-@interface ViewController ()
+@interface MainMenuViewController ()
 @property (weak, nonatomic) IBOutlet UIButton *startStopButton;
 
 @end
 
-@implementation ViewController
+@implementation MainMenuViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

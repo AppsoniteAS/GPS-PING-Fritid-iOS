@@ -10,7 +10,7 @@
         <!--Settings-->
         <scene sceneID="k8d-l5-Syr">
             <objects>
-                <viewController id="wF7-Ch-xf9" customClass="ViewController" sceneMemberID="viewController">
+                <viewController id="wF7-Ch-xf9" customClass="MainMenuViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="2b3-AY-oor"/>
                         <viewControllerLayoutGuide type="bottom" id="7up-XZ-0BL"/>
