@@ -33,6 +33,7 @@
 		A68C1B831C4D24DC000E2BA6 /* Roboto-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A68C1B731C4D1831000E2BA6 /* Roboto-Thin.ttf */; };
 		A68C1B841C4D24DC000E2BA6 /* Roboto-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A68C1B741C4D1831000E2BA6 /* Roboto-ThinItalic.ttf */; };
 		A68C1B871C4D2549000E2BA6 /* ASButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A68C1B861C4D2549000E2BA6 /* ASButton.m */; };
+		A68C1B8A1C4E2B91000E2BA6 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A68C1B891C4E2B91000E2BA6 /* Settings.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +90,7 @@
 		A68C1B741C4D1831000E2BA6 /* Roboto-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-ThinItalic.ttf"; sourceTree = "<group>"; };
 		A68C1B851C4D2549000E2BA6 /* ASButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASButton.h; sourceTree = "<group>"; };
 		A68C1B861C4D2549000E2BA6 /* ASButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASButton.m; sourceTree = "<group>"; };
+		A68C1B891C4E2B91000E2BA6 /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		D56B56EC24DC9B71F55AC4BB /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -166,6 +168,7 @@
 				A68C1B371C4CE460000E2BA6 /* ViewController.h */,
 				A68C1B381C4CE460000E2BA6 /* ViewController.m */,
 				A68C1B3A1C4CE460000E2BA6 /* Main.storyboard */,
+				A68C1B891C4E2B91000E2BA6 /* Settings.storyboard */,
 				A68C1B3D1C4CE460000E2BA6 /* Assets.xcassets */,
 				A68C1B3F1C4CE460000E2BA6 /* LaunchScreen.storyboard */,
 				A68C1B421C4CE460000E2BA6 /* Info.plist */,
@@ -359,6 +362,7 @@
 				A68C1B841C4D24DC000E2BA6 /* Roboto-ThinItalic.ttf in Resources */,
 				A68C1B791C4D24DC000E2BA6 /* Roboto-BoldCondensedItalic.ttf in Resources */,
 				A68C1B751C4D24DC000E2BA6 /* Roboto-Black.ttf in Resources */,
+				A68C1B8A1C4E2B91000E2BA6 /* Settings.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

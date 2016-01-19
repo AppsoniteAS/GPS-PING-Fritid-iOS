@@ -95,6 +95,9 @@
                                 <state key="normal" title="Settings">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="Qe3-Iw-5Z1" kind="push" id="4lw-Jf-e3A"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kxB-Ja-Ozr">
                                 <rect key="frame" x="162" y="457.5" width="89" height="66"/>
@@ -201,6 +204,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="825" y="968"/>
+        </scene>
+        <!--Settings-->
+        <scene sceneID="fpr-zC-lOe">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Settings" id="Qe3-Iw-5Z1" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="GXZ-4z-cUU"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PoD-c1-XTM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1285.5" y="968"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Rsh-wQ-iEb">
