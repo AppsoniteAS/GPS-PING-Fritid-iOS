@@ -10,6 +10,7 @@
 
 @interface MainMenuViewController ()
 @property (weak, nonatomic) IBOutlet UIButton *startStopButton;
+- (IBAction)showAbout:(id)sender;
 
 @end
 
@@ -29,4 +30,9 @@
     self.startStopButton.layer.cornerRadius = self.startStopButton.frame.size.width/2;
 }
 
+- (IBAction)showAbout:(id)sender {
+    UIViewController* controller = [[UIStoryboard storyboardWithName:@"About" bundle:nil] instantiateInitialViewController];
+    [self presentViewController:controller animated:YES completion:nil];
+//    [self.navigationController pushViewController:controller animated:YES];
+}
 @end

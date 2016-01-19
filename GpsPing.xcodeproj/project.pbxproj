@@ -40,6 +40,10 @@
 		A68C1B981C4E3B0D000E2BA6 /* ASTrackerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A68C1B971C4E3B0D000E2BA6 /* ASTrackerModel.m */; };
 		A68C1B9B1C4E40D2000E2BA6 /* UIColor+ASColor.m in Sources */ = {isa = PBXBuildFile; fileRef = A68C1B9A1C4E40D2000E2BA6 /* UIColor+ASColor.m */; };
 		A68C1B9E1C4E43AB000E2BA6 /* ASNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = A68C1B9D1C4E43AB000E2BA6 /* ASNavigationController.m */; };
+		AB89466E1C4E334B002E86C8 /* About.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB89466D1C4E334B002E86C8 /* About.storyboard */; };
+		AB8946711C4E3372002E86C8 /* ASAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB8946701C4E3372002E86C8 /* ASAboutViewController.m */; };
+		AB8946721C4E3372002E86C8 /* ASAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB8946701C4E3372002E86C8 /* ASAboutViewController.m */; };
+		AB8946731C4E3372002E86C8 /* ASAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB8946701C4E3372002E86C8 /* ASAboutViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,6 +101,9 @@
 		A68C1B851C4D2549000E2BA6 /* ASButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASButton.h; sourceTree = "<group>"; };
 		A68C1B861C4D2549000E2BA6 /* ASButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASButton.m; sourceTree = "<group>"; };
 		A68C1B891C4E2B91000E2BA6 /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
+		AB89466D1C4E334B002E86C8 /* About.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = About.storyboard; sourceTree = "<group>"; };
+		AB89466F1C4E3372002E86C8 /* ASAboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASAboutViewController.h; sourceTree = "<group>"; };
+		AB8946701C4E3372002E86C8 /* ASAboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASAboutViewController.m; sourceTree = "<group>"; };
 		A68C1B8B1C4E35DB000E2BA6 /* Trackers.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Trackers.storyboard; sourceTree = "<group>"; };
 		A68C1B8D1C4E3860000E2BA6 /* ASTrackersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASTrackersViewController.h; sourceTree = "<group>"; };
 		A68C1B8E1C4E3860000E2BA6 /* ASTrackersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASTrackersViewController.m; sourceTree = "<group>"; };
@@ -186,6 +193,7 @@
 				A68C1B351C4CE460000E2BA6 /* AppDelegate.m */,
 				A68C1B371C4CE460000E2BA6 /* MainMenuViewController.h */,
 				A68C1B381C4CE460000E2BA6 /* MainMenuViewController.m */,
+				AB89466C1C4E331C002E86C8 /* About */,
 				A68C1B3A1C4CE460000E2BA6 /* Main.storyboard */,
 				A68C1B8B1C4E35DB000E2BA6 /* Trackers.storyboard */,
 				A68C1B891C4E2B91000E2BA6 /* Settings.storyboard */,
@@ -262,6 +270,16 @@
 				A68C1B9A1C4E40D2000E2BA6 /* UIColor+ASColor.m */,
 			);
 			name = Tools;
+			sourceTree = "<group>";
+		};
+		AB89466C1C4E331C002E86C8 /* About */ = {
+			isa = PBXGroup;
+			children = (
+				AB89466D1C4E334B002E86C8 /* About.storyboard */,
+				AB89466F1C4E3372002E86C8 /* ASAboutViewController.h */,
+				AB8946701C4E3372002E86C8 /* ASAboutViewController.m */,
+			);
+			name = About;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -379,6 +397,7 @@
 				A68C1B801C4D24DC000E2BA6 /* Roboto-Medium.ttf in Resources */,
 				A68C1B3E1C4CE460000E2BA6 /* Assets.xcassets in Resources */,
 				A68C1B7B1C4D24DC000E2BA6 /* Roboto-Condensed.ttf in Resources */,
+				AB89466E1C4E334B002E86C8 /* About.storyboard in Resources */,
 				A68C1B831C4D24DC000E2BA6 /* Roboto-Thin.ttf in Resources */,
 				A68C1B771C4D24DC000E2BA6 /* Roboto-Bold.ttf in Resources */,
 				A68C1B781C4D24DC000E2BA6 /* Roboto-BoldCondensed.ttf in Resources */,
@@ -471,6 +490,7 @@
 				A68C1B981C4E3B0D000E2BA6 /* ASTrackerModel.m in Sources */,
 				A68C1B361C4CE460000E2BA6 /* AppDelegate.m in Sources */,
 				A68C1B921C4E38D6000E2BA6 /* ASTrackerCell.m in Sources */,
+				AB8946711C4E3372002E86C8 /* ASAboutViewController.m in Sources */,
 				A68C1B331C4CE460000E2BA6 /* main.m in Sources */,
 				A68C1B9B1C4E40D2000E2BA6 /* UIColor+ASColor.m in Sources */,
 			);
@@ -480,6 +500,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB8946721C4E3372002E86C8 /* ASAboutViewController.m in Sources */,
 				A68C1B4C1C4CE461000E2BA6 /* GpsPingTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -488,6 +509,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB8946731C4E3372002E86C8 /* ASAboutViewController.m in Sources */,
 				A68C1B571C4CE461000E2BA6 /* GpsPingUITests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
