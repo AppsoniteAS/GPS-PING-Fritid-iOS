@@ -38,5 +38,6 @@
 - (IBAction)showAbout:(id)sender {
     UIViewController* controller = [[UIStoryboard storyboardWithName:@"About" bundle:nil] instantiateInitialViewController];
     [self presentViewController:controller animated:YES completion:nil];
+//    [self.navigationController pushViewController:controller animated:YES];
 }
 @end

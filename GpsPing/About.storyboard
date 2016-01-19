@@ -65,6 +65,9 @@
                                 <state key="normal" title="Visit Website">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="showWebsite:" destination="UbW-fB-OPx" eventType="touchUpInside" id="rmB-Zg-y5S"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0lh-iO-07F" customClass="ASButton">
                                 <rect key="frame" x="107" y="207" width="200" height="40"/>
@@ -76,6 +79,9 @@
                                 <state key="normal" title="Contact Us">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="contactUs:" destination="UbW-fB-OPx" eventType="touchUpInside" id="oIf-uO-6M4"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MXm-WI-p3w" customClass="ASButton">
                                 <rect key="frame" x="107" y="298" width="200" height="40"/>
@@ -87,6 +93,9 @@
                                 <state key="normal" title="About Us">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="showAboutUs:" destination="UbW-fB-OPx" eventType="touchUpInside" id="hV1-7P-mbL"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iEf-me-XoJ">
                                 <rect key="frame" x="162" y="155" width="89" height="52"/>
