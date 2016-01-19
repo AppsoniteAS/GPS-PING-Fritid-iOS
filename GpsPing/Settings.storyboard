@@ -34,7 +34,7 @@
                                     <constraint firstItem="oe1-JU-YHi" firstAttribute="top" secondItem="Ifr-ZC-jvj" secondAttribute="top" id="c5E-Ks-3ns"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rjD-Tr-BuN" customClass="ASButton">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rjD-Tr-BuN" customClass="ASButton">
                                 <rect key="frame" x="107" y="418" width="200" height="40"/>
                                 <color key="backgroundColor" red="0.33333333329999998" green="0.5450980392" blue="0.1843137255" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -73,7 +73,7 @@
                                     <action selector="showAbout:" destination="wF7-Ch-xf9" eventType="touchUpInside" id="BDT-0E-16j"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sNL-nd-5hY">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sNL-nd-5hY">
                                 <rect key="frame" x="162" y="458" width="89" height="66"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -100,7 +100,7 @@
                                     </mask>
                                 </variation>
                             </view>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Aq4-rV-kvO">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Aq4-rV-kvO">
                                 <rect key="frame" x="163" y="351" width="89" height="67"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>

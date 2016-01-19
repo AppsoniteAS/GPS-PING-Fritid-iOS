@@ -3,10 +3,20 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="Roboto-Regular.ttf">
+            <string>Roboto-Regular</string>
+            <string>Roboto-Regular</string>
+            <string>Roboto-Regular</string>
+            <string>Roboto-Regular</string>
+            <string>Roboto-Regular</string>
+        </mutableArray>
+    </customFonts>
     <scenes>
-        <!--Trackers View Controller-->
+        <!--Trackers-->
         <scene sceneID="n8E-3f-XOL">
             <objects>
                 <viewController id="14m-h1-zoy" customClass="ASTrackersViewController" sceneMemberID="viewController">
@@ -18,25 +28,91 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jxP-yf-c6W">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="w9z-JH-de4">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </imageView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="96" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jxP-yf-c6W">
+                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ASTrackerCell" id="shp-fo-EJM" customClass="ASTrackerCell">
-                                        <rect key="frame" x="0.0" y="28" width="320" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ASTrackerCell" rowHeight="96" id="shp-fo-EJM" customClass="ASTrackerCell">
+                                        <rect key="frame" x="0.0" y="28" width="320" height="96"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="shp-fo-EJM" id="KI1-Ut-vLq">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="95.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Lp-uA-TJo">
-                                                    <rect key="frame" x="82" y="14" width="42" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Julie" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Lp-uA-TJo" userLabel="name">
+                                                    <rect key="frame" x="76" y="12" width="43" height="23.5"/>
+                                                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="20"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tracker Number:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pu3-bz-ZPE">
+                                                    <rect key="frame" x="76" y="43" width="67" height="11"/>
+                                                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="9"/>
+                                                    <color key="textColor" red="0.45882352941176469" green="0.45882352941176469" blue="0.45882352941176469" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="IMEI Number:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vX0-lZ-iHN">
+                                                    <rect key="frame" x="76" y="60" width="54.5" height="11"/>
+                                                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="9"/>
+                                                    <color key="textColor" red="0.45882352941176469" green="0.45882352941176469" blue="0.45882352941176469" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="580009914518" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CZd-v3-kIQ">
+                                                    <rect key="frame" x="162" y="43" width="61" height="11"/>
+                                                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="9"/>
+                                                    <color key="textColor" red="0.45882352941176469" green="0.45882352941176469" blue="0.45882352941176469" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="580009914518" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iem-dQ-Ist">
+                                                    <rect key="frame" x="162" y="60" width="61" height="11"/>
+                                                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="9"/>
+                                                    <color key="textColor" red="0.45882352941176469" green="0.45882352941176469" blue="0.45882352941176469" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tracker_icon_anywhere" translatesAutoresizingMaskIntoConstraints="NO" id="F1e-3y-97b" userLabel="Icon">
+                                                    <rect key="frame" x="18" y="12" width="46" height="46"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="F1e-3y-97b" secondAttribute="height" multiplier="1:1" id="qG5-YI-Nx2"/>
+                                                        <constraint firstAttribute="width" constant="46" id="zts-Y8-C2c"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chooseIndicator" translatesAutoresizingMaskIntoConstraints="NO" id="UMb-Vj-BZe" userLabel="choose_indicator">
+                                                    <rect key="frame" x="284" y="26" width="18" height="18"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="UMb-Vj-BZe" secondAttribute="height" multiplier="1:1" id="HfQ-ty-Fpp"/>
+                                                        <constraint firstAttribute="width" constant="18" id="Yv1-Az-eY6"/>
+                                                    </constraints>
+                                                </imageView>
                                             </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstItem="7Lp-uA-TJo" firstAttribute="top" secondItem="KI1-Ut-vLq" secondAttribute="top" constant="12" id="4fD-aw-1QL"/>
+                                                <constraint firstItem="F1e-3y-97b" firstAttribute="top" secondItem="KI1-Ut-vLq" secondAttribute="top" constant="12" id="DkL-3v-Uk8"/>
+                                                <constraint firstItem="7Lp-uA-TJo" firstAttribute="leading" secondItem="KI1-Ut-vLq" secondAttribute="leading" constant="76" id="ERl-Vz-nXZ"/>
+                                                <constraint firstItem="UMb-Vj-BZe" firstAttribute="centerY" secondItem="F1e-3y-97b" secondAttribute="centerY" id="G5E-Dj-f52"/>
+                                                <constraint firstItem="vX0-lZ-iHN" firstAttribute="leading" secondItem="7Lp-uA-TJo" secondAttribute="leading" id="Kdp-uR-Y5B"/>
+                                                <constraint firstItem="F1e-3y-97b" firstAttribute="leading" secondItem="KI1-Ut-vLq" secondAttribute="leading" constant="18" id="NvQ-YE-WL5"/>
+                                                <constraint firstItem="vX0-lZ-iHN" firstAttribute="top" secondItem="pu3-bz-ZPE" secondAttribute="bottom" constant="6" id="QUz-8X-Hpe"/>
+                                                <constraint firstAttribute="trailing" secondItem="UMb-Vj-BZe" secondAttribute="trailing" constant="18" id="iHM-VZ-kZf"/>
+                                                <constraint firstItem="Iem-dQ-Ist" firstAttribute="centerY" secondItem="vX0-lZ-iHN" secondAttribute="centerY" id="pF2-D5-ZKu"/>
+                                                <constraint firstItem="CZd-v3-kIQ" firstAttribute="centerY" secondItem="pu3-bz-ZPE" secondAttribute="centerY" id="sBp-JQ-3Rw"/>
+                                                <constraint firstItem="Iem-dQ-Ist" firstAttribute="leading" secondItem="CZd-v3-kIQ" secondAttribute="leading" id="slo-jZ-enI"/>
+                                                <constraint firstItem="pu3-bz-ZPE" firstAttribute="leading" secondItem="7Lp-uA-TJo" secondAttribute="leading" id="tFm-6H-V2i"/>
+                                                <constraint firstItem="pu3-bz-ZPE" firstAttribute="top" secondItem="7Lp-uA-TJo" secondAttribute="bottom" constant="8" id="ur2-wg-j8s"/>
+                                                <constraint firstItem="CZd-v3-kIQ" firstAttribute="leading" secondItem="KI1-Ut-vLq" secondAttribute="leading" constant="162" id="xBe-DC-dmu"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <outlet property="chooseIndicator" destination="UMb-Vj-BZe" id="vTw-tc-BuG"/>
+                                            <outlet property="imeiNumbrLabel" destination="Iem-dQ-Ist" id="9mq-ji-lJP"/>
+                                            <outlet property="nameLabel" destination="7Lp-uA-TJo" id="r7y-lZ-tao"/>
+                                            <outlet property="trackerImage" destination="F1e-3y-97b" id="M3Z-L1-NCw"/>
+                                            <outlet property="trackerNumberLabel" destination="CZd-v3-kIQ" id="C8z-Ep-b6j"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -47,12 +123,19 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="w9z-JH-de4" secondAttribute="trailing" id="2ML-Ih-TmV"/>
                             <constraint firstAttribute="bottomMargin" secondItem="jxP-yf-c6W" secondAttribute="bottom" id="3Ah-pW-Oid"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="w9z-JH-de4" secondAttribute="bottom" id="QaF-f9-ucx"/>
                             <constraint firstItem="jxP-yf-c6W" firstAttribute="leading" secondItem="dKt-fd-eX9" secondAttribute="leading" id="UI5-3V-ZhE"/>
-                            <constraint firstItem="jxP-yf-c6W" firstAttribute="top" secondItem="dKt-fd-eX9" secondAttribute="topMargin" id="njn-Or-KyX"/>
+                            <constraint firstAttribute="topMargin" secondItem="w9z-JH-de4" secondAttribute="top" id="YvM-S1-ZhC"/>
+                            <constraint firstItem="w9z-JH-de4" firstAttribute="leading" secondItem="dKt-fd-eX9" secondAttribute="leading" id="aqF-xX-mb4"/>
+                            <constraint firstItem="jxP-yf-c6W" firstAttribute="top" secondItem="dKt-fd-eX9" secondAttribute="topMargin" constant="64" id="njn-Or-KyX"/>
                             <constraint firstAttribute="trailing" secondItem="jxP-yf-c6W" secondAttribute="trailing" id="weG-eS-eqN"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Trackers" id="OdB-Mn-RO6">
+                        <barButtonItem key="rightBarButtonItem" image="addIcon" id="SgF-pa-dtq"/>
+                    </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="tableView" destination="jxP-yf-c6W" id="dZ0-r2-PBG"/>
@@ -60,7 +143,31 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6fj-vn-bTS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1095" y="314"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="0n4-4a-rDV">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="fLb-Kq-pOw" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ZrM-9u-qBQ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="14m-h1-zoy" kind="relationship" relationship="rootViewController" id="OD2-t5-1lJ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DxM-PG-iJM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
             <point key="canvasLocation" x="283" y="314"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="addIcon" width="20" height="20"/>
+        <image name="background" width="414" height="736"/>
+        <image name="chooseIndicator" width="18" height="18"/>
+        <image name="tracker_icon_anywhere" width="158" height="158"/>
+    </resources>
 </document>

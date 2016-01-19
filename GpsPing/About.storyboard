@@ -97,7 +97,7 @@
                                     <action selector="showAboutUs:" destination="UbW-fB-OPx" eventType="touchUpInside" id="hV1-7P-mbL"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iEf-me-XoJ">
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iEf-me-XoJ">
                                 <rect key="frame" x="162" y="155" width="89" height="52"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
