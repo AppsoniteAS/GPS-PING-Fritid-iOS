@@ -101,9 +101,6 @@
 		A68C1B851C4D2549000E2BA6 /* ASButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASButton.h; sourceTree = "<group>"; };
 		A68C1B861C4D2549000E2BA6 /* ASButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASButton.m; sourceTree = "<group>"; };
 		A68C1B891C4E2B91000E2BA6 /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
-		AB89466D1C4E334B002E86C8 /* About.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = About.storyboard; sourceTree = "<group>"; };
-		AB89466F1C4E3372002E86C8 /* ASAboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASAboutViewController.h; sourceTree = "<group>"; };
-		AB8946701C4E3372002E86C8 /* ASAboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASAboutViewController.m; sourceTree = "<group>"; };
 		A68C1B8B1C4E35DB000E2BA6 /* Trackers.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Trackers.storyboard; sourceTree = "<group>"; };
 		A68C1B8D1C4E3860000E2BA6 /* ASTrackersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASTrackersViewController.h; sourceTree = "<group>"; };
 		A68C1B8E1C4E3860000E2BA6 /* ASTrackersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASTrackersViewController.m; sourceTree = "<group>"; };
@@ -115,6 +112,9 @@
 		A68C1B9A1C4E40D2000E2BA6 /* UIColor+ASColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+ASColor.m"; sourceTree = "<group>"; };
 		A68C1B9C1C4E43AB000E2BA6 /* ASNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASNavigationController.h; sourceTree = "<group>"; };
 		A68C1B9D1C4E43AB000E2BA6 /* ASNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASNavigationController.m; sourceTree = "<group>"; };
+		AB89466D1C4E334B002E86C8 /* About.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = About.storyboard; sourceTree = "<group>"; };
+		AB89466F1C4E3372002E86C8 /* ASAboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASAboutViewController.h; sourceTree = "<group>"; };
+		AB8946701C4E3372002E86C8 /* ASAboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASAboutViewController.m; sourceTree = "<group>"; };
 		D56B56EC24DC9B71F55AC4BB /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -186,26 +186,19 @@
 		A68C1B301C4CE460000E2BA6 /* GpsPing */ = {
 			isa = PBXGroup;
 			children = (
-				A68C1B961C4E3B0D000E2BA6 /* ASTrackerModel.h */,
-				A68C1B971C4E3B0D000E2BA6 /* ASTrackerModel.m */,
 				A68C1B881C4D2550000E2BA6 /* Tools */,
+				A68C1BA11C4E4798000E2BA6 /* Model */,
+				A68C1BA01C4E4788000E2BA6 /* Main screen */,
+				A68C1B9F1C4E477B000E2BA6 /* Trackers */,
+				AB89466C1C4E331C002E86C8 /* About */,
 				A68C1B341C4CE460000E2BA6 /* AppDelegate.h */,
 				A68C1B351C4CE460000E2BA6 /* AppDelegate.m */,
-				A68C1B371C4CE460000E2BA6 /* MainMenuViewController.h */,
-				A68C1B381C4CE460000E2BA6 /* MainMenuViewController.m */,
-				AB89466C1C4E331C002E86C8 /* About */,
-				A68C1B3A1C4CE460000E2BA6 /* Main.storyboard */,
-				A68C1B8B1C4E35DB000E2BA6 /* Trackers.storyboard */,
 				A68C1B891C4E2B91000E2BA6 /* Settings.storyboard */,
 				A68C1B3D1C4CE460000E2BA6 /* Assets.xcassets */,
 				A68C1B3F1C4CE460000E2BA6 /* LaunchScreen.storyboard */,
 				A68C1B421C4CE460000E2BA6 /* Info.plist */,
 				A68C1B641C4D182A000E2BA6 /* Resources */,
 				A68C1B311C4CE460000E2BA6 /* Supporting Files */,
-				A68C1B8D1C4E3860000E2BA6 /* ASTrackersViewController.h */,
-				A68C1B8E1C4E3860000E2BA6 /* ASTrackersViewController.m */,
-				A68C1B901C4E38D6000E2BA6 /* ASTrackerCell.h */,
-				A68C1B911C4E38D6000E2BA6 /* ASTrackerCell.m */,
 			);
 			path = GpsPing;
 			sourceTree = "<group>";
@@ -270,6 +263,37 @@
 				A68C1B9A1C4E40D2000E2BA6 /* UIColor+ASColor.m */,
 			);
 			name = Tools;
+			sourceTree = "<group>";
+		};
+		A68C1B9F1C4E477B000E2BA6 /* Trackers */ = {
+			isa = PBXGroup;
+			children = (
+				A68C1B8B1C4E35DB000E2BA6 /* Trackers.storyboard */,
+				A68C1B8D1C4E3860000E2BA6 /* ASTrackersViewController.h */,
+				A68C1B8E1C4E3860000E2BA6 /* ASTrackersViewController.m */,
+				A68C1B901C4E38D6000E2BA6 /* ASTrackerCell.h */,
+				A68C1B911C4E38D6000E2BA6 /* ASTrackerCell.m */,
+			);
+			name = Trackers;
+			sourceTree = "<group>";
+		};
+		A68C1BA01C4E4788000E2BA6 /* Main screen */ = {
+			isa = PBXGroup;
+			children = (
+				A68C1B371C4CE460000E2BA6 /* MainMenuViewController.h */,
+				A68C1B381C4CE460000E2BA6 /* MainMenuViewController.m */,
+				A68C1B3A1C4CE460000E2BA6 /* Main.storyboard */,
+			);
+			name = "Main screen";
+			sourceTree = "<group>";
+		};
+		A68C1BA11C4E4798000E2BA6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A68C1B961C4E3B0D000E2BA6 /* ASTrackerModel.h */,
+				A68C1B971C4E3B0D000E2BA6 /* ASTrackerModel.m */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 		AB89466C1C4E331C002E86C8 /* About */ = {
