@@ -7,7 +7,7 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Settings-->
         <scene sceneID="k8d-l5-Syr">
             <objects>
                 <viewController id="wF7-Ch-xf9" customClass="ViewController" sceneMemberID="viewController">
@@ -150,7 +150,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" id="PiA-BG-Mjc"/>
+                    <navigationItem key="navigationItem" title="Settings" id="PiA-BG-Mjc"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="618-Kn-Bzf" sceneMemberID="firstResponder"/>

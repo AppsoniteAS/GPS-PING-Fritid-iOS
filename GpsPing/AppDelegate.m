@@ -42,6 +42,15 @@ DDLogLevel ddLogLevel = DDLogLevelError;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:0.5451 green:0.7647 blue:0.2902 alpha:1.0]];
+    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
+    [[UINavigationBar appearance] setTitleTextAttributes: @{
+                                                            UITextAttributeTextColor: [UIColor whiteColor],
+//                                                            UITextAttributeTextShadowColor: [UIColor clearColor],
+//                                                            UITextAttributeTextShadowOffset: [NSValue valueWithUIOffset:UIOffsetMake(0.0f, 1.0f)],
+                                                            UITextAttributeFont: [UIFont fontWithName:@"Roboto-Regular" size:20.0f]
+                                                            }];
+
     return YES;
 }
 
