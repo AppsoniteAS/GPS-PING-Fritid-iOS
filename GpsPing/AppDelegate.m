@@ -7,6 +7,15 @@
 //
 
 #import "AppDelegate.h"
+#import <UIAlertView+ErrorKit.h>
+#import <CocoaLumberjack.h>
+#import <CoreLocation/CoreLocation.h>
+#import <Fabric/Fabric.h>
+#import <Crashlytics/Crashlytics.h>
+#import <SVProgressHUD.h>
+#import <CrashlyticsLogger.h>
+
+DDLogLevel ddLogLevel = DDLogLevelError;
 
 @interface AppDelegate ()
 
@@ -14,6 +23,22 @@
 
 @implementation AppDelegate
 
+-(instancetype)init {
+    self = [super init];
+    if (self) {
+        [self initializeLogginig];
+    }
+    return self;
+}
+
+-(void)initializeLogginig {
+    setenv("XcodeColors", "YES", 0);
+    [DDLog addLogger:[DDASLLogger sharedInstance]];
+    [DDLog addLogger:[DDTTYLogger sharedInstance]];
+    [DDLog addLogger:[CrashlyticsLogger sharedInstance]];
+    [[DDTTYLogger sharedInstance] setColorsEnabled:YES];
+    DDLogDebug(@"Logging initialized");
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
