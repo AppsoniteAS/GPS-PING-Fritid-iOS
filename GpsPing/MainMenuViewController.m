@@ -29,9 +29,4 @@
     self.startStopButton.layer.cornerRadius = self.startStopButton.frame.size.width/2;
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 @end

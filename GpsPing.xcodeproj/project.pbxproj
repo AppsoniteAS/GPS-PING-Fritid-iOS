@@ -35,6 +35,11 @@
 		A68C1B871C4D2549000E2BA6 /* ASButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A68C1B861C4D2549000E2BA6 /* ASButton.m */; };
 		A68C1B8A1C4E2B91000E2BA6 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A68C1B891C4E2B91000E2BA6 /* Settings.storyboard */; };
 		A68C1B8C1C4E35DB000E2BA6 /* Trackers.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A68C1B8B1C4E35DB000E2BA6 /* Trackers.storyboard */; };
+		A68C1B8F1C4E3860000E2BA6 /* ASTrackersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A68C1B8E1C4E3860000E2BA6 /* ASTrackersViewController.m */; };
+		A68C1B921C4E38D6000E2BA6 /* ASTrackerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A68C1B911C4E38D6000E2BA6 /* ASTrackerCell.m */; };
+		A68C1B981C4E3B0D000E2BA6 /* ASTrackerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A68C1B971C4E3B0D000E2BA6 /* ASTrackerModel.m */; };
+		A68C1B9B1C4E40D2000E2BA6 /* UIColor+ASColor.m in Sources */ = {isa = PBXBuildFile; fileRef = A68C1B9A1C4E40D2000E2BA6 /* UIColor+ASColor.m */; };
+		A68C1B9E1C4E43AB000E2BA6 /* ASNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = A68C1B9D1C4E43AB000E2BA6 /* ASNavigationController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,6 +98,16 @@
 		A68C1B861C4D2549000E2BA6 /* ASButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASButton.m; sourceTree = "<group>"; };
 		A68C1B891C4E2B91000E2BA6 /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		A68C1B8B1C4E35DB000E2BA6 /* Trackers.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Trackers.storyboard; sourceTree = "<group>"; };
+		A68C1B8D1C4E3860000E2BA6 /* ASTrackersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASTrackersViewController.h; sourceTree = "<group>"; };
+		A68C1B8E1C4E3860000E2BA6 /* ASTrackersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASTrackersViewController.m; sourceTree = "<group>"; };
+		A68C1B901C4E38D6000E2BA6 /* ASTrackerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASTrackerCell.h; sourceTree = "<group>"; };
+		A68C1B911C4E38D6000E2BA6 /* ASTrackerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASTrackerCell.m; sourceTree = "<group>"; };
+		A68C1B961C4E3B0D000E2BA6 /* ASTrackerModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASTrackerModel.h; sourceTree = "<group>"; };
+		A68C1B971C4E3B0D000E2BA6 /* ASTrackerModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASTrackerModel.m; sourceTree = "<group>"; };
+		A68C1B991C4E40D2000E2BA6 /* UIColor+ASColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+ASColor.h"; sourceTree = "<group>"; };
+		A68C1B9A1C4E40D2000E2BA6 /* UIColor+ASColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+ASColor.m"; sourceTree = "<group>"; };
+		A68C1B9C1C4E43AB000E2BA6 /* ASNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASNavigationController.h; sourceTree = "<group>"; };
+		A68C1B9D1C4E43AB000E2BA6 /* ASNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASNavigationController.m; sourceTree = "<group>"; };
 		D56B56EC24DC9B71F55AC4BB /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -164,6 +179,8 @@
 		A68C1B301C4CE460000E2BA6 /* GpsPing */ = {
 			isa = PBXGroup;
 			children = (
+				A68C1B961C4E3B0D000E2BA6 /* ASTrackerModel.h */,
+				A68C1B971C4E3B0D000E2BA6 /* ASTrackerModel.m */,
 				A68C1B881C4D2550000E2BA6 /* Tools */,
 				A68C1B341C4CE460000E2BA6 /* AppDelegate.h */,
 				A68C1B351C4CE460000E2BA6 /* AppDelegate.m */,
@@ -177,6 +194,10 @@
 				A68C1B421C4CE460000E2BA6 /* Info.plist */,
 				A68C1B641C4D182A000E2BA6 /* Resources */,
 				A68C1B311C4CE460000E2BA6 /* Supporting Files */,
+				A68C1B8D1C4E3860000E2BA6 /* ASTrackersViewController.h */,
+				A68C1B8E1C4E3860000E2BA6 /* ASTrackersViewController.m */,
+				A68C1B901C4E38D6000E2BA6 /* ASTrackerCell.h */,
+				A68C1B911C4E38D6000E2BA6 /* ASTrackerCell.m */,
 			);
 			path = GpsPing;
 			sourceTree = "<group>";
@@ -233,8 +254,12 @@
 		A68C1B881C4D2550000E2BA6 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				A68C1B9C1C4E43AB000E2BA6 /* ASNavigationController.h */,
+				A68C1B9D1C4E43AB000E2BA6 /* ASNavigationController.m */,
 				A68C1B851C4D2549000E2BA6 /* ASButton.h */,
 				A68C1B861C4D2549000E2BA6 /* ASButton.m */,
+				A68C1B991C4E40D2000E2BA6 /* UIColor+ASColor.h */,
+				A68C1B9A1C4E40D2000E2BA6 /* UIColor+ASColor.m */,
 			);
 			name = Tools;
 			sourceTree = "<group>";
@@ -439,10 +464,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A68C1B8F1C4E3860000E2BA6 /* ASTrackersViewController.m in Sources */,
+				A68C1B9E1C4E43AB000E2BA6 /* ASNavigationController.m in Sources */,
 				A68C1B391C4CE460000E2BA6 /* MainMenuViewController.m in Sources */,
 				A68C1B871C4D2549000E2BA6 /* ASButton.m in Sources */,
+				A68C1B981C4E3B0D000E2BA6 /* ASTrackerModel.m in Sources */,
 				A68C1B361C4CE460000E2BA6 /* AppDelegate.m in Sources */,
+				A68C1B921C4E38D6000E2BA6 /* ASTrackerCell.m in Sources */,
 				A68C1B331C4CE460000E2BA6 /* main.m in Sources */,
+				A68C1B9B1C4E40D2000E2BA6 /* UIColor+ASColor.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
