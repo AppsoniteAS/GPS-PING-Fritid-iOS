@@ -21,14 +21,24 @@
     
     [self registerCellClass:[ASTrackerCell class]
               forModelClass:[ASTrackerModel class]];
-    [self.memoryStorage addItems:@[[[ASTrackerModel alloc] init],
-                                   [[ASTrackerModel alloc] init],
-                                   [[ASTrackerModel alloc] init]]];
+    [self.memoryStorage addItems:@[
+                                   
+                                   [ASTrackerModel initTrackerWithName:@"Judy" number:@"123123123" imei:@"567567567" type:kASTrackerTypeTkStar isChoosed:YES],
+                                   
+                                   [ASTrackerModel initTrackerWithName:@"Jonathan" number:@"123123123" imei:@"567567567" type:kASTrackerTypeTkStarPet isChoosed:NO],
+                                   
+                                   [ASTrackerModel initTrackerWithName:@"Richard" number:@"123123123" imei:@"567567567" type:kASTrackerTypeAnywhere isChoosed:YES]]];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell * cell = [super tableView:tableView cellForRowAtIndexPath:indexPath];
+    ASTrackerModel *model = [self.memoryStorage itemAtIndexPath:indexPath];
+    if (model.isChoosed) {
+        [tableView selectRowAtIndexPath:indexPath animated:YES scrollPosition:UITableViewScrollPositionNone];
+    }
+    
+    return cell;
 }
 
 /*

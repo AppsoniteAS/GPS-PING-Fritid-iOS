@@ -31,11 +31,16 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="w9z-JH-de4">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                             </imageView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="96" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jxP-yf-c6W">
+                            <view alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hzU-Bp-LXA">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsMultipleSelection="YES" rowHeight="96" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jxP-yf-c6W">
                                 <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <inset key="separatorInset" minX="76" minY="0.0" maxX="15" maxY="0.0"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ASTrackerCell" rowHeight="96" id="shp-fo-EJM" customClass="ASTrackerCell">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ASTrackerCell" rowHeight="96" id="shp-fo-EJM" customClass="ASTrackerCell">
                                         <rect key="frame" x="0.0" y="28" width="320" height="96"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="shp-fo-EJM" id="KI1-Ut-vLq">
@@ -125,10 +130,14 @@
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="w9z-JH-de4" secondAttribute="trailing" id="2ML-Ih-TmV"/>
                             <constraint firstAttribute="bottomMargin" secondItem="jxP-yf-c6W" secondAttribute="bottom" id="3Ah-pW-Oid"/>
+                            <constraint firstItem="hzU-Bp-LXA" firstAttribute="top" secondItem="w9z-JH-de4" secondAttribute="top" id="AqI-6U-lla"/>
+                            <constraint firstItem="hzU-Bp-LXA" firstAttribute="leading" secondItem="w9z-JH-de4" secondAttribute="leading" id="Gy6-sA-FMh"/>
                             <constraint firstAttribute="bottomMargin" secondItem="w9z-JH-de4" secondAttribute="bottom" id="QaF-f9-ucx"/>
                             <constraint firstItem="jxP-yf-c6W" firstAttribute="leading" secondItem="dKt-fd-eX9" secondAttribute="leading" id="UI5-3V-ZhE"/>
                             <constraint firstAttribute="topMargin" secondItem="w9z-JH-de4" secondAttribute="top" id="YvM-S1-ZhC"/>
                             <constraint firstItem="w9z-JH-de4" firstAttribute="leading" secondItem="dKt-fd-eX9" secondAttribute="leading" id="aqF-xX-mb4"/>
+                            <constraint firstItem="hzU-Bp-LXA" firstAttribute="bottom" secondItem="w9z-JH-de4" secondAttribute="bottom" id="jof-pm-6fh"/>
+                            <constraint firstItem="hzU-Bp-LXA" firstAttribute="trailing" secondItem="w9z-JH-de4" secondAttribute="trailing" id="lgD-OQ-dzX"/>
                             <constraint firstItem="jxP-yf-c6W" firstAttribute="top" secondItem="dKt-fd-eX9" secondAttribute="topMargin" constant="64" id="njn-Or-KyX"/>
                             <constraint firstAttribute="trailing" secondItem="jxP-yf-c6W" secondAttribute="trailing" id="weG-eS-eqN"/>
                         </constraints>

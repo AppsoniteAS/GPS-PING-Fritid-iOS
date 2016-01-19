@@ -7,6 +7,7 @@
 //
 
 #import "ASTrackerCell.h"
+#import "ASTrackerModel.h"
 
 @implementation ASTrackerCell
 
@@ -27,7 +28,22 @@
 
 -(void)updateWithModel:(id)model
 {
+    ASTrackerModel *tracker = model;
+    self.nameLabel.text = tracker.trackerName;
+    self.imeiNumbrLabel.text = tracker.imeiNumber;
+    self.trackerNumberLabel.text = tracker.trackerNumber;
     
+    self.trackerImage.image = [UIImage imageNamed:tracker.trackerType];
+}
+
+-(void)setSelected:(BOOL)selected animated:(BOOL)animated
+{
+    [super setSelected:selected animated:animated];
+    if (selected) {
+        self.chooseIndicator.image = [UIImage imageNamed:@"chooseIndicator"];
+    } else {
+        self.chooseIndicator.image = [UIImage imageNamed:@"chooseIndicator_u"];
+    }
 }
 
 @end
