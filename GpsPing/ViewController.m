@@ -10,6 +10,7 @@
 
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet UIButton *startStopButton;
+- (IBAction)showAbout:(id)sender;
 
 @end
 
@@ -34,4 +35,8 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)showAbout:(id)sender {
+    UIViewController* controller = [[UIStoryboard storyboardWithName:@"About" bundle:nil] instantiateInitialViewController];
+    [self presentViewController:controller animated:YES completion:nil];
+}
 @end
