@@ -16,7 +16,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    
+    [self showAuth];
+    
     self.startStopButton.layer.borderColor = [UIColor colorWithRed:0.4796 green:0.7302 blue:0.2274 alpha:1.0].CGColor;
     self.startStopButton.layer.borderWidth = 6.0;
 }
@@ -27,5 +29,11 @@
     [self.view layoutIfNeeded];
     self.startStopButton.layer.cornerRadius = self.startStopButton.frame.size.width/2;
 }
+
+- (void)showAuth {
+    UIViewController* controller = [[UIStoryboard storyboardWithName:@"Auth" bundle:nil] instantiateInitialViewController];
+    [self presentViewController:controller animated:YES completion:nil];
+}
+
 
 @end
