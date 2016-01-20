@@ -9,6 +9,7 @@
 #import "ASTrackersViewController.h"
 #import "ASTrackerModel.h"
 #import "ASTrackerCell.h"
+#import "Masonry.h"
 
 @interface ASTrackersViewController ()
 
@@ -19,15 +20,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [self fillData];
     [self registerCellClass:[ASTrackerCell class]
               forModelClass:[ASTrackerModel class]];
-    [self.memoryStorage addItems:@[
-                                   
-                                   [ASTrackerModel initTrackerWithName:@"Judy" number:@"123123123" imei:@"567567567" type:kASTrackerTypeTkStar isChoosed:YES],
-                                   
-                                   [ASTrackerModel initTrackerWithName:@"Jonathan" number:@"123123123" imei:@"567567567" type:kASTrackerTypeTkStarPet isChoosed:NO],
-                                   
-                                   [ASTrackerModel initTrackerWithName:@"Richard" number:@"123123123" imei:@"567567567" type:kASTrackerTypeAnywhere isChoosed:YES]]];
+    [self.memoryStorage addItems:[ASTrackerModel getTrackersFromUserDefaults]];
+}
+
+-(void)fillData {
+    [[ASTrackerModel initTrackerWithName:@"Judy" number:@"987123123" imei:@"567567567" type:kASTrackerTypeTkStar isChoosed:YES] saveInUserDefaults];
+    [[ASTrackerModel initTrackerWithName:@"Jonathan" number:@"51231233" imei:@"567567567" type:kASTrackerTypeTkStarPet isChoosed:NO] saveInUserDefaults];
+    [[ASTrackerModel initTrackerWithName:@"Richard" number:@"122353423" imei:@"567567567" type:kASTrackerTypeAnywhere isChoosed:YES] saveInUserDefaults];
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath

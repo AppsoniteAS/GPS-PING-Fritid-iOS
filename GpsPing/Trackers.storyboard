@@ -387,7 +387,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SBW-42-MDO" userLabel="OuterWrapper">
                                 <rect key="frame" x="0.0" y="20" width="414" height="716"/>
                                 <subviews>
-                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" translatesAutoresizingMaskIntoConstraints="NO" id="cM5-GB-zM2">
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cM5-GB-zM2">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XJ6-JB-egN" userLabel="InnerWrapper">
@@ -421,6 +421,9 @@
                                                                 <color key="textColor" red="0.20392156859999999" green="0.20392156859999999" blue="0.20392156859999999" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="emailAddress"/>
+                                                                <connections>
+                                                                    <outlet property="delegate" destination="G9O-Js-ufp" id="RVy-rg-kJ0"/>
+                                                                </connections>
                                                             </textField>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rcv-Tg-XPR" userLabel="separator1">
                                                                 <rect key="frame" x="20" y="119" width="316" height="1"/>
@@ -445,6 +448,9 @@
                                                                 </constraints>
                                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                                                <connections>
+                                                                    <outlet property="delegate" destination="G9O-Js-ufp" id="ise-Lt-xgp"/>
+                                                                </connections>
                                                             </textField>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Ln-XC-jNI" userLabel="separator2">
                                                                 <rect key="frame" x="20" y="185.5" width="316" height="1"/>
@@ -469,6 +475,9 @@
                                                                         </constraints>
                                                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                                                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                                                        <connections>
+                                                                            <outlet property="delegate" destination="G9O-Js-ufp" id="5Mx-Ri-OJY"/>
+                                                                        </connections>
                                                                     </textField>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Dd-JK-WXY" userLabel="separator">
                                                                         <rect key="frame" x="0.0" y="57" width="316" height="1"/>
@@ -692,6 +701,9 @@
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <color key="titleShadowColor" red="0.82352941180000006" green="0.82352941180000006" blue="0.82352941180000006" alpha="1" colorSpace="calibratedRGB"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="addTrackerTap:" destination="G9O-Js-ufp" eventType="touchUpInside" id="WWM-Tk-Q63"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -745,7 +757,7 @@
                             <constraint firstItem="3wp-Ph-dO1" firstAttribute="top" secondItem="LX4-Te-tQL" secondAttribute="topMargin" id="60Q-oe-F4f"/>
                             <constraint firstItem="3wp-Ph-dO1" firstAttribute="leading" secondItem="LX4-Te-tQL" secondAttribute="leading" id="8w3-ZZ-gdM"/>
                             <constraint firstAttribute="bottomMargin" secondItem="3wp-Ph-dO1" secondAttribute="bottom" id="ccL-os-ZRs"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="SBW-42-MDO" secondAttribute="bottom" id="fLg-f0-fa0"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="SBW-42-MDO" secondAttribute="bottom" placeholder="YES" id="fLg-f0-fa0"/>
                             <constraint firstItem="SBW-42-MDO" firstAttribute="top" secondItem="A6X-RA-MGh" secondAttribute="bottom" id="gDR-Kp-Tpu"/>
                             <constraint firstAttribute="trailing" secondItem="SBW-42-MDO" secondAttribute="trailing" id="jBB-fl-BaI"/>
                             <constraint firstItem="SBW-42-MDO" firstAttribute="top" secondItem="LX4-Te-tQL" secondAttribute="topMargin" id="xlS-E1-PIQ"/>
@@ -757,6 +769,9 @@
                         </variation>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                    <connections>
+                        <outlet property="outerWrapperView" destination="SBW-42-MDO" id="anx-cj-LM3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zEC-fp-v6v" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
