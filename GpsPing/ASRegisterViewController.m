@@ -8,12 +8,10 @@
 
 #import "ASRegisterViewController.h"
 #import "ASRegisterViewModel.h"
-#import <JPSKeyboardLayoutGuideViewController.h>
-#import "Masonry.h"
 
 @interface ASRegisterViewController ()
 @property (nonatomic, readonly) ASRegisterViewModel     *viewModel;
-@property (nonatomic, weak    ) IBOutlet UIView       *viewKeyboardInteractive;
+@property (nonatomic, weak    ) IBOutlet UIScrollView *scrollView;
 @property (nonatomic, weak    ) IBOutlet UITextField  *textFieldUsername;
 @property (nonatomic, weak    ) IBOutlet UITextField  *textFieldEmail;
 @property (nonatomic, weak    ) IBOutlet UITextField  *textFieldPassword;
@@ -21,15 +19,22 @@
 @property (nonatomic, weak    ) IBOutlet UIButton     *buttonSubmit;
 @end
 
-@implementation ASRegisterViewController
+@implementation ASRegisterViewController{
+    BOOL keyboardIsShown;
+}
 
 -(void)viewDidLoad {
     [super viewDidLoad];
     
-    [self jps_viewDidLoad];
-    [self.viewKeyboardInteractive mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.bottom.equalTo(self.keyboardLayoutGuide);
-    }];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillShow:)
+                                                 name:UIKeyboardWillShowNotification
+                                               object:self.view.window];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillHide:)
+                                                 name:UIKeyboardWillHideNotification
+                                               object:self.view.window];
+    keyboardIsShown = NO;
     
     self->_viewModel = [[ASRegisterViewModel alloc] init];
     
@@ -53,25 +58,6 @@
                withSignals:self.buttonSubmit.rac_command.errors, nil];
 }
 
--(void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    [self jps_viewWillAppear:animated];
-}
-
--(void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-}
-
--(void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
-}
-
--(void)viewDidDisappear:(BOOL)animated {
-    [super viewDidDisappear:animated];
-    [self jps_viewDidDisappear:animated];
-}
-
-
 -(void)onError:(NSError*)error {
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"ERROR"
                                                     message:error.localizedDescription
@@ -79,6 +65,43 @@
                                           cancelButtonTitle:@"OK"
                                           otherButtonTitles:nil];
     [alert show];
+}
+
+- (void)keyboardWillHide:(NSNotification *)n {
+    NSDictionary* userInfo = [n userInfo];
+    
+    CGSize keyboardSize = [[userInfo objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
+    
+    CGRect viewFrame = self.scrollView.frame;
+    viewFrame.size.height += keyboardSize.height;
+    
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationBeginsFromCurrentState:YES];
+    [self.scrollView setFrame:viewFrame];
+    [UIView commitAnimations];
+    
+    keyboardIsShown = NO;
+}
+
+- (void)keyboardWillShow:(NSNotification *)n {
+    
+    if (keyboardIsShown) {
+        return;
+    }
+    
+    NSDictionary* userInfo = [n userInfo];
+    
+    CGSize keyboardSize = [[userInfo objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
+    
+    CGRect viewFrame = self.scrollView.frame;
+    
+    viewFrame.size.height -= keyboardSize.height;
+    
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationBeginsFromCurrentState:YES];
+    [self.scrollView setFrame:viewFrame];
+    [UIView commitAnimations];
+    keyboardIsShown = YES;
 }
 
 #pragma mark - IBActions
