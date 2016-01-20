@@ -5,8 +5,12 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <customFonts key="customFonts">
+        <mutableArray key="Roboto-Light.ttf">
+            <string>Roboto-Light</string>
+        </mutableArray>
         <mutableArray key="Roboto-Regular.ttf">
             <string>Roboto-Regular</string>
             <string>Roboto-Regular</string>
@@ -25,26 +29,26 @@
                         <viewControllerLayoutGuide type="bottom" id="G4E-Tn-bbE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="dKt-fd-eX9">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="w9z-JH-de4">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                             </imageView>
                             <view alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hzU-Bp-LXA">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsMultipleSelection="YES" rowHeight="96" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jxP-yf-c6W">
-                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                                <rect key="frame" x="0.0" y="64" width="414" height="672"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <inset key="separatorInset" minX="76" minY="0.0" maxX="15" maxY="0.0"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ASTrackerCell" rowHeight="96" id="shp-fo-EJM" customClass="ASTrackerCell">
-                                        <rect key="frame" x="0.0" y="28" width="320" height="96"/>
+                                        <rect key="frame" x="0.0" y="28" width="414" height="96"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="shp-fo-EJM" id="KI1-Ut-vLq">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="95.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="95.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Julie" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Lp-uA-TJo" userLabel="name">
@@ -84,7 +88,7 @@
                                                         <constraint firstAttribute="width" constant="46" id="zts-Y8-C2c"/>
                                                     </constraints>
                                                 </imageView>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chooseIndicator" translatesAutoresizingMaskIntoConstraints="NO" id="UMb-Vj-BZe" userLabel="choose_indicator">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="chooseIndicator" translatesAutoresizingMaskIntoConstraints="NO" id="UMb-Vj-BZe" userLabel="choose_indicator">
                                                     <rect key="frame" x="284" y="26" width="18" height="18"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="UMb-Vj-BZe" secondAttribute="height" multiplier="1:1" id="HfQ-ty-Fpp"/>
@@ -143,9 +147,13 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Trackers" id="OdB-Mn-RO6">
-                        <barButtonItem key="rightBarButtonItem" image="addIcon" id="SgF-pa-dtq"/>
+                        <barButtonItem key="rightBarButtonItem" image="addIcon" id="SgF-pa-dtq">
+                            <connections>
+                                <segue destination="6nj-Oy-OAd" kind="push" id="voT-G0-Wks"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
                         <outlet property="tableView" destination="jxP-yf-c6W" id="dZ0-r2-PBG"/>
                     </connections>
@@ -172,11 +180,209 @@
             </objects>
             <point key="canvasLocation" x="283" y="314"/>
         </scene>
+        <!--Add Tracker-->
+        <scene sceneID="wVd-pq-I5y">
+            <objects>
+                <viewController id="6nj-Oy-OAd" customClass="ASChooseTrackerViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Yza-kD-ucz"/>
+                        <viewControllerLayoutGuide type="bottom" id="lqT-Ya-hCD"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="qv6-Bn-hMI">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="EXG-xM-3av">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eyA-qK-nuC" userLabel="label container">
+                                <rect key="frame" x="0.0" y="64" width="414" height="80"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose Tracker" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vbT-Tb-8zB" userLabel="name">
+                                        <rect key="frame" x="103" y="23" width="206.5" height="35.5"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="30"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="vbT-Tb-8zB" firstAttribute="centerY" secondItem="eyA-qK-nuC" secondAttribute="centerY" id="KDA-ru-wvT"/>
+                                    <constraint firstItem="vbT-Tb-8zB" firstAttribute="centerX" secondItem="eyA-qK-nuC" secondAttribute="centerX" id="Mt6-cs-xVg"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tr8-Df-YL1" userLabel="T1">
+                                <rect key="frame" x="0.0" y="144" width="414" height="183"/>
+                                <subviews>
+                                    <button opaque="NO" clipsSubviews="YES" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8r2-Qr-vti">
+                                        <rect key="frame" x="123" y="7.5" width="168" height="168"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="168" id="Ao0-RW-aHn"/>
+                                            <constraint firstAttribute="width" secondItem="8r2-Qr-vti" secondAttribute="height" multiplier="1:1" id="i3K-Wn-3iI"/>
+                                        </constraints>
+                                        <state key="normal" image="trackerTkStar"/>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="Ao0-RW-aHn"/>
+                                            </mask>
+                                        </variation>
+                                        <connections>
+                                            <action selector="tkStarButtonTap:" destination="6nj-Oy-OAd" eventType="touchUpInside" id="4Sv-DO-mRS"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="8r2-Qr-vti" firstAttribute="height" secondItem="Tr8-Df-YL1" secondAttribute="height" multiplier="168:183" id="akF-u8-Pwf"/>
+                                    <constraint firstItem="8r2-Qr-vti" firstAttribute="centerY" secondItem="Tr8-Df-YL1" secondAttribute="centerY" id="dzp-Il-bLk"/>
+                                    <constraint firstItem="8r2-Qr-vti" firstAttribute="centerX" secondItem="Tr8-Df-YL1" secondAttribute="centerX" id="xaL-86-R4K"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d2T-jO-GxY" userLabel="T2">
+                                <rect key="frame" x="0.0" y="326" width="414" height="183"/>
+                                <subviews>
+                                    <button opaque="NO" clipsSubviews="YES" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nAh-27-aAF">
+                                        <rect key="frame" x="123" y="7" width="168" height="168"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="nAh-27-aAF" secondAttribute="height" multiplier="1:1" id="i9E-fb-Tgj"/>
+                                            <constraint firstAttribute="width" constant="168" id="iSc-Oj-osm"/>
+                                        </constraints>
+                                        <state key="normal" image="trackerAnywhere"/>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="iSc-Oj-osm"/>
+                                            </mask>
+                                        </variation>
+                                        <connections>
+                                            <action selector="anywhereButtonTap:" destination="6nj-Oy-OAd" eventType="touchUpInside" id="BqX-qt-5u0"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="nAh-27-aAF" firstAttribute="centerY" secondItem="d2T-jO-GxY" secondAttribute="centerY" id="FbG-NX-L0P"/>
+                                    <constraint firstItem="nAh-27-aAF" firstAttribute="centerX" secondItem="d2T-jO-GxY" secondAttribute="centerX" id="naZ-dJ-vO2"/>
+                                    <constraint firstItem="nAh-27-aAF" firstAttribute="height" secondItem="d2T-jO-GxY" secondAttribute="height" multiplier="168:183" id="pot-9T-IMF"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SNJ-3z-zx1" userLabel="T3">
+                                <rect key="frame" x="0.0" y="509" width="414" height="183"/>
+                                <subviews>
+                                    <button opaque="NO" clipsSubviews="YES" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PUo-EQ-Vx9">
+                                        <rect key="frame" x="123" y="7" width="168" height="167.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="168" id="lmJ-7y-aSk"/>
+                                            <constraint firstAttribute="width" secondItem="PUo-EQ-Vx9" secondAttribute="height" multiplier="1:1" id="vUS-dS-QWf"/>
+                                        </constraints>
+                                        <state key="normal" image="trackerTkStarPet"/>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="lmJ-7y-aSk"/>
+                                            </mask>
+                                        </variation>
+                                        <connections>
+                                            <action selector="tkPetButtonTap:" destination="6nj-Oy-OAd" eventType="touchUpInside" id="dag-Cp-xJi"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="PUo-EQ-Vx9" firstAttribute="centerY" secondItem="SNJ-3z-zx1" secondAttribute="centerY" id="2wH-wN-UsC"/>
+                                    <constraint firstItem="PUo-EQ-Vx9" firstAttribute="centerX" secondItem="SNJ-3z-zx1" secondAttribute="centerX" id="9M8-2S-Nwq"/>
+                                    <constraint firstItem="PUo-EQ-Vx9" firstAttribute="height" secondItem="SNJ-3z-zx1" secondAttribute="height" multiplier="168:183" id="Aqf-Km-efV"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="EXG-xM-3av" firstAttribute="top" secondItem="qv6-Bn-hMI" secondAttribute="topMargin" id="29K-vz-Cmb"/>
+                            <constraint firstItem="8r2-Qr-vti" firstAttribute="width" secondItem="EXG-xM-3av" secondAttribute="width" multiplier="168:414" id="33z-Qh-hV4"/>
+                            <constraint firstItem="d2T-jO-GxY" firstAttribute="leading" secondItem="Tr8-Df-YL1" secondAttribute="leading" id="3pD-Yn-PrT"/>
+                            <constraint firstItem="d2T-jO-GxY" firstAttribute="trailing" secondItem="Tr8-Df-YL1" secondAttribute="trailing" id="5WX-NA-As5"/>
+                            <constraint firstAttribute="trailing" secondItem="eyA-qK-nuC" secondAttribute="trailing" id="5We-DU-MVo"/>
+                            <constraint firstItem="eyA-qK-nuC" firstAttribute="leading" secondItem="qv6-Bn-hMI" secondAttribute="leading" id="8aW-K3-mri"/>
+                            <constraint firstItem="Tr8-Df-YL1" firstAttribute="top" secondItem="Yza-kD-ucz" secondAttribute="bottom" constant="80" id="8l8-7c-jaX"/>
+                            <constraint firstAttribute="trailing" secondItem="eyA-qK-nuC" secondAttribute="trailing" id="BCF-s2-Ccy"/>
+                            <constraint firstItem="eyA-qK-nuC" firstAttribute="top" secondItem="qv6-Bn-hMI" secondAttribute="topMargin" constant="100.5" id="BbR-9h-A03"/>
+                            <constraint firstItem="SNJ-3z-zx1" firstAttribute="leading" secondItem="d2T-jO-GxY" secondAttribute="leading" id="CyN-3y-AOT"/>
+                            <constraint firstItem="Tr8-Df-YL1" firstAttribute="leading" secondItem="qv6-Bn-hMI" secondAttribute="leading" id="Fii-22-UeQ"/>
+                            <constraint firstItem="Tr8-Df-YL1" firstAttribute="top" secondItem="eyA-qK-nuC" secondAttribute="bottom" id="Gcz-KU-PMb"/>
+                            <constraint firstItem="PUo-EQ-Vx9" firstAttribute="width" secondItem="EXG-xM-3av" secondAttribute="width" multiplier="168:414" id="K3V-6E-E15"/>
+                            <constraint firstItem="d2T-jO-GxY" firstAttribute="height" secondItem="Tr8-Df-YL1" secondAttribute="height" id="SpF-YG-00z"/>
+                            <constraint firstItem="SNJ-3z-zx1" firstAttribute="top" secondItem="d2T-jO-GxY" secondAttribute="bottom" id="V0f-eb-FEA"/>
+                            <constraint firstAttribute="trailing" secondItem="EXG-xM-3av" secondAttribute="trailing" id="Xbx-Os-el5"/>
+                            <constraint firstAttribute="trailing" secondItem="Tr8-Df-YL1" secondAttribute="trailing" id="Y5S-Pb-cmy"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="Tr8-Df-YL1" secondAttribute="bottom" constant="505" id="YBK-FY-Aur"/>
+                            <constraint firstItem="EXG-xM-3av" firstAttribute="leading" secondItem="qv6-Bn-hMI" secondAttribute="leading" id="aKr-FF-yLd"/>
+                            <constraint firstItem="Tr8-Df-YL1" firstAttribute="top" secondItem="qv6-Bn-hMI" secondAttribute="topMargin" constant="80" id="dIu-Nn-wNm"/>
+                            <constraint firstItem="Tr8-Df-YL1" firstAttribute="top" secondItem="eyA-qK-nuC" secondAttribute="bottom" id="dqr-8k-r4n"/>
+                            <constraint firstItem="eyA-qK-nuC" firstAttribute="width" secondItem="Tr8-Df-YL1" secondAttribute="height" multiplier="138:61" id="epa-bw-xvP"/>
+                            <constraint firstItem="SNJ-3z-zx1" firstAttribute="trailing" secondItem="d2T-jO-GxY" secondAttribute="trailing" id="gsV-7e-qUf"/>
+                            <constraint firstItem="eyA-qK-nuC" firstAttribute="height" secondItem="Tr8-Df-YL1" secondAttribute="height" multiplier="80:183" id="iTy-Ab-t3B"/>
+                            <constraint firstItem="eyA-qK-nuC" firstAttribute="leading" secondItem="qv6-Bn-hMI" secondAttribute="leading" id="jRe-kq-Aei"/>
+                            <constraint firstItem="nAh-27-aAF" firstAttribute="width" secondItem="EXG-xM-3av" secondAttribute="width" multiplier="168:414" id="k1d-V4-RtG"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="SNJ-3z-zx1" secondAttribute="bottom" constant="44" id="ngk-cn-tXr"/>
+                            <constraint firstItem="eyA-qK-nuC" firstAttribute="top" secondItem="Yza-kD-ucz" secondAttribute="bottom" id="t7R-uw-fWl"/>
+                            <constraint firstItem="d2T-jO-GxY" firstAttribute="top" secondItem="Tr8-Df-YL1" secondAttribute="bottom" id="trY-is-uiB"/>
+                            <constraint firstItem="SNJ-3z-zx1" firstAttribute="height" secondItem="d2T-jO-GxY" secondAttribute="height" id="wOM-Lm-fFL"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="EXG-xM-3av" secondAttribute="bottom" id="x2j-BQ-a1D"/>
+                            <constraint firstItem="eyA-qK-nuC" firstAttribute="top" secondItem="Yza-kD-ucz" secondAttribute="bottom" id="z6G-6Y-3YK"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="5We-DU-MVo"/>
+                                <exclude reference="8aW-K3-mri"/>
+                                <exclude reference="BbR-9h-A03"/>
+                                <exclude reference="epa-bw-xvP"/>
+                                <exclude reference="z6G-6Y-3YK"/>
+                                <exclude reference="8l8-7c-jaX"/>
+                                <exclude reference="YBK-FY-Aur"/>
+                                <exclude reference="dIu-Nn-wNm"/>
+                                <exclude reference="dqr-8k-r4n"/>
+                                <exclude reference="33z-Qh-hV4"/>
+                                <exclude reference="k1d-V4-RtG"/>
+                                <exclude reference="K3V-6E-E15"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <navigationItem key="navigationItem" title="Add Tracker" id="4bQ-sI-qb3"/>
+                    <connections>
+                        <outletCollection property="buttons" destination="8r2-Qr-vti" id="1OF-LZ-jni"/>
+                        <outletCollection property="buttons" destination="nAh-27-aAF" id="ay4-n6-VUV"/>
+                        <outletCollection property="buttons" destination="PUo-EQ-Vx9" id="TLd-AM-n9u"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ufp-SQ-a0l" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1615" y="314"/>
+        </scene>
+        <!--Tracker Configuration View Controller-->
+        <scene sceneID="sVF-fe-IJM">
+            <objects>
+                <viewController storyboardIdentifier="ASTrackerConfigurationViewController" id="G9O-Js-ufp" customClass="ASTrackerConfigurationViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="A6X-RA-MGh"/>
+                        <viewControllerLayoutGuide type="bottom" id="XJX-XN-mOh"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="LX4-Te-tQL">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zEC-fp-v6v" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2111" y="314"/>
+        </scene>
     </scenes>
     <resources>
         <image name="addIcon" width="20" height="20"/>
         <image name="background" width="414" height="736"/>
         <image name="chooseIndicator" width="18" height="18"/>
+        <image name="trackerAnywhere" width="158" height="158"/>
+        <image name="trackerTkStar" width="158" height="158"/>
+        <image name="trackerTkStarPet" width="158" height="158"/>
         <image name="tracker_icon_anywhere" width="158" height="158"/>
     </resources>
 </document>
