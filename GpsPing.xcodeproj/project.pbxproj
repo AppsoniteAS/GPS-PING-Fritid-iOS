@@ -40,6 +40,9 @@
 		A68C1B981C4E3B0D000E2BA6 /* ASTrackerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A68C1B971C4E3B0D000E2BA6 /* ASTrackerModel.m */; };
 		A68C1B9B1C4E40D2000E2BA6 /* UIColor+ASColor.m in Sources */ = {isa = PBXBuildFile; fileRef = A68C1B9A1C4E40D2000E2BA6 /* UIColor+ASColor.m */; };
 		A68C1B9E1C4E43AB000E2BA6 /* ASNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = A68C1B9D1C4E43AB000E2BA6 /* ASNavigationController.m */; };
+		A68C1BA41C4F6AEE000E2BA6 /* ASChooseTrackerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A68C1BA31C4F6AEE000E2BA6 /* ASChooseTrackerViewController.m */; };
+		A68C1BA71C4F7006000E2BA6 /* UIStoryboard+ASHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = A68C1BA61C4F7006000E2BA6 /* UIStoryboard+ASHelper.m */; };
+		A68C1BAA1C4F71CB000E2BA6 /* ASTrackerConfigurationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A68C1BA91C4F71CB000E2BA6 /* ASTrackerConfigurationViewController.m */; };
 		AB89466E1C4E334B002E86C8 /* About.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB89466D1C4E334B002E86C8 /* About.storyboard */; };
 		AB8946711C4E3372002E86C8 /* ASAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB8946701C4E3372002E86C8 /* ASAboutViewController.m */; };
 		AB8946721C4E3372002E86C8 /* ASAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB8946701C4E3372002E86C8 /* ASAboutViewController.m */; };
@@ -115,6 +118,12 @@
 		A68C1B9A1C4E40D2000E2BA6 /* UIColor+ASColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+ASColor.m"; sourceTree = "<group>"; };
 		A68C1B9C1C4E43AB000E2BA6 /* ASNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASNavigationController.h; sourceTree = "<group>"; };
 		A68C1B9D1C4E43AB000E2BA6 /* ASNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASNavigationController.m; sourceTree = "<group>"; };
+		A68C1BA21C4F6AEE000E2BA6 /* ASChooseTrackerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASChooseTrackerViewController.h; sourceTree = "<group>"; };
+		A68C1BA31C4F6AEE000E2BA6 /* ASChooseTrackerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASChooseTrackerViewController.m; sourceTree = "<group>"; };
+		A68C1BA51C4F7006000E2BA6 /* UIStoryboard+ASHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIStoryboard+ASHelper.h"; sourceTree = "<group>"; };
+		A68C1BA61C4F7006000E2BA6 /* UIStoryboard+ASHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIStoryboard+ASHelper.m"; sourceTree = "<group>"; };
+		A68C1BA81C4F71CB000E2BA6 /* ASTrackerConfigurationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASTrackerConfigurationViewController.h; sourceTree = "<group>"; };
+		A68C1BA91C4F71CB000E2BA6 /* ASTrackerConfigurationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASTrackerConfigurationViewController.m; sourceTree = "<group>"; };
 		AB89466D1C4E334B002E86C8 /* About.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = About.storyboard; sourceTree = "<group>"; };
 		AB89466F1C4E3372002E86C8 /* ASAboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASAboutViewController.h; sourceTree = "<group>"; };
 		AB8946701C4E3372002E86C8 /* ASAboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASAboutViewController.m; sourceTree = "<group>"; };
@@ -264,6 +273,8 @@
 				A68C1B861C4D2549000E2BA6 /* ASButton.m */,
 				A68C1B991C4E40D2000E2BA6 /* UIColor+ASColor.h */,
 				A68C1B9A1C4E40D2000E2BA6 /* UIColor+ASColor.m */,
+				A68C1BA51C4F7006000E2BA6 /* UIStoryboard+ASHelper.h */,
+				A68C1BA61C4F7006000E2BA6 /* UIStoryboard+ASHelper.m */,
 			);
 			name = Tools;
 			sourceTree = "<group>";
@@ -276,6 +287,10 @@
 				A68C1B8E1C4E3860000E2BA6 /* ASTrackersViewController.m */,
 				A68C1B901C4E38D6000E2BA6 /* ASTrackerCell.h */,
 				A68C1B911C4E38D6000E2BA6 /* ASTrackerCell.m */,
+				A68C1BA21C4F6AEE000E2BA6 /* ASChooseTrackerViewController.h */,
+				A68C1BA31C4F6AEE000E2BA6 /* ASChooseTrackerViewController.m */,
+				A68C1BA81C4F71CB000E2BA6 /* ASTrackerConfigurationViewController.h */,
+				A68C1BA91C4F71CB000E2BA6 /* ASTrackerConfigurationViewController.m */,
 			);
 			name = Trackers;
 			sourceTree = "<group>";
@@ -559,15 +574,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A68C1BA71C4F7006000E2BA6 /* UIStoryboard+ASHelper.m in Sources */,
 				A68C1B8F1C4E3860000E2BA6 /* ASTrackersViewController.m in Sources */,
 				A68C1B9E1C4E43AB000E2BA6 /* ASNavigationController.m in Sources */,
 				A68C1B391C4CE460000E2BA6 /* MainMenuViewController.m in Sources */,
 				A68C1B871C4D2549000E2BA6 /* ASButton.m in Sources */,
 				A68C1B981C4E3B0D000E2BA6 /* ASTrackerModel.m in Sources */,
 				A68C1B361C4CE460000E2BA6 /* AppDelegate.m in Sources */,
+				A68C1BA41C4F6AEE000E2BA6 /* ASChooseTrackerViewController.m in Sources */,
 				A68C1B921C4E38D6000E2BA6 /* ASTrackerCell.m in Sources */,
 				AB8946711C4E3372002E86C8 /* ASAboutViewController.m in Sources */,
 				A68C1B331C4CE460000E2BA6 /* main.m in Sources */,
+				A68C1BAA1C4F71CB000E2BA6 /* ASTrackerConfigurationViewController.m in Sources */,
 				A68C1B9B1C4E40D2000E2BA6 /* UIColor+ASColor.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
