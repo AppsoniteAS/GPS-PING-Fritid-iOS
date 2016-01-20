@@ -19,11 +19,9 @@
                                 return @((phoneNumber.length > 0) && (yards.length > 0));
                             }];
     
-    @weakify(self);
     return [[RACCommand alloc] initWithEnabled:isCorrect
                                    signalBlock:^RACSignal *(id input)
             {
-                @strongify(self);
                 return [RACSignal empty];
             }];
 }

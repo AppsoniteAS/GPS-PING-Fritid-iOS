@@ -21,11 +21,9 @@
                                 return @((username.length > 0) && (email.length > 0) && (password.length > 0) && ([password isEqualToString:confirmPassword]));
                             }];
     
-    @weakify(self);
     return [[RACCommand alloc] initWithEnabled:isCorrect
                                    signalBlock:^RACSignal *(id input)
             {
-                @strongify(self);
                 return [RACSignal empty];
             }];
 }

@@ -30,9 +30,13 @@
     self.startStopButton.layer.cornerRadius = self.startStopButton.frame.size.width/2;
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    
+}
+
 - (void)showAuth {
     UIViewController* controller = [[UIStoryboard storyboardWithName:@"Auth" bundle:nil] instantiateInitialViewController];
-    [self presentViewController:controller animated:YES completion:nil];
+    [self.navigationController presentViewController:controller animated:YES completion:nil];
 }
 
 
