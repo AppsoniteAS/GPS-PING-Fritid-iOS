@@ -50,6 +50,11 @@
 		AB8946791C4E67BC002E86C8 /* Connect.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB8946781C4E67BC002E86C8 /* Connect.storyboard */; };
 		AB89467B1C4E67C9002E86C8 /* Geofence.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB89467A1C4E67C9002E86C8 /* Geofence.storyboard */; };
 		AB89467D1C4E67D8002E86C8 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB89467C1C4E67D8002E86C8 /* Profile.storyboard */; };
+		AB8946811C4F3000002E86C8 /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB8946801C4F3000002E86C8 /* Auth.storyboard */; };
+		AB8946841C4F31A6002E86C8 /* ASSignInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB8946831C4F31A6002E86C8 /* ASSignInViewController.m */; };
+		AB8946871C4F31CF002E86C8 /* ASRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB8946861C4F31CF002E86C8 /* ASRegisterViewController.m */; };
+		AB89468A1C4F31F3002E86C8 /* ASSignInViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AB8946891C4F31F3002E86C8 /* ASSignInViewModel.m */; };
+		AB89468D1C4F3203002E86C8 /* ASRegisterViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AB89468C1C4F3203002E86C8 /* ASRegisterViewModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -130,6 +135,15 @@
 		AB8946781C4E67BC002E86C8 /* Connect.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Connect.storyboard; sourceTree = "<group>"; };
 		AB89467A1C4E67C9002E86C8 /* Geofence.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Geofence.storyboard; sourceTree = "<group>"; };
 		AB89467C1C4E67D8002E86C8 /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
+		AB8946801C4F3000002E86C8 /* Auth.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
+		AB8946821C4F31A6002E86C8 /* ASSignInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASSignInViewController.h; sourceTree = "<group>"; };
+		AB8946831C4F31A6002E86C8 /* ASSignInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASSignInViewController.m; sourceTree = "<group>"; };
+		AB8946851C4F31CF002E86C8 /* ASRegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASRegisterViewController.h; sourceTree = "<group>"; };
+		AB8946861C4F31CF002E86C8 /* ASRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASRegisterViewController.m; sourceTree = "<group>"; };
+		AB8946881C4F31F3002E86C8 /* ASSignInViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASSignInViewModel.h; sourceTree = "<group>"; };
+		AB8946891C4F31F3002E86C8 /* ASSignInViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASSignInViewModel.m; sourceTree = "<group>"; };
+		AB89468B1C4F3203002E86C8 /* ASRegisterViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASRegisterViewModel.h; sourceTree = "<group>"; };
+		AB89468C1C4F3203002E86C8 /* ASRegisterViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASRegisterViewModel.m; sourceTree = "<group>"; };
 		D56B56EC24DC9B71F55AC4BB /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -359,6 +373,7 @@
 		AB89467E1C4E6B2B002E86C8 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				AB89467F1C4F2F11002E86C8 /* Auth */,
 				A68C1BA01C4E4788000E2BA6 /* Main screen */,
 				AB8946741C4E614B002E86C8 /* Settings */,
 				A68C1B9F1C4E477B000E2BA6 /* Trackers */,
@@ -368,6 +383,22 @@
 				AB89466C1C4E331C002E86C8 /* About */,
 			);
 			name = UI;
+			sourceTree = "<group>";
+		};
+		AB89467F1C4F2F11002E86C8 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				AB8946801C4F3000002E86C8 /* Auth.storyboard */,
+				AB8946821C4F31A6002E86C8 /* ASSignInViewController.h */,
+				AB8946831C4F31A6002E86C8 /* ASSignInViewController.m */,
+				AB8946881C4F31F3002E86C8 /* ASSignInViewModel.h */,
+				AB8946891C4F31F3002E86C8 /* ASSignInViewModel.m */,
+				AB8946851C4F31CF002E86C8 /* ASRegisterViewController.h */,
+				AB8946861C4F31CF002E86C8 /* ASRegisterViewController.m */,
+				AB89468B1C4F3203002E86C8 /* ASRegisterViewModel.h */,
+				AB89468C1C4F3203002E86C8 /* ASRegisterViewModel.m */,
+			);
+			name = Auth;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -499,6 +530,7 @@
 				A68C1B8C1C4E35DB000E2BA6 /* Trackers.storyboard in Resources */,
 				A68C1B821C4D24DC000E2BA6 /* Roboto-Regular.ttf in Resources */,
 				A68C1B841C4D24DC000E2BA6 /* Roboto-ThinItalic.ttf in Resources */,
+				AB8946811C4F3000002E86C8 /* Auth.storyboard in Resources */,
 				A68C1B791C4D24DC000E2BA6 /* Roboto-BoldCondensedItalic.ttf in Resources */,
 				A68C1B751C4D24DC000E2BA6 /* Roboto-Black.ttf in Resources */,
 				A68C1B8A1C4E2B91000E2BA6 /* Settings.storyboard in Resources */,
@@ -579,7 +611,10 @@
 				A68C1B9E1C4E43AB000E2BA6 /* ASNavigationController.m in Sources */,
 				A68C1B391C4CE460000E2BA6 /* MainMenuViewController.m in Sources */,
 				A68C1B871C4D2549000E2BA6 /* ASButton.m in Sources */,
+				AB89468A1C4F31F3002E86C8 /* ASSignInViewModel.m in Sources */,
 				A68C1B981C4E3B0D000E2BA6 /* ASTrackerModel.m in Sources */,
+				AB8946871C4F31CF002E86C8 /* ASRegisterViewController.m in Sources */,
+				AB8946841C4F31A6002E86C8 /* ASSignInViewController.m in Sources */,
 				A68C1B361C4CE460000E2BA6 /* AppDelegate.m in Sources */,
 				A68C1BA41C4F6AEE000E2BA6 /* ASChooseTrackerViewController.m in Sources */,
 				A68C1B921C4E38D6000E2BA6 /* ASTrackerCell.m in Sources */,
@@ -587,6 +622,7 @@
 				A68C1B331C4CE460000E2BA6 /* main.m in Sources */,
 				A68C1BAA1C4F71CB000E2BA6 /* ASTrackerConfigurationViewController.m in Sources */,
 				A68C1B9B1C4E40D2000E2BA6 /* UIColor+ASColor.m in Sources */,
+				AB89468D1C4F3203002E86C8 /* ASRegisterViewModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

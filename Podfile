@@ -2,7 +2,7 @@ platform :ios, '8.0'
 # use_frameworks!
 inhibit_all_warnings!
 
-pod 'JPSKeyboardLayoutGuide'
+pod 'JPSKeyboardLayoutGuide', :head
 pod 'ReactiveCocoa', '~> 2.5'
 pod 'CocoaLumberjack', '~> 2.2.0'
 pod 'ErrorKit', '~> 0.3.1'

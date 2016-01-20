@@ -21,8 +21,8 @@
 -(void)awakeFromNib
 {
     self.layer.cornerRadius = 19.0;
-    self.backgroundColor = [UIColor colorWithRed:0.2713 green:0.4825 blue:0.1396 alpha:1.0];
-    [self setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+//    self.backgroundColor = [UIColor colorWithRed:0.2713 green:0.4825 blue:0.1396 alpha:1.0];
+//    [self setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     self.titleLabel.font = [UIFont fontWithName:@"Roboto-Bold" size:20];
 }
 
