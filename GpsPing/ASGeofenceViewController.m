@@ -1,27 +1,25 @@
 //
-//  ASRegisterViewController.m
+//  ASGeofenceViewController.m
 //  GpsPing
 //
 //  Created by Maks Niagolov on 1/20/16.
 //  Copyright © 2016 Robin Grønvold. All rights reserved.
 //
 
-#import "ASRegisterViewController.h"
-#import "ASRegisterViewModel.h"
+#import "ASGeofenceViewController.h"
+#import "ASGeofenceViewModel.h"
 #import <JPSKeyboardLayoutGuideViewController.h>
 #import "Masonry.h"
 
-@interface ASRegisterViewController ()
-@property (nonatomic, readonly) ASRegisterViewModel     *viewModel;
+@interface ASGeofenceViewController ()
+@property (nonatomic, readonly) ASGeofenceViewModel     *viewModel;
 @property (nonatomic, weak    ) IBOutlet UIView       *viewKeyboardInteractive;
-@property (nonatomic, weak    ) IBOutlet UITextField  *textFieldUsername;
-@property (nonatomic, weak    ) IBOutlet UITextField  *textFieldEmail;
-@property (nonatomic, weak    ) IBOutlet UITextField  *textFieldPassword;
-@property (nonatomic, weak    ) IBOutlet UITextField  *textFieldConfirmPassword;
+@property (nonatomic, weak    ) IBOutlet UITextField  *textFieldYards;
+@property (nonatomic, weak    ) IBOutlet UITextField  *textFieldPhoneNumber;
 @property (nonatomic, weak    ) IBOutlet UIButton     *buttonSubmit;
 @end
 
-@implementation ASRegisterViewController
+@implementation ASGeofenceViewController
 
 -(void)viewDidLoad {
     [super viewDidLoad];
@@ -31,20 +29,12 @@
         make.bottom.equalTo(self.keyboardLayoutGuide);
     }];
     
-    self->_viewModel = [[ASRegisterViewModel alloc] init];
+    self->_viewModel = [[ASGeofenceViewModel alloc] init];
     
-    self.textFieldUsername.text      = self.viewModel.username;
-    RAC(self.viewModel, username)    = self.textFieldUsername.rac_textSignal;
-    
-    self.textFieldEmail.text = self.viewModel.email;
-    RAC(self.viewModel, email)    = self.textFieldEmail.rac_textSignal;
-    
-    self.textFieldPassword.text   = self.viewModel.password;
-    RAC(self.viewModel, password) = self.textFieldPassword.rac_textSignal;
-    
-    self.textFieldConfirmPassword.text   = self.viewModel.confirmPassword;
-    RAC(self.viewModel, confirmPassword) = self.textFieldConfirmPassword.rac_textSignal;
-    
+    self.textFieldYards.text      = self.viewModel.yards;
+    RAC(self.viewModel, yards)    = self.textFieldYards.rac_textSignal;
+    self.textFieldPhoneNumber.text   = self.viewModel.phoneNumber;
+    RAC(self.viewModel, phoneNumber) = self.textFieldPhoneNumber.rac_textSignal;
     self.buttonSubmit.rac_command = self.viewModel.submit;
     
     [self rac_liftSelector:@selector(doSubmit:)
@@ -84,7 +74,7 @@
 #pragma mark - IBActions
 
 -(IBAction)doSubmit:(id)sender {
-    [self dismissViewControllerAnimated:true completion:nil];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 @end

@@ -52,6 +52,8 @@
 		AB8946871C4F31CF002E86C8 /* ASRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB8946861C4F31CF002E86C8 /* ASRegisterViewController.m */; };
 		AB89468A1C4F31F3002E86C8 /* ASSignInViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AB8946891C4F31F3002E86C8 /* ASSignInViewModel.m */; };
 		AB89468D1C4F3203002E86C8 /* ASRegisterViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AB89468C1C4F3203002E86C8 /* ASRegisterViewModel.m */; };
+		AB8946901C4F7244002E86C8 /* ASGeofenceViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AB89468F1C4F7244002E86C8 /* ASGeofenceViewModel.m */; };
+		AB8946931C4F725D002E86C8 /* ASGeofenceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB8946921C4F725D002E86C8 /* ASGeofenceViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -135,6 +137,10 @@
 		AB8946891C4F31F3002E86C8 /* ASSignInViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASSignInViewModel.m; sourceTree = "<group>"; };
 		AB89468B1C4F3203002E86C8 /* ASRegisterViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASRegisterViewModel.h; sourceTree = "<group>"; };
 		AB89468C1C4F3203002E86C8 /* ASRegisterViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASRegisterViewModel.m; sourceTree = "<group>"; };
+		AB89468E1C4F7244002E86C8 /* ASGeofenceViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASGeofenceViewModel.h; sourceTree = "<group>"; };
+		AB89468F1C4F7244002E86C8 /* ASGeofenceViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASGeofenceViewModel.m; sourceTree = "<group>"; };
+		AB8946911C4F725D002E86C8 /* ASGeofenceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASGeofenceViewController.h; sourceTree = "<group>"; };
+		AB8946921C4F725D002E86C8 /* ASGeofenceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASGeofenceViewController.m; sourceTree = "<group>"; };
 		D56B56EC24DC9B71F55AC4BB /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -350,6 +356,10 @@
 		AB8946771C4E6789002E86C8 /* Geofence */ = {
 			isa = PBXGroup;
 			children = (
+				AB8946911C4F725D002E86C8 /* ASGeofenceViewController.h */,
+				AB8946921C4F725D002E86C8 /* ASGeofenceViewController.m */,
+				AB89468E1C4F7244002E86C8 /* ASGeofenceViewModel.h */,
+				AB89468F1C4F7244002E86C8 /* ASGeofenceViewModel.m */,
 				AB89467A1C4E67C9002E86C8 /* Geofence.storyboard */,
 			);
 			name = Geofence;
@@ -373,7 +383,6 @@
 		AB89467F1C4F2F11002E86C8 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
-				AB8946801C4F3000002E86C8 /* Auth.storyboard */,
 				AB8946821C4F31A6002E86C8 /* ASSignInViewController.h */,
 				AB8946831C4F31A6002E86C8 /* ASSignInViewController.m */,
 				AB8946881C4F31F3002E86C8 /* ASSignInViewModel.h */,
@@ -382,6 +391,7 @@
 				AB8946861C4F31CF002E86C8 /* ASRegisterViewController.m */,
 				AB89468B1C4F3203002E86C8 /* ASRegisterViewModel.h */,
 				AB89468C1C4F3203002E86C8 /* ASRegisterViewModel.m */,
+				AB8946801C4F3000002E86C8 /* Auth.storyboard */,
 			);
 			name = Auth;
 			sourceTree = "<group>";
@@ -592,8 +602,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				A68C1B8F1C4E3860000E2BA6 /* ASTrackersViewController.m in Sources */,
+				AB8946901C4F7244002E86C8 /* ASGeofenceViewModel.m in Sources */,
 				A68C1B9E1C4E43AB000E2BA6 /* ASNavigationController.m in Sources */,
 				A68C1B391C4CE460000E2BA6 /* MainMenuViewController.m in Sources */,
+				AB8946931C4F725D002E86C8 /* ASGeofenceViewController.m in Sources */,
 				A68C1B871C4D2549000E2BA6 /* ASButton.m in Sources */,
 				AB89468A1C4F31F3002E86C8 /* ASSignInViewModel.m in Sources */,
 				A68C1B981C4E3B0D000E2BA6 /* ASTrackerModel.m in Sources */,
