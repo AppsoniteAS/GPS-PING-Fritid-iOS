@@ -10,6 +10,7 @@
 #import "ASTrackerModel.h"
 #import "ASTrackerCell.h"
 #import "Masonry.h"
+#import "ASTrackerConfigurationViewController.h"
 
 @interface ASTrackersViewController ()
 
@@ -23,7 +24,15 @@
     [self fillData];
     [self registerCellClass:[ASTrackerCell class]
               forModelClass:[ASTrackerModel class]];
+
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self.memoryStorage removeAllTableItems];
     [self.memoryStorage addItems:[ASTrackerModel getTrackersFromUserDefaults]];
+    [self.tableView reloadData];
 }
 
 -(void)fillData {
@@ -37,10 +46,35 @@
     UITableViewCell * cell = [super tableView:tableView cellForRowAtIndexPath:indexPath];
     ASTrackerModel *model = [self.memoryStorage itemAtIndexPath:indexPath];
     if (model.isChoosed) {
-        [tableView selectRowAtIndexPath:indexPath animated:YES scrollPosition:UITableViewScrollPositionNone];
+//        [tableView selectRowAtIndexPath:indexPath animated:YES scrollPosition:UITableViewScrollPositionNone];
     }
     
     return cell;
+}
+
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+//    [super tableView:tableView didSelectRowAtIndexPath:indexPath];
+    ASTrackerConfigurationViewController *configVC = [ASTrackerConfigurationViewController initialize];
+    configVC.trackerObject = [self.memoryStorage itemAtIndexPath:indexPath];
+    configVC.shouldShowInEditMode = YES;
+    UINavigationController *navVC = [[UINavigationController alloc] initWithRootViewController:configVC];
+    [self presentViewController:navVC animated:YES completion:nil];
+}
+
+-(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        ASTrackerModel *model = [self.memoryStorage itemAtIndexPath:indexPath];
+        [ASTrackerModel removeTrackerWithNumber:model.trackerNumber];
+        [self.memoryStorage removeItem:model];
+    }
+}
+
+-(BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return YES;
 }
 
 /*
