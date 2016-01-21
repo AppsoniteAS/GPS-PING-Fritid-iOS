@@ -12,12 +12,12 @@
 @property (weak, nonatomic) IBOutlet UIButton *startStopButton;
 @end
 
-@implementation MainMenuViewController
+@implementation MainMenuViewController {
+    BOOL authIsShowed;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    [self showAuth];
     
     self.startStopButton.layer.borderColor = [UIColor colorWithRed:0.4796 green:0.7302 blue:0.2274 alpha:1.0].CGColor;
     self.startStopButton.layer.borderWidth = 6.0;
@@ -31,12 +31,15 @@
 }
 
 - (void)viewDidAppear:(BOOL)animated {
-    
+    [self showAuth];
 }
 
 - (void)showAuth {
-    UIViewController* controller = [[UIStoryboard storyboardWithName:@"Auth" bundle:nil] instantiateInitialViewController];
-    [self.navigationController presentViewController:controller animated:YES completion:nil];
+    if (authIsShowed == NO) {
+        UIViewController* controller = [[UIStoryboard storyboardWithName:@"Auth" bundle:nil] instantiateInitialViewController];
+        [self.navigationController presentViewController:controller animated:YES completion:nil];
+        authIsShowed = YES;
+    }
 }
 
 
