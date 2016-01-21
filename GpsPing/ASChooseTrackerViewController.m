@@ -46,5 +46,8 @@
     configVC.trackerObject = [ASTrackerModel initTrackerWithName:nil number:nil imei:nil type:trackerType isChoosed:NO];
     [self.navigationController pushViewController:configVC animated:YES];
 }
+- (IBAction)cancelButtonTap:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 
 @end

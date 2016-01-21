@@ -16,6 +16,9 @@ NSString* const kASTrackerNumber    = @"number";
 NSString* const kASTrackerImei      = @"imei";
 NSString* const kASTrackerType      = @"type";
 NSString* const kASTrackerIsChoosed = @"choosed";
+NSString* const kASTrackerDogInStand = @"doginstand";
+NSString* const kASTrackerSignalRate = @"rate";
+NSString* const kASTrackerSignalRateMetric = @"metric";
 
 @implementation ASTrackerModel
 
@@ -30,16 +33,21 @@ NSString* const kASTrackerIsChoosed = @"choosed";
     model.trackerNumber = number;
     model.trackerType = type;
     model.isChoosed = isChoosed;
+    model.signalRate = 1;
+    model.signalRateMetric = kASSignalMetricTypeSeconds;
     return model;
 }
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
     return @{
-                @keypath(ASTrackerModel.new, trackerName)  : kASTrackerName,
-                @keypath(ASTrackerModel.new, trackerNumber): kASTrackerNumber,
-                @keypath(ASTrackerModel.new, imeiNumber)   : kASTrackerImei,
-                @keypath(ASTrackerModel.new, trackerType)  : kASTrackerType,
-                @keypath(ASTrackerModel.new, isChoosed)    : kASTrackerIsChoosed
+                @keypath(ASTrackerModel.new, trackerName)       : kASTrackerName,
+                @keypath(ASTrackerModel.new, trackerNumber)     : kASTrackerNumber,
+                @keypath(ASTrackerModel.new, imeiNumber)        : kASTrackerImei,
+                @keypath(ASTrackerModel.new, trackerType)       : kASTrackerType,
+                @keypath(ASTrackerModel.new, isChoosed)         : kASTrackerIsChoosed,
+                @keypath(ASTrackerModel.new, dogInStand)        : kASTrackerDogInStand,
+                @keypath(ASTrackerModel.new, signalRate)        : kASTrackerSignalRate,
+                @keypath(ASTrackerModel.new, signalRateMetric)  : kASTrackerSignalRateMetric
               };
 }
 
@@ -60,17 +68,42 @@ NSString* const kASTrackerIsChoosed = @"choosed";
     return result;
 }
 
--(void)saveInUserDefaults {
++(void)removeTrackerWithNumber:(NSString*)trackerNumber
+{
     NSArray * trackers = [ASTrackerModel getTrackersFromUserDefaults];
     NSMutableArray *trackers_m = trackers.mutableCopy;
     for (ASTrackerModel *tracker in trackers_m) {
-        if ([tracker.trackerNumber isEqualToString:self.trackerNumber]) {
+        if ([tracker.trackerNumber isEqualToString:trackerNumber]) {
             [trackers_m removeObject:tracker];
             break;
         }
     }
+
+    NSError *error;
+    NSArray *jsonToSave = [MTLJSONAdapter JSONArrayFromModels:trackers_m
+                                                        error:&error];
+    [[NSUserDefaults standardUserDefaults] setObject:jsonToSave
+                                              forKey:kASUserDefaultsTrackersKey];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+-(void)saveInUserDefaults {
+    NSArray * trackers = [ASTrackerModel getTrackersFromUserDefaults];
+    NSMutableArray *trackers_m = trackers.mutableCopy;
+    BOOL trackerWasChanged = NO;
+    for (ASTrackerModel *tracker in trackers_m) {
+        if ([tracker.trackerNumber isEqualToString:self.trackerNumber]) {
+//            [trackers_m removeObject:tracker];
+            trackers_m[[trackers_m indexOfObject:tracker]] = self;
+            trackerWasChanged = YES;
+            break;
+        }
+    }
     
-    [trackers_m addObject:self];
+    if (!trackerWasChanged) {
+        [trackers_m addObject:self];
+    }
+    
     NSError *error;
     NSArray *jsonToSave = [MTLJSONAdapter JSONArrayFromModels:trackers_m
                                                         error:&error];

@@ -7,12 +7,17 @@
 //
 
 #import <DTTableViewManager/DTTableViewManager.h>
+#import "ASTrackerModel.h"
 
 @interface ASTrackerCell : DTTableViewCell
+
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *trackerNumberLabel;
 @property (weak, nonatomic) IBOutlet UILabel *imeiNumbrLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *trackerImage;
 @property (weak, nonatomic) IBOutlet UIImageView *chooseIndicator;
+@property (weak, nonatomic) IBOutlet UIButton *showOnMapButton;
+
+@property (nonatomic) ASTrackerModel *trackerModel;
 
 @end
