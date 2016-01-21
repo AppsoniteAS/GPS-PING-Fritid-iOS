@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ASViewController.h"
 
-@interface ASProfileViewController : UIViewController
+@interface ASProfileViewController : ASViewController
 
 @end

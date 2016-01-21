@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ASViewController.h"
 
-@interface ASGeofenceViewController : UIViewController
+@interface ASGeofenceViewController : ASViewController
 
 @end

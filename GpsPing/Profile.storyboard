@@ -34,11 +34,11 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="K1x-SJ-r5O">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                             </imageView>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" keyboardDismissMode="onDrag" translatesAutoresizingMaskIntoConstraints="NO" id="xT7-Lk-YPN">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xT7-Lk-YPN">
                                 <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BGj-Xz-wYj" userLabel="InnerWrapper">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kAR-F9-vgL" customClass="ASButton">
                                                 <rect key="frame" x="60" y="337" width="200" height="40"/>
@@ -186,8 +186,8 @@
                                         <variation key="default">
                                             <mask key="constraints">
                                                 <exclude reference="7Lm-jH-qF0"/>
-                                                <exclude reference="DMC-7C-FIf"/>
                                                 <exclude reference="9kz-dQ-vl8"/>
+                                                <exclude reference="DMC-7C-FIf"/>
                                             </mask>
                                         </variation>
                                     </view>
@@ -209,7 +209,7 @@
                             <constraint firstAttribute="trailing" secondItem="K1x-SJ-r5O" secondAttribute="trailing" id="F0I-hf-v9F"/>
                             <constraint firstItem="BGj-Xz-wYj" firstAttribute="width" secondItem="K1x-SJ-r5O" secondAttribute="width" id="L4x-GC-0Er"/>
                             <constraint firstItem="xT7-Lk-YPN" firstAttribute="leading" secondItem="DCa-K0-0JW" secondAttribute="leading" id="Sfc-Kd-fkb"/>
-                            <constraint firstItem="BGj-Xz-wYj" firstAttribute="height" secondItem="K1x-SJ-r5O" secondAttribute="height" id="Yf8-4q-PWh"/>
+                            <constraint firstItem="BGj-Xz-wYj" firstAttribute="height" secondItem="K1x-SJ-r5O" secondAttribute="height" constant="-64" id="Yf8-4q-PWh"/>
                             <constraint firstItem="xT7-Lk-YPN" firstAttribute="top" secondItem="fZE-3d-Yjg" secondAttribute="bottom" id="b2F-ir-HD9"/>
                             <constraint firstAttribute="trailing" secondItem="xT7-Lk-YPN" secondAttribute="trailing" id="dW0-eD-s1R"/>
                             <constraint firstItem="K1x-SJ-r5O" firstAttribute="leading" secondItem="DCa-K0-0JW" secondAttribute="leading" id="lrr-in-Qgg"/>

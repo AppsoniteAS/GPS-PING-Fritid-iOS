@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ASViewController.h"
 
-@interface ASRegisterViewController : UIViewController
+@interface ASRegisterViewController : ASViewController
 
 @end

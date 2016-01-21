@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ASViewController.h"
 
-@interface ASSignInViewController : UIViewController
+@interface ASSignInViewController : ASViewController
 
 @end
