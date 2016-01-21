@@ -57,6 +57,8 @@
 		AB89468D1C4F3203002E86C8 /* ASRegisterViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AB89468C1C4F3203002E86C8 /* ASRegisterViewModel.m */; };
 		AB8946901C4F7244002E86C8 /* ASGeofenceViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AB89468F1C4F7244002E86C8 /* ASGeofenceViewModel.m */; };
 		AB8946931C4F725D002E86C8 /* ASGeofenceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB8946921C4F725D002E86C8 /* ASGeofenceViewController.m */; };
+		AB8946961C50D6B0002E86C8 /* ASProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB8946951C50D6B0002E86C8 /* ASProfileViewController.m */; };
+		AB8946991C50D6CD002E86C8 /* ASProfileViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AB8946981C50D6CD002E86C8 /* ASProfileViewModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -150,6 +152,10 @@
 		AB89468F1C4F7244002E86C8 /* ASGeofenceViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASGeofenceViewModel.m; sourceTree = "<group>"; };
 		AB8946911C4F725D002E86C8 /* ASGeofenceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASGeofenceViewController.h; sourceTree = "<group>"; };
 		AB8946921C4F725D002E86C8 /* ASGeofenceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASGeofenceViewController.m; sourceTree = "<group>"; };
+		AB8946941C50D6B0002E86C8 /* ASProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASProfileViewController.h; sourceTree = "<group>"; };
+		AB8946951C50D6B0002E86C8 /* ASProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASProfileViewController.m; sourceTree = "<group>"; };
+		AB8946971C50D6CD002E86C8 /* ASProfileViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASProfileViewModel.h; sourceTree = "<group>"; };
+		AB8946981C50D6CD002E86C8 /* ASProfileViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASProfileViewModel.m; sourceTree = "<group>"; };
 		D56B56EC24DC9B71F55AC4BB /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -355,6 +361,10 @@
 		AB8946751C4E6770002E86C8 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				AB8946941C50D6B0002E86C8 /* ASProfileViewController.h */,
+				AB8946951C50D6B0002E86C8 /* ASProfileViewController.m */,
+				AB8946971C50D6CD002E86C8 /* ASProfileViewModel.h */,
+				AB8946981C50D6CD002E86C8 /* ASProfileViewModel.m */,
 				AB89467C1C4E67D8002E86C8 /* Profile.storyboard */,
 			);
 			name = Profile;
@@ -624,6 +634,8 @@
 				AB8946931C4F725D002E86C8 /* ASGeofenceViewController.m in Sources */,
 				A68C1B871C4D2549000E2BA6 /* ASButton.m in Sources */,
 				AB89468A1C4F31F3002E86C8 /* ASSignInViewModel.m in Sources */,
+				AB8946961C50D6B0002E86C8 /* ASProfileViewController.m in Sources */,
+				AB8946991C50D6CD002E86C8 /* ASProfileViewModel.m in Sources */,
 				A68C1B981C4E3B0D000E2BA6 /* ASTrackerModel.m in Sources */,
 				AB8946871C4F31CF002E86C8 /* ASRegisterViewController.m in Sources */,
 				AB8946841C4F31A6002E86C8 /* ASSignInViewController.m in Sources */,
