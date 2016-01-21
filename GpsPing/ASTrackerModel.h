@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <Mantle.h>
 
 //typedef NS_ENUM(NSUInteger, trackerType) {
 //    <#MyEnumValueA#>,
@@ -18,8 +19,9 @@ static NSString * const kASTrackerTypeTkStar      = @"trackerTkStar";
 static NSString * const kASTrackerTypeTkStarPet   = @"trackerTkStarPet";
 static NSString * const kASTrackerTypeAnywhere    = @"trackerAnywhere";
 
+static NSString * const kASUserDefaultsTrackersKey    = @"kASUserDefaultsTrackersKey";
 
-@interface ASTrackerModel : NSObject
+@interface ASTrackerModel : MTLModel <MTLJSONSerializing>
 
 @property (nonatomic) NSString *trackerName;
 @property (nonatomic) NSString *trackerNumber;
@@ -32,5 +34,9 @@ static NSString * const kASTrackerTypeAnywhere    = @"trackerAnywhere";
                               imei:(NSString *)imei
                               type:(NSString *)type
                          isChoosed:(BOOL)isChoosed;
+
++(NSArray*)getTrackersFromUserDefaults;
+
+-(void)saveInUserDefaults;
 
 @end
