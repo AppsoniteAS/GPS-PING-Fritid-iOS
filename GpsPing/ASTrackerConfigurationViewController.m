@@ -11,8 +11,9 @@
 #import <JPSKeyboardLayoutGuideViewController.h>
 #import "Masonry.h"
 #import "ASButton.h"
+#import "ASSmsManager.h"
 
-@interface ASTrackerConfigurationViewController()<UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource>
+@interface ASTrackerConfigurationViewController()<UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource, MFMessageComposeViewControllerDelegate, ASSmsManagerProtocol>
 
 @property (weak, nonatomic) IBOutlet UIView *outerWrapperView;
 @property (weak, nonatomic) IBOutlet UITextField *nameTextField;
@@ -30,6 +31,9 @@
 @property (nonatomic) NSArray      *rateMetricPickerData;
 @property (nonatomic) UIPickerView *ratePicker;
 @property (nonatomic) UIPickerView *rateMetricPicker;
+
+@property (nonatomic, assign) NSInteger smsCount;
+
 
 @end
 
@@ -63,6 +67,10 @@
     
 
     [self configPickers];
+    
+    NSString *newTitle = NSLocalizedString(@"Activation: step %ld", nil);
+    [self.completeButton setTitle:[NSString stringWithFormat:newTitle, (long)self.smsCount + 1]
+                         forState:UIControlStateNormal];
 }
 
 -(void)configPickers {
@@ -157,9 +165,32 @@
     self.trackerObject.signalRate       = self.signalRateTextField.text.integerValue;
     self.trackerObject.signalRateMetric = self.signalRateMetricTextField.text;
     
-    [self.trackerObject saveInUserDefaults];
-    [self dismissViewControllerAnimated:YES completion:nil];
+    if (self.smsCount == self.trackerObject.getSmsTextsForActivation.count) {
+        [self.trackerObject saveInUserDefaults];
+        [self dismissViewControllerAnimated:YES completion:nil];
+        return;
+    }
+    
+    [self as_sendSMS:self.trackerObject.getSmsTextsForActivation[self.smsCount]
+           recipient:self.trackerObject.trackerNumber];
 }
+
+-(void)smsManagerMessageWasSentWithResult:(MessageComposeResult)result
+{
+//    if (result == MessageComposeResultSent) {
+        self.smsCount++;
+        NSString *newTitle;
+        if (self.smsCount == self.trackerObject.getSmsTextsForActivation.count) {
+            newTitle = NSLocalizedString(@"Finish activation", nil);
+        } else {
+            newTitle = [NSString stringWithFormat:NSLocalizedString(@"Activation: step %ld", nil), (long)self.smsCount + 1];
+        }
+    
+        [self.completeButton setTitle:newTitle
+                             forState:UIControlStateNormal];
+//    }
+}
+
 - (IBAction)cancelButtonTap:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 }

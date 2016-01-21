@@ -112,4 +112,34 @@ NSString* const kASTrackerSignalRateMetric = @"metric";
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
+-(NSArray*)getSmsTextsForActivation {
+    NSArray *result;
+    if ([self.trackerType isEqualToString:kASTrackerTypeAnywhere]) {
+        result = @[@"Begin123456",
+                   @"gprs123456",
+                   @"apn123456 netcom",
+                   @"adminip123456 46.137.82.251 5000",
+                   @"sleep123456 off"];
+    } else {
+        result = @[@"Begin123456",
+                   @"gprs123456",
+                   @"apn123456 netcom",
+                   @"adminip123456 46.137.82.251 5013",
+                   @"sleep123456 off"];
+    }
+    
+    return result;
+}
+
+-(NSArray*)getSmsTextsForTrackingLaunch:(BOOL)isOn
+{
+    return @[];
+}
+
+-(NSArray*)getSmsTextsForGeofenceLaunch:(BOOL)isOn
+{
+    return @[];
+}
+
+
 @end
