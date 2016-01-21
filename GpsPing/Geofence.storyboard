@@ -32,11 +32,11 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="JTn-Hd-Gw3">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                             </imageView>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" keyboardDismissMode="onDrag" translatesAutoresizingMaskIntoConstraints="NO" id="Rvh-wv-NTD">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" keyboardDismissMode="onDrag" translatesAutoresizingMaskIntoConstraints="NO" id="Rvh-wv-NTD">
                                 <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="njd-lR-fpb" userLabel="InnerWrapper">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pat-GZ-WDa">
                                                 <rect key="frame" x="22" y="22" width="276" height="252"/>
@@ -186,7 +186,7 @@
                             <constraint firstItem="JTn-Hd-Gw3" firstAttribute="leading" secondItem="kFP-Vi-DsL" secondAttribute="leading" id="KhV-wK-fYL"/>
                             <constraint firstItem="njd-lR-fpb" firstAttribute="width" secondItem="JTn-Hd-Gw3" secondAttribute="width" id="Pu0-kC-Iy3"/>
                             <constraint firstItem="kER-ER-EtC" firstAttribute="top" secondItem="Rvh-wv-NTD" secondAttribute="bottom" id="Rmj-OB-z4c"/>
-                            <constraint firstItem="njd-lR-fpb" firstAttribute="height" secondItem="JTn-Hd-Gw3" secondAttribute="height" id="Uid-Rf-coV"/>
+                            <constraint firstItem="njd-lR-fpb" firstAttribute="height" secondItem="JTn-Hd-Gw3" secondAttribute="height" constant="-64" id="Uid-Rf-coV"/>
                             <constraint firstAttribute="trailing" secondItem="JTn-Hd-Gw3" secondAttribute="trailing" id="Yqc-Vw-aJQ"/>
                             <constraint firstItem="Rvh-wv-NTD" firstAttribute="leading" secondItem="kFP-Vi-DsL" secondAttribute="leading" id="jI8-n2-UU0"/>
                             <constraint firstAttribute="trailing" secondItem="Rvh-wv-NTD" secondAttribute="trailing" id="mqj-TC-Mkb"/>

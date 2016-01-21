@@ -60,6 +60,7 @@
 		AB8946931C4F725D002E86C8 /* ASGeofenceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB8946921C4F725D002E86C8 /* ASGeofenceViewController.m */; };
 		AB8946961C50D6B0002E86C8 /* ASProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB8946951C50D6B0002E86C8 /* ASProfileViewController.m */; };
 		AB8946991C50D6CD002E86C8 /* ASProfileViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AB8946981C50D6CD002E86C8 /* ASProfileViewModel.m */; };
+		AB89469C1C510E96002E86C8 /* ASViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB89469B1C510E96002E86C8 /* ASViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -159,6 +160,8 @@
 		AB8946951C50D6B0002E86C8 /* ASProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASProfileViewController.m; sourceTree = "<group>"; };
 		AB8946971C50D6CD002E86C8 /* ASProfileViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASProfileViewModel.h; sourceTree = "<group>"; };
 		AB8946981C50D6CD002E86C8 /* ASProfileViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASProfileViewModel.m; sourceTree = "<group>"; };
+		AB89469A1C510E96002E86C8 /* ASViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASViewController.h; sourceTree = "<group>"; };
+		AB89469B1C510E96002E86C8 /* ASViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASViewController.m; sourceTree = "<group>"; };
 		D56B56EC24DC9B71F55AC4BB /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -302,6 +305,8 @@
 				A68C1B861C4D2549000E2BA6 /* ASButton.m */,
 				A68C1B991C4E40D2000E2BA6 /* UIColor+ASColor.h */,
 				A68C1B9A1C4E40D2000E2BA6 /* UIColor+ASColor.m */,
+				AB89469A1C510E96002E86C8 /* ASViewController.h */,
+				AB89469B1C510E96002E86C8 /* ASViewController.m */,
 				A68C1BA51C4F7006000E2BA6 /* UIStoryboard+ASHelper.h */,
 				A68C1BA61C4F7006000E2BA6 /* UIStoryboard+ASHelper.m */,
 				A6F6A7491C5122210009579A /* ASSmsManager.h */,
@@ -648,6 +653,7 @@
 				A68C1B361C4CE460000E2BA6 /* AppDelegate.m in Sources */,
 				A68C1BA41C4F6AEE000E2BA6 /* ASChooseTrackerViewController.m in Sources */,
 				A68C1B921C4E38D6000E2BA6 /* ASTrackerCell.m in Sources */,
+				AB89469C1C510E96002E86C8 /* ASViewController.m in Sources */,
 				AB8946711C4E3372002E86C8 /* ASAboutViewController.m in Sources */,
 				A68C1B331C4CE460000E2BA6 /* main.m in Sources */,
 				A68C1BAA1C4F71CB000E2BA6 /* ASTrackerConfigurationViewController.m in Sources */,

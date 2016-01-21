@@ -40,11 +40,11 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="mym-gm-TAC">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                             </imageView>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" keyboardDismissMode="onDrag" translatesAutoresizingMaskIntoConstraints="NO" id="k8e-c1-vfy">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k8e-c1-vfy">
                                 <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q79-ZG-YfR" userLabel="InnerWrapper">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R7Z-Vh-a0D">
                                                 <rect key="frame" x="22" y="22" width="276" height="227"/>
@@ -204,7 +204,7 @@
                             <constraint firstAttribute="trailing" secondItem="k8e-c1-vfy" secondAttribute="trailing" id="bSW-xe-Eg2"/>
                             <constraint firstItem="ULp-et-DZl" firstAttribute="top" secondItem="mym-gm-TAC" secondAttribute="bottom" id="gUQ-oL-ZjT"/>
                             <constraint firstItem="q79-ZG-YfR" firstAttribute="width" secondItem="mym-gm-TAC" secondAttribute="width" id="soj-kk-hSp"/>
-                            <constraint firstItem="q79-ZG-YfR" firstAttribute="height" secondItem="mym-gm-TAC" secondAttribute="height" id="w44-Ae-3kV"/>
+                            <constraint firstItem="q79-ZG-YfR" firstAttribute="height" secondItem="mym-gm-TAC" secondAttribute="height" constant="-64" id="w44-Ae-3kV"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="lff-XB-G12">
@@ -267,11 +267,11 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="SYl-mK-lJE">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                             </imageView>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" keyboardDismissMode="onDrag" translatesAutoresizingMaskIntoConstraints="NO" id="j59-2y-qP8">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j59-2y-qP8">
                                 <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m9c-Nm-Cf6" userLabel="InnerWrapper">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d7r-iJ-5bp">
                                                 <rect key="frame" x="22" y="22" width="276" height="302"/>
@@ -477,7 +477,7 @@
                             <constraint firstItem="fZF-Hy-QFm" firstAttribute="top" secondItem="SYl-mK-lJE" secondAttribute="bottom" id="iUk-9j-Oh6"/>
                             <constraint firstItem="m9c-Nm-Cf6" firstAttribute="width" secondItem="SYl-mK-lJE" secondAttribute="width" id="kXN-1v-cHS"/>
                             <constraint firstItem="j59-2y-qP8" firstAttribute="top" secondItem="ud8-M8-g4m" secondAttribute="bottom" id="uVs-OC-ZJz"/>
-                            <constraint firstItem="m9c-Nm-Cf6" firstAttribute="height" secondItem="SYl-mK-lJE" secondAttribute="height" id="uis-KL-Vpj"/>
+                            <constraint firstItem="m9c-Nm-Cf6" firstAttribute="height" secondItem="SYl-mK-lJE" secondAttribute="height" constant="-64" id="uis-KL-Vpj"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Register" id="MdX-Bd-4uL"/>
