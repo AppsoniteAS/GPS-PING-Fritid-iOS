@@ -16,6 +16,12 @@
         </mutableArray>
         <mutableArray key="Roboto-Regular.ttf">
             <string>Roboto-Regular</string>
+            <string>Roboto-Regular</string>
+            <string>Roboto-Regular</string>
+            <string>Roboto-Regular</string>
+            <string>Roboto-Regular</string>
+            <string>Roboto-Regular</string>
+            <string>Roboto-Regular</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -64,10 +70,13 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="43t-vi-idC" secondAttribute="height" multiplier="1:1" id="joT-Hl-qV8"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="53"/>
+                                <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="47"/>
                                 <state key="normal" title="STOP">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="startStopButtonTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Mrx-PA-y9V"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tge-DY-bzF" customClass="ASButton">
                                 <rect key="frame" x="60" y="342" width="200" height="40"/>
@@ -237,6 +246,142 @@
             </objects>
             <point key="canvasLocation" x="825" y="968"/>
         </scene>
+        <!--Select Tracker View Controller-->
+        <scene sceneID="SbZ-yt-L7h">
+            <objects>
+                <viewController storyboardIdentifier="ASSelectTrackerViewController" id="w39-gf-CiX" customClass="ASSelectTrackerViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ojQ-PE-KjY"/>
+                        <viewControllerLayoutGuide type="bottom" id="933-dw-Fyf"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ZYP-Fg-xlo">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oZU-nU-vgB">
+                                <rect key="frame" x="63" y="226" width="287" height="284"/>
+                                <subviews>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="70" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="L02-dR-Y7g">
+                                        <rect key="frame" x="0.0" y="64" width="287" height="220"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <inset key="separatorInset" minX="70" minY="0.0" maxX="9" maxY="0.0"/>
+                                        <prototypes>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ASTrackerCell" rowHeight="70" id="D0f-FI-lOC" customClass="ASTrackerCell">
+                                                <rect key="frame" x="0.0" y="28" width="287" height="70"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="D0f-FI-lOC" id="y97-6A-nTy">
+                                                    <rect key="frame" x="0.0" y="0.0" width="287" height="69.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Julie" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GJO-J7-6m3" userLabel="name">
+                                                            <rect key="frame" x="76" y="12" width="34.5" height="19"/>
+                                                            <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
+                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tracker Number:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="scO-tD-Y7o">
+                                                            <rect key="frame" x="76" y="38.5" width="67" height="11"/>
+                                                            <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="9"/>
+                                                            <color key="textColor" red="0.45882352939999999" green="0.45882352939999999" blue="0.45882352939999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="IMEI Number:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jDt-Le-vQU">
+                                                            <rect key="frame" x="76" y="55.5" width="54.5" height="11"/>
+                                                            <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="9"/>
+                                                            <color key="textColor" red="0.45882352939999999" green="0.45882352939999999" blue="0.45882352939999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="580009914518" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BVJ-bU-GKf">
+                                                            <rect key="frame" x="162" y="38.5" width="61" height="11"/>
+                                                            <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="9"/>
+                                                            <color key="textColor" red="0.45882352939999999" green="0.45882352939999999" blue="0.45882352939999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="580009914518" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MXj-IQ-8Vv">
+                                                            <rect key="frame" x="162" y="55.5" width="61" height="11"/>
+                                                            <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="9"/>
+                                                            <color key="textColor" red="0.45882352939999999" green="0.45882352939999999" blue="0.45882352939999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tracker_icon_anywhere" translatesAutoresizingMaskIntoConstraints="NO" id="X6e-5g-NoU" userLabel="Icon">
+                                                            <rect key="frame" x="18" y="12" width="46" height="46"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" secondItem="X6e-5g-NoU" secondAttribute="height" multiplier="1:1" id="7VW-jq-jLd"/>
+                                                                <constraint firstAttribute="width" constant="46" id="lHn-E5-nDD"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstItem="scO-tD-Y7o" firstAttribute="leading" secondItem="GJO-J7-6m3" secondAttribute="leading" id="3YA-U1-7QP"/>
+                                                        <constraint firstItem="jDt-Le-vQU" firstAttribute="leading" secondItem="GJO-J7-6m3" secondAttribute="leading" id="LhY-iW-NVd"/>
+                                                        <constraint firstItem="BVJ-bU-GKf" firstAttribute="centerY" secondItem="scO-tD-Y7o" secondAttribute="centerY" id="QgT-cZ-pSa"/>
+                                                        <constraint firstItem="X6e-5g-NoU" firstAttribute="leading" secondItem="y97-6A-nTy" secondAttribute="leading" constant="18" id="Uq9-7J-1nt"/>
+                                                        <constraint firstItem="scO-tD-Y7o" firstAttribute="top" secondItem="GJO-J7-6m3" secondAttribute="bottom" constant="8" id="aUN-ej-9Pk"/>
+                                                        <constraint firstItem="MXj-IQ-8Vv" firstAttribute="leading" secondItem="BVJ-bU-GKf" secondAttribute="leading" id="f7C-zK-ek6"/>
+                                                        <constraint firstItem="MXj-IQ-8Vv" firstAttribute="centerY" secondItem="jDt-Le-vQU" secondAttribute="centerY" id="fmG-t0-81l"/>
+                                                        <constraint firstItem="X6e-5g-NoU" firstAttribute="top" secondItem="y97-6A-nTy" secondAttribute="top" constant="12" id="sbF-aZ-bii"/>
+                                                        <constraint firstItem="GJO-J7-6m3" firstAttribute="top" secondItem="y97-6A-nTy" secondAttribute="top" constant="12" id="tbF-Ts-K2b"/>
+                                                        <constraint firstItem="BVJ-bU-GKf" firstAttribute="leading" secondItem="y97-6A-nTy" secondAttribute="leading" constant="162" id="txn-Qt-qYt"/>
+                                                        <constraint firstItem="GJO-J7-6m3" firstAttribute="leading" secondItem="y97-6A-nTy" secondAttribute="leading" constant="76" id="yN7-7S-olJ"/>
+                                                        <constraint firstItem="jDt-Le-vQU" firstAttribute="top" secondItem="scO-tD-Y7o" secondAttribute="bottom" constant="6" id="zw5-sl-5L9"/>
+                                                    </constraints>
+                                                </tableViewCellContentView>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <connections>
+                                                    <outlet property="imeiNumbrLabel" destination="MXj-IQ-8Vv" id="Rob-mf-bNB"/>
+                                                    <outlet property="nameLabel" destination="GJO-J7-6m3" id="3so-fP-BqT"/>
+                                                    <outlet property="trackerImage" destination="X6e-5g-NoU" id="jUG-tK-8es"/>
+                                                    <outlet property="trackerNumberLabel" destination="BVJ-bU-GKf" id="QLD-HP-iIc"/>
+                                                </connections>
+                                            </tableViewCell>
+                                        </prototypes>
+                                    </tableView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select tracker you want to activate:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="dET-ot-7m2">
+                                        <rect key="frame" x="15" y="21" width="257" height="19"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="L02-dR-Y7g" secondAttribute="trailing" id="5k8-xt-wck"/>
+                                    <constraint firstAttribute="bottom" secondItem="L02-dR-Y7g" secondAttribute="bottom" id="7lq-U6-fdP"/>
+                                    <constraint firstItem="L02-dR-Y7g" firstAttribute="leading" secondItem="oZU-nU-vgB" secondAttribute="leading" id="JBs-tB-Vuc"/>
+                                    <constraint firstItem="dET-ot-7m2" firstAttribute="leading" secondItem="oZU-nU-vgB" secondAttribute="leading" constant="15" id="N1D-ae-1E5"/>
+                                    <constraint firstAttribute="trailing" secondItem="dET-ot-7m2" secondAttribute="trailing" constant="15" id="PEe-Pc-bvX"/>
+                                    <constraint firstItem="dET-ot-7m2" firstAttribute="top" secondItem="oZU-nU-vgB" secondAttribute="top" constant="21" id="jht-rg-7IS"/>
+                                    <constraint firstAttribute="width" constant="287" id="kIB-UF-LAW"/>
+                                    <constraint firstItem="L02-dR-Y7g" firstAttribute="top" secondItem="oZU-nU-vgB" secondAttribute="top" constant="64" id="mwN-FN-IVe"/>
+                                    <constraint firstAttribute="height" constant="284" id="na7-tr-MzD"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.51928879310344822" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="oZU-nU-vgB" firstAttribute="centerY" secondItem="ZYP-Fg-xlo" secondAttribute="centerY" id="bAg-WC-UEc"/>
+                            <constraint firstItem="oZU-nU-vgB" firstAttribute="centerX" secondItem="ZYP-Fg-xlo" secondAttribute="centerX" id="fKc-DF-xMA"/>
+                        </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="eSc-cg-gHx" appends="YES" id="mT4-NT-eLu"/>
+                        </connections>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                    <connections>
+                        <outlet property="tableView" destination="L02-dR-Y7g" id="GpB-xe-WY8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SLZ-yo-fUf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="eSc-cg-gHx" userLabel="background Tap Gesture Recognizer">
+                    <connections>
+                        <action selector="backgroundViewTap:" destination="w39-gf-CiX" id="Ppt-3W-9uD"/>
+                        <outlet property="delegate" destination="w39-gf-CiX" id="gSg-BY-5iT"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="1551" y="917"/>
+        </scene>
         <!--Settings-->
         <scene sceneID="fpr-zC-lOe">
             <objects>
@@ -245,7 +390,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PoD-c1-XTM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1285.5" y="968"/>
+            <point key="canvasLocation" x="1189.5" y="968"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Rsh-wQ-iEb">
@@ -270,5 +415,6 @@
     <resources>
         <image name="background" width="414" height="736"/>
         <image name="logo" width="92" height="82"/>
+        <image name="tracker_icon_anywhere" width="414" height="736"/>
     </resources>
 </document>

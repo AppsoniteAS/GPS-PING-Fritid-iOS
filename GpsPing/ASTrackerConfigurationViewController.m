@@ -177,7 +177,7 @@
 
 -(void)smsManagerMessageWasSentWithResult:(MessageComposeResult)result
 {
-//    if (result == MessageComposeResultSent) {
+    if (result == MessageComposeResultSent) {
         self.smsCount++;
         NSString *newTitle;
         if (self.smsCount == self.trackerObject.getSmsTextsForActivation.count) {
@@ -188,7 +188,7 @@
     
         [self.completeButton setTitle:newTitle
                              forState:UIControlStateNormal];
-//    }
+    }
 }
 
 - (IBAction)cancelButtonTap:(id)sender {

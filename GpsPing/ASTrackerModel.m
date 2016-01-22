@@ -131,15 +131,27 @@ NSString* const kASTrackerSignalRateMetric = @"metric";
     return result;
 }
 
--(NSArray*)getSmsTextsForTrackingLaunch:(BOOL)isOn
+-(NSString*)getSmsTextsForTrackerLaunch:(BOOL)isOn
 {
-    return @[];
+    if ([self.trackerType isEqualToString:kASTrackerTypeTkStar]) {
+        NSInteger signalRate = self.signalRate;
+        if ([self.signalRateMetric isEqualToString:kASSignalMetricTypeMinutes]){
+            signalRate *= 60;
+        }
+        
+        return [NSString stringWithFormat:@"Upload123456 %03d", (int)signalRate];
+    } else {
+        NSString *rateMetric = [self.signalRateMetric isEqualToString:kASSignalMetricTypeMinutes] ?
+        @"m" : @"s";
+        return [NSString stringWithFormat:@"T%03d%@***n123456",
+                              (int)self.signalRate,
+                              rateMetric];
+    }
 }
 
 -(NSArray*)getSmsTextsForGeofenceLaunch:(BOOL)isOn
 {
     return @[];
 }
-
 
 @end

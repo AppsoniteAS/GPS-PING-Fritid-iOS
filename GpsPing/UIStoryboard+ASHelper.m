@@ -16,4 +16,10 @@
                                      bundle:[NSBundle mainBundle]];
 }
 
++(UIStoryboard*)mainMenuStoryboard
+{
+    return [UIStoryboard storyboardWithName:@"Main"
+                                     bundle:[NSBundle mainBundle]];
+}
+
 @end
