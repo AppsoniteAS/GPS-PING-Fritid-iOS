@@ -10,6 +10,16 @@
 
 @implementation ASSignInViewModel
 
+-(RACSignal *)signalSubmit
+{
+    return [RACSignal combineLatest:@[RACObserve(self, password),
+                                      RACObserve(self, username)]
+                             reduce:^id(NSString* username, NSString* password)
+            {
+                return @((username.length > 0) && (password.length > 0));
+            }];
+}
+
 -(RACCommand *)submit {
     
     RACSignal* isCorrect = [RACSignal combineLatest:@[RACObserve(self, password),

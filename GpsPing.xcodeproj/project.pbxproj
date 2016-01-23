@@ -46,6 +46,7 @@
 		A6F6A74B1C5122210009579A /* ASSmsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A6F6A74A1C5122210009579A /* ASSmsManager.m */; };
 		A6F6A74E1C51742A0009579A /* ASSelectTrackerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6F6A74D1C51742A0009579A /* ASSelectTrackerViewController.m */; };
 		A6F6A7511C52246E0009579A /* ASTapView.m in Sources */ = {isa = PBXBuildFile; fileRef = A6F6A7501C52246E0009579A /* ASTapView.m */; };
+		A6F6A7541C524E680009579A /* AGApiController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6F6A7531C524E680009579A /* AGApiController.m */; };
 		AB89466E1C4E334B002E86C8 /* About.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB89466D1C4E334B002E86C8 /* About.storyboard */; };
 		AB8946711C4E3372002E86C8 /* ASAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB8946701C4E3372002E86C8 /* ASAboutViewController.m */; };
 		AB8946721C4E3372002E86C8 /* ASAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB8946701C4E3372002E86C8 /* ASAboutViewController.m */; };
@@ -143,6 +144,9 @@
 		A6F6A74D1C51742A0009579A /* ASSelectTrackerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASSelectTrackerViewController.m; sourceTree = "<group>"; };
 		A6F6A74F1C52246E0009579A /* ASTapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASTapView.h; sourceTree = "<group>"; };
 		A6F6A7501C52246E0009579A /* ASTapView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASTapView.m; sourceTree = "<group>"; };
+		A6F6A7521C524E680009579A /* AGApiController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGApiController.h; sourceTree = "<group>"; };
+		A6F6A7531C524E680009579A /* AGApiController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGApiController.m; sourceTree = "<group>"; };
+		A6F6A7561C524FBF0009579A /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		AB89466D1C4E334B002E86C8 /* About.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = About.storyboard; sourceTree = "<group>"; };
 		AB89466F1C4E3372002E86C8 /* ASAboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASAboutViewController.h; sourceTree = "<group>"; };
 		AB8946701C4E3372002E86C8 /* ASAboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASAboutViewController.m; sourceTree = "<group>"; };
@@ -249,6 +253,7 @@
 				A68C1B421C4CE460000E2BA6 /* Info.plist */,
 				A68C1B641C4D182A000E2BA6 /* Resources */,
 				A68C1B311C4CE460000E2BA6 /* Supporting Files */,
+				A6F6A7561C524FBF0009579A /* PrefixHeader.pch */,
 			);
 			path = GpsPing;
 			sourceTree = "<group>";
@@ -305,6 +310,8 @@
 		A68C1B881C4D2550000E2BA6 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				A6F6A7521C524E680009579A /* AGApiController.h */,
+				A6F6A7531C524E680009579A /* AGApiController.m */,
 				A68C1B9C1C4E43AB000E2BA6 /* ASNavigationController.h */,
 				A68C1B9D1C4E43AB000E2BA6 /* ASNavigationController.m */,
 				A68C1B851C4D2549000E2BA6 /* ASButton.h */,
@@ -668,6 +675,7 @@
 				AB8946711C4E3372002E86C8 /* ASAboutViewController.m in Sources */,
 				A68C1B331C4CE460000E2BA6 /* main.m in Sources */,
 				A6F6A74E1C51742A0009579A /* ASSelectTrackerViewController.m in Sources */,
+				A6F6A7541C524E680009579A /* AGApiController.m in Sources */,
 				A68C1BAA1C4F71CB000E2BA6 /* ASTrackerConfigurationViewController.m in Sources */,
 				A68C1B9B1C4E40D2000E2BA6 /* UIColor+ASColor.m in Sources */,
 				AB89468D1C4F3203002E86C8 /* ASRegisterViewModel.m in Sources */,
@@ -812,6 +820,8 @@
 			baseConfigurationReference = D56B56EC24DC9B71F55AC4BB /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = GpsPing/PrefixHeader.pch;
 				INFOPLIST_FILE = GpsPing/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = appsonite.GpsPing;
@@ -824,6 +834,8 @@
 			baseConfigurationReference = 77A21FE96824543E1D08D970 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = GpsPing/PrefixHeader.pch;
 				INFOPLIST_FILE = GpsPing/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = appsonite.GpsPing;

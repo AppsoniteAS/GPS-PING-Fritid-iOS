@@ -13,6 +13,8 @@
 #import <Fabric/Fabric.h>
 #import <Crashlytics/Crashlytics.h>
 #import <SVProgressHUD.h>
+#import <Objection/Objection.h>
+
 #import <CrashlyticsLogger.h>
 
 DDLogLevel ddLogLevel = DDLogLevelError;
@@ -27,6 +29,8 @@ DDLogLevel ddLogLevel = DDLogLevelError;
     self = [super init];
     if (self) {
         [self initializeLogginig];
+        [self initializeDependencyInjection];
+
     }
     return self;
 }
@@ -38,6 +42,11 @@ DDLogLevel ddLogLevel = DDLogLevelError;
     [DDLog addLogger:[CrashlyticsLogger sharedInstance]];
     [[DDTTYLogger sharedInstance] setColorsEnabled:YES];
     DDLogDebug(@"Logging initialized");
+}
+
+- (void)initializeDependencyInjection {
+    JSObjectionInjector* injector = [JSObjection createInjector];
+    [JSObjection setDefaultInjector:injector];
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {

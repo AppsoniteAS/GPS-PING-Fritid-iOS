@@ -10,6 +10,16 @@
 
 @implementation ASRegisterViewModel
 
+-(RACSignal *)signalSubmit
+{
+    return [RACSignal combineLatest:@[RACObserve(self, password),
+                                      RACObserve(self, username)]
+                             reduce:^id(NSString* username, NSString* password)
+            {
+                return @((username.length > 0) && (password.length > 0));
+            }];
+}
+
 -(RACCommand *)submit {
     
     RACSignal* isCorrect = [RACSignal combineLatest:@[RACObserve(self, username),
@@ -24,7 +34,7 @@
     return [[RACCommand alloc] initWithEnabled:isCorrect
                                    signalBlock:^RACSignal *(id input)
             {
-                return [RACSignal empty];
+                return self.signalSubmit;
             }];
 }
 
