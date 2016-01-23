@@ -72,28 +72,6 @@ objection_initializer(initWithConfiguration:);
     return self;
 }
 
-#pragma mark - Templates
-
--(RACSignal *)getTemplates {
-    DDLogDebug(@"%s", __PRETTY_FUNCTION__);
-    
-#ifdef AG_DEBUG_MODE
-    NSArray *templatesNames = @[XML_URL, XML_URL2, XML_URL3];
-    return [RACSignal return:templatesNames];
-#endif
-    
-    return [[self performHttpRequestWithAttempts:@"GET" resource:@"documents" parameters:@{}]
-            flattenMap:^RACStream *(id response) {
-                NSArray *templatesNames = response[@"documents"];
-                return [RACSignal return:templatesNames];
-            }];
-}
-
--(RACSignal *)downloadTemplateWithName:(NSString*)name {
-    DDLogDebug(@"%s", __PRETTY_FUNCTION__);
-    return [self performHttpRequestWithAttempts:@"GET" resource:name parameters:@{}];
-}
-
 -(RACSignal *)getNonce
 {
     DDLogDebug(@"%s", __PRETTY_FUNCTION__);
