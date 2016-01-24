@@ -64,6 +64,9 @@
 		AB8946961C50D6B0002E86C8 /* ASProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB8946951C50D6B0002E86C8 /* ASProfileViewController.m */; };
 		AB8946991C50D6CD002E86C8 /* ASProfileViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AB8946981C50D6CD002E86C8 /* ASProfileViewModel.m */; };
 		AB89469C1C510E96002E86C8 /* ASViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB89469B1C510E96002E86C8 /* ASViewController.m */; };
+		AB8946A81C549516002E86C8 /* ASUserProfileModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AB8946A71C549516002E86C8 /* ASUserProfileModel.m */; };
+		AB8946AB1C549E9F002E86C8 /* RACSignal+BackendHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = AB8946AA1C549E9F002E86C8 /* RACSignal+BackendHelpers.m */; };
+		AB8946AE1C54A4DD002E86C8 /* ASMainViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AB8946AD1C54A4DD002E86C8 /* ASMainViewModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -172,6 +175,12 @@
 		AB8946981C50D6CD002E86C8 /* ASProfileViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASProfileViewModel.m; sourceTree = "<group>"; };
 		AB89469A1C510E96002E86C8 /* ASViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASViewController.h; sourceTree = "<group>"; };
 		AB89469B1C510E96002E86C8 /* ASViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASViewController.m; sourceTree = "<group>"; };
+		AB8946A61C549516002E86C8 /* ASUserProfileModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASUserProfileModel.h; sourceTree = "<group>"; };
+		AB8946A71C549516002E86C8 /* ASUserProfileModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASUserProfileModel.m; sourceTree = "<group>"; };
+		AB8946A91C549E9F002E86C8 /* RACSignal+BackendHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RACSignal+BackendHelpers.h"; sourceTree = "<group>"; };
+		AB8946AA1C549E9F002E86C8 /* RACSignal+BackendHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RACSignal+BackendHelpers.m"; sourceTree = "<group>"; };
+		AB8946AC1C54A4DD002E86C8 /* ASMainViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASMainViewModel.h; sourceTree = "<group>"; };
+		AB8946AD1C54A4DD002E86C8 /* ASMainViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASMainViewModel.m; sourceTree = "<group>"; };
 		D56B56EC24DC9B71F55AC4BB /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -322,6 +331,8 @@
 				AB89469B1C510E96002E86C8 /* ASViewController.m */,
 				A68C1BA51C4F7006000E2BA6 /* UIStoryboard+ASHelper.h */,
 				A68C1BA61C4F7006000E2BA6 /* UIStoryboard+ASHelper.m */,
+				AB8946A91C549E9F002E86C8 /* RACSignal+BackendHelpers.h */,
+				AB8946AA1C549E9F002E86C8 /* RACSignal+BackendHelpers.m */,
 				A6F6A7491C5122210009579A /* ASSmsManager.h */,
 				A6F6A74A1C5122210009579A /* ASSmsManager.m */,
 				A6F6A74F1C52246E0009579A /* ASTapView.h */,
@@ -351,6 +362,8 @@
 			children = (
 				A68C1B371C4CE460000E2BA6 /* MainMenuViewController.h */,
 				A68C1B381C4CE460000E2BA6 /* MainMenuViewController.m */,
+				AB8946AC1C54A4DD002E86C8 /* ASMainViewModel.h */,
+				AB8946AD1C54A4DD002E86C8 /* ASMainViewModel.m */,
 				A68C1B3A1C4CE460000E2BA6 /* Main.storyboard */,
 				A6F6A74C1C51742A0009579A /* ASSelectTrackerViewController.h */,
 				A6F6A74D1C51742A0009579A /* ASSelectTrackerViewController.m */,
@@ -363,6 +376,8 @@
 			children = (
 				A68C1B961C4E3B0D000E2BA6 /* ASTrackerModel.h */,
 				A68C1B971C4E3B0D000E2BA6 /* ASTrackerModel.m */,
+				AB8946A61C549516002E86C8 /* ASUserProfileModel.h */,
+				AB8946A71C549516002E86C8 /* ASUserProfileModel.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -663,6 +678,7 @@
 				AB89468A1C4F31F3002E86C8 /* ASSignInViewModel.m in Sources */,
 				AB8946961C50D6B0002E86C8 /* ASProfileViewController.m in Sources */,
 				A6F6A74B1C5122210009579A /* ASSmsManager.m in Sources */,
+				AB8946A81C549516002E86C8 /* ASUserProfileModel.m in Sources */,
 				A6F6A7511C52246E0009579A /* ASTapView.m in Sources */,
 				AB8946991C50D6CD002E86C8 /* ASProfileViewModel.m in Sources */,
 				A68C1B981C4E3B0D000E2BA6 /* ASTrackerModel.m in Sources */,
@@ -671,6 +687,7 @@
 				A68C1B361C4CE460000E2BA6 /* AppDelegate.m in Sources */,
 				A68C1BA41C4F6AEE000E2BA6 /* ASChooseTrackerViewController.m in Sources */,
 				A68C1B921C4E38D6000E2BA6 /* ASTrackerCell.m in Sources */,
+				AB8946AB1C549E9F002E86C8 /* RACSignal+BackendHelpers.m in Sources */,
 				AB89469C1C510E96002E86C8 /* ASViewController.m in Sources */,
 				AB8946711C4E3372002E86C8 /* ASAboutViewController.m in Sources */,
 				A68C1B331C4CE460000E2BA6 /* main.m in Sources */,
@@ -679,6 +696,7 @@
 				A68C1BAA1C4F71CB000E2BA6 /* ASTrackerConfigurationViewController.m in Sources */,
 				A68C1B9B1C4E40D2000E2BA6 /* UIColor+ASColor.m in Sources */,
 				AB89468D1C4F3203002E86C8 /* ASRegisterViewModel.m in Sources */,
+				AB8946AE1C54A4DD002E86C8 /* ASMainViewModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

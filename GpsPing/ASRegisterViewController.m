@@ -8,12 +8,8 @@
 
 #import "ASRegisterViewController.h"
 #import "ASRegisterViewModel.h"
-#import "AGApiController.h"
 
 @interface ASRegisterViewController ()
-
-@property (nonatomic, strong) AGApiController   *apiController;
-
 @property (nonatomic, readonly) ASRegisterViewModel     *viewModel;
 @property (nonatomic, weak    ) IBOutlet UITextField  *textFieldUsername;
 @property (nonatomic, weak    ) IBOutlet UITextField  *textFieldEmail;
@@ -24,11 +20,8 @@
 
 @implementation ASRegisterViewController
 
-objection_requires(@keypath(ASRegisterViewController.new, apiController))
-
 -(void)viewDidLoad {
     [super viewDidLoad];
-    [[JSObjection defaultInjector] injectDependencies:self];
 
     [self registerForKeyboardNotifications];
     
@@ -46,27 +39,10 @@ objection_requires(@keypath(ASRegisterViewController.new, apiController))
     self.textFieldConfirmPassword.text   = self.viewModel.confirmPassword;
     RAC(self.viewModel, confirmPassword) = self.textFieldConfirmPassword.rac_textSignal;
     
-    self.buttonSubmit.rac_command = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
-        return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
-            BOOL isValid = (self.viewModel.username.length > 0)
-            && (self.viewModel.password.length > 0);
-            if (isValid) {
-                [[self.apiController getNonce] subscribeNext:^(id x) {
-                    [[self.apiController registerUser:self.textFieldUsername.text
-                                                email:self.textFieldEmail.text
-                                             password:self.textFieldPassword.text
-                                                nonce:x[@"nonce"]] subscribeNext:^(id x) {
-                        [[self.apiController authUser:self.textFieldUsername.text password:self.textFieldPassword.text] subscribeNext:^(id x) {
-                            
-                            [self dismissViewControllerAnimated:YES completion:nil];
-                        }];
-                    }];
-                }];
-            }
-            
-            return nil;
-        }];
-    }];
+    self.buttonSubmit.rac_command = self.viewModel.submit;
+    
+    [self rac_liftSelector:@selector(doSubmit:)
+               withSignals:self.buttonSubmit.rac_command.executionSignals.flatten, nil];
 
     [self rac_liftSelector:@selector(onError:)
                withSignals:self.buttonSubmit.rac_command.errors, nil];

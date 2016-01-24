@@ -15,6 +15,7 @@
 @property (nonatomic, weak    ) IBOutlet UITextField         *textFieldFullName;
 @property (nonatomic, weak    ) IBOutlet UITextField         *textFieldEmail;
 @property (nonatomic, weak    ) IBOutlet UIButton            *buttonSubmit;
+
 @end
 
 @implementation ASProfileViewController
@@ -54,7 +55,10 @@
 #pragma mark - IBActions
 
 -(IBAction)doLogout:(id)sender {
-    
+    [self.viewModel logOut];
+    self.textFieldUsername.text = nil;
+    self.textFieldFullName.text = nil;
+    self.textFieldEmail.text = nil;
 }
 
 @end

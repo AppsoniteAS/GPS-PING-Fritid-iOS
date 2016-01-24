@@ -7,6 +7,8 @@
 //
 
 #import "AGApiController.h"
+#import "RACSignal+BackendHelpers.h"
+
 #import <CocoaLumberjack/CocoaLumberjack.h>
 static const DDLogLevel ddLogLevel = DDLogLevelVerbose;
 
@@ -102,7 +104,17 @@ objection_initializer(initWithConfiguration:);
 -(RACSignal *)authUser:(NSString*)userName password:(NSString*)password
 {
     DDLogDebug(@"%s", __PRETTY_FUNCTION__);
-    return [self performHttpRequestWithAttempts:@"GET" resource:@"user/generate_auth_cookie" parameters:@{@"username":userName, @"password":password}];
+    @weakify(self)
+    return [[[[self performHttpRequestWithAttempts:@"GET" resource:@"user/generate_auth_cookie" parameters:@{@"username":userName, @"password":password}] unpackObjectOfClass:[ASUserProfileModel class]] deliverOnMainThread] doNext:^(ASUserProfileModel* profile)
+            {
+                @strongify(self);
+                self.userProfile = profile;
+            }];
+}
+
+-(RACSignal *)logout {
+    self.userProfile = nil;
+    return [RACSignal empty];
 }
 
 #pragma mark - Private methods

@@ -8,13 +8,8 @@
 
 #import "ASSignInViewController.h"
 #import "ASSignInViewModel.h"
-#import "AGApiController.h"
-#import <CocoaLumberjack.h>
-static DDLogLevel ddLogLevel = DDLogLevelDebug;
+
 @interface ASSignInViewController ()
-
-@property (nonatomic, strong) AGApiController   *apiController;
-
 @property (nonatomic, readonly) ASSignInViewModel     *viewModel;
 @property (nonatomic, weak    ) IBOutlet UITextField  *textFieldUsername;
 @property (nonatomic, weak    ) IBOutlet UITextField  *textFieldPassword;
@@ -23,11 +18,8 @@ static DDLogLevel ddLogLevel = DDLogLevelDebug;
 
 @implementation ASSignInViewController
 
-objection_requires(@keypath(ASSignInViewController.new, apiController))
-
 -(void)viewDidLoad {
     [super viewDidLoad];
-    [[JSObjection defaultInjector] injectDependencies:self];
     
     [self registerForKeyboardNotifications];
     
@@ -58,14 +50,6 @@ objection_requires(@keypath(ASSignInViewController.new, apiController))
 
 -(IBAction)doSubmit:(id)sender {
     [self dismissViewControllerAnimated:true completion:nil];
-}
-
-- (IBAction)loginTap:(id)sender {
-    [[self.apiController authUser:self.viewModel.username password:self.viewModel.password] subscribeNext:^(id x) {
-        {
-            DDLogDebug(@"auth result %@", x);
-        }
-    }];
 }
 
 @end

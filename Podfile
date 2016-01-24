@@ -21,3 +21,5 @@ pod 'UINavigationBar+Addition'
 pod 'UIImage-ResizeMagick', :git => 'https://github.com/lazarev/UIImage-ResizeMagick', :commit => '21544f3b88f7e4ddc1c9f04979204e775be47caf'
 pod 'Fabric'
 pod 'Mantle', '~> 2.0.6'
+pod 'Underscore.m', '~> 0.2.1'
+

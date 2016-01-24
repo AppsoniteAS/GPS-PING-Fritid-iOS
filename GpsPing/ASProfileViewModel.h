@@ -16,4 +16,6 @@
 @property (strong, nonatomic) NSString* email;
 @property (readonly, nonatomic) RACCommand* submit;
 
+- (void)logOut;
+
 @end

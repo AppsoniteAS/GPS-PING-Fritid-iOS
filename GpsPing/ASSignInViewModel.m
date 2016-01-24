@@ -7,17 +7,24 @@
 //
 
 #import "ASSignInViewModel.h"
+#import "AGApiController.h"
+
+#import <CocoaLumberjack.h>
+static DDLogLevel ddLogLevel = DDLogLevelDebug;
+
+@interface ASSignInViewModel ()
+@property (nonatomic, strong) AGApiController   *apiController;
+@end
 
 @implementation ASSignInViewModel
+objection_requires(@keypath(ASSignInViewModel.new, apiController))
 
--(RACSignal *)signalSubmit
-{
-    return [RACSignal combineLatest:@[RACObserve(self, password),
-                                      RACObserve(self, username)]
-                             reduce:^id(NSString* username, NSString* password)
-            {
-                return @((username.length > 0) && (password.length > 0));
-            }];
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        [[JSObjection defaultInjector] injectDependencies:self];
+    }
+    return self;
 }
 
 -(RACCommand *)submit {
@@ -34,7 +41,12 @@
                                    signalBlock:^RACSignal *(id input)
             {
                 @strongify(self);
-                return [RACSignal empty];
+//                return [self.apiController authUser:self.username password:self.password];
+                return [[self.apiController authUser:self.username password:self.password] doNext:^(id x) {
+                        DDLogDebug(@"auth result %@", x);
+                }];
             }];
 }
+
+
 @end

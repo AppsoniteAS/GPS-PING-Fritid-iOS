@@ -7,10 +7,34 @@
 //
 
 #import "ASProfileViewModel.h"
+#import "AGApiController.h"
+
+@interface ASProfileViewModel()
+@property (nonatomic, strong) AGApiController   *apiController;
+@end
 
 @implementation ASProfileViewModel
+objection_requires(@keypath(ASProfileViewModel.new, apiController))
 
--(RACCommand *)submit {
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        [self initialize];
+    }
+    return self;
+}
+
+- (void)initialize {
+    [[JSObjection defaultInjector] injectDependencies:self];
+    self.username = self.apiController.userProfile.username;
+    if (self.apiController.userProfile.firstname != nil && self.apiController.userProfile.lastname != nil) {
+        self.fullName = [NSString stringWithFormat:@"%@ %@",self.apiController.userProfile.firstname, self.apiController.userProfile.lastname];
+    }
+    self.email = self.apiController.userProfile.email;
+    
+}
+
+- (RACCommand *)submit {
     
     RACSignal* isCorrect = [RACSignal combineLatest:@[RACObserve(self, username),
                                                       RACObserve(self, fullName),
@@ -25,6 +49,10 @@
             {
                 return [RACSignal empty];
             }];
+}
+
+- (void)logOut {
+    [[self.apiController logout] replay];
 }
 
 @end

@@ -9,20 +9,24 @@
 #import "MainMenuViewController.h"
 #import "ASSelectTrackerViewController.h"
 #import "ASSmsManager.h"
+#import "ASMainViewModel.h"
 
 @interface MainMenuViewController() <ASSelectTrackerProtocol>
 
+@property (nonatomic, readonly) ASMainViewModel     *viewModel;
 @property (weak, nonatomic) IBOutlet UIButton *startStopButton;
 @property (nonatomic, assign) BOOL trackerStarted;
 
 @end
 
 @implementation MainMenuViewController {
-    BOOL authIsShowed;
+    BOOL isAuthShown;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self->_viewModel = [[ASMainViewModel alloc] init];
     
     self.startStopButton.layer.borderColor = [UIColor colorWithRed:0.4796 green:0.7302 blue:0.2274 alpha:1.0].CGColor;
     self.startStopButton.layer.borderWidth = 6.0;
@@ -37,14 +41,16 @@
 }
 
 - (void)viewDidAppear:(BOOL)animated {
-    [self showAuth];
+    if (isAuthShown == NO) {
+        [self showAuth];
+        isAuthShown = YES;
+    }
 }
 
 - (void)showAuth {
-    if (authIsShowed == NO) {
+    if (self.viewModel.apiController.userProfile == nil) {
         UIViewController* controller = [[UIStoryboard storyboardWithName:@"Auth" bundle:nil] instantiateInitialViewController];
         [self.navigationController presentViewController:controller animated:YES completion:nil];
-        authIsShowed = YES;
     }
 }
 

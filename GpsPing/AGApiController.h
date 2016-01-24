@@ -12,6 +12,7 @@
 #import "ReactiveCocoa.h"
 #import <Objection/Objection.h>
 #import <extobjc.h>
+#import "ASUserProfileModel.h"
 
 extern NSString* AGOpteumBackendError;
 extern NSString* AGRhythmMobileError;
@@ -33,6 +34,7 @@ extern NSString *kASUserDefaultsKeyPassword;
 
 @interface AGApiController : NSObject
 
+@property (nonatomic, strong) ASUserProfileModel *userProfile;
 @property (nonatomic, strong) NSURL *baseUrl;
 
 #pragma mark - Templates
@@ -40,5 +42,6 @@ extern NSString *kASUserDefaultsKeyPassword;
 -(RACSignal *)getNonce;
 -(RACSignal *)registerUser:(NSString*)userName email:(NSString*)email password:(NSString*)password nonce:(NSString*)nonce;
 -(RACSignal *)authUser:(NSString*)userName password:(NSString*)password;
+-(RACSignal *)logout;
 
 @end
