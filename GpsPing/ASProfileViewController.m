@@ -27,20 +27,29 @@
     
     self->_viewModel = [[ASProfileViewModel alloc] init];
     
-    self.textFieldUsername.text      = self.viewModel.username;
+    @weakify(self);
+    [[RACObserve(self.viewModel, username) distinctUntilChanged] subscribeNext:^(NSString* username) {
+        @strongify(self);
+        self.textFieldUsername.text = username;
+    }];
     RAC(self.viewModel, username)    = self.textFieldUsername.rac_textSignal;
-    
-    self.textFieldFullName.text   = self.viewModel.fullName;
+
+    [[RACObserve(self.viewModel, fullName) distinctUntilChanged] subscribeNext:^(NSString* fullName) {
+        @strongify(self);
+       self.textFieldFullName.text   = fullName;
+    }];
     RAC(self.viewModel, fullName) = self.textFieldFullName.rac_textSignal;
     
-    self.textFieldEmail.text   = self.viewModel.email;
+    [[RACObserve(self.viewModel, email) distinctUntilChanged] subscribeNext:^(NSString* email) {
+        @strongify(self);
+        self.textFieldEmail.text   = email;
+    }];
     RAC(self.viewModel, email) = self.textFieldEmail.rac_textSignal;
     
     self.buttonSubmit.rac_command = self.viewModel.submit;
 
     [self rac_liftSelector:@selector(onError:)
                withSignals:self.buttonSubmit.rac_command.errors, nil];
-
 }
 
 -(void)onError:(NSError*)error {
@@ -56,9 +65,8 @@
 
 -(IBAction)doLogout:(id)sender {
     [self.viewModel logOut];
-    self.textFieldUsername.text = nil;
-    self.textFieldFullName.text = nil;
-    self.textFieldEmail.text = nil;
+    UIViewController* controller = [[UIStoryboard storyboardWithName:@"Auth" bundle:nil] instantiateInitialViewController];
+    [self.navigationController presentViewController:controller animated:YES completion:nil];
 }
 
 @end

@@ -233,12 +233,6 @@
                                 <constraint firstItem="21s-m3-51m" firstAttribute="centerY" secondItem="Zok-R4-K5Z" secondAttribute="centerY" id="m9U-BA-Wve"/>
                             </constraints>
                         </view>
-                        <barButtonItem key="rightBarButtonItem" title="Close" style="done" id="lnC-dO-VUF">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <connections>
-                                <action selector="doSubmit:" destination="eYz-Sy-0XE" id="Wm1-me-SSp"/>
-                            </connections>
-                        </barButtonItem>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>

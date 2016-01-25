@@ -41,10 +41,7 @@ objection_requires(@keypath(ASSignInViewModel.new, apiController))
                                    signalBlock:^RACSignal *(id input)
             {
                 @strongify(self);
-//                return [self.apiController authUser:self.username password:self.password];
-                return [[self.apiController authUser:self.username password:self.password] doNext:^(id x) {
-                        DDLogDebug(@"auth result %@", x);
-                }];
+                return [self.apiController authUser:self.username password:self.password];
             }];
 }
 

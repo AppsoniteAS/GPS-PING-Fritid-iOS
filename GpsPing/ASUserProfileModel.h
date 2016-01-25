@@ -11,10 +11,15 @@
 
 @interface ASUserProfileModel : MTLModel<MTLJSONSerializing>
 
-@property (assign, nonatomic) NSUInteger idNumber;
 @property (strong, nonatomic) NSString   *username;
 @property (strong, nonatomic) NSString   *email;
 @property (strong, nonatomic) NSString   *firstname;
 @property (strong, nonatomic) NSString   *lastname;
+@property (strong, nonatomic) NSString   *cookie;
+@property (strong, nonatomic) NSString   *cookieName;
+
++ (void)saveProfileInfoLocally:(ASUserProfileModel *)profile;
++ (ASUserProfileModel *)loadSavedProfileInfo;
++ (void)removeLocallyProfileInfo;
 
 @end

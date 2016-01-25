@@ -26,12 +26,15 @@ objection_requires(@keypath(ASProfileViewModel.new, apiController))
 
 - (void)initialize {
     [[JSObjection defaultInjector] injectDependencies:self];
-    self.username = self.apiController.userProfile.username;
-    if (self.apiController.userProfile.firstname != nil && self.apiController.userProfile.lastname != nil) {
-        self.fullName = [NSString stringWithFormat:@"%@ %@",self.apiController.userProfile.firstname, self.apiController.userProfile.lastname];
-    }
-    self.email = self.apiController.userProfile.email;
-    
+    @weakify(self);
+    [[RACObserve(self, apiController.userProfile) distinctUntilChanged] subscribeNext:^(ASUserProfileModel* profile) {
+        @strongify(self);
+        self.username = self.apiController.userProfile.username;
+        if (self.apiController.userProfile.firstname != nil && self.apiController.userProfile.lastname != nil) {
+            self.fullName = [NSString stringWithFormat:@"%@ %@",self.apiController.userProfile.firstname, self.apiController.userProfile.lastname];
+        }
+        self.email = self.apiController.userProfile.email;
+    }];
 }
 
 - (RACCommand *)submit {
@@ -53,6 +56,10 @@ objection_requires(@keypath(ASProfileViewModel.new, apiController))
 
 - (void)logOut {
     [[self.apiController logout] replay];
+    self.username = nil;
+    self.fullName = nil;
+    self.email = nil;
+
 }
 
 @end

@@ -14,9 +14,14 @@ objection_requires(@keypath(ASMainViewModel.new, apiController))
 - (instancetype)init {
     self = [super init];
     if (self) {
-        [[JSObjection defaultInjector] injectDependencies:self];
+        [self initialize];
     }
     return self;
+}
+
+- (void)initialize {
+    [[JSObjection defaultInjector] injectDependencies:self];
+    self.apiController.userProfile = [ASUserProfileModel loadSavedProfileInfo];
 }
 
 @end

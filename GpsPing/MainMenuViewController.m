@@ -11,6 +11,9 @@
 #import "ASSmsManager.h"
 #import "ASMainViewModel.h"
 
+#import <CocoaLumberjack.h>
+static DDLogLevel ddLogLevel = DDLogLevelDebug;
+
 @interface MainMenuViewController() <ASSelectTrackerProtocol>
 
 @property (nonatomic, readonly) ASMainViewModel     *viewModel;

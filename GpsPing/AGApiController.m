@@ -105,15 +105,18 @@ objection_initializer(initWithConfiguration:);
 {
     DDLogDebug(@"%s", __PRETTY_FUNCTION__);
     @weakify(self)
-    return [[[[self performHttpRequestWithAttempts:@"GET" resource:@"user/generate_auth_cookie" parameters:@{@"username":userName, @"password":password}] unpackObjectOfClass:[ASUserProfileModel class]] deliverOnMainThread] doNext:^(ASUserProfileModel* profile)
+    return [[[[self performHttpRequestWithAttempts:@"GET" resource:@"user/generate_auth_cookie" parameters:@{@"username":userName, @"password":password, @"seconds":@"999999999"
+}] unpackObjectOfClass:[ASUserProfileModel class]] deliverOnMainThread] doNext:^(ASUserProfileModel* profile)
             {
                 @strongify(self);
                 self.userProfile = profile;
+                [ASUserProfileModel saveProfileInfoLocally:profile];
             }];
 }
 
 -(RACSignal *)logout {
     self.userProfile = nil;
+    [ASUserProfileModel removeLocallyProfileInfo];
     return [RACSignal empty];
 }
 
