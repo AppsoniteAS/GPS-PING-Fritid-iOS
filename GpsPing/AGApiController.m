@@ -120,7 +120,66 @@ objection_initializer(initWithConfiguration:);
     return [RACSignal empty];
 }
 
+#pragma mark - Tracker
+
+-(RACSignal *)addTracker:(NSString*)name
+                    imei:(NSString*)imei 
+                  number:(NSString*)number
+              repeatTime:(CGFloat)repeatTime
+                    type:(NSString*)type
+           checkForStand:(BOOL)checkForStand
+{
+    DDLogDebug(@"%s", __PRETTY_FUNCTION__);
+    NSDictionary *params = @{@"name":name,
+                             @"imei_number":imei,
+                             @"tracker_number":number,
+                             @"reciver_signal_repeat_time":@(repeatTime),
+                             @"check_for_stand":@(checkForStand)};
+    params = [self addAuthParamsByUpdatingParams:params];
+    return [self performHttpRequestWithAttempts:@"GET"
+                                       resource:@"tracker/add_tracker"
+                                     parameters:params];
+}
+
+-(RACSignal *)getTrackers
+{
+    DDLogDebug(@"%s", __PRETTY_FUNCTION__);
+    return [self performHttpRequestWithAttempts:@"GET"
+                                       resource:@"tracker/get_trackers"
+                                     parameters:[self addAuthParamsByUpdatingParams:@{}]];
+}
+
+-(RACSignal *)updateTracker:(NSString*)name
+                  trackerId:(NSString*)trackerId
+                 repeatTime:(CGFloat)repeatTime
+              checkForStand:(BOOL)checkForStand
+{
+    DDLogDebug(@"%s", __PRETTY_FUNCTION__);
+    
+    NSDictionary *params = @{@"name":name,
+                             @"tracker_id":trackerId,
+                             @"reciver_signal_repeat_time":@(repeatTime),
+                             @"check_for_stand":@(checkForStand)};
+    params = [self addAuthParamsByUpdatingParams:params];
+    return [self performHttpRequestWithAttempts:@"GET"
+                                       resource:@"tracker/update_tracker"
+                                     parameters:params];
+}
+
+-(RACSignal *)removeTracker:(NSString*)imei
+{
+    DDLogDebug(@"%s", __PRETTY_FUNCTION__);
+    return [self performHttpRequestWithAttempts:@"GET"
+                                       resource:@"tracker/remove_tracker"
+                                     parameters:[self addAuthParamsByUpdatingParams:@{@"imei_number":imei}]];
+}
+
 #pragma mark - Private methods
+
+-(NSDictionary *)addAuthParamsByUpdatingParams:(NSDictionary*)params
+{
+    return [params mtl_dictionaryByAddingEntriesFromDictionary:@{@"cookie":@"username|2453708791|2Qcy5QDHoRJfkxs3zJdIbBxQgGO5OS89wT6AeSvi7k3|39fd2b91c65e1c8d7f835771cdc4206d24dc6c40c7bd1a88029230dfa08c2ded"}];
+}
 
 -(RACSignal*)performHttpRequestWithAttempts:(NSString*)method resource:(NSString*)resource parameters:(NSDictionary*)params
 {
