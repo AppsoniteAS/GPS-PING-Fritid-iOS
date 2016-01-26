@@ -20,14 +20,16 @@ static NSString * const kASUserDefaultsTrackersKey   = @"kASUserDefaultsTrackers
 
 @interface ASTrackerModel : MTLModel <MTLJSONSerializing>
 
-@property (nonatomic) NSString *trackerName;
-@property (nonatomic) NSString *trackerNumber;
-@property (nonatomic) NSString *imeiNumber;
-@property (nonatomic) NSString *trackerType;
-@property (nonatomic, assign) BOOL isChoosed;
-@property (nonatomic, assign) BOOL dogInStand;
+//@property (nonatomic        ) NSString  *trackerId;
+@property (nonatomic        ) NSString  *trackerName;
+@property (nonatomic        ) NSString  *trackerNumber;
+@property (nonatomic        ) NSString  *imeiNumber;
+@property (nonatomic        ) NSString  *trackerType;
+@property (nonatomic, assign) BOOL      isChoosed;
+@property (nonatomic, assign) BOOL      dogInStand;
 @property (nonatomic, assign) NSInteger signalRate;
-@property (nonatomic, assign) NSString *signalRateMetric;
+@property (nonatomic        ) NSNumber  *signalRateInSeconds;
+@property (nonatomic, assign) NSString  *signalRateMetric;
 
 +(instancetype)initTrackerWithName:(NSString *)name
                             number:(NSString *)number

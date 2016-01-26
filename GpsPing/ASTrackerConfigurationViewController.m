@@ -12,6 +12,10 @@
 #import "Masonry.h"
 #import "ASButton.h"
 #import "ASSmsManager.h"
+#import "AGApiController.h"
+
+#import <CocoaLumberjack/CocoaLumberjack.h>
+static const DDLogLevel ddLogLevel = DDLogLevelVerbose;
 
 @interface ASTrackerConfigurationViewController()<UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource, MFMessageComposeViewControllerDelegate, ASSmsManagerProtocol>
 
@@ -34,10 +38,13 @@
 
 @property (nonatomic, assign) NSInteger smsCount;
 
+@property (nonatomic, strong) AGApiController   *apiController;
 
 @end
 
 @implementation ASTrackerConfigurationViewController
+
+objection_requires(@keypath(ASTrackerConfigurationViewController.new, apiController))
 
 +(instancetype)initialize
 {
@@ -46,6 +53,7 @@
 
 -(void)viewDidLoad {
     [super viewDidLoad];
+    [[JSObjection defaultInjector] injectDependencies:self];
     [self jps_viewDidLoad];
     self.ratePickerData = @[@"1", @"2", @"3", @"5", @"7", @"10", @"20", @"30", @"40", @"50", @"60"];
     self.rateMetricPickerData = @[@"Seconds", @"Minutes"];
@@ -163,16 +171,42 @@
     self.trackerObject.isChoosed        = NO;
     self.trackerObject.dogInStand       = self.dogInStandSwitcher.isOn;
     self.trackerObject.signalRate       = self.signalRateTextField.text.integerValue;
-    self.trackerObject.signalRateMetric = self.signalRateMetricTextField.text;
-    
-    if (self.smsCount == self.trackerObject.getSmsTextsForActivation.count) {
-        [self.trackerObject saveInUserDefaults];
-        [self dismissViewControllerAnimated:YES completion:nil];
-        return;
+    if ([self.signalRateTextField.text isEqualToString:self.rateMetricPickerData[0]]) {
+        self.trackerObject.signalRateMetric = @"s";
+    } else {
+        self.trackerObject.signalRateMetric = @"m";
     }
-    
-    [self as_sendSMS:self.trackerObject.getSmsTextsForActivation[self.smsCount]
-           recipient:self.trackerObject.trackerNumber];
+  
+    if (self.shouldShowInEditMode) {
+        [self.trackerObject saveInUserDefaults];
+        CGFloat repeatTime = [self.trackerObject.signalRateMetric isEqualToString:kASSignalMetricTypeSeconds] ?
+        self.trackerObject.signalRate : self.trackerObject.signalRate * 60;
+        [[self.apiController updateTracker:self.trackerObject.trackerName
+                                 trackerId:self.trackerObject.imeiNumber
+                                repeatTime:repeatTime
+                             checkForStand:self.trackerObject.dogInStand] subscribeNext:^(id x) {
+            DDLogDebug(@"Tracker updated!");
+            [self dismissViewControllerAnimated:YES completion:nil];
+        }];
+//    } else if (self.smsCount == self.trackerObject.getSmsTextsForActivation.count) {
+    } else {
+        CGFloat repeatTime = [self.trackerObject.signalRateMetric isEqualToString:kASSignalMetricTypeSeconds] ?
+        self.trackerObject.signalRate : self.trackerObject.signalRate * 60;
+        [[self.apiController addTracker:self.trackerObject.trackerName
+                                  imei:self.trackerObject.imeiNumber
+                                number:self.trackerObject.trackerNumber
+                            repeatTime:repeatTime
+                                  type:self.trackerObject.trackerType
+                         checkForStand:self.trackerObject.dogInStand] subscribeNext:^(id x) {
+            DDLogDebug(@"Tracker Added!");
+            [self.trackerObject saveInUserDefaults];
+            [self dismissViewControllerAnimated:YES completion:nil];
+        }];
+    }
+//    } else {
+//        [self as_sendSMS:self.trackerObject.getSmsTextsForActivation[self.smsCount]
+//           recipient:self.trackerObject.trackerNumber];
+//    }
 }
 
 -(void)smsManagerMessageWasSentWithResult:(MessageComposeResult)result

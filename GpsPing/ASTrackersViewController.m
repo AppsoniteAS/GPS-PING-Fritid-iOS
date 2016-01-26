@@ -11,20 +11,26 @@
 #import "ASTrackerCell.h"
 #import "Masonry.h"
 #import "ASTrackerConfigurationViewController.h"
+#import "AGApiController.h"
+
+#import <CocoaLumberjack/CocoaLumberjack.h>
+static const DDLogLevel ddLogLevel = DDLogLevelVerbose;
 
 @interface ASTrackersViewController ()
+
+@property (nonatomic, strong) AGApiController   *apiController;
 
 @end
 
 @implementation ASTrackersViewController
 
+objection_requires(@keypath(ASTrackersViewController.new, apiController))
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    [self fillData];
+    [[JSObjection defaultInjector] injectDependencies:self];
     [self registerCellClass:[ASTrackerCell class]
               forModelClass:[ASTrackerModel class]];
-
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -33,12 +39,6 @@
     [self.memoryStorage removeAllTableItems];
     [self.memoryStorage addItems:[ASTrackerModel getTrackersFromUserDefaults]];
     [self.tableView reloadData];
-}
-
--(void)fillData {
-    [[ASTrackerModel initTrackerWithName:@"Judy" number:@"987123123" imei:@"567567567" type:kASTrackerTypeTkStar isChoosed:YES] saveInUserDefaults];
-    [[ASTrackerModel initTrackerWithName:@"Jonathan" number:@"51231233" imei:@"567567567" type:kASTrackerTypeTkStarPet isChoosed:NO] saveInUserDefaults];
-    [[ASTrackerModel initTrackerWithName:@"Richard" number:@"122353423" imei:@"567567567" type:kASTrackerTypeAnywhere isChoosed:YES] saveInUserDefaults];
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -51,7 +51,6 @@
     
     return cell;
 }
-
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -67,8 +66,10 @@
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         ASTrackerModel *model = [self.memoryStorage itemAtIndexPath:indexPath];
-        [ASTrackerModel removeTrackerWithNumber:model.trackerNumber];
-        [self.memoryStorage removeItem:model];
+        [[self.apiController removeTrackerByImei:model.imeiNumber] subscribeNext:^(id x) {
+            [ASTrackerModel removeTrackerWithNumber:model.trackerNumber];
+            [self.memoryStorage removeItem:model];
+        }];
     }
 }
 

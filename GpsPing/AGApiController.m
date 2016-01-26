@@ -8,12 +8,15 @@
 
 #import "AGApiController.h"
 #import "RACSignal+BackendHelpers.h"
+#import "ASTrackerModel.h"
+#import <Mantle.h>
 
 #import <CocoaLumberjack/CocoaLumberjack.h>
 static const DDLogLevel ddLogLevel = DDLogLevelVerbose;
 
 #define BASE_URL_PRODUCTION @"http://109.120.158.225/"
-#define BASE_URL_LOCAL      @"http://appgranula.mooo.com/api/"
+//#define BASE_URL_LOCAL      @"http://appgranula.mooo.com/api/"
+#define BASE_URL_LOCAL      @"http://192.168.139.201/api/"
 
 NSString* AGOpteumBackendError                     = @"AGOpteumBackendError";
 NSString* AGRhythmMobileError                      = @"AGRhythmMobileError";
@@ -130,11 +133,18 @@ objection_initializer(initWithConfiguration:);
            checkForStand:(BOOL)checkForStand
 {
     DDLogDebug(@"%s", __PRETTY_FUNCTION__);
+    NSString *checkForStandString;
+    if (checkForStand) {
+        checkForStandString = @"true";
+    } else {
+        checkForStandString = @"false";
+    }
     NSDictionary *params = @{@"name":name,
                              @"imei_number":imei,
                              @"tracker_number":number,
                              @"reciver_signal_repeat_time":@(repeatTime),
-                             @"check_for_stand":@(checkForStand)};
+                             @"check_for_stand":checkForStandString,
+                             @"type":type};
     params = [self addAuthParamsByUpdatingParams:params];
     return [self performHttpRequestWithAttempts:@"GET"
                                        resource:@"tracker/add_tracker"
@@ -144,9 +154,14 @@ objection_initializer(initWithConfiguration:);
 -(RACSignal *)getTrackers
 {
     DDLogDebug(@"%s", __PRETTY_FUNCTION__);
-    return [self performHttpRequestWithAttempts:@"GET"
+    return [[self performHttpRequestWithAttempts:@"GET"
                                        resource:@"tracker/get_trackers"
-                                     parameters:[self addAuthParamsByUpdatingParams:@{}]];
+                                     parameters:[self addAuthParamsByUpdatingParams:@{}]] flattenMap:^RACStream *(id value) {
+        DDLogDebug(@"%@", value);
+        NSError *error;
+        NSArray *trackersArray = [MTLJSONAdapter modelsOfClass:[ASTrackerModel class] fromJSONArray:value[@"trackers"] error:&error];
+        return [RACSignal return:trackersArray];
+    }];
 }
 
 -(RACSignal *)updateTracker:(NSString*)name
@@ -155,18 +170,23 @@ objection_initializer(initWithConfiguration:);
               checkForStand:(BOOL)checkForStand
 {
     DDLogDebug(@"%s", __PRETTY_FUNCTION__);
-    
+    NSString *checkForStandString;
+    if (checkForStand) {
+        checkForStandString = @"true";
+    } else {
+        checkForStandString = @"false";
+    }
     NSDictionary *params = @{@"name":name,
-                             @"tracker_id":trackerId,
+                             @"imei_number":trackerId,
                              @"reciver_signal_repeat_time":@(repeatTime),
-                             @"check_for_stand":@(checkForStand)};
+                             @"check_for_stand":checkForStandString};
     params = [self addAuthParamsByUpdatingParams:params];
     return [self performHttpRequestWithAttempts:@"GET"
                                        resource:@"tracker/update_tracker"
                                      parameters:params];
 }
 
--(RACSignal *)removeTracker:(NSString*)imei
+-(RACSignal *)removeTrackerByImei:(NSString*)imei
 {
     DDLogDebug(@"%s", __PRETTY_FUNCTION__);
     return [self performHttpRequestWithAttempts:@"GET"
@@ -178,7 +198,7 @@ objection_initializer(initWithConfiguration:);
 
 -(NSDictionary *)addAuthParamsByUpdatingParams:(NSDictionary*)params
 {
-    return [params mtl_dictionaryByAddingEntriesFromDictionary:@{@"cookie":@"username|2453708791|2Qcy5QDHoRJfkxs3zJdIbBxQgGO5OS89wT6AeSvi7k3|39fd2b91c65e1c8d7f835771cdc4206d24dc6c40c7bd1a88029230dfa08c2ded"}];
+    return [params mtl_dictionaryByAddingEntriesFromDictionary:@{@"cookie":self.userProfile.cookie}];
 }
 
 -(RACSignal*)performHttpRequestWithAttempts:(NSString*)method resource:(NSString*)resource parameters:(NSDictionary*)params

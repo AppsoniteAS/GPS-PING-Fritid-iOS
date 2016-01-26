@@ -25,8 +25,8 @@
     
     self->_viewModel = [[ASSignInViewModel alloc] init];
     
-    self.textFieldUsername.text      = self.viewModel.username;
-    RAC(self.viewModel, username)    = self.textFieldUsername.rac_textSignal;
+    self.textFieldUsername.text   = self.viewModel.username;
+    RAC(self.viewModel, username) = self.textFieldUsername.rac_textSignal;
     self.textFieldPassword.text   = self.viewModel.password;
     RAC(self.viewModel, password) = self.textFieldPassword.rac_textSignal;
     self.buttonSubmit.rac_command = self.viewModel.submit;

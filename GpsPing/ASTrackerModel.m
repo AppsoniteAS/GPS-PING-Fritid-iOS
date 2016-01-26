@@ -9,16 +9,16 @@
 #import "ASTrackerModel.h"
 #import <extobjc.h>
 #import <CocoaLumberjack.h>
-static DDLogLevel ddLogLevel = DDLogLevelDebug;
+static DDLogLevel ddLogLevel               = DDLogLevelDebug;
 
-NSString* const kASTrackerName      = @"name";
-NSString* const kASTrackerNumber    = @"number";
-NSString* const kASTrackerImei      = @"imei";
-NSString* const kASTrackerType      = @"type";
-NSString* const kASTrackerIsChoosed = @"choosed";
-NSString* const kASTrackerDogInStand = @"doginstand";
-NSString* const kASTrackerSignalRate = @"rate";
-NSString* const kASTrackerSignalRateMetric = @"metric";
+NSString* const kASTrackerName             = @"name";
+NSString* const kASTrackerNumber           = @"tracker_number";
+NSString* const kASTrackerImei             = @"imei_number";
+NSString* const kASTrackerType             = @"type";
+NSString* const kASTrackerIsChoosed        = @"choosed";
+NSString* const kASTrackerDogInStand       = @"check_for_stand";
+NSString* const kASTrackerSignalRate       = @"reciver_signal_repeat_time";
+NSString* const kASTrackerId               = @"tracker_id";
 
 @implementation ASTrackerModel
 
@@ -40,15 +40,35 @@ NSString* const kASTrackerSignalRateMetric = @"metric";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
     return @{
-                @keypath(ASTrackerModel.new, trackerName)       : kASTrackerName,
-                @keypath(ASTrackerModel.new, trackerNumber)     : kASTrackerNumber,
-                @keypath(ASTrackerModel.new, imeiNumber)        : kASTrackerImei,
-                @keypath(ASTrackerModel.new, trackerType)       : kASTrackerType,
-                @keypath(ASTrackerModel.new, isChoosed)         : kASTrackerIsChoosed,
-                @keypath(ASTrackerModel.new, dogInStand)        : kASTrackerDogInStand,
-                @keypath(ASTrackerModel.new, signalRate)        : kASTrackerSignalRate,
-                @keypath(ASTrackerModel.new, signalRateMetric)  : kASTrackerSignalRateMetric
+             @keypath(ASTrackerModel.new, trackerName)         : kASTrackerName,
+              @keypath(ASTrackerModel.new, trackerNumber)      : kASTrackerNumber,
+              @keypath(ASTrackerModel.new, imeiNumber)         : kASTrackerImei,
+              @keypath(ASTrackerModel.new, trackerType)        : kASTrackerType,
+              @keypath(ASTrackerModel.new, isChoosed)          : kASTrackerIsChoosed,
+              @keypath(ASTrackerModel.new, dogInStand)         : kASTrackerDogInStand,
+              @keypath(ASTrackerModel.new, signalRateInSeconds): kASTrackerSignalRate,
+//              @keypath(ASTrackerModel.new, trackerId)          : kASTrackerId
               };
+}
+
+-(NSNumber *)signalRateInSeconds
+{
+    if ([self.signalRateMetric isEqualToString:kASSignalMetricTypeSeconds]) {
+        return @(self.signalRate);
+    } else {
+        return @(self.signalRate*60);
+    }
+}
+
+-(void)setSignalRateInSeconds:(NSNumber *)signalRateInSeconds
+{
+    if (signalRateInSeconds.integerValue > 60) {
+        self.signalRate = signalRateInSeconds.integerValue/60;
+        self.signalRateMetric = kASSignalMetricTypeMinutes;
+    } else {
+        self.signalRate = signalRateInSeconds.integerValue;
+        self.signalRateMetric = kASSignalMetricTypeSeconds;
+    }
 }
 
 +(NSArray*)getTrackersFromUserDefaults {

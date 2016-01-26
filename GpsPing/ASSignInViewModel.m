@@ -8,6 +8,7 @@
 
 #import "ASSignInViewModel.h"
 #import "AGApiController.h"
+#import "ASTrackerModel.h"
 
 #import <CocoaLumberjack.h>
 static DDLogLevel ddLogLevel = DDLogLevelDebug;
@@ -37,11 +38,21 @@ objection_requires(@keypath(ASSignInViewModel.new, apiController))
                             }];
     
     @weakify(self);
+    
     return [[RACCommand alloc] initWithEnabled:isCorrect
                                    signalBlock:^RACSignal *(id input)
             {
-                @strongify(self);
-                return [self.apiController authUser:self.username password:self.password];
+                return [[self.apiController authUser:self.username password:self.password] then:^RACSignal *{
+                    @strongify(self);
+                    return [[self.apiController getTrackers] flattenMap:^RACStream *(NSArray *value) {
+                        DDLogDebug(@"%@", value);
+                        for (ASTrackerModel *tracker in value) {
+                            [tracker saveInUserDefaults];
+                        }
+                        
+                        return [RACSignal return:value];
+                    }];
+                }];;
             }];
 }
 

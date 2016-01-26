@@ -55,5 +55,6 @@ extern NSString *kASUserDefaultsKeyPassword;
                   trackerId:(NSString*)trackerId
                  repeatTime:(CGFloat)repeatTime
               checkForStand:(BOOL)checkForStand;
--(RACSignal *)removeTracker:(NSString*)imei;
+-(RACSignal *)removeTrackerByImei:(NSString*)imei;
+
 @end
