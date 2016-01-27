@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		5463ADFEC5A6554A7B012F8E /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 56F26A0DCCBBC59FC59CBB86 /* libPods.a */; };
+		A61D75591C578FCE00E75999 /* ASFriendsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A61D75581C578FCD00E75999 /* ASFriendsListViewController.m */; };
+		A61D755F1C58A8BE00E75999 /* ASFriendTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A61D755E1C58A8BE00E75999 /* ASFriendTableViewCell.m */; };
 		A68C1B331C4CE460000E2BA6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A68C1B321C4CE460000E2BA6 /* main.m */; };
 		A68C1B361C4CE460000E2BA6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A68C1B351C4CE460000E2BA6 /* AppDelegate.m */; };
 		A68C1B391C4CE460000E2BA6 /* MainMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A68C1B381C4CE460000E2BA6 /* MainMenuViewController.m */; };
@@ -43,6 +45,8 @@
 		A68C1BA41C4F6AEE000E2BA6 /* ASChooseTrackerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A68C1BA31C4F6AEE000E2BA6 /* ASChooseTrackerViewController.m */; };
 		A68C1BA71C4F7006000E2BA6 /* UIStoryboard+ASHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = A68C1BA61C4F7006000E2BA6 /* UIStoryboard+ASHelper.m */; };
 		A68C1BAA1C4F71CB000E2BA6 /* ASTrackerConfigurationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A68C1BA91C4F71CB000E2BA6 /* ASTrackerConfigurationViewController.m */; };
+		A6D8D0521C58B1EA00030E9F /* ASFriendModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A6D8D0511C58B1EA00030E9F /* ASFriendModel.m */; };
+		A6D8D0541C58BD2500030E9F /* Connect.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6D8D0531C58BD2500030E9F /* Connect.storyboard */; };
 		A6F6A74B1C5122210009579A /* ASSmsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A6F6A74A1C5122210009579A /* ASSmsManager.m */; };
 		A6F6A74E1C51742A0009579A /* ASSelectTrackerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6F6A74D1C51742A0009579A /* ASSelectTrackerViewController.m */; };
 		A6F6A7511C52246E0009579A /* ASTapView.m in Sources */ = {isa = PBXBuildFile; fileRef = A6F6A7501C52246E0009579A /* ASTapView.m */; };
@@ -51,7 +55,6 @@
 		AB8946711C4E3372002E86C8 /* ASAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB8946701C4E3372002E86C8 /* ASAboutViewController.m */; };
 		AB8946721C4E3372002E86C8 /* ASAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB8946701C4E3372002E86C8 /* ASAboutViewController.m */; };
 		AB8946731C4E3372002E86C8 /* ASAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB8946701C4E3372002E86C8 /* ASAboutViewController.m */; };
-		AB8946791C4E67BC002E86C8 /* Connect.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB8946781C4E67BC002E86C8 /* Connect.storyboard */; };
 		AB89467B1C4E67C9002E86C8 /* Geofence.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB89467A1C4E67C9002E86C8 /* Geofence.storyboard */; };
 		AB89467D1C4E67D8002E86C8 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB89467C1C4E67D8002E86C8 /* Profile.storyboard */; };
 		AB8946811C4F3000002E86C8 /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB8946801C4F3000002E86C8 /* Auth.storyboard */; };
@@ -89,6 +92,10 @@
 /* Begin PBXFileReference section */
 		56F26A0DCCBBC59FC59CBB86 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		77A21FE96824543E1D08D970 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		A61D75571C578FCD00E75999 /* ASFriendsListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASFriendsListViewController.h; sourceTree = "<group>"; };
+		A61D75581C578FCD00E75999 /* ASFriendsListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASFriendsListViewController.m; sourceTree = "<group>"; };
+		A61D755D1C58A8BE00E75999 /* ASFriendTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASFriendTableViewCell.h; sourceTree = "<group>"; };
+		A61D755E1C58A8BE00E75999 /* ASFriendTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASFriendTableViewCell.m; sourceTree = "<group>"; };
 		A68C1B2E1C4CE460000E2BA6 /* GpsPing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GpsPing.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A68C1B321C4CE460000E2BA6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A68C1B341C4CE460000E2BA6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -141,6 +148,9 @@
 		A68C1BA61C4F7006000E2BA6 /* UIStoryboard+ASHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIStoryboard+ASHelper.m"; sourceTree = "<group>"; };
 		A68C1BA81C4F71CB000E2BA6 /* ASTrackerConfigurationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASTrackerConfigurationViewController.h; sourceTree = "<group>"; };
 		A68C1BA91C4F71CB000E2BA6 /* ASTrackerConfigurationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASTrackerConfigurationViewController.m; sourceTree = "<group>"; };
+		A6D8D0501C58B1EA00030E9F /* ASFriendModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASFriendModel.h; sourceTree = "<group>"; };
+		A6D8D0511C58B1EA00030E9F /* ASFriendModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASFriendModel.m; sourceTree = "<group>"; };
+		A6D8D0531C58BD2500030E9F /* Connect.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Connect.storyboard; sourceTree = "<group>"; };
 		A6F6A7491C5122210009579A /* ASSmsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASSmsManager.h; sourceTree = "<group>"; };
 		A6F6A74A1C5122210009579A /* ASSmsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASSmsManager.m; sourceTree = "<group>"; };
 		A6F6A74C1C51742A0009579A /* ASSelectTrackerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASSelectTrackerViewController.h; sourceTree = "<group>"; };
@@ -153,7 +163,6 @@
 		AB89466D1C4E334B002E86C8 /* About.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = About.storyboard; sourceTree = "<group>"; };
 		AB89466F1C4E3372002E86C8 /* ASAboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASAboutViewController.h; sourceTree = "<group>"; };
 		AB8946701C4E3372002E86C8 /* ASAboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASAboutViewController.m; sourceTree = "<group>"; };
-		AB8946781C4E67BC002E86C8 /* Connect.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Connect.storyboard; sourceTree = "<group>"; };
 		AB89467A1C4E67C9002E86C8 /* Geofence.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Geofence.storyboard; sourceTree = "<group>"; };
 		AB89467C1C4E67D8002E86C8 /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		AB8946801C4F3000002E86C8 /* Auth.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
@@ -225,6 +234,18 @@
 				56F26A0DCCBBC59FC59CBB86 /* libPods.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A61D755A1C578FD200E75999 /* Connect */ = {
+			isa = PBXGroup;
+			children = (
+				A61D75571C578FCD00E75999 /* ASFriendsListViewController.h */,
+				A61D75581C578FCD00E75999 /* ASFriendsListViewController.m */,
+				A61D755D1C58A8BE00E75999 /* ASFriendTableViewCell.h */,
+				A61D755E1C58A8BE00E75999 /* ASFriendTableViewCell.m */,
+				A6D8D0531C58BD2500030E9F /* Connect.storyboard */,
+			);
+			name = Connect;
 			sourceTree = "<group>";
 		};
 		A68C1B251C4CE460000E2BA6 = {
@@ -378,6 +399,8 @@
 				A68C1B971C4E3B0D000E2BA6 /* ASTrackerModel.m */,
 				AB8946A61C549516002E86C8 /* ASUserProfileModel.h */,
 				AB8946A71C549516002E86C8 /* ASUserProfileModel.m */,
+				A6D8D0501C58B1EA00030E9F /* ASFriendModel.h */,
+				A6D8D0511C58B1EA00030E9F /* ASFriendModel.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -412,14 +435,6 @@
 			name = Profile;
 			sourceTree = "<group>";
 		};
-		AB8946761C4E6781002E86C8 /* Connect */ = {
-			isa = PBXGroup;
-			children = (
-				AB8946781C4E67BC002E86C8 /* Connect.storyboard */,
-			);
-			name = Connect;
-			sourceTree = "<group>";
-		};
 		AB8946771C4E6789002E86C8 /* Geofence */ = {
 			isa = PBXGroup;
 			children = (
@@ -439,7 +454,7 @@
 				A68C1BA01C4E4788000E2BA6 /* Main screen */,
 				AB8946741C4E614B002E86C8 /* Settings */,
 				A68C1B9F1C4E477B000E2BA6 /* Trackers */,
-				AB8946761C4E6781002E86C8 /* Connect */,
+				A61D755A1C578FD200E75999 /* Connect */,
 				AB8946771C4E6789002E86C8 /* Geofence */,
 				AB8946751C4E6770002E86C8 /* Profile */,
 				AB89466C1C4E331C002E86C8 /* About */,
@@ -576,9 +591,9 @@
 				A68C1B7A1C4D24DC000E2BA6 /* Roboto-BoldItalic.ttf in Resources */,
 				A68C1B411C4CE460000E2BA6 /* LaunchScreen.storyboard in Resources */,
 				A68C1B801C4D24DC000E2BA6 /* Roboto-Medium.ttf in Resources */,
+				A6D8D0541C58BD2500030E9F /* Connect.storyboard in Resources */,
 				A68C1B3E1C4CE460000E2BA6 /* Assets.xcassets in Resources */,
 				A68C1B7B1C4D24DC000E2BA6 /* Roboto-Condensed.ttf in Resources */,
-				AB8946791C4E67BC002E86C8 /* Connect.storyboard in Resources */,
 				AB89466E1C4E334B002E86C8 /* About.storyboard in Resources */,
 				A68C1B831C4D24DC000E2BA6 /* Roboto-Thin.ttf in Resources */,
 				A68C1B771C4D24DC000E2BA6 /* Roboto-Bold.ttf in Resources */,
@@ -672,7 +687,10 @@
 				A68C1B8F1C4E3860000E2BA6 /* ASTrackersViewController.m in Sources */,
 				AB8946901C4F7244002E86C8 /* ASGeofenceViewModel.m in Sources */,
 				A68C1B9E1C4E43AB000E2BA6 /* ASNavigationController.m in Sources */,
+				A61D75591C578FCE00E75999 /* ASFriendsListViewController.m in Sources */,
+				A61D755F1C58A8BE00E75999 /* ASFriendTableViewCell.m in Sources */,
 				A68C1B391C4CE460000E2BA6 /* MainMenuViewController.m in Sources */,
+				A6D8D0521C58B1EA00030E9F /* ASFriendModel.m in Sources */,
 				AB8946931C4F725D002E86C8 /* ASGeofenceViewController.m in Sources */,
 				A68C1B871C4D2549000E2BA6 /* ASButton.m in Sources */,
 				AB89468A1C4F31F3002E86C8 /* ASSignInViewModel.m in Sources */,
