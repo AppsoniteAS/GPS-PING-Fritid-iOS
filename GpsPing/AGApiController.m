@@ -16,8 +16,8 @@
 static const DDLogLevel ddLogLevel = DDLogLevelVerbose;
 
 #define BASE_URL_PRODUCTION @"http://109.120.158.225/"
-//#define BASE_URL_LOCAL      @"http://appgranula.mooo.com/api/"
-#define BASE_URL_LOCAL      @"http://192.168.139.201/api/"
+#define BASE_URL_LOCAL      @"http://appgranula.mooo.com/api/"
+//#define BASE_URL_LOCAL      @"http://192.168.139.201/api/"
 
 NSString* AGOpteumBackendError                     = @"AGOpteumBackendError";
 NSString* AGRhythmMobileError                      = @"AGRhythmMobileError";
@@ -127,23 +127,34 @@ objection_initializer(initWithConfiguration:);
 -(RACSignal*)submitProfile:(ASUserProfileModel *)profile {
     NSParameterAssert(profile);
     
-    NSError* error;
-    NSDictionary *params = [MTLJSONAdapter JSONDictionaryFromModel:profile
-                                                             error:&error];
-    params = Underscore.dict(params)
-    .rejectValues(Underscore.isNull)
-    .rejectValues(^BOOL (id object) {
-        return ([object isKindOfClass:[NSString class]] ? [object length] == 0 : NO);
-    })
-    .unwrap;
-    if (error) {
-        DDLogError(@"%@", error);
-        return [RACSignal error:error];
-    }
     
     return [[self performHttpRequestWithAttempts:@"PUT"
                                        resource:@"user/update_user_meta/"
-                                     parameters:params] deliverOnMainThread];
+                                      parameters:@{@"cookie":profile.cookie,
+                                                              @"username":profile.username,
+                                                              @"email":profile.email,
+                                                              @"lastname":profile.lastname,
+                                                              @"firstname":profile.firstname
+                                                              }] deliverOnMainThread];
+}
+
+-(RACSignal*)fetchProfile {
+    return [[self performHttpRequestWithAttempts:@"GET"
+                                        resource:@"user/get_user_meta/"
+                                      parameters:@{@"cookie":self.userProfile.cookie
+                                                   }] deliverOnMainThread];
+}
+
+-(RACSignal*)submitUserMetaData:(ASUserProfileModel *)profile {
+    NSParameterAssert(profile);
+    
+    
+    return [[self performHttpRequestWithAttempts:@"PUT"
+                                        resource:@"user/update_user_meta/"
+                                      parameters:@{@"cookie":profile.cookie,
+                                                   @"meta_key":@"",
+                                                   @"meta_value":@""
+                                                   }] deliverOnMainThread];
 }
 
 #pragma mark - Tracker

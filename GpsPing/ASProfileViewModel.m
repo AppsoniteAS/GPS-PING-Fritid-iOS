@@ -9,6 +9,9 @@
 #import "ASProfileViewModel.h"
 #import "AGApiController.h"
 
+#import <CocoaLumberjack.h>
+static DDLogLevel ddLogLevel = DDLogLevelDebug;
+
 @interface ASProfileViewModel()
 @property (nonatomic, strong) AGApiController   *apiController;
 @property (strong, nonatomic) NSString* lastname;
@@ -55,11 +58,14 @@ objection_requires(@keypath(ASProfileViewModel.new, apiController))
                 ASUserProfileModel* profile = self.apiController.userProfile.copy ?: [ASUserProfileModel new];
                 profile.username    = self.username;
                 NSArray *subStrings = [self.fullName componentsSeparatedByString:@" "];
-                profile.lastname    = [subStrings firstObject];
-                profile.firstname   = [subStrings lastObject];
+                profile.firstname    = subStrings[1];
+                profile.lastname   = [subStrings lastObject];
                 profile.email       = self.email;
-                
-                return [self.apiController submitProfile:profile];
+
+                return [[self.apiController submitProfile:profile] flattenMap:^RACStream *(id x) {
+                    return [self.apiController fetchProfile];
+                }];
+
             }];
     
 }
