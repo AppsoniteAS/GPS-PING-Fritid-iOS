@@ -10,6 +10,7 @@
 #import "RACSignal+BackendHelpers.h"
 #import "ASTrackerModel.h"
 #import <Mantle.h>
+#import <Underscore.h>
 
 #import <CocoaLumberjack/CocoaLumberjack.h>
 static const DDLogLevel ddLogLevel = DDLogLevelVerbose;
@@ -123,10 +124,32 @@ objection_initializer(initWithConfiguration:);
     return [RACSignal empty];
 }
 
+-(RACSignal*)submitProfile:(ASUserProfileModel *)profile {
+    NSParameterAssert(profile);
+    
+    NSError* error;
+    NSDictionary *params = [MTLJSONAdapter JSONDictionaryFromModel:profile
+                                                             error:&error];
+    params = Underscore.dict(params)
+    .rejectValues(Underscore.isNull)
+    .rejectValues(^BOOL (id object) {
+        return ([object isKindOfClass:[NSString class]] ? [object length] == 0 : NO);
+    })
+    .unwrap;
+    if (error) {
+        DDLogError(@"%@", error);
+        return [RACSignal error:error];
+    }
+    
+    return [[self performHttpRequestWithAttempts:@"PUT"
+                                       resource:@"user/update_user_meta/"
+                                     parameters:params] deliverOnMainThread];
+}
+
 #pragma mark - Tracker
 
 -(RACSignal *)addTracker:(NSString*)name
-                    imei:(NSString*)imei 
+                    imei:(NSString*)imei
                   number:(NSString*)number
               repeatTime:(CGFloat)repeatTime
                     type:(NSString*)type

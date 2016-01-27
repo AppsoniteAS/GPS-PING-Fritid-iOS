@@ -11,6 +11,8 @@
 
 @interface ASProfileViewModel()
 @property (nonatomic, strong) AGApiController   *apiController;
+@property (strong, nonatomic) NSString* lastname;
+@property (strong, nonatomic) NSString* firstname;
 @end
 
 @implementation ASProfileViewModel
@@ -50,8 +52,16 @@ objection_requires(@keypath(ASProfileViewModel.new, apiController))
     return [[RACCommand alloc] initWithEnabled:isCorrect
                                    signalBlock:^RACSignal *(id input)
             {
-                return [RACSignal empty];
+                ASUserProfileModel* profile = self.apiController.userProfile.copy ?: [ASUserProfileModel new];
+                profile.username    = self.username;
+                NSArray *subStrings = [self.fullName componentsSeparatedByString:@" "];
+                profile.lastname    = [subStrings firstObject];
+                profile.firstname   = [subStrings lastObject];
+                profile.email       = self.email;
+                
+                return [self.apiController submitProfile:profile];
             }];
+    
 }
 
 - (void)logOut {
