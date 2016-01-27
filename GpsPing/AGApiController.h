@@ -37,7 +37,7 @@ extern NSString *kASUserDefaultsKeyPassword;
 @property (nonatomic, strong) ASUserProfileModel *userProfile;
 @property (nonatomic, strong) NSURL *baseUrl;
 
-#pragma mark - Templates
+#pragma mark - Auth
 
 -(RACSignal *)getNonce;
 -(RACSignal *)registerUser:(NSString*)userName email:(NSString*)email password:(NSString*)password nonce:(NSString*)nonce;
@@ -56,5 +56,13 @@ extern NSString *kASUserDefaultsKeyPassword;
                  repeatTime:(CGFloat)repeatTime
               checkForStand:(BOOL)checkForStand;
 -(RACSignal *)removeTrackerByImei:(NSString*)imei;
+#pragma mark - Friends
+-(RACSignal *)getFriends;
+-(RACSignal *)addFriendWithId:(NSString*)friendId;
+-(RACSignal *)removeFriendWithId:(NSString*)friendId;
+-(RACSignal *)searchFriendWithQueryString:(NSString*)queryString;
+-(RACSignal *)setSeeingTracker:(BOOL)isSeeing friendId:(NSString*)friendId;
+-(RACSignal *)confirmFriendshipWithFriendId:(NSString*)friendId;
+-(RACSignal *)declineFriendshipWithFriendId:(NSString*)friendId;
 
 @end

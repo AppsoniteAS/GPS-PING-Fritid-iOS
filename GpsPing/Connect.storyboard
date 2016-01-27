@@ -1,28 +1,98 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="t9n-fz-m6p">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="2bS-3g-eq8">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="Roboto-Regular.ttf">
+            <string>Roboto-Regular</string>
+            <string>Roboto-Regular</string>
+        </mutableArray>
+    </customFonts>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="T9K-TN-8TH">
+        <!--Friends List View Controller-->
+        <scene sceneID="GSA-l3-UxM">
             <objects>
-                <viewController id="t9n-fz-m6p" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ASFriendsListViewController" id="2bS-3g-eq8" customClass="ASFriendsListViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="H3u-Dz-ES8"/>
-                        <viewControllerLayoutGuide type="bottom" id="vcC-Ey-21C"/>
+                        <viewControllerLayoutGuide type="top" id="BIu-5d-4qR"/>
+                        <viewControllerLayoutGuide type="bottom" id="8lJ-Hm-ZLP"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="AXd-Be-4di">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                    <view key="view" contentMode="scaleToFill" id="wjE-Ha-OUP">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="54" sectionHeaderHeight="29" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xHz-Uz-ncE">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <inset key="separatorInset" minX="18" minY="0.0" maxX="18" maxY="0.0"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ASFriendTableViewCell" rowHeight="54" id="F8M-j9-KIf" customClass="ASFriendTableViewCell">
+                                        <rect key="frame" x="0.0" y="29" width="320" height="54"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="F8M-j9-KIf" id="LnD-90-YQd">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="53.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lous Philips" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q3R-TY-ejI">
+                                                    <rect key="frame" x="18" y="8" width="105" height="22.5"/>
+                                                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="19"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="friend_list_icon_visible" translatesAutoresizingMaskIntoConstraints="NO" id="jRD-M5-B4R">
+                                                    <rect key="frame" x="282" y="19" width="20" height="16"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="louis.philips" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ac6-0R-dPm">
+                                                    <rect key="frame" x="18" y="32.5" width="43.5" height="9.5"/>
+                                                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="8"/>
+                                                    <color key="textColor" red="0.45882352941176469" green="0.45882352941176469" blue="0.45882352941176469" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Q3R-TY-ejI" firstAttribute="leading" secondItem="LnD-90-YQd" secondAttribute="leading" constant="18" id="0ha-Ej-vX4"/>
+                                                <constraint firstItem="Q3R-TY-ejI" firstAttribute="top" secondItem="LnD-90-YQd" secondAttribute="top" constant="8" id="GWD-L4-jsY"/>
+                                                <constraint firstItem="ac6-0R-dPm" firstAttribute="top" secondItem="Q3R-TY-ejI" secondAttribute="bottom" constant="2" id="SEm-uC-JEu"/>
+                                                <constraint firstItem="ac6-0R-dPm" firstAttribute="leading" secondItem="Q3R-TY-ejI" secondAttribute="leading" id="exz-LQ-H8C"/>
+                                                <constraint firstAttribute="trailing" secondItem="jRD-M5-B4R" secondAttribute="trailing" constant="18" id="iDA-RR-Lli"/>
+                                                <constraint firstItem="jRD-M5-B4R" firstAttribute="centerY" secondItem="LnD-90-YQd" secondAttribute="centerY" id="zsq-jh-Jx7"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="friendStatusImageView" destination="jRD-M5-B4R" id="oT6-gx-Z1N"/>
+                                            <outlet property="fullnameLabel" destination="Q3R-TY-ejI" id="jJV-qH-hUx"/>
+                                            <outlet property="usernameLabel" destination="ac6-0R-dPm" id="w6k-ZY-XEh"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="2bS-3g-eq8" id="wXi-nA-aJF"/>
+                                    <outlet property="delegate" destination="2bS-3g-eq8" id="zdy-Sf-ZoD"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="xHz-Uz-ncE" secondAttribute="trailing" id="BTh-RE-KmU"/>
+                            <constraint firstItem="xHz-Uz-ncE" firstAttribute="leading" secondItem="wjE-Ha-OUP" secondAttribute="leading" id="QUM-hx-wU3"/>
+                            <constraint firstItem="xHz-Uz-ncE" firstAttribute="top" secondItem="wjE-Ha-OUP" secondAttribute="topMargin" id="WCN-fo-TOr"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="xHz-Uz-ncE" secondAttribute="bottom" id="f6h-Of-Zzj"/>
+                        </constraints>
                     </view>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="tableView" destination="xHz-Uz-ncE" id="ZGj-wa-Hn9"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="qRL-EQ-dIz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tA0-8R-mDE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="281" y="227"/>
+            <point key="canvasLocation" x="406" y="324"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="friend_list_icon_visible" width="20" height="16"/>
+    </resources>
 </document>

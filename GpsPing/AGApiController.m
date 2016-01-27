@@ -10,6 +10,7 @@
 #import "RACSignal+BackendHelpers.h"
 #import "ASTrackerModel.h"
 #import <Mantle.h>
+#import "ASFriendModel.h"
 
 #import <CocoaLumberjack/CocoaLumberjack.h>
 static const DDLogLevel ddLogLevel = DDLogLevelVerbose;
@@ -193,6 +194,86 @@ objection_initializer(initWithConfiguration:);
                                        resource:@"tracker/remove_tracker"
                                      parameters:[self addAuthParamsByUpdatingParams:@{@"imei_number":imei}]];
 }
+
+#pragma mark - Friends
+
+-(RACSignal *)getFriends
+{
+    DDLogDebug(@"%s", __PRETTY_FUNCTION__);
+    NSDictionary *params = [self addAuthParamsByUpdatingParams:@{}];
+    return [[self performHttpRequestWithAttempts:@"GET"
+                                       resource:@"friends/get"
+                                     parameters:params] map:^id(NSDictionary *value) {
+        NSArray *friendsJSON = value[@"friends"];
+        NSError *error;
+        NSArray *friendsArray = [MTLJSONAdapter modelsOfClass:[ASFriendModel class]
+                                                fromJSONArray:friendsJSON
+                                                        error:&error];
+        return friendsArray;
+    }];
+}
+
+-(RACSignal *)addFriendWithId:(NSString*)friendId
+{
+    DDLogDebug(@"%s", __PRETTY_FUNCTION__);
+    NSDictionary *params = @{@"id":friendId};
+    params = [self addAuthParamsByUpdatingParams:params];
+    return [self performHttpRequestWithAttempts:@"GET"
+                                       resource:@"friends/add"
+                                     parameters:params];
+}
+
+-(RACSignal *)removeFriendWithId:(NSString*)friendId
+{
+    DDLogDebug(@"%s", __PRETTY_FUNCTION__);
+    NSDictionary *params = @{@"id":friendId};
+    params = [self addAuthParamsByUpdatingParams:params];
+    return [self performHttpRequestWithAttempts:@"GET"
+                                       resource:@"friends/remove"
+                                     parameters:params];
+}
+
+-(RACSignal *)searchFriendWithQueryString:(NSString*)queryString
+{
+    DDLogDebug(@"%s", __PRETTY_FUNCTION__);
+    NSDictionary *params = @{@"q":queryString};
+    params = [self addAuthParamsByUpdatingParams:params];
+    return [self performHttpRequestWithAttempts:@"GET"
+                                       resource:@"friends/search"
+                                     parameters:params];
+}
+
+-(RACSignal *)setSeeingTracker:(BOOL)isSeeing friendId:(NSString*)friendId
+{
+    DDLogDebug(@"%s", __PRETTY_FUNCTION__);
+    NSDictionary *params = @{@"id"                 :friendId,
+                             @"is_seeing_trackers" :isSeeing?@"true":@"false"};
+    params = [self addAuthParamsByUpdatingParams:params];
+    return [self performHttpRequestWithAttempts:@"GET"
+                                       resource:@"friends/set_seeing_trackers"
+                                     parameters:params];
+}
+
+-(RACSignal *)confirmFriendshipWithFriendId:(NSString*)friendId
+{
+    DDLogDebug(@"%s", __PRETTY_FUNCTION__);
+    NSDictionary *params = @{@"id":friendId};
+    params = [self addAuthParamsByUpdatingParams:params];
+    return [self performHttpRequestWithAttempts:@"GET"
+                                       resource:@"friends/confirm"
+                                     parameters:params];
+}
+
+-(RACSignal *)declineFriendshipWithFriendId:(NSString*)friendId
+{
+    DDLogDebug(@"%s", __PRETTY_FUNCTION__);
+    NSDictionary *params = @{@"id":friendId};
+    params = [self addAuthParamsByUpdatingParams:params];
+    return [self performHttpRequestWithAttempts:@"GET"
+                                       resource:@"friends/confirm"
+                                     parameters:params];
+}
+
 
 #pragma mark - Private methods
 
