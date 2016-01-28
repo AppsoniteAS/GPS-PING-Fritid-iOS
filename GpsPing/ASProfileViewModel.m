@@ -51,21 +51,18 @@ objection_requires(@keypath(ASProfileViewModel.new, apiController))
                             {
                                 return @((username.length > 0) && (fullName.length > 0) && (email.length > 0));
                             }];
-    
+    @weakify(self)
     return [[RACCommand alloc] initWithEnabled:isCorrect
                                    signalBlock:^RACSignal *(id input)
             {
                 ASUserProfileModel* profile = self.apiController.userProfile.copy ?: [ASUserProfileModel new];
-                profile.username    = self.username;
                 NSArray *subStrings = [self.fullName componentsSeparatedByString:@" "];
-                profile.firstname    = subStrings[1];
+                profile.firstname    = subStrings[0];
                 profile.lastname   = [subStrings lastObject];
-                profile.email       = self.email;
-
-                return [[self.apiController submitProfile:profile] flattenMap:^RACStream *(id x) {
-                    return [self.apiController fetchProfile];
-                }];
-
+                [ASUserProfileModel saveProfileInfoLocally:profile];
+                @strongify(self)
+                self.apiController.userProfile = profile;
+                return [self.apiController submitUserMetaData:profile];
             }];
     
 }

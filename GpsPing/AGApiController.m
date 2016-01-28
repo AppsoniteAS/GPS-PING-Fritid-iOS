@@ -124,20 +124,6 @@ objection_initializer(initWithConfiguration:);
     return [RACSignal empty];
 }
 
--(RACSignal*)submitProfile:(ASUserProfileModel *)profile {
-    NSParameterAssert(profile);
-    
-    
-    return [[self performHttpRequestWithAttempts:@"PUT"
-                                       resource:@"user/update_user_meta/"
-                                      parameters:@{@"cookie":profile.cookie,
-                                                              @"username":profile.username,
-                                                              @"email":profile.email,
-                                                              @"lastname":profile.lastname,
-                                                              @"firstname":profile.firstname
-                                                              }] deliverOnMainThread];
-}
-
 -(RACSignal*)fetchProfile {
     return [[self performHttpRequestWithAttempts:@"GET"
                                         resource:@"user/get_user_meta/"
@@ -147,14 +133,19 @@ objection_initializer(initWithConfiguration:);
 
 -(RACSignal*)submitUserMetaData:(ASUserProfileModel *)profile {
     NSParameterAssert(profile);
-    
-    
-    return [[self performHttpRequestWithAttempts:@"PUT"
+    return [[[self performHttpRequestWithAttempts:@"GET"
                                         resource:@"user/update_user_meta/"
                                       parameters:@{@"cookie":profile.cookie,
-                                                   @"meta_key":@"",
-                                                   @"meta_value":@""
-                                                   }] deliverOnMainThread];
+                                                   @"meta_key":@"last_name",
+                                                   @"meta_value":profile.lastname
+                                                   }] flattenMap:^RACStream *(id x) {
+        return [self performHttpRequestWithAttempts:@"GET"
+                                           resource:@"user/update_user_meta/"
+                                         parameters:@{@"cookie":profile.cookie,
+                                                      @"meta_key":@"first_name",
+                                                      @"meta_value":profile.firstname
+                                                      }];
+    }] deliverOnMainThread];
 }
 
 #pragma mark - Tracker
