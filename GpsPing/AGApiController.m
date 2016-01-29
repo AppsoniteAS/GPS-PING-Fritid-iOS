@@ -125,10 +125,34 @@ objection_initializer(initWithConfiguration:);
     return [RACSignal empty];
 }
 
+-(RACSignal*)fetchProfile {
+    return [[self performHttpRequestWithAttempts:@"GET"
+                                        resource:@"user/get_user_meta/"
+                                      parameters:@{@"cookie":self.userProfile.cookie
+                                                   }] deliverOnMainThread];
+}
+
+-(RACSignal*)submitUserMetaData:(ASUserProfileModel *)profile {
+    NSParameterAssert(profile);
+    return [[[self performHttpRequestWithAttempts:@"GET"
+                                        resource:@"user/update_user_meta/"
+                                      parameters:@{@"cookie":profile.cookie,
+                                                   @"meta_key":@"last_name",
+                                                   @"meta_value":profile.lastname
+                                                   }] flattenMap:^RACStream *(id x) {
+        return [self performHttpRequestWithAttempts:@"GET"
+                                           resource:@"user/update_user_meta/"
+                                         parameters:@{@"cookie":profile.cookie,
+                                                      @"meta_key":@"first_name",
+                                                      @"meta_value":profile.firstname
+                                                      }];
+    }] deliverOnMainThread];
+}
+
 #pragma mark - Tracker
 
 -(RACSignal *)addTracker:(NSString*)name
-                    imei:(NSString*)imei 
+                    imei:(NSString*)imei
                   number:(NSString*)number
               repeatTime:(CGFloat)repeatTime
                     type:(NSString*)type

@@ -43,6 +43,9 @@ extern NSString *kASUserDefaultsKeyPassword;
 -(RACSignal *)registerUser:(NSString*)userName email:(NSString*)email password:(NSString*)password nonce:(NSString*)nonce;
 -(RACSignal *)authUser:(NSString*)userName password:(NSString*)password;
 -(RACSignal *)logout;
+-(RACSignal*)submitUserMetaData:(ASUserProfileModel *)profile;
+-(RACSignal*)fetchProfile;
+
 #pragma mark - Tracker
 -(RACSignal *)addTracker:(NSString*)name
                     imei:(NSString*)imei 
