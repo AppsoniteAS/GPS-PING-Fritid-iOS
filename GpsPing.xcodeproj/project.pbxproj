@@ -51,6 +51,11 @@
 		A6F6A74E1C51742A0009579A /* ASSelectTrackerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6F6A74D1C51742A0009579A /* ASSelectTrackerViewController.m */; };
 		A6F6A7511C52246E0009579A /* ASTapView.m in Sources */ = {isa = PBXBuildFile; fileRef = A6F6A7501C52246E0009579A /* ASTapView.m */; };
 		A6F6A7541C524E680009579A /* AGApiController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6F6A7531C524E680009579A /* AGApiController.m */; };
+		AB22AC131C590E0D00CE877E /* ASAddFriendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB22AC121C590E0D00CE877E /* ASAddFriendViewController.m */; };
+		AB22AC161C59CF1500CE877E /* ASAddFriendTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AB22AC151C59CF1500CE877E /* ASAddFriendTableViewCell.m */; };
+		AB5427FA1C5B325000F33E8B /* ASSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = AB5427F91C5B325000F33E8B /* ASSearchBar.m */; };
+		AB5427FD1C5B3F5F00F33E8B /* ASAddFriendModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AB5427FC1C5B3F5F00F33E8B /* ASAddFriendModel.m */; };
+		AB5428031C5B81D500F33E8B /* ASAddFriendViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AB5428021C5B81D500F33E8B /* ASAddFriendViewModel.m */; };
 		AB89466E1C4E334B002E86C8 /* About.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB89466D1C4E334B002E86C8 /* About.storyboard */; };
 		AB8946711C4E3372002E86C8 /* ASAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB8946701C4E3372002E86C8 /* ASAboutViewController.m */; };
 		AB8946721C4E3372002E86C8 /* ASAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB8946701C4E3372002E86C8 /* ASAboutViewController.m */; };
@@ -160,6 +165,16 @@
 		A6F6A7521C524E680009579A /* AGApiController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGApiController.h; sourceTree = "<group>"; };
 		A6F6A7531C524E680009579A /* AGApiController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGApiController.m; sourceTree = "<group>"; };
 		A6F6A7561C524FBF0009579A /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		AB22AC111C590E0D00CE877E /* ASAddFriendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASAddFriendViewController.h; sourceTree = "<group>"; };
+		AB22AC121C590E0D00CE877E /* ASAddFriendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASAddFriendViewController.m; sourceTree = "<group>"; };
+		AB22AC141C59CF1500CE877E /* ASAddFriendTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASAddFriendTableViewCell.h; sourceTree = "<group>"; };
+		AB22AC151C59CF1500CE877E /* ASAddFriendTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASAddFriendTableViewCell.m; sourceTree = "<group>"; };
+		AB5427F81C5B325000F33E8B /* ASSearchBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASSearchBar.h; sourceTree = "<group>"; };
+		AB5427F91C5B325000F33E8B /* ASSearchBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASSearchBar.m; sourceTree = "<group>"; };
+		AB5427FB1C5B3F5F00F33E8B /* ASAddFriendModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASAddFriendModel.h; sourceTree = "<group>"; };
+		AB5427FC1C5B3F5F00F33E8B /* ASAddFriendModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASAddFriendModel.m; sourceTree = "<group>"; };
+		AB5428011C5B81D500F33E8B /* ASAddFriendViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASAddFriendViewModel.h; sourceTree = "<group>"; };
+		AB5428021C5B81D500F33E8B /* ASAddFriendViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASAddFriendViewModel.m; sourceTree = "<group>"; };
 		AB89466D1C4E334B002E86C8 /* About.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = About.storyboard; sourceTree = "<group>"; };
 		AB89466F1C4E3372002E86C8 /* ASAboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASAboutViewController.h; sourceTree = "<group>"; };
 		AB8946701C4E3372002E86C8 /* ASAboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASAboutViewController.m; sourceTree = "<group>"; };
@@ -243,6 +258,12 @@
 				A61D75581C578FCD00E75999 /* ASFriendsListViewController.m */,
 				A61D755D1C58A8BE00E75999 /* ASFriendTableViewCell.h */,
 				A61D755E1C58A8BE00E75999 /* ASFriendTableViewCell.m */,
+				AB22AC111C590E0D00CE877E /* ASAddFriendViewController.h */,
+				AB22AC121C590E0D00CE877E /* ASAddFriendViewController.m */,
+				AB22AC141C59CF1500CE877E /* ASAddFriendTableViewCell.h */,
+				AB22AC151C59CF1500CE877E /* ASAddFriendTableViewCell.m */,
+				AB5428011C5B81D500F33E8B /* ASAddFriendViewModel.h */,
+				AB5428021C5B81D500F33E8B /* ASAddFriendViewModel.m */,
 				A6D8D0531C58BD2500030E9F /* Connect.storyboard */,
 			);
 			name = Connect;
@@ -350,6 +371,8 @@
 				A68C1B9A1C4E40D2000E2BA6 /* UIColor+ASColor.m */,
 				AB89469A1C510E96002E86C8 /* ASViewController.h */,
 				AB89469B1C510E96002E86C8 /* ASViewController.m */,
+				AB5427F81C5B325000F33E8B /* ASSearchBar.h */,
+				AB5427F91C5B325000F33E8B /* ASSearchBar.m */,
 				A68C1BA51C4F7006000E2BA6 /* UIStoryboard+ASHelper.h */,
 				A68C1BA61C4F7006000E2BA6 /* UIStoryboard+ASHelper.m */,
 				AB8946A91C549E9F002E86C8 /* RACSignal+BackendHelpers.h */,
@@ -401,6 +424,8 @@
 				AB8946A71C549516002E86C8 /* ASUserProfileModel.m */,
 				A6D8D0501C58B1EA00030E9F /* ASFriendModel.h */,
 				A6D8D0511C58B1EA00030E9F /* ASFriendModel.m */,
+				AB5427FB1C5B3F5F00F33E8B /* ASAddFriendModel.h */,
+				AB5427FC1C5B3F5F00F33E8B /* ASAddFriendModel.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -694,11 +719,13 @@
 				AB8946931C4F725D002E86C8 /* ASGeofenceViewController.m in Sources */,
 				A68C1B871C4D2549000E2BA6 /* ASButton.m in Sources */,
 				AB89468A1C4F31F3002E86C8 /* ASSignInViewModel.m in Sources */,
+				AB22AC161C59CF1500CE877E /* ASAddFriendTableViewCell.m in Sources */,
 				AB8946961C50D6B0002E86C8 /* ASProfileViewController.m in Sources */,
 				A6F6A74B1C5122210009579A /* ASSmsManager.m in Sources */,
 				AB8946A81C549516002E86C8 /* ASUserProfileModel.m in Sources */,
 				A6F6A7511C52246E0009579A /* ASTapView.m in Sources */,
 				AB8946991C50D6CD002E86C8 /* ASProfileViewModel.m in Sources */,
+				AB5427FA1C5B325000F33E8B /* ASSearchBar.m in Sources */,
 				A68C1B981C4E3B0D000E2BA6 /* ASTrackerModel.m in Sources */,
 				AB8946871C4F31CF002E86C8 /* ASRegisterViewController.m in Sources */,
 				AB8946841C4F31A6002E86C8 /* ASSignInViewController.m in Sources */,
@@ -709,11 +736,14 @@
 				AB89469C1C510E96002E86C8 /* ASViewController.m in Sources */,
 				AB8946711C4E3372002E86C8 /* ASAboutViewController.m in Sources */,
 				A68C1B331C4CE460000E2BA6 /* main.m in Sources */,
+				AB5428031C5B81D500F33E8B /* ASAddFriendViewModel.m in Sources */,
 				A6F6A74E1C51742A0009579A /* ASSelectTrackerViewController.m in Sources */,
 				A6F6A7541C524E680009579A /* AGApiController.m in Sources */,
 				A68C1BAA1C4F71CB000E2BA6 /* ASTrackerConfigurationViewController.m in Sources */,
+				AB5427FD1C5B3F5F00F33E8B /* ASAddFriendModel.m in Sources */,
 				A68C1B9B1C4E40D2000E2BA6 /* UIColor+ASColor.m in Sources */,
 				AB89468D1C4F3203002E86C8 /* ASRegisterViewModel.m in Sources */,
+				AB22AC131C590E0D00CE877E /* ASAddFriendViewController.m in Sources */,
 				AB8946AE1C54A4DD002E86C8 /* ASMainViewModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

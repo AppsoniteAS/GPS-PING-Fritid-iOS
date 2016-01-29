@@ -24,8 +24,14 @@ objection_requires(@keypath(ASFriendsListViewController.new, apiController))
 - (void)viewDidLoad {
     [super viewDidLoad];
     [[JSObjection defaultInjector] injectDependencies:self];
+    
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    
     [self registerCellClass:[ASFriendTableViewCell class]
               forModelClass:[ASFriendModel class]];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
     [[self.apiController getFriends] subscribeNext:^(id x) {
         [self.memoryStorage removeAllTableItems];
         [self.memoryStorage addItems:x];
@@ -33,14 +39,14 @@ objection_requires(@keypath(ASFriendsListViewController.new, apiController))
     }];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+-(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        ASFriendModel *friend = [self.memoryStorage itemAtIndexPath:indexPath];
+        [[self.apiController removeFriendWithId:[NSString stringWithFormat:@"%@",friend.userId]] subscribeNext:^(id x) {
+            [self.memoryStorage removeItem:friend];
+        }];
+    }
 }
-*/
 
 @end

@@ -9,6 +9,8 @@
         <mutableArray key="Roboto-Regular.ttf">
             <string>Roboto-Regular</string>
             <string>Roboto-Regular</string>
+            <string>Roboto-Regular</string>
+            <string>Roboto-Regular</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -33,20 +35,20 @@
                                         <rect key="frame" x="0.0" y="29" width="320" height="54"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="F8M-j9-KIf" id="LnD-90-YQd">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="53.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="53"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lous Philips" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q3R-TY-ejI">
-                                                    <rect key="frame" x="18" y="8" width="105" height="22.5"/>
+                                                    <rect key="frame" x="18" y="8" width="105" height="23"/>
                                                     <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="19"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="friend_list_icon_visible" translatesAutoresizingMaskIntoConstraints="NO" id="jRD-M5-B4R">
                                                     <rect key="frame" x="282" y="19" width="20" height="16"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="louis.philips" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ac6-0R-dPm">
-                                                    <rect key="frame" x="18" y="32.5" width="43.5" height="9.5"/>
+                                                    <rect key="frame" x="18" y="33" width="44" height="10"/>
                                                     <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="8"/>
                                                     <color key="textColor" red="0.45882352941176469" green="0.45882352941176469" blue="0.45882352941176469" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -55,6 +57,7 @@
                                             <constraints>
                                                 <constraint firstItem="Q3R-TY-ejI" firstAttribute="leading" secondItem="LnD-90-YQd" secondAttribute="leading" constant="18" id="0ha-Ej-vX4"/>
                                                 <constraint firstItem="Q3R-TY-ejI" firstAttribute="top" secondItem="LnD-90-YQd" secondAttribute="top" constant="8" id="GWD-L4-jsY"/>
+                                                <constraint firstItem="jRD-M5-B4R" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Q3R-TY-ejI" secondAttribute="trailing" constant="10" id="PpY-EU-7g0"/>
                                                 <constraint firstItem="ac6-0R-dPm" firstAttribute="top" secondItem="Q3R-TY-ejI" secondAttribute="bottom" constant="2" id="SEm-uC-JEu"/>
                                                 <constraint firstItem="ac6-0R-dPm" firstAttribute="leading" secondItem="Q3R-TY-ejI" secondAttribute="leading" id="exz-LQ-H8C"/>
                                                 <constraint firstAttribute="trailing" secondItem="jRD-M5-B4R" secondAttribute="trailing" constant="18" id="iDA-RR-Lli"/>
@@ -82,6 +85,14 @@
                             <constraint firstAttribute="bottomMargin" secondItem="xHz-Uz-ncE" secondAttribute="bottom" id="f6h-Of-Zzj"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="JO4-fv-XiH">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Ddz-Vn-abO">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <segue destination="YJ9-c0-xVz" kind="push" id="NpW-p2-ksq"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="tableView" destination="xHz-Uz-ncE" id="ZGj-wa-Hn9"/>
@@ -89,10 +100,93 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tA0-8R-mDE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="406" y="324"/>
+            <point key="canvasLocation" x="1218" y="324"/>
+        </scene>
+        <!--Add Friend-->
+        <scene sceneID="yKb-Nz-1Vf">
+            <objects>
+                <viewController storyboardIdentifier="ASAddFriendViewController" id="YJ9-c0-xVz" customClass="ASAddFriendViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="r9X-ab-chw"/>
+                        <viewControllerLayoutGuide type="bottom" id="N8J-qt-E2g"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="4dv-wz-6Cj">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="54" sectionHeaderHeight="29" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="iRd-gX-IKO">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <inset key="separatorInset" minX="18" minY="0.0" maxX="18" maxY="0.0"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ASAddFriendTableViewCell" rowHeight="54" id="l27-r3-6lE" customClass="ASAddFriendTableViewCell">
+                                        <rect key="frame" x="0.0" y="29" width="320" height="54"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="l27-r3-6lE" id="5Ie-Vj-sFA">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="53"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lous Philips" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WpD-We-ryV">
+                                                    <rect key="frame" x="18" y="8" width="105" height="23"/>
+                                                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="19"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="addIcon" translatesAutoresizingMaskIntoConstraints="NO" id="anL-up-MCc">
+                                                    <rect key="frame" x="282" y="17" width="20" height="20"/>
+                                                    <color key="tintColor" red="0.5450980392" green="0.76470588240000004" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="louis.philips" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YjS-Yf-GMh">
+                                                    <rect key="frame" x="18" y="33" width="44" height="10"/>
+                                                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="8"/>
+                                                    <color key="textColor" red="0.45882352939999999" green="0.45882352939999999" blue="0.45882352939999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="YjS-Yf-GMh" firstAttribute="leading" secondItem="WpD-We-ryV" secondAttribute="leading" id="7jH-oD-3rT"/>
+                                                <constraint firstItem="anL-up-MCc" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="WpD-We-ryV" secondAttribute="trailing" constant="10" id="HKa-Kz-ENV"/>
+                                                <constraint firstAttribute="trailing" secondItem="anL-up-MCc" secondAttribute="trailing" constant="18" id="goW-L5-kdk"/>
+                                                <constraint firstItem="anL-up-MCc" firstAttribute="centerY" secondItem="5Ie-Vj-sFA" secondAttribute="centerY" id="n9V-y4-ekV"/>
+                                                <constraint firstItem="WpD-We-ryV" firstAttribute="leading" secondItem="5Ie-Vj-sFA" secondAttribute="leading" constant="18" id="o3w-Mq-Dhh"/>
+                                                <constraint firstItem="YjS-Yf-GMh" firstAttribute="top" secondItem="WpD-We-ryV" secondAttribute="bottom" constant="2" id="p6c-dW-kqE"/>
+                                                <constraint firstItem="WpD-We-ryV" firstAttribute="top" secondItem="5Ie-Vj-sFA" secondAttribute="top" constant="8" id="vPd-Pk-Fda"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="imageAdd" destination="anL-up-MCc" id="bhp-V2-kYL"/>
+                                            <outlet property="labelFullname" destination="WpD-We-ryV" id="M3E-3c-CUA"/>
+                                            <outlet property="labelUsername" destination="YjS-Yf-GMh" id="qsx-53-tOj"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="YJ9-c0-xVz" id="Jso-h4-NoR"/>
+                                    <outlet property="delegate" destination="YJ9-c0-xVz" id="qPE-jT-I7y"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="iRd-gX-IKO" secondAttribute="trailing" id="IYY-e7-gCS"/>
+                            <constraint firstItem="iRd-gX-IKO" firstAttribute="leading" secondItem="4dv-wz-6Cj" secondAttribute="leading" id="L0M-lv-89m"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="iRd-gX-IKO" secondAttribute="bottom" id="RsI-Kw-FNo"/>
+                            <constraint firstItem="iRd-gX-IKO" firstAttribute="top" secondItem="4dv-wz-6Cj" secondAttribute="topMargin" id="Vu5-8j-atG"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Add Friend" id="5RX-R2-HHL"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="tableView" destination="iRd-gX-IKO" id="RCd-Hl-zbN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WWh-nx-nQt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1675" y="324"/>
         </scene>
     </scenes>
     <resources>
+        <image name="addIcon" width="20" height="20"/>
         <image name="friend_list_icon_visible" width="20" height="16"/>
     </resources>
 </document>

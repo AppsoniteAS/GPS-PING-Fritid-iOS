@@ -61,7 +61,7 @@
                                                         <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="26"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="wd7-7h-QQ2">
+                                                    <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="wd7-7h-QQ2">
                                                         <rect key="frame" x="20" y="78" width="236" height="40"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="40" id="v1G-0K-IXO"/>
@@ -104,7 +104,7 @@
                                                         <color key="textColor" red="0.42745098040000001" green="0.42745098040000001" blue="0.42745098040000001" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="bIE-fT-6LC" userLabel="Text Field Email">
+                                                    <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="bIE-fT-6LC" userLabel="Text Field Email">
                                                         <rect key="frame" x="20" y="214" width="236" height="40"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="40" id="Jg1-qB-kUd"/>

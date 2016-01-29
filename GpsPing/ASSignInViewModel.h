@@ -13,5 +13,4 @@
 @property (strong, nonatomic) NSString* username;
 @property (strong, nonatomic) NSString* password;
 @property (readonly, nonatomic) RACCommand* submit;
-@property (readonly, nonatomic) RACSignal* signalSubmit;
 @end

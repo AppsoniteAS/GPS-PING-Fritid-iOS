@@ -61,7 +61,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gerald Medina" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LYi-3d-xdn">
                                 <rect key="frame" x="65" y="105" width="191" height="36"/>
                                 <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="30"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="43t-vi-idC">
@@ -213,10 +213,10 @@
                     <navigationItem key="navigationItem" id="cBV-WC-qsj">
                         <nil key="title"/>
                         <view key="titleView" contentMode="scaleToFill" id="hm0-Xf-3yx">
-                            <rect key="frame" x="77.5" y="5.5" width="165" height="33"/>
+                            <rect key="frame" x="78" y="6" width="165" height="33"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="l0H-kc-Uv6">
+                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="l0H-kc-Uv6">
                                     <rect key="frame" x="60" y="-4" width="45" height="41"/>
                                     <constraints>
                                         <constraint firstAttribute="width" secondItem="l0H-kc-Uv6" secondAttribute="height" multiplier="46:41" id="1Wf-s3-o4W"/>
@@ -239,10 +239,19 @@
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
+                        <outlet property="searchDisplayController" destination="0Za-yh-dk7" id="tma-Wo-QQE"/>
                         <outlet property="startStopButton" destination="43t-vi-idC" id="kOw-aM-NQv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="0Za-yh-dk7">
+                    <connections>
+                        <outlet property="delegate" destination="BYZ-38-t0r" id="rJy-Hp-NbI"/>
+                        <outlet property="searchContentsController" destination="BYZ-38-t0r" id="K58-qt-x79"/>
+                        <outlet property="searchResultsDataSource" destination="BYZ-38-t0r" id="NMz-cd-azF"/>
+                        <outlet property="searchResultsDelegate" destination="BYZ-38-t0r" id="XTZ-oU-ZNF"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="825" y="968"/>
         </scene>
@@ -270,35 +279,35 @@
                                                 <rect key="frame" x="0.0" y="28" width="287" height="70"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="D0f-FI-lOC" id="y97-6A-nTy">
-                                                    <rect key="frame" x="0.0" y="0.0" width="287" height="69.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="287" height="69"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Julie" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GJO-J7-6m3" userLabel="name">
-                                                            <rect key="frame" x="76" y="12" width="34.5" height="19"/>
+                                                            <rect key="frame" x="76" y="12" width="35" height="19"/>
                                                             <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
-                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tracker Number:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="scO-tD-Y7o">
-                                                            <rect key="frame" x="76" y="38.5" width="67" height="11"/>
+                                                            <rect key="frame" x="76" y="39" width="67" height="11"/>
                                                             <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="9"/>
                                                             <color key="textColor" red="0.45882352939999999" green="0.45882352939999999" blue="0.45882352939999999" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="IMEI Number:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jDt-Le-vQU">
-                                                            <rect key="frame" x="76" y="55.5" width="54.5" height="11"/>
+                                                            <rect key="frame" x="76" y="56" width="55" height="11"/>
                                                             <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="9"/>
                                                             <color key="textColor" red="0.45882352939999999" green="0.45882352939999999" blue="0.45882352939999999" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="580009914518" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BVJ-bU-GKf">
-                                                            <rect key="frame" x="162" y="38.5" width="61" height="11"/>
+                                                            <rect key="frame" x="162" y="39" width="61" height="11"/>
                                                             <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="9"/>
                                                             <color key="textColor" red="0.45882352939999999" green="0.45882352939999999" blue="0.45882352939999999" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="580009914518" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MXj-IQ-8Vv">
-                                                            <rect key="frame" x="162" y="55.5" width="61" height="11"/>
+                                                            <rect key="frame" x="162" y="56" width="61" height="11"/>
                                                             <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="9"/>
                                                             <color key="textColor" red="0.45882352939999999" green="0.45882352939999999" blue="0.45882352939999999" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -340,7 +349,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select tracker you want to activate:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="dET-ot-7m2">
                                         <rect key="frame" x="15" y="21" width="257" height="19"/>
                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -401,6 +410,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="0CG-KS-Xhe">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="0.5450980392" green="0.76470588240000004" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
