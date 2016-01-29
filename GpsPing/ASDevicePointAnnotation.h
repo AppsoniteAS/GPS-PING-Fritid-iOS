@@ -18,4 +18,6 @@
 @property (nonatomic) ASFriendModel *owner;
 @property (nonatomic) UIColor       *annotationColor;
 
+- (id)initWithLocation:(CLLocationCoordinate2D)coord;
+
 @end

@@ -12,9 +12,4 @@
 
 @interface ASLastPointAnnotation : ASDevicePointAnnotation
 
-//@property (nonatomic, readonly) CLLocationCoordinate2D coordinate;
-//@property (nonatomic) ASPointModel *pointObject;
-
-- (id)initWithLocation:(CLLocationCoordinate2D)coord;
-
 @end
