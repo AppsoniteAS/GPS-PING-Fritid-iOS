@@ -64,5 +64,9 @@ extern NSString *kASUserDefaultsKeyPassword;
 -(RACSignal *)setSeeingTracker:(BOOL)isSeeing friendId:(NSString*)friendId;
 -(RACSignal *)confirmFriendshipWithFriendId:(NSString*)friendId;
 -(RACSignal *)declineFriendshipWithFriendId:(NSString*)friendId;
+#pragma mark - Tracking
+-(RACSignal *)getTrackingPointsFrom:(NSDate*)from
+                                 to:(NSDate*)to
+                           friendId:(NSNumber*)friendId;
 
 @end

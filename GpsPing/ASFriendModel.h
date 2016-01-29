@@ -18,7 +18,11 @@
 @property (nonatomic) NSString *email;
 @property (nonatomic) NSNumber *isSeeingTracker;
 @property (nonatomic) NSNumber *confirmationStatus;
+@property (nonatomic) NSNumber  *longitude;
+@property (nonatomic) NSNumber  *latitude;
 
 @property (nonatomic) NSString *fullName;
+
+@property (nonatomic) NSArray *devices;
 
 @end
