@@ -66,6 +66,8 @@
 		AB54280E1C5BA1C800F33E8B /* ASAddFriendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB54280A1C5BA1C800F33E8B /* ASAddFriendViewController.m */; };
 		AB54280F1C5BA1C800F33E8B /* ASAddFriendViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AB54280C1C5BA1C800F33E8B /* ASAddFriendViewModel.m */; };
 		AB5428121C5BA1F000F33E8B /* ASSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = AB5428111C5BA1F000F33E8B /* ASSearchBar.m */; };
+		AB5428151C5BAA1000F33E8B /* DisplayOptions.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB5428141C5BAA1000F33E8B /* DisplayOptions.storyboard */; };
+		AB5428181C5BAE2300F33E8B /* ASDisplayOptionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB5428171C5BAE2300F33E8B /* ASDisplayOptionsViewController.m */; };
 		AB89466E1C4E334B002E86C8 /* About.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB89466D1C4E334B002E86C8 /* About.storyboard */; };
 		AB8946711C4E3372002E86C8 /* ASAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB8946701C4E3372002E86C8 /* ASAboutViewController.m */; };
 		AB8946721C4E3372002E86C8 /* ASAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB8946701C4E3372002E86C8 /* ASAboutViewController.m */; };
@@ -205,6 +207,9 @@
 		AB54280C1C5BA1C800F33E8B /* ASAddFriendViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASAddFriendViewModel.m; sourceTree = "<group>"; };
 		AB5428101C5BA1F000F33E8B /* ASSearchBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASSearchBar.h; sourceTree = "<group>"; };
 		AB5428111C5BA1F000F33E8B /* ASSearchBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASSearchBar.m; sourceTree = "<group>"; };
+		AB5428141C5BAA1000F33E8B /* DisplayOptions.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DisplayOptions.storyboard; sourceTree = "<group>"; };
+		AB5428161C5BAE2300F33E8B /* ASDisplayOptionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASDisplayOptionsViewController.h; sourceTree = "<group>"; };
+		AB5428171C5BAE2300F33E8B /* ASDisplayOptionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASDisplayOptionsViewController.m; sourceTree = "<group>"; };
 		AB89466D1C4E334B002E86C8 /* About.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = About.storyboard; sourceTree = "<group>"; };
 		AB89466F1C4E3372002E86C8 /* ASAboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASAboutViewController.h; sourceTree = "<group>"; };
 		AB8946701C4E3372002E86C8 /* ASAboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASAboutViewController.m; sourceTree = "<group>"; };
@@ -487,6 +492,16 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
+		AB5428131C5BA9EF00F33E8B /* Display options */ = {
+			isa = PBXGroup;
+			children = (
+				AB5428161C5BAE2300F33E8B /* ASDisplayOptionsViewController.h */,
+				AB5428171C5BAE2300F33E8B /* ASDisplayOptionsViewController.m */,
+				AB5428141C5BAA1000F33E8B /* DisplayOptions.storyboard */,
+			);
+			name = "Display options";
+			sourceTree = "<group>";
+		};
 		AB89466C1C4E331C002E86C8 /* About */ = {
 			isa = PBXGroup;
 			children = (
@@ -537,6 +552,7 @@
 				A68C1BA01C4E4788000E2BA6 /* Main screen */,
 				AB8946741C4E614B002E86C8 /* Settings */,
 				A68C1B9F1C4E477B000E2BA6 /* Trackers */,
+				AB5428131C5BA9EF00F33E8B /* Display options */,
 				A61D755A1C578FD200E75999 /* Connect */,
 				AB8946771C4E6789002E86C8 /* Geofence */,
 				AB8946751C4E6770002E86C8 /* Profile */,
@@ -690,6 +706,7 @@
 				A68C1B8C1C4E35DB000E2BA6 /* Trackers.storyboard in Resources */,
 				A603CED21C58D4FD001D56A4 /* Map.storyboard in Resources */,
 				A68C1B821C4D24DC000E2BA6 /* Roboto-Regular.ttf in Resources */,
+				AB5428151C5BAA1000F33E8B /* DisplayOptions.storyboard in Resources */,
 				A68C1B841C4D24DC000E2BA6 /* Roboto-ThinItalic.ttf in Resources */,
 				AB8946811C4F3000002E86C8 /* Auth.storyboard in Resources */,
 				A68C1B791C4D24DC000E2BA6 /* Roboto-BoldCondensedItalic.ttf in Resources */,
@@ -780,6 +797,7 @@
 				A61D755F1C58A8BE00E75999 /* ASFriendTableViewCell.m in Sources */,
 				A68C1B391C4CE460000E2BA6 /* MainMenuViewController.m in Sources */,
 				A6D8D0521C58B1EA00030E9F /* ASFriendModel.m in Sources */,
+				AB5428181C5BAE2300F33E8B /* ASDisplayOptionsViewController.m in Sources */,
 				A603CEDF1C5A3401001D56A4 /* ASPointAnnotation.m in Sources */,
 				AB8946931C4F725D002E86C8 /* ASGeofenceViewController.m in Sources */,
 				A68C1B871C4D2549000E2BA6 /* ASButton.m in Sources */,
