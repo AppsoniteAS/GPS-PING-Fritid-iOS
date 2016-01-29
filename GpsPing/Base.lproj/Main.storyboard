@@ -88,6 +88,9 @@
                                 <state key="normal" title="Map and Tracking">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="OB1-ns-A08" kind="push" id="ah1-mY-Cnp"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4pR-wg-wkB" customClass="ASButton">
                                 <rect key="frame" x="60" y="417" width="200" height="40"/>
@@ -399,7 +402,17 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PoD-c1-XTM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1189.5" y="968"/>
+            <point key="canvasLocation" x="1208.5" y="1094"/>
+        </scene>
+        <!--Map-->
+        <scene sceneID="BsZ-t6-xQh">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Map" id="OB1-ns-A08" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="4JD-VR-7cs"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4od-cr-TGK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1196" y="943"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Rsh-wQ-iEb">

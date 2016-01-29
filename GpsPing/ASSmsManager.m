@@ -20,7 +20,7 @@ static DDLogLevel ddLogLevel = DDLogLevelDebug;
     {
         controller.body = text;
         controller.recipients = @[recipient];
-        controller.messageComposeDelegate = self;
+        controller.messageComposeDelegate = (id)self;
         controller.navigationBarHidden=YES;
         [self presentViewController:controller animated:NO completion:nil];
     }

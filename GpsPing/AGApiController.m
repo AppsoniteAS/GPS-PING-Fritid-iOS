@@ -11,14 +11,14 @@
 #import "ASTrackerModel.h"
 #import <Mantle.h>
 #import "ASFriendModel.h"
-#import "ASAddFriendModel.h"
+#import "ASDeviceModel.h"
 
 #import <CocoaLumberjack/CocoaLumberjack.h>
 static const DDLogLevel ddLogLevel = DDLogLevelVerbose;
 
-#define BASE_URL_PRODUCTION @"http://109.120.158.225/"
-#define BASE_URL_LOCAL      @"http://appgranula.mooo.com/api/"
-//#define BASE_URL_LOCAL      @"http://192.168.139.201/api/"
+//#define BASE_URL_PRODUCTION @"http://109.120.158.225/"
+//#define BASE_URL_LOCAL      @"http://appgranula.mooo.com/api/"
+#define BASE_URL_LOCAL      @"http://192.168.139.201/api/"
 
 NSString* AGOpteumBackendError                     = @"AGOpteumBackendError";
 NSString* AGRhythmMobileError                      = @"AGRhythmMobileError";
@@ -263,16 +263,9 @@ objection_initializer(initWithConfiguration:);
     DDLogDebug(@"%s", __PRETTY_FUNCTION__);
     NSDictionary *params = @{@"q":queryString};
     params = [self addAuthParamsByUpdatingParams:params];
-    return [[self performHttpRequestWithAttempts:@"GET"
+    return [self performHttpRequestWithAttempts:@"GET"
                                        resource:@"friends/search"
-                                     parameters:params] map:^id(NSDictionary *value) {
-        NSArray *usersJSON = value[@"users"];
-        NSError *error;
-        NSArray *usersArray = [MTLJSONAdapter modelsOfClass:[ASAddFriendModel class]
-                                                fromJSONArray:usersJSON
-                                                        error:&error];
-        return usersArray;
-    }];
+                                     parameters:params];
 }
 
 -(RACSignal *)setSeeingTracker:(BOOL)isSeeing friendId:(NSString*)friendId
@@ -306,6 +299,45 @@ objection_initializer(initWithConfiguration:);
                                      parameters:params];
 }
 
+-(RACSignal *)getTrackingPointsFrom:(NSDate*)from
+                                 to:(NSDate*)to
+                           friendId:(NSNumber*)friendId
+{
+    DDLogDebug(@"%s", __PRETTY_FUNCTION__);
+    NSDictionary *params = @{@"from":@(from.timeIntervalSince1970),
+                             @"to":@(to.timeIntervalSince1970)};
+    ///
+//    friendId = @(8042);
+    ///
+    
+    if (friendId) {
+        params = [params mtl_dictionaryByAddingEntriesFromDictionary:@{@"id":friendId}];
+    }
+    
+    params = [self addAuthParamsByUpdatingParams:params];
+    return [[self performHttpRequestWithAttempts:@"GET"
+                                       resource:@"tracker/get_points"
+                                     parameters:params] map:^id(id value) {
+        DDLogDebug(@"%@", value);
+        NSMutableArray *resultArray = @[].mutableCopy;
+        for (NSDictionary *userDictionary in value[@"users"]) {
+            NSError *error;
+            NSArray *devicesArray = [MTLJSONAdapter modelsOfClass:[ASDeviceModel class]
+                                                    fromJSONArray:userDictionary[@"devices"]
+                                                            error:&error];
+            
+            ASFriendModel *friendModel = [MTLJSONAdapter modelOfClass:[ASFriendModel class]
+                                                   fromJSONDictionary:userDictionary[@"user"]
+                                                                error:&error];
+            friendModel.devices = devicesArray;
+            [resultArray addObject:friendModel];
+        }
+        
+//        NSError *error;
+//        NSArray *resultArray = [MTLJSONAdapter modelsOfClass:[ASFriendModel class] fromJSONArray:value[@"users"] error:&error];
+        return resultArray;
+    }];
+}
 
 #pragma mark - Private methods
 

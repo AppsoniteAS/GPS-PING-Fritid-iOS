@@ -11,5 +11,5 @@
 @interface UIColor (ASColor)
 
 +(UIColor*)as_colorWithImage:(UIImage*)image;
-
++(UIColor *)getRandomColor;
 @end
