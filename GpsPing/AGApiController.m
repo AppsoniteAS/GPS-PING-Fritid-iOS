@@ -12,13 +12,14 @@
 #import <Mantle.h>
 #import "ASFriendModel.h"
 #import "ASDeviceModel.h"
+#import "ASAddFriendModel.h"
 
 #import <CocoaLumberjack/CocoaLumberjack.h>
 static const DDLogLevel ddLogLevel = DDLogLevelVerbose;
 
 //#define BASE_URL_PRODUCTION @"http://109.120.158.225/"
-//#define BASE_URL_LOCAL      @"http://appgranula.mooo.com/api/"
-#define BASE_URL_LOCAL      @"http://192.168.139.201/api/"
+#define BASE_URL_LOCAL      @"http://appgranula.mooo.com/api/"
+//#define BASE_URL_LOCAL      @"http://192.168.139.201/api/"
 
 NSString* AGOpteumBackendError                     = @"AGOpteumBackendError";
 NSString* AGRhythmMobileError                      = @"AGRhythmMobileError";
@@ -263,9 +264,18 @@ objection_initializer(initWithConfiguration:);
     DDLogDebug(@"%s", __PRETTY_FUNCTION__);
     NSDictionary *params = @{@"q":queryString};
     params = [self addAuthParamsByUpdatingParams:params];
-    return [self performHttpRequestWithAttempts:@"GET"
+    return [[self performHttpRequestWithAttempts:@"GET"
                                        resource:@"friends/search"
-                                     parameters:params];
+                                     parameters:params] map:^id(NSDictionary *value) {
+        NSArray *usersJSON = value[@"users"];
+        NSError *error;
+        NSArray *usersArray = [MTLJSONAdapter modelsOfClass:[ASAddFriendModel class]
+                                              fromJSONArray:usersJSON
+                                                      error:&error];
+        return usersArray;
+    }];
+
+    
 }
 
 -(RACSignal *)setSeeingTracker:(BOOL)isSeeing friendId:(NSString*)friendId

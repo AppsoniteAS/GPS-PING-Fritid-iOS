@@ -61,6 +61,11 @@
 		A6F6A74E1C51742A0009579A /* ASSelectTrackerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6F6A74D1C51742A0009579A /* ASSelectTrackerViewController.m */; };
 		A6F6A7511C52246E0009579A /* ASTapView.m in Sources */ = {isa = PBXBuildFile; fileRef = A6F6A7501C52246E0009579A /* ASTapView.m */; };
 		A6F6A7541C524E680009579A /* AGApiController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6F6A7531C524E680009579A /* AGApiController.m */; };
+		AB5428061C5BA1B300F33E8B /* ASAddFriendModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AB5428051C5BA1B300F33E8B /* ASAddFriendModel.m */; };
+		AB54280D1C5BA1C800F33E8B /* ASAddFriendTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AB5428081C5BA1C800F33E8B /* ASAddFriendTableViewCell.m */; };
+		AB54280E1C5BA1C800F33E8B /* ASAddFriendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB54280A1C5BA1C800F33E8B /* ASAddFriendViewController.m */; };
+		AB54280F1C5BA1C800F33E8B /* ASAddFriendViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AB54280C1C5BA1C800F33E8B /* ASAddFriendViewModel.m */; };
+		AB5428121C5BA1F000F33E8B /* ASSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = AB5428111C5BA1F000F33E8B /* ASSearchBar.m */; };
 		AB89466E1C4E334B002E86C8 /* About.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB89466D1C4E334B002E86C8 /* About.storyboard */; };
 		AB8946711C4E3372002E86C8 /* ASAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB8946701C4E3372002E86C8 /* ASAboutViewController.m */; };
 		AB8946721C4E3372002E86C8 /* ASAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB8946701C4E3372002E86C8 /* ASAboutViewController.m */; };
@@ -190,6 +195,16 @@
 		A6F6A7521C524E680009579A /* AGApiController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGApiController.h; sourceTree = "<group>"; };
 		A6F6A7531C524E680009579A /* AGApiController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGApiController.m; sourceTree = "<group>"; };
 		A6F6A7561C524FBF0009579A /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		AB5428041C5BA1B300F33E8B /* ASAddFriendModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASAddFriendModel.h; sourceTree = "<group>"; };
+		AB5428051C5BA1B300F33E8B /* ASAddFriendModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASAddFriendModel.m; sourceTree = "<group>"; };
+		AB5428071C5BA1C800F33E8B /* ASAddFriendTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASAddFriendTableViewCell.h; sourceTree = "<group>"; };
+		AB5428081C5BA1C800F33E8B /* ASAddFriendTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASAddFriendTableViewCell.m; sourceTree = "<group>"; };
+		AB5428091C5BA1C800F33E8B /* ASAddFriendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASAddFriendViewController.h; sourceTree = "<group>"; };
+		AB54280A1C5BA1C800F33E8B /* ASAddFriendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASAddFriendViewController.m; sourceTree = "<group>"; };
+		AB54280B1C5BA1C800F33E8B /* ASAddFriendViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASAddFriendViewModel.h; sourceTree = "<group>"; };
+		AB54280C1C5BA1C800F33E8B /* ASAddFriendViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASAddFriendViewModel.m; sourceTree = "<group>"; };
+		AB5428101C5BA1F000F33E8B /* ASSearchBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASSearchBar.h; sourceTree = "<group>"; };
+		AB5428111C5BA1F000F33E8B /* ASSearchBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASSearchBar.m; sourceTree = "<group>"; };
 		AB89466D1C4E334B002E86C8 /* About.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = About.storyboard; sourceTree = "<group>"; };
 		AB89466F1C4E3372002E86C8 /* ASAboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASAboutViewController.h; sourceTree = "<group>"; };
 		AB8946701C4E3372002E86C8 /* ASAboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASAboutViewController.m; sourceTree = "<group>"; };
@@ -293,6 +308,12 @@
 				A61D75581C578FCD00E75999 /* ASFriendsListViewController.m */,
 				A61D755D1C58A8BE00E75999 /* ASFriendTableViewCell.h */,
 				A61D755E1C58A8BE00E75999 /* ASFriendTableViewCell.m */,
+				AB5428071C5BA1C800F33E8B /* ASAddFriendTableViewCell.h */,
+				AB5428081C5BA1C800F33E8B /* ASAddFriendTableViewCell.m */,
+				AB5428091C5BA1C800F33E8B /* ASAddFriendViewController.h */,
+				AB54280A1C5BA1C800F33E8B /* ASAddFriendViewController.m */,
+				AB54280B1C5BA1C800F33E8B /* ASAddFriendViewModel.h */,
+				AB54280C1C5BA1C800F33E8B /* ASAddFriendViewModel.m */,
 				A6D8D0531C58BD2500030E9F /* Connect.storyboard */,
 			);
 			name = Connect;
@@ -398,6 +419,8 @@
 				A6F6A7531C524E680009579A /* AGApiController.m */,
 				A68C1B9C1C4E43AB000E2BA6 /* ASNavigationController.h */,
 				A68C1B9D1C4E43AB000E2BA6 /* ASNavigationController.m */,
+				AB5428101C5BA1F000F33E8B /* ASSearchBar.h */,
+				AB5428111C5BA1F000F33E8B /* ASSearchBar.m */,
 				A68C1B851C4D2549000E2BA6 /* ASButton.h */,
 				A68C1B861C4D2549000E2BA6 /* ASButton.m */,
 				AB89469A1C510E96002E86C8 /* ASViewController.h */,
@@ -453,6 +476,8 @@
 				AB8946A71C549516002E86C8 /* ASUserProfileModel.m */,
 				A6D8D0501C58B1EA00030E9F /* ASFriendModel.h */,
 				A6D8D0511C58B1EA00030E9F /* ASFriendModel.m */,
+				AB5428041C5BA1B300F33E8B /* ASAddFriendModel.h */,
+				AB5428051C5BA1B300F33E8B /* ASAddFriendModel.m */,
 				A603CED61C5900CE001D56A4 /* ASDeviceModel.h */,
 				A603CED71C5900CE001D56A4 /* ASDeviceModel.m */,
 				A603CED91C5A0986001D56A4 /* ASPointModel.h */,
@@ -761,12 +786,14 @@
 				A603CEE21C5A4CD8001D56A4 /* ASFriendAnnotation.m in Sources */,
 				AB89468A1C4F31F3002E86C8 /* ASSignInViewModel.m in Sources */,
 				AB8946961C50D6B0002E86C8 /* ASProfileViewController.m in Sources */,
+				AB5428061C5BA1B300F33E8B /* ASAddFriendModel.m in Sources */,
 				A6F6A74B1C5122210009579A /* ASSmsManager.m in Sources */,
 				AB8946A81C549516002E86C8 /* ASUserProfileModel.m in Sources */,
 				A603CEE51C5A4CE9001D56A4 /* ASLastPointAnnotation.m in Sources */,
 				A6F6A7511C52246E0009579A /* ASTapView.m in Sources */,
 				AB8946991C50D6CD002E86C8 /* ASProfileViewModel.m in Sources */,
 				A68C1B981C4E3B0D000E2BA6 /* ASTrackerModel.m in Sources */,
+				AB54280E1C5BA1C800F33E8B /* ASAddFriendViewController.m in Sources */,
 				AB8946871C4F31CF002E86C8 /* ASRegisterViewController.m in Sources */,
 				AB8946841C4F31A6002E86C8 /* ASSignInViewController.m in Sources */,
 				A68C1B361C4CE460000E2BA6 /* AppDelegate.m in Sources */,
@@ -777,8 +804,11 @@
 				AB89469C1C510E96002E86C8 /* ASViewController.m in Sources */,
 				AB8946711C4E3372002E86C8 /* ASAboutViewController.m in Sources */,
 				A68C1B331C4CE460000E2BA6 /* main.m in Sources */,
+				AB54280D1C5BA1C800F33E8B /* ASAddFriendTableViewCell.m in Sources */,
 				A6F6A74E1C51742A0009579A /* ASSelectTrackerViewController.m in Sources */,
 				A6F6A7541C524E680009579A /* AGApiController.m in Sources */,
+				AB54280F1C5BA1C800F33E8B /* ASAddFriendViewModel.m in Sources */,
+				AB5428121C5BA1F000F33E8B /* ASSearchBar.m in Sources */,
 				A68C1BAA1C4F71CB000E2BA6 /* ASTrackerConfigurationViewController.m in Sources */,
 				A68C1B9B1C4E40D2000E2BA6 /* UIColor+ASColor.m in Sources */,
 				AB89468D1C4F3203002E86C8 /* ASRegisterViewModel.m in Sources */,
