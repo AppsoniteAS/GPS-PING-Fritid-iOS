@@ -76,29 +76,28 @@ objection_requires(@keypath(ASMapViewController.new, apiController))
 //    MKPolyline *polyLine = [MKPolyline polylineWithCoordinates:coordinates count:2];
 //    [self.mapView removeOverlays:self.mapView.overlays];
 //    [self.mapView addOverlay:polyLine];
-    CGPoint startPoint = [self.mapView convertCoordinate:self.mapView.userLocation.coordinate
-                                           toPointToView:self.mapView];
-//    CGPoint startPoint2 = CGPointMake(rand()%300, rand()%300);
-    CGFloat newX = startPoint.x;
-    CGFloat newY = startPoint.y;
-//    if (startPoint.x < 0) newX = 0;
-//    if (startPoint.x > self.dashedLineView.frame.size.width) newX = self.dashedLineView.frame.size.width;
-//    if (startPoint.y < 0) newY = 0;
-//    if (startPoint.y > self.dashedLineView.frame.size.height) newY = self.dashedLineView.frame.size.height;
     
-    if (startPoint.x > self.dashedLineView.frame.size.width) {
-        newX = self.dashedLineView.frame.size.width;
-        CGFloat k = newX/startPoint.x;
-        newY = startPoint.y*k;
-    } else if (startPoint.y > self.dashedLineView.frame.size.height) {
-        newY = self.dashedLineView.frame.size.height;
-        CGFloat k = newY/startPoint.y;
-        newX = startPoint.x*k;
-    }
     
-    self.dashedLineView.userLocationPoint = CGPointMake(newX, newY);
-    [self.dashedLineView setNeedsDisplay];
-//    [self updateShapeLayer];
+//    CGPoint startPoint = [self.mapView convertCoordinate:self.mapView.userLocation.coordinate
+//                                           toPointToView:self.mapView];
+//    CGFloat newX = startPoint.x;
+//    CGFloat newY = startPoint.y;
+//    
+//    if (startPoint.x > self.dashedLineView.frame.size.width) {
+//        newX = self.dashedLineView.frame.size.width;
+//        CGFloat k = newX/startPoint.x;
+//        newY = startPoint.y*k;
+//    } else if (startPoint.y > self.dashedLineView.frame.size.height) {
+//        newY = self.dashedLineView.frame.size.height;
+//        CGFloat k = newY/startPoint.y;
+//        newX = startPoint.x*k;
+//    }
+//    
+//    self.dashedLineView.userLocationPoint = CGPointMake(newX, newY);
+//    [self.dashedLineView setNeedsDisplay];
+    
+    
+    [self updateShapeLayer];
 }
 
 -(void)updateShapeLayer
@@ -129,45 +128,61 @@ objection_requires(@keypath(ASMapViewController.new, apiController))
 //    shapelayer.path = path.CGPath;
     
     
-//    if (self.shapeLayer) {
-//        [self.shapeLayer removeFromSuperlayer];
-//    }
+    if (self.shapeLayer) {
+        [self.shapeLayer removeFromSuperlayer];
+    }
     
-//    CAShapeLayer *shapeLayer;
-//
+    CAShapeLayer *shapeLayer;
+
+    if (!self.shapeLayer) {
+//        [self.shapeLayer removeFromSuperlayer];
+        shapeLayer = [CAShapeLayer layer];
+    } else {
+        shapeLayer = self.shapeLayer;
+    }
+    
+    CGPoint startPoint = [self.mapView convertCoordinate:self.mapView.userLocation.coordinate
+                                           toPointToView:self.view];
+    CGPoint endPoint = [self.mapView convertCoordinate:self.mapView.region.center
+                                         toPointToView:self.view];
+    
+    //    CGPoint startPoint = [self.mapView convertCoordinate:self.mapView.userLocation.coordinate
+    //                                           toPointToView:self.mapView];
+    CGFloat newX = startPoint.x;
+    CGFloat newY = startPoint.y;
+
+    if (startPoint.x > self.view.frame.size.width) {
+        newX = self.view.frame.size.width;
+        CGFloat k = newX/startPoint.x;
+        newY = startPoint.y*k;
+    } else if (startPoint.y > self.view.frame.size.height) {
+        newY = self.view.frame.size.height;
+        CGFloat k = newY/startPoint.y;
+        newX = startPoint.x*k;
+    }
+    CGPoint newStartPoint = CGPointMake(newX, newY);
+    
+    [shapeLayer setBounds:self.view.bounds];
+    [shapeLayer setPosition:self.view.center];
+    [shapeLayer setFillColor:[[UIColor clearColor] CGColor]];
+    [shapeLayer setStrokeColor:[[UIColor blackColor] CGColor]];
+    [shapeLayer setLineWidth:3.0f];
+    [shapeLayer setLineJoin:kCALineJoinRound];
+    [shapeLayer setLineDashPattern:
+     [NSArray arrayWithObjects:[NSNumber numberWithInt:10],
+      [NSNumber numberWithInt:5],nil]];
+    
+    // Setup the path
+    CGMutablePathRef path = CGPathCreateMutable();
+    CGPathMoveToPoint(path, NULL, newStartPoint.x, newStartPoint.y);
+    CGPathAddLineToPoint(path, NULL, endPoint.x, endPoint.y);
+    
+    [shapeLayer setPath:path];
+    CGPathRelease(path);
+    
 //    if (!self.shapeLayer) {
-////        [self.shapeLayer removeFromSuperlayer];
-//        shapeLayer = [CAShapeLayer layer];
-//    } else {
-//        shapeLayer = self.shapeLayer;
-//    }
-//    
-//    CGPoint startPoint = [self.mapView convertCoordinate:self.mapView.userLocation.coordinate
-//                                           toPointToView:self.view];
-//    CGPoint endPoint = [self.mapView convertCoordinate:self.mapView.region.center
-//                                         toPointToView:self.view];
-//    
-//    [shapeLayer setBounds:self.view.bounds];
-//    [shapeLayer setPosition:self.view.center];
-//    [shapeLayer setFillColor:[[UIColor clearColor] CGColor]];
-//    [shapeLayer setStrokeColor:[[UIColor blackColor] CGColor]];
-//    [shapeLayer setLineWidth:3.0f];
-//    [shapeLayer setLineJoin:kCALineJoinRound];
-//    [shapeLayer setLineDashPattern:
-//     [NSArray arrayWithObjects:[NSNumber numberWithInt:10],
-//      [NSNumber numberWithInt:5],nil]];
-//    
-//    // Setup the path
-//    CGMutablePathRef path = CGPathCreateMutable();
-//    CGPathMoveToPoint(path, NULL, startPoint.x, startPoint.y);
-//    CGPathAddLineToPoint(path, NULL, endPoint.x, endPoint.y);
-//    
-//    [shapeLayer setPath:path];
-//    CGPathRelease(path);
-//    
-//    if (!self.shapeLayer) {
-//        self.shapeLayer = shapeLayer;
-//        [self.view.layer addSublayer:self.shapeLayer];
+        self.shapeLayer = shapeLayer;
+        [self.view.layer addSublayer:self.shapeLayer];
 //    }
 }
 
