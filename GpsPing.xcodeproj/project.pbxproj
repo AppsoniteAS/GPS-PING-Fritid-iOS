@@ -21,7 +21,6 @@
 		A61D75591C578FCE00E75999 /* ASFriendsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A61D75581C578FCD00E75999 /* ASFriendsListViewController.m */; };
 		A61D755F1C58A8BE00E75999 /* ASFriendTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A61D755E1C58A8BE00E75999 /* ASFriendTableViewCell.m */; };
 		A626CCEB1C5D1DC5003762A2 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A626CCEA1C5D1DC5003762A2 /* MapKit.framework */; };
-		A626CCEE1C5D3002003762A2 /* ASMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = A626CCED1C5D3002003762A2 /* ASMapView.m */; };
 		A626CCF11C5D4FFA003762A2 /* ASDashedLine.m in Sources */ = {isa = PBXBuildFile; fileRef = A626CCF01C5D4FFA003762A2 /* ASDashedLine.m */; };
 		A68C1B331C4CE460000E2BA6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A68C1B321C4CE460000E2BA6 /* main.m */; };
 		A68C1B361C4CE460000E2BA6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A68C1B351C4CE460000E2BA6 /* AppDelegate.m */; };
@@ -137,8 +136,6 @@
 		A61D755D1C58A8BE00E75999 /* ASFriendTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASFriendTableViewCell.h; sourceTree = "<group>"; };
 		A61D755E1C58A8BE00E75999 /* ASFriendTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASFriendTableViewCell.m; sourceTree = "<group>"; };
 		A626CCEA1C5D1DC5003762A2 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		A626CCEC1C5D3002003762A2 /* ASMapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASMapView.h; sourceTree = "<group>"; };
-		A626CCED1C5D3002003762A2 /* ASMapView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASMapView.m; sourceTree = "<group>"; };
 		A626CCEF1C5D4FFA003762A2 /* ASDashedLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASDashedLine.h; sourceTree = "<group>"; };
 		A626CCF01C5D4FFA003762A2 /* ASDashedLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASDashedLine.m; sourceTree = "<group>"; };
 		A68C1B2E1C4CE460000E2BA6 /* GpsPing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GpsPing.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -312,8 +309,6 @@
 				A603CEE11C5A4CD8001D56A4 /* ASFriendAnnotation.m */,
 				A603CEE91C5B66E3001D56A4 /* ASMapDetailsView.h */,
 				A603CEEA1C5B66E3001D56A4 /* ASMapDetailsView.m */,
-				A626CCEC1C5D3002003762A2 /* ASMapView.h */,
-				A626CCED1C5D3002003762A2 /* ASMapView.m */,
 				A626CCEF1C5D4FFA003762A2 /* ASDashedLine.h */,
 				A626CCF01C5D4FFA003762A2 /* ASDashedLine.m */,
 			);
@@ -806,7 +801,6 @@
 				A68C1BA71C4F7006000E2BA6 /* UIStoryboard+ASHelper.m in Sources */,
 				A603CED51C58D5C2001D56A4 /* ASMapViewController.m in Sources */,
 				A68C1B8F1C4E3860000E2BA6 /* ASTrackersViewController.m in Sources */,
-				A626CCEE1C5D3002003762A2 /* ASMapView.m in Sources */,
 				AB8946901C4F7244002E86C8 /* ASGeofenceViewModel.m in Sources */,
 				A603CEDB1C5A0986001D56A4 /* ASPointModel.m in Sources */,
 				A603CEE81C5A4E45001D56A4 /* UIImage+ASAnnotations.m in Sources */,

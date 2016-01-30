@@ -55,135 +55,30 @@ objection_requires(@keypath(ASMapViewController.new, apiController))
         self.filterTextField.enabled = YES;
     }];
     
-    self.shapeLayer = [[CAShapeLayer alloc] init];
-    self.shapeLayer.frame = self.mapView.bounds;
-    [self.mapView.layer addSublayer:self.shapeLayer];
     self.timer = [NSTimer scheduledTimerWithTimeInterval:0.016 target:self selector:@selector(timerTick:) userInfo:nil repeats:YES];
 }
 
 -(void)timerTick:(NSTimer*)timer
 {
-//    NSLog(@"%@", NSStringFromCGPoint([self.mapView convertCoordinate:self.mapView.userLocation.coordinate
-//                                                       toPointToView:self.view]));
-//    NSLog(@"%@", NSStringFromCGPoint([self.mapView convertCoordinate:self.mapView.region.center
-//                                                       toPointToView:self.view]));
-
-// NSLog(@"%@", self.mapView.region.center)
-    
-//    CLLocationCoordinate2D coordinates[2];
-//    coordinates[0] = self.mapView.userLocation.coordinate;
-//    coordinates[1] = self.mapView.region.center;
-//    MKPolyline *polyLine = [MKPolyline polylineWithCoordinates:coordinates count:2];
-//    [self.mapView removeOverlays:self.mapView.overlays];
-//    [self.mapView addOverlay:polyLine];
-    
-    
-//    CGPoint startPoint = [self.mapView convertCoordinate:self.mapView.userLocation.coordinate
-//                                           toPointToView:self.mapView];
-//    CGFloat newX = startPoint.x;
-//    CGFloat newY = startPoint.y;
-//    
-//    if (startPoint.x > self.dashedLineView.frame.size.width) {
-//        newX = self.dashedLineView.frame.size.width;
-//        CGFloat k = newX/startPoint.x;
-//        newY = startPoint.y*k;
-//    } else if (startPoint.y > self.dashedLineView.frame.size.height) {
-//        newY = self.dashedLineView.frame.size.height;
-//        CGFloat k = newY/startPoint.y;
-//        newX = startPoint.x*k;
-//    }
-//    
-//    self.dashedLineView.userLocationPoint = CGPointMake(newX, newY);
-//    [self.dashedLineView setNeedsDisplay];
-    
-    
-    [self updateShapeLayer];
-}
-
--(void)updateShapeLayer
-{
-//    CAShapeLayer *shapelayer = self.shapeLayer;
-//    UIBezierPath *path = [UIBezierPath bezierPath];
-//    //draw a line
-//    CGPoint startPoint = [self.mapView convertCoordinate:self.mapView.userLocation.coordinate
-//                                           toPointToView:self.view];
-//    CGPoint endPoint = [self.mapView convertCoordinate:self.mapView.region.center
-//                                         toPointToView:self.view];
-//    //    NSLog(@"%@", NSStringFromCGPoint([self.mapView convertCoordinate:self.mapView.region.center
-//    //
-//    [path moveToPoint:startPoint]; //add yourStartPoint here
-//    [path addLineToPoint:endPoint];// add yourEndPoint here
-//    [path stroke];
-//    
-//    float dashPattern[] = {2,6,4,2}; //make your pattern here
-//    [path setLineDash:dashPattern count:4 phase:3];
-//    
-//    UIColor *fill = [UIColor blueColor];
-//    shapelayer.strokeStart = 0.0;
-//    shapelayer.strokeColor = fill.CGColor;
-//    shapelayer.lineWidth = 5.0;
-//    shapelayer.lineJoin = kCALineJoinMiter;
-//    shapelayer.lineDashPattern = [NSArray arrayWithObjects:[NSNumber numberWithInt:10],[NSNumber numberWithInt:7], nil];
-//    shapelayer.lineDashPhase = 3.0f;
-//    shapelayer.path = path.CGPath;
-    
-    
-    if (self.shapeLayer) {
-        [self.shapeLayer removeFromSuperlayer];
-    }
-    
-    CAShapeLayer *shapeLayer;
-
-    if (!self.shapeLayer) {
-//        [self.shapeLayer removeFromSuperlayer];
-        shapeLayer = [CAShapeLayer layer];
-    } else {
-        shapeLayer = self.shapeLayer;
-    }
-    
     CGPoint startPoint = [self.mapView convertCoordinate:self.mapView.userLocation.coordinate
-                                           toPointToView:self.view];
-    CGPoint endPoint = [self.mapView convertCoordinate:self.mapView.region.center
-                                         toPointToView:self.view];
-    
-    //    CGPoint startPoint = [self.mapView convertCoordinate:self.mapView.userLocation.coordinate
-    //                                           toPointToView:self.mapView];
+                                           toPointToView:self.mapView];
     CGFloat newX = startPoint.x;
     CGFloat newY = startPoint.y;
-
-    if (startPoint.x > self.view.frame.size.width) {
-        newX = self.view.frame.size.width;
+    
+    if (startPoint.x > self.dashedLineView.frame.size.width) {
+        newX = self.dashedLineView.frame.size.width;
         CGFloat k = newX/startPoint.x;
         newY = startPoint.y*k;
-    } else if (startPoint.y > self.view.frame.size.height) {
-        newY = self.view.frame.size.height;
+    } else if (startPoint.y > self.dashedLineView.frame.size.height) {
+        newY = self.dashedLineView.frame.size.height;
         CGFloat k = newY/startPoint.y;
         newX = startPoint.x*k;
     }
-    CGPoint newStartPoint = CGPointMake(newX, newY);
     
-    [shapeLayer setBounds:self.view.bounds];
-    [shapeLayer setPosition:self.view.center];
-    [shapeLayer setFillColor:[[UIColor clearColor] CGColor]];
-    [shapeLayer setStrokeColor:[[UIColor blackColor] CGColor]];
-    [shapeLayer setLineWidth:3.0f];
-    [shapeLayer setLineJoin:kCALineJoinRound];
-    [shapeLayer setLineDashPattern:
-     [NSArray arrayWithObjects:[NSNumber numberWithInt:10],
-      [NSNumber numberWithInt:5],nil]];
+    self.dashedLineView.userLocationPoint = CGPointMake(newX, newY);
+    [self.dashedLineView setNeedsDisplay];
     
-    // Setup the path
-    CGMutablePathRef path = CGPathCreateMutable();
-    CGPathMoveToPoint(path, NULL, newStartPoint.x, newStartPoint.y);
-    CGPathAddLineToPoint(path, NULL, endPoint.x, endPoint.y);
-    
-    [shapeLayer setPath:path];
-    CGPathRelease(path);
-    
-//    if (!self.shapeLayer) {
-        self.shapeLayer = shapeLayer;
-        [self.view.layer addSublayer:self.shapeLayer];
-//    }
+    // whats faster, drawInRect or CAShapeLayer?
 }
 
 -(void)configFilter {
@@ -250,34 +145,16 @@ objection_requires(@keypath(ASMapViewController.new, apiController))
 
 -(void)mapView:(MKMapView *)mapView regionWillChangeAnimated:(BOOL)animated
 {
-//    if (self.timer) [self.timer invalidate];
-//    self.timer = [NSTimer scheduledTimerWithTimeInterval:0.016 target:self selector:@selector(timerTick:) userInfo:nil repeats:YES];
+    if (self.timer) {
+        [self.timer invalidate];
+    }
+    
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:0.016 target:self selector:@selector(timerTick:) userInfo:nil repeats:YES];
 }
 
 -(void)mapView:(MKMapView *)mapView regionDidChangeAnimated:(BOOL)animated
 {
-//    [self.timer invalidate];
-
-//    CLLocationCoordinate2D coordinates[2];
-//    coordinates[0] = self.mapView.userLocation.coordinate;
-//    coordinates[1] = mapView.region.center;
-//    MKPolyline *polyLine = [MKPolyline polylineWithCoordinates:coordinates count:2];
-//    [mapView removeOverlays:self.mapView.overlays];
-//    [mapView addOverlay:polyLine];
-}
-
-- (MKOverlayRenderer *)mapView:(MKMapView *)mapView rendererForOverlay:(id<MKOverlay>)overlay
-{
-    if (![overlay isKindOfClass:[MKPolyline class]]) {
-        return nil;
-    }
-    MKPolyline *polyline = (MKPolyline *)overlay;
-    MKPolylineRenderer *renderer = [[MKPolylineRenderer alloc] initWithPolyline:polyline];
-//    renderer.fillColor = [[UIColor darkGrayColor] colorWithAlphaComponent:0.4];
-    renderer.strokeColor         = [UIColor redColor];
-    renderer.lineWidth           = 2;
-    renderer.lineDashPattern = @[@20, @5];
-    return renderer;
+    [self.timer invalidate];
 }
 
 - (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation
