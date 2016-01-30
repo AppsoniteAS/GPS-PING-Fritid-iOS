@@ -39,7 +39,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="y6O-VD-VEg">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="y6O-VD-VEg" customClass="ASMapView">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <connections>
                                     <outlet property="delegate" destination="sw3-fk-UAu" id="EVl-mQ-BSm"/>
@@ -311,22 +311,30 @@
                                     </mask>
                                 </variation>
                             </view>
+                            <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ni7-Ru-box" customClass="ASDashedLine">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="map_cursor" translatesAutoresizingMaskIntoConstraints="NO" id="M8s-by-y94">
-                                <rect key="frame" x="135" y="289" width="50" height="50"/>
+                                <rect key="frame" x="135" y="259" width="50" height="50"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="hPV-uE-2fI" firstAttribute="top" secondItem="zmk-Dv-JcT" secondAttribute="topMargin" id="0jm-DI-fwY"/>
+                            <constraint firstItem="ni7-Ru-box" firstAttribute="bottom" secondItem="y6O-VD-VEg" secondAttribute="bottom" id="186-wh-Zgg"/>
                             <constraint firstAttribute="trailing" secondItem="y6O-VD-VEg" secondAttribute="trailing" id="2Vx-NF-tht"/>
+                            <constraint firstItem="ni7-Ru-box" firstAttribute="top" secondItem="y6O-VD-VEg" secondAttribute="top" id="C48-qi-t6o"/>
                             <constraint firstItem="M8s-by-y94" firstAttribute="centerX" secondItem="y6O-VD-VEg" secondAttribute="centerX" id="Lk2-bt-Ayz"/>
+                            <constraint firstItem="ni7-Ru-box" firstAttribute="leading" secondItem="y6O-VD-VEg" secondAttribute="leading" id="PUr-EO-eVj"/>
                             <constraint firstAttribute="bottomMargin" secondItem="gzy-Op-7ej" secondAttribute="bottom" id="QeI-Y7-Sta"/>
                             <constraint firstItem="1xD-Dc-EO1" firstAttribute="leading" secondItem="zmk-Dv-JcT" secondAttribute="leading" constant="18" id="TCb-Dj-Y0p"/>
                             <constraint firstItem="y6O-VD-VEg" firstAttribute="leading" secondItem="zmk-Dv-JcT" secondAttribute="leading" id="TOH-t1-GKw"/>
                             <constraint firstItem="hPV-uE-2fI" firstAttribute="leading" secondItem="zmk-Dv-JcT" secondAttribute="leading" id="VPD-W5-Qfq"/>
                             <constraint firstItem="gzy-Op-7ej" firstAttribute="leading" secondItem="zmk-Dv-JcT" secondAttribute="leading" id="d7H-I9-3dr"/>
-                            <constraint firstItem="M8s-by-y94" firstAttribute="centerY" secondItem="y6O-VD-VEg" secondAttribute="centerY" constant="30" id="fJ5-sO-17b"/>
+                            <constraint firstItem="M8s-by-y94" firstAttribute="centerY" secondItem="y6O-VD-VEg" secondAttribute="centerY" id="fJ5-sO-17b"/>
                             <constraint firstAttribute="bottomMargin" secondItem="y6O-VD-VEg" secondAttribute="bottom" id="gkT-Fu-EER"/>
+                            <constraint firstItem="ni7-Ru-box" firstAttribute="trailing" secondItem="y6O-VD-VEg" secondAttribute="trailing" id="kai-wL-1Ct"/>
                             <constraint firstAttribute="trailing" secondItem="gzy-Op-7ej" secondAttribute="trailing" id="khC-m7-AQ3"/>
                             <constraint firstItem="gzy-Op-7ej" firstAttribute="top" secondItem="1xD-Dc-EO1" secondAttribute="bottom" id="mQY-3M-Tbi"/>
                             <constraint firstItem="hPV-uE-2fI" firstAttribute="top" secondItem="bg3-na-OtA" secondAttribute="bottom" id="oDS-LP-hgk"/>
@@ -342,6 +350,7 @@
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
+                        <outlet property="dashedLineView" destination="ni7-Ru-box" id="VPL-VE-xue"/>
                         <outlet property="detailsPlank" destination="1xD-Dc-EO1" id="qfI-ph-G3g"/>
                         <outlet property="filterPlank" destination="hPV-uE-2fI" id="Zmh-uc-6pA"/>
                         <outlet property="filterTextField" destination="RGG-T8-o5l" id="S4m-e9-ado"/>
