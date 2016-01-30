@@ -55,5 +55,24 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSExceptionDomains</key>
+		<dict>
+			<key>appgranula.mooo.com</key>
+			<dict>
+				<key>NSExceptionAllowsInsecureHTTPLoads</key>
+				<true/>
+				<key>NSIncludesSubdomains</key>
+				<true/>
+			</dict>
+		</dict>
+	</dict>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Обнаружение локации необходимо для определения Вашего адреса</string>
+	<key>NSLocationUsageDescription</key>
+	<string>Обнаружение локации необходимо для определения Вашего адреса</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Обнаружение локации необходимо для определения Вашего адреса</string>
 </dict>
 </plist>

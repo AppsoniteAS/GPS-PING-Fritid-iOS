@@ -16,12 +16,13 @@
 #import "UIColor+ASColor.h"
 #import "ASMapDetailsView.h"
 
-@interface ASMapViewController () <MKMapViewDelegate>
+@interface ASMapViewController () <MKMapViewDelegate,UIPickerViewDelegate, UIPickerViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UIView *filterPlank;
 @property (weak, nonatomic) IBOutlet UITextField *filterTextField;
 @property (weak, nonatomic) IBOutlet ASMapDetailsView *detailsPlank;
-
+@property (nonatomic) NSArray *originalPointsData;
+@property(nonatomic) CLLocationManager *locationManager;
 
 @property (nonatomic, strong) AGApiController   *apiController;
 
@@ -33,54 +34,134 @@ objection_requires(@keypath(ASMapViewController.new, apiController))
 - (void)viewDidLoad {
     [super viewDidLoad];
     [[JSObjection defaultInjector] injectDependencies:self];
+    [self configFilter];
+    self.locationManager = [[CLLocationManager alloc] init];
+    [self.locationManager requestWhenInUseAuthorization];
+    [self.locationManager requestAlwaysAuthorization];
+//    [self.locationManager startUpdatingLocation];
 
     self.mapView.mapType = MKMapTypeStandard;
     NSDate *from = [NSDate dateWithTimeIntervalSince1970:1410739200];
     NSDate *to = [NSDate dateWithTimeIntervalSince1970:1410868800];
+    self.mapView.showsUserLocation = YES;
+
+    self.filterTextField.enabled = NO;
     [[self.apiController getTrackingPointsFrom:from to:to friendId:nil] subscribeNext:^(id x) {
         [self showAllPointsForUsers:x];
+        self.originalPointsData = x;
+        self.filterTextField.enabled = YES;
     }];
+}
+
+-(void)configFilter {
+    UIPickerView *filterPicker = [[UIPickerView alloc] init];
+    filterPicker.backgroundColor = [UIColor whiteColor];
+    filterPicker.delegate = self;
+    filterPicker.dataSource = self;
+    self.filterTextField.inputView = filterPicker;
+    UIToolbar *accessoryView = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, filterPicker.frame.size.width, 44)];
+    accessoryView.barStyle = UIBarStyleDefault;
+    
+    UIBarButtonItem *space = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+    
+    UIBarButtonItem *done = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(doneTapped:)];
+    
+    accessoryView.items = [NSArray arrayWithObjects:space,done, nil];
+    self.filterTextField.inputAccessoryView = accessoryView;
+}
+
+-(void)doneTapped:(id)sender
+{
+    [self.filterTextField resignFirstResponder];
 }
 
 -(void)showAllPointsForUsers:(NSArray*)users
 {
     for (ASFriendModel *friendModel in users) {
-        UIColor *colorForUser = [UIColor getRandomColor];
-        CLLocationCoordinate2D friendCoord = CLLocationCoordinate2DMake(friendModel.latitude.doubleValue, friendModel.longitude.doubleValue);
-        ASFriendAnnotation *friendAnnotation = [[ASFriendAnnotation alloc] initWithLocation:friendCoord];
-        friendAnnotation.annotationColor = colorForUser;
-        friendAnnotation.userObject = friendModel;
-        [self.mapView addAnnotation:friendAnnotation];
-        
-        for (ASDeviceModel *deviceModel in friendModel.devices) {
-            for (ASPointModel *pointModel in deviceModel.points) {
-                ASDevicePointAnnotation *annotation;
-                CLLocationCoordinate2D coord = CLLocationCoordinate2DMake(pointModel.latitude.doubleValue, pointModel.longitude.doubleValue);
-                if (pointModel == deviceModel.points.lastObject) {
-                    annotation = [[ASLastPointAnnotation alloc] initWithLocation:coord];
-                } else {
-                    annotation = [[ASPointAnnotation alloc] initWithLocation:coord];
-                }
-                
-                [annotation setAnnotationColor:colorForUser];
-                annotation.deviceObject = deviceModel;
-                annotation.pointObject = pointModel;
-                annotation.owner = friendModel;
-                [self.mapView addAnnotation:annotation];
-                if (pointModel == deviceModel.points.lastObject) {
-                    MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(coord, 800, 800);
+        [self showPointsForUser:friendModel];
+    }
+}
 
-                    [self.mapView setRegion:viewRegion animated:YES];
-                }
+-(void)showPointsForUser:(ASFriendModel*)friendModel
+{
+    UIColor *colorForUser = [UIColor getRandomColor];
+    CLLocationCoordinate2D friendCoord = CLLocationCoordinate2DMake(friendModel.latitude.doubleValue, friendModel.longitude.doubleValue);
+    ASFriendAnnotation *friendAnnotation = [[ASFriendAnnotation alloc] initWithLocation:friendCoord];
+    friendAnnotation.annotationColor = colorForUser;
+    friendAnnotation.userObject = friendModel;
+    [self.mapView addAnnotation:friendAnnotation];
+    
+    for (ASDeviceModel *deviceModel in friendModel.devices) {
+        for (ASPointModel *pointModel in deviceModel.points) {
+            ASDevicePointAnnotation *annotation;
+            CLLocationCoordinate2D coord = CLLocationCoordinate2DMake(pointModel.latitude.doubleValue, pointModel.longitude.doubleValue);
+            if (pointModel == deviceModel.points.lastObject) {
+                annotation = [[ASLastPointAnnotation alloc] initWithLocation:coord];
+            } else {
+                annotation = [[ASPointAnnotation alloc] initWithLocation:coord];
+            }
+            
+            [annotation setAnnotationColor:colorForUser];
+            annotation.deviceObject = deviceModel;
+            annotation.pointObject = pointModel;
+            annotation.owner = friendModel;
+            [self.mapView addAnnotation:annotation];
+            if (pointModel == deviceModel.points.lastObject) {
+                MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(coord, 800, 800);
+                
+                [self.mapView setRegion:viewRegion animated:YES];
             }
         }
     }
 }
 
+-(void)mapView:(MKMapView *)mapView regionDidChangeAnimated:(BOOL)animated
+{
+    CLLocationCoordinate2D coordinates[2];
+    coordinates[0] = self.mapView.userLocation.coordinate;
+    coordinates[1] = mapView.region.center;
+    MKPolyline *polyLine = [MKPolyline polylineWithCoordinates:coordinates count:2];
+    [mapView removeOverlays:self.mapView.overlays];
+    [mapView addOverlay:polyLine];
+}
+
+- (MKOverlayRenderer *)mapView:(MKMapView *)mapView rendererForOverlay:(id<MKOverlay>)overlay
+{
+    if (![overlay isKindOfClass:[MKPolyline class]]) {
+        return nil;
+    }
+    MKPolyline *polyline = (MKPolyline *)overlay;
+    MKPolylineRenderer *renderer = [[MKPolylineRenderer alloc] initWithPolyline:polyline];
+//    renderer.fillColor = [[UIColor darkGrayColor] colorWithAlphaComponent:0.4];
+    renderer.strokeColor         = [UIColor redColor];
+    renderer.lineWidth           = 2;
+    return renderer;
+}
+
+- (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation
+{
+    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(userLocation.coordinate, 800, 800);
+//    [self.mapView setRegion:[self.mapView regionThatFits:region] animated:YES];
+}
+
 -(MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation
 {
-    if ([annotation isKindOfClass:[MKUserLocation class]])
+    if ([annotation isKindOfClass:[MKUserLocation class]]) {
         return nil;
+        MKAnnotationView *userLocationAnnotationView = (id)[mapView dequeueReusableAnnotationViewWithIdentifier:@"ASFriendAnnotation"];
+        
+        if (!userLocationAnnotationView) {
+            userLocationAnnotationView = [[MKAnnotationView alloc] initWithAnnotation:annotation
+                                                   reuseIdentifier:@"ASFriendAnnotation"];
+            userLocationAnnotationView.canShowCallout = NO;
+        } else {
+            userLocationAnnotationView.annotation = annotation;
+        }
+        
+        userLocationAnnotationView.image = [UIImage getUserAnnotationImageWithColor:[UIColor blackColor]];
+        
+        return userLocationAnnotationView;
+    }
     
     if ([annotation isKindOfClass:[ASPointAnnotation class]]) {
         MKAnnotationView *pinView = (MKPinAnnotationView*)[mapView dequeueReusableAnnotationViewWithIdentifier:@"ASPointAnnotation"];
@@ -89,11 +170,11 @@ objection_requires(@keypath(ASMapViewController.new, apiController))
             pinView = [[MKAnnotationView alloc] initWithAnnotation:annotation
                                                       reuseIdentifier:@"ASPointAnnotation"];
             pinView.canShowCallout = NO;
-            pinView.image = [UIImage getPointAnnotationImageWithColor:((ASPointAnnotation*)annotation).annotationColor];
         } else {
             pinView.annotation = annotation;
         }
         
+        pinView.image = [UIImage getPointAnnotationImageWithColor:((ASPointAnnotation*)annotation).annotationColor];
         return pinView;
     } else if ([annotation isKindOfClass:[ASLastPointAnnotation class]]) {
         MKAnnotationView *pinView = (MKPinAnnotationView*)[mapView dequeueReusableAnnotationViewWithIdentifier:@"ASLastPointAnnotation"];
@@ -103,10 +184,11 @@ objection_requires(@keypath(ASMapViewController.new, apiController))
                                                       reuseIdentifier:@"ASLastPointAnnotation"];
 
             pinView.canShowCallout = NO;
-            pinView.image = [UIImage getLastPointAnnotationImageWithColor:((ASLastPointAnnotation*)annotation).annotationColor];
         } else {
             pinView.annotation = annotation;
         }
+        
+        pinView.image = [UIImage getLastPointAnnotationImageWithColor:((ASLastPointAnnotation*)annotation).annotationColor];
         
         return pinView;
     } else if ([annotation isKindOfClass:[ASFriendAnnotation class]]) {
@@ -116,11 +198,12 @@ objection_requires(@keypath(ASMapViewController.new, apiController))
             pinView = [[MKAnnotationView alloc] initWithAnnotation:annotation
                                                       reuseIdentifier:@"ASFriendAnnotation"];
             pinView.canShowCallout = NO;
-            pinView.image = [UIImage getUserAnnotationImageWithColor:((ASFriendAnnotation*)annotation).annotationColor];
         } else {
             pinView.annotation = annotation;
         }
         
+        pinView.image = [UIImage getUserAnnotationImageWithColor:((ASFriendAnnotation*)annotation).annotationColor];
+
         return pinView;
     }
     
@@ -158,5 +241,49 @@ objection_requires(@keypath(ASMapViewController.new, apiController))
         self.mapView.mapType = MKMapTypeHybrid;
     }
 }
+
+#pragma mark - UIPicker
+
+-(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
+    return  1;
+}
+
+-(NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
+{
+    return self.originalPointsData.count + 1;
+}
+
+-(NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
+{
+    if (row == 0) {
+        return NSLocalizedString(@"All", nil);
+    }
+    
+    ASFriendModel *userModel = self.originalPointsData[row-1];
+    if ([userModel.userName isEqualToString:self.apiController.userProfile.username]) {
+        return NSLocalizedString(@"You", nil);
+    }
+    
+    return userModel.userName;
+}
+
+-(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
+{
+    if (row == 0) {
+        [self showAllPointsForUsers:self.originalPointsData];
+        return;
+    }
+    
+    ASFriendModel *userModel = self.originalPointsData[row-1];
+    if ([userModel.userName isEqualToString:self.apiController.userProfile.username]) {
+        self.filterTextField.text = NSLocalizedString(@"You", nil);
+    } else {
+        self.filterTextField.text = userModel.userName;
+    }
+    
+    [self.mapView removeAnnotations:self.mapView.annotations];
+    [self showAllPointsForUsers:@[userModel]];
+}
+
 
 @end
