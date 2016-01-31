@@ -70,6 +70,7 @@
 		AB5428121C5BA1F000F33E8B /* ASSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = AB5428111C5BA1F000F33E8B /* ASSearchBar.m */; };
 		AB5428151C5BAA1000F33E8B /* DisplayOptions.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB5428141C5BAA1000F33E8B /* DisplayOptions.storyboard */; };
 		AB5428181C5BAE2300F33E8B /* ASDisplayOptionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB5428171C5BAE2300F33E8B /* ASDisplayOptionsViewController.m */; };
+		AB5428211C5E376A00F33E8B /* ASRequestTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AB5428201C5E376A00F33E8B /* ASRequestTableViewCell.m */; };
 		AB89466E1C4E334B002E86C8 /* About.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB89466D1C4E334B002E86C8 /* About.storyboard */; };
 		AB8946711C4E3372002E86C8 /* ASAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB8946701C4E3372002E86C8 /* ASAboutViewController.m */; };
 		AB8946721C4E3372002E86C8 /* ASAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB8946701C4E3372002E86C8 /* ASAboutViewController.m */; };
@@ -215,6 +216,8 @@
 		AB5428141C5BAA1000F33E8B /* DisplayOptions.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DisplayOptions.storyboard; sourceTree = "<group>"; };
 		AB5428161C5BAE2300F33E8B /* ASDisplayOptionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASDisplayOptionsViewController.h; sourceTree = "<group>"; };
 		AB5428171C5BAE2300F33E8B /* ASDisplayOptionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASDisplayOptionsViewController.m; sourceTree = "<group>"; };
+		AB54281F1C5E376A00F33E8B /* ASRequestTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASRequestTableViewCell.h; sourceTree = "<group>"; };
+		AB5428201C5E376A00F33E8B /* ASRequestTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASRequestTableViewCell.m; sourceTree = "<group>"; };
 		AB89466D1C4E334B002E86C8 /* About.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = About.storyboard; sourceTree = "<group>"; };
 		AB89466F1C4E3372002E86C8 /* ASAboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASAboutViewController.h; sourceTree = "<group>"; };
 		AB8946701C4E3372002E86C8 /* ASAboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASAboutViewController.m; sourceTree = "<group>"; };
@@ -318,16 +321,13 @@
 		A61D755A1C578FD200E75999 /* Connect */ = {
 			isa = PBXGroup;
 			children = (
+				AB5428251C5E3B7800F33E8B /* AddFriend */,
 				A61D75571C578FCD00E75999 /* ASFriendsListViewController.h */,
 				A61D75581C578FCD00E75999 /* ASFriendsListViewController.m */,
 				A61D755D1C58A8BE00E75999 /* ASFriendTableViewCell.h */,
 				A61D755E1C58A8BE00E75999 /* ASFriendTableViewCell.m */,
-				AB5428071C5BA1C800F33E8B /* ASAddFriendTableViewCell.h */,
-				AB5428081C5BA1C800F33E8B /* ASAddFriendTableViewCell.m */,
-				AB5428091C5BA1C800F33E8B /* ASAddFriendViewController.h */,
-				AB54280A1C5BA1C800F33E8B /* ASAddFriendViewController.m */,
-				AB54280B1C5BA1C800F33E8B /* ASAddFriendViewModel.h */,
-				AB54280C1C5BA1C800F33E8B /* ASAddFriendViewModel.m */,
+				AB54281F1C5E376A00F33E8B /* ASRequestTableViewCell.h */,
+				AB5428201C5E376A00F33E8B /* ASRequestTableViewCell.m */,
 				A6D8D0531C58BD2500030E9F /* Connect.storyboard */,
 			);
 			name = Connect;
@@ -509,6 +509,19 @@
 				AB5428141C5BAA1000F33E8B /* DisplayOptions.storyboard */,
 			);
 			name = "Display options";
+			sourceTree = "<group>";
+		};
+		AB5428251C5E3B7800F33E8B /* AddFriend */ = {
+			isa = PBXGroup;
+			children = (
+				AB5428071C5BA1C800F33E8B /* ASAddFriendTableViewCell.h */,
+				AB5428081C5BA1C800F33E8B /* ASAddFriendTableViewCell.m */,
+				AB5428091C5BA1C800F33E8B /* ASAddFriendViewController.h */,
+				AB54280A1C5BA1C800F33E8B /* ASAddFriendViewController.m */,
+				AB54280B1C5BA1C800F33E8B /* ASAddFriendViewModel.h */,
+				AB54280C1C5BA1C800F33E8B /* ASAddFriendViewModel.m */,
+			);
+			name = AddFriend;
 			sourceTree = "<group>";
 		};
 		AB89466C1C4E331C002E86C8 /* About */ = {
@@ -818,6 +831,7 @@
 				A68C1B871C4D2549000E2BA6 /* ASButton.m in Sources */,
 				A603CEE21C5A4CD8001D56A4 /* ASFriendAnnotation.m in Sources */,
 				AB89468A1C4F31F3002E86C8 /* ASSignInViewModel.m in Sources */,
+				AB5428211C5E376A00F33E8B /* ASRequestTableViewCell.m in Sources */,
 				AB8946961C50D6B0002E86C8 /* ASProfileViewController.m in Sources */,
 				AB5428061C5BA1B300F33E8B /* ASAddFriendModel.m in Sources */,
 				A6F6A74B1C5122210009579A /* ASSmsManager.m in Sources */,
