@@ -12,5 +12,6 @@
 
 +(UIStoryboard*)trackerStoryboard;
 +(UIStoryboard*)mainMenuStoryboard;
++(UIStoryboard*)mapStoryboard;
 
 @end

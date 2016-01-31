@@ -10,6 +10,7 @@
 #import "ASSelectTrackerViewController.h"
 #import "ASSmsManager.h"
 #import "ASMainViewModel.h"
+#import "ASMapViewController.h"
 
 #import <CocoaLumberjack.h>
 static DDLogLevel ddLogLevel = DDLogLevelDebug;
@@ -25,6 +26,7 @@ static DDLogLevel ddLogLevel = DDLogLevelDebug;
 @implementation MainMenuViewController {
     BOOL isAuthShown;
 }
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -81,6 +83,16 @@ static DDLogLevel ddLogLevel = DDLogLevelDebug;
 {
     [self.startStopButton setTitle:NSLocalizedString(@"STOP", nil) forState:UIControlStateNormal];
     self.trackerStarted = YES;
+}
+- (IBAction)mapTap:(id)sender {
+    ASMapViewController *mapVC = [ASMapViewController initialize];
+    mapVC.isHistoryMode = NO;
+    [self.navigationController pushViewController:mapVC animated:YES];
+}
+- (IBAction)historyTap:(id)sender {
+    ASMapViewController *mapVC = [ASMapViewController initialize];
+    mapVC.isHistoryMode = YES;
+    [self.navigationController pushViewController:mapVC animated:YES];
 }
 
 @end

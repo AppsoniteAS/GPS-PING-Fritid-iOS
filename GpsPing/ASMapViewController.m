@@ -8,6 +8,7 @@
 
 #import "ASMapViewController.h"
 #import "AGApiController.h"
+#import "UIStoryboard+ASHelper.h"
 #import "ASModel.h"
 #import "ASPointAnnotation.h"
 #import "ASFriendAnnotation.h"
@@ -16,39 +17,72 @@
 #import "UIColor+ASColor.h"
 #import "ASMapDetailsView.h"
 #import "ASDashedLine.h"
+#import <THDatePickerViewController.h>
 
-@interface ASMapViewController () <MKMapViewDelegate,UIPickerViewDelegate, UIPickerViewDataSource>
+@interface ASMapViewController () <MKMapViewDelegate,UIPickerViewDelegate, UIPickerViewDataSource, THDatePickerDelegate>
 
-@property (weak, nonatomic) IBOutlet UIView *filterPlank;
-@property (weak, nonatomic) IBOutlet UITextField *filterTextField;
+@property (weak, nonatomic) IBOutlet UIView           *filterPlank;
+@property (weak, nonatomic) IBOutlet UITextField      *filterTextField;
 @property (weak, nonatomic) IBOutlet ASMapDetailsView *detailsPlank;
-@property (nonatomic) NSArray *originalPointsData;
-@property(nonatomic) CLLocationManager *locationManager;
-@property(nonatomic) NSTimer *timer;
-@property (nonatomic) CAShapeLayer *shapeLayer;
-@property (weak, nonatomic) IBOutlet ASDashedLine *dashedLineView;
-@property (nonatomic, strong) AGApiController   *apiController;
+@property (weak, nonatomic) IBOutlet ASDashedLine     *dashedLineView;
+
+@property (nonatomic        ) NSArray                    *originalPointsData;
+@property (nonatomic        ) CLLocationManager          *locationManager;
+@property (nonatomic        ) NSTimer                    *timer;
+@property (nonatomic        ) CAShapeLayer               *shapeLayer;
+@property (nonatomic        ) NSDate                     *selectedDate;
+
+@property (nonatomic        ) AGApiController            *apiController;
+@property (nonatomic        ) THDatePickerViewController *datePicker;
 
 @end
+
 @implementation ASMapViewController
 
 objection_requires(@keypath(ASMapViewController.new, apiController))
+
++(instancetype)initialize
+{
+    return [[UIStoryboard mapStoryboard] instantiateInitialViewController];
+}
+
+#pragma mark - view controller methods
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     [[JSObjection defaultInjector] injectDependencies:self];
     [self configFilter];
+    
+    UIBarButtonItem *rightBBI;
+
+    if (self.isHistoryMode) {
+        rightBBI = [[UIBarButtonItem alloc] initWithTitle:@""
+                                                    style:UIBarButtonItemStylePlain
+                                                   target:self
+                                                   action:@selector(calendarTap:)];
+        rightBBI.image = [UIImage imageNamed:@"calendarIcon"];
+    } else {
+        rightBBI = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Remove tracks", nil)
+                                                    style:UIBarButtonItemStylePlain
+                                                   target:self
+                                                   action:@selector(removeTracksTap)];
+    }
+    
+    self.navigationItem.rightBarButtonItem = rightBBI;
+    
     self.locationManager = [[CLLocationManager alloc] init];
     [self.locationManager requestWhenInUseAuthorization];
     [self.locationManager requestAlwaysAuthorization];
-//    [self.locationManager startUpdatingLocation];
-
+    //    [self.locationManager startUpdatingLocation];
+    
     self.mapView.mapType = MKMapTypeStandard;
+
+    self.mapView.showsUserLocation = YES;
+    
+    self.filterTextField.enabled = NO;
+    
     NSDate *from = [NSDate dateWithTimeIntervalSince1970:1410739200];
     NSDate *to = [NSDate dateWithTimeIntervalSince1970:1410868800];
-    self.mapView.showsUserLocation = YES;
-
-    self.filterTextField.enabled = NO;
     [[self.apiController getTrackingPointsFrom:from to:to friendId:nil] subscribeNext:^(id x) {
         [self showAllPointsForUsers:x];
         self.originalPointsData = x;
@@ -56,6 +90,31 @@ objection_requires(@keypath(ASMapViewController.new, apiController))
     }];
     
     self.timer = [NSTimer scheduledTimerWithTimeInterval:0.016 target:self selector:@selector(timerTick:) userInfo:nil repeats:YES];
+}
+
+#pragma mark - IBActions and Handlers
+
+- (IBAction)photoActionTap:(id)sender {
+}
+
+- (IBAction)mapTypeValueChanged:(UISegmentedControl*)sender {
+    if (sender.selectedSegmentIndex == 0) {
+        self.mapView.mapType = MKMapTypeSatellite;
+    } else if (sender.selectedSegmentIndex == 1) {
+        self.mapView.mapType = MKMapTypeStandard;
+    } else {
+        self.mapView.mapType = MKMapTypeHybrid;
+    }
+}
+
+-(void)doneTapped:(id)sender
+{
+    [self.filterTextField resignFirstResponder];
+}
+
+-(void)removeTracksTap
+{
+    
 }
 
 -(void)timerTick:(NSTimer*)timer
@@ -81,27 +140,37 @@ objection_requires(@keypath(ASMapViewController.new, apiController))
     // whats faster, drawInRect or CAShapeLayer?
 }
 
--(void)configFilter {
-    UIPickerView *filterPicker = [[UIPickerView alloc] init];
-    filterPicker.backgroundColor = [UIColor whiteColor];
-    filterPicker.delegate = self;
-    filterPicker.dataSource = self;
-    self.filterTextField.inputView = filterPicker;
-    UIToolbar *accessoryView = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, filterPicker.frame.size.width, 44)];
-    accessoryView.barStyle = UIBarStyleDefault;
+- (IBAction)calendarTap:(id)sender {
+    if(!self.datePicker)
+        self.datePicker = [THDatePickerViewController datePicker];
+    self.datePicker.date = [NSDate date];
+    self.datePicker.delegate = self;
+    [self.datePicker setAllowClearDate:NO];
+    [self.datePicker setClearAsToday:YES];
+    [self.datePicker setAutoCloseOnSelectDate:YES];
+    [self.datePicker setAllowSelectionOfSelectedDate:YES];
+    [self.datePicker setDisableHistorySelection:NO];
+    [self.datePicker setDisableFutureSelection:YES];
+    [self.datePicker setSelectedBackgroundColor:[UIColor colorWithRed:125/255.0 green:208/255.0 blue:0/255.0 alpha:1.0]];
+    [self.datePicker setCurrentDateColor:[UIColor colorWithRed:242/255.0 green:121/255.0 blue:53/255.0 alpha:1.0]];
     
-    UIBarButtonItem *space = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+    [self.datePicker setDateHasItemsCallback:^BOOL(NSDate *date) {
+        int tmp = (arc4random() % 30)+1;
+        if(tmp % 5 == 0)
+            return YES;
+        return NO;
+    }];
+    //[self.datePicker slideUpInView:self.view withModalColor:[UIColor lightGrayColor]];
+    self.datePicker.date = self.selectedDate;
+    [self presentSemiViewController:self.datePicker withOptions:@{
+                                                                  KNSemiModalOptionKeys.pushParentBack    : @(NO),
+                                                                  KNSemiModalOptionKeys.animationDuration : @(0.33),
+                                                                  KNSemiModalOptionKeys.shadowOpacity     : @(0.3),
+                                                                  }];
     
-    UIBarButtonItem *done = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(doneTapped:)];
-    
-    accessoryView.items = [NSArray arrayWithObjects:space,done, nil];
-    self.filterTextField.inputAccessoryView = accessoryView;
 }
 
--(void)doneTapped:(id)sender
-{
-    [self.filterTextField resignFirstResponder];
-}
+#pragma mark - Private methods
 
 -(void)showAllPointsForUsers:(NSArray*)users
 {
@@ -143,6 +212,25 @@ objection_requires(@keypath(ASMapViewController.new, apiController))
     }
 }
 
+-(void)configFilter {
+    UIPickerView *filterPicker = [[UIPickerView alloc] init];
+    filterPicker.backgroundColor = [UIColor whiteColor];
+    filterPicker.delegate = self;
+    filterPicker.dataSource = self;
+    self.filterTextField.inputView = filterPicker;
+    UIToolbar *accessoryView = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, filterPicker.frame.size.width, 44)];
+    accessoryView.barStyle = UIBarStyleDefault;
+    
+    UIBarButtonItem *space = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+    
+    UIBarButtonItem *done = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(doneTapped:)];
+    
+    accessoryView.items = [NSArray arrayWithObjects:space,done, nil];
+    self.filterTextField.inputAccessoryView = accessoryView;
+}
+
+#pragma mark - MapView delegate
+
 -(void)mapView:(MKMapView *)mapView regionWillChangeAnimated:(BOOL)animated
 {
     if (self.timer) {
@@ -159,8 +247,8 @@ objection_requires(@keypath(ASMapViewController.new, apiController))
 
 - (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation
 {
-//    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(userLocation.coordinate, 800, 800);
-//    [self.mapView setRegion:[self.mapView regionThatFits:region] animated:YES];
+    //    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(userLocation.coordinate, 800, 800);
+    //    [self.mapView setRegion:[self.mapView regionThatFits:region] animated:YES];
 }
 
 -(MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation
@@ -171,7 +259,7 @@ objection_requires(@keypath(ASMapViewController.new, apiController))
         
         if (!userLocationAnnotationView) {
             userLocationAnnotationView = [[MKAnnotationView alloc] initWithAnnotation:annotation
-                                                   reuseIdentifier:@"ASFriendAnnotation"];
+                                                                      reuseIdentifier:@"ASFriendAnnotation"];
             userLocationAnnotationView.canShowCallout = NO;
         } else {
             userLocationAnnotationView.annotation = annotation;
@@ -187,7 +275,7 @@ objection_requires(@keypath(ASMapViewController.new, apiController))
         
         if (!pinView) {
             pinView = [[MKAnnotationView alloc] initWithAnnotation:annotation
-                                                      reuseIdentifier:@"ASPointAnnotation"];
+                                                   reuseIdentifier:@"ASPointAnnotation"];
             pinView.canShowCallout = NO;
         } else {
             pinView.annotation = annotation;
@@ -200,8 +288,8 @@ objection_requires(@keypath(ASMapViewController.new, apiController))
         
         if (!pinView) {
             pinView = [[MKAnnotationView alloc] initWithAnnotation:annotation
-                                                      reuseIdentifier:@"ASLastPointAnnotation"];
-
+                                                   reuseIdentifier:@"ASLastPointAnnotation"];
+            
             pinView.canShowCallout = NO;
         } else {
             pinView.annotation = annotation;
@@ -215,14 +303,14 @@ objection_requires(@keypath(ASMapViewController.new, apiController))
         
         if (!pinView) {
             pinView = [[MKAnnotationView alloc] initWithAnnotation:annotation
-                                                      reuseIdentifier:@"ASFriendAnnotation"];
+                                                   reuseIdentifier:@"ASFriendAnnotation"];
             pinView.canShowCallout = NO;
         } else {
             pinView.annotation = annotation;
         }
         
         pinView.image = [UIImage getUserAnnotationImageWithColor:((ASFriendAnnotation*)annotation).annotationColor];
-
+        
         return pinView;
     }
     
@@ -246,19 +334,6 @@ objection_requires(@keypath(ASMapViewController.new, apiController))
     }
     
     self.detailsPlank.hidden = NO;
-}
-
-- (IBAction)photoActionTap:(id)sender {
-}
-
-- (IBAction)mapTypeValueChanged:(UISegmentedControl*)sender {
-    if (sender.selectedSegmentIndex == 0) {
-        self.mapView.mapType = MKMapTypeSatellite;
-    } else if (sender.selectedSegmentIndex == 1) {
-       self.mapView.mapType = MKMapTypeStandard;
-    } else {
-        self.mapView.mapType = MKMapTypeHybrid;
-    }
 }
 
 #pragma mark - UIPicker
@@ -304,5 +379,25 @@ objection_requires(@keypath(ASMapViewController.new, apiController))
     [self showAllPointsForUsers:@[userModel]];
 }
 
+#pragma mark - THDatePickerViewController delegate
+
+-(void)datePickerDonePressed:(THDatePickerViewController *)datePicker
+{
+    [datePicker dismissSemiModalView];
+    self.selectedDate = datePicker.date;
+    [self.mapView removeAnnotations:self.mapView.annotations];
+    NSDate *from = datePicker.date;
+    NSDate *to = [datePicker.date dateByAddingTimeInterval:60*60*24];
+    [[self.apiController getTrackingPointsFrom:from to:to friendId:nil] subscribeNext:^(id x) {
+        [self showAllPointsForUsers:x];
+        self.originalPointsData = x;
+        self.filterTextField.enabled = YES;
+    }];
+}
+
+-(void)datePickerCancelPressed:(THDatePickerViewController *)datePicker
+{
+    
+}
 
 @end

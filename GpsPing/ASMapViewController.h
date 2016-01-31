@@ -11,5 +11,7 @@
 
 @interface ASMapViewController : UIViewController
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
+@property (assign, nonatomic) BOOL isHistoryMode;
++(instancetype)initialize;
 
 @end

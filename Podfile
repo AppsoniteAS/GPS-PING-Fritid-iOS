@@ -22,4 +22,4 @@ pod 'UIImage-ResizeMagick', :git => 'https://github.com/lazarev/UIImage-ResizeMa
 pod 'Fabric'
 pod 'Mantle', '~> 2.0.6'
 pod 'Underscore.m', '~> 0.2.1'
-pod 'CVCalendar', '~> 1.2.7'
+pod 'THCalendarDatePicker', '~> 1.2.5'
