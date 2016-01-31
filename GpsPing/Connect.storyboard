@@ -11,6 +11,8 @@
             <string>Roboto-Regular</string>
             <string>Roboto-Regular</string>
             <string>Roboto-Regular</string>
+            <string>Roboto-Regular</string>
+            <string>Roboto-Regular</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -31,8 +33,48 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <inset key="separatorInset" minX="18" minY="0.0" maxX="18" maxY="0.0"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ASFriendTableViewCell" rowHeight="54" id="F8M-j9-KIf" customClass="ASFriendTableViewCell">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ASRequestTableViewCell" rowHeight="54" id="eZA-Ve-6X1" customClass="ASRequestTableViewCell">
                                         <rect key="frame" x="0.0" y="29" width="320" height="54"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eZA-Ve-6X1" id="me3-nv-9UO">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="53"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lous Philips" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0mU-Au-Hda">
+                                                    <rect key="frame" x="18" y="8" width="105" height="23"/>
+                                                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="19"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="addIcon" translatesAutoresizingMaskIntoConstraints="NO" id="7hR-a6-k3g">
+                                                    <rect key="frame" x="282" y="17" width="20" height="20"/>
+                                                    <color key="tintColor" red="0.5450980392" green="0.76470588240000004" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="louis.philips" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kpt-ig-GyL">
+                                                    <rect key="frame" x="18" y="33" width="44" height="10"/>
+                                                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="8"/>
+                                                    <color key="textColor" red="0.45882352939999999" green="0.45882352939999999" blue="0.45882352939999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="0mU-Au-Hda" firstAttribute="leading" secondItem="me3-nv-9UO" secondAttribute="leading" constant="18" id="JAf-Na-mph"/>
+                                                <constraint firstItem="7hR-a6-k3g" firstAttribute="centerY" secondItem="me3-nv-9UO" secondAttribute="centerY" id="S7O-Bp-6a6"/>
+                                                <constraint firstItem="kpt-ig-GyL" firstAttribute="leading" secondItem="0mU-Au-Hda" secondAttribute="leading" id="bRd-RF-FWU"/>
+                                                <constraint firstItem="7hR-a6-k3g" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="0mU-Au-Hda" secondAttribute="trailing" constant="10" id="dgO-Ay-uKG"/>
+                                                <constraint firstItem="0mU-Au-Hda" firstAttribute="top" secondItem="me3-nv-9UO" secondAttribute="top" constant="8" id="fcL-4v-4f8"/>
+                                                <constraint firstItem="kpt-ig-GyL" firstAttribute="top" secondItem="0mU-Au-Hda" secondAttribute="bottom" constant="2" id="nJd-Gj-tbQ"/>
+                                                <constraint firstAttribute="trailing" secondItem="7hR-a6-k3g" secondAttribute="trailing" constant="18" id="wa8-iu-Eoq"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="imageAdd" destination="7hR-a6-k3g" id="kir-Y8-wjn"/>
+                                            <outlet property="labelFullname" destination="0mU-Au-Hda" id="fbP-bG-lOH"/>
+                                            <outlet property="labelUsername" destination="kpt-ig-GyL" id="QIt-Zw-0O1"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ASFriendTableViewCell" rowHeight="54" id="F8M-j9-KIf" customClass="ASFriendTableViewCell">
+                                        <rect key="frame" x="0.0" y="83" width="320" height="54"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="F8M-j9-KIf" id="LnD-90-YQd">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="53"/>

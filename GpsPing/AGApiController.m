@@ -235,7 +235,13 @@ objection_initializer(initWithConfiguration:);
         NSArray *friendsArray = [MTLJSONAdapter modelsOfClass:[ASFriendModel class]
                                                 fromJSONArray:friendsJSON
                                                         error:&error];
-        return friendsArray;
+        NSArray *requestsJSON = value[@"requests"];
+        NSArray *requestsArray = [MTLJSONAdapter modelsOfClass:[ASAddFriendModel class]
+                                                fromJSONArray:requestsJSON
+                                                        error:&error];
+        NSMutableArray *array = [NSMutableArray arrayWithArray: friendsArray];
+        [array addObjectsFromArray: requestsArray];
+        return array;
     }];
 }
 
