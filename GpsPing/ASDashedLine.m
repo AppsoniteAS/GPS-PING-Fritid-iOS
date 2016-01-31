@@ -13,13 +13,13 @@
 {
     //    [super drawRect:rect];
     //    NSLog(@"%s", __PRETTY_FUNCTION__);
-    CGFloat thickness = 4.0;
+    CGFloat thickness = 2.0;
     
     CGContextRef cx = UIGraphicsGetCurrentContext();
     CGContextSetLineWidth(cx, thickness);
-    CGContextSetStrokeColorWithColor(cx, [UIColor blackColor].CGColor);
+    CGContextSetStrokeColorWithColor(cx, [UIColor colorWithRed:0.9684 green:0.0 blue:0.0447 alpha:0.5].CGColor);
     
-    CGFloat ra[] = {4,2};
+    CGFloat ra[] = {10,4};
     CGContextSetLineDash(cx, 0.0, ra, 2); // nb "2" == ra count
     
     
