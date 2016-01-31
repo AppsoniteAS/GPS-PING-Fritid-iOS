@@ -111,6 +111,11 @@ objection_requires(@keypath(ASMapViewController.new, apiController))
 #pragma mark - IBActions and Handlers
 
 - (IBAction)photoActionTap:(id)sender {
+    UIGraphicsBeginImageContextWithOptions(self.view.bounds.size, self.view.opaque, 0.0);
+    [self.mapView.layer renderInContext:UIGraphicsGetCurrentContext()];
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
 }
 
 - (IBAction)mapTypeValueChanged:(UISegmentedControl*)sender {
@@ -157,8 +162,26 @@ objection_requires(@keypath(ASMapViewController.new, apiController))
 }
 
 -(void)timerForQueryTick:(NSTimer*)timer {
-    NSDate *from = [NSDate dateWithTimeIntervalSince1970:1410739200];
-    NSDate *to = [NSDate dateWithTimeIntervalSince1970:1410868800];
+    [self loadTracks];
+}
+
+-(void)loadTracks {
+//    NSDate *from = [NSDate dateWithTimeIntervalSince1970:1410739200];
+//    NSDate *to = [NSDate dateWithTimeIntervalSince1970:1410868800];
+    NSDate *from;
+    NSDate *to;
+    if (!self.selectedDate) {
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        NSData *encodedObject = [defaults objectForKey:@"tracking_duration"];
+        NSString *duration = [NSKeyedUnarchiver unarchiveObjectWithData:encodedObject];
+        //TODO refact
+        to = [NSDate date];
+        from = [to dateByAddingTimeInterval:-60*15];
+    } else {
+        from = self.selectedDate;
+        to = [self.selectedDate dateByAddingTimeInterval:60*60*24];
+    }
+    
     [self loadTrackingPointsFrom:from to:to];
 }
 
@@ -440,10 +463,7 @@ objection_requires(@keypath(ASMapViewController.new, apiController))
 {
     [datePicker dismissSemiModalView];
     self.selectedDate = datePicker.date;
-    [self.mapView removeAnnotations:self.mapView.annotations];
-    NSDate *from = datePicker.date;
-    NSDate *to = [datePicker.date dateByAddingTimeInterval:60*60*24];
-    [self loadTrackingPointsFrom:from to:to];
+    [self loadTracks];
 }
 
 -(void)datePickerCancelPressed:(THDatePickerViewController *)datePicker

@@ -58,8 +58,21 @@ DDLogLevel ddLogLevel = DDLogLevelError;
             NSForegroundColorAttributeName: [UIColor whiteColor],
             NSFontAttributeName: [UIFont fontWithName:@"Roboto-Regular" size:20.0f]
         }];
-
+    [self setDefaultTrackDuration];
     return YES;
+}
+
+-(void)setDefaultTrackDuration {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSData *encodedObject = [defaults objectForKey:@"tracking_duration"];
+    NSString *duration = [NSKeyedUnarchiver unarchiveObjectWithData:encodedObject];
+    
+    if (!duration) {
+        NSData *encodedObject = [NSKeyedArchiver archivedDataWithRootObject:@"15 minutes"];
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        [defaults setObject:encodedObject forKey:@"tracking_duration"];
+        [defaults synchronize];
+    }
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
