@@ -19,6 +19,8 @@
 #import "ASDashedLine.h"
 #import <THDatePickerViewController.h>
 
+#define QUERY_RATE_IN_SECONDS 15
+
 @interface ASMapViewController () <MKMapViewDelegate,UIPickerViewDelegate, UIPickerViewDataSource, THDatePickerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIView           *filterPlank;
@@ -29,11 +31,17 @@
 @property (nonatomic        ) NSArray                    *originalPointsData;
 @property (nonatomic        ) CLLocationManager          *locationManager;
 @property (nonatomic        ) NSTimer                    *timer;
+@property (nonatomic        ) NSTimer                    *timerForTrackQuery;
 @property (nonatomic        ) CAShapeLayer               *shapeLayer;
 @property (nonatomic        ) NSDate                     *selectedDate;
 
 @property (nonatomic        ) AGApiController            *apiController;
 @property (nonatomic        ) THDatePickerViewController *datePicker;
+
+@property (nonatomic        ) ASFriendModel              *userToFilter;
+
+@property (nonatomic        ) NSDictionary *colorsDictionary;
+@property (nonatomic, assign) BOOL isFirstLaunch;
 
 @end
 
@@ -51,6 +59,7 @@ objection_requires(@keypath(ASMapViewController.new, apiController))
 - (void)viewDidLoad {
     [super viewDidLoad];
     [[JSObjection defaultInjector] injectDependencies:self];
+    self.isFirstLaunch = YES;
     [self configFilter];
     
     UIBarButtonItem *rightBBI;
@@ -81,15 +90,22 @@ objection_requires(@keypath(ASMapViewController.new, apiController))
     
     self.filterTextField.enabled = NO;
     
-    NSDate *from = [NSDate dateWithTimeIntervalSince1970:1410739200];
-    NSDate *to = [NSDate dateWithTimeIntervalSince1970:1410868800];
-    [[self.apiController getTrackingPointsFrom:from to:to friendId:nil] subscribeNext:^(id x) {
-        [self showAllPointsForUsers:x];
-        self.originalPointsData = x;
-        self.filterTextField.enabled = YES;
-    }];
+//    NSDate *from = [NSDate dateWithTimeIntervalSince1970:1410739200];
+//    NSDate *to = [NSDate dateWithTimeIntervalSince1970:1410868800];
+//    [self loadTrackingPointsFrom:from to:to];
     
-    self.timer = [NSTimer scheduledTimerWithTimeInterval:0.016 target:self selector:@selector(timerTick:) userInfo:nil repeats:YES];
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:0.016
+                                                  target:self
+                                                selector:@selector(timerTick:)
+                                                userInfo:nil
+                                                 repeats:YES];
+    self.timerForTrackQuery = [NSTimer scheduledTimerWithTimeInterval:QUERY_RATE_IN_SECONDS
+                                                               target:self
+                                                             selector:@selector(timerForQueryTick:)
+                                                             userInfo:nil
+                                                              repeats:YES];
+    [self.timerForTrackQuery fire];
+
 }
 
 #pragma mark - IBActions and Handlers
@@ -114,7 +130,7 @@ objection_requires(@keypath(ASMapViewController.new, apiController))
 
 -(void)removeTracksTap
 {
-    
+    [self.mapView removeAnnotations:self.mapView.annotations];
 }
 
 -(void)timerTick:(NSTimer*)timer
@@ -138,6 +154,12 @@ objection_requires(@keypath(ASMapViewController.new, apiController))
     [self.dashedLineView setNeedsDisplay];
     
     // whats faster, drawInRect or CAShapeLayer?
+}
+
+-(void)timerForQueryTick:(NSTimer*)timer {
+    NSDate *from = [NSDate dateWithTimeIntervalSince1970:1410739200];
+    NSDate *to = [NSDate dateWithTimeIntervalSince1970:1410868800];
+    [self loadTrackingPointsFrom:from to:to];
 }
 
 - (IBAction)calendarTap:(id)sender {
@@ -172,16 +194,52 @@ objection_requires(@keypath(ASMapViewController.new, apiController))
 
 #pragma mark - Private methods
 
--(void)showAllPointsForUsers:(NSArray*)users
+-(void)loadTrackingPointsFrom:(NSDate*)from to:(NSDate*)to {
+    [[self.apiController getTrackingPointsFrom:from to:to friendId:nil] subscribeNext:^(id x) {
+        self.originalPointsData = x;
+        [self showAllPointsForUsers:x filterFor:self.userToFilter];
+        self.filterTextField.enabled = YES;
+    }] ;
+//    [self.timerForTrackQuery invalidate];
+//    [[[[[self.apiController getTrackingPointsFrom:from to:to friendId:nil] repeat] take:1] doNext:^(id x) {
+//        NSLog(@"do next");
+//    }] subscribeNext:^(id x) {
+//        NSLog(@"subscrive next");
+//    }];
+}
+
+-(void)fillColorsDictionaryWithUsers:(NSArray *)users {
+    NSMutableDictionary *result = @{}.mutableCopy;
+    for (ASFriendModel *user in users) {
+        result[user.userName] = [UIColor getRandomColor];
+    }
+    
+    self.colorsDictionary = result;
+}
+
+-(void)showAllPointsForUsers:(NSArray*)users filterFor:(ASFriendModel*)user
 {
-    for (ASFriendModel *friendModel in users) {
-        [self showPointsForUser:friendModel];
+    if (!self.colorsDictionary) {
+        [self fillColorsDictionaryWithUsers:users];
+    }
+    
+    [self.mapView removeAnnotations:self.mapView.annotations];
+    if (!user) {
+        for (ASFriendModel *friendModel in users) {
+            [self showPointsForUser:friendModel];
+        }
+    } else {
+        for (ASFriendModel *friendModel in users) {
+            if ([friendModel.userName isEqualToString:user.userName]) {
+                [self showPointsForUser:friendModel];
+            }
+        }
     }
 }
 
 -(void)showPointsForUser:(ASFriendModel*)friendModel
 {
-    UIColor *colorForUser = [UIColor getRandomColor];
+    UIColor *colorForUser = self.colorsDictionary[friendModel.userName];
     CLLocationCoordinate2D friendCoord = CLLocationCoordinate2DMake(friendModel.latitude.doubleValue, friendModel.longitude.doubleValue);
     ASFriendAnnotation *friendAnnotation = [[ASFriendAnnotation alloc] initWithLocation:friendCoord];
     friendAnnotation.annotationColor = colorForUser;
@@ -203,10 +261,13 @@ objection_requires(@keypath(ASMapViewController.new, apiController))
             annotation.pointObject = pointModel;
             annotation.owner = friendModel;
             [self.mapView addAnnotation:annotation];
-            if (pointModel == deviceModel.points.lastObject) {
+            
+            if (self.isFirstLaunch &&
+                pointModel == deviceModel.points.lastObject) {
+                self.isFirstLaunch = NO;
                 MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(coord, 800, 800);
-                
                 [self.mapView setRegion:viewRegion animated:YES];
+
             }
         }
     }
@@ -255,19 +316,19 @@ objection_requires(@keypath(ASMapViewController.new, apiController))
 {
     if ([annotation isKindOfClass:[MKUserLocation class]]) {
         return nil;
-        MKAnnotationView *userLocationAnnotationView = (id)[mapView dequeueReusableAnnotationViewWithIdentifier:@"ASFriendAnnotation"];
-        
-        if (!userLocationAnnotationView) {
-            userLocationAnnotationView = [[MKAnnotationView alloc] initWithAnnotation:annotation
-                                                                      reuseIdentifier:@"ASFriendAnnotation"];
-            userLocationAnnotationView.canShowCallout = NO;
-        } else {
-            userLocationAnnotationView.annotation = annotation;
-        }
-        
-        userLocationAnnotationView.image = [UIImage getUserAnnotationImageWithColor:[UIColor blackColor]];
-        
-        return userLocationAnnotationView;
+//        MKAnnotationView *userLocationAnnotationView = (id)[mapView dequeueReusableAnnotationViewWithIdentifier:@"ASFriendAnnotation"];
+//        
+//        if (!userLocationAnnotationView) {
+//            userLocationAnnotationView = [[MKAnnotationView alloc] initWithAnnotation:annotation
+//                                                                      reuseIdentifier:@"ASFriendAnnotation"];
+//            userLocationAnnotationView.canShowCallout = NO;
+//        } else {
+//            userLocationAnnotationView.annotation = annotation;
+//        }
+//        
+//        userLocationAnnotationView.image = [UIImage getUserAnnotationImageWithColor:[UIColor blackColor]];
+//        
+//        return userLocationAnnotationView;
     }
     
     if ([annotation isKindOfClass:[ASPointAnnotation class]]) {
@@ -364,19 +425,13 @@ objection_requires(@keypath(ASMapViewController.new, apiController))
 -(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
     if (row == 0) {
-        [self showAllPointsForUsers:self.originalPointsData];
-        return;
-    }
-    
-    ASFriendModel *userModel = self.originalPointsData[row-1];
-    if ([userModel.userName isEqualToString:self.apiController.userProfile.username]) {
-        self.filterTextField.text = NSLocalizedString(@"You", nil);
+        self.userToFilter = nil;
     } else {
-        self.filterTextField.text = userModel.userName;
+        ASFriendModel *userModel = self.originalPointsData[row-1];
+        self.userToFilter = userModel;
     }
     
-    [self.mapView removeAnnotations:self.mapView.annotations];
-    [self showAllPointsForUsers:@[userModel]];
+    [self showAllPointsForUsers:self.originalPointsData filterFor:self.userToFilter];
 }
 
 #pragma mark - THDatePickerViewController delegate
@@ -388,11 +443,7 @@ objection_requires(@keypath(ASMapViewController.new, apiController))
     [self.mapView removeAnnotations:self.mapView.annotations];
     NSDate *from = datePicker.date;
     NSDate *to = [datePicker.date dateByAddingTimeInterval:60*60*24];
-    [[self.apiController getTrackingPointsFrom:from to:to friendId:nil] subscribeNext:^(id x) {
-        [self showAllPointsForUsers:x];
-        self.originalPointsData = x;
-        self.filterTextField.enabled = YES;
-    }];
+    [self loadTrackingPointsFrom:from to:to];
 }
 
 -(void)datePickerCancelPressed:(THDatePickerViewController *)datePicker
