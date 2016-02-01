@@ -22,4 +22,10 @@
                                      bundle:[NSBundle mainBundle]];
 }
 
++(UIStoryboard*)mapStoryboard
+{
+    return [UIStoryboard storyboardWithName:@"Map"
+                                     bundle:[NSBundle mainBundle]];
+}
+
 @end

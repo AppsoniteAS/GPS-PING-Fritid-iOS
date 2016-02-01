@@ -71,5 +71,8 @@ extern NSString *kASUserDefaultsKeyPassword;
 -(RACSignal *)getTrackingPointsFrom:(NSDate*)from
                                  to:(NSDate*)to
                            friendId:(NSNumber*)friendId;
+#pragma mark - Pushes
+
+-(RACSignal *)sendPushToken:(NSString*)pushToken;
 
 @end

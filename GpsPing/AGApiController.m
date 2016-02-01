@@ -18,8 +18,8 @@
 static const DDLogLevel ddLogLevel = DDLogLevelVerbose;
 
 //#define BASE_URL_PRODUCTION @"http://109.120.158.225/"
-#define BASE_URL_LOCAL      @"http://appgranula.mooo.com/api/"
-//#define BASE_URL_LOCAL      @"http://192.168.139.201/api/"
+//#define BASE_URL_LOCAL      @"http://appgranula.mooo.com/api/"
+#define BASE_URL_LOCAL      @"http://192.168.139.201/api/"
 
 NSString* AGOpteumBackendError                     = @"AGOpteumBackendError";
 NSString* AGRhythmMobileError                      = @"AGRhythmMobileError";
@@ -354,6 +354,21 @@ objection_initializer(initWithConfiguration:);
         return resultArray;
     }];
 }
+
+#pragma mark - Pushes
+////http://host/api/friends/register_gcm/?cookie=cookie&uuid=uuid&push_id=push_id
+//-(RACSignal *)sendPushToken:(NSString*)pushToken
+//{
+//    DDLogDebug(@"%s", __PRETTY_FUNCTION__);
+//    NSString *uid = [[UIDevice currentDevice] identifierForVendor].UUIDString;
+//    NSDictionary *params = @{
+//                             @"id":friendId
+//                             };
+//    params = [self addAuthParamsByUpdatingParams:params];
+//    return [self performHttpRequestWithAttempts:@"GET"
+//                                       resource:@"friends/confirm"
+//                                     parameters:params];
+//}
 
 #pragma mark - Private methods
 
