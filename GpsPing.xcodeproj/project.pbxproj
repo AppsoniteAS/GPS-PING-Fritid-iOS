@@ -22,6 +22,7 @@
 		A61D755F1C58A8BE00E75999 /* ASFriendTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A61D755E1C58A8BE00E75999 /* ASFriendTableViewCell.m */; };
 		A626CCEB1C5D1DC5003762A2 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A626CCEA1C5D1DC5003762A2 /* MapKit.framework */; };
 		A626CCF11C5D4FFA003762A2 /* ASDashedLine.m in Sources */ = {isa = PBXBuildFile; fileRef = A626CCF01C5D4FFA003762A2 /* ASDashedLine.m */; };
+		A64326851C5F6F54000B63C1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A64326841C5F6F54000B63C1 /* GoogleService-Info.plist */; };
 		A68C1B331C4CE460000E2BA6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A68C1B321C4CE460000E2BA6 /* main.m */; };
 		A68C1B361C4CE460000E2BA6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A68C1B351C4CE460000E2BA6 /* AppDelegate.m */; };
 		A68C1B391C4CE460000E2BA6 /* MainMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A68C1B381C4CE460000E2BA6 /* MainMenuViewController.m */; };
@@ -139,6 +140,7 @@
 		A626CCEA1C5D1DC5003762A2 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		A626CCEF1C5D4FFA003762A2 /* ASDashedLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASDashedLine.h; sourceTree = "<group>"; };
 		A626CCF01C5D4FFA003762A2 /* ASDashedLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASDashedLine.m; sourceTree = "<group>"; };
+		A64326841C5F6F54000B63C1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A68C1B2E1C4CE460000E2BA6 /* GpsPing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GpsPing.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A68C1B321C4CE460000E2BA6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A68C1B341C4CE460000E2BA6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -366,6 +368,7 @@
 				A68C1B3D1C4CE460000E2BA6 /* Assets.xcassets */,
 				A68C1B3F1C4CE460000E2BA6 /* LaunchScreen.storyboard */,
 				A68C1B421C4CE460000E2BA6 /* Info.plist */,
+				A64326841C5F6F54000B63C1 /* GoogleService-Info.plist */,
 				A68C1B641C4D182A000E2BA6 /* Resources */,
 				A68C1B311C4CE460000E2BA6 /* Supporting Files */,
 				A6F6A7561C524FBF0009579A /* PrefixHeader.pch */,
@@ -670,8 +673,15 @@
 				TargetAttributes = {
 					A68C1B2D1C4CE460000E2BA6 = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = EM65889ZEZ;
 						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
 							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+							com.apple.Push = {
 								enabled = 1;
 							};
 						};
@@ -736,6 +746,7 @@
 				AB5428151C5BAA1000F33E8B /* DisplayOptions.storyboard in Resources */,
 				A68C1B841C4D24DC000E2BA6 /* Roboto-ThinItalic.ttf in Resources */,
 				AB8946811C4F3000002E86C8 /* Auth.storyboard in Resources */,
+				A64326851C5F6F54000B63C1 /* GoogleService-Info.plist in Resources */,
 				A68C1B791C4D24DC000E2BA6 /* Roboto-BoldCondensedItalic.ttf in Resources */,
 				A68C1B751C4D24DC000E2BA6 /* Roboto-Black.ttf in Resources */,
 				A68C1B8A1C4E2B91000E2BA6 /* Settings.storyboard in Resources */,
@@ -1001,6 +1012,8 @@
 			baseConfigurationReference = D56B56EC24DC9B71F55AC4BB /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Pavel Ivanov (T335579SKT)";
+				ENABLE_BITCODE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = GpsPing/PrefixHeader.pch;
 				INFOPLIST_FILE = GpsPing/Info.plist;
@@ -1008,6 +1021,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.appgranula.GpsPing;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "e6b5bcf3-851d-4c7f-8f23-c8fb93d6ecd8";
 			};
 			name = Debug;
 		};
@@ -1016,6 +1030,8 @@
 			baseConfigurationReference = 77A21FE96824543E1D08D970 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Pavel Ivanov (T335579SKT)";
+				ENABLE_BITCODE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = GpsPing/PrefixHeader.pch;
 				INFOPLIST_FILE = GpsPing/Info.plist;
@@ -1023,6 +1039,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.appgranula.GpsPing;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "e6b5bcf3-851d-4c7f-8f23-c8fb93d6ecd8";
 			};
 			name = Release;
 		};
