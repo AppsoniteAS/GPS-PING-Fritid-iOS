@@ -14,13 +14,14 @@
 
 #import <CocoaLumberjack/CocoaLumberjack.h>
 static const DDLogLevel ddLogLevel = DDLogLevelVerbose;
+static NSString * const kTrackingDurationKey = @"tracking_duration";
 
 @interface ASDisplayOptionsViewController () <UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UIView *outerWrapperView;
 @property (weak, nonatomic) IBOutlet ASButton *submitButton;
 
-@property (nonatomic) NSString *duration;
+@property (nonatomic) NSNumber *duration;
 @property (weak, nonatomic) IBOutlet UITextField *durationTextField;
 
 @property (nonatomic) NSArray      *durationPickerData;
@@ -36,8 +37,8 @@ static const DDLogLevel ddLogLevel = DDLogLevelVerbose;
     self.durationPickerData = @[@"10 minutes", @"15 minutes", @"30 minutes", @"60 minutes"];
     
     self.duration = [self loadSavedTrackingDuration];
-    if (self.duration.length > 0) {
-        self.durationTextField.text = self.duration;
+    if ([self.duration intValue] > 0) {
+        self.durationTextField.text = [NSString stringWithFormat:@"%@ minutes", self.duration];
     }
     
     [self configPickers];
@@ -101,21 +102,22 @@ static const DDLogLevel ddLogLevel = DDLogLevelVerbose;
     return YES;
 }
 
-- (void)saveTrackingDurationLocally:(NSString *)duration{
-    NSData *encodedObject = [NSKeyedArchiver archivedDataWithRootObject:duration];
+- (void)saveTrackingDurationLocally:(NSNumber*)duration{
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setObject:encodedObject forKey:@"tracking_duration"];
+    [defaults setObject:duration forKey:kTrackingDurationKey];
     [defaults synchronize];
 }
 
-- (NSString *)loadSavedTrackingDuration {
+- (NSNumber*)loadSavedTrackingDuration {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSData *encodedObject = [defaults objectForKey:@"tracking_duration"];
-    return [NSKeyedUnarchiver unarchiveObjectWithData:encodedObject];
+    return [defaults objectForKey:kTrackingDurationKey];
 }
 
 - (IBAction)doSave:(id)sender {
-    [self saveTrackingDurationLocally:self.durationTextField.text];
+    NSArray *subStrings = [self.durationTextField.text componentsSeparatedByString:@" "];
+    NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+    formatter.numberStyle = NSNumberFormatterNoStyle;
+    [self saveTrackingDurationLocally:[formatter numberFromString:subStrings[0]]];
 }
 
 
