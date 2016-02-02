@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+static NSString * const kTrackingDurationKey = @"tracking_duration";
+
 @interface ASDisplayOptionsViewController : UIViewController
 
 @end

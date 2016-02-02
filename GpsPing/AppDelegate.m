@@ -17,6 +17,7 @@
 #import "ASGeofenceViewController.h"
 #import "MainMenuViewController.h"
 #import <CrashlyticsLogger.h>
+#import "ASDisplayOptionsViewController.h"
 
 DDLogLevel ddLogLevel = DDLogLevelError;
 
@@ -121,13 +122,11 @@ DDLogLevel ddLogLevel = DDLogLevelError;
 
 -(void)setDefaultTrackDuration {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSData *encodedObject = [defaults objectForKey:@"tracking_duration"];
-    NSString *duration = [NSKeyedUnarchiver unarchiveObjectWithData:encodedObject];
+    NSString *duration = [defaults objectForKey:kTrackingDurationKey];
     
     if (!duration) {
-        NSData *encodedObject = [NSKeyedArchiver archivedDataWithRootObject:@"15 minutes"];
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-        [defaults setObject:encodedObject forKey:@"tracking_duration"];
+        [defaults setObject:@(10) forKey:kTrackingDurationKey];
         [defaults synchronize];
     }
 }
@@ -149,7 +148,6 @@ DDLogLevel ddLogLevel = DDLogLevelError;
         [[NSUserDefaults standardUserDefaults] synchronize];
     }
 }
-
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

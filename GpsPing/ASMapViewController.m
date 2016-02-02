@@ -18,6 +18,7 @@
 #import "ASMapDetailsView.h"
 #import "ASDashedLine.h"
 #import <THDatePickerViewController.h>
+#import "ASDisplayOptionsViewController.h"
 
 #define QUERY_RATE_IN_SECONDS 15
 
@@ -161,6 +162,12 @@ objection_requires(@keypath(ASMapViewController.new, apiController))
     // whats faster, drawInRect or CAShapeLayer?
 }
 
+-(void)viewDidDisappear:(BOOL)animated
+{
+    [self.timer invalidate];
+    [self.timerForTrackQuery invalidate];
+}
+
 -(void)timerForQueryTick:(NSTimer*)timer {
     [self loadTracks];
 }
@@ -172,11 +179,9 @@ objection_requires(@keypath(ASMapViewController.new, apiController))
     NSDate *to;
     if (!self.selectedDate) {
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-        NSData *encodedObject = [defaults objectForKey:@"tracking_duration"];
-        NSString *duration = [NSKeyedUnarchiver unarchiveObjectWithData:encodedObject];
-        //TODO refact
+        NSNumber *duration = [defaults objectForKey:kTrackingDurationKey];
         to = [NSDate date];
-        from = [to dateByAddingTimeInterval:-60*15];
+        from = [to dateByAddingTimeInterval:-60*duration.integerValue];
     } else {
         from = self.selectedDate;
         to = [self.selectedDate dateByAddingTimeInterval:60*60*24];

@@ -14,7 +14,6 @@
 
 #import <CocoaLumberjack/CocoaLumberjack.h>
 static const DDLogLevel ddLogLevel = DDLogLevelVerbose;
-static NSString * const kTrackingDurationKey = @"tracking_duration";
 
 @interface ASDisplayOptionsViewController () <UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource>
 
