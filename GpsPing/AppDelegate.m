@@ -14,6 +14,7 @@
 #import <Crashlytics/Crashlytics.h>
 #import <SVProgressHUD.h>
 #import <Objection/Objection.h>
+#import "ASGeofenceViewController.h"
 
 #import <CrashlyticsLogger.h>
 
@@ -63,7 +64,9 @@ DDLogLevel ddLogLevel = DDLogLevelError;
             NSForegroundColorAttributeName: [UIColor whiteColor],
             NSFontAttributeName: [UIFont fontWithName:@"Roboto-Regular" size:20.0f]
         }];
+    
     [self setDefaultTrackDuration];
+    [self setDefaultGeoFenceStatus];
     
     NSError* configureError;
     [[GGLContext sharedInstance] configureWithError:&configureError];
@@ -118,6 +121,15 @@ DDLogLevel ddLogLevel = DDLogLevelError;
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         [defaults setObject:encodedObject forKey:@"tracking_duration"];
         [defaults synchronize];
+    }
+}
+
+-(void)setDefaultGeoFenceStatus {
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    NSNumber *geofenceStatus = [[NSUserDefaults standardUserDefaults] objectForKey:kASGeofenceStatus];
+    if (!geofenceStatus) {
+        [[NSUserDefaults standardUserDefaults] setObject:@(0) forKey:kASGeofenceStatus];
+        [[NSUserDefaults standardUserDefaults] synchronize];
     }
 }
 

@@ -41,8 +41,9 @@ static NSString * const kASUserDefaultsTrackersKey   = @"kASUserDefaultsTrackers
 +(void)removeTrackerWithNumber:(NSString*)trackerNumber;
 
 -(void)saveInUserDefaults;
+
 -(NSArray*)getSmsTextsForActivation;
 -(NSString*)getSmsTextsForTrackerLaunch:(BOOL)isOn;
--(NSArray*)getSmsTextsForGeofenceLaunch:(BOOL)isOn;
-
++(NSString*)getSmsTextsForGeofenceLaunch:(BOOL)turnOn
+                             phoneNumber:(NSString*)userPhoneNumber;
 @end

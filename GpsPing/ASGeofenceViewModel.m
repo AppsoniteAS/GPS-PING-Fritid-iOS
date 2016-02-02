@@ -8,6 +8,7 @@
 
 #import "ASGeofenceViewModel.h"
 
+
 @implementation ASGeofenceViewModel
 
 -(RACCommand *)submit {
@@ -22,7 +23,7 @@
     return [[RACCommand alloc] initWithEnabled:isCorrect
                                    signalBlock:^RACSignal *(id input)
             {
-                return [RACSignal empty];
+                return [RACSignal return:nil];
             }];
 }
 @end

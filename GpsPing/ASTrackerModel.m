@@ -169,9 +169,14 @@ NSString* const kASTrackerId               = @"tracker_id";
     }
 }
 
--(NSArray*)getSmsTextsForGeofenceLaunch:(BOOL)isOn
++(NSString*)getSmsTextsForGeofenceLaunch:(BOOL)turnOn
+                             phoneNumber:(NSString*)userPhoneNumber
 {
-    return @[];
+    if (turnOn) {
+         return [@"admin123456 " stringByAppendingString:userPhoneNumber];
+    } else {
+        return @"move123456 0";
+    }
 }
 
 @end
