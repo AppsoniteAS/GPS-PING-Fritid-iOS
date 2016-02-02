@@ -188,8 +188,8 @@ objection_requires(@keypath(ASTrackerConfigurationViewController.new, apiControl
             DDLogDebug(@"Tracker updated!");
             [self dismissViewControllerAnimated:YES completion:nil];
         }];
-//    } else if (self.smsCount == self.trackerObject.getSmsTextsForActivation.count) {
-    } else {
+    } else if (self.smsCount == self.trackerObject.getSmsTextsForActivation.count) {
+//    } else {
         CGFloat repeatTime = [self.trackerObject.signalRateMetric isEqualToString:kASSignalMetricTypeSeconds] ?
         self.trackerObject.signalRate : self.trackerObject.signalRate * 60;
         [[self.apiController addTracker:self.trackerObject.trackerName
@@ -202,11 +202,11 @@ objection_requires(@keypath(ASTrackerConfigurationViewController.new, apiControl
             [self.trackerObject saveInUserDefaults];
             [self dismissViewControllerAnimated:YES completion:nil];
         }];
-    }
-//    } else {
-//        [self as_sendSMS:self.trackerObject.getSmsTextsForActivation[self.smsCount]
-//           recipient:self.trackerObject.trackerNumber];
 //    }
+    } else {
+        [self as_sendSMS:self.trackerObject.getSmsTextsForActivation[self.smsCount]
+           recipient:self.trackerObject.trackerNumber];
+    }
 }
 
 -(void)smsManagerMessageWasSentWithResult:(MessageComposeResult)result

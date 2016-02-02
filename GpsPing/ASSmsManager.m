@@ -29,8 +29,10 @@ static DDLogLevel ddLogLevel = DDLogLevelDebug;
 - (void)messageComposeViewController:(MFMessageComposeViewController *)controller
                  didFinishWithResult:(MessageComposeResult)result {
     if ([self respondsToSelector:@selector(smsManagerMessageWasSentWithResult:)]) {
-        NSObject <ASSmsManagerProtocol> *obj = (id)self;
-        [obj smsManagerMessageWasSentWithResult:result];
+        if (result == MessageComposeResultSent) {
+            NSObject <ASSmsManagerProtocol> *obj = (id)self;
+            [obj smsManagerMessageWasSentWithResult:result];
+        }
     } else {
         DDLogWarn(@"messageWasSentWithResult: should be implemeted for sms callback");
     }

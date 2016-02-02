@@ -109,6 +109,12 @@ objection_requires(@keypath(ASMapViewController.new, apiController))
 
 }
 
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self refreshLine];
+}
+
 #pragma mark - IBActions and Handlers
 
 - (IBAction)photoActionTap:(id)sender {
@@ -141,6 +147,10 @@ objection_requires(@keypath(ASMapViewController.new, apiController))
 
 -(void)timerTick:(NSTimer*)timer
 {
+    [self refreshLine];
+}
+
+-(void)refreshLine {
     CGPoint startPoint = [self.mapView convertCoordinate:self.mapView.userLocation.coordinate
                                            toPointToView:self.mapView];
     CGFloat newX = startPoint.x;
@@ -336,6 +346,7 @@ objection_requires(@keypath(ASMapViewController.new, apiController))
 
 - (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation
 {
+    [self refreshLine];
     //    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(userLocation.coordinate, 800, 800);
     //    [self.mapView setRegion:[self.mapView regionThatFits:region] animated:YES];
 }

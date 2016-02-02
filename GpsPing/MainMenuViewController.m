@@ -69,11 +69,15 @@ objection_requires(@keypath(MainMenuViewController.new, apiController))
     NSNumber *trackerStatus = [[NSUserDefaults standardUserDefaults] objectForKey:kASUserDefaultsKeyMainScreenTrackerStatus];
     
     if (!trackerStatus.boolValue) {
-//        ASSelectTrackerViewController *selectVC = [ASSelectTrackerViewController initialize];
-//        selectVC.modalPresentationStyle = UIModalPresentationOverCurrentContext;
-//        selectVC.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-//        selectVC.delegate = self;
-//        [self presentViewController:selectVC animated:YES completion:nil];
+        if (![ASTrackerModel getChoosedTracker]) {
+            [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"No tracker choosed", nil)
+                                        message:NSLocalizedString(@"You must choose tracker on Trackers screen in Settings to start it", nil)
+                                       delegate:nil
+                              cancelButtonTitle:NSLocalizedString(@"OK", nil)
+                              otherButtonTitles: nil] show];
+            return;
+        }
+        
         [self as_sendSMS:[[ASTrackerModel getChoosedTracker] getSmsTextsForTrackerLaunch:YES]
                recipient:[ASTrackerModel getChoosedTracker].trackerNumber];
     } else {
