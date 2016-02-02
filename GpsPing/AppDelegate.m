@@ -18,6 +18,8 @@
 #import "MainMenuViewController.h"
 #import <CrashlyticsLogger.h>
 #import "ASDisplayOptionsViewController.h"
+#import "UIStoryboard+ASHelper.h"
+#import "ASFriendsListViewController.h"
 
 DDLogLevel ddLogLevel = DDLogLevelError;
 
@@ -59,6 +61,14 @@ DDLogLevel ddLogLevel = DDLogLevelError;
     [self configUI];
     [self initUserDefaults];
     [self configPushes:application];
+    
+//    NSDictionary *userInfo = [launchOptions valueForKey:@"UIApplicationLaunchOptionsRemoteNotificationKey"];
+//    NSDictionary *apsInfo = [userInfo objectForKey:@"aps"];
+//    
+//    if(apsInfo) {
+//        [self handlePush];
+//    }
+    
     return YES;
 }
 
@@ -228,6 +238,7 @@ didReceiveRemoteNotification:(NSDictionary *)userInfo {
 didReceiveRemoteNotification:(NSDictionary *)userInfo
 fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))handler {
     NSLog(@"Notification received: %@", userInfo);
+    [self handlePush];
     // This works only if the app started the GCM service
     [[GCMService sharedInstance] appDidReceiveMessage:userInfo];
     // Handle the received message
@@ -238,6 +249,18 @@ fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))handler {
                                                       userInfo:userInfo];
     handler(UIBackgroundFetchResultNoData);
     // [END_EXCLUDE]
+}
+
+-(void)handlePush {
+    ASFriendsListViewController* pvc = [[UIStoryboard connectStoryboard] instantiateInitialViewController];
+    UINavigationController *navVC = [[UINavigationController alloc]initWithRootViewController:pvc];
+    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(closeFriends)];
+    pvc.navigationItem.leftBarButtonItem = item;
+    [self.window.rootViewController presentViewController:navVC animated:YES completion:NULL];
+}
+
+-(void)closeFriends {
+    [self.window.rootViewController dismissViewControllerAnimated:YES completion:nil];
 }
 
 -(void) registerNotificationToken: (NSData *) deviceToken {

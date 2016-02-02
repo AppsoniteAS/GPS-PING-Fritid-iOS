@@ -11,6 +11,7 @@
 #import "ASSmsManager.h"
 #import "ASMainViewModel.h"
 #import "ASMapViewController.h"
+#import "AGApiController.h"
 
 #import <CocoaLumberjack.h>
 static DDLogLevel ddLogLevel = DDLogLevelDebug;
@@ -19,16 +20,19 @@ static DDLogLevel ddLogLevel = DDLogLevelDebug;
 
 @property (nonatomic, readonly) ASMainViewModel     *viewModel;
 @property (weak, nonatomic) IBOutlet UIButton *startStopButton;
+@property (nonatomic, strong) AGApiController   *apiController;
 
 @end
 
 @implementation MainMenuViewController {
     BOOL isAuthShown;
 }
+objection_requires(@keypath(MainMenuViewController.new, apiController))
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    [[JSObjection defaultInjector] injectDependencies:self];
+
     self->_viewModel = [[ASMainViewModel alloc] init];
     
     self.startStopButton.layer.borderColor = [UIColor colorWithRed:0.4796 green:0.7302 blue:0.2274 alpha:1.0].CGColor;
@@ -54,6 +58,10 @@ static DDLogLevel ddLogLevel = DDLogLevelDebug;
     if (self.viewModel.apiController.userProfile == nil) {
         UIViewController* controller = [[UIStoryboard storyboardWithName:@"Auth" bundle:nil] instantiateInitialViewController];
         [self.navigationController presentViewController:controller animated:YES completion:nil];
+    } else {
+        [[self.apiController registerForPushes] subscribeNext:^(id x) {
+            ;
+        }];
     }
 }
 

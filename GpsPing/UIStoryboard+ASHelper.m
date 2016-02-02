@@ -28,4 +28,11 @@
                                      bundle:[NSBundle mainBundle]];
 }
 
++(UIStoryboard*)connectStoryboard
+{
+    return [UIStoryboard storyboardWithName:@"Connect"
+                                     bundle:[NSBundle mainBundle]];
+}
+
+
 @end
