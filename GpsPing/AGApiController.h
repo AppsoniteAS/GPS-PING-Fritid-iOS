@@ -73,6 +73,6 @@ extern NSString *kASUserDefaultsKeyPassword;
                            friendId:(NSNumber*)friendId;
 #pragma mark - Pushes
 
--(RACSignal *)sendPushToken:(NSString*)pushToken;
+-(RACSignal *)registerForPushes;
 
 @end

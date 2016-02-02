@@ -84,13 +84,11 @@ DDLogLevel ddLogLevel = DDLogLevelError;
         [application registerUserNotificationSettings:notificationSettings];
         [application registerForRemoteNotifications];
     } else {
-        [application registerForRemoteNotificationTypes:
-         UIRemoteNotificationTypeSound|
-         UIRemoteNotificationTypeAlert];
+//        [application registerForRemoteNotificationTypes:UIRemoteNotificationTypeSound|UIRemoteNotificationTypeAlert];
     }
     
     GCMConfig *gcmConfig = [GCMConfig defaultConfig];
-    gcmConfig.receiverDelegate = self;
+    gcmConfig.receiverDelegate = (id)self;
     [[GCMService sharedInstance] startWithConfig:gcmConfig];
     // [END start_gcm_service]
     __weak typeof(self) weakSelf = self;
@@ -98,14 +96,18 @@ DDLogLevel ddLogLevel = DDLogLevelError;
     _registrationHandler = ^(NSString *registrationToken, NSError *error){
         if (registrationToken != nil) {
             weakSelf.registrationToken = registrationToken;
-            NSLog(@"Registration Token: %@", registrationToken);
+            DDLogDebug(@"Registration Token: %@", registrationToken);
             //            [weakSelf subscribeToTopic];
             NSDictionary *userInfo = @{@"registrationToken":registrationToken};
             [[NSNotificationCenter defaultCenter] postNotificationName:weakSelf.registrationKey
                                                                 object:nil
                                                               userInfo:userInfo];
+            NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+            [defaults setObject:registrationToken forKey:kASUserDefaultsKeyPushToken];
+            [defaults synchronize];
+
         } else {
-            NSLog(@"Registration to GCM failed with error: %@", error.localizedDescription);
+            DDLogDebug(@"Registration to GCM failed with error: %@", error.localizedDescription);
             NSDictionary *userInfo = @{@"error":error.localizedDescription};
             [[NSNotificationCenter defaultCenter] postNotificationName:weakSelf.registrationKey
                                                                 object:nil
@@ -176,10 +178,9 @@ DDLogLevel ddLogLevel = DDLogLevelError;
 //    [self registerNotificationToken:deviceToken];
     //    NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
     //    [notificationCenter postNotificationName:kAGPushNotificationRegistred object:nil userInfo:nil];
-    NSString *uid = [[UIDevice currentDevice] identifierForVendor].UUIDString;
     // Create a config and set a delegate that implements the GGLInstaceIDDelegate protocol.
     GGLInstanceIDConfig *instanceIDConfig = [GGLInstanceIDConfig defaultConfig];
-    instanceIDConfig.delegate = self;
+    instanceIDConfig.delegate = (id)self;
     // Start the GGLInstanceID shared instance with the that config and request a registration
     // token to enable reception of notifications
     [[GGLInstanceID sharedInstance] startWithConfig:instanceIDConfig];

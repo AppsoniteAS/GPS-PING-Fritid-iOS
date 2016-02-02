@@ -13,13 +13,14 @@
 #import "ASFriendModel.h"
 #import "ASDeviceModel.h"
 #import "ASAddFriendModel.h"
+#import "AppDelegate.h"
 
 #import <CocoaLumberjack/CocoaLumberjack.h>
 static const DDLogLevel ddLogLevel = DDLogLevelVerbose;
 
 //#define BASE_URL_PRODUCTION @"http://109.120.158.225/"
-//#define BASE_URL_LOCAL      @"http://appgranula.mooo.com/api/"
-#define BASE_URL_LOCAL      @"http://192.168.139.201/api/"
+#define BASE_URL_LOCAL      @"http://appgranula.mooo.com/api/"
+//#define BASE_URL_LOCAL      @"http://192.168.139.201/api/"
 
 NSString* AGOpteumBackendError                     = @"AGOpteumBackendError";
 NSString* AGRhythmMobileError                      = @"AGRhythmMobileError";
@@ -80,6 +81,8 @@ objection_initializer(initWithConfiguration:);
     return self;
 }
 
+#pragma mark - Registration & Auth
+
 -(RACSignal *)getNonce
 {
     DDLogDebug(@"%s", __PRETTY_FUNCTION__);
@@ -111,12 +114,26 @@ objection_initializer(initWithConfiguration:);
 {
     DDLogDebug(@"%s", __PRETTY_FUNCTION__);
     @weakify(self)
-    return [[[[self performHttpRequestWithAttempts:@"GET" resource:@"user/generate_auth_cookie" parameters:@{@"username":userName, @"password":password, @"seconds":@"999999999"
-}] unpackObjectOfClass:[ASUserProfileModel class]] deliverOnMainThread] doNext:^(ASUserProfileModel* profile)
+    return [[[[[self performHttpRequestWithAttempts:@"GET"
+                                          resource:@"user/generate_auth_cookie"
+                                        parameters:@{@"username":userName,
+                                                     @"password":password,
+                                                     @"seconds":@"999999999"}] unpackObjectOfClass:[ASUserProfileModel class]] deliverOnMainThread] doNext:^(ASUserProfileModel* profile)
             {
                 @strongify(self);
                 self.userProfile = profile;
                 [ASUserProfileModel saveProfileInfoLocally:profile];
+            }] flattenMap:^RACStream *(id value) {
+                ASUserProfileModel *profile = [ASUserProfileModel loadSavedProfileInfo];
+                NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+                NSString *pushToken = [defaults objectForKey:kASUserDefaultsKeyPushToken];
+                
+                if (!profile.cookie || !pushToken) {
+                    DDLogDebug(@"No push notification token found or cookie is missing; abort push registration");
+                    return [RACSignal return:nil];
+                }
+                
+                return [self registerForPushes];
             }];
 }
 
@@ -356,19 +373,23 @@ objection_initializer(initWithConfiguration:);
 }
 
 #pragma mark - Pushes
-////http://host/api/friends/register_gcm/?cookie=cookie&uuid=uuid&push_id=push_id
-//-(RACSignal *)sendPushToken:(NSString*)pushToken
-//{
-//    DDLogDebug(@"%s", __PRETTY_FUNCTION__);
-//    NSString *uid = [[UIDevice currentDevice] identifierForVendor].UUIDString;
-//    NSDictionary *params = @{
-//                             @"id":friendId
-//                             };
-//    params = [self addAuthParamsByUpdatingParams:params];
-//    return [self performHttpRequestWithAttempts:@"GET"
-//                                       resource:@"friends/confirm"
-//                                     parameters:params];
-//}
+
+-(RACSignal *)registerForPushes
+{
+    DDLogDebug(@"%s", __PRETTY_FUNCTION__);
+    NSString *uid = [[UIDevice currentDevice] identifierForVendor].UUIDString;
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSString *pushToken = [defaults objectForKey:kASUserDefaultsKeyPushToken];
+    NSString *cookie = [ASUserProfileModel loadSavedProfileInfo].cookie;
+    NSDictionary *params = @{@"cookie":cookie,
+                             @"uuid":uid,
+                             @"push_id":pushToken
+                             };
+    params = [self addAuthParamsByUpdatingParams:params];
+    return [self performHttpRequestWithAttempts:@"GET"
+                                       resource:@"friends/register_gcm"
+                                     parameters:params];
+}
 
 #pragma mark - Private methods
 

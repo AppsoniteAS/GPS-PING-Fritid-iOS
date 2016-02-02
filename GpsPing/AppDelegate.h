@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import <Google/CloudMessaging.h>
 
+static NSString *const kASUserDefaultsKeyPushToken = @"kASUserDefaultsKeyPushToken";
+
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
