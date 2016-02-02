@@ -38,6 +38,7 @@ static NSString * const kASUserDefaultsTrackersKey   = @"kASUserDefaultsTrackers
                          isChoosed:(BOOL)isChoosed;
 
 +(NSArray*)getTrackersFromUserDefaults;
++(ASTrackerModel *)getChoosedTracker;
 +(void)removeTrackerWithNumber:(NSString*)trackerNumber;
 
 -(void)saveInUserDefaults;

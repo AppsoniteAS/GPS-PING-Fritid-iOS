@@ -88,6 +88,20 @@ NSString* const kASTrackerId               = @"tracker_id";
     return result;
 }
 
++(ASTrackerModel *)getChoosedTracker
+{
+    NSArray *trackers = [ASTrackerModel getTrackersFromUserDefaults];
+    for (ASTrackerModel *tracker in trackers) {
+        if (tracker.isChoosed) {
+            return tracker;
+        }
+    }
+    
+    return nil;
+	
+}
+
+
 +(void)removeTrackerWithNumber:(NSString*)trackerNumber
 {
     NSArray * trackers = [ASTrackerModel getTrackersFromUserDefaults];

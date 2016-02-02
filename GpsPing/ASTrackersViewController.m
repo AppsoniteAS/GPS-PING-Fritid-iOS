@@ -16,7 +16,7 @@
 #import <CocoaLumberjack/CocoaLumberjack.h>
 static const DDLogLevel ddLogLevel = DDLogLevelVerbose;
 
-@interface ASTrackersViewController ()
+@interface ASTrackersViewController () <ASTrackerCellProtocol>
 
 @property (nonatomic, strong) AGApiController   *apiController;
 
@@ -44,6 +44,7 @@ objection_requires(@keypath(ASTrackersViewController.new, apiController))
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell * cell = [super tableView:tableView cellForRowAtIndexPath:indexPath];
+    ((ASTrackerCell*)cell).delegate = self;
     ASTrackerModel *model = [self.memoryStorage itemAtIndexPath:indexPath];
     if (model.isChoosed) {
 //        [tableView selectRowAtIndexPath:indexPath animated:YES scrollPosition:UITableViewScrollPositionNone];
@@ -76,6 +77,24 @@ objection_requires(@keypath(ASTrackersViewController.new, apiController))
 -(BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return YES;
+}
+
+-(void)trackerCell:(ASTrackerCell *)cell didTapShowOnMap:(BOOL)needToShow forModel:(ASTrackerModel *)model
+{
+    if (!needToShow) {
+        return;
+    }
+    
+    model.isChoosed = YES;
+    [model saveInUserDefaults];
+    [self.memoryStorage reloadItem:model];
+    for (ASTrackerModel *item in [self.memoryStorage itemsInSection:0]) {
+        if (![item.imeiNumber isEqualToString:model.imeiNumber]) {
+            item.isChoosed = NO;
+            [item saveInUserDefaults];
+            [self.memoryStorage reloadItem:item];
+        }
+    }
 }
 
 /*

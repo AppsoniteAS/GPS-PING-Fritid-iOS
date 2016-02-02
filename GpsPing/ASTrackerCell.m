@@ -48,9 +48,13 @@
 //}
 
 - (IBAction)showOnMapButtonTap:(UIButton *)sender {
-    self.trackerModel.isChoosed = !self.trackerModel.isChoosed;
-    [self.trackerModel saveInUserDefaults];
-    self.showOnMapButton.selected = self.trackerModel.isChoosed;
+    if ([self.delegate respondsToSelector:@selector(trackerCell:didTapShowOnMap:forModel:)]) {
+        [self.delegate trackerCell:self didTapShowOnMap:!self.trackerModel.isChoosed forModel:self.trackerModel];
+    }
+    
+//    self.trackerModel.isChoosed = !self.trackerModel.isChoosed;
+//    [self.trackerModel saveInUserDefaults];
+//    self.showOnMapButton.selected = self.trackerModel.isChoosed;
 }
 
 @end

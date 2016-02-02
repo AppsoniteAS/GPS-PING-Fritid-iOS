@@ -9,6 +9,14 @@
 #import <DTTableViewManager/DTTableViewManager.h>
 #import "ASTrackerModel.h"
 
+@class ASTrackerCell;
+
+@protocol ASTrackerCellProtocol <NSObject>
+
+-(void)trackerCell:(ASTrackerCell*)cell didTapShowOnMap:(BOOL)needToShow forModel:(ASTrackerModel*)model;
+
+@end
+
 @interface ASTrackerCell : DTTableViewCell
 
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
@@ -17,6 +25,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *trackerImage;
 @property (weak, nonatomic) IBOutlet UIImageView *chooseIndicator;
 @property (weak, nonatomic) IBOutlet UIButton *showOnMapButton;
+@property (weak, nonatomic) id<ASTrackerCellProtocol> delegate;
 
 @property (nonatomic) ASTrackerModel *trackerModel;
 

@@ -19,14 +19,12 @@ static DDLogLevel ddLogLevel = DDLogLevelDebug;
 
 @property (nonatomic, readonly) ASMainViewModel     *viewModel;
 @property (weak, nonatomic) IBOutlet UIButton *startStopButton;
-@property (nonatomic, assign) BOOL trackerStarted;
 
 @end
 
 @implementation MainMenuViewController {
     BOOL isAuthShown;
 }
-
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -35,7 +33,7 @@ static DDLogLevel ddLogLevel = DDLogLevelDebug;
     
     self.startStopButton.layer.borderColor = [UIColor colorWithRed:0.4796 green:0.7302 blue:0.2274 alpha:1.0].CGColor;
     self.startStopButton.layer.borderWidth = 6.0;
-    [self.startStopButton setTitle:NSLocalizedString(@"START", nil) forState:UIControlStateNormal];
+    [self updateButton];
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -60,15 +58,20 @@ static DDLogLevel ddLogLevel = DDLogLevelDebug;
 }
 
 - (IBAction)startStopButtonTap:(id)sender {
-    if (!self.trackerStarted) {
-        ASSelectTrackerViewController *selectVC = [ASSelectTrackerViewController initialize];
-        selectVC.modalPresentationStyle = UIModalPresentationOverCurrentContext;
-        selectVC.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-        selectVC.delegate = self;
-        [self presentViewController:selectVC animated:YES completion:nil];
+    NSNumber *trackerStatus = [[NSUserDefaults standardUserDefaults] objectForKey:kASUserDefaultsKeyMainScreenTrackerStatus];
+    
+    if (!trackerStatus.boolValue) {
+//        ASSelectTrackerViewController *selectVC = [ASSelectTrackerViewController initialize];
+//        selectVC.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+//        selectVC.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+//        selectVC.delegate = self;
+//        [self presentViewController:selectVC animated:YES completion:nil];
+        [self as_sendSMS:[[ASTrackerModel getChoosedTracker] getSmsTextsForTrackerLaunch:YES]
+               recipient:[ASTrackerModel getChoosedTracker].trackerNumber];
     } else {
-        self.trackerStarted = NO;
-        [self.startStopButton setTitle:NSLocalizedString(@"START", nil) forState:UIControlStateNormal];
+        [[NSUserDefaults standardUserDefaults] setObject:@(0) forKey:kASUserDefaultsKeyMainScreenTrackerStatus];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        [self updateButton];
     }
 }
 
@@ -81,8 +84,9 @@ static DDLogLevel ddLogLevel = DDLogLevelDebug;
 
 -(void)smsManagerMessageWasSentWithResult:(MessageComposeResult)result
 {
-    [self.startStopButton setTitle:NSLocalizedString(@"STOP", nil) forState:UIControlStateNormal];
-    self.trackerStarted = YES;
+    [[NSUserDefaults standardUserDefaults] setObject:@(1) forKey:kASUserDefaultsKeyMainScreenTrackerStatus];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    [self updateButton];
 }
 - (IBAction)mapTap:(id)sender {
     ASMapViewController *mapVC = [ASMapViewController initialize];
@@ -93,6 +97,17 @@ static DDLogLevel ddLogLevel = DDLogLevelDebug;
     ASMapViewController *mapVC = [ASMapViewController initialize];
     mapVC.isHistoryMode = YES;
     [self.navigationController pushViewController:mapVC animated:YES];
+}
+
+-(void)updateButton {
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    NSNumber *trackerStatus = [[NSUserDefaults standardUserDefaults] objectForKey:kASUserDefaultsKeyMainScreenTrackerStatus];
+    
+    if (trackerStatus.boolValue) {
+        [self.startStopButton setTitle:NSLocalizedString(@"STOP", nil) forState:UIControlStateNormal];
+    } else {
+        [self.startStopButton setTitle:NSLocalizedString(@"Start", nil) forState:UIControlStateNormal];
+    }
 }
 
 @end

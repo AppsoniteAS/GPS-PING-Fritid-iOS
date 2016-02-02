@@ -15,7 +15,7 @@
 #import <SVProgressHUD.h>
 #import <Objection/Objection.h>
 #import "ASGeofenceViewController.h"
-
+#import "MainMenuViewController.h"
 #import <CrashlyticsLogger.h>
 
 DDLogLevel ddLogLevel = DDLogLevelError;
@@ -32,9 +32,10 @@ DDLogLevel ddLogLevel = DDLogLevelError;
 -(instancetype)init {
     self = [super init];
     if (self) {
+        _registrationKey = @"onRegistrationCompleted";
+        _messageKey = @"onMessageReceived";
         [self initializeLogginig];
         [self initializeDependencyInjection];
-
     }
     return self;
 }
@@ -54,25 +55,28 @@ DDLogLevel ddLogLevel = DDLogLevelError;
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    _registrationKey = @"onRegistrationCompleted";
-    _messageKey = @"onMessageReceived";
-    // Override point for customization after application launch.
+    [self configUI];
+    [self initUserDefaults];
+    [self configPushes:application];
+    return YES;
+}
+
+-(void)configUI {
     [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:0.5451 green:0.7647 blue:0.2902 alpha:1.0]];
     [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
     [[UINavigationBar appearance] setTitleTextAttributes:
-        @{
-            NSForegroundColorAttributeName: [UIColor whiteColor],
-            NSFontAttributeName: [UIFont fontWithName:@"Roboto-Regular" size:20.0f]
-        }];
-    
-    [self setDefaultTrackDuration];
-    [self setDefaultGeoFenceStatus];
-    
+     @{
+       NSForegroundColorAttributeName: [UIColor whiteColor],
+       NSFontAttributeName: [UIFont fontWithName:@"Roboto-Regular" size:20.0f]
+       }];
+}
+
+-(void)configPushes:(UIApplication*)application {
     NSError* configureError;
     [[GGLContext sharedInstance] configureWithError:&configureError];
     NSAssert(!configureError, @"Error configuring Google services: %@", configureError);
     _gcmSenderID = [[[GGLContext sharedInstance] configuration] gcmSenderID];
-
+    
     if ([application respondsToSelector:@selector(registerUserNotificationSettings:)]) {
         UIUserNotificationType types = UIUserNotificationTypeSound | UIUserNotificationTypeAlert;
         UIUserNotificationSettings *notificationSettings = [UIUserNotificationSettings settingsForTypes:types categories:nil];
@@ -94,7 +98,7 @@ DDLogLevel ddLogLevel = DDLogLevelError;
         if (registrationToken != nil) {
             weakSelf.registrationToken = registrationToken;
             NSLog(@"Registration Token: %@", registrationToken);
-//            [weakSelf subscribeToTopic];
+            //            [weakSelf subscribeToTopic];
             NSDictionary *userInfo = @{@"registrationToken":registrationToken};
             [[NSNotificationCenter defaultCenter] postNotificationName:weakSelf.registrationKey
                                                                 object:nil
@@ -107,8 +111,12 @@ DDLogLevel ddLogLevel = DDLogLevelError;
                                                               userInfo:userInfo];
         }
     };
+}
 
-    return YES;
+-(void)initUserDefaults {
+    [self setDefaultTrackDuration];
+    [self setDefaultGeoFenceStatus];
+    [self setDefaultTrackerStatus];
 }
 
 -(void)setDefaultTrackDuration {
@@ -132,6 +140,16 @@ DDLogLevel ddLogLevel = DDLogLevelError;
         [[NSUserDefaults standardUserDefaults] synchronize];
     }
 }
+
+-(void)setDefaultTrackerStatus {
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    NSNumber *trackerStatus = [[NSUserDefaults standardUserDefaults] objectForKey:kASUserDefaultsKeyMainScreenTrackerStatus];
+    if (!trackerStatus) {
+        [[NSUserDefaults standardUserDefaults] setObject:@(0) forKey:kASUserDefaultsKeyMainScreenTrackerStatus];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
+}
+
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
