@@ -9,6 +9,7 @@
 #import "ASTrackerModel.h"
 #import <extobjc.h>
 #import <CocoaLumberjack.h>
+#import "Underscore.h"
 static DDLogLevel ddLogLevel               = DDLogLevelDebug;
 
 NSString* const kASTrackerName             = @"name";
@@ -150,7 +151,11 @@ NSString* const kASTrackerId               = @"tracker_id";
         DDLogError(@"Empty JSON while saving trackers");
     }
 
-    [[NSUserDefaults standardUserDefaults] setObject:jsonToSave
+    NSArray* filtered = Underscore.array(jsonToSave).map(^NSDictionary *(NSDictionary *object) {
+        return Underscore.rejectValues(object, Underscore.isNull);
+    }).unwrap;
+    
+    [[NSUserDefaults standardUserDefaults] setObject:filtered
                                               forKey:kASUserDefaultsTrackersKey];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }

@@ -381,14 +381,22 @@ objection_initializer(initWithConfiguration:);
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSString *pushToken = [defaults objectForKey:kASUserDefaultsKeyPushToken];
     NSString *cookie = [ASUserProfileModel loadSavedProfileInfo].cookie;
-    NSDictionary *params = @{@"cookie":cookie,
-                             @"uuid":uid,
-                             @"push_id":pushToken
-                             };
-    params = [self addAuthParamsByUpdatingParams:params];
-    return [self performHttpRequestWithAttempts:@"GET"
-                                       resource:@"friends/register_gcm"
-                                     parameters:params];
+    if (cookie && uid && pushToken) {
+        NSDictionary *params = @{@"cookie":cookie,
+                                 @"uuid":uid,
+                                 @"push_id":pushToken
+                                 };
+        params = [self addAuthParamsByUpdatingParams:params];
+        return [self performHttpRequestWithAttempts:@"GET"
+                                           resource:@"friends/register_gcm"
+                                         parameters:params];
+    } else {
+        NSString* message = [NSString stringWithFormat:@"Bad push regist registration params: cookie = %@, uuid = %@, push_id = %@", cookie, uid, pushToken];
+        DDLogError(@"%@", message);
+        return [RACSignal error:[NSError buildError:^(MRErrorBuilder *builder) {
+            builder.localizedDescription = message;
+        }]];
+    }
 }
 
 #pragma mark - Private methods
