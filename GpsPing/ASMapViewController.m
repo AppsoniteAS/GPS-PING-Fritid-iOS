@@ -23,11 +23,13 @@
 #define QUERY_RATE_IN_SECONDS 15
 
 @interface ASMapViewController () <MKMapViewDelegate,UIPickerViewDelegate, UIPickerViewDataSource, THDatePickerDelegate>
+- (IBAction)tapHandle:(id)sender;
 
 @property (weak, nonatomic) IBOutlet UIView           *filterPlank;
 @property (weak, nonatomic) IBOutlet UITextField      *filterTextField;
 @property (weak, nonatomic) IBOutlet ASMapDetailsView *detailsPlank;
 @property (weak, nonatomic) IBOutlet ASDashedLine     *dashedLineView;
+@property (strong, nonatomic) IBOutlet UITapGestureRecognizer *tapGestureDetails;
 
 @property (nonatomic        ) NSArray                    *originalPointsData;
 @property (nonatomic        ) CLLocationManager          *locationManager;
@@ -80,14 +82,21 @@ objection_requires(@keypath(ASMapViewController.new, apiController))
     
     self.navigationItem.rightBarButtonItem = rightBBI;
     
+    self.mapView.delegate = self;
+    
     self.locationManager = [[CLLocationManager alloc] init];
     [self.locationManager requestWhenInUseAuthorization];
     [self.locationManager requestAlwaysAuthorization];
     //    [self.locationManager startUpdatingLocation];
     
-    self.mapView.mapType = MKMapTypeStandard;
+    self.mapView.mapType = MKMapTypeHybrid;
 
     self.mapView.showsUserLocation = YES;
+    
+    MKCoordinateRegion mapRegion;
+    mapRegion.center = self.mapView.userLocation.coordinate;
+    mapRegion.span = MKCoordinateSpanMake(0.2, 0.2);
+    [self.mapView setRegion:mapRegion animated: YES];
     
     self.filterTextField.enabled = NO;
     
@@ -230,6 +239,11 @@ objection_requires(@keypath(ASMapViewController.new, apiController))
     
 }
 
+- (IBAction)tapHandle:(id)sender {
+    self.detailsPlank.hidden = YES;
+    self.tapGestureDetails.enabled = NO;
+}
+
 #pragma mark - Private methods
 
 -(void)loadTrackingPointsFrom:(NSDate*)from to:(NSDate*)to {
@@ -285,6 +299,13 @@ objection_requires(@keypath(ASMapViewController.new, apiController))
     [self.mapView addAnnotation:friendAnnotation];
     
     for (ASDeviceModel *deviceModel in friendModel.devices) {
+        if ((deviceModel.points.count == 0) && (self.isHistoryMode)) {
+            CLLocationCoordinate2D deviceCoord = CLLocationCoordinate2DMake(deviceModel.latitude.doubleValue, deviceModel.longitude.doubleValue);
+            ASLastPointAnnotation *deviceAnnotation = [[ASLastPointAnnotation alloc] initWithLocation:deviceCoord];
+            deviceAnnotation.annotationColor = colorForUser;
+            deviceAnnotation.deviceObject = deviceModel;
+            [self.mapView addAnnotation:deviceAnnotation];
+        }
         for (ASPointModel *pointModel in deviceModel.points) {
             ASDevicePointAnnotation *annotation;
             CLLocationCoordinate2D coord = CLLocationCoordinate2DMake(pointModel.latitude.doubleValue, pointModel.longitude.doubleValue);
@@ -434,6 +455,7 @@ objection_requires(@keypath(ASMapViewController.new, apiController))
     }
     
     self.detailsPlank.hidden = NO;
+    self.tapGestureDetails.enabled = YES;
 }
 
 #pragma mark - UIPicker

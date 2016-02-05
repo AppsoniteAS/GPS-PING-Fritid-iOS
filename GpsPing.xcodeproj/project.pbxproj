@@ -673,7 +673,7 @@
 				TargetAttributes = {
 					A68C1B2D1C4CE460000E2BA6 = {
 						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = EM65889ZEZ;
+						DevelopmentTeam = W2SAS5N7S8;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -1012,16 +1012,17 @@
 			baseConfigurationReference = D56B56EC24DC9B71F55AC4BB /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Pavel Ivanov (T335579SKT)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = GpsPing/PrefixHeader.pch;
 				INFOPLIST_FILE = GpsPing/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.appgranula.GpsPing;
+				PRODUCT_BUNDLE_IDENTIFIER = com.appgranula.GpsPing2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "e6b5bcf3-851d-4c7f-8f23-c8fb93d6ecd8";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -1030,16 +1031,17 @@
 			baseConfigurationReference = 77A21FE96824543E1D08D970 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Pavel Ivanov (T335579SKT)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = GpsPing/PrefixHeader.pch;
 				INFOPLIST_FILE = GpsPing/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.appgranula.GpsPing;
+				PRODUCT_BUNDLE_IDENTIFIER = com.appgranula.GpsPing2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "e6b5bcf3-851d-4c7f-8f23-c8fb93d6ecd8";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
