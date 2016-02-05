@@ -216,6 +216,8 @@ objection_requires(@keypath(ASTrackerConfigurationViewController.new, apiControl
             DDLogDebug(@"Tracker Added!");
             [self.trackerObject saveInUserDefaults];
             [self dismissViewControllerAnimated:YES completion:nil];
+        } error:^(NSError *error) {
+            [[UIAlertView alertWithTitle:NSLocalizedString(@"Error", nil) error:error] show];
         }];
 //    }
     } else {
@@ -226,18 +228,16 @@ objection_requires(@keypath(ASTrackerConfigurationViewController.new, apiControl
 
 -(void)smsManagerMessageWasSentWithResult:(MessageComposeResult)result
 {
-    if (result == MessageComposeResultSent) {
-        self.smsCount++;
-        NSString *newTitle;
-        if (self.smsCount == self.smsesForActivation.count) {
-            newTitle = NSLocalizedString(@"Finish activation", nil);
-        } else {
-            newTitle = [NSString stringWithFormat:NSLocalizedString(@"Activation: step %ld", nil), (long)self.smsCount + 1];
-        }
-    
-        [self.completeButton setTitle:newTitle
-                             forState:UIControlStateNormal];
+    self.smsCount++;
+    NSString *newTitle;
+    if (self.smsCount == self.smsesForActivation.count) {
+        newTitle = NSLocalizedString(@"Finish activation", nil);
+    } else {
+        newTitle = [NSString stringWithFormat:NSLocalizedString(@"Activation: step %ld", nil), (long)self.smsCount + 1];
     }
+    
+    [self.completeButton setTitle:newTitle
+                         forState:UIControlStateNormal];
 }
 
 - (IBAction)cancelButtonTap:(id)sender {
