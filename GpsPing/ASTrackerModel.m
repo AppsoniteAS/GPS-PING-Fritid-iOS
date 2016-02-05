@@ -52,6 +52,16 @@ NSString* const kASTrackerId               = @"tracker_id";
               };
 }
 
++ (NSValueTransformer *)trackerTypeJSONTransformer {
+    return [MTLValueTransformer transformerUsingForwardBlock:^id(NSString *trackerType, BOOL *success, NSError *__autoreleasing *error) {
+        if (trackerType == nil) {
+            return kASTrackerTypeAnywhere;
+        }
+        
+        return trackerType;
+    }];
+}
+
 -(NSNumber *)signalRateInSeconds
 {
     if ([self.signalRateMetric isEqualToString:kASSignalMetricTypeSeconds]) {
@@ -119,6 +129,13 @@ NSString* const kASTrackerId               = @"tracker_id";
                                                         error:&error];
     [[NSUserDefaults standardUserDefaults] setObject:jsonToSave
                                               forKey:kASUserDefaultsTrackersKey];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
++(void)clearTrackersInUserDefaults
+{
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:kASUserDefaultsTrackersKey];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 

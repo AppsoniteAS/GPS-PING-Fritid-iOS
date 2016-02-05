@@ -9,9 +9,9 @@
 #import <Foundation/Foundation.h>
 #import <Mantle.h>
 
-static NSString * const kASTrackerTypeTkStar      = @"trackerTkStar";
-static NSString * const kASTrackerTypeTkStarPet   = @"trackerTkStarPet";
-static NSString * const kASTrackerTypeAnywhere    = @"trackerAnywhere";
+static NSString * const kASTrackerTypeTkStar      = @"TK_STAR";
+static NSString * const kASTrackerTypeTkStarPet   = @"TK_STAR_PET";
+static NSString * const kASTrackerTypeAnywhere    = @"TK_ANYWHERE";
 
 static NSString * const kASSignalMetricTypeSeconds   = @"Seconds";
 static NSString * const kASSignalMetricTypeMinutes   = @"Minutes";
@@ -38,6 +38,7 @@ static NSString * const kASUserDefaultsTrackersKey   = @"kASUserDefaultsTrackers
                          isChoosed:(BOOL)isChoosed;
 
 +(NSArray*)getTrackersFromUserDefaults;
++(void)clearTrackersInUserDefaults;
 +(ASTrackerModel *)getChoosedTracker;
 +(void)removeTrackerWithNumber:(NSString*)trackerNumber;
 

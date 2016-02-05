@@ -140,6 +140,7 @@ objection_initializer(initWithConfiguration:);
 -(RACSignal *)logout {
     self.userProfile = nil;
     [ASUserProfileModel removeLocallyProfileInfo];
+    [ASTrackerModel clearTrackersInUserDefaults];
     return [RACSignal empty];
 }
 
