@@ -418,7 +418,16 @@ objection_initializer(initWithConfiguration:);
     }
     
     return [signal flattenMap:^RACStream *(id response) {
-         return [RACSignal return:response];
+        if ([response[@"status"] isEqualToString:@"error"]) {
+            NSError *error = [NSError buildError:^(MRErrorBuilder *builder) {
+                 builder.domain = AGOpteumBackendError;
+                 builder.localizedDescription = response[@"error"];
+             }];
+
+             return [RACSignal error:error];
+        }
+        
+        return [RACSignal return:response];
 //         if (code && ![code isEqualToNumber:@(AGOpteumBackendResponseCodeSuccess)]) {
 //             NSError *error = [NSError buildError:^(MRErrorBuilder *builder) {
 //                 builder.domain = AGOpteumBackendError;
