@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <Mantle.h>
+#import <ReactiveCocoa.h>
 
 static NSString * const kASTrackerTypeTkStar      = @"TK_STAR";
 static NSString * const kASTrackerTypeTkStarPet   = @"TK_STAR_PET";
@@ -44,7 +45,7 @@ static NSString * const kASUserDefaultsTrackersKey   = @"kASUserDefaultsTrackers
 
 -(void)saveInUserDefaults;
 
--(NSArray*)getSmsTextsForActivation;
+-(RACSignal*)getSmsTextsForActivation;
 -(NSString*)getSmsTextsForTrackerLaunch:(BOOL)isOn;
 +(NSString*)getSmsTextsForGeofenceLaunch:(BOOL)turnOn
                              phoneNumber:(NSString*)userPhoneNumber;

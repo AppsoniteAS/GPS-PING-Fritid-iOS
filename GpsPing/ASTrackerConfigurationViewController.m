@@ -40,6 +40,8 @@ static const DDLogLevel ddLogLevel = DDLogLevelVerbose;
 
 @property (nonatomic, strong) AGApiController   *apiController;
 
+@property (nonatomic) NSArray *smsesForActivation;
+
 @end
 
 @implementation ASTrackerConfigurationViewController
@@ -188,7 +190,20 @@ objection_requires(@keypath(ASTrackerConfigurationViewController.new, apiControl
             DDLogDebug(@"Tracker updated!");
             [self dismissViewControllerAnimated:YES completion:nil];
         }];
-    } else if (self.smsCount == self.trackerObject.getSmsTextsForActivation.count) {
+    } else if (!self.smsesForActivation) {
+        [[self.trackerObject getSmsTextsForActivation] subscribeNext:^(id x) {
+            self.smsesForActivation = x;
+            [self checkSmsCount];
+        } error:^(NSError *error) {
+            [[UIAlertView alertWithTitle:NSLocalizedString(@"Error", nil) error:error] show];
+        }];
+    } else {
+        [self checkSmsCount];
+    }
+}
+
+-(void)checkSmsCount{
+    if (self.smsCount == self.smsesForActivation.count) {
 //    } else {
         CGFloat repeatTime = [self.trackerObject.signalRateMetric isEqualToString:kASSignalMetricTypeSeconds] ?
         self.trackerObject.signalRate : self.trackerObject.signalRate * 60;
@@ -204,7 +219,7 @@ objection_requires(@keypath(ASTrackerConfigurationViewController.new, apiControl
         }];
 //    }
     } else {
-        [self as_sendSMS:self.trackerObject.getSmsTextsForActivation[self.smsCount]
+        [self as_sendSMS:self.smsesForActivation[self.smsCount]
            recipient:self.trackerObject.trackerNumber];
     }
 }
@@ -214,7 +229,7 @@ objection_requires(@keypath(ASTrackerConfigurationViewController.new, apiControl
     if (result == MessageComposeResultSent) {
         self.smsCount++;
         NSString *newTitle;
-        if (self.smsCount == self.trackerObject.getSmsTextsForActivation.count) {
+        if (self.smsCount == self.smsesForActivation.count) {
             newTitle = NSLocalizedString(@"Finish activation", nil);
         } else {
             newTitle = [NSString stringWithFormat:NSLocalizedString(@"Activation: step %ld", nil), (long)self.smsCount + 1];

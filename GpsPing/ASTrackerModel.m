@@ -10,6 +10,11 @@
 #import <extobjc.h>
 #import <CocoaLumberjack.h>
 #import "Underscore.h"
+#import <ErrorKit/ErrorKit.h>
+
+#include <netdb.h>
+#include <arpa/inet.h>
+
 static DDLogLevel ddLogLevel               = DDLogLevelDebug;
 
 NSString* const kASTrackerName             = @"name";
@@ -177,23 +182,41 @@ NSString* const kASTrackerId               = @"tracker_id";
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
--(NSArray*)getSmsTextsForActivation {
-    NSArray *result;
-    if ([self.trackerType isEqualToString:kASTrackerTypeAnywhere]) {
-        result = @[@"Begin123456",
-                   @"gprs123456",
-                   @"apn123456 netcom",
-                   @"adminip123456 46.137.82.251 5000",
-                   @"sleep123456 off"];
-    } else {
-        result = @[@"Begin123456",
-                   @"gprs123456",
-                   @"apn123456 netcom",
-                   @"adminip123456 46.137.82.251 5013",
-                   @"sleep123456 off"];
-    }
-    
-    return result;
+-(RACSignal*)getSmsTextsForActivation {
+    return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+        struct hostent *host_entry = gethostbyname("appgranula.mooo.com");
+        char *buff;
+        buff = inet_ntoa(*((struct in_addr *)host_entry->h_addr_list[0]));
+        if (buff == NULL) {
+            NSError *error = [NSError buildError:^(MRErrorBuilder *builder) {
+                builder.domain = @"ASGpsPingErrorDomain";
+                builder.localizedDescription = NSLocalizedString(@"Could not resolve Traccar's IP address", nil);
+            }];
+            
+            [subscriber sendError:error];
+            return nil;
+        }
+        
+        NSArray *result;
+        if ([self.trackerType isEqualToString:kASTrackerTypeAnywhere]) {
+            result = @[@"Begin123456",
+                       @"gprs123456",
+                       @"apn123456 netcom",
+                       [NSString stringWithFormat:@"adminip123456 %s 5000", buff],
+                       @"sleep123456 off"];
+        } else {
+            result = @[@"Begin123456",
+                       @"gprs123456",
+                       @"apn123456 netcom",
+                       [NSString stringWithFormat:@"adminip123456 %s 5013", buff],
+                       @"sleep123456 off"];
+        }
+
+        
+        [subscriber sendNext:result];
+        [subscriber sendCompleted];
+        return nil;
+    }];
 }
 
 -(NSString*)getSmsTextsForTrackerLaunch:(BOOL)isOn
