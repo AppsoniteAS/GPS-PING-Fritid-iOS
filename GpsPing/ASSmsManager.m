@@ -8,6 +8,11 @@
 
 #import "ASSmsManager.h"
 #import <CocoaLumberjack.h>
+ #include <netdb.h> 
+#include <arpa/inet.h>
+
+#define TRACKAR_URL      @"http://appgranula.mooo.com"
+
 static DDLogLevel ddLogLevel = DDLogLevelDebug;
 
 @implementation UIViewController (ASSmsManager)
@@ -18,7 +23,11 @@ static DDLogLevel ddLogLevel = DDLogLevelDebug;
     MFMessageComposeViewController *controller = [[MFMessageComposeViewController alloc] init];
     if([MFMessageComposeViewController canSendText])
     {
-        controller.body = text;
+        struct hostent *host_entry = gethostbyname("appgranula.mooo.com");
+        char *buff;
+        buff = inet_ntoa(*((struct in_addr *)host_entry->h_addr_list[0]));
+        
+        controller.body = [NSString stringWithFormat:@"%@; ip: %s",text,buff];
         controller.recipients = @[recipient];
         controller.messageComposeDelegate = (id)self;
         controller.navigationBarHidden=YES;
