@@ -10,13 +10,10 @@
 #import <UIAlertView+ErrorKit.h>
 #import <CocoaLumberjack.h>
 #import <CoreLocation/CoreLocation.h>
-#import <Fabric/Fabric.h>
-#import <Crashlytics/Crashlytics.h>
 #import <SVProgressHUD.h>
 #import <Objection/Objection.h>
 #import "ASGeofenceViewController.h"
 #import "MainMenuViewController.h"
-#import <CrashlyticsLogger.h>
 #import "ASDisplayOptionsViewController.h"
 #import "UIStoryboard+ASHelper.h"
 #import "ASFriendsListViewController.h"
@@ -47,7 +44,6 @@ DDLogLevel ddLogLevel = DDLogLevelError;
     setenv("XcodeColors", "YES", 0);
     [DDLog addLogger:[DDASLLogger sharedInstance]];
     [DDLog addLogger:[DDTTYLogger sharedInstance]];
-    [DDLog addLogger:[CrashlyticsLogger sharedInstance]];
     [[DDTTYLogger sharedInstance] setColorsEnabled:YES];
     DDLogDebug(@"Logging initialized");
 }
