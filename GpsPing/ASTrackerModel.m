@@ -141,6 +141,15 @@ NSString* const kASTrackerId               = @"tracker_id";
     NSError *error;
     NSArray *jsonToSave = [MTLJSONAdapter JSONArrayFromModels:trackers_m
                                                         error:&error];
+    if (error) {
+        DDLogError(@"Error saving trackers: %@", error);
+        return;
+    }
+    
+    if (!jsonToSave) {
+        DDLogError(@"Empty JSON while saving trackers");
+    }
+
     [[NSUserDefaults standardUserDefaults] setObject:jsonToSave
                                               forKey:kASUserDefaultsTrackersKey];
     [[NSUserDefaults standardUserDefaults] synchronize];
