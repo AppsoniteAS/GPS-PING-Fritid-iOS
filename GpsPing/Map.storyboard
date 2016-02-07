@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="sw3-fk-UAu">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="sw3-fk-UAu">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
@@ -221,10 +221,6 @@
                                                     </mask>
                                                 </variation>
                                             </label>
-                                            <view userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ni7-Ru-box" customClass="ASDashedLine">
-                                                <rect key="frame" x="-21" y="18" width="33" height="35"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                            </view>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -361,16 +357,23 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="map_cursor" translatesAutoresizingMaskIntoConstraints="NO" id="M8s-by-y94">
                                 <rect key="frame" x="135" y="259" width="50" height="50"/>
                             </imageView>
+                            <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ni7-Ru-box" customClass="ASDashedLine">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="hPV-uE-2fI" firstAttribute="top" secondItem="zmk-Dv-JcT" secondAttribute="topMargin" id="0jm-DI-fwY"/>
                             <constraint firstAttribute="trailing" secondItem="y6O-VD-VEg" secondAttribute="trailing" id="2Vx-NF-tht"/>
+                            <constraint firstItem="ni7-Ru-box" firstAttribute="trailing" secondItem="y6O-VD-VEg" secondAttribute="trailing" id="9tt-8v-X5K"/>
+                            <constraint firstItem="ni7-Ru-box" firstAttribute="leading" secondItem="y6O-VD-VEg" secondAttribute="leading" id="J7t-wd-Z6z"/>
                             <constraint firstItem="M8s-by-y94" firstAttribute="centerX" secondItem="y6O-VD-VEg" secondAttribute="centerX" id="Lk2-bt-Ayz"/>
                             <constraint firstAttribute="bottomMargin" secondItem="gzy-Op-7ej" secondAttribute="bottom" id="QeI-Y7-Sta"/>
                             <constraint firstItem="1xD-Dc-EO1" firstAttribute="leading" secondItem="zmk-Dv-JcT" secondAttribute="leading" constant="18" id="TCb-Dj-Y0p"/>
                             <constraint firstItem="y6O-VD-VEg" firstAttribute="leading" secondItem="zmk-Dv-JcT" secondAttribute="leading" id="TOH-t1-GKw"/>
                             <constraint firstItem="hPV-uE-2fI" firstAttribute="leading" secondItem="zmk-Dv-JcT" secondAttribute="leading" id="VPD-W5-Qfq"/>
+                            <constraint firstItem="ni7-Ru-box" firstAttribute="bottom" secondItem="y6O-VD-VEg" secondAttribute="bottom" id="XIM-y2-cQs"/>
                             <constraint firstItem="gzy-Op-7ej" firstAttribute="leading" secondItem="zmk-Dv-JcT" secondAttribute="leading" id="d7H-I9-3dr"/>
                             <constraint firstItem="M8s-by-y94" firstAttribute="centerY" secondItem="y6O-VD-VEg" secondAttribute="centerY" id="fJ5-sO-17b"/>
                             <constraint firstAttribute="bottomMargin" secondItem="y6O-VD-VEg" secondAttribute="bottom" id="gkT-Fu-EER"/>
@@ -380,6 +383,7 @@
                             <constraint firstAttribute="trailing" secondItem="hPV-uE-2fI" secondAttribute="trailing" id="ozq-0s-rUo"/>
                             <constraint firstItem="y6O-VD-VEg" firstAttribute="top" secondItem="zmk-Dv-JcT" secondAttribute="topMargin" id="vvM-Ld-aaQ"/>
                             <constraint firstAttribute="trailing" secondItem="1xD-Dc-EO1" secondAttribute="trailing" constant="18" id="yQq-sx-uhp"/>
+                            <constraint firstItem="ni7-Ru-box" firstAttribute="top" secondItem="y6O-VD-VEg" secondAttribute="top" id="yaI-KQ-hmn"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">

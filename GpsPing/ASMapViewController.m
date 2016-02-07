@@ -45,7 +45,7 @@
 
 @property (nonatomic        ) NSDictionary *colorsDictionary;
 @property (nonatomic, assign) BOOL isFirstLaunch;
-
+@property (nonatomic, assign) BOOL isUserLocationCentered;
 @end
 
 @implementation ASMapViewController
@@ -87,16 +87,11 @@ objection_requires(@keypath(ASMapViewController.new, apiController))
     self.locationManager = [[CLLocationManager alloc] init];
     [self.locationManager requestWhenInUseAuthorization];
     [self.locationManager requestAlwaysAuthorization];
-    //    [self.locationManager startUpdatingLocation];
+//    [self.locationManager startUpdatingLocation];
     
     self.mapView.mapType = MKMapTypeHybrid;
 
     self.mapView.showsUserLocation = YES;
-    
-    MKCoordinateRegion mapRegion;
-    mapRegion.center = self.mapView.userLocation.coordinate;
-    mapRegion.span = MKCoordinateSpanMake(0.2, 0.2);
-    [self.mapView setRegion:mapRegion animated: YES];
     
     self.filterTextField.enabled = NO;
     
@@ -368,8 +363,14 @@ objection_requires(@keypath(ASMapViewController.new, apiController))
 - (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation
 {
     [self refreshLine];
-    //    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(userLocation.coordinate, 800, 800);
-    //    [self.mapView setRegion:[self.mapView regionThatFits:region] animated:YES];
+    
+    if (self.isUserLocationCentered == NO) {
+        self.isUserLocationCentered = YES;
+        MKCoordinateRegion mapRegion = MKCoordinateRegionMakeWithDistance(userLocation.coordinate, 800, 800);
+        mapRegion.center = self.mapView.userLocation.coordinate;
+        [self.mapView setRegion:[self.mapView regionThatFits:mapRegion] animated:YES];
+//        [self.locationManager stopUpdatingLocation];
+    }
 }
 
 -(MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation
