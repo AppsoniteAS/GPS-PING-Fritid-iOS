@@ -245,6 +245,7 @@
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
+                        <outlet property="activeTrackerLabel" destination="LYi-3d-xdn" id="FIX-tV-Thh"/>
                         <outlet property="searchDisplayController" destination="0Za-yh-dk7" id="tma-Wo-QQE"/>
                         <outlet property="startStopButton" destination="43t-vi-idC" id="kOw-aM-NQv"/>
                     </connections>

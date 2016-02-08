@@ -21,6 +21,7 @@ static DDLogLevel ddLogLevel = DDLogLevelDebug;
 @property (nonatomic, readonly) ASMainViewModel     *viewModel;
 @property (weak, nonatomic) IBOutlet UIButton *startStopButton;
 @property (nonatomic, strong) AGApiController   *apiController;
+@property (weak, nonatomic) IBOutlet UILabel *activeTrackerLabel;
 
 @end
 
@@ -37,14 +38,16 @@ objection_requires(@keypath(MainMenuViewController.new, apiController))
     
     self.startStopButton.layer.borderColor = [UIColor colorWithRed:0.4796 green:0.7302 blue:0.2274 alpha:1.0].CGColor;
     self.startStopButton.layer.borderWidth = 6.0;
-    [self updateButton];
 }
 
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     [self.view layoutIfNeeded];
+    [self updateButton];
     self.startStopButton.layer.cornerRadius = self.startStopButton.frame.size.width/2;
+    ASTrackerModel *activeTracker = [ASTrackerModel getChoosedTracker];
+    self.activeTrackerLabel.text = activeTracker.trackerName;
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -66,25 +69,19 @@ objection_requires(@keypath(MainMenuViewController.new, apiController))
 }
 
 - (IBAction)startStopButtonTap:(id)sender {
-    NSNumber *trackerStatus = [[NSUserDefaults standardUserDefaults] objectForKey:kASUserDefaultsKeyMainScreenTrackerStatus];
+    ASTrackerModel *trackerModel = [ASTrackerModel getChoosedTracker];
     
-    if (!trackerStatus.boolValue) {
-        if (![ASTrackerModel getChoosedTracker]) {
-            [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"No tracker choosed", nil)
-                                        message:NSLocalizedString(@"You must choose tracker on Trackers screen in Settings to start it", nil)
-                                       delegate:nil
-                              cancelButtonTitle:NSLocalizedString(@"OK", nil)
-                              otherButtonTitles: nil] show];
-            return;
-        }
-        
-        [self as_sendSMS:[[ASTrackerModel getChoosedTracker] getSmsTextsForTrackerLaunch:YES]
-               recipient:[ASTrackerModel getChoosedTracker].trackerNumber];
-    } else {
-        [[NSUserDefaults standardUserDefaults] setObject:@(0) forKey:kASUserDefaultsKeyMainScreenTrackerStatus];
-        [[NSUserDefaults standardUserDefaults] synchronize];
-        [self updateButton];
+    if (![ASTrackerModel getChoosedTracker]) {
+        [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"No tracker choosed", nil)
+                                    message:NSLocalizedString(@"You must choose tracker on Trackers screen in Settings to start it", nil)
+                                   delegate:nil
+                          cancelButtonTitle:NSLocalizedString(@"OK", nil)
+                          otherButtonTitles: nil] show];
+        return;
     }
+
+    [self as_sendSMS:[trackerModel getSmsTextsForTrackerLaunch:!trackerModel.isRunning]
+           recipient:trackerModel.trackerNumber];
 }
 
 -(void)selectTracker:(ASSelectTrackerViewController *)controller trackerChoosed:(ASTrackerModel *)trackerModel
@@ -96,15 +93,18 @@ objection_requires(@keypath(MainMenuViewController.new, apiController))
 
 -(void)smsManagerMessageWasSentWithResult:(MessageComposeResult)result
 {
-    [[NSUserDefaults standardUserDefaults] setObject:@(1) forKey:kASUserDefaultsKeyMainScreenTrackerStatus];
-    [[NSUserDefaults standardUserDefaults] synchronize];
+    ASTrackerModel *trackerModel = [ASTrackerModel getChoosedTracker];
+    trackerModel.isRunning = !trackerModel.isRunning;
+    [trackerModel saveInUserDefaults];
     [self updateButton];
 }
+
 - (IBAction)mapTap:(id)sender {
     ASMapViewController *mapVC = [ASMapViewController initialize];
     mapVC.isHistoryMode = NO;
     [self.navigationController pushViewController:mapVC animated:YES];
 }
+
 - (IBAction)historyTap:(id)sender {
     ASMapViewController *mapVC = [ASMapViewController initialize];
     mapVC.isHistoryMode = YES;
@@ -112,10 +112,8 @@ objection_requires(@keypath(MainMenuViewController.new, apiController))
 }
 
 -(void)updateButton {
-    [[NSUserDefaults standardUserDefaults] synchronize];
-    NSNumber *trackerStatus = [[NSUserDefaults standardUserDefaults] objectForKey:kASUserDefaultsKeyMainScreenTrackerStatus];
-    
-    if (trackerStatus.boolValue) {
+    ASTrackerModel *trackerModel = [ASTrackerModel getChoosedTracker];
+    if (trackerModel.isRunning) {
         [self.startStopButton setTitle:NSLocalizedString(@"STOP", nil) forState:UIControlStateNormal];
     } else {
         [self.startStopButton setTitle:NSLocalizedString(@"Start", nil) forState:UIControlStateNormal];

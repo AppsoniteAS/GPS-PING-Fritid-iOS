@@ -473,11 +473,11 @@
 		A68C1BA01C4E4788000E2BA6 /* Main screen */ = {
 			isa = PBXGroup;
 			children = (
+				A68C1B3A1C4CE460000E2BA6 /* Main.storyboard */,
 				A68C1B371C4CE460000E2BA6 /* MainMenuViewController.h */,
 				A68C1B381C4CE460000E2BA6 /* MainMenuViewController.m */,
 				AB8946AC1C54A4DD002E86C8 /* ASMainViewModel.h */,
 				AB8946AD1C54A4DD002E86C8 /* ASMainViewModel.m */,
-				A68C1B3A1C4CE460000E2BA6 /* Main.storyboard */,
 				A6F6A74C1C51742A0009579A /* ASSelectTrackerViewController.h */,
 				A6F6A74D1C51742A0009579A /* ASSelectTrackerViewController.m */,
 			);

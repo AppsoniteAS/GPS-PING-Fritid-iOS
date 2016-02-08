@@ -13,7 +13,6 @@
 #import <SVProgressHUD.h>
 #import <Objection/Objection.h>
 #import "ASGeofenceViewController.h"
-#import "MainMenuViewController.h"
 #import "ASDisplayOptionsViewController.h"
 #import "UIStoryboard+ASHelper.h"
 #import "ASFriendsListViewController.h"
@@ -125,7 +124,6 @@ DDLogLevel ddLogLevel = DDLogLevelError;
 -(void)initUserDefaults {
     [self setDefaultTrackDuration];
     [self setDefaultGeoFenceStatus];
-    [self setDefaultTrackerStatus];
 }
 
 -(void)setDefaultTrackDuration {
@@ -144,15 +142,6 @@ DDLogLevel ddLogLevel = DDLogLevelError;
     NSNumber *geofenceStatus = [[NSUserDefaults standardUserDefaults] objectForKey:kASGeofenceStatus];
     if (!geofenceStatus) {
         [[NSUserDefaults standardUserDefaults] setObject:@(0) forKey:kASGeofenceStatus];
-        [[NSUserDefaults standardUserDefaults] synchronize];
-    }
-}
-
--(void)setDefaultTrackerStatus {
-    [[NSUserDefaults standardUserDefaults] synchronize];
-    NSNumber *trackerStatus = [[NSUserDefaults standardUserDefaults] objectForKey:kASUserDefaultsKeyMainScreenTrackerStatus];
-    if (!trackerStatus) {
-        [[NSUserDefaults standardUserDefaults] setObject:@(0) forKey:kASUserDefaultsKeyMainScreenTrackerStatus];
         [[NSUserDefaults standardUserDefaults] synchronize];
     }
 }

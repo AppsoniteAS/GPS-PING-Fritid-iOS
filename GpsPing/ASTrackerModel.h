@@ -27,6 +27,7 @@ static NSString * const kASUserDefaultsTrackersKey   = @"kASUserDefaultsTrackers
 @property (nonatomic        ) NSString  *imeiNumber;
 @property (nonatomic        ) NSString  *trackerType;
 @property (nonatomic, assign) BOOL      isChoosed;
+@property (nonatomic, assign) BOOL      isRunning;
 @property (nonatomic, assign) BOOL      dogInStand;
 @property (nonatomic, assign) NSInteger signalRate;
 @property (nonatomic        ) NSNumber  *signalRateInSeconds;
@@ -36,7 +37,8 @@ static NSString * const kASUserDefaultsTrackersKey   = @"kASUserDefaultsTrackers
                             number:(NSString *)number
                               imei:(NSString *)imei
                               type:(NSString *)type
-                         isChoosed:(BOOL)isChoosed;
+                         isChoosed:(BOOL)isChoosed
+                         isRunning:(BOOL)isRunning;
 
 +(NSArray*)getTrackersFromUserDefaults;
 +(void)clearTrackersInUserDefaults;

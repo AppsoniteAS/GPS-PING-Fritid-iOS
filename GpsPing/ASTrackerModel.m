@@ -25,6 +25,7 @@ NSString* const kASTrackerIsChoosed        = @"choosed";
 NSString* const kASTrackerDogInStand       = @"check_for_stand";
 NSString* const kASTrackerSignalRate       = @"reciver_signal_repeat_time";
 NSString* const kASTrackerId               = @"tracker_id";
+NSString* const kASIsRunning               = @"isRunning";
 
 @implementation ASTrackerModel
 
@@ -32,28 +33,30 @@ NSString* const kASTrackerId               = @"tracker_id";
                             number:(NSString *)number
                               imei:(NSString *)imei
                               type:(NSString *)type
-                         isChoosed:(BOOL)isChoosed {
+                         isChoosed:(BOOL)isChoosed
+                         isRunning:(BOOL)isRunning {
     ASTrackerModel *model = [[ASTrackerModel alloc] init];
     model.trackerName = name;
     model.imeiNumber = imei;
     model.trackerNumber = number;
     model.trackerType = type;
     model.isChoosed = isChoosed;
-    model.signalRate = 1;
+    model.signalRate = 50;
     model.signalRateMetric = kASSignalMetricTypeSeconds;
+    model.isRunning = isRunning;
     return model;
 }
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
     return @{
-             @keypath(ASTrackerModel.new, trackerName)         : kASTrackerName,
+              @keypath(ASTrackerModel.new, trackerName)        : kASTrackerName,
               @keypath(ASTrackerModel.new, trackerNumber)      : kASTrackerNumber,
               @keypath(ASTrackerModel.new, imeiNumber)         : kASTrackerImei,
               @keypath(ASTrackerModel.new, trackerType)        : kASTrackerType,
               @keypath(ASTrackerModel.new, isChoosed)          : kASTrackerIsChoosed,
               @keypath(ASTrackerModel.new, dogInStand)         : kASTrackerDogInStand,
               @keypath(ASTrackerModel.new, signalRateInSeconds): kASTrackerSignalRate,
-//              @keypath(ASTrackerModel.new, trackerId)          : kASTrackerId
+              @keypath(ASTrackerModel.new, isRunning)          : kASIsRunning
               };
 }
 
@@ -221,7 +224,12 @@ NSString* const kASTrackerId               = @"tracker_id";
 
 -(NSString*)getSmsTextsForTrackerLaunch:(BOOL)isOn
 {
-    if ([self.trackerType isEqualToString:kASTrackerTypeTkStar]) {
+    if (!isOn) {
+        return @"Notn123456";
+    }
+    
+    if ([self.trackerType isEqualToString:kASTrackerTypeTkStar] ||
+        [self.trackerType isEqualToString:kASTrackerTypeTkStarPet]) {
         NSInteger signalRate = self.signalRate;
         if ([self.signalRateMetric isEqualToString:kASSignalMetricTypeMinutes]){
             signalRate *= 60;

@@ -7,10 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-static NSString *const kASUserDefaultsKeyMainScreenTrackerStatus = @"kASUserDefaultsKeyMainScreenTrackerStatus";
 
 @interface MainMenuViewController : UIViewController
-
 
 @end
 
