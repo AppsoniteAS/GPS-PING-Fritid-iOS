@@ -15,8 +15,6 @@ static const DDLogLevel ddLogLevel = DDLogLevelDebug;
 @interface ASAboutViewController () <MFMailComposeViewControllerDelegate>
 - (IBAction)showWebsite:(id)sender;
 - (IBAction)contactUs:(id)sender;
-- (IBAction)showAboutUs:(id)sender;
-
 @end
 
 @implementation ASAboutViewController
@@ -32,10 +30,6 @@ static const DDLogLevel ddLogLevel = DDLogLevelDebug;
 
 - (IBAction)contactUs:(id)sender {
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString: @"http://www.gpsping.no/kontakt-oss/"]];
-}
-
-- (IBAction)showAboutUs:(id)sender {
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString: @"https://www.google.com/"]];
 }
 
 # pragma mark - MFMailComposeViewControllerDelegate
