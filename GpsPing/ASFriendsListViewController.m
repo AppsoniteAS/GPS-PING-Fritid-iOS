@@ -64,7 +64,17 @@ objection_requires(@keypath(ASFriendsListViewController.new, apiController))
         [[[self.apiController confirmFriendshipWithFriendId:[NSString stringWithFormat:@"%@",addFriend.userId]] deliverOnMainThread] subscribeNext:^(id x) {
             [self refreshListOfFriends];
         }];
+    } else {
+        ASFriendModel *friend = [self.memoryStorage itemAtIndexPath:indexPath];
+        [self setFriend:friend ssSeeingTrackers:!friend.isSeeingTracker.boolValue];
     }
+}
+
+-(void)setFriend:(ASFriendModel*)friend ssSeeingTrackers:(BOOL)isSeeing {
+    [[self.apiController setSeeingTracker:isSeeing friendId:friend.userId.stringValue] subscribeNext:^(id x) {
+        friend.isSeeingTracker = @(isSeeing);
+        [self.memoryStorage reloadItem:friend];
+    }];
 }
 
 -(void)refreshListOfFriends{
