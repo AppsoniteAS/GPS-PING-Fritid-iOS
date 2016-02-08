@@ -27,16 +27,11 @@ static const DDLogLevel ddLogLevel = DDLogLevelDebug;
 }
 
 - (IBAction)showWebsite:(id)sender {
-     [[UIApplication sharedApplication] openURL:[NSURL URLWithString: @"https://www.google.com/"]];
+     [[UIApplication sharedApplication] openURL:[NSURL URLWithString: @"http://www.gpsping.no/"]];
 }
 
 - (IBAction)contactUs:(id)sender {
-    MFMailComposeViewController *mc = [[MFMailComposeViewController alloc] init];
-    mc.mailComposeDelegate = self;
-    [mc setSubject:@"GPSPing"];
-    [mc setMessageBody:@"" isHTML:YES];
-    [mc setToRecipients:[NSArray arrayWithObject:@""]];
-    [self presentViewController:mc animated:YES completion:nil];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString: @"http://www.gpsping.no/kontakt-oss/"]];
 }
 
 - (IBAction)showAboutUs:(id)sender {
