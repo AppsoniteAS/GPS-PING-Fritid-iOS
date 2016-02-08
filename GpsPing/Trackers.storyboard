@@ -52,7 +52,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelectionDuringEditing="YES" allowsMultipleSelectionDuringEditing="YES" rowHeight="96" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jxP-yf-c6W">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" delaysContentTouches="NO" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelectionDuringEditing="YES" allowsMultipleSelectionDuringEditing="YES" rowHeight="96" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jxP-yf-c6W">
                                 <rect key="frame" x="0.0" y="64" width="414" height="672"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <inset key="separatorInset" minX="76" minY="0.0" maxX="15" maxY="0.0"/>
@@ -71,25 +71,25 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tracker Number:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pu3-bz-ZPE">
-                                                    <rect key="frame" x="76" y="43.5" width="67" height="11"/>
+                                                    <rect key="frame" x="76" y="43" width="67" height="11"/>
                                                     <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="9"/>
                                                     <color key="textColor" red="0.45882352941176469" green="0.45882352941176469" blue="0.45882352941176469" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="IMEI Number:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vX0-lZ-iHN">
-                                                    <rect key="frame" x="76" y="60.5" width="54.5" height="11"/>
+                                                    <rect key="frame" x="76" y="60" width="54.5" height="11"/>
                                                     <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="9"/>
                                                     <color key="textColor" red="0.45882352941176469" green="0.45882352941176469" blue="0.45882352941176469" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="580009914518" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CZd-v3-kIQ">
-                                                    <rect key="frame" x="162" y="43.5" width="61" height="11"/>
+                                                    <rect key="frame" x="162" y="43" width="61" height="11"/>
                                                     <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="9"/>
                                                     <color key="textColor" red="0.45882352941176469" green="0.45882352941176469" blue="0.45882352941176469" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="580009914518" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iem-dQ-Ist">
-                                                    <rect key="frame" x="162" y="60.5" width="61" height="11"/>
+                                                    <rect key="frame" x="162" y="60" width="61" height="11"/>
                                                     <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="9"/>
                                                     <color key="textColor" red="0.45882352941176469" green="0.45882352941176469" blue="0.45882352941176469" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -109,14 +109,21 @@
                                                     </constraints>
                                                 </imageView>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wc2-TO-dWm">
-                                                    <rect key="frame" x="343" y="0.0" width="71" height="96"/>
+                                                    <rect key="frame" x="378" y="11" width="36" height="54"/>
                                                     <constraints>
+                                                        <constraint firstAttribute="height" constant="54" id="Xjg-8i-NaN"/>
                                                         <constraint firstAttribute="width" constant="71" id="cGJ-ug-jNJ"/>
+                                                        <constraint firstAttribute="width" constant="36" id="g26-ZP-WrJ"/>
                                                     </constraints>
-                                                    <inset key="imageEdgeInsets" minX="17" minY="-25" maxX="0.0" maxY="0.0"/>
+                                                    <inset key="imageEdgeInsets" minX="-18" minY="-6" maxX="0.0" maxY="0.0"/>
                                                     <state key="normal" image="chooseIndicator_u"/>
                                                     <state key="selected" image="chooseIndicator"/>
                                                     <state key="highlighted" image="chooseIndicator"/>
+                                                    <variation key="default">
+                                                        <mask key="constraints">
+                                                            <exclude reference="cGJ-ug-jNJ"/>
+                                                        </mask>
+                                                    </variation>
                                                     <connections>
                                                         <action selector="showOnMapButtonTap:" destination="shp-fo-EJM" eventType="touchUpInside" id="lCF-Wx-zFb"/>
                                                     </connections>
@@ -132,10 +139,11 @@
                                                 <constraint firstItem="F1e-3y-97b" firstAttribute="leading" secondItem="KI1-Ut-vLq" secondAttribute="leading" constant="18" id="NvQ-YE-WL5"/>
                                                 <constraint firstItem="vX0-lZ-iHN" firstAttribute="top" secondItem="pu3-bz-ZPE" secondAttribute="bottom" constant="6" id="QUz-8X-Hpe"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="7Lp-uA-TJo" secondAttribute="trailing" constant="40" id="X78-0e-NK9"/>
-                                                <constraint firstItem="Wc2-TO-dWm" firstAttribute="top" secondItem="KI1-Ut-vLq" secondAttribute="top" id="ePX-dG-UoO"/>
+                                                <constraint firstItem="Wc2-TO-dWm" firstAttribute="top" secondItem="KI1-Ut-vLq" secondAttribute="top" constant="18" id="ePX-dG-UoO"/>
                                                 <constraint firstItem="Wc2-TO-dWm" firstAttribute="leading" secondItem="7Lp-uA-TJo" secondAttribute="trailing" id="fhJ-4a-s5r"/>
                                                 <constraint firstAttribute="trailing" secondItem="UMb-Vj-BZe" secondAttribute="trailing" constant="18" id="iHM-VZ-kZf"/>
-                                                <constraint firstAttribute="bottom" secondItem="Wc2-TO-dWm" secondAttribute="bottom" id="nQT-b3-Ord"/>
+                                                <constraint firstItem="Wc2-TO-dWm" firstAttribute="centerY" secondItem="KI1-Ut-vLq" secondAttribute="centerY" constant="-10" id="lDf-Cj-etS"/>
+                                                <constraint firstAttribute="bottom" secondItem="Wc2-TO-dWm" secondAttribute="bottom" constant="23.5" id="nQT-b3-Ord"/>
                                                 <constraint firstItem="Iem-dQ-Ist" firstAttribute="centerY" secondItem="vX0-lZ-iHN" secondAttribute="centerY" id="pF2-D5-ZKu"/>
                                                 <constraint firstItem="CZd-v3-kIQ" firstAttribute="centerY" secondItem="pu3-bz-ZPE" secondAttribute="centerY" id="sBp-JQ-3Rw"/>
                                                 <constraint firstItem="Iem-dQ-Ist" firstAttribute="leading" secondItem="CZd-v3-kIQ" secondAttribute="leading" id="slo-jZ-enI"/>
@@ -146,7 +154,9 @@
                                             </constraints>
                                             <variation key="default">
                                                 <mask key="constraints">
+                                                    <exclude reference="ePX-dG-UoO"/>
                                                     <exclude reference="fhJ-4a-s5r"/>
+                                                    <exclude reference="nQT-b3-Ord"/>
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
