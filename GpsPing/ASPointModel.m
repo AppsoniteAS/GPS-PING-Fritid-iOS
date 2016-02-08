@@ -8,6 +8,8 @@
 
 #import "ASPointModel.h"
 #import <extobjc.h>
+#import "AGGeoValueTransformer.h"
+
 #import <CocoaLumberjack.h>
 static DDLogLevel ddLogLevel               = DDLogLevelDebug;
 
@@ -35,6 +37,14 @@ NSString* const kASPointCreationTime = @"creationTime";
     return [MTLValueTransformer transformerUsingForwardBlock:^id(NSString *timestamp, BOOL *success, NSError *__autoreleasing *error) {
         return [NSDate dateWithTimeIntervalSince1970:timestamp.doubleValue];
     }];
+}
+
++ (NSValueTransformer *)longitudeJSONTransformer {
+    return [NSValueTransformer valueTransformerForName:NSStringFromClass([AGGeoValueTransformer class])];
+}
+
++ (NSValueTransformer *)latitudeJSONTransformer {
+    return [NSValueTransformer valueTransformerForName:NSStringFromClass([AGGeoValueTransformer class])];
 }
 
 @end

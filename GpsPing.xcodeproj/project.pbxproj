@@ -23,6 +23,7 @@
 		A626CCEB1C5D1DC5003762A2 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A626CCEA1C5D1DC5003762A2 /* MapKit.framework */; };
 		A626CCF11C5D4FFA003762A2 /* ASDashedLine.m in Sources */ = {isa = PBXBuildFile; fileRef = A626CCF01C5D4FFA003762A2 /* ASDashedLine.m */; };
 		A64326851C5F6F54000B63C1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A64326841C5F6F54000B63C1 /* GoogleService-Info.plist */; };
+		A646053C1C68C2F90012467E /* AGGeoValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = A646053B1C68C2F90012467E /* AGGeoValueTransformer.m */; };
 		A68C1B331C4CE460000E2BA6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A68C1B321C4CE460000E2BA6 /* main.m */; };
 		A68C1B361C4CE460000E2BA6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A68C1B351C4CE460000E2BA6 /* AppDelegate.m */; };
 		A68C1B391C4CE460000E2BA6 /* MainMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A68C1B381C4CE460000E2BA6 /* MainMenuViewController.m */; };
@@ -141,6 +142,8 @@
 		A626CCEF1C5D4FFA003762A2 /* ASDashedLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASDashedLine.h; sourceTree = "<group>"; };
 		A626CCF01C5D4FFA003762A2 /* ASDashedLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASDashedLine.m; sourceTree = "<group>"; };
 		A64326841C5F6F54000B63C1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		A646053A1C68C2F90012467E /* AGGeoValueTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGGeoValueTransformer.h; sourceTree = "<group>"; };
+		A646053B1C68C2F90012467E /* AGGeoValueTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGGeoValueTransformer.m; sourceTree = "<group>"; };
 		A68C1B2E1C4CE460000E2BA6 /* GpsPing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GpsPing.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A68C1B321C4CE460000E2BA6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A68C1B341C4CE460000E2BA6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -428,6 +431,8 @@
 		A68C1B881C4D2550000E2BA6 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				A646053A1C68C2F90012467E /* AGGeoValueTransformer.h */,
+				A646053B1C68C2F90012467E /* AGGeoValueTransformer.m */,
 				A68C1B991C4E40D2000E2BA6 /* UIColor+ASColor.h */,
 				A68C1B9A1C4E40D2000E2BA6 /* UIColor+ASColor.m */,
 				A603CEE61C5A4E45001D56A4 /* UIImage+ASAnnotations.h */,
@@ -841,6 +846,7 @@
 				A626CCF11C5D4FFA003762A2 /* ASDashedLine.m in Sources */,
 				A68C1B871C4D2549000E2BA6 /* ASButton.m in Sources */,
 				A603CEE21C5A4CD8001D56A4 /* ASFriendAnnotation.m in Sources */,
+				A646053C1C68C2F90012467E /* AGGeoValueTransformer.m in Sources */,
 				AB89468A1C4F31F3002E86C8 /* ASSignInViewModel.m in Sources */,
 				AB5428211C5E376A00F33E8B /* ASRequestTableViewCell.m in Sources */,
 				AB8946961C50D6B0002E86C8 /* ASProfileViewController.m in Sources */,

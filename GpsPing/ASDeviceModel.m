@@ -10,6 +10,7 @@
 #import <extobjc.h>
 #import <CocoaLumberjack.h>
 #import "ASPointModel.h"
+#import "AGGeoValueTransformer.h"
 
 static DDLogLevel ddLogLevel               = DDLogLevelDebug;
 
@@ -51,6 +52,14 @@ NSString* const kASDeviceImei          = @"imei_number";
 
 + (NSValueTransformer *)pointsJSONTransformer {
     return [MTLJSONAdapter arrayTransformerWithModelClass:[ASPointModel class]];
+}
+
++ (NSValueTransformer *)longitudeJSONTransformer {
+    return [NSValueTransformer valueTransformerForName:NSStringFromClass([AGGeoValueTransformer class])];
+}
+
++ (NSValueTransformer *)latitudeJSONTransformer {
+    return [NSValueTransformer valueTransformerForName:NSStringFromClass([AGGeoValueTransformer class])];
 }
 
 @end
