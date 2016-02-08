@@ -89,7 +89,7 @@ objection_requires(@keypath(ASMapViewController.new, apiController))
     [self.locationManager requestAlwaysAuthorization];
 //    [self.locationManager startUpdatingLocation];
     
-    self.mapView.mapType = MKMapTypeHybrid;
+    [self changeMapType:2];
 
     self.mapView.showsUserLocation = YES;
     
@@ -130,13 +130,42 @@ objection_requires(@keypath(ASMapViewController.new, apiController))
 }
 
 - (IBAction)mapTypeValueChanged:(UISegmentedControl*)sender {
-    if (sender.selectedSegmentIndex == 0) {
+    [self changeMapType:sender.selectedSegmentIndex];
+}
+
+-(void)changeMapType:(NSInteger)mapType {
+    if (mapType == 0) {
         self.mapView.mapType = MKMapTypeSatellite;
-    } else if (sender.selectedSegmentIndex == 1) {
+        [self.mapView removeOverlays:self.mapView.overlays];
+    } else if (mapType == 1) {
         self.mapView.mapType = MKMapTypeStandard;
+        [self.mapView removeOverlays:self.mapView.overlays];
     } else {
-        self.mapView.mapType = MKMapTypeHybrid;
+        static NSString * const templateWorld = @"http://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}";
+        MKTileOverlay *overlayWorld = [[MKTileOverlay alloc] initWithURLTemplate:templateWorld];
+        overlayWorld.canReplaceMapContent = YES;
+        [self.mapView addOverlay:overlayWorld
+                           level:MKOverlayLevelAboveLabels];
+        
+        static NSString * const templateNorway = @"http://opencache.statkart.no/gatekeeper/gk/gk.open_gmaps?layers=topo2&zoom={z}&x={x}&y={y}&format=image/png";
+        MKTileOverlay *overlayNorway = [[MKTileOverlay alloc] initWithURLTemplate:templateNorway];
+        overlayNorway.canReplaceMapContent = YES;
+        [self.mapView addOverlay:overlayNorway
+                           level:MKOverlayLevelAboveLabels];
+        
     }
+}
+
+#pragma mark - MKMapViewDelegate
+
+- (MKOverlayRenderer *)mapView:(MKMapView *)mapView
+            rendererForOverlay:(id <MKOverlay>)overlay
+{
+    if ([overlay isKindOfClass:[MKTileOverlay class]]) {
+        return [[MKTileOverlayRenderer alloc] initWithTileOverlay:overlay];
+    }
+    
+    return nil;
 }
 
 -(void)doneTapped:(id)sender
