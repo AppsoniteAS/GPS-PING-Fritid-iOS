@@ -127,6 +127,12 @@ objection_requires(@keypath(ASMapViewController.new, apiController))
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
+    
+    [[[UIAlertView alloc]initWithTitle:NSLocalizedString(@"Screenshot taken", nil)
+                               message:NSLocalizedString(@"Saved in Gallery", nil)
+                              delegate:nil
+                     cancelButtonTitle:NSLocalizedString(@"OK", nil)
+                     otherButtonTitles:nil] show];
 }
 
 - (IBAction)mapTypeValueChanged:(UISegmentedControl*)sender {
