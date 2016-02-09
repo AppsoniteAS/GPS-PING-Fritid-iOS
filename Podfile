@@ -21,4 +21,4 @@ pod 'Mantle', '~> 2.0.6'
 pod 'Underscore.m', '~> 0.2.1'
 pod 'THCalendarDatePicker', '~> 1.2.5'
 pod 'Google/CloudMessaging'
-
+pod 'mgrs', '~> 0.1.0'

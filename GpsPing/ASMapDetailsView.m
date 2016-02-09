@@ -8,6 +8,7 @@
 
 #import "ASMapDetailsView.h"
 #import "UIImage+ASAnnotations.h"
+#import "MGRS.h"
 
 @implementation ASMapDetailsView
 
@@ -35,12 +36,23 @@
         dateFormatter.dateStyle  = NSDateFormatterShortStyle;
         dateFormatter.timeStyle  = NSDateFormatterShortStyle;
         self.labelLogTime.text   = [dateFormatter stringFromDate:pointModel.timestamp];
-        self.labelLatitude.text  = [NSString stringWithFormat:@"%.06f", pointModel.latitude.doubleValue];
-        self.labelLongitude.text = [NSString stringWithFormat:@"%.06f", pointModel.longitude.doubleValue];
+        [self configCoordinateLabelsWithLatitude:pointModel.latitude.doubleValue
+                                       longitude:pointModel.longitude.doubleValue];
     } else {
-        self.labelLatitude.text  = [NSString stringWithFormat:@"%.06f", owner.latitude.doubleValue];
-        self.labelLongitude.text = [NSString stringWithFormat:@"%.06f", owner.longitude.doubleValue];
+        [self configCoordinateLabelsWithLatitude:owner.latitude.doubleValue
+                                       longitude:owner.longitude.doubleValue];
     }
+}
+
+-(void)configCoordinateLabelsWithLatitude:(double)latitude
+                                longitude:(double)longitude {
+    
+    self.labelLatitude.text  = [NSString stringWithFormat:@"%.06f", latitude];
+    self.labelLongitude.text = [NSString stringWithFormat:@"%.06f", longitude];
+    CLLocationCoordinate2D location;
+    location.latitude = latitude;
+    location.longitude = longitude;
+    self.labelGrsm.text = [MGRS MGRSfromCoordinate:location];
 }
 
 @end
