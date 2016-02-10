@@ -354,6 +354,7 @@ objection_requires(@keypath(ASMapViewController.new, apiController))
             ASLastPointAnnotation *deviceAnnotation = [[ASLastPointAnnotation alloc] initWithLocation:deviceCoord];
             deviceAnnotation.annotationColor = colorForUser;
             deviceAnnotation.deviceObject = deviceModel;
+            deviceAnnotation.owner = friendModel;
             [self.mapView addAnnotation:deviceAnnotation];
         }
         for (ASPointModel *pointModel in deviceModel.points) {

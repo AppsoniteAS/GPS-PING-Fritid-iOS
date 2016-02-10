@@ -36,9 +36,15 @@
         dateFormatter.dateStyle  = NSDateFormatterShortStyle;
         dateFormatter.timeStyle  = NSDateFormatterShortStyle;
         self.labelLogTime.text   = [dateFormatter stringFromDate:pointModel.timestamp];
+    }
+    
+    if (pointModel.longitude != 0 && pointModel.latitude != 0) {
         [self configCoordinateLabelsWithLatitude:pointModel.latitude.doubleValue
                                        longitude:pointModel.longitude.doubleValue];
-    } else {
+    } else if (deviceModel.longitude != 0 && deviceModel.latitude != 0) {
+        [self configCoordinateLabelsWithLatitude:deviceModel.latitude.doubleValue
+                                       longitude:deviceModel.longitude.doubleValue];
+    } else if (owner.longitude != 0 && owner.latitude != 0) {
         [self configCoordinateLabelsWithLatitude:owner.latitude.doubleValue
                                        longitude:owner.longitude.doubleValue];
     }
