@@ -30,6 +30,8 @@
 @property (weak, nonatomic) IBOutlet ASMapDetailsView *detailsPlank;
 @property (weak, nonatomic) IBOutlet ASDashedLine     *dashedLineView;
 @property (strong, nonatomic) IBOutlet UITapGestureRecognizer *tapGestureDetails;
+@property (weak, nonatomic) IBOutlet UILabel *distanceLabel;
+@property (weak, nonatomic) IBOutlet UILabel *distanceMetricLabel;
 
 @property (nonatomic        ) NSArray                    *originalPointsData;
 @property (nonatomic        ) CLLocationManager          *locationManager;
@@ -187,6 +189,24 @@ objection_requires(@keypath(ASMapViewController.new, apiController))
 -(void)timerTick:(NSTimer*)timer
 {
     [self refreshLine];
+    [self refreshLabel];
+}
+
+-(void)refreshLabel {
+    CLLocation *locA = [[CLLocation alloc] initWithLatitude:self.mapView.userLocation.coordinate.latitude
+                                                  longitude:self.mapView.userLocation.coordinate.longitude];
+    CLLocation *locB = [[CLLocation alloc] initWithLatitude:self.mapView.region.center.latitude
+                                                  longitude:self.mapView.region.center.longitude];
+    
+    CLLocationDistance distance = [locA distanceFromLocation:locB];
+    if (distance >= 1000.0) {
+        self.distanceMetricLabel.text = @"km";
+        self.distanceLabel.text = [NSString stringWithFormat:@"%.03f", distance/1000];
+    } else {
+        self.distanceMetricLabel.text = @"m";
+        self.distanceLabel.text = [NSString stringWithFormat:@"%d", (int)distance];
+    }
+
 }
 
 -(void)refreshLine {
@@ -527,7 +547,7 @@ objection_requires(@keypath(ASMapViewController.new, apiController))
         ASFriendModel *userModel = self.originalPointsData[row-1];
         self.userToFilter = userModel;
     }
-    
+    self.filterTextField.text = [pickerView.delegate pickerView:pickerView titleForRow:row forComponent:component];
     [self showAllPointsForUsers:self.originalPointsData filterFor:self.userToFilter];
 }
 
