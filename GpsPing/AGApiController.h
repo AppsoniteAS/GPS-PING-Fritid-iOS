@@ -71,6 +71,17 @@ extern NSString *kASUserDefaultsKeyPassword;
 -(RACSignal *)getTrackingPointsFrom:(NSDate*)from
                                  to:(NSDate*)to
                            friendId:(NSNumber*)friendId;
+#pragma mark - POI
+-(RACSignal *)getPOI;
+-(RACSignal *)addPOI:(NSString*)name
+            latitude:(CGFloat)latitude
+           longitude:(CGFloat)longitude;
+-(RACSignal *)updatePOI:(NSString*)name
+                     id:(NSInteger)identificator
+               latitude:(CGFloat)latitude
+              longitude:(CGFloat)longitude;
+-(RACSignal *)removePOIWithId:(NSUInteger)identificator;
+
 #pragma mark - Pushes
 
 -(RACSignal *)registerForPushes;

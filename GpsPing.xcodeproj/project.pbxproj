@@ -92,6 +92,7 @@
 		AB8946A81C549516002E86C8 /* ASUserProfileModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AB8946A71C549516002E86C8 /* ASUserProfileModel.m */; };
 		AB8946AB1C549E9F002E86C8 /* RACSignal+BackendHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = AB8946AA1C549E9F002E86C8 /* RACSignal+BackendHelpers.m */; };
 		AB8946AE1C54A4DD002E86C8 /* ASMainViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AB8946AD1C54A4DD002E86C8 /* ASMainViewModel.m */; };
+		ABE7C7251C784500008A6390 /* ASPointOfInterestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ABE7C7241C784500008A6390 /* ASPointOfInterestModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -253,6 +254,8 @@
 		AB8946AA1C549E9F002E86C8 /* RACSignal+BackendHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RACSignal+BackendHelpers.m"; sourceTree = "<group>"; };
 		AB8946AC1C54A4DD002E86C8 /* ASMainViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASMainViewModel.h; sourceTree = "<group>"; };
 		AB8946AD1C54A4DD002E86C8 /* ASMainViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASMainViewModel.m; sourceTree = "<group>"; };
+		ABE7C7231C784500008A6390 /* ASPointOfInterestModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASPointOfInterestModel.h; sourceTree = "<group>"; };
+		ABE7C7241C784500008A6390 /* ASPointOfInterestModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASPointOfInterestModel.m; sourceTree = "<group>"; };
 		D56B56EC24DC9B71F55AC4BB /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -504,6 +507,8 @@
 				A603CED71C5900CE001D56A4 /* ASDeviceModel.m */,
 				A603CED91C5A0986001D56A4 /* ASPointModel.h */,
 				A603CEDA1C5A0986001D56A4 /* ASPointModel.m */,
+				ABE7C7231C784500008A6390 /* ASPointOfInterestModel.h */,
+				ABE7C7241C784500008A6390 /* ASPointOfInterestModel.m */,
 				A603CEDC1C5A250C001D56A4 /* ASModel.h */,
 			);
 			name = Model;
@@ -678,7 +683,7 @@
 				TargetAttributes = {
 					A68C1B2D1C4CE460000E2BA6 = {
 						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = EM65889ZEZ;
+						DevelopmentTeam = W2SAS5N7S8;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -834,6 +839,7 @@
 				A603CEDB1C5A0986001D56A4 /* ASPointModel.m in Sources */,
 				A603CEE81C5A4E45001D56A4 /* UIImage+ASAnnotations.m in Sources */,
 				A68C1B9E1C4E43AB000E2BA6 /* ASNavigationController.m in Sources */,
+				ABE7C7251C784500008A6390 /* ASPointOfInterestModel.m in Sources */,
 				A603CED81C5900CE001D56A4 /* ASDeviceModel.m in Sources */,
 				A603CEEB1C5B66E3001D56A4 /* ASMapDetailsView.m in Sources */,
 				A61D75591C578FCE00E75999 /* ASFriendsListViewController.m in Sources */,

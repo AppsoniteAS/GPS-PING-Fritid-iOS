@@ -9,6 +9,7 @@
 #import "AGApiController.h"
 #import "RACSignal+BackendHelpers.h"
 #import "ASTrackerModel.h"
+#import "ASPointOfInterestModel.h"
 #import <Mantle.h>
 #import "ASFriendModel.h"
 #import "ASDeviceModel.h"
@@ -237,6 +238,59 @@ objection_initializer(initWithConfiguration:);
     return [self performHttpRequestWithAttempts:@"GET"
                                        resource:@"tracker/remove_tracker"
                                      parameters:[self addAuthParamsByUpdatingParams:@{@"imei_number":imei}]];
+}
+
+#pragma mark - POI
+-(RACSignal *)getPOI
+{
+    DDLogDebug(@"%s", __PRETTY_FUNCTION__);
+    return [[self performHttpRequestWithAttempts:@"GET"
+                                        resource:@"poi/get"
+                                      parameters:[self addAuthParamsByUpdatingParams:@{}]] flattenMap:^RACStream *(id value) {
+        DDLogDebug(@"%@", value);
+        NSError *error;
+        NSArray* arrayJSON = value[@"poi"];
+        NSArray *poisArray = [MTLJSONAdapter modelsOfClass:[ASPointOfInterestModel class] fromJSONArray:arrayJSON error:&error];
+        return [RACSignal return:poisArray];
+    }];
+}
+
+-(RACSignal *)addPOI:(NSString*)name
+            latitude:(CGFloat)latitude
+           longitude:(CGFloat)longitude
+{
+    DDLogDebug(@"%s", __PRETTY_FUNCTION__);
+    NSDictionary *params = @{@"name":name,
+                             @"lat":@(latitude),
+                             @"lon":@(longitude)};
+    params = [self addAuthParamsByUpdatingParams:params];
+    return [self performHttpRequestWithAttempts:@"GET"
+                                       resource:@"poi/add"
+                                     parameters:params];
+}
+
+-(RACSignal *)updatePOI:(NSString*)name
+                     id:(NSInteger)identificator
+               latitude:(CGFloat)latitude
+              longitude:(CGFloat)longitude
+{
+    DDLogDebug(@"%s", __PRETTY_FUNCTION__);
+    NSDictionary *params = @{@"name":name,
+                             @"id":@(identificator),
+                             @"lat":@(latitude),
+                             @"lon":@(longitude)};
+    params = [self addAuthParamsByUpdatingParams:params];
+    return [self performHttpRequestWithAttempts:@"GET"
+                                       resource:@"poi/update"
+                                     parameters:params];
+}
+
+-(RACSignal *)removePOIWithId:(NSUInteger)identificator
+{
+    DDLogDebug(@"%s", __PRETTY_FUNCTION__);
+    return [self performHttpRequestWithAttempts:@"GET"
+                                       resource:@"poi/remove"
+                                     parameters:[self addAuthParamsByUpdatingParams:@{@"id":@(identificator)}]];
 }
 
 #pragma mark - Friends

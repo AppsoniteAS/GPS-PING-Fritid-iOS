@@ -10,6 +10,7 @@
 #import "AGApiController.h"
 #import "UIStoryboard+ASHelper.h"
 #import "ASModel.h"
+#import "ASPointOfInterestModel.h"
 #import "ASPointAnnotation.h"
 #import "ASFriendAnnotation.h"
 #import "ASLastPointAnnotation.h"
@@ -19,8 +20,10 @@
 #import "ASDashedLine.h"
 #import <THDatePickerViewController.h>
 #import "ASDisplayOptionsViewController.h"
+#import <CocoaLumberjack.h>
 
 #define QUERY_RATE_IN_SECONDS 15
+static const DDLogLevel ddLogLevel = DDLogLevelDebug;
 
 @interface ASMapViewController () <MKMapViewDelegate,UIPickerViewDelegate, UIPickerViewDataSource, THDatePickerDelegate>
 - (IBAction)tapHandle:(id)sender;
@@ -34,6 +37,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *distanceMetricLabel;
 
 @property (nonatomic        ) NSArray                    *originalPointsData;
+@property (nonatomic        ) NSArray                    *arrayPOIs;
 @property (nonatomic        ) CLLocationManager          *locationManager;
 @property (nonatomic        ) NSTimer                    *timer;
 @property (nonatomic        ) NSTimer                    *timerForTrackQuery;
@@ -112,7 +116,7 @@ objection_requires(@keypath(ASMapViewController.new, apiController))
                                                              userInfo:nil
                                                               repeats:YES];
     [self.timerForTrackQuery fire];
-
+    [self loadPointsOfInterest];
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -294,7 +298,56 @@ objection_requires(@keypath(ASMapViewController.new, apiController))
     self.tapGestureDetails.enabled = NO;
 }
 
+- (IBAction)handleLongPress:(UIGestureRecognizer *)gestureRecognizer {
+    if (gestureRecognizer.state != UIGestureRecognizerStateBegan)
+        return;
+    
+    CGPoint touchPoint = [gestureRecognizer locationInView:self.mapView];
+    CLLocationCoordinate2D coordTouchMap = [self.mapView convertPoint:touchPoint toCoordinateFromView:self.mapView];
+    
+    UIAlertController *alertController = [UIAlertController
+                                          alertControllerWithTitle:NSLocalizedString(@"Point of interest", nil)
+                                          message:NSLocalizedString(@"Enter name", nil)
+                                          preferredStyle:UIAlertControllerStyleAlert];
+    
+    [alertController addTextFieldWithConfigurationHandler:^(UITextField *textField)
+     {
+         textField.placeholder = NSLocalizedString(@"", @"Enter name");
+     }];
+    UIAlertAction *okAction = [UIAlertAction
+                               actionWithTitle:NSLocalizedString(@"OK", @"OK action")
+                               style:UIAlertActionStyleDefault
+                               handler:^(UIAlertAction *action)
+                               {
+                                   [[[self.apiController addPOI:alertController.textFields.firstObject.text  latitude:coordTouchMap.latitude longitude:coordTouchMap.longitude] deliverOnMainThread] subscribeNext:^(id x) {
+                                       [self loadPointsOfInterest];
+                                   }] ;
+                               }];
+    UIAlertAction *cancelAction = [UIAlertAction
+                                   actionWithTitle:NSLocalizedString(@"Cancel", @"Cancel action")
+                                   style:UIAlertActionStyleCancel
+                                   handler:^(UIAlertAction *action)
+                                   {
+                                       DDLogDebug(@"Cancel action");
+                                   }];
+    
+    [alertController addAction:cancelAction];
+    [alertController addAction:okAction];
+    [self presentViewController:alertController animated:YES completion:nil];
+}
+
 #pragma mark - Private methods
+-(void)loadPointsOfInterest {
+    [[self.apiController getPOI] subscribeNext:^(NSArray* pois) {
+        DDLogDebug(@"POIs: %@",pois);
+        self.arrayPOIs = pois;
+        for (ASPointOfInterestModel* poi in self.arrayPOIs) {
+            CLLocationCoordinate2D poiCoord = CLLocationCoordinate2DMake(poi.latitude.doubleValue, poi.longitude.doubleValue);
+            ASLastPointAnnotation *poiAnnotation = [[ASLastPointAnnotation alloc] initWithLocation:poiCoord];
+            [self.mapView addAnnotation:poiAnnotation];
+        }
+    }] ;
+}
 
 -(void)loadTrackingPointsFrom:(NSDate*)from to:(NSDate*)to {
     [[self.apiController getTrackingPointsFrom:from to:to friendId:nil] subscribeNext:^(id x) {
@@ -380,6 +433,11 @@ objection_requires(@keypath(ASMapViewController.new, apiController))
 
             }
         }
+    }
+    for (ASPointOfInterestModel* poi in self.arrayPOIs) {
+        CLLocationCoordinate2D poiCoord = CLLocationCoordinate2DMake(poi.latitude.doubleValue, poi.longitude.doubleValue);
+        ASLastPointAnnotation *poiAnnotation = [[ASLastPointAnnotation alloc] initWithLocation:poiCoord];
+        [self.mapView addAnnotation:poiAnnotation];
     }
 }
 
