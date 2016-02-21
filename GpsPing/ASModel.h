@@ -13,5 +13,6 @@
 #import "ASPointModel.h"
 #import "ASDeviceModel.h"
 #import "ASUserProfileModel.h"
+#import "ASPointOfInterestModel.h"
 #endif /* ASModel_h */
 

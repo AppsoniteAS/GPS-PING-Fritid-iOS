@@ -12,6 +12,6 @@
 @property (nonatomic) NSNumber  *longitude;
 @property (nonatomic) NSNumber  *latitude;
 @property (nonatomic) NSString  *name;
-@property (nonatomic) NSString  *identificator;
+@property (nonatomic) NSNumber  *identificator;
 @property (nonatomic) NSNumber  *userId;
 @end

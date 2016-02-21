@@ -93,6 +93,7 @@
 		AB8946AB1C549E9F002E86C8 /* RACSignal+BackendHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = AB8946AA1C549E9F002E86C8 /* RACSignal+BackendHelpers.m */; };
 		AB8946AE1C54A4DD002E86C8 /* ASMainViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AB8946AD1C54A4DD002E86C8 /* ASMainViewModel.m */; };
 		ABE7C7251C784500008A6390 /* ASPointOfInterestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ABE7C7241C784500008A6390 /* ASPointOfInterestModel.m */; };
+		ABE7C7281C78CB76008A6390 /* ASPointOfInterestAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = ABE7C7271C78CB76008A6390 /* ASPointOfInterestAnnotation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -256,6 +257,8 @@
 		AB8946AD1C54A4DD002E86C8 /* ASMainViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASMainViewModel.m; sourceTree = "<group>"; };
 		ABE7C7231C784500008A6390 /* ASPointOfInterestModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASPointOfInterestModel.h; sourceTree = "<group>"; };
 		ABE7C7241C784500008A6390 /* ASPointOfInterestModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASPointOfInterestModel.m; sourceTree = "<group>"; };
+		ABE7C7261C78CB76008A6390 /* ASPointOfInterestAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASPointOfInterestAnnotation.h; sourceTree = "<group>"; };
+		ABE7C7271C78CB76008A6390 /* ASPointOfInterestAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASPointOfInterestAnnotation.m; sourceTree = "<group>"; };
 		D56B56EC24DC9B71F55AC4BB /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -316,6 +319,8 @@
 				A603CEDE1C5A3401001D56A4 /* ASPointAnnotation.m */,
 				A603CEE31C5A4CE9001D56A4 /* ASLastPointAnnotation.h */,
 				A603CEE41C5A4CE9001D56A4 /* ASLastPointAnnotation.m */,
+				ABE7C7261C78CB76008A6390 /* ASPointOfInterestAnnotation.h */,
+				ABE7C7271C78CB76008A6390 /* ASPointOfInterestAnnotation.m */,
 				A603CEE01C5A4CD8001D56A4 /* ASFriendAnnotation.h */,
 				A603CEE11C5A4CD8001D56A4 /* ASFriendAnnotation.m */,
 				A603CEE91C5B66E3001D56A4 /* ASMapDetailsView.h */,
@@ -880,6 +885,7 @@
 				AB54280F1C5BA1C800F33E8B /* ASAddFriendViewModel.m in Sources */,
 				AB5428121C5BA1F000F33E8B /* ASSearchBar.m in Sources */,
 				A68C1BAA1C4F71CB000E2BA6 /* ASTrackerConfigurationViewController.m in Sources */,
+				ABE7C7281C78CB76008A6390 /* ASPointOfInterestAnnotation.m in Sources */,
 				A68C1B9B1C4E40D2000E2BA6 /* UIColor+ASColor.m in Sources */,
 				AB89468D1C4F3203002E86C8 /* ASRegisterViewModel.m in Sources */,
 				AB8946AE1C54A4DD002E86C8 /* ASMainViewModel.m in Sources */,

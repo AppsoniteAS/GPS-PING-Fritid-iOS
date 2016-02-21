@@ -48,6 +48,26 @@
         [self configCoordinateLabelsWithLatitude:owner.latitude.doubleValue
                                        longitude:owner.longitude.doubleValue];
     }
+    self.viewLeftColumn.hidden = NO;
+    self.viewRightColumn.hidden = NO;
+    self.viewPOILeftColumn.hidden = YES;
+    self.viewPOIRightColumn.hidden = YES;
+}
+
+-(void)configWithPOI:(ASPointOfInterestModel*)poi withOwner:(ASFriendModel*)owner {
+    self.labelTrackerName.text = poi.name;
+    self.labelOwnerName.text = owner.userName;
+    self.imaeViewOwnerIcon.image = [UIImage getUserAnnotationImageWithColor:[UIColor redColor]];
+    self.labelPOILatitude.text  = [NSString stringWithFormat:@"%.06f", poi.latitude.doubleValue];
+    self.labelPOILongitude.text = [NSString stringWithFormat:@"%.06f", poi.longitude.doubleValue];
+    CLLocationCoordinate2D location;
+    location.latitude = poi.latitude.doubleValue;
+    location.longitude = poi.longitude.doubleValue;
+    self.labelPOIGrsm.text = [MGRS MGRSfromCoordinate:location];
+    self.viewLeftColumn.hidden = YES;
+    self.viewRightColumn.hidden = YES;
+    self.viewPOILeftColumn.hidden = NO;
+    self.viewPOIRightColumn.hidden = NO;
 }
 
 -(void)configCoordinateLabelsWithLatitude:(double)latitude

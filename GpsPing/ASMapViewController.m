@@ -10,7 +10,7 @@
 #import "AGApiController.h"
 #import "UIStoryboard+ASHelper.h"
 #import "ASModel.h"
-#import "ASPointOfInterestModel.h"
+#import "ASPointOfInterestAnnotation.h"
 #import "ASPointAnnotation.h"
 #import "ASFriendAnnotation.h"
 #import "ASLastPointAnnotation.h"
@@ -26,7 +26,6 @@
 static const DDLogLevel ddLogLevel = DDLogLevelDebug;
 
 @interface ASMapViewController () <MKMapViewDelegate,UIPickerViewDelegate, UIPickerViewDataSource, THDatePickerDelegate>
-- (IBAction)tapHandle:(id)sender;
 
 @property (weak, nonatomic) IBOutlet UIView           *filterPlank;
 @property (weak, nonatomic) IBOutlet UITextField      *filterTextField;
@@ -52,6 +51,7 @@ static const DDLogLevel ddLogLevel = DDLogLevelDebug;
 @property (nonatomic        ) NSDictionary *colorsDictionary;
 @property (nonatomic, assign) BOOL isFirstLaunch;
 @property (nonatomic, assign) BOOL isUserLocationCentered;
+@property (nonatomic        ) ASPointOfInterestAnnotation *selectedAnnotation;
 @end
 
 @implementation ASMapViewController
@@ -263,6 +263,7 @@ objection_requires(@keypath(ASMapViewController.new, apiController))
     [self loadTrackingPointsFrom:from to:to];
 }
 
+#pragma mark - Actions
 - (IBAction)calendarTap:(id)sender {
     if(!self.datePicker)
         self.datePicker = [THDatePickerViewController datePicker];
@@ -296,6 +297,50 @@ objection_requires(@keypath(ASMapViewController.new, apiController))
 - (IBAction)tapHandle:(id)sender {
     self.detailsPlank.hidden = YES;
     self.tapGestureDetails.enabled = NO;
+}
+
+- (IBAction)editPOI:(id)sender {
+    UIAlertController *alertController = [UIAlertController
+                                          alertControllerWithTitle:NSLocalizedString(@"Point of interest", nil)
+                                          message:NSLocalizedString(@"Edit name", nil)
+                                          preferredStyle:UIAlertControllerStyleAlert];
+    ASPointOfInterestModel *pointOfInterestModel = self.selectedAnnotation.poiObject;
+    [alertController addTextFieldWithConfigurationHandler:^(UITextField *textField)
+     {
+        textField.text = pointOfInterestModel.name;
+     }];
+    UIAlertAction *okAction = [UIAlertAction
+                               actionWithTitle:NSLocalizedString(@"OK", @"OK action")
+                               style:UIAlertActionStyleDefault
+                               handler:^(UIAlertAction *action)
+                               {
+                                   pointOfInterestModel.name = alertController.textFields.firstObject.text;
+                                   [self.detailsPlank configWithPOI:pointOfInterestModel withOwner:nil];
+                                   [[[self.apiController updatePOI:pointOfInterestModel.name id:pointOfInterestModel.identificator.integerValue latitude:pointOfInterestModel.latitude.floatValue longitude:pointOfInterestModel.longitude.floatValue] deliverOnMainThread] subscribeNext:^(id x) {
+                                       [self loadPointsOfInterest];
+                                   }] ;
+                               }];
+    UIAlertAction *cancelAction = [UIAlertAction
+                                   actionWithTitle:NSLocalizedString(@"Cancel", @"Cancel action")
+                                   style:UIAlertActionStyleCancel
+                                   handler:^(UIAlertAction *action)
+                                   {
+                                       DDLogDebug(@"Cancel action");
+                                   }];
+    
+    [alertController addAction:cancelAction];
+    [alertController addAction:okAction];
+    [self presentViewController:alertController animated:YES completion:nil];
+}
+
+- (IBAction)removePOI:(id)sender {
+    [self.mapView removeAnnotation:self.selectedAnnotation];
+    self.detailsPlank.hidden = YES;
+    self.tapGestureDetails.enabled = NO;
+    ASPointOfInterestModel *pointOfInterestModel = self.selectedAnnotation.poiObject;
+    [[[self.apiController removePOIWithId:pointOfInterestModel.identificator.integerValue] deliverOnMainThread] subscribeNext:^(id x) {
+        [self loadPointsOfInterest];
+    }] ;
 }
 
 - (IBAction)handleLongPress:(UIGestureRecognizer *)gestureRecognizer {
@@ -338,14 +383,11 @@ objection_requires(@keypath(ASMapViewController.new, apiController))
 
 #pragma mark - Private methods
 -(void)loadPointsOfInterest {
+    @weakify(self)
     [[self.apiController getPOI] subscribeNext:^(NSArray* pois) {
         DDLogDebug(@"POIs: %@",pois);
+        @strongify(self)
         self.arrayPOIs = pois;
-        for (ASPointOfInterestModel* poi in self.arrayPOIs) {
-            CLLocationCoordinate2D poiCoord = CLLocationCoordinate2DMake(poi.latitude.doubleValue, poi.longitude.doubleValue);
-            ASLastPointAnnotation *poiAnnotation = [[ASLastPointAnnotation alloc] initWithLocation:poiCoord];
-            [self.mapView addAnnotation:poiAnnotation];
-        }
     }] ;
 }
 
@@ -436,7 +478,8 @@ objection_requires(@keypath(ASMapViewController.new, apiController))
     }
     for (ASPointOfInterestModel* poi in self.arrayPOIs) {
         CLLocationCoordinate2D poiCoord = CLLocationCoordinate2DMake(poi.latitude.doubleValue, poi.longitude.doubleValue);
-        ASLastPointAnnotation *poiAnnotation = [[ASLastPointAnnotation alloc] initWithLocation:poiCoord];
+        ASPointOfInterestAnnotation *poiAnnotation = [[ASPointOfInterestAnnotation alloc] initWithLocation:poiCoord];
+        poiAnnotation.poiObject = poi;
         [self.mapView addAnnotation:poiAnnotation];
     }
 }
@@ -567,6 +610,10 @@ objection_requires(@keypath(ASMapViewController.new, apiController))
                                    tracker:nil
                                      point:nil
                                      color:annotation.annotationColor];
+    } else if ([view.annotation isKindOfClass:[ASPointOfInterestAnnotation class]]) {
+        self.selectedAnnotation = view.annotation;
+        ASPointOfInterestAnnotation *annotation = view.annotation;
+        [self.detailsPlank configWithPOI:annotation.poiObject withOwner:nil];
     }
     
     self.detailsPlank.hidden = NO;
