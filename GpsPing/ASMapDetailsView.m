@@ -54,10 +54,10 @@
     self.viewPOIRightColumn.hidden = YES;
 }
 
--(void)configWithPOI:(ASPointOfInterestModel*)poi withOwner:(ASFriendModel*)owner {
+-(void)configWithPOI:(ASPointOfInterestModel*)poi withOwner:(ASFriendModel*)owner color:(UIColor*)color {
     self.labelTrackerName.text = poi.name;
-    self.labelOwnerName.text = owner.userName;
-    self.imaeViewOwnerIcon.image = [UIImage getUserAnnotationImageWithColor:[UIColor redColor]];
+    self.labelOwnerName.text = [NSString stringWithFormat:@"%@ (%@)",owner.userName, owner.userId];
+    self.imaeViewOwnerIcon.image = [UIImage getUserAnnotationImageWithColor:color];
     self.labelPOILatitude.text  = [NSString stringWithFormat:@"%.06f", poi.latitude.doubleValue];
     self.labelPOILongitude.text = [NSString stringWithFormat:@"%.06f", poi.longitude.doubleValue];
     CLLocationCoordinate2D location;

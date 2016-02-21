@@ -21,6 +21,7 @@
 #import <THDatePickerViewController.h>
 #import "ASDisplayOptionsViewController.h"
 #import <CocoaLumberjack.h>
+#import <Underscore.h>
 
 #define QUERY_RATE_IN_SECONDS 15
 static const DDLogLevel ddLogLevel = DDLogLevelDebug;
@@ -126,6 +127,122 @@ objection_requires(@keypath(ASMapViewController.new, apiController))
 }
 
 #pragma mark - IBActions and Handlers
+- (IBAction)calendarTap:(id)sender {
+    if(!self.datePicker)
+        self.datePicker = [THDatePickerViewController datePicker];
+    self.datePicker.date = [NSDate date];
+    self.datePicker.delegate = self;
+    [self.datePicker setAllowClearDate:NO];
+    [self.datePicker setClearAsToday:YES];
+    [self.datePicker setAutoCloseOnSelectDate:YES];
+    [self.datePicker setAllowSelectionOfSelectedDate:YES];
+    [self.datePicker setDisableHistorySelection:NO];
+    [self.datePicker setDisableFutureSelection:YES];
+    [self.datePicker setSelectedBackgroundColor:[UIColor colorWithRed:125/255.0 green:208/255.0 blue:0/255.0 alpha:1.0]];
+    [self.datePicker setCurrentDateColor:[UIColor colorWithRed:242/255.0 green:121/255.0 blue:53/255.0 alpha:1.0]];
+    
+    [self.datePicker setDateHasItemsCallback:^BOOL(NSDate *date) {
+        int tmp = (arc4random() % 30)+1;
+        if(tmp % 5 == 0)
+            return YES;
+        return NO;
+    }];
+    //[self.datePicker slideUpInView:self.view withModalColor:[UIColor lightGrayColor]];
+    self.datePicker.date = self.selectedDate;
+    [self presentSemiViewController:self.datePicker withOptions:@{
+                                                                  KNSemiModalOptionKeys.pushParentBack    : @(NO),
+                                                                  KNSemiModalOptionKeys.animationDuration : @(0.33),
+                                                                  KNSemiModalOptionKeys.shadowOpacity     : @(0.3),
+                                                                  }];
+    
+}
+
+- (IBAction)tapHandle:(id)sender {
+    self.detailsPlank.hidden = YES;
+    self.tapGestureDetails.enabled = NO;
+}
+
+- (IBAction)editPOI:(id)sender {
+    UIAlertController *alertController = [UIAlertController
+                                          alertControllerWithTitle:NSLocalizedString(@"Point of interest", nil)
+                                          message:NSLocalizedString(@"Edit name", nil)
+                                          preferredStyle:UIAlertControllerStyleAlert];
+    ASPointOfInterestModel *pointOfInterestModel = self.selectedAnnotation.poiObject;
+    [alertController addTextFieldWithConfigurationHandler:^(UITextField *textField)
+     {
+         textField.text = pointOfInterestModel.name;
+     }];
+    UIAlertAction *okAction = [UIAlertAction
+                               actionWithTitle:NSLocalizedString(@"OK", @"OK action")
+                               style:UIAlertActionStyleDefault
+                               handler:^(UIAlertAction *action)
+                               {
+                                   pointOfInterestModel.name = alertController.textFields.firstObject.text;
+                                   [self.detailsPlank configWithPOI:pointOfInterestModel withOwner:nil color:self.selectedAnnotation.annotationColor];
+                                   [[[self.apiController updatePOI:pointOfInterestModel.name id:pointOfInterestModel.identificator.integerValue latitude:pointOfInterestModel.latitude.floatValue longitude:pointOfInterestModel.longitude.floatValue] deliverOnMainThread] subscribeNext:^(id x) {
+                                       [self loadPointsOfInterest];
+                                   }] ;
+                               }];
+    UIAlertAction *cancelAction = [UIAlertAction
+                                   actionWithTitle:NSLocalizedString(@"Cancel", @"Cancel action")
+                                   style:UIAlertActionStyleCancel
+                                   handler:^(UIAlertAction *action)
+                                   {
+                                       DDLogDebug(@"Cancel action");
+                                   }];
+    
+    [alertController addAction:cancelAction];
+    [alertController addAction:okAction];
+    [self presentViewController:alertController animated:YES completion:nil];
+}
+
+- (IBAction)removePOI:(id)sender {
+    [self.mapView removeAnnotation:self.selectedAnnotation];
+    self.detailsPlank.hidden = YES;
+    self.tapGestureDetails.enabled = NO;
+    ASPointOfInterestModel *pointOfInterestModel = self.selectedAnnotation.poiObject;
+    [[[self.apiController removePOIWithId:pointOfInterestModel.identificator.integerValue] deliverOnMainThread] subscribeNext:^(id x) {
+        [self loadPointsOfInterest];
+    }] ;
+}
+
+- (IBAction)handleLongPress:(UIGestureRecognizer *)gestureRecognizer {
+    if (gestureRecognizer.state != UIGestureRecognizerStateBegan)
+        return;
+    
+    CGPoint touchPoint = [gestureRecognizer locationInView:self.mapView];
+    CLLocationCoordinate2D coordTouchMap = [self.mapView convertPoint:touchPoint toCoordinateFromView:self.mapView];
+    
+    UIAlertController *alertController = [UIAlertController
+                                          alertControllerWithTitle:NSLocalizedString(@"Point of interest", nil)
+                                          message:NSLocalizedString(@"Enter name", nil)
+                                          preferredStyle:UIAlertControllerStyleAlert];
+    
+    [alertController addTextFieldWithConfigurationHandler:^(UITextField *textField)
+     {
+         textField.placeholder = NSLocalizedString(@"", @"Enter name");
+     }];
+    UIAlertAction *okAction = [UIAlertAction
+                               actionWithTitle:NSLocalizedString(@"OK", @"OK action")
+                               style:UIAlertActionStyleDefault
+                               handler:^(UIAlertAction *action)
+                               {
+                                   [[[self.apiController addPOI:alertController.textFields.firstObject.text  latitude:coordTouchMap.latitude longitude:coordTouchMap.longitude] deliverOnMainThread] subscribeNext:^(id x) {
+                                       [self loadPointsOfInterest];
+                                   }] ;
+                               }];
+    UIAlertAction *cancelAction = [UIAlertAction
+                                   actionWithTitle:NSLocalizedString(@"Cancel", @"Cancel action")
+                                   style:UIAlertActionStyleCancel
+                                   handler:^(UIAlertAction *action)
+                                   {
+                                       DDLogDebug(@"Cancel action");
+                                   }];
+    
+    [alertController addAction:cancelAction];
+    [alertController addAction:okAction];
+    [self presentViewController:alertController animated:YES completion:nil];
+}
 
 - (IBAction)photoActionTap:(id)sender {
     UIGraphicsBeginImageContextWithOptions(self.view.bounds.size, self.view.opaque, 0.0);
@@ -263,124 +380,6 @@ objection_requires(@keypath(ASMapViewController.new, apiController))
     [self loadTrackingPointsFrom:from to:to];
 }
 
-#pragma mark - Actions
-- (IBAction)calendarTap:(id)sender {
-    if(!self.datePicker)
-        self.datePicker = [THDatePickerViewController datePicker];
-    self.datePicker.date = [NSDate date];
-    self.datePicker.delegate = self;
-    [self.datePicker setAllowClearDate:NO];
-    [self.datePicker setClearAsToday:YES];
-    [self.datePicker setAutoCloseOnSelectDate:YES];
-    [self.datePicker setAllowSelectionOfSelectedDate:YES];
-    [self.datePicker setDisableHistorySelection:NO];
-    [self.datePicker setDisableFutureSelection:YES];
-    [self.datePicker setSelectedBackgroundColor:[UIColor colorWithRed:125/255.0 green:208/255.0 blue:0/255.0 alpha:1.0]];
-    [self.datePicker setCurrentDateColor:[UIColor colorWithRed:242/255.0 green:121/255.0 blue:53/255.0 alpha:1.0]];
-    
-    [self.datePicker setDateHasItemsCallback:^BOOL(NSDate *date) {
-        int tmp = (arc4random() % 30)+1;
-        if(tmp % 5 == 0)
-            return YES;
-        return NO;
-    }];
-    //[self.datePicker slideUpInView:self.view withModalColor:[UIColor lightGrayColor]];
-    self.datePicker.date = self.selectedDate;
-    [self presentSemiViewController:self.datePicker withOptions:@{
-                                                                  KNSemiModalOptionKeys.pushParentBack    : @(NO),
-                                                                  KNSemiModalOptionKeys.animationDuration : @(0.33),
-                                                                  KNSemiModalOptionKeys.shadowOpacity     : @(0.3),
-                                                                  }];
-    
-}
-
-- (IBAction)tapHandle:(id)sender {
-    self.detailsPlank.hidden = YES;
-    self.tapGestureDetails.enabled = NO;
-}
-
-- (IBAction)editPOI:(id)sender {
-    UIAlertController *alertController = [UIAlertController
-                                          alertControllerWithTitle:NSLocalizedString(@"Point of interest", nil)
-                                          message:NSLocalizedString(@"Edit name", nil)
-                                          preferredStyle:UIAlertControllerStyleAlert];
-    ASPointOfInterestModel *pointOfInterestModel = self.selectedAnnotation.poiObject;
-    [alertController addTextFieldWithConfigurationHandler:^(UITextField *textField)
-     {
-        textField.text = pointOfInterestModel.name;
-     }];
-    UIAlertAction *okAction = [UIAlertAction
-                               actionWithTitle:NSLocalizedString(@"OK", @"OK action")
-                               style:UIAlertActionStyleDefault
-                               handler:^(UIAlertAction *action)
-                               {
-                                   pointOfInterestModel.name = alertController.textFields.firstObject.text;
-                                   [self.detailsPlank configWithPOI:pointOfInterestModel withOwner:nil];
-                                   [[[self.apiController updatePOI:pointOfInterestModel.name id:pointOfInterestModel.identificator.integerValue latitude:pointOfInterestModel.latitude.floatValue longitude:pointOfInterestModel.longitude.floatValue] deliverOnMainThread] subscribeNext:^(id x) {
-                                       [self loadPointsOfInterest];
-                                   }] ;
-                               }];
-    UIAlertAction *cancelAction = [UIAlertAction
-                                   actionWithTitle:NSLocalizedString(@"Cancel", @"Cancel action")
-                                   style:UIAlertActionStyleCancel
-                                   handler:^(UIAlertAction *action)
-                                   {
-                                       DDLogDebug(@"Cancel action");
-                                   }];
-    
-    [alertController addAction:cancelAction];
-    [alertController addAction:okAction];
-    [self presentViewController:alertController animated:YES completion:nil];
-}
-
-- (IBAction)removePOI:(id)sender {
-    [self.mapView removeAnnotation:self.selectedAnnotation];
-    self.detailsPlank.hidden = YES;
-    self.tapGestureDetails.enabled = NO;
-    ASPointOfInterestModel *pointOfInterestModel = self.selectedAnnotation.poiObject;
-    [[[self.apiController removePOIWithId:pointOfInterestModel.identificator.integerValue] deliverOnMainThread] subscribeNext:^(id x) {
-        [self loadPointsOfInterest];
-    }] ;
-}
-
-- (IBAction)handleLongPress:(UIGestureRecognizer *)gestureRecognizer {
-    if (gestureRecognizer.state != UIGestureRecognizerStateBegan)
-        return;
-    
-    CGPoint touchPoint = [gestureRecognizer locationInView:self.mapView];
-    CLLocationCoordinate2D coordTouchMap = [self.mapView convertPoint:touchPoint toCoordinateFromView:self.mapView];
-    
-    UIAlertController *alertController = [UIAlertController
-                                          alertControllerWithTitle:NSLocalizedString(@"Point of interest", nil)
-                                          message:NSLocalizedString(@"Enter name", nil)
-                                          preferredStyle:UIAlertControllerStyleAlert];
-    
-    [alertController addTextFieldWithConfigurationHandler:^(UITextField *textField)
-     {
-         textField.placeholder = NSLocalizedString(@"", @"Enter name");
-     }];
-    UIAlertAction *okAction = [UIAlertAction
-                               actionWithTitle:NSLocalizedString(@"OK", @"OK action")
-                               style:UIAlertActionStyleDefault
-                               handler:^(UIAlertAction *action)
-                               {
-                                   [[[self.apiController addPOI:alertController.textFields.firstObject.text  latitude:coordTouchMap.latitude longitude:coordTouchMap.longitude] deliverOnMainThread] subscribeNext:^(id x) {
-                                       [self loadPointsOfInterest];
-                                   }] ;
-                               }];
-    UIAlertAction *cancelAction = [UIAlertAction
-                                   actionWithTitle:NSLocalizedString(@"Cancel", @"Cancel action")
-                                   style:UIAlertActionStyleCancel
-                                   handler:^(UIAlertAction *action)
-                                   {
-                                       DDLogDebug(@"Cancel action");
-                                   }];
-    
-    [alertController addAction:cancelAction];
-    [alertController addAction:okAction];
-    [self presentViewController:alertController animated:YES completion:nil];
-}
-
 #pragma mark - Private methods
 -(void)loadPointsOfInterest {
     @weakify(self)
@@ -425,13 +424,24 @@ objection_requires(@keypath(ASMapViewController.new, apiController))
         for (ASFriendModel *friendModel in users) {
             [self showPointsForUser:friendModel];
         }
+        for (ASPointOfInterestModel* poi in self.arrayPOIs) {
+            UIColor *colorForUser = self.colorsDictionary[poi.name];
+            [self showPointOfInterest:poi withColor:colorForUser];
+        }
     } else {
         for (ASFriendModel *friendModel in users) {
             if ([friendModel.userName isEqualToString:user.userName]) {
+                 UIColor *colorForUser = self.colorsDictionary[friendModel.userName];
                 [self showPointsForUser:friendModel];
+                ASPointOfInterestModel* poi = Underscore.find (self.arrayPOIs, ^BOOL (ASPointOfInterestModel *poi) {
+                    return (poi.userId == friendModel.userId);
+                });
+                [self showPointOfInterest:poi withColor:colorForUser];
             }
         }
     }
+    
+    
 }
 
 -(void)showPointsForUser:(ASFriendModel*)friendModel
@@ -476,12 +486,15 @@ objection_requires(@keypath(ASMapViewController.new, apiController))
             }
         }
     }
-    for (ASPointOfInterestModel* poi in self.arrayPOIs) {
-        CLLocationCoordinate2D poiCoord = CLLocationCoordinate2DMake(poi.latitude.doubleValue, poi.longitude.doubleValue);
-        ASPointOfInterestAnnotation *poiAnnotation = [[ASPointOfInterestAnnotation alloc] initWithLocation:poiCoord];
-        poiAnnotation.poiObject = poi;
-        [self.mapView addAnnotation:poiAnnotation];
-    }
+}
+
+-(void)showPointOfInterest:(ASPointOfInterestModel*)poi withColor:(UIColor*)color
+{
+    CLLocationCoordinate2D poiCoord = CLLocationCoordinate2DMake(poi.latitude.doubleValue, poi.longitude.doubleValue);
+    ASPointOfInterestAnnotation *poiAnnotation = [[ASPointOfInterestAnnotation alloc] initWithLocation:poiCoord];
+    poiAnnotation.poiObject = poi;
+    poiAnnotation.annotationColor = color;
+    [self.mapView addAnnotation:poiAnnotation];
 }
 
 -(void)configFilter {
@@ -591,6 +604,20 @@ objection_requires(@keypath(ASMapViewController.new, apiController))
         pinView.image = [UIImage getUserAnnotationImageWithColor:((ASFriendAnnotation*)annotation).annotationColor];
         
         return pinView;
+    } else if ([annotation isKindOfClass:[ASPointOfInterestAnnotation class]]) {
+        MKPinAnnotationView *pinView = (MKPinAnnotationView*)[mapView dequeueReusableAnnotationViewWithIdentifier:@"ASPointOfInterestAnnotation"];
+        
+        if (!pinView) {
+            pinView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation
+                                                   reuseIdentifier:@"ASPointOfInterestAnnotation"];
+            pinView.canShowCallout = NO;
+        } else {
+            pinView.annotation = annotation;
+        }
+        ASPointOfInterestAnnotation *poiAnnotation = annotation;
+        pinView.pinTintColor = poiAnnotation.annotationColor;
+        
+        return pinView;
     }
     
     return nil;
@@ -613,7 +640,15 @@ objection_requires(@keypath(ASMapViewController.new, apiController))
     } else if ([view.annotation isKindOfClass:[ASPointOfInterestAnnotation class]]) {
         self.selectedAnnotation = view.annotation;
         ASPointOfInterestAnnotation *annotation = view.annotation;
-        [self.detailsPlank configWithPOI:annotation.poiObject withOwner:nil];
+        ASFriendModel* owner = Underscore.find (self.originalPointsData, ^BOOL (ASFriendModel *friend) {
+            return (friend.userId == annotation.poiObject.userId);
+        });
+        if (owner.userId == [self.originalPointsData.firstObject userId]) {
+            self.detailsPlank.viewPOIRightColumn.hidden = NO;
+        } else {
+            self.detailsPlank.viewPOIRightColumn.hidden = YES;
+        }
+        [self.detailsPlank configWithPOI:annotation.poiObject withOwner:owner color:annotation.annotationColor];
     }
     
     self.detailsPlank.hidden = NO;
@@ -621,7 +656,6 @@ objection_requires(@keypath(ASMapViewController.new, apiController))
 }
 
 #pragma mark - UIPicker
-
 -(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
     return  1;
 }

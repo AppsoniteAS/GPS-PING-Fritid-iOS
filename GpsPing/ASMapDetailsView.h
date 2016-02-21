@@ -36,6 +36,8 @@
                tracker:(ASDeviceModel*)deviceModel
                  point:(ASPointModel*)pointModel
                  color:(UIColor*)color;
--(void)configWithPOI:(ASPointOfInterestModel*)poi withOwner:(ASFriendModel*)owner;
+-(void)configWithPOI:(ASPointOfInterestModel*)poi
+           withOwner:(ASFriendModel*)owner
+               color:(UIColor*)color;
 
 @end
