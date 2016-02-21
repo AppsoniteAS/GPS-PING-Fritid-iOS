@@ -8,6 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+typedef NS_ENUM(NSUInteger, ASButtonStyle) {
+    ASButtonStyleGreen,
+    ASButtonStyleGrey
+};
+
 @interface ASButton : UIButton
+
+@property (nonatomic, assign) ASButtonStyle style;
 
 @end
