@@ -16,6 +16,7 @@
 #import "ASDisplayOptionsViewController.h"
 #import "UIStoryboard+ASHelper.h"
 #import "ASFriendsListViewController.h"
+#import "MKStoreKit.h"
 
 DDLogLevel ddLogLevel = DDLogLevelError;
 
@@ -56,7 +57,7 @@ DDLogLevel ddLogLevel = DDLogLevelError;
     [self configUI];
     [self initUserDefaults];
     [self configPushes:application];
-    
+    [self initMKStore];
 //    NSDictionary *userInfo = [launchOptions valueForKey:@"UIApplicationLaunchOptionsRemoteNotificationKey"];
 //    NSDictionary *apsInfo = [userInfo objectForKey:@"aps"];
 //    
@@ -119,6 +120,18 @@ DDLogLevel ddLogLevel = DDLogLevelError;
                                                               userInfo:userInfo];
         }
     };
+}
+
+-(void)initMKStore {
+    [[MKStoreKit sharedKit] startProductRequest];
+    
+    [[NSNotificationCenter defaultCenter] addObserverForName:kMKStoreKitProductsAvailableNotification
+                                                      object:nil
+                                                       queue:[[NSOperationQueue alloc] init]
+                                                  usingBlock:^(NSNotification *note) {
+                                                      
+                                                      DDLogDebug(@"Products available: %@", [[MKStoreKit sharedKit] availableProducts]);
+                                                }];
 }
 
 -(void)initUserDefaults {

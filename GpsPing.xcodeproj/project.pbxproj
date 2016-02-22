@@ -93,6 +93,7 @@
 		ABA221501C79E58100AE6F87 /* Geofence.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABA221521C79E58100AE6F87 /* Geofence.storyboard */; };
 		ABA221571C79E59C00AE6F87 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABA221591C79E59C00AE6F87 /* Profile.storyboard */; };
 		ABA221601C79E5AF00AE6F87 /* About.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABA221621C79E5AF00AE6F87 /* About.storyboard */; };
+		ABA2216A1C7B191500AE6F87 /* MKStoreKit.m in Sources */ = {isa = PBXBuildFile; fileRef = ABA221691C7B191500AE6F87 /* MKStoreKit.m */; };
 		ABE7C7251C784500008A6390 /* ASPointOfInterestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ABE7C7241C784500008A6390 /* ASPointOfInterestModel.m */; };
 		ABE7C7281C78CB76008A6390 /* ASPointOfInterestAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = ABE7C7271C78CB76008A6390 /* ASPointOfInterestAnnotation.m */; };
 /* End PBXBuildFile section */
@@ -280,6 +281,8 @@
 		ABA221611C79E5AF00AE6F87 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/About.storyboard; sourceTree = "<group>"; };
 		ABA221641C79E5B400AE6F87 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/About.strings; sourceTree = "<group>"; };
 		ABA221661C79E5BB00AE6F87 /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/About.strings; sourceTree = "<group>"; };
+		ABA221681C7B191500AE6F87 /* MKStoreKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKStoreKit.h; sourceTree = "<group>"; };
+		ABA221691C7B191500AE6F87 /* MKStoreKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKStoreKit.m; sourceTree = "<group>"; };
 		ABE7C7231C784500008A6390 /* ASPointOfInterestModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASPointOfInterestModel.h; sourceTree = "<group>"; };
 		ABE7C7241C784500008A6390 /* ASPointOfInterestModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASPointOfInterestModel.m; sourceTree = "<group>"; };
 		ABE7C7261C78CB76008A6390 /* ASPointOfInterestAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASPointOfInterestAnnotation.h; sourceTree = "<group>"; };
@@ -465,6 +468,7 @@
 		A68C1B881C4D2550000E2BA6 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				ABA221671C7B191500AE6F87 /* MKStoreKit */,
 				A646053A1C68C2F90012467E /* AGGeoValueTransformer.h */,
 				A646053B1C68C2F90012467E /* AGGeoValueTransformer.m */,
 				A68C1B991C4E40D2000E2BA6 /* UIColor+ASColor.h */,
@@ -643,6 +647,15 @@
 			name = Auth;
 			sourceTree = "<group>";
 		};
+		ABA221671C7B191500AE6F87 /* MKStoreKit */ = {
+			isa = PBXGroup;
+			children = (
+				ABA221681C7B191500AE6F87 /* MKStoreKit.h */,
+				ABA221691C7B191500AE6F87 /* MKStoreKit.m */,
+			);
+			path = MKStoreKit;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -714,7 +727,6 @@
 				TargetAttributes = {
 					A68C1B2D1C4CE460000E2BA6 = {
 						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = W2SAS5N7S8;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -914,6 +926,7 @@
 				AB5428121C5BA1F000F33E8B /* ASSearchBar.m in Sources */,
 				A68C1BAA1C4F71CB000E2BA6 /* ASTrackerConfigurationViewController.m in Sources */,
 				ABE7C7281C78CB76008A6390 /* ASPointOfInterestAnnotation.m in Sources */,
+				ABA2216A1C7B191500AE6F87 /* MKStoreKit.m in Sources */,
 				A68C1B9B1C4E40D2000E2BA6 /* UIColor+ASColor.m in Sources */,
 				AB89468D1C4F3203002E86C8 /* ASRegisterViewModel.m in Sources */,
 				AB8946AE1C54A4DD002E86C8 /* ASMainViewModel.m in Sources */,
