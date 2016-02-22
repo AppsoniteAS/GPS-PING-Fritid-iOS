@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		1CB01BD364B38A355663EB1A /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0237DDBF4E202A6CE571FB17 /* libPods.a */; };
-		A603CED21C58D4FD001D56A4 /* Map.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A603CED11C58D4FD001D56A4 /* Map.storyboard */; };
 		A603CED51C58D5C2001D56A4 /* ASMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A603CED41C58D5C2001D56A4 /* ASMapViewController.m */; };
 		A603CED81C5900CE001D56A4 /* ASDeviceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A603CED71C5900CE001D56A4 /* ASDeviceModel.m */; };
 		A603CEDB1C5A0986001D56A4 /* ASPointModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A603CEDA1C5A0986001D56A4 /* ASPointModel.m */; };
@@ -49,8 +48,6 @@
 		A68C1B831C4D24DC000E2BA6 /* Roboto-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A68C1B731C4D1831000E2BA6 /* Roboto-Thin.ttf */; };
 		A68C1B841C4D24DC000E2BA6 /* Roboto-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A68C1B741C4D1831000E2BA6 /* Roboto-ThinItalic.ttf */; };
 		A68C1B871C4D2549000E2BA6 /* ASButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A68C1B861C4D2549000E2BA6 /* ASButton.m */; };
-		A68C1B8A1C4E2B91000E2BA6 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A68C1B891C4E2B91000E2BA6 /* Settings.storyboard */; };
-		A68C1B8C1C4E35DB000E2BA6 /* Trackers.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A68C1B8B1C4E35DB000E2BA6 /* Trackers.storyboard */; };
 		A68C1B8F1C4E3860000E2BA6 /* ASTrackersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A68C1B8E1C4E3860000E2BA6 /* ASTrackersViewController.m */; };
 		A68C1B921C4E38D6000E2BA6 /* ASTrackerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A68C1B911C4E38D6000E2BA6 /* ASTrackerCell.m */; };
 		A68C1B981C4E3B0D000E2BA6 /* ASTrackerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A68C1B971C4E3B0D000E2BA6 /* ASTrackerModel.m */; };
@@ -60,7 +57,6 @@
 		A68C1BA71C4F7006000E2BA6 /* UIStoryboard+ASHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = A68C1BA61C4F7006000E2BA6 /* UIStoryboard+ASHelper.m */; };
 		A68C1BAA1C4F71CB000E2BA6 /* ASTrackerConfigurationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A68C1BA91C4F71CB000E2BA6 /* ASTrackerConfigurationViewController.m */; };
 		A6D8D0521C58B1EA00030E9F /* ASFriendModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A6D8D0511C58B1EA00030E9F /* ASFriendModel.m */; };
-		A6D8D0541C58BD2500030E9F /* Connect.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6D8D0531C58BD2500030E9F /* Connect.storyboard */; };
 		A6F6A74B1C5122210009579A /* ASSmsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A6F6A74A1C5122210009579A /* ASSmsManager.m */; };
 		A6F6A74E1C51742A0009579A /* ASSelectTrackerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6F6A74D1C51742A0009579A /* ASSelectTrackerViewController.m */; };
 		A6F6A7511C52246E0009579A /* ASTapView.m in Sources */ = {isa = PBXBuildFile; fileRef = A6F6A7501C52246E0009579A /* ASTapView.m */; };
@@ -70,16 +66,11 @@
 		AB54280E1C5BA1C800F33E8B /* ASAddFriendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB54280A1C5BA1C800F33E8B /* ASAddFriendViewController.m */; };
 		AB54280F1C5BA1C800F33E8B /* ASAddFriendViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AB54280C1C5BA1C800F33E8B /* ASAddFriendViewModel.m */; };
 		AB5428121C5BA1F000F33E8B /* ASSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = AB5428111C5BA1F000F33E8B /* ASSearchBar.m */; };
-		AB5428151C5BAA1000F33E8B /* DisplayOptions.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB5428141C5BAA1000F33E8B /* DisplayOptions.storyboard */; };
 		AB5428181C5BAE2300F33E8B /* ASDisplayOptionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB5428171C5BAE2300F33E8B /* ASDisplayOptionsViewController.m */; };
 		AB5428211C5E376A00F33E8B /* ASRequestTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AB5428201C5E376A00F33E8B /* ASRequestTableViewCell.m */; };
-		AB89466E1C4E334B002E86C8 /* About.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB89466D1C4E334B002E86C8 /* About.storyboard */; };
 		AB8946711C4E3372002E86C8 /* ASAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB8946701C4E3372002E86C8 /* ASAboutViewController.m */; };
 		AB8946721C4E3372002E86C8 /* ASAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB8946701C4E3372002E86C8 /* ASAboutViewController.m */; };
 		AB8946731C4E3372002E86C8 /* ASAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB8946701C4E3372002E86C8 /* ASAboutViewController.m */; };
-		AB89467B1C4E67C9002E86C8 /* Geofence.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB89467A1C4E67C9002E86C8 /* Geofence.storyboard */; };
-		AB89467D1C4E67D8002E86C8 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB89467C1C4E67D8002E86C8 /* Profile.storyboard */; };
-		AB8946811C4F3000002E86C8 /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB8946801C4F3000002E86C8 /* Auth.storyboard */; };
 		AB8946841C4F31A6002E86C8 /* ASSignInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB8946831C4F31A6002E86C8 /* ASSignInViewController.m */; };
 		AB8946871C4F31CF002E86C8 /* ASRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB8946861C4F31CF002E86C8 /* ASRegisterViewController.m */; };
 		AB89468A1C4F31F3002E86C8 /* ASSignInViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AB8946891C4F31F3002E86C8 /* ASSignInViewModel.m */; };
@@ -92,6 +83,16 @@
 		AB8946A81C549516002E86C8 /* ASUserProfileModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AB8946A71C549516002E86C8 /* ASUserProfileModel.m */; };
 		AB8946AB1C549E9F002E86C8 /* RACSignal+BackendHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = AB8946AA1C549E9F002E86C8 /* RACSignal+BackendHelpers.m */; };
 		AB8946AE1C54A4DD002E86C8 /* ASMainViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AB8946AD1C54A4DD002E86C8 /* ASMainViewModel.m */; };
+		ABA2211C1C79DF4000AE6F87 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = ABA2211E1C79DF4000AE6F87 /* Localizable.strings */; };
+		ABA221221C79E44700AE6F87 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABA221241C79E44700AE6F87 /* Settings.storyboard */; };
+		ABA221291C79E4A400AE6F87 /* Trackers.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABA2212B1C79E4A400AE6F87 /* Trackers.storyboard */; };
+		ABA221341C79E50200AE6F87 /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABA221361C79E50200AE6F87 /* Auth.storyboard */; };
+		ABA2213B1C79E52700AE6F87 /* Map.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABA2213D1C79E52700AE6F87 /* Map.storyboard */; };
+		ABA221421C79E54900AE6F87 /* DisplayOptions.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABA221441C79E54900AE6F87 /* DisplayOptions.storyboard */; };
+		ABA221491C79E56C00AE6F87 /* Connect.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABA2214B1C79E56C00AE6F87 /* Connect.storyboard */; };
+		ABA221501C79E58100AE6F87 /* Geofence.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABA221521C79E58100AE6F87 /* Geofence.storyboard */; };
+		ABA221571C79E59C00AE6F87 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABA221591C79E59C00AE6F87 /* Profile.storyboard */; };
+		ABA221601C79E5AF00AE6F87 /* About.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABA221621C79E5AF00AE6F87 /* About.storyboard */; };
 		ABE7C7251C784500008A6390 /* ASPointOfInterestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ABE7C7241C784500008A6390 /* ASPointOfInterestModel.m */; };
 		ABE7C7281C78CB76008A6390 /* ASPointOfInterestAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = ABE7C7271C78CB76008A6390 /* ASPointOfInterestAnnotation.m */; };
 /* End PBXBuildFile section */
@@ -116,7 +117,6 @@
 /* Begin PBXFileReference section */
 		0237DDBF4E202A6CE571FB17 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		77A21FE96824543E1D08D970 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
-		A603CED11C58D4FD001D56A4 /* Map.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Map.storyboard; sourceTree = "<group>"; };
 		A603CED31C58D5C2001D56A4 /* ASMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASMapViewController.h; sourceTree = "<group>"; };
 		A603CED41C58D5C2001D56A4 /* ASMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASMapViewController.m; sourceTree = "<group>"; };
 		A603CED61C5900CE001D56A4 /* ASDeviceModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASDeviceModel.h; sourceTree = "<group>"; };
@@ -180,8 +180,6 @@
 		A68C1B741C4D1831000E2BA6 /* Roboto-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-ThinItalic.ttf"; sourceTree = "<group>"; };
 		A68C1B851C4D2549000E2BA6 /* ASButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASButton.h; sourceTree = "<group>"; };
 		A68C1B861C4D2549000E2BA6 /* ASButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASButton.m; sourceTree = "<group>"; };
-		A68C1B891C4E2B91000E2BA6 /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
-		A68C1B8B1C4E35DB000E2BA6 /* Trackers.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Trackers.storyboard; sourceTree = "<group>"; };
 		A68C1B8D1C4E3860000E2BA6 /* ASTrackersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASTrackersViewController.h; sourceTree = "<group>"; };
 		A68C1B8E1C4E3860000E2BA6 /* ASTrackersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASTrackersViewController.m; sourceTree = "<group>"; };
 		A68C1B901C4E38D6000E2BA6 /* ASTrackerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASTrackerCell.h; sourceTree = "<group>"; };
@@ -200,7 +198,6 @@
 		A68C1BA91C4F71CB000E2BA6 /* ASTrackerConfigurationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASTrackerConfigurationViewController.m; sourceTree = "<group>"; };
 		A6D8D0501C58B1EA00030E9F /* ASFriendModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASFriendModel.h; sourceTree = "<group>"; };
 		A6D8D0511C58B1EA00030E9F /* ASFriendModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASFriendModel.m; sourceTree = "<group>"; };
-		A6D8D0531C58BD2500030E9F /* Connect.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Connect.storyboard; sourceTree = "<group>"; };
 		A6F6A7491C5122210009579A /* ASSmsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASSmsManager.h; sourceTree = "<group>"; };
 		A6F6A74A1C5122210009579A /* ASSmsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASSmsManager.m; sourceTree = "<group>"; };
 		A6F6A74C1C51742A0009579A /* ASSelectTrackerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASSelectTrackerViewController.h; sourceTree = "<group>"; };
@@ -220,17 +217,12 @@
 		AB54280C1C5BA1C800F33E8B /* ASAddFriendViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASAddFriendViewModel.m; sourceTree = "<group>"; };
 		AB5428101C5BA1F000F33E8B /* ASSearchBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASSearchBar.h; sourceTree = "<group>"; };
 		AB5428111C5BA1F000F33E8B /* ASSearchBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASSearchBar.m; sourceTree = "<group>"; };
-		AB5428141C5BAA1000F33E8B /* DisplayOptions.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DisplayOptions.storyboard; sourceTree = "<group>"; };
 		AB5428161C5BAE2300F33E8B /* ASDisplayOptionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASDisplayOptionsViewController.h; sourceTree = "<group>"; };
 		AB5428171C5BAE2300F33E8B /* ASDisplayOptionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASDisplayOptionsViewController.m; sourceTree = "<group>"; };
 		AB54281F1C5E376A00F33E8B /* ASRequestTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASRequestTableViewCell.h; sourceTree = "<group>"; };
 		AB5428201C5E376A00F33E8B /* ASRequestTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASRequestTableViewCell.m; sourceTree = "<group>"; };
-		AB89466D1C4E334B002E86C8 /* About.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = About.storyboard; sourceTree = "<group>"; };
 		AB89466F1C4E3372002E86C8 /* ASAboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASAboutViewController.h; sourceTree = "<group>"; };
 		AB8946701C4E3372002E86C8 /* ASAboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASAboutViewController.m; sourceTree = "<group>"; };
-		AB89467A1C4E67C9002E86C8 /* Geofence.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Geofence.storyboard; sourceTree = "<group>"; };
-		AB89467C1C4E67D8002E86C8 /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
-		AB8946801C4F3000002E86C8 /* Auth.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
 		AB8946821C4F31A6002E86C8 /* ASSignInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASSignInViewController.h; sourceTree = "<group>"; };
 		AB8946831C4F31A6002E86C8 /* ASSignInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASSignInViewController.m; sourceTree = "<group>"; };
 		AB8946851C4F31CF002E86C8 /* ASRegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASRegisterViewController.h; sourceTree = "<group>"; };
@@ -255,6 +247,39 @@
 		AB8946AA1C549E9F002E86C8 /* RACSignal+BackendHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RACSignal+BackendHelpers.m"; sourceTree = "<group>"; };
 		AB8946AC1C54A4DD002E86C8 /* ASMainViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASMainViewModel.h; sourceTree = "<group>"; };
 		AB8946AD1C54A4DD002E86C8 /* ASMainViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASMainViewModel.m; sourceTree = "<group>"; };
+		ABA2211A1C79DF0E00AE6F87 /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/Main.strings; sourceTree = "<group>"; };
+		ABA2211B1C79DF0F00AE6F87 /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		ABA2211F1C79DF4400AE6F87 /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/Localizable.strings; sourceTree = "<group>"; };
+		ABA221201C79DF4F00AE6F87 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		ABA221211C79DF8200AE6F87 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		ABA221231C79E44700AE6F87 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Settings.storyboard; sourceTree = "<group>"; };
+		ABA221281C79E46800AE6F87 /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/Settings.strings; sourceTree = "<group>"; };
+		ABA2212A1C79E4A400AE6F87 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Trackers.storyboard; sourceTree = "<group>"; };
+		ABA2212D1C79E4AB00AE6F87 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Trackers.strings; sourceTree = "<group>"; };
+		ABA2212F1C79E4C700AE6F87 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Settings.strings; sourceTree = "<group>"; };
+		ABA221311C79E4DC00AE6F87 /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/Trackers.strings; sourceTree = "<group>"; };
+		ABA221331C79E4E700AE6F87 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		ABA221351C79E50200AE6F87 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Auth.storyboard; sourceTree = "<group>"; };
+		ABA221381C79E50700AE6F87 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Auth.strings; sourceTree = "<group>"; };
+		ABA2213A1C79E51400AE6F87 /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/Auth.strings; sourceTree = "<group>"; };
+		ABA2213C1C79E52700AE6F87 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Map.storyboard; sourceTree = "<group>"; };
+		ABA2213F1C79E52E00AE6F87 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Map.strings; sourceTree = "<group>"; };
+		ABA221411C79E53800AE6F87 /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/Map.strings; sourceTree = "<group>"; };
+		ABA221431C79E54900AE6F87 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/DisplayOptions.storyboard; sourceTree = "<group>"; };
+		ABA221461C79E54E00AE6F87 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/DisplayOptions.strings; sourceTree = "<group>"; };
+		ABA221481C79E55500AE6F87 /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/DisplayOptions.strings; sourceTree = "<group>"; };
+		ABA2214A1C79E56C00AE6F87 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Connect.storyboard; sourceTree = "<group>"; };
+		ABA2214D1C79E57000AE6F87 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Connect.strings; sourceTree = "<group>"; };
+		ABA2214F1C79E57600AE6F87 /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/Connect.strings; sourceTree = "<group>"; };
+		ABA221511C79E58100AE6F87 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Geofence.storyboard; sourceTree = "<group>"; };
+		ABA221541C79E58400AE6F87 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Geofence.strings; sourceTree = "<group>"; };
+		ABA221561C79E58A00AE6F87 /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/Geofence.strings; sourceTree = "<group>"; };
+		ABA221581C79E59C00AE6F87 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Profile.storyboard; sourceTree = "<group>"; };
+		ABA2215B1C79E59F00AE6F87 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Profile.strings; sourceTree = "<group>"; };
+		ABA2215D1C79E5A100AE6F87 /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/Profile.strings; sourceTree = "<group>"; };
+		ABA221611C79E5AF00AE6F87 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/About.storyboard; sourceTree = "<group>"; };
+		ABA221641C79E5B400AE6F87 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/About.strings; sourceTree = "<group>"; };
+		ABA221661C79E5BB00AE6F87 /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/About.strings; sourceTree = "<group>"; };
 		ABE7C7231C784500008A6390 /* ASPointOfInterestModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASPointOfInterestModel.h; sourceTree = "<group>"; };
 		ABE7C7241C784500008A6390 /* ASPointOfInterestModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASPointOfInterestModel.m; sourceTree = "<group>"; };
 		ABE7C7261C78CB76008A6390 /* ASPointOfInterestAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASPointOfInterestAnnotation.h; sourceTree = "<group>"; };
@@ -310,7 +335,7 @@
 		A603CED01C58D4EF001D56A4 /* Map and Tracking */ = {
 			isa = PBXGroup;
 			children = (
-				A603CED11C58D4FD001D56A4 /* Map.storyboard */,
+				ABA2213D1C79E52700AE6F87 /* Map.storyboard */,
 				A603CED31C58D5C2001D56A4 /* ASMapViewController.h */,
 				A603CED41C58D5C2001D56A4 /* ASMapViewController.m */,
 				A603CEEC1C5B761C001D56A4 /* ASDevicePointAnnotation.h */,
@@ -341,7 +366,7 @@
 				A61D755E1C58A8BE00E75999 /* ASFriendTableViewCell.m */,
 				AB54281F1C5E376A00F33E8B /* ASRequestTableViewCell.h */,
 				AB5428201C5E376A00F33E8B /* ASRequestTableViewCell.m */,
-				A6D8D0531C58BD2500030E9F /* Connect.storyboard */,
+				ABA2214B1C79E56C00AE6F87 /* Connect.storyboard */,
 			);
 			name = Connect;
 			sourceTree = "<group>";
@@ -391,6 +416,7 @@
 			isa = PBXGroup;
 			children = (
 				A68C1B321C4CE460000E2BA6 /* main.m */,
+				ABA2211E1C79DF4000AE6F87 /* Localizable.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -470,7 +496,7 @@
 		A68C1B9F1C4E477B000E2BA6 /* Trackers */ = {
 			isa = PBXGroup;
 			children = (
-				A68C1B8B1C4E35DB000E2BA6 /* Trackers.storyboard */,
+				ABA2212B1C79E4A400AE6F87 /* Trackers.storyboard */,
 				A68C1B8D1C4E3860000E2BA6 /* ASTrackersViewController.h */,
 				A68C1B8E1C4E3860000E2BA6 /* ASTrackersViewController.m */,
 				A68C1B901C4E38D6000E2BA6 /* ASTrackerCell.h */,
@@ -524,7 +550,7 @@
 			children = (
 				AB5428161C5BAE2300F33E8B /* ASDisplayOptionsViewController.h */,
 				AB5428171C5BAE2300F33E8B /* ASDisplayOptionsViewController.m */,
-				AB5428141C5BAA1000F33E8B /* DisplayOptions.storyboard */,
+				ABA221441C79E54900AE6F87 /* DisplayOptions.storyboard */,
 			);
 			name = "Display options";
 			sourceTree = "<group>";
@@ -547,7 +573,7 @@
 			children = (
 				AB89466F1C4E3372002E86C8 /* ASAboutViewController.h */,
 				AB8946701C4E3372002E86C8 /* ASAboutViewController.m */,
-				AB89466D1C4E334B002E86C8 /* About.storyboard */,
+				ABA221621C79E5AF00AE6F87 /* About.storyboard */,
 			);
 			name = About;
 			sourceTree = "<group>";
@@ -555,7 +581,7 @@
 		AB8946741C4E614B002E86C8 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				A68C1B891C4E2B91000E2BA6 /* Settings.storyboard */,
+				ABA221241C79E44700AE6F87 /* Settings.storyboard */,
 			);
 			name = Settings;
 			sourceTree = "<group>";
@@ -567,7 +593,7 @@
 				AB8946951C50D6B0002E86C8 /* ASProfileViewController.m */,
 				AB8946971C50D6CD002E86C8 /* ASProfileViewModel.h */,
 				AB8946981C50D6CD002E86C8 /* ASProfileViewModel.m */,
-				AB89467C1C4E67D8002E86C8 /* Profile.storyboard */,
+				ABA221591C79E59C00AE6F87 /* Profile.storyboard */,
 			);
 			name = Profile;
 			sourceTree = "<group>";
@@ -579,7 +605,7 @@
 				AB8946921C4F725D002E86C8 /* ASGeofenceViewController.m */,
 				AB89468E1C4F7244002E86C8 /* ASGeofenceViewModel.h */,
 				AB89468F1C4F7244002E86C8 /* ASGeofenceViewModel.m */,
-				AB89467A1C4E67C9002E86C8 /* Geofence.storyboard */,
+				ABA221521C79E58100AE6F87 /* Geofence.storyboard */,
 			);
 			name = Geofence;
 			sourceTree = "<group>";
@@ -612,7 +638,7 @@
 				AB8946861C4F31CF002E86C8 /* ASRegisterViewController.m */,
 				AB89468B1C4F3203002E86C8 /* ASRegisterViewModel.h */,
 				AB89468C1C4F3203002E86C8 /* ASRegisterViewModel.m */,
-				AB8946801C4F3000002E86C8 /* Auth.storyboard */,
+				ABA221361C79E50200AE6F87 /* Auth.storyboard */,
 			);
 			name = Auth;
 			sourceTree = "<group>";
@@ -718,6 +744,7 @@
 			knownRegions = (
 				en,
 				Base,
+				nb,
 			);
 			mainGroup = A68C1B251C4CE460000E2BA6;
 			productRefGroup = A68C1B2F1C4CE460000E2BA6 /* Products */;
@@ -742,29 +769,30 @@
 				A68C1B7A1C4D24DC000E2BA6 /* Roboto-BoldItalic.ttf in Resources */,
 				A68C1B411C4CE460000E2BA6 /* LaunchScreen.storyboard in Resources */,
 				A68C1B801C4D24DC000E2BA6 /* Roboto-Medium.ttf in Resources */,
-				A6D8D0541C58BD2500030E9F /* Connect.storyboard in Resources */,
+				ABA221491C79E56C00AE6F87 /* Connect.storyboard in Resources */,
 				A68C1B3E1C4CE460000E2BA6 /* Assets.xcassets in Resources */,
 				A68C1B7B1C4D24DC000E2BA6 /* Roboto-Condensed.ttf in Resources */,
-				AB89466E1C4E334B002E86C8 /* About.storyboard in Resources */,
+				ABA221601C79E5AF00AE6F87 /* About.storyboard in Resources */,
 				A68C1B831C4D24DC000E2BA6 /* Roboto-Thin.ttf in Resources */,
 				A68C1B771C4D24DC000E2BA6 /* Roboto-Bold.ttf in Resources */,
 				A68C1B781C4D24DC000E2BA6 /* Roboto-BoldCondensed.ttf in Resources */,
 				A68C1B761C4D24DC000E2BA6 /* Roboto-BlackItalic.ttf in Resources */,
-				AB89467B1C4E67C9002E86C8 /* Geofence.storyboard in Resources */,
+				ABA221501C79E58100AE6F87 /* Geofence.storyboard in Resources */,
 				A68C1B7E1C4D24DC000E2BA6 /* Roboto-Light.ttf in Resources */,
 				A68C1B811C4D24DC000E2BA6 /* Roboto-MediumItalic.ttf in Resources */,
-				AB89467D1C4E67D8002E86C8 /* Profile.storyboard in Resources */,
+				ABA221571C79E59C00AE6F87 /* Profile.storyboard in Resources */,
 				A68C1B3C1C4CE460000E2BA6 /* Main.storyboard in Resources */,
-				A68C1B8C1C4E35DB000E2BA6 /* Trackers.storyboard in Resources */,
-				A603CED21C58D4FD001D56A4 /* Map.storyboard in Resources */,
+				ABA221291C79E4A400AE6F87 /* Trackers.storyboard in Resources */,
+				ABA2213B1C79E52700AE6F87 /* Map.storyboard in Resources */,
 				A68C1B821C4D24DC000E2BA6 /* Roboto-Regular.ttf in Resources */,
-				AB5428151C5BAA1000F33E8B /* DisplayOptions.storyboard in Resources */,
+				ABA221421C79E54900AE6F87 /* DisplayOptions.storyboard in Resources */,
 				A68C1B841C4D24DC000E2BA6 /* Roboto-ThinItalic.ttf in Resources */,
-				AB8946811C4F3000002E86C8 /* Auth.storyboard in Resources */,
+				ABA221341C79E50200AE6F87 /* Auth.storyboard in Resources */,
+				ABA2211C1C79DF4000AE6F87 /* Localizable.strings in Resources */,
 				A64326851C5F6F54000B63C1 /* GoogleService-Info.plist in Resources */,
 				A68C1B791C4D24DC000E2BA6 /* Roboto-BoldCondensedItalic.ttf in Resources */,
 				A68C1B751C4D24DC000E2BA6 /* Roboto-Black.ttf in Resources */,
-				A68C1B8A1C4E2B91000E2BA6 /* Settings.storyboard in Resources */,
+				ABA221221C79E44700AE6F87 /* Settings.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -930,6 +958,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				A68C1B3B1C4CE460000E2BA6 /* Base */,
+				ABA2211A1C79DF0E00AE6F87 /* nb */,
+				ABA221331C79E4E700AE6F87 /* en */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -938,8 +968,109 @@
 			isa = PBXVariantGroup;
 			children = (
 				A68C1B401C4CE460000E2BA6 /* Base */,
+				ABA2211B1C79DF0F00AE6F87 /* nb */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		ABA2211E1C79DF4000AE6F87 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ABA2211F1C79DF4400AE6F87 /* nb */,
+				ABA221201C79DF4F00AE6F87 /* Base */,
+				ABA221211C79DF8200AE6F87 /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		ABA221241C79E44700AE6F87 /* Settings.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ABA221231C79E44700AE6F87 /* Base */,
+				ABA221281C79E46800AE6F87 /* nb */,
+				ABA2212F1C79E4C700AE6F87 /* en */,
+			);
+			name = Settings.storyboard;
+			sourceTree = "<group>";
+		};
+		ABA2212B1C79E4A400AE6F87 /* Trackers.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ABA2212A1C79E4A400AE6F87 /* Base */,
+				ABA2212D1C79E4AB00AE6F87 /* en */,
+				ABA221311C79E4DC00AE6F87 /* nb */,
+			);
+			name = Trackers.storyboard;
+			sourceTree = "<group>";
+		};
+		ABA221361C79E50200AE6F87 /* Auth.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ABA221351C79E50200AE6F87 /* Base */,
+				ABA221381C79E50700AE6F87 /* en */,
+				ABA2213A1C79E51400AE6F87 /* nb */,
+			);
+			name = Auth.storyboard;
+			sourceTree = "<group>";
+		};
+		ABA2213D1C79E52700AE6F87 /* Map.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ABA2213C1C79E52700AE6F87 /* Base */,
+				ABA2213F1C79E52E00AE6F87 /* en */,
+				ABA221411C79E53800AE6F87 /* nb */,
+			);
+			name = Map.storyboard;
+			sourceTree = "<group>";
+		};
+		ABA221441C79E54900AE6F87 /* DisplayOptions.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ABA221431C79E54900AE6F87 /* Base */,
+				ABA221461C79E54E00AE6F87 /* en */,
+				ABA221481C79E55500AE6F87 /* nb */,
+			);
+			name = DisplayOptions.storyboard;
+			sourceTree = "<group>";
+		};
+		ABA2214B1C79E56C00AE6F87 /* Connect.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ABA2214A1C79E56C00AE6F87 /* Base */,
+				ABA2214D1C79E57000AE6F87 /* en */,
+				ABA2214F1C79E57600AE6F87 /* nb */,
+			);
+			name = Connect.storyboard;
+			sourceTree = "<group>";
+		};
+		ABA221521C79E58100AE6F87 /* Geofence.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ABA221511C79E58100AE6F87 /* Base */,
+				ABA221541C79E58400AE6F87 /* en */,
+				ABA221561C79E58A00AE6F87 /* nb */,
+			);
+			name = Geofence.storyboard;
+			sourceTree = "<group>";
+		};
+		ABA221591C79E59C00AE6F87 /* Profile.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ABA221581C79E59C00AE6F87 /* Base */,
+				ABA2215B1C79E59F00AE6F87 /* en */,
+				ABA2215D1C79E5A100AE6F87 /* nb */,
+			);
+			name = Profile.storyboard;
+			sourceTree = "<group>";
+		};
+		ABA221621C79E5AF00AE6F87 /* About.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ABA221611C79E5AF00AE6F87 /* Base */,
+				ABA221641C79E5B400AE6F87 /* en */,
+				ABA221661C79E5BB00AE6F87 /* nb */,
+			);
+			name = About.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

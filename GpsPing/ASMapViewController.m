@@ -220,7 +220,7 @@ objection_requires(@keypath(ASMapViewController.new, apiController))
     
     [alertController addTextFieldWithConfigurationHandler:^(UITextField *textField)
      {
-         textField.placeholder = NSLocalizedString(@"", @"Enter name");
+         textField.placeholder = NSLocalizedString(@" ", @"Enter name");
      }];
     UIAlertAction *okAction = [UIAlertAction
                                actionWithTitle:NSLocalizedString(@"OK", @"OK action")

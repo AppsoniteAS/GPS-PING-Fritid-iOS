@@ -224,9 +224,9 @@
                                                 <rect key="frame" x="20" y="71" width="316" height="337"/>
                                                 <attributedString key="attributedText">
                                                     <fragment>
-                                                        <mutableString key="content">This app lets you see the gps position of a gps tracker. 
+                                                        <string key="content">This app lets you see the gps position of a gps tracker. 
 Before you start, go to settings and input the imei number and tracker number.   Select signal interval. Tap save and go back to main menu to start the tracker. 
-Tap Start Tracker to turn the tracker signal on. You will receive a text message back from the tracker when it is sending. You will see the tracker's last position as a green triangle.  Earlier positions are marked with green circle.</mutableString>
+Tap Start Tracker to turn the tracker signal on. You will receive a text message back from the tracker when it is sending. You will see the tracker's last position as a green triangle.  Earlier positions are marked with green circle.</string>
                                                         <attributes>
                                                             <color key="NSColor" red="0.42745098040000001" green="0.42745098040000001" blue="0.42745098040000001" alpha="1" colorSpace="calibratedRGB"/>
                                                             <font key="NSFont" size="17" name="HelveticaNeue"/>

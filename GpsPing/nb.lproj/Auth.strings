@@ -1,0 +1,33 @@
+
+/* Class = "UILabel"; text = "Email"; ObjectID = "2CF-wy-zJa"; */
+"2CF-wy-zJa.text" = "Email";
+
+/* Class = "UILabel"; text = "Login"; ObjectID = "4Lf-GL-fbP"; */
+"4Lf-GL-fbP.text" = "Login";
+
+/* Class = "UIButton"; normalTitle = "Login"; ObjectID = "7a1-CO-ILS"; */
+"7a1-CO-ILS.normalTitle" = "Login";
+
+/* Class = "UILabel"; text = "Confirm Password"; ObjectID = "DqP-GK-hYC"; */
+"DqP-GK-hYC.text" = "Confirm Password";
+
+/* Class = "UINavigationItem"; title = "Register"; ObjectID = "MdX-Bd-4uL"; */
+"MdX-Bd-4uL.title" = "Register";
+
+/* Class = "UIButton"; normalTitle = "Login"; ObjectID = "QJ3-OB-xJO"; */
+"QJ3-OB-xJO.normalTitle" = "Login";
+
+/* Class = "UILabel"; text = "Password"; ObjectID = "a0S-aa-Qj9"; */
+"a0S-aa-Qj9.text" = "Password";
+
+/* Class = "UIButton"; normalTitle = "Register"; ObjectID = "gPk-dc-z6Q"; */
+"gPk-dc-z6Q.normalTitle" = "Register";
+
+/* Class = "UILabel"; text = "Username"; ObjectID = "hg8-M5-MiD"; */
+"hg8-M5-MiD.text" = "Username";
+
+/* Class = "UILabel"; text = "Password"; ObjectID = "mfx-1X-Sln"; */
+"mfx-1X-Sln.text" = "Password";
+
+/* Class = "UILabel"; text = "Username"; ObjectID = "sUN-pf-joA"; */
+"sUN-pf-joA.text" = "Username";

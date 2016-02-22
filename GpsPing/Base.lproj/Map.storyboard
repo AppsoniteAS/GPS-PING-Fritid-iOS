@@ -376,8 +376,8 @@
                                             <mask key="constraints">
                                                 <exclude reference="iF9-h3-Ggd"/>
                                                 <exclude reference="GeD-qH-bon"/>
-                                                <exclude reference="Q5V-7r-bWj"/>
                                                 <exclude reference="HdS-N8-WUh"/>
+                                                <exclude reference="Q5V-7r-bWj"/>
                                                 <exclude reference="uz6-8E-vB0"/>
                                             </mask>
                                         </variation>
