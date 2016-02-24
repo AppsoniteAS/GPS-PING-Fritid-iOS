@@ -846,7 +846,7 @@
         <!--Navigation Controller-->
         <scene sceneID="XRk-NQ-MGs">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="3fg-Tg-ShT" sceneMemberID="viewController">
+                <navigationController restorationIdentifier="ASChooseTrackerViewController" storyboardIdentifier="ASChooseTrackerViewController" automaticallyAdjustsScrollViewInsets="NO" id="3fg-Tg-ShT" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="7Uu-3X-e6i">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>

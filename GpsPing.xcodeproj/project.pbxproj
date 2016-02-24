@@ -68,6 +68,7 @@
 		AB5428121C5BA1F000F33E8B /* ASSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = AB5428111C5BA1F000F33E8B /* ASSearchBar.m */; };
 		AB5428181C5BAE2300F33E8B /* ASDisplayOptionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB5428171C5BAE2300F33E8B /* ASDisplayOptionsViewController.m */; };
 		AB5428211C5E376A00F33E8B /* ASRequestTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AB5428201C5E376A00F33E8B /* ASRequestTableViewCell.m */; };
+		AB60B7341C7D9CA9003CF277 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB60B7331C7D9CA9003CF277 /* StoreKit.framework */; };
 		AB8946711C4E3372002E86C8 /* ASAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB8946701C4E3372002E86C8 /* ASAboutViewController.m */; };
 		AB8946721C4E3372002E86C8 /* ASAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB8946701C4E3372002E86C8 /* ASAboutViewController.m */; };
 		AB8946731C4E3372002E86C8 /* ASAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB8946701C4E3372002E86C8 /* ASAboutViewController.m */; };
@@ -93,7 +94,6 @@
 		ABA221501C79E58100AE6F87 /* Geofence.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABA221521C79E58100AE6F87 /* Geofence.storyboard */; };
 		ABA221571C79E59C00AE6F87 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABA221591C79E59C00AE6F87 /* Profile.storyboard */; };
 		ABA221601C79E5AF00AE6F87 /* About.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABA221621C79E5AF00AE6F87 /* About.storyboard */; };
-		ABA2216A1C7B191500AE6F87 /* MKStoreKit.m in Sources */ = {isa = PBXBuildFile; fileRef = ABA221691C7B191500AE6F87 /* MKStoreKit.m */; };
 		ABE7C7251C784500008A6390 /* ASPointOfInterestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ABE7C7241C784500008A6390 /* ASPointOfInterestModel.m */; };
 		ABE7C7281C78CB76008A6390 /* ASPointOfInterestAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = ABE7C7271C78CB76008A6390 /* ASPointOfInterestAnnotation.m */; };
 /* End PBXBuildFile section */
@@ -222,6 +222,7 @@
 		AB5428171C5BAE2300F33E8B /* ASDisplayOptionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASDisplayOptionsViewController.m; sourceTree = "<group>"; };
 		AB54281F1C5E376A00F33E8B /* ASRequestTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASRequestTableViewCell.h; sourceTree = "<group>"; };
 		AB5428201C5E376A00F33E8B /* ASRequestTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASRequestTableViewCell.m; sourceTree = "<group>"; };
+		AB60B7331C7D9CA9003CF277 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		AB89466F1C4E3372002E86C8 /* ASAboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASAboutViewController.h; sourceTree = "<group>"; };
 		AB8946701C4E3372002E86C8 /* ASAboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASAboutViewController.m; sourceTree = "<group>"; };
 		AB8946821C4F31A6002E86C8 /* ASSignInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASSignInViewController.h; sourceTree = "<group>"; };
@@ -281,8 +282,6 @@
 		ABA221611C79E5AF00AE6F87 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/About.storyboard; sourceTree = "<group>"; };
 		ABA221641C79E5B400AE6F87 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/About.strings; sourceTree = "<group>"; };
 		ABA221661C79E5BB00AE6F87 /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/About.strings; sourceTree = "<group>"; };
-		ABA221681C7B191500AE6F87 /* MKStoreKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKStoreKit.h; sourceTree = "<group>"; };
-		ABA221691C7B191500AE6F87 /* MKStoreKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKStoreKit.m; sourceTree = "<group>"; };
 		ABE7C7231C784500008A6390 /* ASPointOfInterestModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASPointOfInterestModel.h; sourceTree = "<group>"; };
 		ABE7C7241C784500008A6390 /* ASPointOfInterestModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASPointOfInterestModel.m; sourceTree = "<group>"; };
 		ABE7C7261C78CB76008A6390 /* ASPointOfInterestAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASPointOfInterestAnnotation.h; sourceTree = "<group>"; };
@@ -295,6 +294,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB60B7341C7D9CA9003CF277 /* StoreKit.framework in Frameworks */,
 				A626CCEB1C5D1DC5003762A2 /* MapKit.framework in Frameworks */,
 				1CB01BD364B38A355663EB1A /* libPods.a in Frameworks */,
 			);
@@ -329,6 +329,7 @@
 		9A79422222BEFCC2E332FDE1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AB60B7331C7D9CA9003CF277 /* StoreKit.framework */,
 				A626CCEA1C5D1DC5003762A2 /* MapKit.framework */,
 				0237DDBF4E202A6CE571FB17 /* libPods.a */,
 			);
@@ -468,7 +469,6 @@
 		A68C1B881C4D2550000E2BA6 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
-				ABA221671C7B191500AE6F87 /* MKStoreKit */,
 				A646053A1C68C2F90012467E /* AGGeoValueTransformer.h */,
 				A646053B1C68C2F90012467E /* AGGeoValueTransformer.m */,
 				A68C1B991C4E40D2000E2BA6 /* UIColor+ASColor.h */,
@@ -647,15 +647,6 @@
 			name = Auth;
 			sourceTree = "<group>";
 		};
-		ABA221671C7B191500AE6F87 /* MKStoreKit */ = {
-			isa = PBXGroup;
-			children = (
-				ABA221681C7B191500AE6F87 /* MKStoreKit.h */,
-				ABA221691C7B191500AE6F87 /* MKStoreKit.m */,
-			);
-			path = MKStoreKit;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -729,6 +720,9 @@
 						CreatedOnToolsVersion = 7.2;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.InAppPurchase = {
 								enabled = 1;
 							};
 							com.apple.Maps.iOS = {
@@ -926,7 +920,6 @@
 				AB5428121C5BA1F000F33E8B /* ASSearchBar.m in Sources */,
 				A68C1BAA1C4F71CB000E2BA6 /* ASTrackerConfigurationViewController.m in Sources */,
 				ABE7C7281C78CB76008A6390 /* ASPointOfInterestAnnotation.m in Sources */,
-				ABA2216A1C7B191500AE6F87 /* MKStoreKit.m in Sources */,
 				A68C1B9B1C4E40D2000E2BA6 /* UIColor+ASColor.m in Sources */,
 				AB89468D1C4F3203002E86C8 /* ASRegisterViewModel.m in Sources */,
 				AB8946AE1C54A4DD002E86C8 /* ASMainViewModel.m in Sources */,
