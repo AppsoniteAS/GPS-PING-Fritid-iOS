@@ -65,8 +65,6 @@
 
 -(IBAction)doLogout:(id)sender {
     [self.viewModel logOut];
-    UIViewController* controller = [[UIStoryboard storyboardWithName:@"Auth" bundle:nil] instantiateInitialViewController];
-    [self.navigationController presentViewController:controller animated:YES completion:nil];
 }
 
 @end

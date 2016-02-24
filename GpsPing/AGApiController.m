@@ -142,6 +142,11 @@ objection_initializer(initWithConfiguration:);
     self.userProfile = nil;
     [ASUserProfileModel removeLocallyProfileInfo];
     [ASTrackerModel clearTrackersInUserDefaults];
+    UIViewController* controller = [[UIStoryboard storyboardWithName:@"Auth" bundle:nil] instantiateInitialViewController];
+    UIViewController* rootController = UIApplication.sharedApplication.delegate.window.rootViewController;
+    [rootController presentViewController:controller
+                             animated:YES
+                           completion:nil];
     return [RACSignal empty];
 }
 
@@ -486,6 +491,9 @@ objection_initializer(initWithConfiguration:);
                  builder.domain = AGOpteumBackendError;
                  builder.localizedDescription = response[@"error"];
              }];
+            if (([response[@"code"] integerValue] == 5) || ([response[@"code"] integerValue] == 211)) {
+                [self logout];
+            }
 
              return [RACSignal error:error];
         }

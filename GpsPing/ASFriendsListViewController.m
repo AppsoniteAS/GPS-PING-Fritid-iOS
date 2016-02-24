@@ -56,9 +56,7 @@ objection_requires(@keypath(ASFriendsListViewController.new, apiController))
     if ([ASTrackerModel getTrackersFromUserDefaults].count == 0) {
         areSubscribed = [[NSUserDefaults standardUserDefaults] boolForKey:@"areSubscribed"];
         [[NSUserDefaults standardUserDefaults] synchronize];
-        if(areSubscribed){
-            // do something here if already subscribed....
-        } else {
+        if(!areSubscribed) {
             UIAlertController *alertController = [UIAlertController
                                                   alertControllerWithTitle:NSLocalizedString(@"You don't have any tracker", nil)
                                                   message:NSLocalizedString(@"Please add a tracker or subscribe to your friend's tracker", nil)
@@ -107,6 +105,7 @@ objection_requires(@keypath(ASFriendsListViewController.new, apiController))
                                            handler:^(UIAlertAction *action)
                                            {
                                                DDLogDebug(@"Cancel action");
+                                               [self.navigationController popoverPresentationController];
                                            }];
             
             [alertController addAction:cancelAction];
@@ -138,7 +137,6 @@ objection_requires(@keypath(ASFriendsListViewController.new, apiController))
 }
 
 - (void)doSubcribe {
-    //add user friend's trackers here...
     areSubscribed = YES;
     [[NSUserDefaults standardUserDefaults] setBool:areSubscribed forKey:@"areSubscribed"];
     [[NSUserDefaults standardUserDefaults] synchronize];
