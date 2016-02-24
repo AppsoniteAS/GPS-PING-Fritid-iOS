@@ -18,7 +18,6 @@
 #import <StoreKit/StoreKit.h>
 #import "ASChooseTrackerViewController.h"
 
-#define SUBSCRIPTION_ID      @"Yearly_subscription"
 #define kYearlySubscriptionProductIdentifier @"Yearly_subscription"
 
 static DDLogLevel ddLogLevel = DDLogLevelDebug;
@@ -119,12 +118,7 @@ objection_requires(@keypath(ASFriendsListViewController.new, apiController))
     }
 }
 
-- (IBAction)restore{
-    [[SKPaymentQueue defaultQueue] addTransactionObserver:self];
-    [[SKPaymentQueue defaultQueue] restoreCompletedTransactions];
-}
-
-#pragma mark -SKProductsRequestDelegate
+#pragma mark - SKProductsRequestDelegate
 - (void)productsRequest:(SKProductsRequest *)request didReceiveResponse:(SKProductsResponse *)response{
     SKProduct *validProduct = nil;
     if([response.products count] > 0){
