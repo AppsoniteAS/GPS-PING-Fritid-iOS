@@ -69,6 +69,8 @@
 		AB5428181C5BAE2300F33E8B /* ASDisplayOptionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB5428171C5BAE2300F33E8B /* ASDisplayOptionsViewController.m */; };
 		AB5428211C5E376A00F33E8B /* ASRequestTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AB5428201C5E376A00F33E8B /* ASRequestTableViewCell.m */; };
 		AB60B7341C7D9CA9003CF277 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB60B7331C7D9CA9003CF277 /* StoreKit.framework */; };
+		AB60B7391C7EBCDB003CF277 /* ASInAppPurchaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AB60B7381C7EBCDB003CF277 /* ASInAppPurchaseManager.m */; };
+		AB60B73C1C7ECED7003CF277 /* ASSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB60B73B1C7ECED7003CF277 /* ASSettingsViewController.m */; };
 		AB8946711C4E3372002E86C8 /* ASAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB8946701C4E3372002E86C8 /* ASAboutViewController.m */; };
 		AB8946721C4E3372002E86C8 /* ASAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB8946701C4E3372002E86C8 /* ASAboutViewController.m */; };
 		AB8946731C4E3372002E86C8 /* ASAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB8946701C4E3372002E86C8 /* ASAboutViewController.m */; };
@@ -223,6 +225,11 @@
 		AB54281F1C5E376A00F33E8B /* ASRequestTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASRequestTableViewCell.h; sourceTree = "<group>"; };
 		AB5428201C5E376A00F33E8B /* ASRequestTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASRequestTableViewCell.m; sourceTree = "<group>"; };
 		AB60B7331C7D9CA9003CF277 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		AB60B7371C7EBCDB003CF277 /* ASInAppPurchaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASInAppPurchaseManager.h; sourceTree = "<group>"; };
+		AB60B7381C7EBCDB003CF277 /* ASInAppPurchaseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASInAppPurchaseManager.m; sourceTree = "<group>"; };
+		AB60B73A1C7ECED7003CF277 /* ASSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASSettingsViewController.h; sourceTree = "<group>"; };
+		AB60B73B1C7ECED7003CF277 /* ASSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASSettingsViewController.m; sourceTree = "<group>"; };
+		AB60B73D1C7EF2A3003CF277 /* GpsPing.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = GpsPing.entitlements; sourceTree = "<group>"; };
 		AB89466F1C4E3372002E86C8 /* ASAboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASAboutViewController.h; sourceTree = "<group>"; };
 		AB8946701C4E3372002E86C8 /* ASAboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASAboutViewController.m; sourceTree = "<group>"; };
 		AB8946821C4F31A6002E86C8 /* ASSignInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASSignInViewController.h; sourceTree = "<group>"; };
@@ -400,6 +407,7 @@
 		A68C1B301C4CE460000E2BA6 /* GpsPing */ = {
 			isa = PBXGroup;
 			children = (
+				AB60B73D1C7EF2A3003CF277 /* GpsPing.entitlements */,
 				A68C1B881C4D2550000E2BA6 /* Tools */,
 				A68C1BA11C4E4798000E2BA6 /* Model */,
 				AB89467E1C4E6B2B002E86C8 /* UI */,
@@ -493,6 +501,8 @@
 				A6F6A74A1C5122210009579A /* ASSmsManager.m */,
 				A6F6A74F1C52246E0009579A /* ASTapView.h */,
 				A6F6A7501C52246E0009579A /* ASTapView.m */,
+				AB60B7371C7EBCDB003CF277 /* ASInAppPurchaseManager.h */,
+				AB60B7381C7EBCDB003CF277 /* ASInAppPurchaseManager.m */,
 			);
 			name = Tools;
 			sourceTree = "<group>";
@@ -586,6 +596,8 @@
 			isa = PBXGroup;
 			children = (
 				ABA221241C79E44700AE6F87 /* Settings.storyboard */,
+				AB60B73A1C7ECED7003CF277 /* ASSettingsViewController.h */,
+				AB60B73B1C7ECED7003CF277 /* ASSettingsViewController.m */,
 			);
 			name = Settings;
 			sourceTree = "<group>";
@@ -729,6 +741,9 @@
 								enabled = 1;
 							};
 							com.apple.Push = {
+								enabled = 1;
+							};
+							com.apple.iCloud = {
 								enabled = 1;
 							};
 						};
@@ -904,6 +919,7 @@
 				A68C1B981C4E3B0D000E2BA6 /* ASTrackerModel.m in Sources */,
 				AB54280E1C5BA1C800F33E8B /* ASAddFriendViewController.m in Sources */,
 				AB8946871C4F31CF002E86C8 /* ASRegisterViewController.m in Sources */,
+				AB60B7391C7EBCDB003CF277 /* ASInAppPurchaseManager.m in Sources */,
 				AB8946841C4F31A6002E86C8 /* ASSignInViewController.m in Sources */,
 				A68C1B361C4CE460000E2BA6 /* AppDelegate.m in Sources */,
 				A68C1BA41C4F6AEE000E2BA6 /* ASChooseTrackerViewController.m in Sources */,
@@ -913,6 +929,7 @@
 				AB89469C1C510E96002E86C8 /* ASViewController.m in Sources */,
 				AB8946711C4E3372002E86C8 /* ASAboutViewController.m in Sources */,
 				A68C1B331C4CE460000E2BA6 /* main.m in Sources */,
+				AB60B73C1C7ECED7003CF277 /* ASSettingsViewController.m in Sources */,
 				AB54280D1C5BA1C800F33E8B /* ASAddFriendTableViewCell.m in Sources */,
 				A6F6A74E1C51742A0009579A /* ASSelectTrackerViewController.m in Sources */,
 				A6F6A7541C524E680009579A /* AGApiController.m in Sources */,
@@ -1167,6 +1184,7 @@
 			baseConfigurationReference = D56B56EC24DC9B71F55AC4BB /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = GpsPing/GpsPing.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
@@ -1186,6 +1204,7 @@
 			baseConfigurationReference = 77A21FE96824543E1D08D970 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = GpsPing/GpsPing.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;

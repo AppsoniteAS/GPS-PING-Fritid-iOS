@@ -9,7 +9,7 @@
         <!--Settings-->
         <scene sceneID="k8d-l5-Syr">
             <objects>
-                <viewController id="wF7-Ch-xf9" sceneMemberID="viewController">
+                <viewController id="wF7-Ch-xf9" customClass="ASSettingsViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="2b3-AY-oor"/>
                         <viewControllerLayoutGuide type="bottom" id="7up-XZ-0BL"/>
@@ -45,7 +45,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="Sig-Gz-urF" kind="push" id="Vbl-bC-v6T"/>
+                                    <action selector="goToConnect:" destination="wF7-Ch-xf9" eventType="touchUpInside" id="QwT-ld-wn5"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sNL-nd-5hY">
@@ -221,16 +221,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="618-Kn-Bzf" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1637" y="968"/>
-        </scene>
-        <!--Connect-->
-        <scene sceneID="Egc-Ha-dcL">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Connect" id="Sig-Gz-urF" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="cyS-Ft-0Kh"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ovo-c5-8Ss" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2017.5" y="892"/>
         </scene>
         <!--Geofence-->
         <scene sceneID="qzM-rn-4Tn">
