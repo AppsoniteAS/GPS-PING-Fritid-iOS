@@ -1,0 +1,70 @@
+/* 
+  Errors.strings
+  GpsPing
+
+  Created by Maks Niagolov on 2/25/16.
+  Copyright © 2016 Robin Grønvold. All rights reserved.
+*/
+
+/* No comment provided by engineer. */
+"Friend already added" = "Friend already added";
+
+/* No comment provided by engineer. */
+"Error insert to gpsping_friends table" = "Error insert to gpsping_friends table";
+
+/* No comment provided by engineer. */
+"Friendship request not found" = "Friendship request not found";
+
+/* No comment provided by engineer. */
+"Error insert to gpsping_push_id table" = "Error insert to gpsping_push_id table";
+
+/* No comment provided by engineer. */
+"Invalid authentication cookie. Use the `generate_auth_cookie` method." = "Error insert to gpsping_push_id table";
+
+/* No comment provided by engineer. */
+"Error insert POI" = "Error insert POI";
+
+/* No comment provided by engineer. */
+"Tracker already added." = "Tracker already added.";
+
+/* No comment provided by engineer. */
+"Error insert to gps_device table" = "Error insert to gps_device table";
+
+/* No comment provided by engineer. */
+"Error insert to gpsping_user_devices table" = "Error insert to gpsping_user_devices table";
+
+/* No comment provided by engineer. */
+"Don't find tracker" = "Don't find tracker";
+
+/* No comment provided by engineer. */
+"Error insert to gps_eventdata_user table" = "Error insert to gps_eventdata_user table";
+
+/* No comment provided by engineer. */
+"Invalid access, unverifiable 'nonce' value. Use the 'get_nonce' Core API method. " = "Invalid access, unverifiable 'nonce' value. Use the 'get_nonce' Core API method. ";
+
+/* No comment provided by engineer. */
+"Username is invalid." = "Username is invalid.";
+
+/* No comment provided by engineer. */
+"Username already exists." = "Username already exists.";
+
+/* No comment provided by engineer. */
+"E-mail address is invalid." = "E-mail address is invalid.";
+
+/* No comment provided by engineer. */
+"E-mail address is already in use." = "E-mail address is already in use.";
+
+/* No comment provided by engineer. */
+"Your email address not found!" = "Your email address not found!";
+
+/* No comment provided by engineer. */
+"password reset not allowed!" = "password reset not allowed!";
+
+/* No comment provided by engineer. */
+"An error occured!" = "An error occured!";
+
+/* No comment provided by engineer. */
+"The e-mail could not be sent. Possible reason: your host may have disabled the mail() function..." = "The e-mail could not be sent. Possible reason: your host may have disabled the mail() function...";
+
+/* No comment provided by engineer. */
+"Invalid username and\/or password." = "Invalid username and\/or password.";

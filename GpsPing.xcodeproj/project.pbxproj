@@ -99,6 +99,7 @@
 		ABA221501C79E58100AE6F87 /* Geofence.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABA221521C79E58100AE6F87 /* Geofence.storyboard */; };
 		ABA221571C79E59C00AE6F87 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABA221591C79E59C00AE6F87 /* Profile.storyboard */; };
 		ABA221601C79E5AF00AE6F87 /* About.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABA221621C79E5AF00AE6F87 /* About.storyboard */; };
+		ABD8BAE01C7F5B350075670C /* Errors.strings in Resources */ = {isa = PBXBuildFile; fileRef = ABD8BAE21C7F5B350075670C /* Errors.strings */; };
 		ABE7C7251C784500008A6390 /* ASPointOfInterestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ABE7C7241C784500008A6390 /* ASPointOfInterestModel.m */; };
 		ABE7C7281C78CB76008A6390 /* ASPointOfInterestAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = ABE7C7271C78CB76008A6390 /* ASPointOfInterestAnnotation.m */; };
 /* End PBXBuildFile section */
@@ -295,6 +296,9 @@
 		ABA221611C79E5AF00AE6F87 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/About.storyboard; sourceTree = "<group>"; };
 		ABA221641C79E5B400AE6F87 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/About.strings; sourceTree = "<group>"; };
 		ABA221661C79E5BB00AE6F87 /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/About.strings; sourceTree = "<group>"; };
+		ABD8BAE11C7F5B350075670C /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/Errors.strings; sourceTree = "<group>"; };
+		ABD8BAE31C7F5B910075670C /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Errors.strings; sourceTree = "<group>"; };
+		ABD8BAE41C7F5B930075670C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Errors.strings; sourceTree = "<group>"; };
 		ABE7C7231C784500008A6390 /* ASPointOfInterestModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASPointOfInterestModel.h; sourceTree = "<group>"; };
 		ABE7C7241C784500008A6390 /* ASPointOfInterestModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASPointOfInterestModel.m; sourceTree = "<group>"; };
 		ABE7C7261C78CB76008A6390 /* ASPointOfInterestAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASPointOfInterestAnnotation.h; sourceTree = "<group>"; };
@@ -435,6 +439,7 @@
 			isa = PBXGroup;
 			children = (
 				A68C1B321C4CE460000E2BA6 /* main.m */,
+				ABD8BAE21C7F5B350075670C /* Errors.strings */,
 				ABA2211E1C79DF4000AE6F87 /* Localizable.strings */,
 			);
 			name = "Supporting Files";
@@ -796,6 +801,7 @@
 				A68C1B7C1C4D24DC000E2BA6 /* Roboto-CondensedItalic.ttf in Resources */,
 				AB60B7401C7F2EE2003CF277 /* InfoPlist.strings in Resources */,
 				A68C1B7D1C4D24DC000E2BA6 /* Roboto-Italic.ttf in Resources */,
+				ABD8BAE01C7F5B350075670C /* Errors.strings in Resources */,
 				A68C1B7F1C4D24DC000E2BA6 /* Roboto-LightItalic.ttf in Resources */,
 				A68C1B7A1C4D24DC000E2BA6 /* Roboto-BoldItalic.ttf in Resources */,
 				A68C1B411C4CE460000E2BA6 /* LaunchScreen.storyboard in Resources */,
@@ -1132,6 +1138,16 @@
 			name = About.storyboard;
 			sourceTree = "<group>";
 		};
+		ABD8BAE21C7F5B350075670C /* Errors.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ABD8BAE11C7F5B350075670C /* nb */,
+				ABD8BAE31C7F5B910075670C /* Base */,
+				ABD8BAE41C7F5B930075670C /* en */,
+			);
+			name = Errors.strings;
+			sourceTree = "<group>";
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -1229,7 +1245,7 @@
 				INFOPLIST_FILE = GpsPing/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.appgranula.GpsPing;
+				PRODUCT_BUNDLE_IDENTIFIER = com.appgranula.GpsPing2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -1249,7 +1265,7 @@
 				INFOPLIST_FILE = GpsPing/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.appgranula.GpsPing;
+				PRODUCT_BUNDLE_IDENTIFIER = com.appgranula.GpsPing2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
