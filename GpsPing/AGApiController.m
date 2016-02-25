@@ -134,7 +134,11 @@ objection_initializer(initWithConfiguration:);
                     return [RACSignal return:nil];
                 }
                 
-                return [self registerForPushes];
+                [[self registerForPushes] subscribeNext:^(id x) {
+                    ;
+                }];
+                
+                return [RACSignal return:value];
             }];
 }
 
