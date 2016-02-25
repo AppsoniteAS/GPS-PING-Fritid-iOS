@@ -1,12 +1,11 @@
-
 /* Class = "UIButton"; normalTitle = "Start"; ObjectID = "4ti-tr-e0g"; */
 "4ti-tr-e0g.normalTitle" = "Start";
 
 /* Class = "UILabel"; text = "Remember to turn off geofence when stopping."; ObjectID = "L0T-3l-8BW"; */
-"L0T-3l-8BW.text" = "Remember to turn off geofence when stopping.";
+"L0T-3l-8BW.text" = "Husk å slå av Geofence når du stopper trackeren.";
 
 /* Class = "UILabel"; text = "Phone Number"; ObjectID = "MbG-EZ-2XQ"; */
-"MbG-EZ-2XQ.text" = "Phone Number";
+"MbG-EZ-2XQ.text" = "Mobile number";
 
 /* Class = "UINavigationItem"; title = "Geofence"; ObjectID = "hEy-wP-Rqq"; */
 "hEy-wP-Rqq.title" = "Geofence";
@@ -15,4 +14,5 @@
 "tUB-pA-yZA.text" = "Yards";
 
 /* Class = "UILabel"; text = "Input number of yards in diameter for geofence."; ObjectID = "vrk-BT-mnp"; */
-"vrk-BT-mnp.text" = "Input number of yards in diameter for geofence.";
+"vrk-BT-mnp.text" = "Legg inn antall meter i diameter for geofence område";
+

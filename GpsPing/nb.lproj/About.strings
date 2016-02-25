@@ -1,21 +1,18 @@
-
 /* Class = "UIButton"; normalTitle = "Contact Us"; ObjectID = "0lh-iO-07F"; */
-"0lh-iO-07F.normalTitle" = "Contact Us";
+"0lh-iO-07F.normalTitle" = "Kontakt Oss";
 
 /* Class = "UIButton"; normalTitle = "Visit Website"; ObjectID = "JFv-af-IZM"; */
-"JFv-af-IZM.normalTitle" = "Visit Website";
+"JFv-af-IZM.normalTitle" = "Besøk Webside";
 
 /* Class = "UIButton"; normalTitle = "About Us"; ObjectID = "MXm-WI-p3w"; */
-"MXm-WI-p3w.normalTitle" = "About Us";
+"MXm-WI-p3w.normalTitle" = "Om Oss";
 
 /* Class = "UIViewController"; title = "About"; ObjectID = "UbW-fB-OPx"; */
-"UbW-fB-OPx.title" = "About";
-
-/* Class = "UILabel"; text = "You can order Tracker using Contact Us button"; ObjectID = "Uyg-CH-3xf"; */
-"Uyg-CH-3xf.text" = "You can order Tracker using Contact Us button";
+"UbW-fB-OPx.title" = "Om";
 
 /* Class = "UINavigationItem"; title = "About"; ObjectID = "etW-K0-K0w"; */
-"etW-K0-K0w.title" = "About";
+"etW-K0-K0w.title" = "Om";
 
 /* Class = "UILabel"; text = "About Us"; ObjectID = "yt0-yU-QTl"; */
-"yt0-yU-QTl.text" = "About Us";
+"yt0-yU-QTl.text" = "Om Oss";
+

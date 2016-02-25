@@ -1,12 +1,11 @@
-
 /* Class = "UILabel"; text = "Lon"; ObjectID = "0hE-Lw-AMO"; */
 "0hE-Lw-AMO.text" = "Lon";
 
 /* Class = "UINavigationItem"; title = "Map"; ObjectID = "1ed-VU-bE2"; */
-"1ed-VU-bE2.title" = "Map";
+"1ed-VU-bE2.title" = "Kart";
 
 /* Class = "UIButton"; normalTitle = "Photo"; ObjectID = "5cb-FP-WT6"; */
-"5cb-FP-WT6.normalTitle" = "Photo";
+"5cb-FP-WT6.normalTitle" = "Foto";
 
 /* Class = "UILabel"; text = "GRSM"; ObjectID = "7WU-3t-juJ"; */
 "7WU-3t-juJ.text" = "GRSM";
@@ -21,31 +20,31 @@
 "Cly-MA-Pa7.text" = "Lat";
 
 /* Class = "UILabel"; text = "Tracker Number:"; ObjectID = "IM6-GA-TKR"; */
-"IM6-GA-TKR.text" = "Tracker Number:";
+"IM6-GA-TKR.text" = "Tracker Nummer:";
 
 /* Class = "UILabel"; text = "3"; ObjectID = "IYc-b2-PSW"; */
 "IYc-b2-PSW.text" = "3";
 
 /* Class = "UILabel"; text = "Owner:"; ObjectID = "Laz-LX-8xG"; */
-"Laz-LX-8xG.text" = "Owner:";
+"Laz-LX-8xG.text" = "Eier:";
 
 /* Class = "UILabel"; text = "Lon"; ObjectID = "LlE-0d-HeU"; */
 "LlE-0d-HeU.text" = "Lon";
 
 /* Class = "UILabel"; text = "IMEI Number:"; ObjectID = "MrX-Y2-fnz"; */
-"MrX-Y2-fnz.text" = "IMEI Number:";
+"MrX-Y2-fnz.text" = "IMEI Nummer:";
 
 /* Class = "UITextField"; text = "All"; ObjectID = "RGG-T8-o5l"; */
-"RGG-T8-o5l.text" = "All";
+"RGG-T8-o5l.text" = "Alle";
 
 /* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "Reb-Vd-InL"; */
-"Reb-Vd-InL.title" = "Item";
+"Reb-Vd-InL.title" = "Enhet";
 
 /* Class = "UILabel"; text = "Joe"; ObjectID = "Vqg-bM-nuj"; */
 "Vqg-bM-nuj.text" = "Joe";
 
 /* Class = "UISegmentedControl"; crt-P2-2iW.segmentTitles[0] = "Satellite"; ObjectID = "crt-P2-2iW"; */
-"crt-P2-2iW.segmentTitles[0]" = "Satellite";
+"crt-P2-2iW.segmentTitles[0]" = "Satelitt";
 
 /* Class = "UISegmentedControl"; crt-P2-2iW.segmentTitles[1] = "Standard"; ObjectID = "crt-P2-2iW"; */
 "crt-P2-2iW.segmentTitles[1]" = "Standard";
@@ -57,7 +56,8 @@
 "eP4-0M-Hrw.text" = "Paul Chelly";
 
 /* Class = "UILabel"; text = "Log Time:"; ObjectID = "gkt-CM-wsG"; */
-"gkt-CM-wsG.text" = "Log Time:";
+"gkt-CM-wsG.text" = "Log Tid:";
 
 /* Class = "UILabel"; text = "km"; ObjectID = "sB5-ze-bMx"; */
 "sB5-ze-bMx.text" = "km";
+

@@ -1,33 +1,33 @@
-
 /* Class = "UILabel"; text = "Email"; ObjectID = "2CF-wy-zJa"; */
-"2CF-wy-zJa.text" = "Email";
+"2CF-wy-zJa.text" = "Epost";
 
 /* Class = "UILabel"; text = "Login"; ObjectID = "4Lf-GL-fbP"; */
-"4Lf-GL-fbP.text" = "Login";
+"4Lf-GL-fbP.text" = "Logg inn";
 
 /* Class = "UIButton"; normalTitle = "Login"; ObjectID = "7a1-CO-ILS"; */
-"7a1-CO-ILS.normalTitle" = "Login";
+"7a1-CO-ILS.normalTitle" = "Logg inn";
 
 /* Class = "UILabel"; text = "Confirm Password"; ObjectID = "DqP-GK-hYC"; */
-"DqP-GK-hYC.text" = "Confirm Password";
+"DqP-GK-hYC.text" = "Bekreft Passord";
 
 /* Class = "UINavigationItem"; title = "Register"; ObjectID = "MdX-Bd-4uL"; */
-"MdX-Bd-4uL.title" = "Register";
+"MdX-Bd-4uL.title" = "Registrer";
 
 /* Class = "UIButton"; normalTitle = "Login"; ObjectID = "QJ3-OB-xJO"; */
-"QJ3-OB-xJO.normalTitle" = "Login";
+"QJ3-OB-xJO.normalTitle" = "Logg inn";
 
 /* Class = "UILabel"; text = "Password"; ObjectID = "a0S-aa-Qj9"; */
-"a0S-aa-Qj9.text" = "Password";
+"a0S-aa-Qj9.text" = "Pass ord";
 
 /* Class = "UIButton"; normalTitle = "Register"; ObjectID = "gPk-dc-z6Q"; */
-"gPk-dc-z6Q.normalTitle" = "Register";
+"gPk-dc-z6Q.normalTitle" = "Registrer";
 
 /* Class = "UILabel"; text = "Username"; ObjectID = "hg8-M5-MiD"; */
-"hg8-M5-MiD.text" = "Username";
+"hg8-M5-MiD.text" = "Brukernavn";
 
 /* Class = "UILabel"; text = "Password"; ObjectID = "mfx-1X-Sln"; */
-"mfx-1X-Sln.text" = "Password";
+"mfx-1X-Sln.text" = "Passord";
 
 /* Class = "UILabel"; text = "Username"; ObjectID = "sUN-pf-joA"; */
-"sUN-pf-joA.text" = "Username";
+"sUN-pf-joA.text" = "Brukernavn";
+

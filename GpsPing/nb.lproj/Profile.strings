@@ -1,21 +1,21 @@
-
 /* Class = "UIBarButtonItem"; title = "Logout"; ObjectID = "N34-ff-TKq"; */
-"N34-ff-TKq.title" = "Logout";
+"N34-ff-TKq.title" = "Logg ut";
 
 /* Class = "UINavigationItem"; title = "Settings"; ObjectID = "TzK-Ia-6UW"; */
-"TzK-Ia-6UW.title" = "Settings";
+"TzK-Ia-6UW.title" = "Innstillinger";
 
 /* Class = "UILabel"; text = "Email"; ObjectID = "buM-zW-NuX"; */
-"buM-zW-NuX.text" = "Email";
+"buM-zW-NuX.text" = "Epost";
 
 /* Class = "UILabel"; text = "Username"; ObjectID = "hRx-fF-uGf"; */
-"hRx-fF-uGf.text" = "Username";
+"hRx-fF-uGf.text" = "Brukernavn";
 
 /* Class = "UILabel"; text = "Full Name"; ObjectID = "hdR-f6-V7t"; */
-"hdR-f6-V7t.text" = "Full Name";
+"hdR-f6-V7t.text" = "Navn";
 
 /* Class = "UILabel"; text = "Profile"; ObjectID = "jE1-EO-Rdb"; */
-"jE1-EO-Rdb.text" = "Profile";
+"jE1-EO-Rdb.text" = "Profil";
 
 /* Class = "UIButton"; normalTitle = "Save"; ObjectID = "kAR-F9-vgL"; */
-"kAR-F9-vgL.normalTitle" = "Save";
+"kAR-F9-vgL.normalTitle" = "Lagre";
+
