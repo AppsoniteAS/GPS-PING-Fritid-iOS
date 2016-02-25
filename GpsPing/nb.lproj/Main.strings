@@ -1,9 +1,8 @@
+/* Class = "UIButton"; normalTitle = "History"; ObjectID = "4pR-wg-wkB"; */
+"4pR-wg-wkB.normalTitle" = "Logg";
 
 /* Class = "UIButton"; normalTitle = "STOP"; ObjectID = "43t-vi-idC"; */
-"43t-vi-idC.normalTitle" = "STOP";
-
-/* Class = "UIButton"; normalTitle = "History"; ObjectID = "4pR-wg-wkB"; */
-"4pR-wg-wkB.normalTitle" = "History";
+"43t-vi-idC.normalTitle" = "STOPP";
 
 /* Class = "UILabel"; text = "580009914518"; ObjectID = "BVJ-bU-GKf"; */
 "BVJ-bU-GKf.text" = "580009914518";
@@ -12,7 +11,7 @@
 "GJO-J7-6m3.text" = "Julie";
 
 /* Class = "UILabel"; text = "Active tracker:"; ObjectID = "Ilv-8n-7SK"; */
-"Ilv-8n-7SK.text" = "Active tracker:";
+"Ilv-8n-7SK.text" = "Aktiv tracker:";
 
 /* Class = "UILabel"; text = "Gerald Medina"; ObjectID = "LYi-3d-xdn"; */
 "LYi-3d-xdn.text" = "Gerald Medina";
@@ -21,19 +20,20 @@
 "MXj-IQ-8Vv.text" = "580009914518";
 
 /* Class = "UIButton"; normalTitle = "Settings"; ObjectID = "Sis-JH-hrQ"; */
-"Sis-JH-hrQ.normalTitle" = "Settings";
+"Sis-JH-hrQ.normalTitle" = "Innstillinger";
 
 /* Class = "UILabel"; text = "Select tracker you want to activate:"; ObjectID = "dET-ot-7m2"; */
-"dET-ot-7m2.text" = "Select tracker you want to activate:";
+"dET-ot-7m2.text" = "Velg tracker du vil aktiere:";
 
 /* Class = "UILabel"; text = "IMEI Number:"; ObjectID = "jDt-Le-vQU"; */
-"jDt-Le-vQU.text" = "IMEI Number:";
+"jDt-Le-vQU.text" = "IMEI Nummer:";
 
 /* Class = "UIButton"; normalTitle = "Trackers"; ObjectID = "nif-xG-5z3"; */
-"nif-xG-5z3.normalTitle" = "Trackers";
+"nif-xG-5z3.normalTitle" = "Trackere";
 
 /* Class = "UILabel"; text = "Tracker Number:"; ObjectID = "scO-tD-Y7o"; */
-"scO-tD-Y7o.text" = "Tracker Number:";
+"scO-tD-Y7o.text" = "Tracker Nummer:";
 
 /* Class = "UIButton"; normalTitle = "Map and Tracking"; ObjectID = "tge-DY-bzF"; */
-"tge-DY-bzF.normalTitle" = "Map and Tracking";
+"tge-DY-bzF.normalTitle" = "Kart og Tracking";
+

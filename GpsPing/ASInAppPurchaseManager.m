@@ -100,7 +100,7 @@ static DDLogLevel ddLogLevel = DDLogLevelDebug;
 - (void)paymentQueue:(SKPaymentQueue *)queue updatedTransactions:(NSArray *)transactions{
     for(SKPaymentTransaction *transaction in transactions){
         switch(transaction.transactionState){
-            case SKPaymentTransactionStatePurchasing: NSLog(@"Transaction state -> Purchasing");
+            case SKPaymentTransactionStatePurchasing: DDLogDebug(@"Transaction state -> Purchasing");
                 break;
             case SKPaymentTransactionStatePurchased:
                 [self doSubcribeWithDate:[NSDate date]];

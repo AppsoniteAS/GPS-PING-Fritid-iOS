@@ -71,6 +71,9 @@
 		AB60B7341C7D9CA9003CF277 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB60B7331C7D9CA9003CF277 /* StoreKit.framework */; };
 		AB60B7391C7EBCDB003CF277 /* ASInAppPurchaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AB60B7381C7EBCDB003CF277 /* ASInAppPurchaseManager.m */; };
 		AB60B73C1C7ECED7003CF277 /* ASSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB60B73B1C7ECED7003CF277 /* ASSettingsViewController.m */; };
+		AB60B7401C7F2EE2003CF277 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AB60B7421C7F2EE2003CF277 /* InfoPlist.strings */; };
+		AB60B7451C7F2EE4003CF277 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AB60B7471C7F2EE4003CF277 /* InfoPlist.strings */; };
+		AB60B74A1C7F2EE9003CF277 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AB60B74C1C7F2EE9003CF277 /* InfoPlist.strings */; };
 		AB8946711C4E3372002E86C8 /* ASAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB8946701C4E3372002E86C8 /* ASAboutViewController.m */; };
 		AB8946721C4E3372002E86C8 /* ASAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB8946701C4E3372002E86C8 /* ASAboutViewController.m */; };
 		AB8946731C4E3372002E86C8 /* ASAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB8946701C4E3372002E86C8 /* ASAboutViewController.m */; };
@@ -230,6 +233,9 @@
 		AB60B73A1C7ECED7003CF277 /* ASSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASSettingsViewController.h; sourceTree = "<group>"; };
 		AB60B73B1C7ECED7003CF277 /* ASSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASSettingsViewController.m; sourceTree = "<group>"; };
 		AB60B73D1C7EF2A3003CF277 /* GpsPing.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = GpsPing.entitlements; sourceTree = "<group>"; };
+		AB60B7411C7F2EE2003CF277 /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		AB60B7461C7F2EE4003CF277 /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		AB60B74B1C7F2EE9003CF277 /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		AB89466F1C4E3372002E86C8 /* ASAboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASAboutViewController.h; sourceTree = "<group>"; };
 		AB8946701C4E3372002E86C8 /* ASAboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASAboutViewController.m; sourceTree = "<group>"; };
 		AB8946821C4F31A6002E86C8 /* ASSignInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASSignInViewController.h; sourceTree = "<group>"; };
@@ -407,6 +413,7 @@
 		A68C1B301C4CE460000E2BA6 /* GpsPing */ = {
 			isa = PBXGroup;
 			children = (
+				AB60B7421C7F2EE2003CF277 /* InfoPlist.strings */,
 				AB60B73D1C7EF2A3003CF277 /* GpsPing.entitlements */,
 				A68C1B881C4D2550000E2BA6 /* Tools */,
 				A68C1BA11C4E4798000E2BA6 /* Model */,
@@ -436,6 +443,7 @@
 		A68C1B4A1C4CE461000E2BA6 /* GpsPingTests */ = {
 			isa = PBXGroup;
 			children = (
+				AB60B74C1C7F2EE9003CF277 /* InfoPlist.strings */,
 				A68C1B4B1C4CE461000E2BA6 /* GpsPingTests.m */,
 				A68C1B4D1C4CE461000E2BA6 /* Info.plist */,
 			);
@@ -445,6 +453,7 @@
 		A68C1B551C4CE461000E2BA6 /* GpsPingUITests */ = {
 			isa = PBXGroup;
 			children = (
+				AB60B7471C7F2EE4003CF277 /* InfoPlist.strings */,
 				A68C1B561C4CE461000E2BA6 /* GpsPingUITests.m */,
 				A68C1B581C4CE461000E2BA6 /* Info.plist */,
 			);
@@ -785,6 +794,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A68C1B7C1C4D24DC000E2BA6 /* Roboto-CondensedItalic.ttf in Resources */,
+				AB60B7401C7F2EE2003CF277 /* InfoPlist.strings in Resources */,
 				A68C1B7D1C4D24DC000E2BA6 /* Roboto-Italic.ttf in Resources */,
 				A68C1B7F1C4D24DC000E2BA6 /* Roboto-LightItalic.ttf in Resources */,
 				A68C1B7A1C4D24DC000E2BA6 /* Roboto-BoldItalic.ttf in Resources */,
@@ -821,6 +831,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB60B74A1C7F2EE9003CF277 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -828,6 +839,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB60B7451C7F2EE4003CF277 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -994,6 +1006,30 @@
 				ABA2211B1C79DF0F00AE6F87 /* nb */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		AB60B7421C7F2EE2003CF277 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AB60B7411C7F2EE2003CF277 /* nb */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		AB60B7471C7F2EE4003CF277 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AB60B7461C7F2EE4003CF277 /* nb */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		AB60B74C1C7F2EE9003CF277 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AB60B74B1C7F2EE9003CF277 /* nb */,
+			);
+			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 		ABA2211E1C79DF4000AE6F87 /* Localizable.strings */ = {

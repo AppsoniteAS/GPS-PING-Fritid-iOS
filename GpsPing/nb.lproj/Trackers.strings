@@ -1,9 +1,5 @@
-
-/* Class = "UILabel"; text = "Check this for dog in stand"; ObjectID = "0Yv-uA-5f2"; */
-"0Yv-uA-5f2.text" = "Check this for dog in stand";
-
 /* Class = "UINavigationItem"; title = "Add Tracker"; ObjectID = "4bQ-sI-qb3"; */
-"4bQ-sI-qb3.title" = "Add Tracker";
+"4bQ-sI-qb3.title" = "Legg til Tracker";
 
 /* Class = "UILabel"; text = "Julie"; ObjectID = "7Lp-uA-TJo"; */
 "7Lp-uA-TJo.text" = "Julie";
@@ -18,19 +14,19 @@
 "Iem-dQ-Ist.text" = "580009914518";
 
 /* Class = "UINavigationItem"; title = "Add Tracker"; ObjectID = "JPy-tP-fdw"; */
-"JPy-tP-fdw.title" = "Add Tracker";
+"JPy-tP-fdw.title" = "Legg til Tracker";
 
 /* Class = "UILabel"; text = "Name"; ObjectID = "MyG-bm-dAR"; */
-"MyG-bm-dAR.text" = "Name";
+"MyG-bm-dAR.text" = "Navn";
 
 /* Class = "UINavigationItem"; title = "Trackers"; ObjectID = "OdB-Mn-RO6"; */
-"OdB-Mn-RO6.title" = "Trackers";
+"OdB-Mn-RO6.title" = "Trackere";
 
 /* Class = "UIButton"; normalTitle = "Add Tracker"; ObjectID = "ggc-8a-Zg5"; */
-"ggc-8a-Zg5.normalTitle" = "Add Tracker";
+"ggc-8a-Zg5.normalTitle" = "Legg til Tracker";
 
 /* Class = "UILabel"; text = "Receive signal every"; ObjectID = "hPa-Wg-VAs"; */
-"hPa-Wg-VAs.text" = "Receive signal every";
+"hPa-Wg-VAs.text" = "Motta signal hvert";
 
 /* Class = "UILabel"; text = "IMEI Number"; ObjectID = "iH4-Dh-4hp"; */
 "iH4-Dh-4hp.text" = "IMEI Number";
@@ -39,19 +35,20 @@
 "mpt-oe-aQ3.text" = "10";
 
 /* Class = "UILabel"; text = "Tracker Number:"; ObjectID = "pu3-bz-ZPE"; */
-"pu3-bz-ZPE.text" = "Tracker Number:";
+"pu3-bz-ZPE.text" = "Tracker Nummer:";
 
 /* Class = "UILabel"; text = "IMEI Number:"; ObjectID = "vX0-lZ-iHN"; */
-"vX0-lZ-iHN.text" = "IMEI Number:";
+"vX0-lZ-iHN.text" = "IMEI Nummer:";
 
 /* Class = "UILabel"; text = "Choose Tracker"; ObjectID = "vbT-Tb-8zB"; */
-"vbT-Tb-8zB.text" = "Choose Tracker";
+"vbT-Tb-8zB.text" = "Velg Tracker";
 
 /* Class = "UITextField"; text = "Seconds"; ObjectID = "vts-FO-xyh"; */
-"vts-FO-xyh.text" = "Seconds";
+"vts-FO-xyh.text" = "Sekunder";
 
 /* Class = "UILabel"; text = "Tracker"; ObjectID = "whp-G2-2Il"; */
 "whp-G2-2Il.text" = "Tracker";
 
 /* Class = "UILabel"; text = "Tracker Number"; ObjectID = "yCS-85-M1M"; */
-"yCS-85-M1M.text" = "Tracker Number";
+"yCS-85-M1M.text" = "Tracker Nummer";
+
