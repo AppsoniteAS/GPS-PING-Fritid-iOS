@@ -19,7 +19,7 @@
 #import <CocoaLumberjack/CocoaLumberjack.h>
 static const DDLogLevel ddLogLevel = DDLogLevelVerbose;
 
-//#define BASE_URL_PRODUCTION @"http://109.120.158.225/"
+#define BASE_URL_PRODUCTION @"https://fritid.gpsping.no/api"
 #define BASE_URL_LOCAL      @"http://appgranula.mooo.com/api/"
 //#define BASE_URL_LOCAL      @"http://192.168.139.201/api/"
 
@@ -254,7 +254,7 @@ objection_initializer(initWithConfiguration:);
 {
     DDLogDebug(@"%s", __PRETTY_FUNCTION__);
     return [[self performHttpRequestWithAttempts:@"GET"
-                                        resource:@"poi/get"
+                                        resource:@"poi/get/"
                                       parameters:[self addAuthParamsByUpdatingParams:@{}]] flattenMap:^RACStream *(id value) {
         DDLogDebug(@"%@", value);
         NSError *error;
