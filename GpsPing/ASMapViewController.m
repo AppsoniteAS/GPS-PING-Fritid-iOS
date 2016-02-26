@@ -68,6 +68,14 @@ objection_requires(@keypath(ASMapViewController.new, apiController))
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc]      initWithTarget:self action:@selector(handleLongPress:)];
+    longPress.minimumPressDuration = 0.5;
+    longPress.numberOfTapsRequired = 0;
+    self.mapView.userInteractionEnabled = YES;
+    
+    [self.mapView addGestureRecognizer:longPress];
+    
     [[JSObjection defaultInjector] injectDependencies:self];
     self.isFirstLaunch = YES;
     [self configFilter];
