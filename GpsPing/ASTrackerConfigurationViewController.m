@@ -104,6 +104,8 @@ objection_requires(@keypath(ASTrackerConfigurationViewController.new, apiControl
     self.ratePicker.backgroundColor = [UIColor whiteColor];
     self.ratePicker.delegate = self;
     self.ratePicker.dataSource = self;
+    [self.ratePicker selectRow:5 inComponent:0 animated:NO];
+    
     self.signalRateTextField.inputView = self.ratePicker;
     UIToolbar *accessoryView = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, self.ratePicker.frame.size.width, 44)];
     accessoryView.barStyle = UIBarStyleDefault;
