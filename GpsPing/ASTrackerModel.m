@@ -187,7 +187,7 @@ NSString* const kASIsRunning               = @"isRunning";
 
 -(RACSignal*)getSmsTextsForActivation {
     return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
-        struct hostent *host_entry = gethostbyname("fritid.gpsping.no/");
+        struct hostent *host_entry = gethostbyname("fritid.gpsping.no");
         char *buff;
         buff = inet_ntoa(*((struct in_addr *)host_entry->h_addr_list[0]));
         if (buff == NULL) {

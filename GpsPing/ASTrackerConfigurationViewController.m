@@ -25,11 +25,13 @@ static const DDLogLevel ddLogLevel = DDLogLevelVerbose;
 @property (weak, nonatomic) IBOutlet UITextField *trackerNumberTextField;
 @property (weak, nonatomic) IBOutlet UISwitch *dogInStandSwitcher;
 @property (weak, nonatomic) IBOutlet ASButton *completeButton;
+@property (weak, nonatomic) IBOutlet UIView *editButtonsPanel;
 
 @property (nonatomic) NSString *metricType;
 @property (nonatomic, assign) CGFloat signalRate;
 @property (weak, nonatomic) IBOutlet UITextField *signalRateMetricTextField;
 @property (weak, nonatomic) IBOutlet UITextField *signalRateTextField;
+@property (weak, nonatomic) IBOutlet ASButton *resetButton;
 
 @property (nonatomic) NSArray      *ratePickerData;
 @property (nonatomic) NSArray      *rateMetricPickerData;
@@ -62,7 +64,6 @@ objection_requires(@keypath(ASTrackerConfigurationViewController.new, apiControl
     
     if (self.shouldShowInEditMode) {
         self.navigationItem.title = NSLocalizedString(@"Edit Tracker", nil);
-        [self.completeButton setTitle:NSLocalizedString(@"Update", nil) forState:UIControlStateNormal];
         
         if (self.trackerObject.trackerName) {
             self.nameTextField.text = self.trackerObject.trackerName;
@@ -74,13 +75,28 @@ objection_requires(@keypath(ASTrackerConfigurationViewController.new, apiControl
         self.signalRateMetricTextField.text = self.trackerObject.signalRateMetric;
         [self.dogInStandSwitcher setOn:self.trackerObject.dogInStand];
     }
-    
 
     [self configPickers];
     
     NSString *newTitle = NSLocalizedString(@"Activation: step %ld", nil);
     [self.completeButton setTitle:[NSString stringWithFormat:newTitle, (long)self.smsCount + 1]
                          forState:UIControlStateNormal];
+    
+    NSString *newResetTitle = NSLocalizedString(@"Reset: step %ld", nil);
+    [self.resetButton setTitle:[NSString stringWithFormat:newResetTitle, (long)self.smsCount + 1]
+                         forState:UIControlStateNormal];
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    self.editButtonsPanel.hidden = !self.shouldShowInEditMode;
+    self.completeButton.hidden   = self.shouldShowInEditMode;
+    [self jps_viewWillAppear:animated];
+    [self.outerWrapperView mas_makeConstraints:^
+     (MASConstraintMaker *make) {
+         make.bottom.equalTo(self.keyboardLayoutGuide);
+     }];
 }
 
 -(void)configPickers {
@@ -110,15 +126,6 @@ objection_requires(@keypath(ASTrackerConfigurationViewController.new, apiControl
 {
     [self.signalRateMetricTextField resignFirstResponder];
     [self.signalRateTextField resignFirstResponder];
-}
-
--(void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    [self jps_viewWillAppear:animated];
-    [self.outerWrapperView mas_makeConstraints:^
-     (MASConstraintMaker *make) {
-         make.bottom.equalTo(self.keyboardLayoutGuide);
-     }];
 }
 
 -(void)viewDidDisappear:(BOOL)animated {
@@ -179,18 +186,11 @@ objection_requires(@keypath(ASTrackerConfigurationViewController.new, apiControl
         self.trackerObject.signalRateMetric = @"m";
     }
   
-    if (self.shouldShowInEditMode) {
-        [self.trackerObject saveInUserDefaults];
-        CGFloat repeatTime = [self.trackerObject.signalRateMetric isEqualToString:kASSignalMetricTypeSeconds] ?
-        self.trackerObject.signalRate : self.trackerObject.signalRate * 60;
-        [[self.apiController updateTracker:self.trackerObject.trackerName
-                                 trackerId:self.trackerObject.imeiNumber
-                                repeatTime:repeatTime
-                             checkForStand:self.trackerObject.dogInStand] subscribeNext:^(id x) {
-            DDLogDebug(@"Tracker updated!");
-            [self dismissViewControllerAnimated:YES completion:nil];
-        }];
-    } else if (!self.smsesForActivation) {
+    [self sendSmses];
+}
+
+-(void)sendSmses {
+    if (!self.smsesForActivation) {
         [[self.trackerObject getSmsTextsForActivation] subscribeNext:^(id x) {
             self.smsesForActivation = x;
             [self checkSmsCount];
@@ -202,9 +202,30 @@ objection_requires(@keypath(ASTrackerConfigurationViewController.new, apiControl
     }
 }
 
+- (IBAction)updateButtonTap:(id)sender {
+    [self.trackerObject saveInUserDefaults];
+    CGFloat repeatTime = [self.trackerObject.signalRateMetric isEqualToString:kASSignalMetricTypeSeconds] ?
+    self.trackerObject.signalRate : self.trackerObject.signalRate * 60;
+    [[self.apiController updateTracker:self.trackerObject.trackerName
+                             trackerId:self.trackerObject.imeiNumber
+                            repeatTime:repeatTime
+                         checkForStand:self.trackerObject.dogInStand] subscribeNext:^(id x) {
+        DDLogDebug(@"Tracker updated!");
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }];
+}
+
+- (IBAction)resetButtonTap:(id)sender {
+    [self sendSmses];
+}
+
 -(void)checkSmsCount{
     if (self.smsCount == self.smsesForActivation.count) {
-//    } else {
+        if (self.shouldShowInEditMode) {
+            [self dismissViewControllerAnimated:YES completion:nil];
+            return;
+        }
+        
         CGFloat repeatTime = [self.trackerObject.signalRateMetric isEqualToString:kASSignalMetricTypeSeconds] ?
         self.trackerObject.signalRate : self.trackerObject.signalRate * 60;
         [[self.apiController addTracker:self.trackerObject.trackerName
@@ -219,7 +240,6 @@ objection_requires(@keypath(ASTrackerConfigurationViewController.new, apiControl
         } error:^(NSError *error) {
             [[UIAlertView alertWithTitle:NSLocalizedString(@"Error", nil) error:error] show];
         }];
-//    }
     } else {
         [self as_sendSMS:self.smsesForActivation[self.smsCount]
            recipient:self.trackerObject.trackerNumber];
@@ -229,15 +249,36 @@ objection_requires(@keypath(ASTrackerConfigurationViewController.new, apiControl
 -(void)smsManagerMessageWasSentWithResult:(MessageComposeResult)result
 {
     self.smsCount++;
+    
+    if (self.shouldShowInEditMode) {
+        [self.resetButton setTitle:[self newTitleForReset:self.smsCount]
+                             forState:UIControlStateNormal];
+    } else {
+        [self.completeButton setTitle:[self newTitleForActivation:self.smsCount]
+                             forState:UIControlStateNormal];
+    }
+}
+
+-(NSString *)newTitleForReset:(NSInteger)smsCount {
     NSString *newTitle;
-    if (self.smsCount == self.smsesForActivation.count) {
+    if (smsCount == self.smsesForActivation.count) {
+        newTitle = NSLocalizedString(@"Finish reset", nil);
+    } else {
+        newTitle = [NSString stringWithFormat:NSLocalizedString(@"Reset: step %ld", nil), (long)self.smsCount + 1];
+    }
+    
+    return newTitle;
+}
+
+-(NSString *)newTitleForActivation:(NSInteger)smsCount {
+    NSString *newTitle;
+    if (smsCount == self.smsesForActivation.count) {
         newTitle = NSLocalizedString(@"Finish activation", nil);
     } else {
         newTitle = [NSString stringWithFormat:NSLocalizedString(@"Activation: step %ld", nil), (long)self.smsCount + 1];
     }
     
-    [self.completeButton setTitle:newTitle
-                         forState:UIControlStateNormal];
+    return newTitle;
 }
 
 - (IBAction)cancelButtonTap:(id)sender {

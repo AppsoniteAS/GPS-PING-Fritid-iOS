@@ -13,7 +13,7 @@
 
 static DDLogLevel ddLogLevel = DDLogLevelDebug;
 
-#define kYearlySubscriptionProductIdentifier @"Yearly_subscription"
+#define kYearlySubscriptionProductIdentifier @"Monthly_Sub"
 
 @interface ASInAppPurchaseManager() <SKProductsRequestDelegate, SKPaymentTransactionObserver>
 
