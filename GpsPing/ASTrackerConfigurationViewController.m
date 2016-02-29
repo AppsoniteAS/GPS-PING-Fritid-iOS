@@ -132,9 +132,9 @@ objection_requires(@keypath(ASTrackerConfigurationViewController.new, apiControl
 -(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
     if (pickerView == self.ratePicker) {
-        self.signalRateTextField.text = self.ratePickerData[row];
+        self.signalRateTextField.text = NSLocalizedString(self.ratePickerData[row], nil);
     } else {
-        self.signalRateMetricTextField.text = self.rateMetricPickerData[row];
+        self.signalRateMetricTextField.text = NSLocalizedString(self.rateMetricPickerData[row], nil);
     }
 }
 
@@ -292,7 +292,7 @@ objection_requires(@keypath(ASTrackerConfigurationViewController.new, apiControl
     self.signalRateMetricTextField.inputAccessoryView = accessoryView;
     
     self.signalRateTextField.text = [NSString stringWithFormat:@"%ld", (long)self.trackerObject.signalRate];
-    self.signalRateMetricTextField.text = self.trackerObject.signalRateMetric;
+    self.signalRateMetricTextField.text = NSLocalizedString(self.trackerObject.signalRateMetric, nil);
 }
 
 -(void)doneTapped:(id)sender
