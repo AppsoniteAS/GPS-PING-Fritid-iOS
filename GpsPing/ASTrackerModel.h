@@ -31,7 +31,7 @@ static NSString * const kASUserDefaultsTrackersKey   = @"kASUserDefaultsTrackers
 @property (nonatomic, assign) BOOL      dogInStand;
 @property (nonatomic, assign) NSInteger signalRate;
 @property (nonatomic        ) NSNumber  *signalRateInSeconds;
-@property (nonatomic, assign) NSString  *signalRateMetric;
+@property (nonatomic,       ) NSString  *signalRateMetric;
 
 +(instancetype)initTrackerWithName:(NSString *)name
                             number:(NSString *)number

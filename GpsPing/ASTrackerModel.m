@@ -41,7 +41,7 @@ NSString* const kASIsRunning               = @"isRunning";
     model.trackerNumber = number;
     model.trackerType = type;
     model.isChoosed = isChoosed;
-    model.signalRate = 50;
+    model.signalRate = 60;
     model.signalRateMetric = kASSignalMetricTypeSeconds;
     model.isRunning = isRunning;
     return model;

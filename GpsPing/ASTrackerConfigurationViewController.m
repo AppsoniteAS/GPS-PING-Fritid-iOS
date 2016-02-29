@@ -55,13 +55,13 @@ objection_requires(@keypath(ASTrackerConfigurationViewController.new, apiControl
     return [[UIStoryboard trackerStoryboard] instantiateViewControllerWithIdentifier:NSStringFromClass([ASTrackerConfigurationViewController class])];
 }
 
+#pragma mark - UIViewController methods
+
 -(void)viewDidLoad {
     [super viewDidLoad];
     [[JSObjection defaultInjector] injectDependencies:self];
     [self jps_viewDidLoad];
-    self.ratePickerData = @[@"1", @"2", @"3", @"5", @"7", @"10", @"20", @"30", @"40", @"50", @"60"];
-    self.rateMetricPickerData = @[@"Seconds", @"Minutes"];
-    
+
     if (self.shouldShowInEditMode) {
         self.navigationItem.title = NSLocalizedString(@"Edit Tracker", nil);
         
@@ -71,8 +71,7 @@ objection_requires(@keypath(ASTrackerConfigurationViewController.new, apiControl
         
         self.trackerNumberTextField.text = self.trackerObject.trackerNumber;
         self.imeiTextField.text = self.trackerObject.imeiNumber;
-        self.signalRateTextField.text = [NSString stringWithFormat:@"%ld", (long)self.trackerObject.signalRate];
-        self.signalRateMetricTextField.text = self.trackerObject.signalRateMetric;
+
         [self.dogInStandSwitcher setOn:self.trackerObject.dogInStand];
     }
 
@@ -99,41 +98,14 @@ objection_requires(@keypath(ASTrackerConfigurationViewController.new, apiControl
      }];
 }
 
--(void)configPickers {
-    self.ratePicker = [[UIPickerView alloc] init];
-    self.ratePicker.backgroundColor = [UIColor whiteColor];
-    self.ratePicker.delegate = self;
-    self.ratePicker.dataSource = self;
-    [self.ratePicker selectRow:5 inComponent:0 animated:NO];
-    
-    self.signalRateTextField.inputView = self.ratePicker;
-    UIToolbar *accessoryView = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, self.ratePicker.frame.size.width, 44)];
-    accessoryView.barStyle = UIBarStyleDefault;
-    
-    UIBarButtonItem *space = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
-    
-    UIBarButtonItem *done = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(doneTapped:)];
-    
-    accessoryView.items = [NSArray arrayWithObjects:space,done, nil];
-    self.signalRateTextField.inputAccessoryView = accessoryView;
-    
-    self.rateMetricPicker = [[UIPickerView alloc] init];
-    self.rateMetricPicker.delegate = self;
-    self.rateMetricPicker.dataSource = self;
-    self.signalRateMetricTextField.inputView = self.rateMetricPicker;
-    self.signalRateMetricTextField.inputAccessoryView = accessoryView;
-}
-
--(void)doneTapped:(id)sender
-{
-    [self.signalRateMetricTextField resignFirstResponder];
-    [self.signalRateTextField resignFirstResponder];
-}
-
 -(void)viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear:animated];
     [self jps_viewDidDisappear:animated];
 }
+
+
+
+#pragma mark - UIPickerView delegate & datasource
 
 -(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
     return  1;
@@ -153,7 +125,7 @@ objection_requires(@keypath(ASTrackerConfigurationViewController.new, apiControl
     if (pickerView == self.ratePicker) {
         return self.ratePickerData[row];
     } else {
-        return self.rateMetricPickerData[row];
+        return NSLocalizedString(self.rateMetricPickerData[row], nil);
     }
 }
 
@@ -166,30 +138,47 @@ objection_requires(@keypath(ASTrackerConfigurationViewController.new, apiControl
     }
 }
 
+#pragma mark - UITextField Delegate
+
 -(BOOL)textFieldShouldReturn:(UITextField *)textField
 {
     [textField resignFirstResponder];
     return YES;
 }
 
+#pragma mark - IBActions
+
 - (IBAction)dogInStandValueChanged:(UISwitch *)sender {
 }
 
 - (IBAction)addTrackerTap:(id)sender {
-    self.trackerObject.trackerName      = self.nameTextField.text;
-    self.trackerObject.imeiNumber       = self.imeiTextField.text;
-    self.trackerObject.trackerNumber    = self.trackerNumberTextField.text;
-    self.trackerObject.isChoosed        = NO;
-    self.trackerObject.dogInStand       = self.dogInStandSwitcher.isOn;
-    self.trackerObject.signalRate       = self.signalRateTextField.text.integerValue;
-    if ([self.signalRateTextField.text isEqualToString:self.rateMetricPickerData[0]]) {
-        self.trackerObject.signalRateMetric = @"s";
-    } else {
-        self.trackerObject.signalRateMetric = @"m";
-    }
-  
+    [self updateTrackerObject];
     [self sendSmses];
 }
+
+- (IBAction)updateButtonTap:(id)sender {
+    [self updateTrackerObject];
+    [self.trackerObject saveInUserDefaults];
+    CGFloat repeatTime = self.trackerObject.signalRateInSeconds.integerValue;
+    [[self.apiController updateTracker:self.trackerObject.trackerName
+                             trackerId:self.trackerObject.imeiNumber
+                            repeatTime:repeatTime
+                         checkForStand:self.trackerObject.dogInStand] subscribeNext:^(id x) {
+        DDLogDebug(@"Tracker updated!");
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }];
+}
+
+- (IBAction)resetButtonTap:(id)sender {
+    [self sendSmses];
+}
+
+
+- (IBAction)cancelButtonTap:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+#pragma mark - SMS stuff
 
 -(void)sendSmses {
     if (!self.smsesForActivation) {
@@ -202,23 +191,6 @@ objection_requires(@keypath(ASTrackerConfigurationViewController.new, apiControl
     } else {
         [self checkSmsCount];
     }
-}
-
-- (IBAction)updateButtonTap:(id)sender {
-    [self.trackerObject saveInUserDefaults];
-    CGFloat repeatTime = [self.trackerObject.signalRateMetric isEqualToString:kASSignalMetricTypeSeconds] ?
-    self.trackerObject.signalRate : self.trackerObject.signalRate * 60;
-    [[self.apiController updateTracker:self.trackerObject.trackerName
-                             trackerId:self.trackerObject.imeiNumber
-                            repeatTime:repeatTime
-                         checkForStand:self.trackerObject.dogInStand] subscribeNext:^(id x) {
-        DDLogDebug(@"Tracker updated!");
-        [self dismissViewControllerAnimated:YES completion:nil];
-    }];
-}
-
-- (IBAction)resetButtonTap:(id)sender {
-    [self sendSmses];
 }
 
 -(void)checkSmsCount{
@@ -283,8 +255,63 @@ objection_requires(@keypath(ASTrackerConfigurationViewController.new, apiControl
     return newTitle;
 }
 
-- (IBAction)cancelButtonTap:(id)sender {
-    [self dismissViewControllerAnimated:YES completion:nil];
+#pragma mark - Private methods
+
+-(void)configPickers {
+    self.ratePickerData = @[@"1", @"2", @"3", @"5", @"7", @"10", @"20", @"30", @"40", @"50", @"60"];
+    self.rateMetricPickerData = @[kASSignalMetricTypeSeconds, kASSignalMetricTypeMinutes];
+    
+    self.ratePicker = [[UIPickerView alloc] init];
+    self.ratePicker.backgroundColor = [UIColor whiteColor];
+    self.ratePicker.delegate = self;
+    self.ratePicker.dataSource = self;
+
+    NSString *currentSignalRate = [NSString stringWithFormat:@"%ld", self.trackerObject.signalRate];
+    [self.ratePicker selectRow:[self.ratePickerData indexOfObject:currentSignalRate]
+                   inComponent:0
+                      animated:NO];
+    
+    self.signalRateTextField.inputView = self.ratePicker;
+    UIToolbar *accessoryView = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, self.ratePicker.frame.size.width, 44)];
+    accessoryView.barStyle = UIBarStyleDefault;
+    
+    UIBarButtonItem *space = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+    
+    UIBarButtonItem *done = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(doneTapped:)];
+    
+    accessoryView.items = [NSArray arrayWithObjects:space,done, nil];
+    self.signalRateTextField.inputAccessoryView = accessoryView;
+    
+    self.rateMetricPicker = [[UIPickerView alloc] init];
+    self.rateMetricPicker.delegate = self;
+    self.rateMetricPicker.dataSource = self;
+    [self.rateMetricPicker selectRow:[self.rateMetricPickerData indexOfObject:self.trackerObject.signalRateMetric]
+                   inComponent:0
+                      animated:NO];
+    self.signalRateMetricTextField.inputView = self.rateMetricPicker;
+    self.signalRateMetricTextField.inputAccessoryView = accessoryView;
+    
+    self.signalRateTextField.text = [NSString stringWithFormat:@"%ld", (long)self.trackerObject.signalRate];
+    self.signalRateMetricTextField.text = self.trackerObject.signalRateMetric;
+}
+
+-(void)doneTapped:(id)sender
+{
+    [self.signalRateMetricTextField resignFirstResponder];
+    [self.signalRateTextField resignFirstResponder];
+}
+
+-(void)updateTrackerObject {
+    self.trackerObject.trackerName         = self.nameTextField.text;
+    self.trackerObject.imeiNumber          = self.imeiTextField.text;
+    self.trackerObject.trackerNumber       = self.trackerNumberTextField.text;
+    self.trackerObject.isChoosed           = NO;
+    self.trackerObject.dogInStand          = self.dogInStandSwitcher.isOn;
+    if ([self.signalRateMetricTextField.text isEqualToString:self.rateMetricPickerData[0]]) {
+        self.trackerObject.signalRateInSeconds = @(self.signalRateTextField.text.integerValue);
+    } else {
+        self.trackerObject.signalRateInSeconds = @(self.signalRateTextField.text.integerValue * 60);
+    }
 }
 
 @end
