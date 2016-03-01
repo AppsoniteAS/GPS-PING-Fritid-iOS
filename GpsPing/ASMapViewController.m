@@ -119,12 +119,17 @@ objection_requires(@keypath(ASMapViewController.new, apiController))
                                                 selector:@selector(timerTick:)
                                                 userInfo:nil
                                                  repeats:YES];
-    self.timerForTrackQuery = [NSTimer scheduledTimerWithTimeInterval:QUERY_RATE_IN_SECONDS
-                                                               target:self
-                                                             selector:@selector(timerForQueryTick:)
-                                                             userInfo:nil
-                                                              repeats:YES];
-    [self.timerForTrackQuery fire];
+    if (!self.isHistoryMode) {
+        self.timerForTrackQuery = [NSTimer scheduledTimerWithTimeInterval:QUERY_RATE_IN_SECONDS
+                                                                   target:self
+                                                                 selector:@selector(timerForQueryTick:)
+                                                                 userInfo:nil
+                                                                  repeats:YES];
+        [self.timerForTrackQuery fire];
+    } else {
+        [self loadTracks];
+    }
+    
     [self loadPointsOfInterest];
 }
 
@@ -371,6 +376,7 @@ objection_requires(@keypath(ASMapViewController.new, apiController))
 }
 
 -(void)loadTracks {
+// for test
 //    NSDate *from = [NSDate dateWithTimeIntervalSince1970:1410739200];
 //    NSDate *to = [NSDate dateWithTimeIntervalSince1970:1410868800];
     NSDate *from;
