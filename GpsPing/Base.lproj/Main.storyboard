@@ -99,7 +99,7 @@
                                                     <constraint firstAttribute="height" constant="65" id="XQp-ne-4kC"/>
                                                     <constraint firstAttribute="width" constant="200" id="eAF-jm-jLa"/>
                                                 </constraints>
-                                                <state key="normal" title="Trackers">
+                                                <state key="normal" title="Map and Tracking">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <variation key="default">
@@ -108,7 +108,7 @@
                                                     </mask>
                                                 </variation>
                                                 <connections>
-                                                    <segue destination="FsP-AB-cTo" kind="push" id="gir-Tm-wzm"/>
+                                                    <action selector="mapTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Zrv-zl-nFd"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tge-DY-bzF" customClass="ASButton">
@@ -118,7 +118,7 @@
                                                     <constraint firstAttribute="width" constant="200" id="hpj-66-Xjw"/>
                                                     <constraint firstAttribute="height" constant="40" id="rO5-w8-fQa"/>
                                                 </constraints>
-                                                <state key="normal" title="Map and Tracking">
+                                                <state key="normal" title="Trackers">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <variation key="default">
@@ -128,7 +128,7 @@
                                                     </mask>
                                                 </variation>
                                                 <connections>
-                                                    <action selector="mapTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QW2-lB-lgK"/>
+                                                    <segue destination="FsP-AB-cTo" kind="push" id="Qwq-G8-PUR"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4pR-wg-wkB" customClass="ASButton">

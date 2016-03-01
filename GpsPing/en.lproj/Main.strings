@@ -30,10 +30,10 @@
 "jDt-Le-vQU.text" = "IMEI Number:";
 
 /* Class = "UIButton"; normalTitle = "Trackers"; ObjectID = "nif-xG-5z3"; */
-"nif-xG-5z3.normalTitle" = "Trackers";
+"nif-xG-5z3.normalTitle" = "Map and Tracking";
 
 /* Class = "UILabel"; text = "Tracker Number:"; ObjectID = "scO-tD-Y7o"; */
 "scO-tD-Y7o.text" = "Tracker Number:";
 
 /* Class = "UIButton"; normalTitle = "Map and Tracking"; ObjectID = "tge-DY-bzF"; */
-"tge-DY-bzF.normalTitle" = "Map and Tracking";
+"tge-DY-bzF.normalTitle" = "Trackers";

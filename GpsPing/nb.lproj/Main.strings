@@ -29,11 +29,11 @@
 "jDt-Le-vQU.text" = "IMEI Nummer:";
 
 /* Class = "UIButton"; normalTitle = "Trackers"; ObjectID = "nif-xG-5z3"; */
-"nif-xG-5z3.normalTitle" = "Trackere";
+"nif-xG-5z3.normalTitle" = "Kart og Tracking";
 
 /* Class = "UILabel"; text = "Tracker Number:"; ObjectID = "scO-tD-Y7o"; */
 "scO-tD-Y7o.text" = "Tracker Nummer:";
 
 /* Class = "UIButton"; normalTitle = "Map and Tracking"; ObjectID = "tge-DY-bzF"; */
-"tge-DY-bzF.normalTitle" = "Kart og Tracking";
+"tge-DY-bzF.normalTitle" = "Trackere";
 
