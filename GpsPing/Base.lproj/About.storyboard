@@ -220,20 +220,13 @@
                                                 <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="26"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PWd-Fd-8CO">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PWd-Fd-8CO">
                                                 <rect key="frame" x="20" y="71" width="316" height="337"/>
-                                                <attributedString key="attributedText">
-                                                    <fragment>
-                                                        <string key="content">This app lets you see the gps position of a gps tracker. 
+                                                <string key="text">This app lets you see the gps position of a gps tracker. 
 Before you start, go to settings and input the imei number and tracker number.   Select signal interval. Tap save and go back to main menu to start the tracker. 
 Tap Start Tracker to turn the tracker signal on. You will receive a text message back from the tracker when it is sending. You will see the tracker's last position as a green triangle.  Earlier positions are marked with green circle.</string>
-                                                        <attributes>
-                                                            <color key="NSColor" red="0.42745098040000001" green="0.42745098040000001" blue="0.42745098040000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                            <font key="NSFont" size="17" name="HelveticaNeue"/>
-                                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                        </attributes>
-                                                    </fragment>
-                                                </attributedString>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                                <color key="textColor" red="0.42745098040000001" green="0.42745098040000001" blue="0.42745098040000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
