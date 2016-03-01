@@ -8,6 +8,9 @@
 /* Class = "UIButton"; normalTitle = "About Us"; ObjectID = "MXm-WI-p3w"; */
 "MXm-WI-p3w.normalTitle" = "About Us";
 
+/* Class = "UILabel"; text = "This app lets you see the gps position of a gps tracker. \nBefore you start, go to settings and input the imei number and tracker number.   Select signal interval. Tap save and go back to main menu to start the tracker. \nTap Start Tracker to turn the tracker signal on. You will receive a text message back from the tracker when it is sending. You will see the tracker's last position as a green triangle.  Earlier positions are marked with green circle."; ObjectID = "PWd-Fd-8CO"; */
+"PWd-Fd-8CO.text" = "This app lets you see the gps position of a gps tracker. \nBefore you start, go to settings and input the imei number and tracker number.   Select signal interval. Tap save and go back to main menu to start the tracker. \nTap Start Tracker to turn the tracker signal on. You will receive a text message back from the tracker when it is sending. You will see the tracker's last position as a green triangle.  Earlier positions are marked with green circle.";
+
 /* Class = "UIViewController"; title = "About"; ObjectID = "UbW-fB-OPx"; */
 "UbW-fB-OPx.title" = "About";
 

@@ -294,11 +294,11 @@
 		ABA2215B1C79E59F00AE6F87 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Profile.strings; sourceTree = "<group>"; };
 		ABA2215D1C79E5A100AE6F87 /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/Profile.strings; sourceTree = "<group>"; };
 		ABA221611C79E5AF00AE6F87 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/About.storyboard; sourceTree = "<group>"; };
-		ABA221641C79E5B400AE6F87 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/About.strings; sourceTree = "<group>"; };
-		ABA221661C79E5BB00AE6F87 /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/About.strings; sourceTree = "<group>"; };
 		ABD8BAE11C7F5B350075670C /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/Errors.strings; sourceTree = "<group>"; };
 		ABD8BAE31C7F5B910075670C /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Errors.strings; sourceTree = "<group>"; };
 		ABD8BAE41C7F5B930075670C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Errors.strings; sourceTree = "<group>"; };
+		ABD8BB051C85806B0075670C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/About.strings; sourceTree = "<group>"; };
+		ABD8BB071C8580930075670C /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/About.strings; sourceTree = "<group>"; };
 		ABE7C7231C784500008A6390 /* ASPointOfInterestModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASPointOfInterestModel.h; sourceTree = "<group>"; };
 		ABE7C7241C784500008A6390 /* ASPointOfInterestModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASPointOfInterestModel.m; sourceTree = "<group>"; };
 		ABE7C7261C78CB76008A6390 /* ASPointOfInterestAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASPointOfInterestAnnotation.h; sourceTree = "<group>"; };
@@ -1132,8 +1132,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				ABA221611C79E5AF00AE6F87 /* Base */,
-				ABA221641C79E5B400AE6F87 /* en */,
-				ABA221661C79E5BB00AE6F87 /* nb */,
+				ABD8BB051C85806B0075670C /* en */,
+				ABD8BB071C8580930075670C /* nb */,
 			);
 			name = About.storyboard;
 			sourceTree = "<group>";
