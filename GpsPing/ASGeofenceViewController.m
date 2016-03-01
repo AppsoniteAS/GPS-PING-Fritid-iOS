@@ -16,8 +16,8 @@
 
 @property (nonatomic, readonly) ASGeofenceViewModel   *viewModel;
 @property (nonatomic, weak    ) IBOutlet UITextField  *textFieldYards;
-@property (nonatomic, weak    ) IBOutlet UITextField  *textFieldPhoneNumber;
 @property (nonatomic, weak    ) IBOutlet UIButton     *buttonSubmit;
+@property (weak, nonatomic) IBOutlet UILabel *activeTrackerLabel;
 @end
 
 @implementation ASGeofenceViewController 
@@ -26,13 +26,13 @@
     [super viewDidLoad];
     
     [self registerForKeyboardNotifications];
+    self.activeTrackerLabel.text = [ASTrackerModel getChoosedTracker].trackerName;
     
     self->_viewModel = [[ASGeofenceViewModel alloc] init];
+    self.viewModel.yards = [ASTrackerModel getChoosedTracker].geofenceYards;
     
     self.textFieldYards.text      = self.viewModel.yards;
     RAC(self.viewModel, yards)    = self.textFieldYards.rac_textSignal;
-    self.textFieldPhoneNumber.text   = self.viewModel.phoneNumber;
-    RAC(self.viewModel, phoneNumber) = self.textFieldPhoneNumber.rac_textSignal;
     self.buttonSubmit.rac_command = self.viewModel.submit;
     
     [self rac_liftSelector:@selector(doSubmit:)
@@ -41,7 +41,6 @@
                withSignals:self.buttonSubmit.rac_command.errors, nil];
     
     [self updateButton];
-    
 }
 
 -(void)onError:(NSError*)error {
@@ -56,36 +55,29 @@
 #pragma mark - IBActions
 
 -(IBAction)doSubmit:(id)sender {
-    [[NSUserDefaults standardUserDefaults] synchronize];
-    NSNumber *geofenceStatus = [[NSUserDefaults standardUserDefaults] objectForKey:kASGeofenceStatus];
-    [self as_sendSMS:[ASTrackerModel getSmsTextsForGeofenceLaunch:!geofenceStatus.boolValue
-                                                      phoneNumber:self.viewModel.phoneNumber]
-           recipient:self.viewModel.phoneNumber];
+    [self as_sendSMS:[ASTrackerModel getSmsTextsForGeofenceLaunch:!([ASTrackerModel getChoosedTracker].isGeofenceStarted)
+                                                      phoneNumber:[ASTrackerModel getChoosedTracker].trackerNumber]
+           recipient:[ASTrackerModel getChoosedTracker].trackerNumber];
 }
 
 -(void)smsManagerMessageWasSentWithResult:(MessageComposeResult)result
 {
-    NSNumber *geofenceStatus = [[NSUserDefaults standardUserDefaults] objectForKey:kASGeofenceStatus];
+    ASTrackerModel *activeTracker = [ASTrackerModel getChoosedTracker];
+    activeTracker.isGeofenceStarted = !activeTracker.isGeofenceStarted;
     
-    BOOL newValue = !geofenceStatus.boolValue;
-    [[NSUserDefaults standardUserDefaults] setObject:@(newValue) forKey:kASGeofenceStatus];
-    if (newValue) {
-        [[NSUserDefaults standardUserDefaults] setObject:self.viewModel.phoneNumber forKey:kASUserDefaultsKeyGeofencePhoneNumber];
-        [[NSUserDefaults standardUserDefaults] setObject:self.viewModel.yards forKey:kASUserDefaultsKeyGeofenceYards];
+    if (activeTracker.isGeofenceStarted) {
+        activeTracker.geofenceYards = self.viewModel.yards;
     }
     
-    [[NSUserDefaults standardUserDefaults] synchronize];
+    [activeTracker saveInUserDefaults];
     
     [self updateButton];
 }
 
 -(void)updateButton {
-    NSNumber *geofenceStatus = [[NSUserDefaults standardUserDefaults] objectForKey:kASGeofenceStatus];
-    
-    if (geofenceStatus.boolValue) {
+    if ([ASTrackerModel getChoosedTracker].isGeofenceStarted) {
         [self.buttonSubmit setTitle:NSLocalizedString(@"STOP", nil) forState:UIControlStateNormal];
-        self.textFieldPhoneNumber.text = [[NSUserDefaults standardUserDefaults] objectForKey:kASUserDefaultsKeyGeofencePhoneNumber];
-        self.textFieldYards.text = [[NSUserDefaults standardUserDefaults] objectForKey:kASUserDefaultsKeyGeofenceYards];
+        self.textFieldYards.text = [ASTrackerModel getChoosedTracker].geofenceYards;
     } else {
         [self.buttonSubmit setTitle:NSLocalizedString(@"Start", nil) forState:UIControlStateNormal];
     }

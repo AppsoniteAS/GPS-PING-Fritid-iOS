@@ -11,6 +11,5 @@
 
 @interface ASGeofenceViewModel : NSObject
 @property (strong, nonatomic  ) NSString      *yards;
-@property (strong, nonatomic  ) NSString      *phoneNumber;
 @property (readonly, nonatomic) RACCommand    *submit;
 @end

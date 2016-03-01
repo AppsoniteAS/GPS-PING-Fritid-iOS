@@ -9,10 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "ASViewController.h"
 
-static NSString *const kASGeofenceStatus = @"kASGeofenceStatus";
-static NSString *const kASUserDefaultsKeyGeofencePhoneNumber = @"kASUserDefaultsKeyGeofencePhoneNumber";
-static NSString *const kASUserDefaultsKeyGeofenceYards = @"kASUserDefaultsKeyGeofenceYards";
-
 @interface ASGeofenceViewController : ASViewController
 
 @end

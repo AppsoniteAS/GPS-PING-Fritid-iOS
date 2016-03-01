@@ -28,10 +28,12 @@ static NSString * const kASUserDefaultsTrackersKey   = @"kASUserDefaultsTrackers
 @property (nonatomic        ) NSString  *trackerType;
 @property (nonatomic, assign) BOOL      isChoosed;
 @property (nonatomic, assign) BOOL      isRunning;
+@property (nonatomic, assign) BOOL      isGeofenceStarted;
 @property (nonatomic, assign) BOOL      dogInStand;
 @property (nonatomic, assign) NSInteger signalRate;
 @property (nonatomic        ) NSNumber  *signalRateInSeconds;
-@property (nonatomic,       ) NSString  *signalRateMetric;
+@property (nonatomic        ) NSString  *signalRateMetric;
+@property (nonatomic        ) NSString  *geofenceYards;
 
 +(instancetype)initTrackerWithName:(NSString *)name
                             number:(NSString *)number

@@ -122,7 +122,6 @@ DDLogLevel ddLogLevel = DDLogLevelError;
 
 -(void)initUserDefaults {
     [self setDefaultTrackDuration];
-    [self setDefaultGeoFenceStatus];
 }
 
 -(void)setDefaultTrackDuration {
@@ -133,15 +132,6 @@ DDLogLevel ddLogLevel = DDLogLevelError;
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         [defaults setObject:@(10) forKey:kTrackingDurationKey];
         [defaults synchronize];
-    }
-}
-
--(void)setDefaultGeoFenceStatus {
-    [[NSUserDefaults standardUserDefaults] synchronize];
-    NSNumber *geofenceStatus = [[NSUserDefaults standardUserDefaults] objectForKey:kASGeofenceStatus];
-    if (!geofenceStatus) {
-        [[NSUserDefaults standardUserDefaults] setObject:@(0) forKey:kASGeofenceStatus];
-        [[NSUserDefaults standardUserDefaults] synchronize];
     }
 }
 

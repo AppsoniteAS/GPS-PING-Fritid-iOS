@@ -7,17 +7,16 @@
 //
 
 #import "ASGeofenceViewModel.h"
-
+#import "ASTrackerModel.h"
 
 @implementation ASGeofenceViewModel
 
 -(RACCommand *)submit {
     
-    RACSignal* isCorrect = [RACSignal combineLatest:@[RACObserve(self, phoneNumber),
-                                                      RACObserve(self, yards)]
-                                             reduce:^id(NSString* phoneNumber, NSString* yards)
+    RACSignal* isCorrect = [RACSignal combineLatest:@[RACObserve(self, yards)]
+                                             reduce:^id(NSString* yards)
                             {
-                                return @((phoneNumber.length > 0) && (yards.length > 0));
+                                return @((yards.length > 0) && [ASTrackerModel getChoosedTracker]);
                             }];
     
     return [[RACCommand alloc] initWithEnabled:isCorrect
