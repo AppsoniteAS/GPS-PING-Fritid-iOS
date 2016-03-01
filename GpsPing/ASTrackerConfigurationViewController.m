@@ -267,9 +267,15 @@ objection_requires(@keypath(ASTrackerConfigurationViewController.new, apiControl
     self.ratePicker.dataSource = self;
 
     NSString *currentSignalRate = [NSString stringWithFormat:@"%ld", self.trackerObject.signalRate];
-    [self.ratePicker selectRow:[self.ratePickerData indexOfObject:currentSignalRate]
-                   inComponent:0
-                      animated:NO];
+    if ([self.rateMetricPickerData containsObject:currentSignalRate]) {
+        [self.ratePicker selectRow:[self.ratePickerData indexOfObject:currentSignalRate]
+                       inComponent:0
+                          animated:NO];
+    } else {
+        [self.ratePicker selectRow:0
+                       inComponent:0
+                          animated:NO];
+    }
     
     self.signalRateTextField.inputView = self.ratePicker;
     UIToolbar *accessoryView = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, self.ratePicker.frame.size.width, 44)];
