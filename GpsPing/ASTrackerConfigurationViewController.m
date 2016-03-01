@@ -305,7 +305,6 @@ objection_requires(@keypath(ASTrackerConfigurationViewController.new, apiControl
     self.trackerObject.trackerName         = self.nameTextField.text;
     self.trackerObject.imeiNumber          = self.imeiTextField.text;
     self.trackerObject.trackerNumber       = self.trackerNumberTextField.text;
-    self.trackerObject.isChoosed           = NO;
     self.trackerObject.dogInStand          = self.dogInStandSwitcher.isOn;
     if ([self.signalRateMetricTextField.text isEqualToString:self.rateMetricPickerData[0]]) {
         self.trackerObject.signalRateInSeconds = @(self.signalRateTextField.text.integerValue);
