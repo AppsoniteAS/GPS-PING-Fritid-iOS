@@ -49,14 +49,22 @@ objection_requires(@keypath(ASNavigationController.new, apiController))
     [self presentLogInControllerAnimated:YES];
 }
 
+-(void)dismissModalStack {
+    UIViewController *vc = self.presentingViewController;
+    while (vc.presentingViewController) {
+        vc = vc.presentingViewController;
+    }
+    [vc dismissViewControllerAnimated:YES completion:NULL];
+}
+
 -(void)presentLogInControllerAnimated:(BOOL)animated {
+    [self dismissModalStack];
+    
     [self popToRootViewControllerAnimated:!animated];
     UIViewController* controller = [[UIStoryboard authStoryboard] instantiateInitialViewController];
     [self presentViewController:controller
                        animated:animated
-                     completion:^{
-                         NSLog(@"test");
-                     }];
+                     completion:nil];
 }
 
 @end
