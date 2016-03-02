@@ -25,9 +25,8 @@ static DDLogLevel ddLogLevel = DDLogLevelDebug;
 
 @end
 
-@implementation MainMenuViewController {
-    BOOL isAuthShown;
-}
+@implementation MainMenuViewController
+
 objection_requires(@keypath(MainMenuViewController.new, apiController))
 
 - (void)viewDidLoad {
@@ -48,24 +47,6 @@ objection_requires(@keypath(MainMenuViewController.new, apiController))
     self.startStopButton.layer.cornerRadius = self.startStopButton.frame.size.width/2;
     ASTrackerModel *activeTracker = [ASTrackerModel getChoosedTracker];
     self.activeTrackerLabel.text = activeTracker.trackerName;
-}
-
-- (void)viewDidAppear:(BOOL)animated {
-    if (isAuthShown == NO) {
-        [self showAuth];
-        isAuthShown = YES;
-    }
-}
-
-- (void)showAuth {
-    if (self.viewModel.apiController.userProfile == nil) {
-        UIViewController* controller = [[UIStoryboard storyboardWithName:@"Auth" bundle:nil] instantiateInitialViewController];
-        [self.navigationController presentViewController:controller animated:YES completion:nil];
-    } else {
-        [[self.apiController registerForPushes] subscribeNext:^(id x) {
-            ;
-        }];
-    }
 }
 
 - (IBAction)startStopButtonTap:(id)sender {

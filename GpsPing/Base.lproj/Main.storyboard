@@ -469,7 +469,7 @@
         <!--Navigation Controller-->
         <scene sceneID="Rsh-wQ-iEb">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="AzC-4k-N6d" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="AzC-4k-N6d" customClass="ASNavigationController" sceneMemberID="viewController">
                     <toolbarItems/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="0CG-KS-Xhe">

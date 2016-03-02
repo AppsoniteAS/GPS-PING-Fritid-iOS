@@ -14,5 +14,6 @@
 +(UIStoryboard*)mainMenuStoryboard;
 +(UIStoryboard*)mapStoryboard;
 +(UIStoryboard*)connectStoryboard;
++(UIStoryboard*)authStoryboard;
 
 @end

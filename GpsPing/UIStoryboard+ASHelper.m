@@ -34,5 +34,10 @@
                                      bundle:[NSBundle mainBundle]];
 }
 
++(UIStoryboard*)authStoryboard
+{
+    return [UIStoryboard storyboardWithName:@"Auth"
+                                     bundle:[NSBundle mainBundle]];
+}
 
 @end

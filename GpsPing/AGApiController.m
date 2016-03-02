@@ -35,6 +35,8 @@ NSInteger AGOpteumBackendResponseCodePhoneBlocked  = -4;
 NSString *kASUserDefaultsKeyUsername = @"";
 NSString *kASUserDefaultsKeyPassword = @"";
 
+NSString *kASDidLogoutNotification = @"kASDidLogoutNotification";
+
 #define XML_URL  @"passport.xml"
 #define XML_URL2 @"driverlicense.xml"
 #define XML_URL3 @"sts.xml"
@@ -87,13 +89,13 @@ objection_initializer(initWithConfiguration:);
 -(RACSignal *)getNonce
 {
     DDLogDebug(@"%s", __PRETTY_FUNCTION__);
-    return [self performHttpRequestWithAttempts:@"GET" resource:@"get_nonce" parameters:@{@"controller":@"user", @"method":@"register"}];
+    return [self performHttpRequestWithAttempts:@"POST" resource:@"get_nonce" parameters:@{@"controller":@"user", @"method":@"register"}];
 }
 
 -(RACSignal *)registerUser:(NSString*)userName email:(NSString*)email password:(NSString*)password nonce:(NSString*)nonce
 {
     DDLogDebug(@"%s", __PRETTY_FUNCTION__);
-    return [[self performHttpRequestWithAttempts:@"GET"
+    return [[self performHttpRequestWithAttempts:@"POST"
                                        resource:@"user/register/"
                                      parameters:@{@"username":userName,
                                                   @"user_pass":password,
@@ -115,7 +117,7 @@ objection_initializer(initWithConfiguration:);
 {
     DDLogDebug(@"%s", __PRETTY_FUNCTION__);
     @weakify(self)
-    return [[[[[self performHttpRequestWithAttempts:@"GET"
+    return [[[[[self performHttpRequestWithAttempts:@"POST"
                                           resource:@"user/generate_auth_cookie"
                                         parameters:@{@"username":userName,
                                                      @"password":password,
@@ -144,18 +146,17 @@ objection_initializer(initWithConfiguration:);
 
 -(RACSignal *)logout {
     self.userProfile = nil;
+
     [ASUserProfileModel removeLocallyProfileInfo];
     [ASTrackerModel clearTrackersInUserDefaults];
-    UIViewController* controller = [[UIStoryboard storyboardWithName:@"Auth" bundle:nil] instantiateInitialViewController];
-    UIViewController* rootController = UIApplication.sharedApplication.delegate.window.rootViewController;
-    [rootController presentViewController:controller
-                             animated:YES
-                           completion:nil];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:kASDidLogoutNotification object:nil];
+    
     return [RACSignal empty];
 }
 
 -(RACSignal*)fetchProfile {
-    return [[self performHttpRequestWithAttempts:@"GET"
+    return [[self performHttpRequestWithAttempts:@"POST"
                                         resource:@"user/get_user_meta/"
                                       parameters:@{@"cookie":self.userProfile.cookie
                                                    }] deliverOnMainThread];
@@ -163,13 +164,13 @@ objection_initializer(initWithConfiguration:);
 
 -(RACSignal*)submitUserMetaData:(ASUserProfileModel *)profile {
     NSParameterAssert(profile);
-    return [[[self performHttpRequestWithAttempts:@"GET"
+    return [[[self performHttpRequestWithAttempts:@"POST"
                                         resource:@"user/update_user_meta/"
                                       parameters:@{@"cookie":profile.cookie,
                                                    @"meta_key":@"last_name",
                                                    @"meta_value":profile.lastname
                                                    }] flattenMap:^RACStream *(id x) {
-        return [self performHttpRequestWithAttempts:@"GET"
+        return [self performHttpRequestWithAttempts:@"POST"
                                            resource:@"user/update_user_meta/"
                                          parameters:@{@"cookie":profile.cookie,
                                                       @"meta_key":@"first_name",
@@ -201,7 +202,7 @@ objection_initializer(initWithConfiguration:);
                              @"check_for_stand":checkForStandString,
                              @"type":type};
     params = [self addAuthParamsByUpdatingParams:params];
-    return [self performHttpRequestWithAttempts:@"GET"
+    return [self performHttpRequestWithAttempts:@"POST"
                                        resource:@"tracker/add_tracker"
                                      parameters:params];
 }
@@ -209,7 +210,7 @@ objection_initializer(initWithConfiguration:);
 -(RACSignal *)getTrackers
 {
     DDLogDebug(@"%s", __PRETTY_FUNCTION__);
-    return [[self performHttpRequestWithAttempts:@"GET"
+    return [[self performHttpRequestWithAttempts:@"POST"
                                        resource:@"tracker/get_trackers"
                                      parameters:[self addAuthParamsByUpdatingParams:@{}]] flattenMap:^RACStream *(id value) {
         DDLogDebug(@"%@", value);
@@ -236,7 +237,7 @@ objection_initializer(initWithConfiguration:);
                              @"reciver_signal_repeat_time":@(repeatTime),
                              @"check_for_stand":checkForStandString};
     params = [self addAuthParamsByUpdatingParams:params];
-    return [self performHttpRequestWithAttempts:@"GET"
+    return [self performHttpRequestWithAttempts:@"POST"
                                        resource:@"tracker/update_tracker"
                                      parameters:params];
 }
@@ -244,7 +245,7 @@ objection_initializer(initWithConfiguration:);
 -(RACSignal *)removeTrackerByImei:(NSString*)imei
 {
     DDLogDebug(@"%s", __PRETTY_FUNCTION__);
-    return [self performHttpRequestWithAttempts:@"GET"
+    return [self performHttpRequestWithAttempts:@"POST"
                                        resource:@"tracker/remove_tracker"
                                      parameters:[self addAuthParamsByUpdatingParams:@{@"imei_number":imei}]];
 }
@@ -253,7 +254,7 @@ objection_initializer(initWithConfiguration:);
 -(RACSignal *)getPOI
 {
     DDLogDebug(@"%s", __PRETTY_FUNCTION__);
-    return [[self performHttpRequestWithAttempts:@"GET"
+    return [[self performHttpRequestWithAttempts:@"POST"
                                         resource:@"poi/get/"
                                       parameters:[self addAuthParamsByUpdatingParams:@{}]] flattenMap:^RACStream *(id value) {
         DDLogDebug(@"%@", value);
@@ -273,7 +274,7 @@ objection_initializer(initWithConfiguration:);
                              @"lat":@(latitude),
                              @"lon":@(longitude)};
     params = [self addAuthParamsByUpdatingParams:params];
-    return [self performHttpRequestWithAttempts:@"GET"
+    return [self performHttpRequestWithAttempts:@"POST"
                                        resource:@"poi/add"
                                      parameters:params];
 }
@@ -289,7 +290,7 @@ objection_initializer(initWithConfiguration:);
                              @"lat":@(latitude),
                              @"lon":@(longitude)};
     params = [self addAuthParamsByUpdatingParams:params];
-    return [self performHttpRequestWithAttempts:@"GET"
+    return [self performHttpRequestWithAttempts:@"POST"
                                        resource:@"poi/update"
                                      parameters:params];
 }
@@ -297,7 +298,7 @@ objection_initializer(initWithConfiguration:);
 -(RACSignal *)removePOIWithId:(NSUInteger)identificator
 {
     DDLogDebug(@"%s", __PRETTY_FUNCTION__);
-    return [self performHttpRequestWithAttempts:@"GET"
+    return [self performHttpRequestWithAttempts:@"POST"
                                        resource:@"poi/remove"
                                      parameters:[self addAuthParamsByUpdatingParams:@{@"id":@(identificator)}]];
 }
@@ -308,7 +309,7 @@ objection_initializer(initWithConfiguration:);
 {
     DDLogDebug(@"%s", __PRETTY_FUNCTION__);
     NSDictionary *params = [self addAuthParamsByUpdatingParams:@{}];
-    return [[self performHttpRequestWithAttempts:@"GET"
+    return [[self performHttpRequestWithAttempts:@"POST"
                                        resource:@"friends/get"
                                      parameters:params] map:^id(NSDictionary *value) {
         NSArray *friendsJSON = value[@"friends"];
@@ -331,7 +332,7 @@ objection_initializer(initWithConfiguration:);
     DDLogDebug(@"%s", __PRETTY_FUNCTION__);
     NSDictionary *params = @{@"id":friendId};
     params = [self addAuthParamsByUpdatingParams:params];
-    return [self performHttpRequestWithAttempts:@"GET"
+    return [self performHttpRequestWithAttempts:@"POST"
                                        resource:@"friends/add"
                                      parameters:params];
 }
@@ -341,7 +342,7 @@ objection_initializer(initWithConfiguration:);
     DDLogDebug(@"%s", __PRETTY_FUNCTION__);
     NSDictionary *params = @{@"id":friendId};
     params = [self addAuthParamsByUpdatingParams:params];
-    return [self performHttpRequestWithAttempts:@"GET"
+    return [self performHttpRequestWithAttempts:@"POST"
                                        resource:@"friends/remove"
                                      parameters:params];
 }
@@ -351,7 +352,7 @@ objection_initializer(initWithConfiguration:);
     DDLogDebug(@"%s", __PRETTY_FUNCTION__);
     NSDictionary *params = @{@"q":queryString};
     params = [self addAuthParamsByUpdatingParams:params];
-    return [[self performHttpRequestWithAttempts:@"GET"
+    return [[self performHttpRequestWithAttempts:@"POST"
                                        resource:@"friends/search"
                                      parameters:params] map:^id(NSDictionary *value) {
         NSArray *usersJSON = value[@"users"];
@@ -371,7 +372,7 @@ objection_initializer(initWithConfiguration:);
     NSDictionary *params = @{@"id"                 :friendId,
                              @"is_seeing_trackers" :isSeeing?@"true":@"false"};
     params = [self addAuthParamsByUpdatingParams:params];
-    return [self performHttpRequestWithAttempts:@"GET"
+    return [self performHttpRequestWithAttempts:@"POST"
                                        resource:@"friends/set_seeing_trackers"
                                      parameters:params];
 }
@@ -381,7 +382,7 @@ objection_initializer(initWithConfiguration:);
     DDLogDebug(@"%s", __PRETTY_FUNCTION__);
     NSDictionary *params = @{@"id":friendId};
     params = [self addAuthParamsByUpdatingParams:params];
-    return [self performHttpRequestWithAttempts:@"GET"
+    return [self performHttpRequestWithAttempts:@"POST"
                                        resource:@"friends/confirm"
                                      parameters:params];
 }
@@ -391,7 +392,7 @@ objection_initializer(initWithConfiguration:);
     DDLogDebug(@"%s", __PRETTY_FUNCTION__);
     NSDictionary *params = @{@"id":friendId};
     params = [self addAuthParamsByUpdatingParams:params];
-    return [self performHttpRequestWithAttempts:@"GET"
+    return [self performHttpRequestWithAttempts:@"POST"
                                        resource:@"friends/confirm"
                                      parameters:params];
 }
@@ -412,7 +413,7 @@ objection_initializer(initWithConfiguration:);
     }
     
     params = [self addAuthParamsByUpdatingParams:params];
-    return [[self performHttpRequestWithAttempts:@"GET"
+    return [[self performHttpRequestWithAttempts:@"POST"
                                        resource:@"tracker/get_points"
                                      parameters:params] map:^id(id value) {
         DDLogDebug(@"%@", value);
@@ -451,7 +452,7 @@ objection_initializer(initWithConfiguration:);
                                  @"push_id":pushToken
                                  };
         params = [self addAuthParamsByUpdatingParams:params];
-        return [self performHttpRequestWithAttempts:@"GET"
+        return [self performHttpRequestWithAttempts:@"POST"
                                            resource:@"friends/register_gcm"
                                          parameters:params];
     } else {

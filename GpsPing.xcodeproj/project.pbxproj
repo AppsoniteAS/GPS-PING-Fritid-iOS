@@ -643,9 +643,9 @@
 		AB89467E1C4E6B2B002E86C8 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				A68C1BA01C4E4788000E2BA6 /* Main screen */,
 				A603CED01C58D4EF001D56A4 /* Map and Tracking */,
 				AB89467F1C4F2F11002E86C8 /* Auth */,
-				A68C1BA01C4E4788000E2BA6 /* Main screen */,
 				AB8946741C4E614B002E86C8 /* Settings */,
 				A68C1B9F1C4E477B000E2BA6 /* Trackers */,
 				AB5428131C5BA9EF00F33E8B /* Display options */,

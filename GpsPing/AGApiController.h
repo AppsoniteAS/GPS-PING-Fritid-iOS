@@ -26,6 +26,8 @@ extern NSInteger AGOpteumBackendResponseCodePhoneBlocked;
 extern NSString *kASUserDefaultsKeyUsername;
 extern NSString *kASUserDefaultsKeyPassword;
 
+extern NSString *kASDidLogoutNotification;
+
 @protocol AGApplicationConfigurationDelegate
 
 @property (readonly) NSString* backendBaseURL;
