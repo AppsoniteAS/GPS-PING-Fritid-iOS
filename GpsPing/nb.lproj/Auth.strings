@@ -17,7 +17,7 @@
 "QJ3-OB-xJO.normalTitle" = "Logg inn";
 
 /* Class = "UILabel"; text = "Password"; ObjectID = "a0S-aa-Qj9"; */
-"a0S-aa-Qj9.text" = "Pass ord";
+"a0S-aa-Qj9.text" = "Passord";
 
 /* Class = "UIButton"; normalTitle = "Register"; ObjectID = "gPk-dc-z6Q"; */
 "gPk-dc-z6Q.normalTitle" = "Registrer";
