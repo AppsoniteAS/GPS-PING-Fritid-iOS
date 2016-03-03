@@ -145,6 +145,7 @@ objection_initializer(initWithConfiguration:);
 }
 
 -(RACSignal *)logout {
+    DDLogDebug(@"%s", __PRETTY_FUNCTION__);
     self.userProfile = nil;
 
     [ASUserProfileModel removeLocallyProfileInfo];

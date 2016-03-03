@@ -70,7 +70,7 @@
                                                                         <rect key="frame" x="0.0" y="56" width="320" height="1"/>
                                                                         <color key="backgroundColor" red="0.91372549020000005" green="0.91372549020000005" blue="0.91372549020000005" alpha="1" colorSpace="calibratedRGB"/>
                                                                         <constraints>
-                                                                            <constraint firstAttribute="height" constant="1" id="sZZ-Pm-YVi" customClass="AGPixelLayoutConstraint"/>
+                                                                            <constraint firstAttribute="height" constant="1" id="sZZ-Pm-YVi"/>
                                                                         </constraints>
                                                                     </view>
                                                                 </subviews>

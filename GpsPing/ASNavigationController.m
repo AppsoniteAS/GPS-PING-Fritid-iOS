@@ -17,6 +17,7 @@ static const DDLogLevel ddLogLevel = DDLogLevelVerbose;
 @interface ASNavigationController()
 
 @property (nonatomic, strong) AGApiController   *apiController;
+@property (nonatomic, assign) BOOL isFirstLaunch;
 
 @end
 
@@ -28,14 +29,18 @@ objection_requires(@keypath(ASNavigationController.new, apiController))
 {
     [super viewDidLoad];
     [[JSObjection defaultInjector] injectDependencies:self];
-
+    self.isFirstLaunch = YES;
+    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didLogout) name:kASDidLogoutNotification object:nil];
 }
 
--(void)viewWillLayoutSubviews
+-(void)viewDidLayoutSubviews
 {
-    [super viewWillLayoutSubviews];
+    [super viewDidLayoutSubviews];
+    if (!self.isFirstLaunch) return;
+    self.isFirstLaunch = NO;
     if (self.apiController.userProfile == nil) {
+        DDLogVerbose(@"%s", __PRETTY_FUNCTION__);
         [self presentLogInControllerAnimated:NO];
     } else {
         [[self.apiController registerForPushes] subscribeNext:^(id x) {
@@ -45,26 +50,27 @@ objection_requires(@keypath(ASNavigationController.new, apiController))
 }
 
 -(void)didLogout {
-    DDLogVerbose(@"%s", __PRETTY_FUNCTION__);
-    [self presentLogInControllerAnimated:YES];
-}
 
--(void)dismissModalStack {
-    UIViewController *vc = self.presentingViewController;
-    while (vc.presentingViewController) {
-        vc = vc.presentingViewController;
+    if (self.presentedViewController) {
+        DDLogVerbose(@"%s with dismiss", __PRETTY_FUNCTION__);
+        [self.presentedViewController dismissViewControllerAnimated:YES completion:^{
+            [self presentLogInControllerAnimated:YES];
+        }];
+    } else {
+        DDLogVerbose(@"%s without dismiss", __PRETTY_FUNCTION__);
+        [self presentLogInControllerAnimated:YES];
     }
-    [vc dismissViewControllerAnimated:YES completion:NULL];
 }
 
 -(void)presentLogInControllerAnimated:(BOOL)animated {
-    [self dismissModalStack];
-    
-    [self popToRootViewControllerAnimated:!animated];
+    DDLogVerbose(@"%s", __PRETTY_FUNCTION__);
+     [self popToRootViewControllerAnimated:NO];
     UIViewController* controller = [[UIStoryboard authStoryboard] instantiateInitialViewController];
     [self presentViewController:controller
                        animated:animated
-                     completion:nil];
+                     completion:^{
+
+                     }];
 }
 
 @end
