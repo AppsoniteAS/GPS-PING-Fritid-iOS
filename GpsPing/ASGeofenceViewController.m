@@ -56,7 +56,7 @@
 
 -(IBAction)doSubmit:(id)sender {
     [self as_sendSMS:[ASTrackerModel getSmsTextsForGeofenceLaunch:!([ASTrackerModel getChoosedTracker].isGeofenceStarted)
-                                                      phoneNumber:[ASTrackerModel getChoosedTracker].trackerNumber]
+                                                      distance:self.viewModel.yards]
            recipient:[ASTrackerModel getChoosedTracker].trackerNumber];
 }
 

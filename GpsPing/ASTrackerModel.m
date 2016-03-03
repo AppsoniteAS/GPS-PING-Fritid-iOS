@@ -251,10 +251,10 @@ NSString* const kASGeofenceYards     = @"geofenceYards";
 }
 
 +(NSString*)getSmsTextsForGeofenceLaunch:(BOOL)turnOn
-                             phoneNumber:(NSString*)userPhoneNumber
+                                distance:(NSString*)distance
 {
     if (turnOn) {
-         return [@"admin123456 " stringByAppendingString:userPhoneNumber];
+         return [@"move123456 " stringByAppendingString:distance];
     } else {
         return @"move123456 0";
     }
