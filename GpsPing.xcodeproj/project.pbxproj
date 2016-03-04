@@ -61,6 +61,7 @@
 		A6F6A74E1C51742A0009579A /* ASSelectTrackerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6F6A74D1C51742A0009579A /* ASSelectTrackerViewController.m */; };
 		A6F6A7511C52246E0009579A /* ASTapView.m in Sources */ = {isa = PBXBuildFile; fileRef = A6F6A7501C52246E0009579A /* ASTapView.m */; };
 		A6F6A7541C524E680009579A /* AGApiController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6F6A7531C524E680009579A /* AGApiController.m */; };
+		A6FCAD351C89B8E600CA1745 /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = A6FCAD371C89B8E600CA1745 /* Localizable.stringsdict */; };
 		AB5428061C5BA1B300F33E8B /* ASAddFriendModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AB5428051C5BA1B300F33E8B /* ASAddFriendModel.m */; };
 		AB54280D1C5BA1C800F33E8B /* ASAddFriendTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AB5428081C5BA1C800F33E8B /* ASAddFriendTableViewCell.m */; };
 		AB54280E1C5BA1C800F33E8B /* ASAddFriendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB54280A1C5BA1C800F33E8B /* ASAddFriendViewController.m */; };
@@ -214,6 +215,8 @@
 		A6F6A7521C524E680009579A /* AGApiController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGApiController.h; sourceTree = "<group>"; };
 		A6F6A7531C524E680009579A /* AGApiController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGApiController.m; sourceTree = "<group>"; };
 		A6F6A7561C524FBF0009579A /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		A6FCAD361C89B8E600CA1745 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = en; path = en.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
+		A6FCAD381C89B8E800CA1745 /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = nb; path = nb.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
 		AB5428041C5BA1B300F33E8B /* ASAddFriendModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASAddFriendModel.h; sourceTree = "<group>"; };
 		AB5428051C5BA1B300F33E8B /* ASAddFriendModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASAddFriendModel.m; sourceTree = "<group>"; };
 		AB5428071C5BA1C800F33E8B /* ASAddFriendTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASAddFriendTableViewCell.h; sourceTree = "<group>"; };
@@ -441,6 +444,7 @@
 				A68C1B321C4CE460000E2BA6 /* main.m */,
 				ABD8BAE21C7F5B350075670C /* Errors.strings */,
 				ABA2211E1C79DF4000AE6F87 /* Localizable.strings */,
+				A6FCAD371C89B8E600CA1745 /* Localizable.stringsdict */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -807,6 +811,7 @@
 				A68C1B411C4CE460000E2BA6 /* LaunchScreen.storyboard in Resources */,
 				A68C1B801C4D24DC000E2BA6 /* Roboto-Medium.ttf in Resources */,
 				ABA221491C79E56C00AE6F87 /* Connect.storyboard in Resources */,
+				A6FCAD351C89B8E600CA1745 /* Localizable.stringsdict in Resources */,
 				A68C1B3E1C4CE460000E2BA6 /* Assets.xcassets in Resources */,
 				A68C1B7B1C4D24DC000E2BA6 /* Roboto-Condensed.ttf in Resources */,
 				ABA221601C79E5AF00AE6F87 /* About.storyboard in Resources */,
@@ -1012,6 +1017,15 @@
 				ABA2211B1C79DF0F00AE6F87 /* nb */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		A6FCAD371C89B8E600CA1745 /* Localizable.stringsdict */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A6FCAD361C89B8E600CA1745 /* en */,
+				A6FCAD381C89B8E800CA1745 /* nb */,
+			);
+			name = Localizable.stringsdict;
 			sourceTree = "<group>";
 		};
 		AB60B7421C7F2EE2003CF277 /* InfoPlist.strings */ = {
