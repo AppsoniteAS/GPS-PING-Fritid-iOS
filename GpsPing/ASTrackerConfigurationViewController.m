@@ -33,6 +33,8 @@ static const DDLogLevel ddLogLevel = DDLogLevelVerbose;
 @property (weak, nonatomic) IBOutlet ASButton *resetButton;
 
 @property (nonatomic) NSArray      *ratePickerData;
+@property (nonatomic) NSDictionary  *ratePickerStrings;
+
 @property (nonatomic) NSArray      *rateMetricPickerData;
 @property (nonatomic) UIPickerView *ratePicker;
 
@@ -43,8 +45,7 @@ static const DDLogLevel ddLogLevel = DDLogLevelVerbose;
 @property (nonatomic) NSArray *smsesForActivation;
 
 
-@property (nonatomic) NSString      *choosedTime;
-@property (nonatomic) NSString      *choosedMetric;
+@property (nonatomic) NSNumber      *choosedTime;
 
 @end
 
@@ -110,36 +111,22 @@ objection_requires(@keypath(ASTrackerConfigurationViewController.new, apiControl
 #pragma mark - UIPickerView delegate & datasource
 
 -(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
-    return  2;
+    return  1;
 }
 
 -(NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
 {
-    if (component == 0) {
-        return self.ratePickerData.count;
-    } else {
-        return self.rateMetricPickerData.count;
-    }
+    return self.ratePickerData.count;
 }
 
 -(NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
 {
-    if (component == 0) {
-        return self.ratePickerData[row];
-    } else {
-        return NSLocalizedString(self.rateMetricPickerData[row], nil);
-    }
+    return self.ratePickerStrings[self.ratePickerData[row]];
 }
 
 -(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
-    if (([pickerView selectedRowInComponent:1] == 0) &&
-        ([pickerView selectedRowInComponent:0] < 6)) {
-        [pickerView selectRow:6 inComponent:0 animated:YES];
-    }
-    
     self.choosedTime = self.ratePickerData[[pickerView selectedRowInComponent:0]];
-    self.choosedMetric = self.rateMetricPickerData[[pickerView selectedRowInComponent:1]];
     [self updateRateTextField];
 }
 
@@ -260,31 +247,45 @@ objection_requires(@keypath(ASTrackerConfigurationViewController.new, apiControl
     return newTitle;
 }
 
+-(void)setRatePickerData:(NSArray *)ratePickerData
+{
+    _ratePickerData = ratePickerData;
+    
+    NSMutableDictionary *valuesDictionary = @{}.mutableCopy;
+    NSString *secondsString = NSLocalizedString(@"%d seconds", nil);
+    NSString *minutesString = NSLocalizedString(@"%d minutes", nil);
+    for (NSNumber *value in ratePickerData) {
+        if (value.integerValue >= 60) {
+            valuesDictionary[value] = [NSString localizedStringWithFormat:minutesString, value.integerValue/60];
+        } else {
+            valuesDictionary[value] = [NSString localizedStringWithFormat:secondsString, value.integerValue];
+        }
+    }
+    self.ratePickerStrings = [NSDictionary dictionaryWithDictionary:valuesDictionary];
+}
+
 #pragma mark - Private methods
 
 -(void)configPickers {
-    self.ratePickerData = @[@"1", @"2", @"3", @"5", @"7", @"10", @"20", @"30", @"40", @"50", @"60"];
-    self.rateMetricPickerData = @[kASSignalMetricTypeSeconds, kASSignalMetricTypeMinutes];
+    self.ratePickerData = @[@(20), @(30), @(40), @(50), @(60), @(2*60), @(3*60), @(5*60), @(7*60), @(10*60), @(20*60), @(30*60), @(40*60), @(50*60), @(60*60)];
     
     self.ratePicker = [[UIPickerView alloc] init];
     self.ratePicker.backgroundColor = [UIColor whiteColor];
     self.ratePicker.delegate = self;
     self.ratePicker.dataSource = self;
 
-    NSString *currentSignalRate = [NSString stringWithFormat:@"%ld", self.trackerObject.signalRate];
-    if ([self.ratePickerData containsObject:currentSignalRate]) {
-        [self.ratePicker selectRow:[self.ratePickerData indexOfObject:currentSignalRate]
+    if ([self.ratePickerData containsObject:self.trackerObject.signalRateInSeconds]) {
+        [self.ratePicker selectRow:[self.ratePickerData indexOfObject:self.trackerObject.signalRateInSeconds]
                        inComponent:0
                           animated:NO];
+
     } else {
         [self.ratePicker selectRow:0
                        inComponent:0
                           animated:NO];
     }
     
-    [self.ratePicker selectRow:[self.rateMetricPickerData indexOfObject:self.trackerObject.signalRateMetric]
-                   inComponent:1
-                      animated:NO];
+    self.choosedTime = self.trackerObject.signalRateInSeconds;
     
     self.signalRateTextField.inputView = self.ratePicker;
     UIToolbar *accessoryView = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, self.ratePicker.frame.size.width, 44)];
@@ -296,9 +297,6 @@ objection_requires(@keypath(ASTrackerConfigurationViewController.new, apiControl
     
     accessoryView.items = [NSArray arrayWithObjects:space,done, nil];
     self.signalRateTextField.inputAccessoryView = accessoryView;
-    
-    self.choosedTime = [NSString stringWithFormat:@"%ld", (long)self.trackerObject.signalRate];
-    self.choosedMetric = self.trackerObject.signalRateMetric;
     
     [self updateRateTextField];
 }
@@ -313,18 +311,11 @@ objection_requires(@keypath(ASTrackerConfigurationViewController.new, apiControl
     self.trackerObject.imeiNumber          = self.imeiTextField.text;
     self.trackerObject.trackerNumber       = self.trackerNumberTextField.text;
     self.trackerObject.dogInStand          = self.dogInStandSwitcher.isOn;
-    if ([self.choosedMetric isEqualToString:self.rateMetricPickerData[0]]) {
-        self.trackerObject.signalRateInSeconds = @(self.choosedTime.integerValue);
-    } else {
-        self.trackerObject.signalRateInSeconds = @(self.choosedTime.integerValue * 60);
-    }
+    self.trackerObject.signalRateInSeconds = self.choosedTime;
 }
 
 -(void)updateRateTextField {
-    NSString *time = self.choosedTime;
-    NSString *metric = NSLocalizedString(self.choosedMetric, nil);
-    self.signalRateTextField.text = [NSString stringWithFormat:@"%@ %@", time, metric];
-
+    self.signalRateTextField.text = self.ratePickerStrings[self.choosedTime];
 }
 
 @end
