@@ -272,7 +272,7 @@ objection_requires(@keypath(ASTrackerConfigurationViewController.new, apiControl
     self.ratePicker.dataSource = self;
 
     NSString *currentSignalRate = [NSString stringWithFormat:@"%ld", self.trackerObject.signalRate];
-    if ([self.rateMetricPickerData containsObject:currentSignalRate]) {
+    if ([self.ratePickerData containsObject:currentSignalRate]) {
         [self.ratePicker selectRow:[self.ratePickerData indexOfObject:currentSignalRate]
                        inComponent:0
                           animated:NO];
