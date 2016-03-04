@@ -29,20 +29,22 @@ static const DDLogLevel ddLogLevel = DDLogLevelVerbose;
 
 @property (nonatomic) NSString *metricType;
 @property (nonatomic, assign) CGFloat signalRate;
-@property (weak, nonatomic) IBOutlet UITextField *signalRateMetricTextField;
 @property (weak, nonatomic) IBOutlet UITextField *signalRateTextField;
 @property (weak, nonatomic) IBOutlet ASButton *resetButton;
 
 @property (nonatomic) NSArray      *ratePickerData;
 @property (nonatomic) NSArray      *rateMetricPickerData;
 @property (nonatomic) UIPickerView *ratePicker;
-@property (nonatomic) UIPickerView *rateMetricPicker;
 
 @property (nonatomic, assign) NSInteger smsCount;
 
 @property (nonatomic, strong) AGApiController   *apiController;
 
 @property (nonatomic) NSArray *smsesForActivation;
+
+
+@property (nonatomic) NSString      *choosedTime;
+@property (nonatomic) NSString      *choosedMetric;
 
 @end
 
@@ -108,12 +110,12 @@ objection_requires(@keypath(ASTrackerConfigurationViewController.new, apiControl
 #pragma mark - UIPickerView delegate & datasource
 
 -(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
-    return  1;
+    return  2;
 }
 
 -(NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
 {
-    if (pickerView == self.ratePicker) {
+    if (component == 0) {
         return self.ratePickerData.count;
     } else {
         return self.rateMetricPickerData.count;
@@ -122,7 +124,7 @@ objection_requires(@keypath(ASTrackerConfigurationViewController.new, apiControl
 
 -(NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
 {
-    if (pickerView == self.ratePicker) {
+    if (component == 0) {
         return self.ratePickerData[row];
     } else {
         return NSLocalizedString(self.rateMetricPickerData[row], nil);
@@ -131,11 +133,14 @@ objection_requires(@keypath(ASTrackerConfigurationViewController.new, apiControl
 
 -(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
-    if (pickerView == self.ratePicker) {
-        self.signalRateTextField.text = NSLocalizedString(self.ratePickerData[row], nil);
-    } else {
-        self.signalRateMetricTextField.text = NSLocalizedString(self.rateMetricPickerData[row], nil);
+    if (([pickerView selectedRowInComponent:1] == 0) &&
+        ([pickerView selectedRowInComponent:0] < 6)) {
+        [pickerView selectRow:6 inComponent:0 animated:YES];
     }
+    
+    self.choosedTime = self.ratePickerData[[pickerView selectedRowInComponent:0]];
+    self.choosedMetric = self.rateMetricPickerData[[pickerView selectedRowInComponent:1]];
+    [self updateRateTextField];
 }
 
 #pragma mark - UITextField Delegate
@@ -277,6 +282,10 @@ objection_requires(@keypath(ASTrackerConfigurationViewController.new, apiControl
                           animated:NO];
     }
     
+    [self.ratePicker selectRow:[self.rateMetricPickerData indexOfObject:self.trackerObject.signalRateMetric]
+                   inComponent:1
+                      animated:NO];
+    
     self.signalRateTextField.inputView = self.ratePicker;
     UIToolbar *accessoryView = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, self.ratePicker.frame.size.width, 44)];
     accessoryView.barStyle = UIBarStyleDefault;
@@ -288,22 +297,14 @@ objection_requires(@keypath(ASTrackerConfigurationViewController.new, apiControl
     accessoryView.items = [NSArray arrayWithObjects:space,done, nil];
     self.signalRateTextField.inputAccessoryView = accessoryView;
     
-    self.rateMetricPicker = [[UIPickerView alloc] init];
-    self.rateMetricPicker.delegate = self;
-    self.rateMetricPicker.dataSource = self;
-    [self.rateMetricPicker selectRow:[self.rateMetricPickerData indexOfObject:self.trackerObject.signalRateMetric]
-                   inComponent:0
-                      animated:NO];
-    self.signalRateMetricTextField.inputView = self.rateMetricPicker;
-    self.signalRateMetricTextField.inputAccessoryView = accessoryView;
+    self.choosedTime = [NSString stringWithFormat:@"%ld", (long)self.trackerObject.signalRate];
+    self.choosedMetric = self.trackerObject.signalRateMetric;
     
-    self.signalRateTextField.text = [NSString stringWithFormat:@"%ld", (long)self.trackerObject.signalRate];
-    self.signalRateMetricTextField.text = NSLocalizedString(self.trackerObject.signalRateMetric, nil);
+    [self updateRateTextField];
 }
 
 -(void)doneTapped:(id)sender
 {
-    [self.signalRateMetricTextField resignFirstResponder];
     [self.signalRateTextField resignFirstResponder];
 }
 
@@ -312,11 +313,18 @@ objection_requires(@keypath(ASTrackerConfigurationViewController.new, apiControl
     self.trackerObject.imeiNumber          = self.imeiTextField.text;
     self.trackerObject.trackerNumber       = self.trackerNumberTextField.text;
     self.trackerObject.dogInStand          = self.dogInStandSwitcher.isOn;
-    if ([self.signalRateMetricTextField.text isEqualToString:NSLocalizedString(self.rateMetricPickerData[0], nil)]) {
-        self.trackerObject.signalRateInSeconds = @(self.signalRateTextField.text.integerValue);
+    if ([self.choosedMetric isEqualToString:self.rateMetricPickerData[0]]) {
+        self.trackerObject.signalRateInSeconds = @(self.choosedTime.integerValue);
     } else {
-        self.trackerObject.signalRateInSeconds = @(self.signalRateTextField.text.integerValue * 60);
+        self.trackerObject.signalRateInSeconds = @(self.choosedTime.integerValue * 60);
     }
+}
+
+-(void)updateRateTextField {
+    NSString *time = self.choosedTime;
+    NSString *metric = NSLocalizedString(self.choosedMetric, nil);
+    self.signalRateTextField.text = [NSString stringWithFormat:@"%@ %@", time, metric];
+
 }
 
 @end
