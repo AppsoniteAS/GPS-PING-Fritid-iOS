@@ -1,0 +1,3 @@
+NSLocationAlwaysUsageDescription = "Accessing location to determine your address";
+NSLocationUsageDescription = "Accessing location to determine your address";
+NSLocationWhenInUseUsageDescription = "Accessing location to determine your address";

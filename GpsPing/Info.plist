@@ -57,11 +57,11 @@
 		</dict>
 	</dict>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string>Обнаружение локации необходимо для определения Вашего адреса</string>
+	<string>Accessing location to determine your address</string>
 	<key>NSLocationUsageDescription</key>
-	<string>Обнаружение локации необходимо для определения Вашего адреса</string>
+	<string>Accessing location to determine your address</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Обнаружение локации необходимо для определения Вашего адреса</string>
+	<string>Accessing location to determine your address</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Roboto-Black.ttf</string>
