@@ -1,3 +1,3 @@
-NSLocationAlwaysUsageDescription = "Tilgang sted for å finne ut adressen din";
-NSLocationUsageDescription = "Tilgang sted for å finne ut adressen din";
-NSLocationWhenInUseUsageDescription = "Tilgang sted for å finne ut adressen din";
+NSLocationAlwaysUsageDescription = "Henter din lokasjon";
+NSLocationUsageDescription = "Henter din lokasjon";
+NSLocationWhenInUseUsageDescription = "Henter din lokasjon";
