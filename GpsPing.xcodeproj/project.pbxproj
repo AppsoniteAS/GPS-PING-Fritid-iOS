@@ -240,6 +240,8 @@
 		AB60B7411C7F2EE2003CF277 /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		AB60B7461C7F2EE4003CF277 /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		AB60B74B1C7F2EE9003CF277 /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		AB63168D1C901B0300109B95 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		AB63168E1C901B0500109B95 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		AB89466F1C4E3372002E86C8 /* ASAboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASAboutViewController.h; sourceTree = "<group>"; };
 		AB8946701C4E3372002E86C8 /* ASAboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASAboutViewController.m; sourceTree = "<group>"; };
 		AB8946821C4F31A6002E86C8 /* ASSignInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASSignInViewController.h; sourceTree = "<group>"; };
@@ -1032,6 +1034,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				AB60B7411C7F2EE2003CF277 /* nb */,
+				AB63168D1C901B0300109B95 /* en */,
+				AB63168E1C901B0500109B95 /* Base */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";

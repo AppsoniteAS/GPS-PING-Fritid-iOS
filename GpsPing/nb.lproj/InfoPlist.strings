@@ -1,1 +1,3 @@
-/* No Localized Strings */
+NSLocationAlwaysUsageDescription = "Henter din lokasjon";
+NSLocationUsageDescription = "Henter din lokasjon";
+NSLocationWhenInUseUsageDescription = "Henter din lokasjon";
