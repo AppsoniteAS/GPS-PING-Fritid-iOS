@@ -96,8 +96,15 @@ NSString* const kASGeofenceYards     = @"geofenceYards";
 }
 
 +(NSArray*)getTrackersFromUserDefaults {
-    NSArray *trackers = [[NSUserDefaults standardUserDefaults]
-                            arrayForKey:kASUserDefaultsTrackersKey];
+    NSData *data = [[NSUserDefaults standardUserDefaults]
+                            objectForKey:kASUserDefaultsTrackersKey];
+    NSArray *trackers = [NSArray new];
+    if ([data isKindOfClass:[NSArray class]]) {
+        trackers = [data copy];
+    } else {
+        trackers = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+    }
+    
     if (!trackers) {
         return @[];
     }
@@ -140,7 +147,8 @@ NSString* const kASGeofenceYards     = @"geofenceYards";
     NSError *error;
     NSArray *jsonToSave = [MTLJSONAdapter JSONArrayFromModels:trackers_m
                                                         error:&error];
-    [[NSUserDefaults standardUserDefaults] setObject:jsonToSave
+    NSData *dataSave = [NSKeyedArchiver archivedDataWithRootObject:jsonToSave];
+    [[NSUserDefaults standardUserDefaults] setObject:dataSave
                                               forKey:kASUserDefaultsTrackersKey];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
@@ -185,7 +193,8 @@ NSString* const kASGeofenceYards     = @"geofenceYards";
         return Underscore.rejectValues(object, Underscore.isNull);
     }).unwrap;
     
-    [[NSUserDefaults standardUserDefaults] setObject:filtered
+    NSData *dataSave = [NSKeyedArchiver archivedDataWithRootObject:filtered];
+    [[NSUserDefaults standardUserDefaults] setObject:dataSave
                                               forKey:kASUserDefaultsTrackersKey];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
