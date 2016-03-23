@@ -49,6 +49,7 @@ NSString *kASDidLogoutNotification = @"kASDidLogoutNotification";
 
 @property (nonatomic, strong) id<AGApplicationConfigurationDelegate> configuration;
 @property (strong, nonatomic) AFHTTPRequestOperationManager *httpRequestOperationManager;
+@property (strong, nonatomic) AFNetworkReachabilityManager  *reachabilityManager;
 @property (nonatomic, strong) NSUserDefaults *prefs;
 @property (nonatomic, strong) NSDictionary *errorsDictionary;
 
@@ -58,6 +59,14 @@ NSString *kASDidLogoutNotification = @"kASDidLogoutNotification";
 
 objection_register_singleton(AGApiController);
 objection_initializer(initWithConfiguration:);
+
+-(instancetype)init {
+    self = [super init];
+    if (self) {
+        [self setupReachabilityManager];
+    }
+    return self;
+}
 
 -(instancetype)initWithConfiguration:(id<AGApplicationConfigurationDelegate>)configuration {
     DDLogDebug(@"%s", __PRETTY_FUNCTION__);
@@ -82,6 +91,18 @@ objection_initializer(initWithConfiguration:);
     }
     
     return self;
+}
+
+- (void)setupReachabilityManager {
+    self.reachabilityManager = [AFNetworkReachabilityManager managerForDomain:self.baseUrl.host];
+    RAC(self, isReachable) = [[[RACObserve(self.reachabilityManager, networkReachabilityStatus)
+                                map:^id(NSNumber* value) {
+                                    return @(   value.integerValue != AFNetworkReachabilityStatusNotReachable
+                                    &&  value.integerValue != AFNetworkReachabilityStatusUnknown);
+                                }] distinctUntilChanged] doNext:^(NSNumber* x) {
+                                    DDLogVerbose(@"Backend reachability status is: %@", x.boolValue ? @"YES": @"NO");
+                                }];
+    [self.reachabilityManager startMonitoring];
 }
 
 #pragma mark - Registration & Auth

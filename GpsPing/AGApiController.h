@@ -35,7 +35,7 @@ extern NSString *kASDidLogoutNotification;
 @end
 
 @interface AGApiController : NSObject
-
+@property (readonly) BOOL isReachable;
 @property (nonatomic, strong) ASUserProfileModel *userProfile;
 @property (nonatomic, strong) NSURL *baseUrl;
 

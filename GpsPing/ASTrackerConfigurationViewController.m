@@ -204,6 +204,12 @@ objection_requires(@keypath(ASTrackerConfigurationViewController.new, apiControl
             [self.trackerObject saveInUserDefaults];
             [self dismissViewControllerAnimated:YES completion:nil];
         } error:^(NSError *error) {
+            if ([NSLocalizedStringFromTable(error.localizedDescription, @"Errors", nil) isEqualToString:@"Invalid authentication cookie. Use the `generate_auth_cookie` method."]) {
+                UIViewController* controller = [[UIStoryboard authStoryboard] instantiateInitialViewController];
+                [self presentViewController:controller
+                                   animated:YES
+                                 completion:nil];
+            }
             [[UIAlertView alertWithTitle:NSLocalizedString(@"Error", nil) error:error] show];
         }];
     } else {
