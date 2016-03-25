@@ -70,23 +70,23 @@ objection_requires(@keypath(ASMapViewController.new, apiController))
     [super viewDidLoad];
     [[JSObjection defaultInjector] injectDependencies:self];
     
-    if (!self.apiController.isReachable) {
-        UIAlertController *alertController = [UIAlertController
-                                              alertControllerWithTitle:NSLocalizedString(@"Error", nil)
-                                              message:NSLocalizedString(@"You do not have mobile network.", nil)
-                                              preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction *cancelAction = [UIAlertAction
-                                       actionWithTitle:NSLocalizedString(@"Cancel", @"Cancel action")
-                                       style:UIAlertActionStyleCancel
-                                       handler:^(UIAlertAction *action)
-                                       {
-                                           DDLogDebug(@"Cancel action");
-                                           [self.navigationController popoverPresentationController];
-                                       }];
-        
-        [alertController addAction:cancelAction];
-        [self presentViewController:alertController animated:YES completion:nil];
-    }
+//    if (!self.apiController.isReachableViaWWAN) {
+//        UIAlertController *alertController = [UIAlertController
+//                                              alertControllerWithTitle:NSLocalizedString(@"Error", nil)
+//                                              message:NSLocalizedString(@"You do not have mobile network.", nil)
+//                                              preferredStyle:UIAlertControllerStyleAlert];
+//        UIAlertAction *cancelAction = [UIAlertAction
+//                                       actionWithTitle:NSLocalizedString(@"Cancel", @"Cancel action")
+//                                       style:UIAlertActionStyleCancel
+//                                       handler:^(UIAlertAction *action)
+//                                       {
+//                                           DDLogDebug(@"Cancel action");
+//                                           [self.navigationController popoverPresentationController];
+//                                       }];
+//        
+//        [alertController addAction:cancelAction];
+//        [self presentViewController:alertController animated:YES completion:nil];
+//    }
 
     UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc]      initWithTarget:self action:@selector(handleLongPress:)];
     longPress.minimumPressDuration = 0.5;
@@ -479,11 +479,14 @@ objection_requires(@keypath(ASMapViewController.new, apiController))
 -(void)showPointsForUser:(ASFriendModel*)friendModel
 {
     UIColor *colorForUser = self.colorsDictionary[friendModel.userName];
-    CLLocationCoordinate2D friendCoord = CLLocationCoordinate2DMake(friendModel.latitude.doubleValue, friendModel.longitude.doubleValue);
-    ASFriendAnnotation *friendAnnotation = [[ASFriendAnnotation alloc] initWithLocation:friendCoord];
-    friendAnnotation.annotationColor = colorForUser;
-    friendAnnotation.userObject = friendModel;
-    [self.mapView addAnnotation:friendAnnotation];
+    if (friendModel.latitude.doubleValue && friendModel.longitude.doubleValue) {
+        CLLocationCoordinate2D friendCoord = CLLocationCoordinate2DMake(friendModel.latitude.doubleValue, friendModel.longitude.doubleValue);
+        ASFriendAnnotation *friendAnnotation = [[ASFriendAnnotation alloc] initWithLocation:friendCoord];
+        friendAnnotation.annotationColor = colorForUser;
+        friendAnnotation.userObject = friendModel;
+        [self.mapView addAnnotation:friendAnnotation];
+    }
+    
     
     for (ASDeviceModel *deviceModel in friendModel.devices) {
         if ((deviceModel.points.count == 0) && (self.isHistoryMode)) {
