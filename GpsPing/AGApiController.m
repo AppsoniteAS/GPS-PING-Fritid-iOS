@@ -60,14 +60,6 @@ NSString *kASDidLogoutNotification = @"kASDidLogoutNotification";
 objection_register_singleton(AGApiController);
 objection_initializer(initWithConfiguration:);
 
--(instancetype)init {
-    self = [super init];
-    if (self) {
-        [self setupReachabilityManager];
-    }
-    return self;
-}
-
 -(instancetype)initWithConfiguration:(id<AGApplicationConfigurationDelegate>)configuration {
     DDLogDebug(@"%s", __PRETTY_FUNCTION__);
     self = [super init];
@@ -88,6 +80,7 @@ objection_initializer(initWithConfiguration:);
 #else
         self.baseUrl = [NSURL URLWithString:BASE_URL_PRODUCTION];
 #endif
+        [self setupReachabilityManager];
     }
     
     return self;
@@ -95,12 +88,11 @@ objection_initializer(initWithConfiguration:);
 
 - (void)setupReachabilityManager {
     self.reachabilityManager = [AFNetworkReachabilityManager managerForDomain:self.baseUrl.host];
-    RAC(self, isReachable) = [[[RACObserve(self.reachabilityManager, networkReachabilityStatus)
+    RAC(self, isReachableViaWWAN) = [[[RACObserve(self.reachabilityManager, networkReachabilityStatus)
                                 map:^id(NSNumber* value) {
-                                    return @(   value.integerValue != AFNetworkReachabilityStatusNotReachable
-                                    &&  value.integerValue != AFNetworkReachabilityStatusUnknown);
+                                    return @(value.integerValue == AFNetworkReachabilityStatusReachableViaWWAN);
                                 }] distinctUntilChanged] doNext:^(NSNumber* x) {
-                                    DDLogVerbose(@"Backend reachability status is: %@", x.boolValue ? @"YES": @"NO");
+                                    DDLogVerbose(@"Backend reachability status via WWAN is: %@", x.boolValue ? @"YES": @"NO");
                                 }];
     [self.reachabilityManager startMonitoring];
 }
