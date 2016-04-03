@@ -367,6 +367,9 @@ objection_requires(@keypath(ASMapViewController.new, apiController))
     CGFloat newX = startPoint.x;
     CGFloat newY = startPoint.y;
     
+    if ([CLLocationManager locationServicesEnabled]) {
+        self.dashedLineView.hidden = ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusDenied) ? YES : NO;
+    }
     if (startPoint.x > self.dashedLineView.frame.size.width) {
         newX = self.dashedLineView.frame.size.width;
         CGFloat k = newX/startPoint.x;
@@ -379,8 +382,6 @@ objection_requires(@keypath(ASMapViewController.new, apiController))
     
     self.dashedLineView.userLocationPoint = CGPointMake(newX, newY);
     [self.dashedLineView setNeedsDisplay];
-    
-    // whats faster, drawInRect or CAShapeLayer?
 }
 
 -(void)viewDidDisappear:(BOOL)animated
