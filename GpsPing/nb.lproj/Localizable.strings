@@ -69,3 +69,10 @@
 /* Push messages */
 "PUSH_MESSSAGE_FRIEND_REQUEST" = "%@ vil være venn med deg";
 "PUSH_MESSSAGE_CHECK_FOR_STAND" = "Trackeren din står nå stille på samme sted.";
+
+//subscription
+"You don't have any tracker" = "Du har ikke registrert tracker på din bruker";
+"Please add a tracker or subscribe to your friend's tracker" = "Legg til tracker eller kjøp abonnement slik at du kan se din venns tracker";
+"Add tracker" = "Legg til tracker";
+"Restore" = "Gjenopprett kjøp";
+"Subscribe" = "Abonner";
