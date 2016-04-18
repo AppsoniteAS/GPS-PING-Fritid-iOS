@@ -280,8 +280,10 @@ objection_requires(@keypath(ASTrackerConfigurationViewController.new, apiControl
     self.ratePicker.delegate = self;
     self.ratePicker.dataSource = self;
 
-    if ([self.ratePickerData containsObject:self.trackerObject.signalRateInSeconds]) {
-        [self.ratePicker selectRow:[self.ratePickerData indexOfObject:self.trackerObject.signalRateInSeconds]
+    self.choosedTime = (self.trackerObject.signalRateInSeconds.integerValue == 0) ? @60 : self.trackerObject.signalRateInSeconds;
+    
+    if ([self.ratePickerData containsObject:self.choosedTime]) {
+        [self.ratePicker selectRow:[self.ratePickerData indexOfObject:self.choosedTime]
                        inComponent:0
                           animated:NO];
 
@@ -290,8 +292,6 @@ objection_requires(@keypath(ASTrackerConfigurationViewController.new, apiControl
                        inComponent:0
                           animated:NO];
     }
-    
-    self.choosedTime = self.trackerObject.signalRateInSeconds;
     
     self.signalRateTextField.inputView = self.ratePicker;
     UIToolbar *accessoryView = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, self.ratePicker.frame.size.width, 44)];
