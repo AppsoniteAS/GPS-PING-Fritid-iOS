@@ -336,6 +336,15 @@ objection_requires(@keypath(ASMapViewController.new, apiController))
 -(void)removeTracksTap
 {
     [self.mapView removeAnnotations:self.mapView.annotations];
+    self.detailsPlank.hidden = YES;
+    self.tapGestureDetails.enabled = NO;
+    for (ASPointOfInterestModel *pointOfInterestModel in self.arrayPOIs) {
+        [[[self.apiController removePOIWithId:pointOfInterestModel.identificator.integerValue] deliverOnMainThread] subscribeNext:^(id x) {
+            if (pointOfInterestModel == self.arrayPOIs.lastObject) {
+                [self loadPointsOfInterest];
+            }
+        }] ;
+    }
 }
 
 -(void)timerTick:(NSTimer*)timer
