@@ -22,6 +22,7 @@
 #import "ASDisplayOptionsViewController.h"
 #import <CocoaLumberjack.h>
 #import <Underscore.h>
+#import "NSDate+DateTools.h"
 
 #define QUERY_RATE_IN_SECONDS 15
 static const DDLogLevel ddLogLevel = DDLogLevelDebug;
@@ -336,15 +337,13 @@ objection_requires(@keypath(ASMapViewController.new, apiController))
 -(void)removeTracksTap
 {
     [self.mapView removeAnnotations:self.mapView.annotations];
-    self.detailsPlank.hidden = YES;
-    self.tapGestureDetails.enabled = NO;
-    for (ASPointOfInterestModel *pointOfInterestModel in self.arrayPOIs) {
-        [[[self.apiController removePOIWithId:pointOfInterestModel.identificator.integerValue] deliverOnMainThread] subscribeNext:^(id x) {
-            if (pointOfInterestModel == self.arrayPOIs.lastObject) {
-                [self loadPointsOfInterest];
-            }
-        }] ;
-    }
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSNumber *duration = [defaults objectForKey:kTrackingDurationKey];
+    NSDate *removetracksdate  = [NSDate date];
+    NSDate *to = [NSDate date];
+    NSDate *from = [to dateByAddingTimeInterval:-60*duration.integerValue];
+    from =  [removetracksdate isEarlierThanOrEqualTo:from] ? from : removetracksdate;
+    [self loadTrackingPointsFrom:from to:to];
 }
 
 -(void)timerTick:(NSTimer*)timer
@@ -482,8 +481,6 @@ objection_requires(@keypath(ASMapViewController.new, apiController))
             }
         }
     }
-    
-    
 }
 
 -(void)showPointsForUser:(ASFriendModel*)friendModel
