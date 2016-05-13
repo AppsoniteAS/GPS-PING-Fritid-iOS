@@ -180,7 +180,7 @@ objection_requires(@keypath(ASMapViewController.new, apiController))
         return NO;
     }];
     //[self.datePicker slideUpInView:self.view withModalColor:[UIColor lightGrayColor]];
-    self.datePicker.date = self.selectedDate;
+    if (self.selectedDate) self.datePicker.date = self.selectedDate;
     [self presentSemiViewController:self.datePicker withOptions:@{
                                                                   KNSemiModalOptionKeys.pushParentBack    : @(NO),
                                                                   KNSemiModalOptionKeys.animationDuration : @(0.33),
@@ -496,22 +496,16 @@ objection_requires(@keypath(ASMapViewController.new, apiController))
     
     
     for (ASDeviceModel *deviceModel in friendModel.devices) {
-        if ((deviceModel.points.count == 0) && (self.isHistoryMode)) {
-            CLLocationCoordinate2D deviceCoord = CLLocationCoordinate2DMake(deviceModel.latitude.doubleValue, deviceModel.longitude.doubleValue);
-            ASLastPointAnnotation *deviceAnnotation = [[ASLastPointAnnotation alloc] initWithLocation:deviceCoord];
-            deviceAnnotation.annotationColor = colorForUser;
-            deviceAnnotation.deviceObject = deviceModel;
-            deviceAnnotation.owner = friendModel;
-            [self.mapView addAnnotation:deviceAnnotation];
-        }
+        CLLocationCoordinate2D deviceCoord = CLLocationCoordinate2DMake(deviceModel.latitude.doubleValue, deviceModel.longitude.doubleValue);
+        ASLastPointAnnotation *deviceAnnotation = [[ASLastPointAnnotation alloc] initWithLocation:deviceCoord];
+        deviceAnnotation.annotationColor = colorForUser;
+        deviceAnnotation.deviceObject = deviceModel;
+        deviceAnnotation.owner = friendModel;
+        [self.mapView addAnnotation:deviceAnnotation];
         for (ASPointModel *pointModel in deviceModel.points) {
             ASDevicePointAnnotation *annotation;
             CLLocationCoordinate2D coord = CLLocationCoordinate2DMake(pointModel.latitude.doubleValue, pointModel.longitude.doubleValue);
-            if (pointModel == deviceModel.points.lastObject) {
-                annotation = [[ASLastPointAnnotation alloc] initWithLocation:coord];
-            } else {
-                annotation = [[ASPointAnnotation alloc] initWithLocation:coord];
-            }
+            annotation = [[ASPointAnnotation alloc] initWithLocation:coord];
             
             [annotation setAnnotationColor:colorForUser];
             annotation.deviceObject = deviceModel;
