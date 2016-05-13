@@ -67,7 +67,7 @@ DDLogLevel ddLogLevel = DDLogLevelError;
 }
 
 -(void)configUI {
-    [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:0.5451 green:0.7647 blue:0.2902 alpha:1.0]];
+    [[UINavigationBar appearance] setBarTintColor:[UIColor as_darkblueColor]];
     [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
     [[UINavigationBar appearance] setTitleTextAttributes:
      @{

@@ -8,23 +8,22 @@
 
 #import "ASButton.h"
 
-#define GREEN_STYLE_COLOR                   [UIColor colorWithRed:0.3333 green:0.5451 blue:0.1843 alpha:1.0]
-#define GREEN_STYLE_BORDER_COLOR            [UIColor colorWithRed:0.5451 green:0.7647 blue:0.2902 alpha:1.0]
+#define RED_STYLE_COLOR                   [UIColor as_redColor]
 #define GREY_STYLE_COLOR                    [UIColor colorWithRed:0.8589 green:0.8589 blue:0.8589 alpha:1.0]
-#define GREEN_STYLE_TITLE_COLOR             [UIColor whiteColor]
-#define GREEN_STYLE_TITLE_HIGHLIGHTED_COLOR GREY_STYLE_TITLE_COLOR
-#define GREY_STYLE_TITLE_COLOR              [UIColor colorWithRed:0.3523 green:0.3523 blue:0.3523 alpha:1.0]
+#define RED_STYLE_TITLE_COLOR             [UIColor whiteColor]
+#define RED_STYLE_TITLE_HIGHLIGHTED_COLOR [UIColor colorWithRed:0.3523 green:0.3523 blue:0.3523 alpha:1.0]
+#define GREY_STYLE_TITLE_COLOR            [UIColor colorWithRed:0.3523 green:0.3523 blue:0.3523 alpha:1.0]
 #define GREY_STYLE_TITLE_HIGHLIGHTED_COLOR  GREY_STYLE_TITLE_COLOR
 
 @implementation ASButton
 
 -(void)awakeFromNib
 {
-    self.layer.cornerRadius = 6.0;
-    self.layer.borderColor = GREEN_STYLE_BORDER_COLOR.CGColor;
+//    self.layer.cornerRadius = 6.0;
+//    self.layer.borderColor = GREEN_STYLE_BORDER_COLOR.CGColor;
     self.titleLabel.font = [UIFont fontWithName:@"Roboto-Bold" size:20];
 
-    self.style = ASButtonStyleGreen;
+    self.style = ASButtonStyleRed;
     [self configWithBaseStyle];
     [self styleButton:NO];
 }
@@ -44,20 +43,24 @@
 -(void)styleButton:(BOOL)isHighlighted {
     if (isHighlighted) {
         self.backgroundColor = GREY_STYLE_COLOR;
-        self.layer.borderWidth = 0;
+//        self.layer.borderWidth = 0;
+        self.style = ASButtonStyleGrey;
+        [self configWithBaseStyle];
     } else {
-        self.backgroundColor = GREEN_STYLE_COLOR;
+        self.backgroundColor = RED_STYLE_COLOR;
 
-        self.layer.borderWidth = 2.3;
+//        self.layer.borderWidth = 0;
+        self.style = ASButtonStyleRed;
+        [self configWithBaseStyle];
     }
 }
 
 -(void)configWithBaseStyle {
-    if (self.style == ASButtonStyleGreen) {
-        [self setTitleColor:GREEN_STYLE_TITLE_COLOR             forState:UIControlStateNormal];
-        [self setTitleColor:GREEN_STYLE_TITLE_HIGHLIGHTED_COLOR forState:UIControlStateHighlighted];
+    if (self.style == ASButtonStyleRed) {
+        [self setTitleColor:RED_STYLE_TITLE_COLOR             forState:UIControlStateNormal];
+        [self setTitleColor:RED_STYLE_TITLE_HIGHLIGHTED_COLOR forState:UIControlStateHighlighted];
     } else {
-        [self setTitleColor:GREY_STYLE_TITLE_COLOR             forState:UIControlStateNormal];
+        [self setTitleColor:GREY_STYLE_TITLE_COLOR            forState:UIControlStateNormal];
         [self setTitleColor:GREY_STYLE_TITLE_HIGHLIGHTED_COLOR forState:UIControlStateHighlighted];
     }
 }

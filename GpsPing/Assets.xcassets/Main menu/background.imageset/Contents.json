@@ -2,18 +2,7 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "backgorund.png",
-      "scale" : "1x"
-    },
-    {
-      "idiom" : "universal",
-      "filename" : "backgorund@2x.png",
-      "scale" : "2x"
-    },
-    {
-      "idiom" : "universal",
-      "filename" : "backgorund@3x.png",
-      "scale" : "3x"
+      "filename" : "background.pdf"
     }
   ],
   "info" : {
