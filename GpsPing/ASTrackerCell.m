@@ -22,7 +22,7 @@
 {
     self.trackerImage.layer.cornerRadius = self.trackerImage.frame.size.width/2;
     self.trackerImage.layer.borderWidth = 2.0;
-    self.trackerImage.layer.borderColor = [UIColor colorWithRed:0.5451 green:0.7647 blue:0.2902 alpha:1.0].CGColor;
+    self.trackerImage.layer.borderColor = [UIColor as_darkestBlueColor].CGColor;
 }
 
 -(void)updateWithModel:(id)model

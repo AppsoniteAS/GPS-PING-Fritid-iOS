@@ -16,7 +16,7 @@
 {
     for (UIButton *button in self.buttons) {
         button.layer.cornerRadius = button.frame.size.width/2;
-        button.layer.borderColor = [UIColor colorWithRed:0.4796 green:0.7302 blue:0.2274 alpha:1.0].CGColor;
+        button.layer.borderColor = [UIColor as_darkestBlueColor].CGColor;
         button.layer.borderWidth = 5.0f;
     }
 }
