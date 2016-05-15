@@ -13,5 +13,7 @@
 + (UIColor*)as_colorWithImage:(UIImage*)image;
 + (UIColor *)getRandomColor;
 + (UIColor*)as_darkblueColor;
++ (UIColor*)as_darkestBlueColor;
 + (UIColor*)as_redColor;
++ (UIColor*)as_darkRedColor;
 @end

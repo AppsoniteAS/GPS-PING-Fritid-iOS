@@ -29,8 +29,16 @@
     return [UIColor colorWithRed: 96.0/255.0 green: 125.0/255.0 blue:139.0/255.0 alpha:1.0];
 }
 
++ (UIColor*)as_darkestBlueColor {
+    return [UIColor colorWithRed: 69.0/255.0 green: 90.0/255.0 blue:100.0/255.0 alpha:1.0];
+}
+
 + (UIColor*)as_redColor {
     return [UIColor colorWithRed: 211.0/255.0 green: 43.0/255.0 blue:43.0/255.0 alpha:1.0];
+}
+
++ (UIColor*)as_darkRedColor {
+    return [UIColor colorWithRed: 176.0/255.0 green: 35.0/255.0 blue:35.0/255.0 alpha:1.0];
 }
 
 @end

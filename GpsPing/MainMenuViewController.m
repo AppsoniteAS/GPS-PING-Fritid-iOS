@@ -35,7 +35,7 @@ objection_requires(@keypath(MainMenuViewController.new, apiController))
 
     self->_viewModel = [[ASMainViewModel alloc] init];
     
-    self.startStopButton.layer.borderColor = [UIColor colorWithRed:0.4796 green:0.7302 blue:0.2274 alpha:1.0].CGColor;
+    self.startStopButton.layer.borderColor = [UIColor as_darkestBlueColor].CGColor;
     self.startStopButton.layer.borderWidth = 6.0;
 }
 
@@ -47,6 +47,14 @@ objection_requires(@keypath(MainMenuViewController.new, apiController))
     self.startStopButton.layer.cornerRadius = self.startStopButton.frame.size.width/2;
     ASTrackerModel *activeTracker = [ASTrackerModel getChoosedTracker];
     self.activeTrackerLabel.text = activeTracker.trackerName;
+
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
+    [self.navigationController.navigationBar setShadowImage:[UIImage new]];
+}
+
+-(void)viewWillDisappear:(BOOL)animated{
+    [self.navigationController.navigationBar setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
+    [self.navigationController.navigationBar setShadowImage:nil];
 }
 
 - (IBAction)startStopButtonTap:(id)sender {
@@ -95,8 +103,12 @@ objection_requires(@keypath(MainMenuViewController.new, apiController))
 -(void)updateButton {
     ASTrackerModel *trackerModel = [ASTrackerModel getChoosedTracker];
     if (trackerModel.isRunning) {
+        self.startStopButton.layer.backgroundColor = [UIColor as_redColor].CGColor;
+        self.startStopButton.layer.borderColor = [UIColor as_darkRedColor].CGColor;
         [self.startStopButton setTitle:NSLocalizedString(@"STOP", nil) forState:UIControlStateNormal];
     } else {
+        self.startStopButton.layer.backgroundColor = [UIColor as_darkblueColor].CGColor;
+        self.startStopButton.layer.borderColor = [UIColor as_darkestBlueColor].CGColor;
         [self.startStopButton setTitle:NSLocalizedString(@"Start", nil) forState:UIControlStateNormal];
     }
 }
