@@ -67,7 +67,6 @@
 		AB54280E1C5BA1C800F33E8B /* ASAddFriendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB54280A1C5BA1C800F33E8B /* ASAddFriendViewController.m */; };
 		AB54280F1C5BA1C800F33E8B /* ASAddFriendViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AB54280C1C5BA1C800F33E8B /* ASAddFriendViewModel.m */; };
 		AB5428121C5BA1F000F33E8B /* ASSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = AB5428111C5BA1F000F33E8B /* ASSearchBar.m */; };
-		AB5428181C5BAE2300F33E8B /* ASDisplayOptionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB5428171C5BAE2300F33E8B /* ASDisplayOptionsViewController.m */; };
 		AB5428211C5E376A00F33E8B /* ASRequestTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AB5428201C5E376A00F33E8B /* ASRequestTableViewCell.m */; };
 		AB60B7341C7D9CA9003CF277 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB60B7331C7D9CA9003CF277 /* StoreKit.framework */; };
 		AB60B7391C7EBCDB003CF277 /* ASInAppPurchaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AB60B7381C7EBCDB003CF277 /* ASInAppPurchaseManager.m */; };
@@ -84,7 +83,6 @@
 		AB89468D1C4F3203002E86C8 /* ASRegisterViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AB89468C1C4F3203002E86C8 /* ASRegisterViewModel.m */; };
 		AB8946901C4F7244002E86C8 /* ASGeofenceViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AB89468F1C4F7244002E86C8 /* ASGeofenceViewModel.m */; };
 		AB8946931C4F725D002E86C8 /* ASGeofenceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB8946921C4F725D002E86C8 /* ASGeofenceViewController.m */; };
-		AB8946961C50D6B0002E86C8 /* ASProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB8946951C50D6B0002E86C8 /* ASProfileViewController.m */; };
 		AB8946991C50D6CD002E86C8 /* ASProfileViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AB8946981C50D6CD002E86C8 /* ASProfileViewModel.m */; };
 		AB89469C1C510E96002E86C8 /* ASViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB89469B1C510E96002E86C8 /* ASViewController.m */; };
 		AB8946A81C549516002E86C8 /* ASUserProfileModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AB8946A71C549516002E86C8 /* ASUserProfileModel.m */; };
@@ -95,10 +93,8 @@
 		ABA221291C79E4A400AE6F87 /* Trackers.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABA2212B1C79E4A400AE6F87 /* Trackers.storyboard */; };
 		ABA221341C79E50200AE6F87 /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABA221361C79E50200AE6F87 /* Auth.storyboard */; };
 		ABA2213B1C79E52700AE6F87 /* Map.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABA2213D1C79E52700AE6F87 /* Map.storyboard */; };
-		ABA221421C79E54900AE6F87 /* DisplayOptions.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABA221441C79E54900AE6F87 /* DisplayOptions.storyboard */; };
 		ABA221491C79E56C00AE6F87 /* Connect.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABA2214B1C79E56C00AE6F87 /* Connect.storyboard */; };
 		ABA221501C79E58100AE6F87 /* Geofence.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABA221521C79E58100AE6F87 /* Geofence.storyboard */; };
-		ABA221571C79E59C00AE6F87 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABA221591C79E59C00AE6F87 /* Profile.storyboard */; };
 		ABA221601C79E5AF00AE6F87 /* About.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABA221621C79E5AF00AE6F87 /* About.storyboard */; };
 		ABD8BAE01C7F5B350075670C /* Errors.strings in Resources */ = {isa = PBXBuildFile; fileRef = ABD8BAE21C7F5B350075670C /* Errors.strings */; };
 		ABE7C7251C784500008A6390 /* ASPointOfInterestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ABE7C7241C784500008A6390 /* ASPointOfInterestModel.m */; };
@@ -227,8 +223,6 @@
 		AB54280C1C5BA1C800F33E8B /* ASAddFriendViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASAddFriendViewModel.m; sourceTree = "<group>"; };
 		AB5428101C5BA1F000F33E8B /* ASSearchBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASSearchBar.h; sourceTree = "<group>"; };
 		AB5428111C5BA1F000F33E8B /* ASSearchBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASSearchBar.m; sourceTree = "<group>"; };
-		AB5428161C5BAE2300F33E8B /* ASDisplayOptionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASDisplayOptionsViewController.h; sourceTree = "<group>"; };
-		AB5428171C5BAE2300F33E8B /* ASDisplayOptionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASDisplayOptionsViewController.m; sourceTree = "<group>"; };
 		AB54281F1C5E376A00F33E8B /* ASRequestTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASRequestTableViewCell.h; sourceTree = "<group>"; };
 		AB5428201C5E376A00F33E8B /* ASRequestTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASRequestTableViewCell.m; sourceTree = "<group>"; };
 		AB60B7331C7D9CA9003CF277 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
@@ -256,8 +250,6 @@
 		AB89468F1C4F7244002E86C8 /* ASGeofenceViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASGeofenceViewModel.m; sourceTree = "<group>"; };
 		AB8946911C4F725D002E86C8 /* ASGeofenceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASGeofenceViewController.h; sourceTree = "<group>"; };
 		AB8946921C4F725D002E86C8 /* ASGeofenceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASGeofenceViewController.m; sourceTree = "<group>"; };
-		AB8946941C50D6B0002E86C8 /* ASProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASProfileViewController.h; sourceTree = "<group>"; };
-		AB8946951C50D6B0002E86C8 /* ASProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASProfileViewController.m; sourceTree = "<group>"; };
 		AB8946971C50D6CD002E86C8 /* ASProfileViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASProfileViewModel.h; sourceTree = "<group>"; };
 		AB8946981C50D6CD002E86C8 /* ASProfileViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASProfileViewModel.m; sourceTree = "<group>"; };
 		AB89469A1C510E96002E86C8 /* ASViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASViewController.h; sourceTree = "<group>"; };
@@ -286,18 +278,12 @@
 		ABA2213C1C79E52700AE6F87 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Map.storyboard; sourceTree = "<group>"; };
 		ABA2213F1C79E52E00AE6F87 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Map.strings; sourceTree = "<group>"; };
 		ABA221411C79E53800AE6F87 /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/Map.strings; sourceTree = "<group>"; };
-		ABA221431C79E54900AE6F87 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/DisplayOptions.storyboard; sourceTree = "<group>"; };
-		ABA221461C79E54E00AE6F87 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/DisplayOptions.strings; sourceTree = "<group>"; };
-		ABA221481C79E55500AE6F87 /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/DisplayOptions.strings; sourceTree = "<group>"; };
 		ABA2214A1C79E56C00AE6F87 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Connect.storyboard; sourceTree = "<group>"; };
 		ABA2214D1C79E57000AE6F87 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Connect.strings; sourceTree = "<group>"; };
 		ABA2214F1C79E57600AE6F87 /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/Connect.strings; sourceTree = "<group>"; };
 		ABA221511C79E58100AE6F87 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Geofence.storyboard; sourceTree = "<group>"; };
 		ABA221541C79E58400AE6F87 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Geofence.strings; sourceTree = "<group>"; };
 		ABA221561C79E58A00AE6F87 /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/Geofence.strings; sourceTree = "<group>"; };
-		ABA221581C79E59C00AE6F87 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Profile.storyboard; sourceTree = "<group>"; };
-		ABA2215B1C79E59F00AE6F87 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Profile.strings; sourceTree = "<group>"; };
-		ABA2215D1C79E5A100AE6F87 /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/Profile.strings; sourceTree = "<group>"; };
 		ABA221611C79E5AF00AE6F87 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/About.storyboard; sourceTree = "<group>"; };
 		ABD8BAE11C7F5B350075670C /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/Errors.strings; sourceTree = "<group>"; };
 		ABD8BAE31C7F5B910075670C /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Errors.strings; sourceTree = "<group>"; };
@@ -579,16 +565,6 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
-		AB5428131C5BA9EF00F33E8B /* Display options */ = {
-			isa = PBXGroup;
-			children = (
-				AB5428161C5BAE2300F33E8B /* ASDisplayOptionsViewController.h */,
-				AB5428171C5BAE2300F33E8B /* ASDisplayOptionsViewController.m */,
-				ABA221441C79E54900AE6F87 /* DisplayOptions.storyboard */,
-			);
-			name = "Display options";
-			sourceTree = "<group>";
-		};
 		AB5428251C5E3B7800F33E8B /* AddFriend */ = {
 			isa = PBXGroup;
 			children = (
@@ -618,20 +594,10 @@
 				ABA221241C79E44700AE6F87 /* Settings.storyboard */,
 				AB60B73A1C7ECED7003CF277 /* ASSettingsViewController.h */,
 				AB60B73B1C7ECED7003CF277 /* ASSettingsViewController.m */,
-			);
-			name = Settings;
-			sourceTree = "<group>";
-		};
-		AB8946751C4E6770002E86C8 /* Profile */ = {
-			isa = PBXGroup;
-			children = (
-				AB8946941C50D6B0002E86C8 /* ASProfileViewController.h */,
-				AB8946951C50D6B0002E86C8 /* ASProfileViewController.m */,
 				AB8946971C50D6CD002E86C8 /* ASProfileViewModel.h */,
 				AB8946981C50D6CD002E86C8 /* ASProfileViewModel.m */,
-				ABA221591C79E59C00AE6F87 /* Profile.storyboard */,
 			);
-			name = Profile;
+			name = Settings;
 			sourceTree = "<group>";
 		};
 		AB8946771C4E6789002E86C8 /* Geofence */ = {
@@ -654,10 +620,8 @@
 				AB89467F1C4F2F11002E86C8 /* Auth */,
 				AB8946741C4E614B002E86C8 /* Settings */,
 				A68C1B9F1C4E477B000E2BA6 /* Trackers */,
-				AB5428131C5BA9EF00F33E8B /* Display options */,
 				A61D755A1C578FD200E75999 /* Connect */,
 				AB8946771C4E6789002E86C8 /* Geofence */,
-				AB8946751C4E6770002E86C8 /* Profile */,
 				AB89466C1C4E331C002E86C8 /* About */,
 			);
 			name = UI;
@@ -824,12 +788,10 @@
 				ABA221501C79E58100AE6F87 /* Geofence.storyboard in Resources */,
 				A68C1B7E1C4D24DC000E2BA6 /* Roboto-Light.ttf in Resources */,
 				A68C1B811C4D24DC000E2BA6 /* Roboto-MediumItalic.ttf in Resources */,
-				ABA221571C79E59C00AE6F87 /* Profile.storyboard in Resources */,
 				A68C1B3C1C4CE460000E2BA6 /* Main.storyboard in Resources */,
 				ABA221291C79E4A400AE6F87 /* Trackers.storyboard in Resources */,
 				ABA2213B1C79E52700AE6F87 /* Map.storyboard in Resources */,
 				A68C1B821C4D24DC000E2BA6 /* Roboto-Regular.ttf in Resources */,
-				ABA221421C79E54900AE6F87 /* DisplayOptions.storyboard in Resources */,
 				A68C1B841C4D24DC000E2BA6 /* Roboto-ThinItalic.ttf in Resources */,
 				ABA221341C79E50200AE6F87 /* Auth.storyboard in Resources */,
 				ABA2211C1C79DF4000AE6F87 /* Localizable.strings in Resources */,
@@ -925,7 +887,6 @@
 				A61D755F1C58A8BE00E75999 /* ASFriendTableViewCell.m in Sources */,
 				A68C1B391C4CE460000E2BA6 /* MainMenuViewController.m in Sources */,
 				A6D8D0521C58B1EA00030E9F /* ASFriendModel.m in Sources */,
-				AB5428181C5BAE2300F33E8B /* ASDisplayOptionsViewController.m in Sources */,
 				A603CEDF1C5A3401001D56A4 /* ASPointAnnotation.m in Sources */,
 				AB8946931C4F725D002E86C8 /* ASGeofenceViewController.m in Sources */,
 				A626CCF11C5D4FFA003762A2 /* ASDashedLine.m in Sources */,
@@ -934,7 +895,6 @@
 				A646053C1C68C2F90012467E /* AGGeoValueTransformer.m in Sources */,
 				AB89468A1C4F31F3002E86C8 /* ASSignInViewModel.m in Sources */,
 				AB5428211C5E376A00F33E8B /* ASRequestTableViewCell.m in Sources */,
-				AB8946961C50D6B0002E86C8 /* ASProfileViewController.m in Sources */,
 				AB5428061C5BA1B300F33E8B /* ASAddFriendModel.m in Sources */,
 				A6F6A74B1C5122210009579A /* ASSmsManager.m in Sources */,
 				AB8946A81C549516002E86C8 /* ASUserProfileModel.m in Sources */,
@@ -1106,16 +1066,6 @@
 			name = Map.storyboard;
 			sourceTree = "<group>";
 		};
-		ABA221441C79E54900AE6F87 /* DisplayOptions.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				ABA221431C79E54900AE6F87 /* Base */,
-				ABA221461C79E54E00AE6F87 /* en */,
-				ABA221481C79E55500AE6F87 /* nb */,
-			);
-			name = DisplayOptions.storyboard;
-			sourceTree = "<group>";
-		};
 		ABA2214B1C79E56C00AE6F87 /* Connect.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -1134,16 +1084,6 @@
 				ABA221561C79E58A00AE6F87 /* nb */,
 			);
 			name = Geofence.storyboard;
-			sourceTree = "<group>";
-		};
-		ABA221591C79E59C00AE6F87 /* Profile.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				ABA221581C79E59C00AE6F87 /* Base */,
-				ABA2215B1C79E59F00AE6F87 /* en */,
-				ABA2215D1C79E5A100AE6F87 /* nb */,
-			);
-			name = Profile.storyboard;
 			sourceTree = "<group>";
 		};
 		ABA221621C79E5AF00AE6F87 /* About.storyboard */ = {

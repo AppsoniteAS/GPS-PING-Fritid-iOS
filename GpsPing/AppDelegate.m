@@ -13,9 +13,9 @@
 #import <SVProgressHUD.h>
 #import <Objection/Objection.h>
 #import "ASGeofenceViewController.h"
-#import "ASDisplayOptionsViewController.h"
 #import "UIStoryboard+ASHelper.h"
 #import "ASFriendsListViewController.h"
+#import "ASSettingsViewController.h"
 
 DDLogLevel ddLogLevel = DDLogLevelError;
 

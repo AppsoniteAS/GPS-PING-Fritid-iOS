@@ -19,7 +19,7 @@
 #import "ASMapDetailsView.h"
 #import "ASDashedLine.h"
 #import <THDatePickerViewController.h>
-#import "ASDisplayOptionsViewController.h"
+#import "ASSettingsViewController.h"
 #import <CocoaLumberjack.h>
 #import <Underscore.h>
 #import "NSDate+DateTools.h"
@@ -170,7 +170,7 @@ objection_requires(@keypath(ASMapViewController.new, apiController))
     [self.datePicker setAllowSelectionOfSelectedDate:YES];
     [self.datePicker setDisableHistorySelection:NO];
     [self.datePicker setDisableFutureSelection:YES];
-    [self.datePicker setSelectedBackgroundColor:[UIColor colorWithRed:125/255.0 green:208/255.0 blue:0/255.0 alpha:1.0]];
+    [self.datePicker setSelectedBackgroundColor:[UIColor as_darkblueColor]];
     [self.datePicker setCurrentDateColor:[UIColor colorWithRed:242/255.0 green:121/255.0 blue:53/255.0 alpha:1.0]];
     
     [self.datePicker setDateHasItemsCallback:^BOOL(NSDate *date) {

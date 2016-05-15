@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ASViewController.h"
 
-@interface ASSettingsViewController : UIViewController
+static NSString * const kTrackingDurationKey = @"tracking_duration";
+
+@interface ASSettingsViewController : ASViewController
 
 @end
