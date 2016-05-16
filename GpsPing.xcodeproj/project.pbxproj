@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1CB01BD364B38A355663EB1A /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0237DDBF4E202A6CE571FB17 /* libPods.a */; };
+		71DBF3B032586FC58BFD9D10 /* libPods-GpsPing.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B7FFCCE62480932E5875CD50 /* libPods-GpsPing.a */; };
 		A603CED51C58D5C2001D56A4 /* ASMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A603CED41C58D5C2001D56A4 /* ASMapViewController.m */; };
 		A603CED81C5900CE001D56A4 /* ASDeviceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A603CED71C5900CE001D56A4 /* ASDeviceModel.m */; };
 		A603CEDB1C5A0986001D56A4 /* ASPointModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A603CEDA1C5A0986001D56A4 /* ASPointModel.m */; };
@@ -124,6 +124,7 @@
 
 /* Begin PBXFileReference section */
 		0237DDBF4E202A6CE571FB17 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		33DCF0FA5B248C4A92C1C0B0 /* Pods-GpsPing.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GpsPing.release.xcconfig"; path = "Pods/Target Support Files/Pods-GpsPing/Pods-GpsPing.release.xcconfig"; sourceTree = "<group>"; };
 		77A21FE96824543E1D08D970 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		A603CED31C58D5C2001D56A4 /* ASMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASMapViewController.h; sourceTree = "<group>"; };
 		A603CED41C58D5C2001D56A4 /* ASMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASMapViewController.m; sourceTree = "<group>"; };
@@ -308,7 +309,9 @@
 		ABE7C7241C784500008A6390 /* ASPointOfInterestModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASPointOfInterestModel.m; sourceTree = "<group>"; };
 		ABE7C7261C78CB76008A6390 /* ASPointOfInterestAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASPointOfInterestAnnotation.h; sourceTree = "<group>"; };
 		ABE7C7271C78CB76008A6390 /* ASPointOfInterestAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASPointOfInterestAnnotation.m; sourceTree = "<group>"; };
+		B7FFCCE62480932E5875CD50 /* libPods-GpsPing.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GpsPing.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D56B56EC24DC9B71F55AC4BB /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		DC335D2385B5A1CD2997D0EB /* Pods-GpsPing.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GpsPing.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GpsPing/Pods-GpsPing.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -318,7 +321,7 @@
 			files = (
 				AB60B7341C7D9CA9003CF277 /* StoreKit.framework in Frameworks */,
 				A626CCEB1C5D1DC5003762A2 /* MapKit.framework in Frameworks */,
-				1CB01BD364B38A355663EB1A /* libPods.a in Frameworks */,
+				71DBF3B032586FC58BFD9D10 /* libPods-GpsPing.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -344,6 +347,8 @@
 			children = (
 				D56B56EC24DC9B71F55AC4BB /* Pods.debug.xcconfig */,
 				77A21FE96824543E1D08D970 /* Pods.release.xcconfig */,
+				DC335D2385B5A1CD2997D0EB /* Pods-GpsPing.debug.xcconfig */,
+				33DCF0FA5B248C4A92C1C0B0 /* Pods-GpsPing.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -354,6 +359,7 @@
 				AB60B7331C7D9CA9003CF277 /* StoreKit.framework */,
 				A626CCEA1C5D1DC5003762A2 /* MapKit.framework */,
 				0237DDBF4E202A6CE571FB17 /* libPods.a */,
+				B7FFCCE62480932E5875CD50 /* libPods-GpsPing.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -686,12 +692,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A68C1B5B1C4CE461000E2BA6 /* Build configuration list for PBXNativeTarget "GpsPing" */;
 			buildPhases = (
-				51987DA7A85E487CD8D58EA7 /* Check Pods Manifest.lock */,
+				51987DA7A85E487CD8D58EA7 /* 📦 Check Pods Manifest.lock */,
 				A68C1B2A1C4CE460000E2BA6 /* Sources */,
 				A68C1B2B1C4CE460000E2BA6 /* Frameworks */,
 				A68C1B2C1C4CE460000E2BA6 /* Resources */,
-				A5C41E725E322862948ACD98 /* Embed Pods Frameworks */,
-				75093ACCB7993C6C42A400E9 /* Copy Pods Resources */,
+				A5C41E725E322862948ACD98 /* 📦 Embed Pods Frameworks */,
+				75093ACCB7993C6C42A400E9 /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -859,14 +865,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		51987DA7A85E487CD8D58EA7 /* Check Pods Manifest.lock */ = {
+		51987DA7A85E487CD8D58EA7 /* 📦 Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "📦 Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -874,34 +880,34 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		75093ACCB7993C6C42A400E9 /* Copy Pods Resources */ = {
+		75093ACCB7993C6C42A400E9 /* 📦 Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "📦 Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GpsPing/Pods-GpsPing-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		A5C41E725E322862948ACD98 /* Embed Pods Frameworks */ = {
+		A5C41E725E322862948ACD98 /* 📦 Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "📦 Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GpsPing/Pods-GpsPing-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1251,7 +1257,7 @@
 		};
 		A68C1B5C1C4CE461000E2BA6 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D56B56EC24DC9B71F55AC4BB /* Pods.debug.xcconfig */;
+			baseConfigurationReference = DC335D2385B5A1CD2997D0EB /* Pods-GpsPing.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = GpsPing/GpsPing.entitlements;
@@ -1271,7 +1277,7 @@
 		};
 		A68C1B5D1C4CE461000E2BA6 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 77A21FE96824543E1D08D970 /* Pods.release.xcconfig */;
+			baseConfigurationReference = 33DCF0FA5B248C4A92C1C0B0 /* Pods-GpsPing.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = GpsPing/GpsPing.entitlements;
