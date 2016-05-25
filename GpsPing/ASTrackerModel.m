@@ -221,6 +221,15 @@ NSString* const kASGeofenceYards     = @"geofenceYards";
                        @"apn123456 netcom",
                        [NSString stringWithFormat:@"adminip123456 %s 5000", buff],
                        @"sleep123456 off"];
+        } else if ([self.trackerType isEqualToString:kASTrackerTypeLK209]) {
+            result = @[[NSString stringWithFormat:@"admin123456 %@"],
+                       @"apn123456 netcom",
+                       [NSString stringWithFormat:@"adminip123456 %s 5013", buff],
+                       @"gprs123456"];
+        } else if ([self.trackerType isEqualToString:kASTrackerTypeVT600]) {
+            result = @[@"W000000,010,netcom",
+                       [NSString stringWithFormat:@"W000000,012,%s,5009", buff],
+                       @"W000000,013,1"];
         } else {
             result = @[@"Begin123456",
                        @"gprs123456",
@@ -239,17 +248,33 @@ NSString* const kASGeofenceYards     = @"geofenceYards";
 -(NSString*)getSmsTextsForTrackerLaunch:(BOOL)isOn
 {
     if (!isOn) {
-        return @"Notn123456";
+        if ([self.trackerType isEqualToString:kASTrackerTypeVT600]) {
+            return @"W000000,013,0";
+        } else {
+            return @"Notn123456";
+        }
     }
     
     if ([self.trackerType isEqualToString:kASTrackerTypeTkStar] ||
-        [self.trackerType isEqualToString:kASTrackerTypeTkStarPet]) {
+        [self.trackerType isEqualToString:kASTrackerTypeTkStarPet] ||
+        [self.trackerType isEqualToString:kASTrackerTypeLK209]) {
         NSInteger signalRate = self.signalRate;
         if ([self.signalRateMetric isEqualToString:kASSignalMetricTypeMinutes]){
             signalRate *= 60;
         }
         
         return [NSString stringWithFormat:@"Upload123456 %03d", (int)signalRate];
+    } else if ([self.trackerType isEqualToString:kASTrackerTypeVT600]) {
+        NSInteger signalRate = self.signalRate;
+        if ([self.signalRateMetric isEqualToString:kASSignalMetricTypeMinutes]){
+            signalRate *= 60;
+        }
+        
+        if (signalRate <= 10) {
+            signalRate = 10;
+        }
+        
+        return [NSString stringWithFormat:@"W00000,014,%05d", (int)signalRate/10];
     } else {
         NSString *rateMetric = [self.signalRateMetric isEqualToString:kASSignalMetricTypeMinutes] ?
         @"m" : @"s";
@@ -259,13 +284,21 @@ NSString* const kASGeofenceYards     = @"geofenceYards";
     }
 }
 
-+(NSString*)getSmsTextsForGeofenceLaunch:(BOOL)turnOn
-                                distance:(NSString*)distance
+-(NSString*)getSmsTextsForGeofenceLaunchWithDistance:(NSString*)distance
 {
-    if (turnOn) {
-         return [@"move123456 " stringByAppendingString:distance];
+    BOOL needTurnOn = !([ASTrackerModel getChoosedTracker].isGeofenceStarted);
+    if (needTurnOn) {
+        if ([self.trackerType isEqualToString:kASTrackerTypeLK209]) {
+            return @"move123456";
+        } else {
+            return [@"move123456 " stringByAppendingString:distance];
+        }
     } else {
-        return @"move123456 0";
+        if ([self.trackerType isEqualToString:kASTrackerTypeLK209]) {
+            return @"nomove123456";
+        } else {
+            return @"move123456 0";
+        }
     }
 }
 

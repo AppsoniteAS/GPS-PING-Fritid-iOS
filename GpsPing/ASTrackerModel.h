@@ -13,6 +13,9 @@
 static NSString * const kASTrackerTypeTkStar      = @"TK_STAR";
 static NSString * const kASTrackerTypeTkStarPet   = @"TK_STAR_PET";
 static NSString * const kASTrackerTypeAnywhere    = @"TK_ANYWHERE";
+static NSString * const kASTrackerTypeLK209       = @"LK209";
+static NSString * const kASTrackerTypeVT600       = @"VT600";
+static NSString * const kASTrackerTypeLK330       = @"LK330";
 
 static NSString * const kASSignalMetricTypeSeconds   = @"Seconds";
 static NSString * const kASSignalMetricTypeMinutes   = @"Minutes";
@@ -51,6 +54,6 @@ static NSString * const kASUserDefaultsTrackersKey   = @"kASUserDefaultsTrackers
 
 -(RACSignal*)getSmsTextsForActivation;
 -(NSString*)getSmsTextsForTrackerLaunch:(BOOL)isOn;
-+(NSString*)getSmsTextsForGeofenceLaunch:(BOOL)turnOn
-                                distance:(NSString*)distance;
+-(NSString*)getSmsTextsForGeofenceLaunchWithDistance:(NSString*)distance;
+
 @end

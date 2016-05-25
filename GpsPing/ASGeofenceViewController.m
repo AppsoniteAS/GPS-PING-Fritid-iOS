@@ -55,8 +55,7 @@
 #pragma mark - IBActions
 
 -(IBAction)doSubmit:(id)sender {
-    [self as_sendSMS:[ASTrackerModel getSmsTextsForGeofenceLaunch:!([ASTrackerModel getChoosedTracker].isGeofenceStarted)
-                                                      distance:self.viewModel.yards]
+    [self as_sendSMS:[[ASTrackerModel getChoosedTracker] getSmsTextsForGeofenceLaunchWithDistance:self.viewModel.yards]
            recipient:[ASTrackerModel getChoosedTracker].trackerNumber];
 }
 

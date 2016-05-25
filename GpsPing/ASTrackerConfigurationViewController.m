@@ -25,12 +25,12 @@ static const DDLogLevel ddLogLevel = DDLogLevelVerbose;
 @property (weak, nonatomic) IBOutlet UITextField *trackerNumberTextField;
 @property (weak, nonatomic) IBOutlet UISwitch *dogInStandSwitcher;
 @property (weak, nonatomic) IBOutlet ASButton *completeButton;
-//@property (weak, nonatomic) IBOutlet UIView *editButtonsPanel;
+@property (weak, nonatomic) IBOutlet UIView *editButtonsPanel;
+@property (weak, nonatomic) IBOutlet ASButton *resetButton;
 
 @property (nonatomic) NSString *metricType;
 @property (nonatomic, assign) CGFloat signalRate;
 @property (weak, nonatomic) IBOutlet UITextField *signalRateTextField;
-@property (weak, nonatomic) IBOutlet ASButton *updateButton;
 
 @property (nonatomic) NSArray      *ratePickerData;
 @property (nonatomic) NSDictionary  *ratePickerStrings;
@@ -84,15 +84,15 @@ objection_requires(@keypath(ASTrackerConfigurationViewController.new, apiControl
     [self.completeButton setTitle:[NSString stringWithFormat:newTitle, (long)self.smsCount + 1]
                          forState:UIControlStateNormal];
     
-//    NSString *newResetTitle = NSLocalizedString(@"Reset: step %ld", nil);
-//    [self.resetButton setTitle:[NSString stringWithFormat:newResetTitle, (long)self.smsCount + 1]
-//                         forState:UIControlStateNormal];
+    NSString *newResetTitle = NSLocalizedString(@"Reset: step %ld", nil);
+    [self.resetButton setTitle:[NSString stringWithFormat:newResetTitle, (long)self.smsCount + 1]
+                         forState:UIControlStateNormal];
 }
 
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    self.updateButton.hidden = !self.shouldShowInEditMode;
+    self.editButtonsPanel.hidden = !self.shouldShowInEditMode;
     self.completeButton.hidden   = self.shouldShowInEditMode;
     [self jps_viewWillAppear:animated];
     [self.outerWrapperView mas_makeConstraints:^
