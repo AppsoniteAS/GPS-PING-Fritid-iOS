@@ -12,12 +12,17 @@
 #import "ASSmsManager.h"
 
 
-@interface ASGeofenceViewController ()
+@interface ASGeofenceViewController () <UIPickerViewDelegate, UIPickerViewDataSource>
 
-@property (nonatomic, readonly) ASGeofenceViewModel   *viewModel;
-@property (nonatomic, weak    ) IBOutlet UITextField  *textFieldYards;
-@property (nonatomic, weak    ) IBOutlet UIButton     *buttonSubmit;
-@property (weak, nonatomic) IBOutlet UILabel *activeTrackerLabel;
+@property (nonatomic, readonly) ASGeofenceViewModel *viewModel;
+
+@property (nonatomic, weak) IBOutlet UITextField *textFieldYards;
+@property (nonatomic, weak) IBOutlet UIButton    *buttonSubmit;
+@property (nonatomic, weak) IBOutlet UILabel     *activeTrackerLabel;
+
+@property (nonatomic) NSArray      *distancePickerData;
+@property (nonatomic) UIPickerView *distancePicker;
+
 @end
 
 @implementation ASGeofenceViewController 
@@ -41,6 +46,25 @@
                withSignals:self.buttonSubmit.rac_command.errors, nil];
     
     [self updateButton];
+    self.distancePickerData = [ASTrackerModel getChoosedTracker].getGeofenceDistanceOptions;
+    [self configPickers];
+}
+
+-(void)configPickers {
+    self.distancePicker = [[UIPickerView alloc] init];
+    self.distancePicker.backgroundColor = [UIColor whiteColor];
+    self.distancePicker.delegate = self;
+    self.distancePicker.dataSource = self;
+    self.textFieldYards.inputView = self.distancePicker;
+    UIToolbar *accessoryView = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, self.distancePicker.frame.size.width, 44)];
+    accessoryView.barStyle = UIBarStyleDefault;
+    
+    UIBarButtonItem *space = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+    
+    UIBarButtonItem *done = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(doneTapped:)];
+    
+    accessoryView.items = [NSArray arrayWithObjects:space,done, nil];
+    self.textFieldYards.inputAccessoryView = accessoryView;
 }
 
 -(void)onError:(NSError*)error {
@@ -80,6 +104,33 @@
     } else {
         [self.buttonSubmit setTitle:NSLocalizedString(@"Start", nil) forState:UIControlStateNormal];
     }
+}
+
+#pragma mark - Handlers
+
+-(void)doneTapped:(id)sender {
+    [self.textFieldYards resignFirstResponder];
+}
+
+#pragma mark - UIPickerViewDataSource
+
+-(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
+    return  1;
+}
+
+-(NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
+    return self.distancePickerData.count;
+}
+
+-(NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
+    return self.distancePickerData[row];
+}
+
+#pragma mark - UIPickerViewDelegate
+
+-(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
+{
+    self.textFieldYards.text = self.distancePickerData[row];
 }
 
 @end

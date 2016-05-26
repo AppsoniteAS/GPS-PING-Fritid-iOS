@@ -55,5 +55,6 @@ static NSString * const kASUserDefaultsTrackersKey   = @"kASUserDefaultsTrackers
 -(RACSignal*)getSmsTextsForActivation;
 -(NSString*)getSmsTextsForTrackerLaunch:(BOOL)isOn;
 -(NSString*)getSmsTextsForGeofenceLaunchWithDistance:(NSString*)distance;
+-(NSArray*)getGeofenceDistanceOptions;
 
 @end

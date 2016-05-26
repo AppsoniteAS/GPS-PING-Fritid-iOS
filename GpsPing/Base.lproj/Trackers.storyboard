@@ -268,14 +268,14 @@
                                             <constraint firstAttribute="width" constant="168" id="Ao0-RW-aHn"/>
                                             <constraint firstAttribute="width" secondItem="8r2-Qr-vti" secondAttribute="height" multiplier="1:1" id="i3K-Wn-3iI"/>
                                         </constraints>
-                                        <state key="normal" image="TK_STAR"/>
+                                        <state key="normal" image="LK209"/>
                                         <variation key="default">
                                             <mask key="constraints">
                                                 <exclude reference="Ao0-RW-aHn"/>
                                             </mask>
                                         </variation>
                                         <connections>
-                                            <action selector="tkStarButtonTap:" destination="6nj-Oy-OAd" eventType="touchUpInside" id="4Sv-DO-mRS"/>
+                                            <action selector="lk209ButtonTap:" destination="6nj-Oy-OAd" eventType="touchUpInside" id="LSN-1c-lWT"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -295,14 +295,14 @@
                                             <constraint firstAttribute="width" secondItem="nAh-27-aAF" secondAttribute="height" multiplier="1:1" id="i9E-fb-Tgj"/>
                                             <constraint firstAttribute="width" constant="168" id="iSc-Oj-osm"/>
                                         </constraints>
-                                        <state key="normal" image="TK_ANYWHERE"/>
+                                        <state key="normal" image="VT600"/>
                                         <variation key="default">
                                             <mask key="constraints">
                                                 <exclude reference="iSc-Oj-osm"/>
                                             </mask>
                                         </variation>
                                         <connections>
-                                            <action selector="anywhereButtonTap:" destination="6nj-Oy-OAd" eventType="touchUpInside" id="BqX-qt-5u0"/>
+                                            <action selector="vt600ButtonTap:" destination="6nj-Oy-OAd" eventType="touchUpInside" id="p7d-Wm-rzX"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -316,7 +316,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SNJ-3z-zx1" userLabel="T3">
                                 <rect key="frame" x="0.0" y="509" width="414" height="183"/>
                                 <subviews>
-                                    <button opaque="NO" clipsSubviews="YES" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PUo-EQ-Vx9">
+                                    <button hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PUo-EQ-Vx9">
                                         <rect key="frame" x="124" y="8" width="167" height="168"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="168" id="lmJ-7y-aSk"/>
@@ -328,9 +328,6 @@
                                                 <exclude reference="lmJ-7y-aSk"/>
                                             </mask>
                                         </variation>
-                                        <connections>
-                                            <action selector="tkPetButtonTap:" destination="6nj-Oy-OAd" eventType="touchUpInside" id="dag-Cp-xJi"/>
-                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -907,9 +904,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="LK209" width="158" height="158"/>
         <image name="TK_ANYWHERE" width="158" height="158"/>
-        <image name="TK_STAR" width="158" height="158"/>
         <image name="TK_STAR_PET" width="158" height="158"/>
+        <image name="VT600" width="158" height="158"/>
         <image name="addIcon" width="20" height="20"/>
         <image name="background" width="640" height="1136"/>
         <image name="chooseIndicator" width="18" height="18"/>

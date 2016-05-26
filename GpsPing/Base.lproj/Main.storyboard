@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AzC-4k-N6d">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AzC-4k-N6d">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -447,8 +447,8 @@
                                                         </state>
                                                         <variation key="default">
                                                             <mask key="constraints">
-                                                                <exclude reference="bt5-F8-YbJ"/>
                                                                 <exclude reference="GSn-xy-wfa"/>
+                                                                <exclude reference="bt5-F8-YbJ"/>
                                                                 <exclude reference="yWF-PZ-9xy"/>
                                                             </mask>
                                                         </variation>
@@ -489,9 +489,9 @@
                                                 </constraints>
                                                 <variation key="default">
                                                     <mask key="constraints">
-                                                        <exclude reference="hKf-CK-HgQ"/>
-                                                        <exclude reference="bt2-Sy-vy3"/>
                                                         <exclude reference="af6-j9-4Kk"/>
+                                                        <exclude reference="bt2-Sy-vy3"/>
+                                                        <exclude reference="hKf-CK-HgQ"/>
                                                     </mask>
                                                 </variation>
                                             </view>
@@ -505,8 +505,8 @@
                                                 </constraints>
                                                 <variation key="default">
                                                     <mask key="constraints">
-                                                        <exclude reference="X3g-Bx-lJj"/>
                                                         <exclude reference="Jo2-b2-3uj"/>
+                                                        <exclude reference="X3g-Bx-lJj"/>
                                                         <exclude reference="qu4-J9-0kU"/>
                                                     </mask>
                                                 </variation>
@@ -528,9 +528,9 @@
                                                         </state>
                                                         <variation key="default">
                                                             <mask key="constraints">
-                                                                <exclude reference="g6D-u2-FxN"/>
                                                                 <exclude reference="Ayi-eT-2tu"/>
                                                                 <exclude reference="UTu-fC-NZJ"/>
+                                                                <exclude reference="g6D-u2-FxN"/>
                                                             </mask>
                                                         </variation>
                                                         <connections>
@@ -571,9 +571,9 @@
                                                 </constraints>
                                                 <variation key="default">
                                                     <mask key="constraints">
+                                                        <exclude reference="HqM-I2-12h"/>
                                                         <exclude reference="gud-Mz-cyO"/>
                                                         <exclude reference="pcu-gx-Xmo"/>
-                                                        <exclude reference="HqM-I2-12h"/>
                                                         <exclude reference="Ng2-wU-758"/>
                                                     </mask>
                                                 </variation>
@@ -588,9 +588,9 @@
                                                 </constraints>
                                                 <variation key="default">
                                                     <mask key="constraints">
+                                                        <exclude reference="DJD-hR-s5W"/>
                                                         <exclude reference="aqP-P7-XqK"/>
                                                         <exclude reference="qhp-Om-1Fe"/>
-                                                        <exclude reference="DJD-hR-s5W"/>
                                                     </mask>
                                                 </variation>
                                             </view>
@@ -610,9 +610,9 @@
                                                         </state>
                                                         <variation key="default">
                                                             <mask key="constraints">
-                                                                <exclude reference="sXf-i3-t0K"/>
-                                                                <exclude reference="UWL-1h-IZ2"/>
                                                                 <exclude reference="Fp2-eh-Bfk"/>
+                                                                <exclude reference="UWL-1h-IZ2"/>
+                                                                <exclude reference="sXf-i3-t0K"/>
                                                             </mask>
                                                         </variation>
                                                         <connections>
@@ -668,9 +668,9 @@
                                                 </constraints>
                                                 <variation key="default">
                                                     <mask key="constraints">
-                                                        <exclude reference="iqs-Rs-m0N"/>
-                                                        <exclude reference="eFX-oT-B1l"/>
                                                         <exclude reference="Vki-Jb-D3c"/>
+                                                        <exclude reference="eFX-oT-B1l"/>
+                                                        <exclude reference="iqs-Rs-m0N"/>
                                                     </mask>
                                                 </variation>
                                             </view>

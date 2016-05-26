@@ -21,14 +21,11 @@
     }
 }
 
-- (IBAction)tkStarButtonTap:(id)sender {
-    [self goToNextScreenWithChoosedType:kASTrackerTypeTkStar];
+- (IBAction)lk209ButtonTap:(id)sender {
+    [self goToNextScreenWithChoosedType:kASTrackerTypeLK209];
 }
-- (IBAction)anywhereButtonTap:(id)sender {
-    [self goToNextScreenWithChoosedType:kASTrackerTypeAnywhere];
-}
-- (IBAction)tkPetButtonTap:(id)sender {
-    [self goToNextScreenWithChoosedType:kASTrackerTypeTkStarPet];
+- (IBAction)vt600ButtonTap:(id)sender {
+    [self goToNextScreenWithChoosedType:kASTrackerTypeVT600];
 }
 
 -(void)goToNextScreenWithChoosedType:(NSString *)trackerType
