@@ -11,6 +11,7 @@
 #import <CocoaLumberjack.h>
 #import "Underscore.h"
 #import <ErrorKit/ErrorKit.h>
+#import "ASUserProfileModel.h"
 
 #include <netdb.h>
 #include <arpa/inet.h>
@@ -222,7 +223,18 @@ NSString* const kASGeofenceYards     = @"geofenceYards";
                        [NSString stringWithFormat:@"adminip123456 %s 5000", buff],
                        @"sleep123456 off"];
         } else if ([self.trackerType isEqualToString:kASTrackerTypeLK209]) {
-            result = @[[NSString stringWithFormat:@"admin123456 %@"],
+            NSString *phone = [ASUserProfileModel loadSavedProfileInfo].phone;
+            if (!phone) {
+                NSError *error = [NSError buildError:^(MRErrorBuilder *builder) {
+                    builder.domain = @"ASGpsPingErrorDomain";
+                    builder.localizedDescription = NSLocalizedString(@"Please add phone number in settings", nil);
+                }];
+                
+                [subscriber sendError:error];
+                return nil;
+            }
+            
+            result = @[[NSString stringWithFormat:@"admin123456 %@", phone],
                        @"apn123456 netcom",
                        [NSString stringWithFormat:@"adminip123456 %s 5013", buff],
                        @"gprs123456"];
