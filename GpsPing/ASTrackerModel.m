@@ -262,6 +262,8 @@ NSString* const kASGeofenceYards     = @"geofenceYards";
     if (!isOn) {
         if ([self.trackerType isEqualToString:kASTrackerTypeVT600]) {
             return @"W000000,013,0";
+        } else if ([self.trackerType isEqualToString:kASTrackerTypeLK209]) {
+            return @"gpsloc123456,1";
         } else {
             return @"Notn123456";
         }
