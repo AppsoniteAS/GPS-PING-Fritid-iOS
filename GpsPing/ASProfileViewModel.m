@@ -39,6 +39,7 @@ objection_requires(@keypath(ASProfileViewModel.new, apiController))
             self.fullName = [NSString stringWithFormat:@"%@ %@",self.apiController.userProfile.firstname, self.apiController.userProfile.lastname];
         }
         self.email = self.apiController.userProfile.email;
+        self.phone = self.apiController.userProfile.phone;
     }];
 }
 
@@ -46,25 +47,26 @@ objection_requires(@keypath(ASProfileViewModel.new, apiController))
     
     RACSignal* isCorrect = [RACSignal combineLatest:@[RACObserve(self, username),
                                                       RACObserve(self, fullName),
-                                                      RACObserve(self, email)]
-                                             reduce:^id(NSString* username, NSString* fullName, NSString* email)
+                                                      RACObserve(self, email),
+                                                      RACObserve(self, phone)]
+                                             reduce:^id(NSString* username, NSString* fullName, NSString* email, NSString *phone)
                             {
-                                return @((username.length > 0) && (fullName.length > 0) && (email.length > 0));
+                                return @((username.length > 0) && (fullName.length > 0) && (email.length > 0) && (phone.length == 8));
                             }];
     @weakify(self)
     return [[RACCommand alloc] initWithEnabled:isCorrect
                                    signalBlock:^RACSignal *(id input)
             {
+                @strongify(self)
                 ASUserProfileModel* profile = self.apiController.userProfile.copy ?: [ASUserProfileModel new];
                 NSArray *subStrings = [self.fullName componentsSeparatedByString:@" "];
                 profile.firstname    = subStrings[0];
                 profile.lastname   = [subStrings lastObject];
+                profile.phone = self.phone;
                 [ASUserProfileModel saveProfileInfoLocally:profile];
-                @strongify(self)
                 self.apiController.userProfile = profile;
                 return [self.apiController submitUserMetaData:profile];
             }];
-    
 }
 
 - (void)logOut {

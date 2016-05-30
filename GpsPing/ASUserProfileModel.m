@@ -18,7 +18,8 @@
                  @keypath(ASUserProfileModel.new, firstname):           @"user.firstname",
                  @keypath(ASUserProfileModel.new, lastname):            @"user.lastname",
                  @keypath(ASUserProfileModel.new, cookie):              @"cookie",
-                 @keypath(ASUserProfileModel.new, cookieName):          @"cookie_name"
+                 @keypath(ASUserProfileModel.new, cookieName):          @"cookie_name",
+                 @keypath(ASUserProfileModel.new, phone):               @"phone"
                  };
 }
 
@@ -31,6 +32,7 @@
         self.lastname = [coder decodeObjectForKey:@keypath(self, lastname)];
         self.cookie   = [coder decodeObjectForKey:@keypath(self, cookie)];
         self.cookieName = [coder decodeObjectForKey:@keypath(self, cookieName)];
+        self.phone = [coder decodeObjectForKey:@keypath(self, phone)];
     }
     return self;
 }
@@ -42,6 +44,7 @@
     [coder encodeObject:self.lastname forKey:@keypath(self, lastname)];
     [coder encodeObject:self.cookie forKey:@keypath(self, cookie)];
     [coder encodeObject:self.cookieName forKey:@keypath(self, cookieName)];
+    [coder encodeObject:self.phone forKey:@keypath(self, phone)];
 }
 
 + (void)saveProfileInfoLocally:(ASUserProfileModel *)profile {

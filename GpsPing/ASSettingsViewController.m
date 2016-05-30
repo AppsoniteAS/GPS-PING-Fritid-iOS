@@ -15,25 +15,26 @@
 #import "Masonry.h"
 #import "ASButton.h"
 #import "ASProfileViewModel.h"
+#import <JPSKeyboardLayoutGuideViewController.h>
 
 #import <CocoaLumberjack/CocoaLumberjack.h>
 static const DDLogLevel ddLogLevel = DDLogLevelVerbose;
 
 @interface ASSettingsViewController () <ASInAppPurchaseDelegate, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource>
 @property (nonatomic, strong) ASInAppPurchaseManager* inAppPurchaseManager;
-
-@property (weak, nonatomic) IBOutlet ASButton *submitButton;
-
-@property (nonatomic) NSNumber *duration;
-@property (weak, nonatomic) IBOutlet UITextField *durationTextField;
-
+@property (nonatomic) NSNumber     *duration;
 @property (nonatomic) NSArray      *durationPickerData;
 @property (nonatomic) UIPickerView *durationPicker;
+@property (nonatomic, readonly) ASProfileViewModel *viewModel;
 
-@property (nonatomic, readonly) ASProfileViewModel           *viewModel;
-@property (nonatomic, weak    ) IBOutlet UITextField         *textFieldUsername;
-@property (nonatomic, weak    ) IBOutlet UITextField         *textFieldFullName;
-@property (nonatomic, weak    ) IBOutlet UITextField         *textFieldEmail;
+@property (weak, nonatomic) IBOutlet UITextField *durationTextField;
+@property (weak, nonatomic) IBOutlet ASButton    *submitButton;
+@property (weak, nonatomic) IBOutlet UITextField *textFieldPhone;
+@property (nonatomic, weak) IBOutlet UITextField *textFieldUsername;
+@property (nonatomic, weak) IBOutlet UITextField *textFieldFullName;
+@property (nonatomic, weak) IBOutlet UITextField *textFieldEmail;
+@property (weak, nonatomic) IBOutlet UIScrollView*scrollView;
+
 @end
 
 @implementation ASSettingsViewController
@@ -42,6 +43,8 @@ static const DDLogLevel ddLogLevel = DDLogLevelVerbose;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self jps_viewDidLoad];
+
     self.inAppPurchaseManager = [ASInAppPurchaseManager new];
     self.inAppPurchaseManager.delegate = self;
     
@@ -57,6 +60,21 @@ static const DDLogLevel ddLogLevel = DDLogLevelVerbose;
     [self registerForKeyboardNotifications];
     
     [self bindViewModel];
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self jps_viewWillAppear:animated];
+    [self.scrollView mas_makeConstraints:^
+     (MASConstraintMaker *make) {
+         make.bottom.equalTo(self.keyboardLayoutGuide);
+     }];
+}
+
+-(void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    [self jps_viewDidDisappear:animated];
 }
 
 #pragma mark - Bind View Model
@@ -82,6 +100,12 @@ static const DDLogLevel ddLogLevel = DDLogLevelVerbose;
         self.textFieldEmail.text   = email;
     }];
     RAC(self.viewModel, email) = self.textFieldEmail.rac_textSignal;
+    
+    [[RACObserve(self.viewModel, phone) distinctUntilChanged] subscribeNext:^(NSString* value) {
+        @strongify(self);
+        self.textFieldPhone.text   = value;
+    }];
+    RAC(self.viewModel, phone) = self.textFieldPhone.rac_textSignal;
     
     self.submitButton.rac_command = self.viewModel.submit;
     

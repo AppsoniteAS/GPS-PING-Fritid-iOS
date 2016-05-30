@@ -14,6 +14,7 @@
 @property (strong, nonatomic) NSString* username;
 @property (strong, nonatomic) NSString* fullName;
 @property (strong, nonatomic) NSString* email;
+@property (strong, nonatomic) NSString* phone;
 @property (readonly, nonatomic) RACCommand* submit;
 
 - (void)logOut;

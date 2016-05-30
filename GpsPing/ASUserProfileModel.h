@@ -17,6 +17,7 @@
 @property (strong, nonatomic) NSString   *lastname;
 @property (strong, nonatomic) NSString   *cookie;
 @property (strong, nonatomic) NSString   *cookieName;
+@property (strong, nonatomic) NSString   *phone;
 
 + (void)saveProfileInfoLocally:(ASUserProfileModel *)profile;
 + (ASUserProfileModel *)loadSavedProfileInfo;
