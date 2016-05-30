@@ -304,13 +304,16 @@ NSString* const kASGeofenceYards     = @"geofenceYards";
             return @"move123456";
         } else if ([self.trackerType isEqualToString:kASTrackerTypeVT600]) {
             NSString *distanceNumber = [self getEncodedGeofenceDistanceByChoosedOption:distance];
-            return [@"W000000,006," stringByAppendingString:distanceNumber];
+            return [NSString stringWithFormat:@"W000000,00%@,1", distanceNumber];
         } else {
             return [@"move123456 " stringByAppendingString:distance];
         }
     } else {
         if ([self.trackerType isEqualToString:kASTrackerTypeLK209]) {
             return @"nomove123456";
+        } else if ([self.trackerType isEqualToString:kASTrackerTypeVT600]) {
+            NSString *distanceNumber = [self getEncodedGeofenceDistanceByChoosedOption:distance];
+            return [NSString stringWithFormat:@"W000000,00%@,0", distanceNumber];
         } else {
             return @"move123456 0";
         }
