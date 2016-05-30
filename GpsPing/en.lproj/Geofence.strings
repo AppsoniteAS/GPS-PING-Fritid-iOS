@@ -12,9 +12,9 @@
 "hEy-wP-Rqq.title" = "Geofence";
 
 /* Class = "UILabel"; text = "Yards"; ObjectID = "tUB-pA-yZA"; */
-"tUB-pA-yZA.text" = "Yards";
+"tUB-pA-yZA.text" = "Meters";
 
 /* Class = "UILabel"; text = "Input number of yards in diameter for geofence."; ObjectID = "vrk-BT-mnp"; */
-"vrk-BT-mnp.text" = "Input number of yards in diameter for geofence.";
+"vrk-BT-mnp.text" = "Select number of yards in diameter for geofence.";
 
 "nlV-wY-0T6.text" = "Active tracker:";

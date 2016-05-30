@@ -302,8 +302,8 @@
                                                 </constraints>
                                                 <variation key="default">
                                                     <mask key="constraints">
-                                                        <exclude reference="nhf-4L-YMv"/>
                                                         <exclude reference="gfB-It-uiC"/>
+                                                        <exclude reference="nhf-4L-YMv"/>
                                                         <exclude reference="Juo-Ip-E1Y"/>
                                                         <exclude reference="Sgs-jc-vwO"/>
                                                     </mask>
