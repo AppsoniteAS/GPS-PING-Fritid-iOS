@@ -13,7 +13,7 @@
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
 //#import <extobjc.h>
 //#import <CocoaLumberjack.h>
-#define AG_DEBUG_MODE
+//#define AG_DEBUG_MODE
 #import "UIColor+ASColor.h"
 
 #endif /* PrefixHeader_pch */

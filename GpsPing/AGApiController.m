@@ -20,6 +20,8 @@
 static const DDLogLevel ddLogLevel = DDLogLevelVerbose;
 
 #define BASE_URL_PRODUCTION @"https://fritid.gpsping.no/api"
+#define BASE_URL_PRODUCTION_INDUSTRY @"https://industri.gpsping.no/api"
+
 #define BASE_URL_LOCAL      @"http://appgranula.mooo.com/api/"
 //#define BASE_URL_LOCAL      @"http://192.168.139.201/api/"
 
@@ -78,7 +80,7 @@ objection_initializer(initWithConfiguration:);
 #ifdef AG_DEBUG_MODE
         self.baseUrl = [NSURL URLWithString:BASE_URL_LOCAL];
 #else
-        self.baseUrl = [NSURL URLWithString:BASE_URL_PRODUCTION];
+        self.baseUrl = [NSURL URLWithString:BASE_URL_PRODUCTION_INDUSTRY];
 #endif
         [self setupReachabilityManager];
     }
