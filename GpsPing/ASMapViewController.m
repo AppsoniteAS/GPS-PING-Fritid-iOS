@@ -29,6 +29,8 @@
 #define QUERY_RATE_IN_SECONDS 15
 static const DDLogLevel ddLogLevel = DDLogLevelDebug;
 
+static NSString *const kASUserDefaultsKeyRemoveTrackersDate = @"kASUserDefaultsKeyRemoveTrackersDate";
+
 @interface ASMapViewController () <MKMapViewDelegate,UIPickerViewDelegate, UIPickerViewDataSource, THDatePickerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIView           *filterPlank;
@@ -357,12 +359,9 @@ objection_requires(@keypath(ASMapViewController.new, apiController))
 {
     [self.mapView removeAnnotations:self.mapView.annotations];
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSNumber *duration = [defaults objectForKey:kTrackingDurationKey];
-    NSDate *removetracksdate  = [NSDate date];
-    NSDate *to = [NSDate date];
-    NSDate *from = [to dateByAddingTimeInterval:-60*duration.integerValue];
-    from =  [removetracksdate isEarlierThanOrEqualTo:from] ? from : removetracksdate;
-    [self loadTrackingPointsFrom:from to:to];
+    [defaults setObject:[NSDate date] forKey:kASUserDefaultsKeyRemoveTrackersDate];
+    [defaults synchronize];
+    [self loadTracks];
 }
 
 -(void)timerTick:(NSTimer*)timer
@@ -422,16 +421,19 @@ objection_requires(@keypath(ASMapViewController.new, apiController))
 }
 
 -(void)loadTracks {
-// for test
-//    NSDate *from = [NSDate dateWithTimeIntervalSince1970:1410739200];
-//    NSDate *to = [NSDate dateWithTimeIntervalSince1970:1410868800];
     NSDate *from;
     NSDate *to;
     if (!self.selectedDate) {
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        [defaults synchronize];
         NSNumber *duration = [defaults objectForKey:kTrackingDurationKey];
         to = [NSDate date];
         from = [to dateByAddingTimeInterval:-60*duration.integerValue];
+        
+        NSDate *removeTracksDate  = [defaults objectForKey:kASUserDefaultsKeyRemoveTrackersDate];
+        if (removeTracksDate) {
+            from =  [removeTracksDate isEarlierThanOrEqualTo:from] ? from : removeTracksDate;
+        }
     } else {
         from = self.selectedDate;
         to = [self.selectedDate dateByAddingTimeInterval:60*60*24];
@@ -456,12 +458,6 @@ objection_requires(@keypath(ASMapViewController.new, apiController))
         [self showAllPointsForUsers:x filterFor:self.userToFilter];
         self.filterTextField.enabled = YES;
     }] ;
-//    [self.timerForTrackQuery invalidate];
-//    [[[[[self.apiController getTrackingPointsFrom:from to:to friendId:nil] repeat] take:1] doNext:^(id x) {
-//        NSLog(@"do next");
-//    }] subscribeNext:^(id x) {
-//        NSLog(@"subscrive next");
-//    }];
 }
 
 -(void)fillColorsDictionaryWithUsers:(NSArray *)users {
