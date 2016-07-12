@@ -42,7 +42,18 @@ extern NSString *kASDidLogoutNotification;
 #pragma mark - Auth
 
 -(RACSignal *)getNonce;
--(RACSignal *)registerUser:(NSString*)userName email:(NSString*)email password:(NSString*)password nonce:(NSString*)nonce;
+
+-(RACSignal *)registerUser:(NSString*)userName
+                     email:(NSString*)email
+                 phoneCode:(NSString*)phoneCode
+               phoneNumber:(NSString*)phoneNumber
+                   address:(NSString*)address
+                      city:(NSString*)city
+                   country:(NSString*)country
+                   zipCode:(NSString*)zipCode
+                  password:(NSString*)password
+                     nonce:(NSString*)nonce;
+
 -(RACSignal *)authUser:(NSString*)userName password:(NSString*)password;
 -(RACSignal *)logout;
 -(RACSignal*)submitUserMetaData:(ASUserProfileModel *)profile;

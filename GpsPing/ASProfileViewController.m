@@ -10,11 +10,23 @@
 #import "ASProfileViewModel.h"
 
 @interface ASProfileViewController ()
-@property (nonatomic, readonly) ASProfileViewModel           *viewModel;
-@property (nonatomic, weak    ) IBOutlet UITextField         *textFieldUsername;
-@property (nonatomic, weak    ) IBOutlet UITextField         *textFieldFullName;
-@property (nonatomic, weak    ) IBOutlet UITextField         *textFieldEmail;
-@property (nonatomic, weak    ) IBOutlet UIButton            *buttonSubmit;
+
+@property (nonatomic, readonly) ASProfileViewModel   *viewModel;
+
+@property (weak, nonatomic) IBOutlet UITextField *textFieldUsername;
+@property (weak, nonatomic) IBOutlet UITextField *textFieldFullName;
+
+@property (weak, nonatomic) IBOutlet UITextField *textFieldEmail;
+
+@property (weak, nonatomic) IBOutlet UITextField *textFieldPhoneCode;
+@property (weak, nonatomic) IBOutlet UITextField *textFieldPhoneNumber;
+
+@property (weak, nonatomic) IBOutlet UITextField *textFieldAddress;
+@property (weak, nonatomic) IBOutlet UITextField *textFieldCity;
+@property (weak, nonatomic) IBOutlet UITextField *textFieldCountry;
+@property (weak, nonatomic) IBOutlet UITextField *textFieldZipCode;
+
+@property (weak, nonatomic) IBOutlet UIButton    *buttonSubmit;
 
 @end
 
@@ -22,8 +34,6 @@
 
 -(void)viewDidLoad {
     [super viewDidLoad];
-    
-    [self registerForKeyboardNotifications];
     
     self->_viewModel = [[ASProfileViewModel alloc] init];
     
@@ -45,6 +55,42 @@
         self.textFieldEmail.text   = email;
     }];
     RAC(self.viewModel, email) = self.textFieldEmail.rac_textSignal;
+    
+    [[RACObserve(self.viewModel, phoneCode) distinctUntilChanged] subscribeNext:^(NSString* phoneCode) {
+        @strongify(self);
+        self.textFieldPhoneCode.text   = phoneCode;
+    }];
+    RAC(self.viewModel, phoneCode) = self.textFieldPhoneCode.rac_textSignal;
+    
+    [[RACObserve(self.viewModel, phoneNumber) distinctUntilChanged] subscribeNext:^(NSString* phoneNumber) {
+        @strongify(self);
+        self.textFieldPhoneNumber.text   = phoneNumber;
+    }];
+    RAC(self.viewModel, phoneNumber) = self.textFieldPhoneNumber.rac_textSignal;
+    
+    [[RACObserve(self.viewModel, address) distinctUntilChanged] subscribeNext:^(NSString* address) {
+        @strongify(self);
+        self.textFieldAddress.text   = address;
+    }];
+    RAC(self.viewModel, address) = self.textFieldAddress.rac_textSignal;
+    
+    [[RACObserve(self.viewModel, city) distinctUntilChanged] subscribeNext:^(NSString* city) {
+        @strongify(self);
+        self.textFieldCity.text   = city;
+    }];
+    RAC(self.viewModel, city) = self.textFieldCity.rac_textSignal;
+    
+    [[RACObserve(self.viewModel, country) distinctUntilChanged] subscribeNext:^(NSString* country) {
+        @strongify(self);
+        self.textFieldCountry.text   = country;
+    }];
+    RAC(self.viewModel, country) = self.textFieldCountry.rac_textSignal;
+    
+    [[RACObserve(self.viewModel, zipCode) distinctUntilChanged] subscribeNext:^(NSString* zipCode) {
+        @strongify(self);
+        self.textFieldZipCode.text   = zipCode;
+    }];
+    RAC(self.viewModel, zipCode) = self.textFieldZipCode.rac_textSignal;
     
     self.buttonSubmit.rac_command = self.viewModel.submit;
 

@@ -13,24 +13,36 @@
 @implementation ASUserProfileModel
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
-    return @{    @keypath(ASUserProfileModel.new, username):            @"user.username",
-                 @keypath(ASUserProfileModel.new, email):               @"user.email",
-                 @keypath(ASUserProfileModel.new, firstname):           @"user.firstname",
-                 @keypath(ASUserProfileModel.new, lastname):            @"user.lastname",
-                 @keypath(ASUserProfileModel.new, cookie):              @"cookie",
-                 @keypath(ASUserProfileModel.new, cookieName):          @"cookie_name"
+    return @{    @keypath(ASUserProfileModel.new, username):   @"user.username",
+                 @keypath(ASUserProfileModel.new, email):      @"user.email",
+                 @keypath(ASUserProfileModel.new, phoneCode):  @"user.Phone_pref",
+                 @keypath(ASUserProfileModel.new, phoneNumber):@"user.Phone_num",
+                 @keypath(ASUserProfileModel.new, address):    @"user.m_address",
+                 @keypath(ASUserProfileModel.new, city):       @"user.m_city",
+                 @keypath(ASUserProfileModel.new, country):    @"user.m_country",
+                 @keypath(ASUserProfileModel.new, zipCode):    @"user.m_zipCode",
+                 @keypath(ASUserProfileModel.new, firstname):  @"user.firstname",
+                 @keypath(ASUserProfileModel.new, lastname):   @"user.lastname",
+                 @keypath(ASUserProfileModel.new, cookie):     @"cookie",
+                 @keypath(ASUserProfileModel.new, cookieName): @"cookie_name"
                  };
 }
 
 -(id)initWithCoder:(NSCoder *)coder{
     self = [super init];
     if (self) {
-        self.username       = [coder decodeObjectForKey:@keypath(self, username)];
-        self.email  = [coder decodeObjectForKey:@keypath(self, email)];
+        self.username    = [coder decodeObjectForKey:@keypath(self, username)];
+        self.email       = [coder decodeObjectForKey:@keypath(self, email)];
+        self.phoneCode   = [coder decodeObjectForKey:@keypath(self, phoneCode)];
+        self.phoneNumber = [coder decodeObjectForKey:@keypath(self, phoneNumber)];
+        self.phoneNumber = [coder decodeObjectForKey:@keypath(self, address)];
+        self.phoneNumber = [coder decodeObjectForKey:@keypath(self, city)];
+        self.phoneNumber = [coder decodeObjectForKey:@keypath(self, country)];
+        self.phoneNumber = [coder decodeObjectForKey:@keypath(self, zipCode)];
         self.firstname   = [coder decodeObjectForKey:@keypath(self, firstname)];
-        self.lastname = [coder decodeObjectForKey:@keypath(self, lastname)];
-        self.cookie   = [coder decodeObjectForKey:@keypath(self, cookie)];
-        self.cookieName = [coder decodeObjectForKey:@keypath(self, cookieName)];
+        self.lastname    = [coder decodeObjectForKey:@keypath(self, lastname)];
+        self.cookie      = [coder decodeObjectForKey:@keypath(self, cookie)];
+        self.cookieName  = [coder decodeObjectForKey:@keypath(self, cookieName)];
     }
     return self;
 }
@@ -38,6 +50,12 @@
 -(void)encodeWithCoder:(NSCoder *)coder {
     [coder encodeObject:self.username forKey:@keypath(self, username)];
     [coder encodeObject:self.email forKey:@keypath(self, email)];
+    [coder encodeObject:self.phoneCode forKey:@keypath(self, phoneCode)];
+    [coder encodeObject:self.phoneNumber forKey:@keypath(self, phoneNumber)];
+    [coder encodeObject:self.phoneNumber forKey:@keypath(self, address)];
+    [coder encodeObject:self.phoneNumber forKey:@keypath(self, city)];
+    [coder encodeObject:self.phoneNumber forKey:@keypath(self, country)];
+    [coder encodeObject:self.phoneNumber forKey:@keypath(self, zipCode)];
     [coder encodeObject:self.firstname forKey:@keypath(self, firstname)];
     [coder encodeObject:self.lastname forKey:@keypath(self, lastname)];
     [coder encodeObject:self.cookie forKey:@keypath(self, cookie)];

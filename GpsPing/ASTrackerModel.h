@@ -11,8 +11,10 @@
 #import <ReactiveCocoa.h>
 
 static NSString * const kASTrackerTypeTkStar      = @"TK_STAR";
-static NSString * const kASTrackerTypeTkStarPet   = @"TK_STAR_PET";
 static NSString * const kASTrackerTypeAnywhere    = @"TK_ANYWHERE";
+
+static NSString * const kASTrackerTypeTkStarPet   = @"TK_STAR_PET";
+static NSString * const kASTrackerTypeTkBike    = @"TK_BIKE";
 
 static NSString * const kASSignalMetricTypeSeconds   = @"Seconds";
 static NSString * const kASSignalMetricTypeMinutes   = @"Minutes";

@@ -20,8 +20,9 @@
 static const DDLogLevel ddLogLevel = DDLogLevelVerbose;
 
 #define BASE_URL_PRODUCTION @"https://fritid.gpsping.no/api"
-#define BASE_URL_LOCAL      @"http://appgranula.mooo.com/api/"
+//#define BASE_URL_LOCAL      @"http://appgranula.mooo.com/api/"
 //#define BASE_URL_LOCAL      @"http://192.168.139.201/api/"
+#define BASE_URL_LOCAL      @"https://industri.gpsping.no/api/"
 
 NSString* AGOpteumBackendError                     = @"AGOpteumBackendError";
 NSString* AGRhythmMobileError                      = @"AGRhythmMobileError";
@@ -105,7 +106,16 @@ objection_initializer(initWithConfiguration:);
     return [self performHttpRequestWithAttempts:@"POST" resource:@"get_nonce" parameters:@{@"controller":@"user", @"method":@"register"}];
 }
 
--(RACSignal *)registerUser:(NSString*)userName email:(NSString*)email password:(NSString*)password nonce:(NSString*)nonce
+-(RACSignal *)registerUser:(NSString*)userName
+                     email:(NSString*)email
+                 phoneCode:(NSString*)phoneCode
+               phoneNumber:(NSString*)phoneNumber
+                   address:(NSString*)address
+                      city:(NSString*)city
+                   country:(NSString*)country
+                   zipCode:(NSString*)zipCode
+                  password:(NSString*)password
+                     nonce:(NSString*)nonce
 {
     DDLogDebug(@"%s", __PRETTY_FUNCTION__);
     return [[self performHttpRequestWithAttempts:@"POST"
@@ -113,10 +123,16 @@ objection_initializer(initWithConfiguration:);
                                      parameters:@{@"username":userName,
                                                   @"user_pass":password,
                                                   @"email":email,
+                                                  @"Phone_pref":phoneCode,
+                                                  @"Phone_num":phoneNumber,
                                                   @"display_name":userName,
                                                   @"nonce":nonce,
                                                   @"first_name":@"",
-                                                  @"last_name":@""
+                                                  @"last_name":@"",
+                                                  @"m_address":address,
+                                                  @"m_city":city,
+                                                  @"m_country":country,
+                                                  @"m_zipcode":zipCode
                                                   }] doNext:^(id x) {
         [[NSUserDefaults standardUserDefaults] setObject:userName
                                                   forKey:kASUserDefaultsKeyUsername];
@@ -178,17 +194,46 @@ objection_initializer(initWithConfiguration:);
 
 -(RACSignal*)submitUserMetaData:(ASUserProfileModel *)profile {
     NSParameterAssert(profile);
-    return [[[self performHttpRequestWithAttempts:@"POST"
-                                        resource:@"user/update_user_meta/"
-                                      parameters:@{@"cookie":profile.cookie,
-                                                   @"meta_key":@"last_name",
-                                                   @"meta_value":profile.lastname
-                                                   }] flattenMap:^RACStream *(id x) {
+    return [[[[[[[self performHttpRequestWithAttempts:@"POST"
+                                             resource:@"user/update_user_meta/"
+                                           parameters:@{@"cookie":profile.cookie,
+                                                        @"meta_key":@"last_name",
+                                                        @"meta_value":profile.lastname
+                                                        }
+                  ] flattenMap:^RACStream *(id x) {
         return [self performHttpRequestWithAttempts:@"POST"
                                            resource:@"user/update_user_meta/"
                                          parameters:@{@"cookie":profile.cookie,
                                                       @"meta_key":@"first_name",
                                                       @"meta_value":profile.firstname
+                                                      }];
+    }]  flattenMap:^RACStream *(id x) {
+        return [self performHttpRequestWithAttempts:@"POST"
+                                           resource:@"user/update_user_meta/"
+                                         parameters:@{@"cookie":profile.cookie,
+                                                      @"meta_key":@"m_address",
+                                                      @"meta_value":profile.address
+                                                      }];
+    }]  flattenMap:^RACStream *(id x) {
+        return [self performHttpRequestWithAttempts:@"POST"
+                                           resource:@"user/update_user_meta/"
+                                         parameters:@{@"cookie":profile.cookie,
+                                                      @"meta_key":@"m_city",
+                                                      @"meta_value":profile.city
+                                                      }];
+    }]  flattenMap:^RACStream *(id x) {
+        return [self performHttpRequestWithAttempts:@"POST"
+                                           resource:@"user/update_user_meta/"
+                                         parameters:@{@"cookie":profile.cookie,
+                                                      @"meta_key":@"m_country",
+                                                      @"meta_value":profile.country
+                                                      }];
+    }]  flattenMap:^RACStream *(id x) {
+        return [self performHttpRequestWithAttempts:@"POST"
+                                           resource:@"user/update_user_meta/"
+                                         parameters:@{@"cookie":profile.cookie,
+                                                      @"meta_key":@"m_zipcode",
+                                                      @"meta_value":profile.zipCode
                                                       }];
     }] deliverOnMainThread];
 }

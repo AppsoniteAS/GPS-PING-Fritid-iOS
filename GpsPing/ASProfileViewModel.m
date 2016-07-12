@@ -39,6 +39,12 @@ objection_requires(@keypath(ASProfileViewModel.new, apiController))
             self.fullName = [NSString stringWithFormat:@"%@ %@",self.apiController.userProfile.firstname, self.apiController.userProfile.lastname];
         }
         self.email = self.apiController.userProfile.email;
+        self.phoneCode = self.apiController.userProfile.phoneCode;
+        self.phoneNumber = self.apiController.userProfile.phoneNumber;
+        self.address = self.apiController.userProfile.address;
+        self.city = self.apiController.userProfile.city;
+        self.country = self.apiController.userProfile.country;
+        self.zipCode = self.apiController.userProfile.zipCode;
     }];
 }
 
@@ -46,10 +52,33 @@ objection_requires(@keypath(ASProfileViewModel.new, apiController))
     
     RACSignal* isCorrect = [RACSignal combineLatest:@[RACObserve(self, username),
                                                       RACObserve(self, fullName),
+                                                      RACObserve(self, phoneCode),
+                                                      RACObserve(self, phoneNumber),
+                                                      RACObserve(self, address),
+                                                      RACObserve(self, city),
+                                                      RACObserve(self, country),
+                                                      RACObserve(self, zipCode),
                                                       RACObserve(self, email)]
-                                             reduce:^id(NSString* username, NSString* fullName, NSString* email)
+                                             reduce:^id(NSString* username,
+                                                        NSString* fullName,
+                                                        NSString* phoneCode,
+                                                        NSString* phoneNumber,
+                                                        NSString* address,
+                                                        NSString* city,
+                                                        NSString* country,
+                                                        NSString* zipCode,
+                                                        NSString* email)
                             {
-                                return @((username.length > 0) && (fullName.length > 0) && (email.length > 0));
+                                return @(
+                                (username.length > 0) &&
+                                (fullName.length > 0) &&
+                                (phoneCode.length > 0) &&
+                                (phoneNumber.length > 0) &&
+                                (address.length > 0) &&
+                                (city.length > 0) &&
+                                (country.length > 0) &&
+                                (zipCode.length > 0) &&
+                                (email.length > 0));
                             }];
     @weakify(self)
     return [[RACCommand alloc] initWithEnabled:isCorrect
@@ -72,7 +101,12 @@ objection_requires(@keypath(ASProfileViewModel.new, apiController))
     self.username = nil;
     self.fullName = nil;
     self.email = nil;
-
+    self.phoneCode = nil;
+    self.phoneNumber = nil;
+    self.address = nil;
+    self.city = nil;
+    self.country = nil;
+    self.zipCode = nil;
 }
 
 @end

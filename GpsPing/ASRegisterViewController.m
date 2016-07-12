@@ -10,20 +10,31 @@
 #import "ASRegisterViewModel.h"
 
 @interface ASRegisterViewController ()
-@property (nonatomic, readonly) ASRegisterViewModel     *viewModel;
-@property (nonatomic, weak    ) IBOutlet UITextField  *textFieldUsername;
-@property (nonatomic, weak    ) IBOutlet UITextField  *textFieldEmail;
-@property (nonatomic, weak    ) IBOutlet UITextField  *textFieldPassword;
-@property (nonatomic, weak    ) IBOutlet UITextField  *textFieldConfirmPassword;
-@property (nonatomic, weak    ) IBOutlet UIButton     *buttonSubmit;
+
+@property (readonly, nonatomic) ASRegisterViewModel *viewModel;
+
+@property (weak, nonatomic) IBOutlet UITextField *textFieldUsername;
+@property (weak, nonatomic) IBOutlet UITextField *textFieldEmail;
+
+@property (weak, nonatomic) IBOutlet UITextField *textFieldPhoneCode;
+@property (weak, nonatomic) IBOutlet UITextField *textFieldPhoneNumber;
+
+@property (weak, nonatomic) IBOutlet UITextField *textFieldAddress;
+@property (weak, nonatomic) IBOutlet UITextField *textFieldCity;
+@property (weak, nonatomic) IBOutlet UITextField *textFieldCountry;
+@property (weak, nonatomic) IBOutlet UITextField *textFieldZipCode;
+
+@property (weak, nonatomic) IBOutlet UITextField *textFieldPassword;
+@property (weak, nonatomic) IBOutlet UITextField *textFieldConfirmPassword;
+
+@property (weak, nonatomic) IBOutlet UIButton    *buttonSubmit;
+
 @end
 
 @implementation ASRegisterViewController
 
 -(void)viewDidLoad {
     [super viewDidLoad];
-
-    [self registerForKeyboardNotifications];
     
     self->_viewModel = [[ASRegisterViewModel alloc] init];
     
@@ -31,7 +42,25 @@
     RAC(self.viewModel, username)    = self.textFieldUsername.rac_textSignal;
     
     self.textFieldEmail.text = self.viewModel.email;
-    RAC(self.viewModel, email)    = self.textFieldEmail.rac_textSignal;
+    RAC(self.viewModel, email) = self.textFieldEmail.rac_textSignal;
+    
+    self.textFieldPhoneCode.text = self.viewModel.phoneCode;
+    RAC(self.viewModel, phoneCode) = self.textFieldPhoneCode.rac_textSignal;
+    
+    self.textFieldPhoneNumber.text = self.viewModel.phoneNumber;
+    RAC(self.viewModel, phoneNumber) = self.textFieldPhoneNumber.rac_textSignal;
+    
+    self.textFieldAddress.text   = self.viewModel.address;
+    RAC(self.viewModel, address) = self.textFieldAddress.rac_textSignal;
+    
+    self.textFieldCity.text   = self.viewModel.city;
+    RAC(self.viewModel, city) = self.textFieldCity.rac_textSignal;
+    
+    self.textFieldCountry.text   = self.viewModel.country;
+    RAC(self.viewModel, country) = self.textFieldCountry.rac_textSignal;
+    
+    self.textFieldZipCode.text   = self.viewModel.zipCode;
+    RAC(self.viewModel, zipCode) = self.textFieldZipCode.rac_textSignal;
     
     self.textFieldPassword.text   = self.viewModel.password;
     RAC(self.viewModel, password) = self.textFieldPassword.rac_textSignal;

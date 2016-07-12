@@ -23,6 +23,8 @@
 #import <CocoaLumberjack.h>
 #import <Underscore.h>
 #import "NSDate+DateTools.h"
+#import "CompassController.h"
+#import "WMSTileOverlay.h"
 
 #define QUERY_RATE_IN_SECONDS 15
 static const DDLogLevel ddLogLevel = DDLogLevelDebug;
@@ -36,6 +38,7 @@ static const DDLogLevel ddLogLevel = DDLogLevelDebug;
 @property (strong, nonatomic) IBOutlet UITapGestureRecognizer *tapGestureDetails;
 @property (weak, nonatomic) IBOutlet UILabel *distanceLabel;
 @property (weak, nonatomic) IBOutlet UILabel *distanceMetricLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *compassImageView;
 
 @property (nonatomic        ) NSArray                    *originalPointsData;
 @property (nonatomic        ) NSArray                    *arrayPOIs;
@@ -54,6 +57,9 @@ static const DDLogLevel ddLogLevel = DDLogLevelDebug;
 @property (nonatomic, assign) BOOL isFirstLaunch;
 @property (nonatomic, assign) BOOL isUserLocationCentered;
 @property (nonatomic        ) ASPointOfInterestAnnotation *selectedAnnotation;
+
+@property (strong, nonatomic) CompassController *compassController;
+
 @end
 
 @implementation ASMapViewController
@@ -121,7 +127,6 @@ objection_requires(@keypath(ASMapViewController.new, apiController))
     self.locationManager = [[CLLocationManager alloc] init];
     [self.locationManager requestWhenInUseAuthorization];
     [self.locationManager requestAlwaysAuthorization];
-//    [self.locationManager startUpdatingLocation];
     
     [self changeMapType:2];
 
@@ -150,6 +155,8 @@ objection_requires(@keypath(ASMapViewController.new, apiController))
     }
     
     [self loadPointsOfInterest];
+    
+    self.compassController = [CompassController compassWithArrowImageView:self.compassImageView];
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -308,10 +315,22 @@ objection_requires(@keypath(ASMapViewController.new, apiController))
         [self.mapView addOverlay:overlayWorld
                            level:MKOverlayLevelAboveLabels];
         
+        static NSString * const templateSweden = @"http://industri.gpsping.no:6057/service?LAYERS=sweden&FORMAT=image/png&SRS=EPSG:3857&EXCEPTIONS=application.vnd.ogc.se_inimage&TRANSPARENT=TRUE&SERVICE=WMS&VERSION=1.1.1&REQUEST=GetMap&STYLES=&WIDTH=256&HEIGHT=256";
+        WMSTileOverlay *overlaySweden = [[WMSTileOverlay alloc] initWithUrl:templateSweden UseMercator:YES];
+        overlaySweden.canReplaceMapContent = YES;
+        [self.mapView addOverlay:overlaySweden
+                           level:MKOverlayLevelAboveLabels];
+
         static NSString * const templateNorway = @"http://opencache.statkart.no/gatekeeper/gk/gk.open_gmaps?layers=topo2&zoom={z}&x={x}&y={y}&format=image/png";
         MKTileOverlay *overlayNorway = [[MKTileOverlay alloc] initWithURLTemplate:templateNorway];
         overlayNorway.canReplaceMapContent = YES;
         [self.mapView addOverlay:overlayNorway
+                           level:MKOverlayLevelAboveLabels];
+        
+        static NSString * const templateDenmark = @"http://kortforsyningen.kms.dk/topo100?LAYERS=dtk_1cm&FORMAT=image/png&BGCOLOR=0xFFFFFF&TICKET=8b4e36fe4c851004fd1e69463fbabe3b&PROJECTION=EPSG:3857&TRANSPARENT=TRUE&SERVICE=WMS&VERSION=1.1.1&REQUEST=GetMap&STYLES=&SRS=EPSG:3857&WIDTH=256&HEIGHT=256";
+        WMSTileOverlay *overlayDenmark = [[WMSTileOverlay alloc] initWithUrl:templateDenmark UseMercator:YES];
+        overlayDenmark.canReplaceMapContent = YES;
+        [self.mapView addOverlay:overlayDenmark
                            level:MKOverlayLevelAboveLabels];
         
     }

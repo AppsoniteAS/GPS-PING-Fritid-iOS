@@ -21,18 +21,23 @@
     }
 }
 
-- (IBAction)tkStarButtonTap:(id)sender {
-    [self goToNextScreenWithChoosedType:kASTrackerTypeTkStar];
-}
-- (IBAction)anywhereButtonTap:(id)sender {
-    [self goToNextScreenWithChoosedType:kASTrackerTypeAnywhere];
-}
-- (IBAction)tkPetButtonTap:(id)sender {
+//- (IBAction)tkStarButtonTap:(id)sender {
+//    [self goToNextScreenWithChoosedType:kASTrackerTypeTkStar];
+//}
+//
+//- (IBAction)anywhereButtonTap:(id)sender {
+//    [self goToNextScreenWithChoosedType:kASTrackerTypeAnywhere];
+//}
+
+- (IBAction)tkStarPetButtonTap:(id)sender {
     [self goToNextScreenWithChoosedType:kASTrackerTypeTkStarPet];
 }
 
--(void)goToNextScreenWithChoosedType:(NSString *)trackerType
-{
+- (IBAction)tkBikeButtonTap:(id)sender {
+    [self goToNextScreenWithChoosedType:kASTrackerTypeTkBike];
+}
+
+-(void)goToNextScreenWithChoosedType:(NSString *)trackerType {
     ASTrackerConfigurationViewController *configVC = [ASTrackerConfigurationViewController initialize];
     
     configVC.trackerObject = [ASTrackerModel initTrackerWithName:nil
@@ -43,6 +48,7 @@
                                                        isRunning:NO];
     [self.navigationController pushViewController:configVC animated:YES];
 }
+
 - (IBAction)cancelButtonTap:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 }

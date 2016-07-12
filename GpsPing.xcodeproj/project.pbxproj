@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4042A7D11D2CEFBD009D2332 /* CompassController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4042A7D01D2CEFBD009D2332 /* CompassController.m */; };
+		4042A7D41D2D0712009D2332 /* WMSTileOverlay.m in Sources */ = {isa = PBXBuildFile; fileRef = 4042A7D31D2D0712009D2332 /* WMSTileOverlay.m */; };
 		71DBF3B032586FC58BFD9D10 /* libPods-GpsPing.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B7FFCCE62480932E5875CD50 /* libPods-GpsPing.a */; };
 		A603CED51C58D5C2001D56A4 /* ASMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A603CED41C58D5C2001D56A4 /* ASMapViewController.m */; };
 		A603CED81C5900CE001D56A4 /* ASDeviceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A603CED71C5900CE001D56A4 /* ASDeviceModel.m */; };
@@ -125,6 +127,11 @@
 /* Begin PBXFileReference section */
 		0237DDBF4E202A6CE571FB17 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		33DCF0FA5B248C4A92C1C0B0 /* Pods-GpsPing.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GpsPing.release.xcconfig"; path = "Pods/Target Support Files/Pods-GpsPing/Pods-GpsPing.release.xcconfig"; sourceTree = "<group>"; };
+		4042A7CF1D2CEFBD009D2332 /* CompassController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompassController.h; sourceTree = "<group>"; };
+		4042A7D01D2CEFBD009D2332 /* CompassController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompassController.m; sourceTree = "<group>"; };
+		4042A7D21D2D0712009D2332 /* WMSTileOverlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMSTileOverlay.h; sourceTree = "<group>"; };
+		4042A7D31D2D0712009D2332 /* WMSTileOverlay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMSTileOverlay.m; sourceTree = "<group>"; };
+		4042A7D51D2D0738009D2332 /* MapViewUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewUtils.h; sourceTree = "<group>"; };
 		77A21FE96824543E1D08D970 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		A603CED31C58D5C2001D56A4 /* ASMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASMapViewController.h; sourceTree = "<group>"; };
 		A603CED41C58D5C2001D56A4 /* ASMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASMapViewController.m; sourceTree = "<group>"; };
@@ -503,6 +510,11 @@
 		A68C1B881C4D2550000E2BA6 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				4042A7D51D2D0738009D2332 /* MapViewUtils.h */,
+				4042A7D21D2D0712009D2332 /* WMSTileOverlay.h */,
+				4042A7D31D2D0712009D2332 /* WMSTileOverlay.m */,
+				4042A7CF1D2CEFBD009D2332 /* CompassController.h */,
+				4042A7D01D2CEFBD009D2332 /* CompassController.m */,
 				A646053A1C68C2F90012467E /* AGGeoValueTransformer.h */,
 				A646053B1C68C2F90012467E /* AGGeoValueTransformer.m */,
 				A68C1B991C4E40D2000E2BA6 /* UIColor+ASColor.h */,
@@ -698,6 +710,7 @@
 				A68C1B2C1C4CE460000E2BA6 /* Resources */,
 				A5C41E725E322862948ACD98 /* 📦 Embed Pods Frameworks */,
 				75093ACCB7993C6C42A400E9 /* 📦 Copy Pods Resources */,
+				99157A53B4E8777ED7E241F8 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -895,6 +908,21 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GpsPing/Pods-GpsPing-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		99157A53B4E8777ED7E241F8 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GpsPing/Pods-GpsPing-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		A5C41E725E322862948ACD98 /* 📦 Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -955,6 +983,7 @@
 				A68C1B361C4CE460000E2BA6 /* AppDelegate.m in Sources */,
 				A68C1BA41C4F6AEE000E2BA6 /* ASChooseTrackerViewController.m in Sources */,
 				A603CEEE1C5B761C001D56A4 /* ASDevicePointAnnotation.m in Sources */,
+				4042A7D11D2CEFBD009D2332 /* CompassController.m in Sources */,
 				A68C1B921C4E38D6000E2BA6 /* ASTrackerCell.m in Sources */,
 				AB8946AB1C549E9F002E86C8 /* RACSignal+BackendHelpers.m in Sources */,
 				AB89469C1C510E96002E86C8 /* ASViewController.m in Sources */,
@@ -966,6 +995,7 @@
 				A6F6A7541C524E680009579A /* AGApiController.m in Sources */,
 				AB54280F1C5BA1C800F33E8B /* ASAddFriendViewModel.m in Sources */,
 				AB5428121C5BA1F000F33E8B /* ASSearchBar.m in Sources */,
+				4042A7D41D2D0712009D2332 /* WMSTileOverlay.m in Sources */,
 				A68C1BAA1C4F71CB000E2BA6 /* ASTrackerConfigurationViewController.m in Sources */,
 				ABE7C7281C78CB76008A6390 /* ASPointOfInterestAnnotation.m in Sources */,
 				A68C1B9B1C4E40D2000E2BA6 /* UIColor+ASColor.m in Sources */,
@@ -1260,7 +1290,7 @@
 			baseConfigurationReference = DC335D2385B5A1CD2997D0EB /* Pods-GpsPing.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = GpsPing/GpsPing.entitlements;
+				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
@@ -1271,7 +1301,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.gpsping.tracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "8e53c20e-4863-415f-b263-7d3374cfd1f4";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -1280,7 +1310,7 @@
 			baseConfigurationReference = 33DCF0FA5B248C4A92C1C0B0 /* Pods-GpsPing.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = GpsPing/GpsPing.entitlements;
+				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
@@ -1291,7 +1321,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.gpsping.tracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "8e53c20e-4863-415f-b263-7d3374cfd1f4";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

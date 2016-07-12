@@ -68,7 +68,7 @@ NSString* const kASGeofenceYards     = @"geofenceYards";
 + (NSValueTransformer *)trackerTypeJSONTransformer {
     return [MTLValueTransformer transformerUsingForwardBlock:^id(NSString *trackerType, BOOL *success, NSError *__autoreleasing *error) {
         if (trackerType == nil) {
-            return kASTrackerTypeAnywhere;
+            return kASTrackerTypeTkStarPet;
         }
         
         return trackerType;

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="14m-h1-zoy">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="14m-h1-zoy">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -95,7 +95,7 @@
                                                     <color key="textColor" red="0.45882352941176469" green="0.45882352941176469" blue="0.45882352941176469" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TK_ANYWHERE" translatesAutoresizingMaskIntoConstraints="NO" id="F1e-3y-97b" userLabel="Icon">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TK_STAR_PET" translatesAutoresizingMaskIntoConstraints="NO" id="F1e-3y-97b" userLabel="Icon">
                                                     <rect key="frame" x="18" y="12" width="46" height="46"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="F1e-3y-97b" secondAttribute="height" multiplier="1:1" id="qG5-YI-Nx2"/>
@@ -246,8 +246,8 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eyA-qK-nuC" userLabel="label container">
                                 <rect key="frame" x="0.0" y="64" width="414" height="80"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Choose Tracker" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vbT-Tb-8zB" userLabel="name">
-                                        <rect key="frame" x="104" y="22" width="206" height="36"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose Tracker" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vbT-Tb-8zB" userLabel="name">
+                                        <rect key="frame" x="104" y="22" width="207" height="36"/>
                                         <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="30"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -268,14 +268,14 @@
                                             <constraint firstAttribute="width" constant="168" id="Ao0-RW-aHn"/>
                                             <constraint firstAttribute="width" secondItem="8r2-Qr-vti" secondAttribute="height" multiplier="1:1" id="i3K-Wn-3iI"/>
                                         </constraints>
-                                        <state key="normal" image="TK_STAR"/>
+                                        <state key="normal" image="TK_STAR_PET"/>
                                         <variation key="default">
                                             <mask key="constraints">
                                                 <exclude reference="Ao0-RW-aHn"/>
                                             </mask>
                                         </variation>
                                         <connections>
-                                            <action selector="tkStarButtonTap:" destination="6nj-Oy-OAd" eventType="touchUpInside" id="4Sv-DO-mRS"/>
+                                            <action selector="tkStarPetButtonTap:" destination="6nj-Oy-OAd" eventType="touchUpInside" id="Zvv-Z3-BbS"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -286,23 +286,23 @@
                                     <constraint firstItem="8r2-Qr-vti" firstAttribute="centerX" secondItem="Tr8-Df-YL1" secondAttribute="centerX" id="xaL-86-R4K"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="d2T-jO-GxY" userLabel="T2">
-                                <rect key="frame" x="0.0" y="326" width="414" height="183"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d2T-jO-GxY" userLabel="T2">
+                                <rect key="frame" x="0.0" y="327" width="414" height="182"/>
                                 <subviews>
-                                    <button opaque="NO" clipsSubviews="YES" contentMode="center" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nAh-27-aAF">
-                                        <rect key="frame" x="123" y="7" width="168" height="168"/>
+                                    <button opaque="NO" clipsSubviews="YES" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nAh-27-aAF">
+                                        <rect key="frame" x="123" y="7" width="168" height="167"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="nAh-27-aAF" secondAttribute="height" multiplier="1:1" id="i9E-fb-Tgj"/>
                                             <constraint firstAttribute="width" constant="168" id="iSc-Oj-osm"/>
                                         </constraints>
-                                        <state key="normal" image="TK_ANYWHERE"/>
+                                        <state key="normal" image="TK_BIKE"/>
                                         <variation key="default">
                                             <mask key="constraints">
                                                 <exclude reference="iSc-Oj-osm"/>
                                             </mask>
                                         </variation>
                                         <connections>
-                                            <action selector="anywhereButtonTap:" destination="6nj-Oy-OAd" eventType="touchUpInside" id="BqX-qt-5u0"/>
+                                            <action selector="tkBikeButtonTap:" destination="6nj-Oy-OAd" eventType="touchUpInside" id="o2g-gT-gWh"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -313,11 +313,11 @@
                                     <constraint firstItem="nAh-27-aAF" firstAttribute="height" secondItem="d2T-jO-GxY" secondAttribute="height" multiplier="168:183" id="pot-9T-IMF"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SNJ-3z-zx1" userLabel="T3">
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SNJ-3z-zx1" userLabel="T3">
                                 <rect key="frame" x="0.0" y="509" width="414" height="183"/>
                                 <subviews>
-                                    <button opaque="NO" clipsSubviews="YES" contentMode="center" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PUo-EQ-Vx9">
-                                        <rect key="frame" x="124" y="7" width="167" height="167"/>
+                                    <button opaque="NO" clipsSubviews="YES" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PUo-EQ-Vx9">
+                                        <rect key="frame" x="124" y="8" width="167" height="168"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="168" id="lmJ-7y-aSk"/>
                                             <constraint firstAttribute="width" secondItem="PUo-EQ-Vx9" secondAttribute="height" multiplier="1:1" id="vUS-dS-QWf"/>
@@ -328,9 +328,6 @@
                                                 <exclude reference="lmJ-7y-aSk"/>
                                             </mask>
                                         </variation>
-                                        <connections>
-                                            <action selector="tkPetButtonTap:" destination="6nj-Oy-OAd" eventType="touchUpInside" id="dag-Cp-xJi"/>
-                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -905,8 +902,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="TK_ANYWHERE" width="158" height="158"/>
-        <image name="TK_STAR" width="158" height="158"/>
+        <image name="TK_BIKE" width="158" height="158"/>
         <image name="TK_STAR_PET" width="158" height="158"/>
         <image name="addIcon" width="20" height="20"/>
         <image name="background" width="414" height="736"/>

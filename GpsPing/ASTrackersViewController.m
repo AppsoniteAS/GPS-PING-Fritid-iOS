@@ -14,7 +14,6 @@
 #import "AGApiController.h"
 
 #import <CocoaLumberjack/CocoaLumberjack.h>
-static const DDLogLevel ddLogLevel = DDLogLevelVerbose;
 
 @interface ASTrackersViewController () <ASTrackerCellProtocol>
 
