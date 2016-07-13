@@ -92,6 +92,10 @@ NSString* const kASBikeShockAlarmIsOn = @"kASBikeShockAlarmIsOn";
 
 -(void)setSignalRateInSeconds:(NSNumber *)signalRateInSeconds
 {
+    if (signalRateInSeconds.integerValue == 0) {
+        signalRateInSeconds = @(60);
+    }
+    
     if (signalRateInSeconds.integerValue > 60) {
         self.signalRate = signalRateInSeconds.integerValue/60;
         self.signalRateMetric = kASSignalMetricTypeMinutes;

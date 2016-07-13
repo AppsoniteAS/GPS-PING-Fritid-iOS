@@ -52,7 +52,7 @@ objection_requires(@keypath(MainMenuViewController.new, apiController))
 - (IBAction)startStopButtonTap:(id)sender {
     ASTrackerModel *trackerModel = [ASTrackerModel getChoosedTracker];
     
-    if (![ASTrackerModel getChoosedTracker]) {
+    if (!trackerModel) {
         [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"No tracker choosed", nil)
                                     message:NSLocalizedString(@"You must choose tracker on Trackers screen in Settings to start it", nil)
                                    delegate:nil
