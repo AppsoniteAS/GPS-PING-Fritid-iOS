@@ -11,8 +11,17 @@
 
 @implementation UIColor (ASColor)
 
++(UIColor*)as_greenColor
+{
+    return [UIColor colorWithRed:0.3333 green:0.5451 blue:0.1843 alpha:1.0];
+}
+
++(UIColor*)as_grayColor
+{
+    return [UIColor colorWithRed:0.4107 green:0.4107 blue:0.4107 alpha:1.0];
+}
+
 +(UIColor*)as_colorWithImage:(UIImage*)image {
-//    cell.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed: @"green.png"]];
     UIImage *imageForColor = [image resizedImageByHeight:[UIScreen mainScreen].bounds.size.height];
     return [UIColor colorWithPatternImage:imageForColor];
 }

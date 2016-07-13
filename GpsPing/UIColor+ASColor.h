@@ -10,6 +10,8 @@
 
 @interface UIColor (ASColor)
 
++(UIColor*)as_greenColor;
++(UIColor*)as_grayColor;
 +(UIColor*)as_colorWithImage:(UIImage*)image;
 +(UIColor *)getRandomColor;
 @end

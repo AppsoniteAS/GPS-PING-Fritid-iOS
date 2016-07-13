@@ -13,11 +13,16 @@
 #import "ASButton.h"
 #import "ASSmsManager.h"
 #import "AGApiController.h"
+#import "UIColor+ASColor.h"
 
 #import <CocoaLumberjack/CocoaLumberjack.h>
 static const DDLogLevel ddLogLevel = DDLogLevelVerbose;
 
-@interface ASTrackerConfigurationViewController()<UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource, MFMessageComposeViewControllerDelegate, ASSmsManagerProtocol>
+static NSString *const kASUserDefaultsKeyBikeLedLight   = @"kASUserDefaultsKeyBikeLedLight";
+static NSString *const kASUserDefaultsKeyBikeShockAlarm = @"kASUserDefaultsKeyBikeShockAlarm";
+static NSString *const kASUserDefaultsKeyBikeFlashAlarm = @"kASUserDefaultsKeyBikeFlashAlarm";
+
+@interface ASTrackerConfigurationViewController()<UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource, MFMessageComposeViewControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIView *outerWrapperView;
 @property (weak, nonatomic) IBOutlet UITextField *nameTextField;
@@ -28,7 +33,7 @@ static const DDLogLevel ddLogLevel = DDLogLevelVerbose;
 @property (weak, nonatomic) IBOutlet UIView *editButtonsPanel;
 @property (weak, nonatomic) IBOutlet UILabel *labelStatusBikeLEDLight;
 @property (weak, nonatomic) IBOutlet UILabel *labelStatusBikeShockAlarm;
-@property (weak, nonatomic) IBOutlet UILabel *labelStatusBikeShockFlashAlarm;
+@property (weak, nonatomic) IBOutlet UILabel *labelStatusBikeFlashAlarm;
 @property (weak, nonatomic) IBOutlet ASButton *buttonBikeLEDLight;
 @property (weak, nonatomic) IBOutlet ASButton *buttonBikeShockAlarm;
 @property (weak, nonatomic) IBOutlet ASButton *buttonBikeFlashAlarm;
@@ -101,6 +106,41 @@ objection_requires(@keypath(ASTrackerConfigurationViewController.new, apiControl
     self.buttonBikeLEDLight.titleLabel.font = [UIFont fontWithName:@"Roboto-Bold" size:9];
     self.buttonBikeFlashAlarm.titleLabel.font = [UIFont fontWithName:@"Roboto-Bold" size:9];
     self.buttonBikeShockAlarm.titleLabel.font = [UIFont fontWithName:@"Roboto-Bold" size:9];
+    
+    [RACObserve(self.trackerObject, bikeLedLightIsOn) subscribeNext:^(NSNumber *x) {
+        [self configBikeSettingButton:self.buttonBikeLEDLight Status:x.boolValue];
+        [self configBikeSettingStatusLabel:self.labelStatusBikeLEDLight Status:x.boolValue];
+    }];
+    
+    [RACObserve(self.trackerObject, bikeShockAlarmIsOn) subscribeNext:^(NSNumber *x) {
+        [self configBikeSettingButton:self.buttonBikeShockAlarm Status:x.boolValue];
+        [self configBikeSettingStatusLabel:self.labelStatusBikeShockAlarm Status:x.boolValue];
+    }];
+    
+    [RACObserve(self.trackerObject, bikeFlashAlarmIsOn) subscribeNext:^(NSNumber *x) {
+        [self configBikeSettingButton:self.buttonBikeFlashAlarm Status:x.boolValue];
+        [self configBikeSettingStatusLabel:self.labelStatusBikeFlashAlarm Status:x.boolValue];
+    }];
+}
+
+-(void)configBikeSettingStatusLabel:(UILabel*)label Status:(BOOL)isActive {
+    if (isActive) {
+        label.text = NSLocalizedString(@"Active", @"bike setting status");
+        label.textColor = [UIColor as_greenColor];
+    } else {
+        label.text = NSLocalizedString(@"Inactive", @"bike setting status");
+        label.textColor = [UIColor as_grayColor];
+    }
+}
+
+-(void)configBikeSettingButton:(ASButton*)button Status:(BOOL)isActive {
+    if (isActive) {
+        [button setTitle:NSLocalizedString(@"TURN OFF", @"bike setting button on/off") forState:UIControlStateNormal];
+        [button setStyle:ASButtonStyleGrey];
+    } else {
+        [button setTitle:NSLocalizedString(@"TURN ON", @"bike setting button on/off") forState:UIControlStateNormal];
+        [button setStyle:ASButtonStyleGreen];
+    }
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -227,21 +267,20 @@ objection_requires(@keypath(ASTrackerConfigurationViewController.new, apiControl
             [[UIAlertView alertWithTitle:NSLocalizedString(@"Error", nil) error:error] show];
         }];
     } else {
-        [self as_sendSMS:self.smsesForActivation[self.smsCount]
-           recipient:self.trackerObject.trackerNumber];
-    }
-}
-
--(void)smsManagerMessageWasSentWithResult:(MessageComposeResult)result
-{
-    self.smsCount++;
-    
-    if (self.shouldShowInEditMode) {
-        [self.resetButton setTitle:[self newTitleForReset:self.smsCount]
-                             forState:UIControlStateNormal];
-    } else {
-        [self.completeButton setTitle:[self newTitleForActivation:self.smsCount]
-                             forState:UIControlStateNormal];
+        [[self as_sendSMS:self.smsesForActivation[self.smsCount]
+           ToRecipient:self.trackerObject.trackerNumber] subscribeNext:^(id x) {
+            self.smsCount++;
+            
+            if (self.shouldShowInEditMode) {
+                [self.resetButton setTitle:[self newTitleForReset:self.smsCount]
+                                  forState:UIControlStateNormal];
+            } else {
+                [self.completeButton setTitle:[self newTitleForActivation:self.smsCount]
+                                     forState:UIControlStateNormal];
+            }
+        } error:^(NSError *error) {
+            ;
+        }];
     }
 }
 
@@ -336,6 +375,49 @@ objection_requires(@keypath(ASTrackerConfigurationViewController.new, apiControl
 
 -(void)updateRateTextField {
     self.signalRateTextField.text = self.ratePickerStrings[self.choosedTime];
+}
+
+- (IBAction)ledLightTap:(id)sender {
+    RACSignal *signal = [self as_sendSMS:[ASTrackerModel getSmsTextsForBikeLedLightForMode:!self.trackerObject.bikeLedLightIsOn]
+                             ToRecipient:self.trackerObject.trackerNumber];
+    [signal subscribeNext:^(NSNumber *result) {
+        if (result.integerValue == MessageComposeResultSent) {
+            self.trackerObject.bikeLedLightIsOn = !self.trackerObject.bikeLedLightIsOn;
+            [self.trackerObject saveInUserDefaults];
+        }
+    } error:^(NSError *error) {
+        DDLogError(@"Error sending Sms %@", error);
+    }];
+}
+
+- (IBAction)shockAlarmTap:(id)sender {
+    RACSignal *signal = [self as_sendSMS:[ASTrackerModel getSmsTextsForBikeShockAlarmForMode:!self.trackerObject.bikeShockAlarmIsOn]
+                             ToRecipient:self.trackerObject.trackerNumber];
+    [signal subscribeNext:^(NSNumber *result) {
+        if (result.integerValue == MessageComposeResultSent) {
+            self.trackerObject.bikeShockAlarmIsOn = !self.trackerObject.bikeShockAlarmIsOn;
+            [self.trackerObject saveInUserDefaults];
+        }
+    } error:^(NSError *error) {
+        DDLogError(@"Error sending Sms %@", error);
+    }];
+}
+
+- (IBAction)flashAlarmTap:(id)sender {
+    if (self.trackerObject.bikeFlashAlarmIsOn) {
+        return;
+    }
+    
+    RACSignal *signal = [self as_sendSMS:[ASTrackerModel getSmsTextsForBikeFlashAlarm]
+                             ToRecipient:self.trackerObject.trackerNumber];
+    [signal subscribeNext:^(NSNumber *result) {
+        if (result.integerValue == MessageComposeResultSent) {
+            self.trackerObject.bikeFlashAlarmIsOn = !self.trackerObject.bikeFlashAlarmIsOn;
+            [self.trackerObject saveInUserDefaults];
+        }
+    } error:^(NSError *error) {
+        DDLogError(@"Error sending Sms %@", error);
+    }];
 }
 
 @end

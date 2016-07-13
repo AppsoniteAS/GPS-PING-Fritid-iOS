@@ -32,6 +32,11 @@ static NSString * const kASUserDefaultsTrackersKey   = @"kASUserDefaultsTrackers
 @property (nonatomic, assign) BOOL      isRunning;
 @property (nonatomic, assign) BOOL      isGeofenceStarted;
 @property (nonatomic, assign) BOOL      dogInStand;
+
+@property (nonatomic, assign) BOOL      bikeLedLightIsOn;
+@property (nonatomic, assign) BOOL      bikeShockAlarmIsOn;
+@property (nonatomic, assign) BOOL      bikeFlashAlarmIsOn;
+
 @property (nonatomic, assign) NSInteger signalRate;
 @property (nonatomic        ) NSNumber  *signalRateInSeconds;
 @property (nonatomic        ) NSString  *signalRateMetric;
@@ -56,5 +61,8 @@ static NSString * const kASUserDefaultsTrackersKey   = @"kASUserDefaultsTrackers
 +(NSString*)getSmsTextsForGeofenceLaunch:(BOOL)turnOn
                                 distance:(NSString*)distance;
 
-//-(NSString*)innerIdentifier;
++(NSString*)getSmsTextsForBikeLedLightForMode:(BOOL)turnOn;
++(NSString*)getSmsTextsForBikeShockAlarmForMode:(BOOL)turnOn;
++(NSString*)getSmsTextsForBikeFlashAlarm;
+
 @end

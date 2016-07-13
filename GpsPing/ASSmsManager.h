@@ -9,18 +9,14 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import <MessageUI/MFMessageComposeViewController.h>
+#import <ReactiveCocoa/ReactiveCocoa.h>
 
 #import "ASTrackerModel.h"
 
-@protocol ASSmsManagerProtocol <NSObject>
+@interface UIViewController(ASSmsManager)
 
--(void)smsManagerMessageWasSentWithResult:(MessageComposeResult)result;
+@property (nonatomic, strong) RACSubject *smsSendSignal;
 
-@end
-
-@interface UIViewController (ASSmsManager)
-
--(void)as_sendSMS:(NSString *)text
-        recipient:(NSString*)recipient;
+-(RACSignal *)as_sendSMS:(NSString *)text ToRecipient:(NSString*)recipient;
 
 @end

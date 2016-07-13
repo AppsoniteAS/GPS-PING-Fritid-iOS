@@ -17,17 +17,20 @@
 
 static DDLogLevel ddLogLevel               = DDLogLevelDebug;
 
-NSString* const kASTrackerName       = @"name";
-NSString* const kASTrackerNumber     = @"tracker_number";
-NSString* const kASTrackerImei       = @"imei_number";
-NSString* const kASTrackerType       = @"type";
-NSString* const kASTrackerIsChoosed  = @"choosed";
-NSString* const kASTrackerDogInStand = @"check_for_stand";
-NSString* const kASTrackerSignalRate = @"reciver_signal_repeat_time";
-NSString* const kASTrackerId         = @"tracker_id";
-NSString* const kASIsRunning         = @"isRunning";
-NSString* const kASIsGeofenceRunning = @"isGeofenceRunning";
-NSString* const kASGeofenceYards     = @"geofenceYards";
+NSString* const kASTrackerName        = @"name";
+NSString* const kASTrackerNumber      = @"tracker_number";
+NSString* const kASTrackerImei        = @"imei_number";
+NSString* const kASTrackerType        = @"type";
+NSString* const kASTrackerIsChoosed   = @"choosed";
+NSString* const kASTrackerDogInStand  = @"check_for_stand";
+NSString* const kASTrackerSignalRate  = @"reciver_signal_repeat_time";
+NSString* const kASTrackerId          = @"tracker_id";
+NSString* const kASIsRunning          = @"isRunning";
+NSString* const kASIsGeofenceRunning  = @"isGeofenceRunning";
+NSString* const kASGeofenceYards      = @"geofenceYards";
+NSString* const kASBikeLedLightIsOn   = @"kASBikeLedLightIsOn";
+NSString* const kASBikeFlashAlarmIsOn = @"kASBikeFlashAlarmIsOn";
+NSString* const kASBikeShockAlarmIsOn = @"kASBikeShockAlarmIsOn";
 
 @implementation ASTrackerModel
 
@@ -60,8 +63,10 @@ NSString* const kASGeofenceYards     = @"geofenceYards";
               @keypath(ASTrackerModel.new, signalRateInSeconds): kASTrackerSignalRate,
               @keypath(ASTrackerModel.new, isRunning)          : kASIsRunning,
               @keypath(ASTrackerModel.new, isGeofenceStarted)  : kASIsGeofenceRunning,
-              @keypath(ASTrackerModel.new, geofenceYards)      : kASGeofenceYards
-
+              @keypath(ASTrackerModel.new, geofenceYards)      : kASGeofenceYards,
+               @keypath(ASTrackerModel.new, bikeLedLightIsOn)      : kASBikeLedLightIsOn,
+               @keypath(ASTrackerModel.new, bikeFlashAlarmIsOn)      : kASBikeFlashAlarmIsOn,
+               @keypath(ASTrackerModel.new, bikeShockAlarmIsOn)      : kASBikeShockAlarmIsOn
               };
 }
 
@@ -269,12 +274,28 @@ NSString* const kASGeofenceYards     = @"geofenceYards";
     }
 }
 
--(NSString*)innerIdentifier {
-    if ([self.trackerType isEqualToString:kASTrackerTypeTkBike]) {
-        return @"Bike";
++(NSString*)getSmsTextsForBikeLedLightForMode:(BOOL)turnOn
+{
+    if (turnOn) {
+        return @"Led123456 on";
+    } else {
+        return @"Led123456 off";
     }
-    
-    return @"Pet";
 }
+
++(NSString*)getSmsTextsForBikeShockAlarmForMode:(BOOL)turnOn
+{
+    if (turnOn) {
+        return @"shock123456";
+    } else {
+        return @"sleep123456 time";
+    }
+}
+
++(NSString*)getSmsTextsForBikeFlashAlarm
+{
+   return @"LED123456 shock";
+}
+
 
 @end

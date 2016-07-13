@@ -26,7 +26,6 @@
 
     self.style = ASButtonStyleGreen;
     [self configWithBaseStyle];
-    [self styleButton:NO];
 }
 
 -(void)setStyle:(ASButtonStyle)style
@@ -38,17 +37,10 @@
 -(void)setEnabled:(BOOL)enabled
 {
     [super setEnabled:enabled];
-    [self styleButton:!enabled];
-}
-
--(void)styleButton:(BOOL)isHighlighted {
-    if (isHighlighted) {
-        self.backgroundColor = GREY_STYLE_COLOR;
-        self.layer.borderWidth = 0;
+    if (enabled) {
+        [self configWithBaseStyle];
     } else {
-        self.backgroundColor = GREEN_STYLE_COLOR;
-
-        self.layer.borderWidth = 2.3;
+        [self configDisabledStyle];
     }
 }
 
@@ -56,10 +48,21 @@
     if (self.style == ASButtonStyleGreen) {
         [self setTitleColor:GREEN_STYLE_TITLE_COLOR             forState:UIControlStateNormal];
         [self setTitleColor:GREEN_STYLE_TITLE_HIGHLIGHTED_COLOR forState:UIControlStateHighlighted];
+        self.backgroundColor = GREEN_STYLE_COLOR;
+        self.layer.borderWidth = 2.3;
     } else {
         [self setTitleColor:GREY_STYLE_TITLE_COLOR             forState:UIControlStateNormal];
         [self setTitleColor:GREY_STYLE_TITLE_HIGHLIGHTED_COLOR forState:UIControlStateHighlighted];
+        self.backgroundColor = GREY_STYLE_COLOR;
+        self.layer.borderWidth = 0;
     }
+}
+
+-(void)configDisabledStyle {
+        [self setTitleColor:GREY_STYLE_TITLE_COLOR             forState:UIControlStateNormal];
+        [self setTitleColor:GREY_STYLE_TITLE_HIGHLIGHTED_COLOR forState:UIControlStateHighlighted];
+        self.backgroundColor = GREY_STYLE_COLOR;
+        self.layer.borderWidth = 0;
 }
 
 @end

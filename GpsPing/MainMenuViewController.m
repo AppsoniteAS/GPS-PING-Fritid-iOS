@@ -61,18 +61,25 @@ objection_requires(@keypath(MainMenuViewController.new, apiController))
         return;
     }
 
-    [self as_sendSMS:[trackerModel getSmsTextsForTrackerLaunch:!trackerModel.isRunning]
-           recipient:trackerModel.trackerNumber];
+    [[self as_sendSMS:[trackerModel getSmsTextsForTrackerLaunch:!trackerModel.isRunning]
+           ToRecipient:trackerModel.trackerNumber] subscribeNext:^(id x) {
+        [self updateCurrentTracker];
+    } error:^(NSError *error) {
+        ;
+    }];
 }
 
 -(void)selectTracker:(ASSelectTrackerViewController *)controller trackerChoosed:(ASTrackerModel *)trackerModel
 {
-    [self as_sendSMS:[trackerModel getSmsTextsForTrackerLaunch:YES]
-           recipient:trackerModel.trackerNumber];
+    [[self as_sendSMS:[trackerModel getSmsTextsForTrackerLaunch:YES]
+           ToRecipient:trackerModel.trackerNumber] subscribeNext:^(id x) {
+        [self updateCurrentTracker];
+    } error:^(NSError *error) {
+        ;
+    }];
 }
 
-
--(void)smsManagerMessageWasSentWithResult:(MessageComposeResult)result
+-(void)updateCurrentTracker
 {
     ASTrackerModel *trackerModel = [ASTrackerModel getChoosedTracker];
     trackerModel.isRunning = !trackerModel.isRunning;
