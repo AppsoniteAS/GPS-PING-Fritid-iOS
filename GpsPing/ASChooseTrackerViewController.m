@@ -38,14 +38,13 @@
 }
 
 -(void)goToNextScreenWithChoosedType:(NSString *)trackerType {
-    ASTrackerConfigurationViewController *configVC = [ASTrackerConfigurationViewController initialize];
-    
-    configVC.trackerObject = [ASTrackerModel initTrackerWithName:nil
+    ASTrackerModel *model =  [ASTrackerModel initTrackerWithName:nil
                                                           number:nil
                                                             imei:nil
                                                             type:trackerType
                                                        isChoosed:NO
                                                        isRunning:NO];
+    ASTrackerConfigurationViewController *configVC = [ASTrackerConfigurationViewController initializeWithTrackerModel:model];
     [self.navigationController pushViewController:configVC animated:YES];
 }
 

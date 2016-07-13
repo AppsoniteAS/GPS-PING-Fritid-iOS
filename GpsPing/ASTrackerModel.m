@@ -269,4 +269,12 @@ NSString* const kASGeofenceYards     = @"geofenceYards";
     }
 }
 
+-(NSString*)innerIdentifier {
+    if ([self.trackerType isEqualToString:kASTrackerTypeTkBike]) {
+        return @"Bike";
+    }
+    
+    return @"Pet";
+}
+
 @end

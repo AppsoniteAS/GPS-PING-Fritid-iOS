@@ -13,6 +13,6 @@
 @property (nonatomic) ASTrackerModel *trackerObject;
 @property (nonatomic) BOOL shouldShowInEditMode;
 
-+(instancetype)initialize;
++(instancetype)initializeWithTrackerModel:(ASTrackerModel *)trackerModel;
 
 @end

@@ -26,6 +26,12 @@ static const DDLogLevel ddLogLevel = DDLogLevelVerbose;
 @property (weak, nonatomic) IBOutlet UISwitch *dogInStandSwitcher;
 @property (weak, nonatomic) IBOutlet ASButton *completeButton;
 @property (weak, nonatomic) IBOutlet UIView *editButtonsPanel;
+@property (weak, nonatomic) IBOutlet UILabel *labelStatusBikeLEDLight;
+@property (weak, nonatomic) IBOutlet UILabel *labelStatusBikeShockAlarm;
+@property (weak, nonatomic) IBOutlet UILabel *labelStatusBikeShockFlashAlarm;
+@property (weak, nonatomic) IBOutlet ASButton *buttonBikeLEDLight;
+@property (weak, nonatomic) IBOutlet ASButton *buttonBikeShockAlarm;
+@property (weak, nonatomic) IBOutlet ASButton *buttonBikeFlashAlarm;
 
 @property (nonatomic) NSString *metricType;
 @property (nonatomic, assign) CGFloat signalRate;
@@ -53,9 +59,13 @@ static const DDLogLevel ddLogLevel = DDLogLevelVerbose;
 
 objection_requires(@keypath(ASTrackerConfigurationViewController.new, apiController))
 
-+(instancetype)initialize
++(instancetype)initializeWithTrackerModel:(ASTrackerModel *)trackerModel
 {
-    return [[UIStoryboard trackerStoryboard] instantiateViewControllerWithIdentifier:NSStringFromClass([ASTrackerConfigurationViewController class])];
+    NSString *className = [NSString stringWithFormat:@"%@_%@", NSStringFromClass([ASTrackerConfigurationViewController class]),
+                                                              trackerModel.trackerType];
+    ASTrackerConfigurationViewController *result = [[UIStoryboard trackerStoryboard] instantiateViewControllerWithIdentifier:className];
+    result.trackerObject = trackerModel;
+    return result;
 }
 
 #pragma mark - UIViewController methods
@@ -87,6 +97,10 @@ objection_requires(@keypath(ASTrackerConfigurationViewController.new, apiControl
     NSString *newResetTitle = NSLocalizedString(@"Reset: step %ld", nil);
     [self.resetButton setTitle:[NSString stringWithFormat:newResetTitle, (long)self.smsCount + 1]
                          forState:UIControlStateNormal];
+    
+    self.buttonBikeLEDLight.titleLabel.font = [UIFont fontWithName:@"Roboto-Bold" size:9];
+    self.buttonBikeFlashAlarm.titleLabel.font = [UIFont fontWithName:@"Roboto-Bold" size:9];
+    self.buttonBikeShockAlarm.titleLabel.font = [UIFont fontWithName:@"Roboto-Bold" size:9];
 }
 
 -(void)viewWillAppear:(BOOL)animated
