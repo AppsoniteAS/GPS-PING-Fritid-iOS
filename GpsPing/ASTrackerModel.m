@@ -11,6 +11,7 @@
 #import <CocoaLumberjack.h>
 #import "Underscore.h"
 #import <ErrorKit/ErrorKit.h>
+#import "ASUserProfileModel.h"
 
 #include <netdb.h>
 #include <arpa/inet.h>
@@ -220,20 +221,20 @@ NSString* const kASBikeShockAlarmIsOn = @"kASBikeShockAlarmIsOn";
         }
         
         NSArray *result;
-        if ([self.trackerType isEqualToString:kASTrackerTypeAnywhere]) {
-            result = @[@"Begin123456",
+        ASUserProfileModel *profileModel = [ASUserProfileModel loadSavedProfileInfo];
+        if ([self.trackerType isEqualToString:kASTrackerTypeTkStarPet]) {
+            result = @[[NSString stringWithFormat:@"admin123456 00%@%@", profileModel.phoneCode, profileModel.phoneNumber],
+                       @"apn123456 internet.ts.m2m",
+                       @"adminip123456 52.49.162.223 5013",
                        @"gprs123456",
-                       @"apn123456 netcom",
-                       [NSString stringWithFormat:@"adminip123456 %s 5000", buff],
                        @"sleep123456 off"];
         } else {
-            result = @[@"Begin123456",
+            result = @[[NSString stringWithFormat:@"admin123456 00%@%@", profileModel.phoneCode, profileModel.phoneNumber],
+                       @"apn123456 internet.ts.m2m",
+                       @"adminip123456 52.49.162.223 5093",
                        @"gprs123456",
-                       @"apn123456 netcom",
-                       [NSString stringWithFormat:@"adminip123456 %s 5013", buff],
                        @"sleep123456 off"];
         }
-
         
         [subscriber sendNext:result];
         [subscriber sendCompleted];
