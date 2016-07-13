@@ -88,6 +88,12 @@ objection_requires(@keypath(ASProfileViewModel.new, apiController))
                 NSArray *subStrings = [self.fullName componentsSeparatedByString:@" "];
                 profile.firstname    = subStrings[0];
                 profile.lastname   = [subStrings lastObject];
+                profile.address = self.address;
+                profile.phoneCode = self.phoneCode;
+                profile.phoneNumber = self.phoneNumber;
+                profile.city = self.city;
+                profile.zipCode = self.zipCode;
+                profile.country = self.country;
                 [ASUserProfileModel saveProfileInfoLocally:profile];
                 @strongify(self)
                 self.apiController.userProfile = profile;
