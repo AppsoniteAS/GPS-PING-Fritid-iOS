@@ -150,8 +150,6 @@ objection_requires(@keypath(ASTrackerConfigurationViewController.new, apiControl
     [self jps_viewDidDisappear:animated];
 }
 
-
-
 #pragma mark - UIPickerView delegate & datasource
 
 -(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {

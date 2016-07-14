@@ -8,6 +8,10 @@
 
 #import "ASRegisterViewController.h"
 #import "ASRegisterViewModel.h"
+#import "UIStoryboard+ASHelper.h"
+#import "ASNewTrackerViewController.h"
+#import <JPSKeyboardLayoutGuideViewController.h>
+#import "Masonry.h"
 
 @interface ASRegisterViewController ()
 
@@ -28,6 +32,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *textFieldConfirmPassword;
 
 @property (weak, nonatomic) IBOutlet UIButton    *buttonSubmit;
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
 @end
 
@@ -35,7 +40,8 @@
 
 -(void)viewDidLoad {
     [super viewDidLoad];
-    
+    [self jps_viewDidLoad];
+
     self->_viewModel = [[ASRegisterViewModel alloc] init];
     
     self.textFieldUsername.text      = self.viewModel.username;
@@ -75,8 +81,23 @@
 
     [self rac_liftSelector:@selector(onError:)
                withSignals:self.buttonSubmit.rac_command.errors, nil];
-    
 }
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self jps_viewWillAppear:animated];
+    [self.scrollView mas_makeConstraints:^
+     (MASConstraintMaker *make) {
+         make.bottom.equalTo(self.keyboardLayoutGuide);
+     }];
+}
+
+-(void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    [self jps_viewDidDisappear:animated];
+}
+
 
 -(void)onError:(NSError*)error {
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"ERROR"
