@@ -240,29 +240,17 @@ objection_initializer(initWithConfiguration:);
 
 #pragma mark - Tracker
 
--(RACSignal *)addTracker:(NSString*)name
-                    imei:(NSString*)imei
-                  number:(NSString*)number
-              repeatTime:(CGFloat)repeatTime
-                    type:(NSString*)type
-           checkForStand:(BOOL)checkForStand
+-(RACSignal *)bindTrackerImei:(NSString*)imei
+                      number:(NSString*)number
 {
     DDLogDebug(@"%s", __PRETTY_FUNCTION__);
-    NSString *checkForStandString;
-    if (checkForStand) {
-        checkForStandString = @"true";
-    } else {
-        checkForStandString = @"false";
-    }
-    NSDictionary *params = @{@"name":name,
-                             @"imei_number":imei,
-                             @"tracker_number":number,
-                             @"reciver_signal_repeat_time":@(repeatTime),
-                             @"check_for_stand":checkForStandString,
-                             @"type":type};
+    NSDictionary *params = @{
+                             @"imei":imei,
+                             @"lastdig":number
+                             };
     params = [self addAuthParamsByUpdatingParams:params];
     return [self performHttpRequestWithAttempts:@"POST"
-                                       resource:@"tracker/add_tracker"
+                                       resource:@"tracker/bind_tracker"
                                      parameters:params];
 }
 

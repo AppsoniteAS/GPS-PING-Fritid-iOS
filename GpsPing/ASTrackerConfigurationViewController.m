@@ -22,26 +22,26 @@ static NSString *const kASUserDefaultsKeyBikeLedLight   = @"kASUserDefaultsKeyBi
 static NSString *const kASUserDefaultsKeyBikeShockAlarm = @"kASUserDefaultsKeyBikeShockAlarm";
 static NSString *const kASUserDefaultsKeyBikeFlashAlarm = @"kASUserDefaultsKeyBikeFlashAlarm";
 
-@interface ASTrackerConfigurationViewController()<UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource, MFMessageComposeViewControllerDelegate>
+@interface ASTrackerConfigurationViewController()<UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource>
 
-@property (weak, nonatomic) IBOutlet UIView *outerWrapperView;
+@property (weak, nonatomic) IBOutlet UIView      *outerWrapperView;
 @property (weak, nonatomic) IBOutlet UITextField *nameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *imeiTextField;
 @property (weak, nonatomic) IBOutlet UITextField *trackerNumberTextField;
-@property (weak, nonatomic) IBOutlet UISwitch *dogInStandSwitcher;
-@property (weak, nonatomic) IBOutlet ASButton *completeButton;
-@property (weak, nonatomic) IBOutlet UIView *editButtonsPanel;
-@property (weak, nonatomic) IBOutlet UILabel *labelStatusBikeLEDLight;
-@property (weak, nonatomic) IBOutlet UILabel *labelStatusBikeShockAlarm;
-@property (weak, nonatomic) IBOutlet UILabel *labelStatusBikeFlashAlarm;
-@property (weak, nonatomic) IBOutlet ASButton *buttonBikeLEDLight;
-@property (weak, nonatomic) IBOutlet ASButton *buttonBikeShockAlarm;
-@property (weak, nonatomic) IBOutlet ASButton *buttonBikeFlashAlarm;
+@property (weak, nonatomic) IBOutlet UISwitch    *dogInStandSwitcher;
+@property (weak, nonatomic) IBOutlet UIView      *editButtonsPanel;
+@property (weak, nonatomic) IBOutlet UILabel     *labelStatusBikeLEDLight;
+@property (weak, nonatomic) IBOutlet UILabel     *labelStatusBikeShockAlarm;
+@property (weak, nonatomic) IBOutlet UILabel     *labelStatusBikeFlashAlarm;
+@property (weak, nonatomic) IBOutlet ASButton    *buttonBikeLEDLight;
+@property (weak, nonatomic) IBOutlet ASButton    *buttonBikeShockAlarm;
+@property (weak, nonatomic) IBOutlet ASButton    *buttonBikeFlashAlarm;
+@property (weak, nonatomic) IBOutlet UITextField *signalRateTextField;
+@property (weak, nonatomic) IBOutlet ASButton    *resetButton;
 
 @property (nonatomic) NSString *metricType;
 @property (nonatomic, assign) CGFloat signalRate;
-@property (weak, nonatomic) IBOutlet UITextField *signalRateTextField;
-@property (weak, nonatomic) IBOutlet ASButton *resetButton;
+
 
 @property (nonatomic) NSArray      *ratePickerData;
 @property (nonatomic) NSDictionary  *ratePickerStrings;
@@ -68,7 +68,7 @@ objection_requires(@keypath(ASTrackerConfigurationViewController.new, apiControl
 {
     NSString *className = [NSString stringWithFormat:@"%@_%@", NSStringFromClass([ASTrackerConfigurationViewController class]),
                                                               trackerModel.trackerType];
-    ASTrackerConfigurationViewController *result = [[UIStoryboard trackerStoryboard] instantiateViewControllerWithIdentifier:className];
+    ASTrackerConfigurationViewController *result = [[UIStoryboard trackerConfigurationStoryboard] instantiateViewControllerWithIdentifier:className];
     result.trackerObject = trackerModel;
     return result;
 }
@@ -80,24 +80,16 @@ objection_requires(@keypath(ASTrackerConfigurationViewController.new, apiControl
     [[JSObjection defaultInjector] injectDependencies:self];
     [self jps_viewDidLoad];
 
-    if (self.shouldShowInEditMode) {
-        self.navigationItem.title = NSLocalizedString(@"Edit Tracker", nil);
-        
-        if (self.trackerObject.trackerName) {
-            self.nameTextField.text = self.trackerObject.trackerName;
-        }
-        
-        self.trackerNumberTextField.text = self.trackerObject.trackerNumber;
-        self.imeiTextField.text = self.trackerObject.imeiNumber;
-
-        [self.dogInStandSwitcher setOn:self.trackerObject.dogInStand];
+    if (self.trackerObject.trackerName) {
+        self.nameTextField.text = self.trackerObject.trackerName;
     }
+    
+    self.trackerNumberTextField.text = self.trackerObject.trackerNumber;
+    self.imeiTextField.text = self.trackerObject.imeiNumber;
+
+    [self.dogInStandSwitcher setOn:self.trackerObject.dogInStand];
 
     [self configPickers];
-    
-    NSString *newTitle = NSLocalizedString(@"Activation: step %ld", nil);
-    [self.completeButton setTitle:[NSString stringWithFormat:newTitle, (long)self.smsCount + 1]
-                         forState:UIControlStateNormal];
     
     NSString *newResetTitle = NSLocalizedString(@"Reset: step %ld", nil);
     [self.resetButton setTitle:[NSString stringWithFormat:newResetTitle, (long)self.smsCount + 1]
@@ -146,8 +138,6 @@ objection_requires(@keypath(ASTrackerConfigurationViewController.new, apiControl
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    self.editButtonsPanel.hidden = !self.shouldShowInEditMode;
-    self.completeButton.hidden   = self.shouldShowInEditMode;
     [self jps_viewWillAppear:animated];
     [self.outerWrapperView mas_makeConstraints:^
      (MASConstraintMaker *make) {
@@ -197,11 +187,6 @@ objection_requires(@keypath(ASTrackerConfigurationViewController.new, apiControl
 - (IBAction)dogInStandValueChanged:(UISwitch *)sender {
 }
 
-- (IBAction)addTrackerTap:(id)sender {
-    [self updateTrackerObject];
-    [self sendSmses];
-}
-
 - (IBAction)updateButtonTap:(id)sender {
     [self updateTrackerObject];
     [self.trackerObject saveInUserDefaults];
@@ -241,43 +226,13 @@ objection_requires(@keypath(ASTrackerConfigurationViewController.new, apiControl
 
 -(void)checkSmsCount{
     if (self.smsCount == self.smsesForActivation.count) {
-        if (self.shouldShowInEditMode) {
-            [self dismissViewControllerAnimated:YES completion:nil];
-            return;
-        }
-        
-        CGFloat repeatTime = [self.trackerObject.signalRateMetric isEqualToString:kASSignalMetricTypeSeconds] ?
-        self.trackerObject.signalRate : self.trackerObject.signalRate * 60;
-        [[self.apiController addTracker:self.trackerObject.trackerName
-                                  imei:self.trackerObject.imeiNumber
-                                number:self.trackerObject.trackerNumber
-                            repeatTime:repeatTime
-                                  type:self.trackerObject.trackerType
-                         checkForStand:self.trackerObject.dogInStand] subscribeNext:^(id x) {
-            DDLogDebug(@"Tracker Added!");
-            [self.trackerObject saveInUserDefaults];
-            [self dismissViewControllerAnimated:YES completion:nil];
-        } error:^(NSError *error) {
-            if ([NSLocalizedStringFromTable(error.localizedDescription, @"Errors", nil) isEqualToString:@"Invalid authentication cookie. Use the `generate_auth_cookie` method."]) {
-                UIViewController* controller = [[UIStoryboard authStoryboard] instantiateInitialViewController];
-                [self presentViewController:controller
-                                   animated:YES
-                                 completion:nil];
-            }
-            [[UIAlertView alertWithTitle:NSLocalizedString(@"Error", nil) error:error] show];
-        }];
+        [self dismissViewControllerAnimated:YES completion:nil];
     } else {
         [[self as_sendSMS:self.smsesForActivation[self.smsCount]
            ToRecipient:self.trackerObject.trackerNumber] subscribeNext:^(id x) {
             self.smsCount++;
-            
-            if (self.shouldShowInEditMode) {
-                [self.resetButton setTitle:[self newTitleForReset:self.smsCount]
-                                  forState:UIControlStateNormal];
-            } else {
-                [self.completeButton setTitle:[self newTitleForActivation:self.smsCount]
-                                     forState:UIControlStateNormal];
-            }
+            [self.resetButton setTitle:[self newTitleForReset:self.smsCount]
+                              forState:UIControlStateNormal];
         } error:^(NSError *error) {
             ;
         }];
@@ -290,17 +245,6 @@ objection_requires(@keypath(ASTrackerConfigurationViewController.new, apiControl
         newTitle = NSLocalizedString(@"Finish reset", nil);
     } else {
         newTitle = [NSString stringWithFormat:NSLocalizedString(@"Reset: step %ld", nil), (long)self.smsCount + 1];
-    }
-    
-    return newTitle;
-}
-
--(NSString *)newTitleForActivation:(NSInteger)smsCount {
-    NSString *newTitle;
-    if (smsCount == self.smsesForActivation.count) {
-        newTitle = NSLocalizedString(@"Finish activation", nil);
-    } else {
-        newTitle = [NSString stringWithFormat:NSLocalizedString(@"Activation: step %ld", nil), (long)self.smsCount + 1];
     }
     
     return newTitle;

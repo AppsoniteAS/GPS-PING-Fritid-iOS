@@ -54,10 +54,8 @@ objection_requires(@keypath(ASTrackersViewController.new, apiController))
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-//    [super tableView:tableView didSelectRowAtIndexPath:indexPath];
     ASTrackerModel *model = [self.memoryStorage itemAtIndexPath:indexPath];
     ASTrackerConfigurationViewController *configVC = [ASTrackerConfigurationViewController initializeWithTrackerModel:model];
-    configVC.shouldShowInEditMode = YES;
     UINavigationController *navVC = [[UINavigationController alloc] initWithRootViewController:configVC];
     [self presentViewController:navVC animated:YES completion:nil];
 }

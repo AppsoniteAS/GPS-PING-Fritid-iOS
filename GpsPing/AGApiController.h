@@ -60,12 +60,8 @@ extern NSString *kASDidLogoutNotification;
 -(RACSignal*)fetchProfile;
 
 #pragma mark - Tracker
--(RACSignal *)addTracker:(NSString*)name
-                    imei:(NSString*)imei 
-                  number:(NSString*)number
-              repeatTime:(CGFloat)repeatTime
-                    type:(NSString*)type
-           checkForStand:(BOOL)checkForStand;
+-(RACSignal *)bindTrackerImei:(NSString*)imei
+                       number:(NSString*)number;
 -(RACSignal *)getTrackers;
 -(RACSignal *)updateTracker:(NSString*)name
                   trackerId:(NSString*)trackerId

@@ -58,6 +58,8 @@
 		A68C1BA41C4F6AEE000E2BA6 /* ASChooseTrackerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A68C1BA31C4F6AEE000E2BA6 /* ASChooseTrackerViewController.m */; };
 		A68C1BA71C4F7006000E2BA6 /* UIStoryboard+ASHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = A68C1BA61C4F7006000E2BA6 /* UIStoryboard+ASHelper.m */; };
 		A68C1BAA1C4F71CB000E2BA6 /* ASTrackerConfigurationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A68C1BA91C4F71CB000E2BA6 /* ASTrackerConfigurationViewController.m */; };
+		A6AB682A1D3776A500F470D2 /* ASNewTrackerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6AB68291D3776A500F470D2 /* ASNewTrackerViewController.m */; };
+		A6AB682C1D37A28F00F470D2 /* TrackerConfiguration.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6AB682B1D37A28F00F470D2 /* TrackerConfiguration.storyboard */; };
 		A6D8D0521C58B1EA00030E9F /* ASFriendModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A6D8D0511C58B1EA00030E9F /* ASFriendModel.m */; };
 		A6F6A74B1C5122210009579A /* ASSmsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A6F6A74A1C5122210009579A /* ASSmsManager.m */; };
 		A6F6A74E1C51742A0009579A /* ASSelectTrackerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6F6A74D1C51742A0009579A /* ASSelectTrackerViewController.m */; };
@@ -212,6 +214,9 @@
 		A68C1BA61C4F7006000E2BA6 /* UIStoryboard+ASHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIStoryboard+ASHelper.m"; sourceTree = "<group>"; };
 		A68C1BA81C4F71CB000E2BA6 /* ASTrackerConfigurationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASTrackerConfigurationViewController.h; sourceTree = "<group>"; };
 		A68C1BA91C4F71CB000E2BA6 /* ASTrackerConfigurationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASTrackerConfigurationViewController.m; sourceTree = "<group>"; };
+		A6AB68281D3776A500F470D2 /* ASNewTrackerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASNewTrackerViewController.h; sourceTree = "<group>"; };
+		A6AB68291D3776A500F470D2 /* ASNewTrackerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASNewTrackerViewController.m; sourceTree = "<group>"; };
+		A6AB682B1D37A28F00F470D2 /* TrackerConfiguration.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TrackerConfiguration.storyboard; sourceTree = "<group>"; };
 		A6D8D0501C58B1EA00030E9F /* ASFriendModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASFriendModel.h; sourceTree = "<group>"; };
 		A6D8D0511C58B1EA00030E9F /* ASFriendModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASFriendModel.m; sourceTree = "<group>"; };
 		A6F6A7491C5122210009579A /* ASSmsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASSmsManager.h; sourceTree = "<group>"; };
@@ -557,6 +562,9 @@
 				A68C1BA31C4F6AEE000E2BA6 /* ASChooseTrackerViewController.m */,
 				A68C1BA81C4F71CB000E2BA6 /* ASTrackerConfigurationViewController.h */,
 				A68C1BA91C4F71CB000E2BA6 /* ASTrackerConfigurationViewController.m */,
+				A6AB68281D3776A500F470D2 /* ASNewTrackerViewController.h */,
+				A6AB68291D3776A500F470D2 /* ASNewTrackerViewController.m */,
+				A6AB682B1D37A28F00F470D2 /* TrackerConfiguration.storyboard */,
 			);
 			name = Trackers;
 			sourceTree = "<group>";
@@ -769,6 +777,7 @@
 				TargetAttributes = {
 					A68C1B2D1C4CE460000E2BA6 = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = EM65889ZEZ;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -839,6 +848,7 @@
 				A68C1B831C4D24DC000E2BA6 /* Roboto-Thin.ttf in Resources */,
 				A68C1B771C4D24DC000E2BA6 /* Roboto-Bold.ttf in Resources */,
 				A68C1B781C4D24DC000E2BA6 /* Roboto-BoldCondensed.ttf in Resources */,
+				A6AB682C1D37A28F00F470D2 /* TrackerConfiguration.storyboard in Resources */,
 				A68C1B761C4D24DC000E2BA6 /* Roboto-BlackItalic.ttf in Resources */,
 				ABA221501C79E58100AE6F87 /* Geofence.storyboard in Resources */,
 				A68C1B7E1C4D24DC000E2BA6 /* Roboto-Light.ttf in Resources */,
@@ -981,6 +991,7 @@
 				AB60B7391C7EBCDB003CF277 /* ASInAppPurchaseManager.m in Sources */,
 				AB8946841C4F31A6002E86C8 /* ASSignInViewController.m in Sources */,
 				A68C1B361C4CE460000E2BA6 /* AppDelegate.m in Sources */,
+				A6AB682A1D3776A500F470D2 /* ASNewTrackerViewController.m in Sources */,
 				A68C1BA41C4F6AEE000E2BA6 /* ASChooseTrackerViewController.m in Sources */,
 				A603CEEE1C5B761C001D56A4 /* ASDevicePointAnnotation.m in Sources */,
 				4042A7D11D2CEFBD009D2332 /* CompassController.m in Sources */,
@@ -1299,7 +1310,7 @@
 				INFOPLIST_FILE = GpsPing/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.gpsping.tracker;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gpsping1.tracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -1319,7 +1330,7 @@
 				INFOPLIST_FILE = GpsPing/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.gpsping.tracker;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gpsping1.tracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};

@@ -11,7 +11,6 @@
 
 @interface ASTrackerConfigurationViewController : UIViewController
 @property (nonatomic) ASTrackerModel *trackerObject;
-@property (nonatomic) BOOL shouldShowInEditMode;
 
 +(instancetype)initializeWithTrackerModel:(ASTrackerModel *)trackerModel;
 
