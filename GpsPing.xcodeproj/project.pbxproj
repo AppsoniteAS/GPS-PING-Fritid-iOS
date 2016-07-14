@@ -525,8 +525,6 @@
 				A603CEE71C5A4E45001D56A4 /* UIImage+ASAnnotations.m */,
 				A6F6A7521C524E680009579A /* AGApiController.h */,
 				A6F6A7531C524E680009579A /* AGApiController.m */,
-				A68C1B9C1C4E43AB000E2BA6 /* ASNavigationController.h */,
-				A68C1B9D1C4E43AB000E2BA6 /* ASNavigationController.m */,
 				AB5428101C5BA1F000F33E8B /* ASSearchBar.h */,
 				AB5428111C5BA1F000F33E8B /* ASSearchBar.m */,
 				A68C1B851C4D2549000E2BA6 /* ASButton.h */,
@@ -565,6 +563,8 @@
 			isa = PBXGroup;
 			children = (
 				A68C1B3A1C4CE460000E2BA6 /* Main.storyboard */,
+				A68C1B9C1C4E43AB000E2BA6 /* ASNavigationController.h */,
+				A68C1B9D1C4E43AB000E2BA6 /* ASNavigationController.m */,
 				A68C1B371C4CE460000E2BA6 /* MainMenuViewController.h */,
 				A68C1B381C4CE460000E2BA6 /* MainMenuViewController.m */,
 				AB8946AC1C54A4DD002E86C8 /* ASMainViewModel.h */,
@@ -695,6 +695,7 @@
 		AB89467F1C4F2F11002E86C8 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
+				ABA221361C79E50200AE6F87 /* Auth.storyboard */,
 				AB8946821C4F31A6002E86C8 /* ASSignInViewController.h */,
 				AB8946831C4F31A6002E86C8 /* ASSignInViewController.m */,
 				AB8946881C4F31F3002E86C8 /* ASSignInViewModel.h */,
@@ -703,7 +704,6 @@
 				AB8946861C4F31CF002E86C8 /* ASRegisterViewController.m */,
 				AB89468B1C4F3203002E86C8 /* ASRegisterViewModel.h */,
 				AB89468C1C4F3203002E86C8 /* ASRegisterViewModel.m */,
-				ABA221361C79E50200AE6F87 /* Auth.storyboard */,
 			);
 			name = Auth;
 			sourceTree = "<group>";

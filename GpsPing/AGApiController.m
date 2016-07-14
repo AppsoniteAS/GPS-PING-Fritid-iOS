@@ -37,6 +37,7 @@ NSString *kASUserDefaultsKeyUsername = @"";
 NSString *kASUserDefaultsKeyPassword = @"";
 
 NSString *kASDidLogoutNotification = @"kASDidLogoutNotification";
+NSString *kASDidRegisterNotification = @"kASDidRegisteredNotification";
 
 #define XML_URL  @"passport.xml"
 #define XML_URL2 @"driverlicense.xml"

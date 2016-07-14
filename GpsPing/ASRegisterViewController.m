@@ -111,7 +111,6 @@
 #pragma mark - IBActions
 
 -(IBAction)doSubmit:(id)sender {
-    [self dismissViewControllerAnimated:true completion:nil];
 }
 
 @end

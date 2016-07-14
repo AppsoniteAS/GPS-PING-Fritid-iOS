@@ -27,6 +27,7 @@ extern NSString *kASUserDefaultsKeyUsername;
 extern NSString *kASUserDefaultsKeyPassword;
 
 extern NSString *kASDidLogoutNotification;
+extern NSString *kASDidRegisterNotification;
 
 @protocol AGApplicationConfigurationDelegate
 

@@ -83,6 +83,7 @@ objection_requires(@keypath(ASRegisterViewModel.new, apiController))
                                     @strongify(self);
                                     return [[self.apiController authUser:self.username password:self.password] doNext:^(id x) {
                                         DDLogDebug(@"userProfile %@", self.apiController.userProfile);
+                                        [[NSNotificationCenter defaultCenter] postNotificationName:kASDidRegisterNotification object:nil];
                                     }];
                     }];
                 }];
