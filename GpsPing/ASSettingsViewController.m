@@ -11,8 +11,8 @@
 #import "ASTrackerModel.h"
 #import "ASInAppPurchaseManager.h"
 #import <CocoaLumberjack.h>
-#import "ASChooseTrackerViewController.h"
 #import "UIStoryboard+ASHelper.h"
+#import "ASNewTrackerViewController.h"
 
 static DDLogLevel ddLogLevel = DDLogLevelDebug;
 
@@ -33,7 +33,8 @@ static DDLogLevel ddLogLevel = DDLogLevelDebug;
 }
 
 -(void)checkingForTrackers {
-    if ([ASTrackerModel getTrackersFromUserDefaults].count == 0) {
+    NSArray *defaultTrackers = [ASTrackerModel getTrackersFromUserDefaults];
+    if (defaultTrackers.count == 0) {
         if(![self.inAppPurchaseManager areSubscribed]) {
             UIAlertController *alertController = [UIAlertController
                                                   alertControllerWithTitle:NSLocalizedString(@"You don't have any tracker", nil)
@@ -45,7 +46,7 @@ static DDLogLevel ddLogLevel = DDLogLevelDebug;
                                                style:UIAlertActionStyleDefault
                                                handler:^(UIAlertAction *action)
                                                {
-                                                   UIViewController* controller = [[UIStoryboard trackerStoryboard] instantiateViewControllerWithIdentifier:NSStringFromClass([ASChooseTrackerViewController  class])];
+                                                   UIViewController* controller = [[UIStoryboard trackerStoryboard] instantiateViewControllerWithIdentifier:NSStringFromClass([ASNewTrackerViewController  class])];
                                                    [self presentViewController:controller animated:YES completion:nil];
                                                }];
             UIAlertAction *restoreSubscribeAction = [UIAlertAction

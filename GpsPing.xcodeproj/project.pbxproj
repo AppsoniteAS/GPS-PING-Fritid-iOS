@@ -55,7 +55,6 @@
 		A68C1B981C4E3B0D000E2BA6 /* ASTrackerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A68C1B971C4E3B0D000E2BA6 /* ASTrackerModel.m */; };
 		A68C1B9B1C4E40D2000E2BA6 /* UIColor+ASColor.m in Sources */ = {isa = PBXBuildFile; fileRef = A68C1B9A1C4E40D2000E2BA6 /* UIColor+ASColor.m */; };
 		A68C1B9E1C4E43AB000E2BA6 /* ASNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = A68C1B9D1C4E43AB000E2BA6 /* ASNavigationController.m */; };
-		A68C1BA41C4F6AEE000E2BA6 /* ASChooseTrackerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A68C1BA31C4F6AEE000E2BA6 /* ASChooseTrackerViewController.m */; };
 		A68C1BA71C4F7006000E2BA6 /* UIStoryboard+ASHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = A68C1BA61C4F7006000E2BA6 /* UIStoryboard+ASHelper.m */; };
 		A68C1BAA1C4F71CB000E2BA6 /* ASTrackerConfigurationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A68C1BA91C4F71CB000E2BA6 /* ASTrackerConfigurationViewController.m */; };
 		A6AB682A1D3776A500F470D2 /* ASNewTrackerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6AB68291D3776A500F470D2 /* ASNewTrackerViewController.m */; };
@@ -208,8 +207,6 @@
 		A68C1B9A1C4E40D2000E2BA6 /* UIColor+ASColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+ASColor.m"; sourceTree = "<group>"; };
 		A68C1B9C1C4E43AB000E2BA6 /* ASNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASNavigationController.h; sourceTree = "<group>"; };
 		A68C1B9D1C4E43AB000E2BA6 /* ASNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASNavigationController.m; sourceTree = "<group>"; };
-		A68C1BA21C4F6AEE000E2BA6 /* ASChooseTrackerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASChooseTrackerViewController.h; sourceTree = "<group>"; };
-		A68C1BA31C4F6AEE000E2BA6 /* ASChooseTrackerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASChooseTrackerViewController.m; sourceTree = "<group>"; };
 		A68C1BA51C4F7006000E2BA6 /* UIStoryboard+ASHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIStoryboard+ASHelper.h"; sourceTree = "<group>"; };
 		A68C1BA61C4F7006000E2BA6 /* UIStoryboard+ASHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIStoryboard+ASHelper.m"; sourceTree = "<group>"; };
 		A68C1BA81C4F71CB000E2BA6 /* ASTrackerConfigurationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASTrackerConfigurationViewController.h; sourceTree = "<group>"; };
@@ -550,7 +547,7 @@
 			name = Tools;
 			sourceTree = "<group>";
 		};
-		A68C1B9F1C4E477B000E2BA6 /* Trackers */ = {
+		A68C1B9F1C4E477B000E2BA6 /* Trackers list */ = {
 			isa = PBXGroup;
 			children = (
 				ABA2212B1C79E4A400AE6F87 /* Trackers.storyboard */,
@@ -558,15 +555,10 @@
 				A68C1B8E1C4E3860000E2BA6 /* ASTrackersViewController.m */,
 				A68C1B901C4E38D6000E2BA6 /* ASTrackerCell.h */,
 				A68C1B911C4E38D6000E2BA6 /* ASTrackerCell.m */,
-				A68C1BA21C4F6AEE000E2BA6 /* ASChooseTrackerViewController.h */,
-				A68C1BA31C4F6AEE000E2BA6 /* ASChooseTrackerViewController.m */,
-				A68C1BA81C4F71CB000E2BA6 /* ASTrackerConfigurationViewController.h */,
-				A68C1BA91C4F71CB000E2BA6 /* ASTrackerConfigurationViewController.m */,
 				A6AB68281D3776A500F470D2 /* ASNewTrackerViewController.h */,
 				A6AB68291D3776A500F470D2 /* ASNewTrackerViewController.m */,
-				A6AB682B1D37A28F00F470D2 /* TrackerConfiguration.storyboard */,
 			);
-			name = Trackers;
+			name = "Trackers list";
 			sourceTree = "<group>";
 		};
 		A68C1BA01C4E4788000E2BA6 /* Main screen */ = {
@@ -603,6 +595,16 @@
 				A603CEDC1C5A250C001D56A4 /* ASModel.h */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		A6AB682D1D37A6EC00F470D2 /* Configure tracker */ = {
+			isa = PBXGroup;
+			children = (
+				A68C1BA81C4F71CB000E2BA6 /* ASTrackerConfigurationViewController.h */,
+				A68C1BA91C4F71CB000E2BA6 /* ASTrackerConfigurationViewController.m */,
+				A6AB682B1D37A28F00F470D2 /* TrackerConfiguration.storyboard */,
+			);
+			name = "Configure tracker";
 			sourceTree = "<group>";
 		};
 		AB5428131C5BA9EF00F33E8B /* Display options */ = {
@@ -679,7 +681,8 @@
 				A603CED01C58D4EF001D56A4 /* Map and Tracking */,
 				AB89467F1C4F2F11002E86C8 /* Auth */,
 				AB8946741C4E614B002E86C8 /* Settings */,
-				A68C1B9F1C4E477B000E2BA6 /* Trackers */,
+				A68C1B9F1C4E477B000E2BA6 /* Trackers list */,
+				A6AB682D1D37A6EC00F470D2 /* Configure tracker */,
 				AB5428131C5BA9EF00F33E8B /* Display options */,
 				A61D755A1C578FD200E75999 /* Connect */,
 				AB8946771C4E6789002E86C8 /* Geofence */,
@@ -992,7 +995,6 @@
 				AB8946841C4F31A6002E86C8 /* ASSignInViewController.m in Sources */,
 				A68C1B361C4CE460000E2BA6 /* AppDelegate.m in Sources */,
 				A6AB682A1D3776A500F470D2 /* ASNewTrackerViewController.m in Sources */,
-				A68C1BA41C4F6AEE000E2BA6 /* ASChooseTrackerViewController.m in Sources */,
 				A603CEEE1C5B761C001D56A4 /* ASDevicePointAnnotation.m in Sources */,
 				4042A7D11D2CEFBD009D2332 /* CompassController.m in Sources */,
 				A68C1B921C4E38D6000E2BA6 /* ASTrackerCell.m in Sources */,
