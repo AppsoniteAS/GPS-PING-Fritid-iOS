@@ -237,7 +237,7 @@
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VFn-qP-8HU" userLabel="Rate">
                                                                 <rect key="frame" x="18" y="76" width="160" height="57"/>
                                                                 <subviews>
-                                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="60 Seconds" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IzS-Ho-dxb">
+                                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="{60 Seconds}" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IzS-Ho-dxb">
                                                                         <rect key="frame" x="0.0" y="25" width="123" height="30"/>
                                                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="18"/>
                                                                         <textInputTraits key="textInputTraits"/>
@@ -674,8 +674,8 @@
                                                         </constraints>
                                                         <variation key="default">
                                                             <mask key="constraints">
-                                                                <exclude reference="cf3-9h-Oth"/>
                                                                 <exclude reference="JQV-kA-Wdy"/>
+                                                                <exclude reference="cf3-9h-Oth"/>
                                                                 <exclude reference="otn-fE-ohZ"/>
                                                                 <exclude reference="pdW-cs-BQ0"/>
                                                                 <exclude reference="HNq-nx-nx6"/>
@@ -693,7 +693,7 @@
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="51C-Zx-k8t" userLabel="Rate">
                                                                 <rect key="frame" x="18" y="76" width="160" height="57"/>
                                                                 <subviews>
-                                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="60 Seconds" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="U3W-BK-NAC">
+                                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="{60 Seconds}" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="U3W-BK-NAC">
                                                                         <rect key="frame" x="0.0" y="25" width="123" height="30"/>
                                                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="18"/>
                                                                         <textInputTraits key="textInputTraits"/>
@@ -753,8 +753,8 @@
                                                         </constraints>
                                                         <variation key="default">
                                                             <mask key="constraints">
-                                                                <exclude reference="nbc-b6-y4l"/>
                                                                 <exclude reference="hAf-m6-TVH"/>
+                                                                <exclude reference="nbc-b6-y4l"/>
                                                                 <exclude reference="hzf-UE-800"/>
                                                                 <exclude reference="haR-Ze-FTy"/>
                                                             </mask>
@@ -777,7 +777,7 @@
                                                                                     <constraint firstAttribute="height" constant="27" id="erw-ak-ZD9"/>
                                                                                 </constraints>
                                                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
-                                                                                <state key="normal" title="TURN ON">
+                                                                                <state key="normal" title="{TURN ON}">
                                                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                                     <color key="titleShadowColor" red="0.82352941180000006" green="0.82352941180000006" blue="0.82352941180000006" alpha="1" colorSpace="calibratedRGB"/>
                                                                                 </state>
@@ -820,7 +820,7 @@
                                                                                     <constraint firstAttribute="width" constant="70" id="Pp1-J5-IhA"/>
                                                                                 </constraints>
                                                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
-                                                                                <state key="normal" title="TURN ON">
+                                                                                <state key="normal" title="{TURN ON}">
                                                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                                     <color key="titleShadowColor" red="0.82352941180000006" green="0.82352941180000006" blue="0.82352941180000006" alpha="1" colorSpace="calibratedRGB"/>
                                                                                 </state>
@@ -863,7 +863,7 @@
                                                                                     <constraint firstAttribute="width" constant="70" id="Um6-iE-Jjz"/>
                                                                                 </constraints>
                                                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
-                                                                                <state key="normal" title="TURN ON">
+                                                                                <state key="normal" title="{TURN ON}">
                                                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                                     <color key="titleShadowColor" red="0.82352941180000006" green="0.82352941180000006" blue="0.82352941180000006" alpha="1" colorSpace="calibratedRGB"/>
                                                                                 </state>

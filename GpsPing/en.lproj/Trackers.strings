@@ -1,57 +1,33 @@
 
-/* Class = "UILabel"; text = "Check this for dog in stand"; ObjectID = "0Yv-uA-5f2"; */
-"0Yv-uA-5f2.text" = "Check this for dog in stand";
+/* Class = "UILabel"; text = "{Julie}"; ObjectID = "7Lp-uA-TJo"; */
+"7Lp-uA-TJo.text" = "{Julie}";
 
-/* Class = "UINavigationItem"; title = "Add Tracker"; ObjectID = "4bQ-sI-qb3"; */
-"4bQ-sI-qb3.title" = "Add Tracker";
-
-/* Class = "UILabel"; text = "Julie"; ObjectID = "7Lp-uA-TJo"; */
-"7Lp-uA-TJo.text" = "Julie";
+/* Class = "UIButton"; normalTitle = "Add Tracker"; ObjectID = "BZP-Pd-3a5"; */
+"BZP-Pd-3a5.normalTitle" = "Add Tracker";
 
 /* Class = "UILabel"; text = "580009914518"; ObjectID = "CZd-v3-kIQ"; */
 "CZd-v3-kIQ.text" = "580009914518";
 
-/* Class = "UILabel"; text = "Signal"; ObjectID = "ENE-ic-pPJ"; */
-"ENE-ic-pPJ.text" = "Signal";
+/* Class = "UILabel"; text = "Tracker Number last 4 digits"; ObjectID = "Di6-ls-fvH"; */
+"Di6-ls-fvH.text" = "Tracker Number last 4 digits";
+
+/* Class = "UILabel"; text = "Tracker"; ObjectID = "EyD-xO-8dj"; */
+"EyD-xO-8dj.text" = "Tracker";
 
 /* Class = "UILabel"; text = "580009914518"; ObjectID = "Iem-dQ-Ist"; */
 "Iem-dQ-Ist.text" = "580009914518";
 
-/* Class = "UINavigationItem"; title = "Add Tracker"; ObjectID = "JPy-tP-fdw"; */
-"JPy-tP-fdw.title" = "Add Tracker";
-
-/* Class = "UILabel"; text = "Name"; ObjectID = "MyG-bm-dAR"; */
-"MyG-bm-dAR.text" = "Name";
-
 /* Class = "UINavigationItem"; title = "Trackers"; ObjectID = "OdB-Mn-RO6"; */
 "OdB-Mn-RO6.title" = "Trackers";
 
-/* Class = "UIButton"; normalTitle = "Add Tracker"; ObjectID = "ggc-8a-Zg5"; */
-"ggc-8a-Zg5.normalTitle" = "Add Tracker";
+/* Class = "UINavigationItem"; title = "Add Tracker"; ObjectID = "VPe-bu-H3s"; */
+"VPe-bu-H3s.title" = "Add Tracker";
 
-/* Class = "UILabel"; text = "Receive signal every"; ObjectID = "hPa-Wg-VAs"; */
-"hPa-Wg-VAs.text" = "Receive signal every";
-
-/* Class = "UILabel"; text = "IMEI Number"; ObjectID = "iH4-Dh-4hp"; */
-"iH4-Dh-4hp.text" = "IMEI Number";
-
-/* Class = "UITextField"; text = "10"; ObjectID = "mpt-oe-aQ3"; */
-"mpt-oe-aQ3.text" = "10";
+/* Class = "UILabel"; text = "IMEI Number"; ObjectID = "i7P-U5-doB"; */
+"i7P-U5-doB.text" = "IMEI Number";
 
 /* Class = "UILabel"; text = "Tracker Number:"; ObjectID = "pu3-bz-ZPE"; */
 "pu3-bz-ZPE.text" = "Tracker Number:";
 
 /* Class = "UILabel"; text = "IMEI Number:"; ObjectID = "vX0-lZ-iHN"; */
 "vX0-lZ-iHN.text" = "IMEI Number:";
-
-/* Class = "UILabel"; text = "Choose Tracker"; ObjectID = "vbT-Tb-8zB"; */
-"vbT-Tb-8zB.text" = "Choose Tracker";
-
-/* Class = "UITextField"; text = "Seconds"; ObjectID = "vts-FO-xyh"; */
-"vts-FO-xyh.text" = "Seconds";
-
-/* Class = "UILabel"; text = "Tracker"; ObjectID = "whp-G2-2Il"; */
-"whp-G2-2Il.text" = "Tracker";
-
-/* Class = "UILabel"; text = "Tracker Number"; ObjectID = "yCS-85-M1M"; */
-"yCS-85-M1M.text" = "Tracker Number";
