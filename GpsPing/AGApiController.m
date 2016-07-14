@@ -1,6 +1,6 @@
 //
 //  AGApiController.m
-//  Taxi-Rhytm
+//  Gps Ping
 //
 //  Created by Pavel Ivanov on 02/07/15.
 //  Copyright (c) 2015 Appgranula. All rights reserved.
@@ -24,10 +24,7 @@ static const DDLogLevel ddLogLevel = DDLogLevelVerbose;
 //#define BASE_URL_LOCAL      @"http://192.168.139.201/api/"
 #define BASE_URL_LOCAL      @"https://industri.gpsping.no/api/"
 
-NSString* AGOpteumBackendError                     = @"AGOpteumBackendError";
-NSString* AGRhythmMobileError                      = @"AGRhythmMobileError";
-
-NSInteger AGRhythmMobileErrorOrderAlreadyExists    = 101;
+NSString* AGGpsPingBackendError                     = @"AGGpsPingBackendError";
 
 NSInteger AGOpteumBackendResponseCodeSuccess       = 1;
 NSInteger AGOpteumBackendResponseCodeNotAuthorized = -1;
@@ -38,14 +35,6 @@ NSString *kASUserDefaultsKeyPassword = @"";
 
 NSString *kASDidLogoutNotification = @"kASDidLogoutNotification";
 NSString *kASDidRegisterNotification = @"kASDidRegisteredNotification";
-
-#define XML_URL  @"passport.xml"
-#define XML_URL2 @"driverlicense.xml"
-#define XML_URL3 @"sts.xml"
-
-//#define XML_DROPBOX_1 @"https://dl.dropboxusercontent.com/u/36183426/CantharisTemplates/driverlicense.xml"
-//#define XML_DROPBOX_2 @"https://dl.dropboxusercontent.com/u/36183426/CantharisTemplates/passport.xml"
-//#define XML_DROPBOX_3 @"https://dl.dropboxusercontent.com/u/36183426/CantharisTemplates/sts.xml"
 
 @interface AGApiController()
 
@@ -541,7 +530,7 @@ objection_initializer(initWithConfiguration:);
     return [signal flattenMap:^RACStream *(id response) {
         if ([response[@"status"] isEqualToString:@"error"]) {
             NSError *error = [NSError buildError:^(MRErrorBuilder *builder) {
-                 builder.domain = AGOpteumBackendError;
+                 builder.domain = AGGpsPingBackendError;
                  builder.localizedDescription = response[@"error"];
              }];
             if (([response[@"code"] integerValue] == 5) || ([response[@"code"] integerValue] == 211)) {

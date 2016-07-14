@@ -100,10 +100,10 @@
 
 
 -(void)onError:(NSError*)error {
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"ERROR"
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Error", nil)
                                                     message:NSLocalizedStringFromTable(error.localizedDescription, @"Errors", nil)
                                                    delegate:self
-                                          cancelButtonTitle:@"OK"
+                                          cancelButtonTitle:NSLocalizedString(@"OK", nil)
                                           otherButtonTitles:nil];
     [alert show];
 }

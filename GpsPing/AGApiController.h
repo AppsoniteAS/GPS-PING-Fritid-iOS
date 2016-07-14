@@ -14,14 +14,7 @@
 #import <extobjc.h>
 #import "ASUserProfileModel.h"
 
-extern NSString* AGOpteumBackendError;
-extern NSString* AGRhythmMobileError;
-
-extern NSInteger AGRhythmMobileErrorOrderAlreadyExists;
-
-extern NSInteger AGOpteumBackendResponseCodeSuccess;
-extern NSInteger AGOpteumBackendResponseCodeNotAuthorized;
-extern NSInteger AGOpteumBackendResponseCodePhoneBlocked;
+extern NSString* AGGpsPingBackendError;
 
 extern NSString *kASUserDefaultsKeyUsername;
 extern NSString *kASUserDefaultsKeyPassword;
