@@ -30,6 +30,13 @@ objection_requires(@keypath(ASTrackersViewController.new, apiController))
     [[JSObjection defaultInjector] injectDependencies:self];
     [self registerCellClass:[ASTrackerCell class]
               forModelClass:[ASTrackerModel class]];
+    [[self.apiController getTrackers] subscribeNext:^(NSArray *trackers) {
+        for (ASTrackerModel *tracker in trackers) {
+            [tracker saveInUserDefaults];
+        }
+    } error:^(NSError *error) {
+        ;
+    }];
 }
 
 -(void)viewWillAppear:(BOOL)animated
