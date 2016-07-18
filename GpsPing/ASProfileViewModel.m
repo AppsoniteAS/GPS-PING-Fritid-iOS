@@ -38,13 +38,13 @@ objection_requires(@keypath(ASProfileViewModel.new, apiController))
         if (self.apiController.userProfile.firstname != nil && self.apiController.userProfile.lastname != nil) {
             self.fullName = [NSString stringWithFormat:@"%@ %@",self.apiController.userProfile.firstname, self.apiController.userProfile.lastname];
         }
-        self.email = self.apiController.userProfile.email;
-        self.phoneCode = self.apiController.userProfile.phoneCode;
+        self.email       = self.apiController.userProfile.email;
+        self.phoneCode   = self.apiController.userProfile.phoneCode;
         self.phoneNumber = self.apiController.userProfile.phoneNumber;
-        self.address = self.apiController.userProfile.address;
-        self.city = self.apiController.userProfile.city;
-        self.country = self.apiController.userProfile.country;
-        self.zipCode = self.apiController.userProfile.zipCode;
+        self.address     = self.apiController.userProfile.address;
+        self.city        = self.apiController.userProfile.city;
+        self.country     = self.apiController.userProfile.country;
+        self.zipCode     = self.apiController.userProfile.zipCode;
     }];
 }
 
