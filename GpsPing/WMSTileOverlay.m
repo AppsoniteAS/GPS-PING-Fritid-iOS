@@ -37,11 +37,9 @@
         bottom = MercatorYofLatitude(bottom); //minY
         top    = MercatorYofLatitude(top);      //maxY
     }
+    
     NSString * resolvedUrl = [NSString stringWithFormat:@"%@&BBOX=%f,%f,%f,%f",self.url,left,bottom,right,top];
-    
-    NSLog(@"Url tile overlay %@", resolvedUrl);
     return [NSURL URLWithString:resolvedUrl];
-    
 }
 
 //------------------------------------------------------------
