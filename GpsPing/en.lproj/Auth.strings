@@ -24,7 +24,7 @@
 "PHw-VA-hnR.text" = "Code";
 
 /* Class = "UIButton"; normalTitle = "Login"; ObjectID = "QJ3-OB-xJO"; */
-"QJ3-OB-xJO.normalTitle" = "Login";
+"QJ3-OB-xJO.normalTitle" = "Register";
 
 /* Class = "UILabel"; text = "Password"; ObjectID = "a0S-aa-Qj9"; */
 "a0S-aa-Qj9.text" = "Password";
