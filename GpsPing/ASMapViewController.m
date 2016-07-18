@@ -43,6 +43,7 @@ static NSString *const kASUserDefaultsKeyRemoveTrackersDate = @"kASUserDefaultsK
 @property (weak, nonatomic) IBOutlet UIImageView *compassImageView;
 
 @property (nonatomic        ) NSArray                    *originalPointsData;
+@property (nonatomic        ) NSArray                    *colorSetForUsers;
 @property (nonatomic        ) NSArray                    *arrayPOIs;
 @property (nonatomic        ) CLLocationManager          *locationManager;
 @property (nonatomic        ) NSTimer                    *timer;
@@ -78,24 +79,6 @@ objection_requires(@keypath(ASMapViewController.new, apiController))
 - (void)viewDidLoad {
     [super viewDidLoad];
     [[JSObjection defaultInjector] injectDependencies:self];
-    
-//    if (!self.apiController.isReachableViaWWAN) {
-//        UIAlertController *alertController = [UIAlertController
-//                                              alertControllerWithTitle:NSLocalizedString(@"Error", nil)
-//                                              message:NSLocalizedString(@"You do not have mobile network.", nil)
-//                                              preferredStyle:UIAlertControllerStyleAlert];
-//        UIAlertAction *cancelAction = [UIAlertAction
-//                                       actionWithTitle:NSLocalizedString(@"Cancel", @"Cancel action")
-//                                       style:UIAlertActionStyleCancel
-//                                       handler:^(UIAlertAction *action)
-//                                       {
-//                                           DDLogDebug(@"Cancel action");
-//                                           [self.navigationController popoverPresentationController];
-//                                       }];
-//        
-//        [alertController addAction:cancelAction];
-//        [self presentViewController:alertController animated:YES completion:nil];
-//    }
 
     UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc]      initWithTarget:self action:@selector(handleLongPress:)];
     longPress.minimumPressDuration = 0.5;
@@ -136,10 +119,6 @@ objection_requires(@keypath(ASMapViewController.new, apiController))
     
     self.filterTextField.enabled = NO;
     
-//    NSDate *from = [NSDate dateWithTimeIntervalSince1970:1410739200];
-//    NSDate *to = [NSDate dateWithTimeIntervalSince1970:1410868800];
-//    [self loadTrackingPointsFrom:from to:to];
-    
     self.timer = [NSTimer scheduledTimerWithTimeInterval:0.016
                                                   target:self
                                                 selector:@selector(timerTick:)
@@ -167,6 +146,16 @@ objection_requires(@keypath(ASMapViewController.new, apiController))
     [self refreshLine];
 }
 
+#pragma mark - Getters & setters
+
+-(NSArray *)colorSetForUsers {
+    return @[[UIColor redColor],
+             [UIColor blueColor],
+             [UIColor orangeColor],
+             [UIColor yellowColor],
+             [UIColor greenColor]];
+}
+
 #pragma mark - IBActions and Handlers
 - (IBAction)calendarTap:(id)sender {
     if(!self.datePicker)
@@ -188,7 +177,7 @@ objection_requires(@keypath(ASMapViewController.new, apiController))
             return YES;
         return NO;
     }];
-    //[self.datePicker slideUpInView:self.view withModalColor:[UIColor lightGrayColor]];
+
     if (self.selectedDate) self.datePicker.date = self.selectedDate;
     [self presentSemiViewController:self.datePicker withOptions:@{
                                                                   KNSemiModalOptionKeys.pushParentBack    : @(NO),
@@ -469,7 +458,8 @@ objection_requires(@keypath(ASMapViewController.new, apiController))
 -(void)fillColorsDictionaryWithUsers:(NSArray *)users {
     NSMutableDictionary *result = @{}.mutableCopy;
     for (ASFriendModel *user in users) {
-        result[user.userName] = [UIColor getRandomColor];
+        NSInteger indexOfColorInSet = [users indexOfObject:user] % self.colorSetForUsers.count;
+        result[user.userName] = self.colorSetForUsers[indexOfColorInSet];
     }
     
     self.colorsDictionary = result;
@@ -596,7 +586,6 @@ objection_requires(@keypath(ASMapViewController.new, apiController))
         MKCoordinateRegion mapRegion = MKCoordinateRegionMakeWithDistance(userLocation.coordinate, 800, 800);
         mapRegion.center = self.mapView.userLocation.coordinate;
         [self.mapView setRegion:[self.mapView regionThatFits:mapRegion] animated:YES];
-//        [self.locationManager stopUpdatingLocation];
     }
 }
 
@@ -604,19 +593,6 @@ objection_requires(@keypath(ASMapViewController.new, apiController))
 {
     if ([annotation isKindOfClass:[MKUserLocation class]]) {
         return nil;
-//        MKAnnotationView *userLocationAnnotationView = (id)[mapView dequeueReusableAnnotationViewWithIdentifier:@"ASFriendAnnotation"];
-//        
-//        if (!userLocationAnnotationView) {
-//            userLocationAnnotationView = [[MKAnnotationView alloc] initWithAnnotation:annotation
-//                                                                      reuseIdentifier:@"ASFriendAnnotation"];
-//            userLocationAnnotationView.canShowCallout = NO;
-//        } else {
-//            userLocationAnnotationView.annotation = annotation;
-//        }
-//        
-//        userLocationAnnotationView.image = [UIImage getUserAnnotationImageWithColor:[UIColor blackColor]];
-//        
-//        return userLocationAnnotationView;
     }
     
     if ([annotation isKindOfClass:[ASPointAnnotation class]]) {
