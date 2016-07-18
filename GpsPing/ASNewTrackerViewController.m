@@ -102,6 +102,7 @@ objection_requires(@keypath(ASNewTrackerViewController.new, apiController))
         for (ASTrackerModel *tracker in trackers) {
             if ([tracker.imeiNumber isEqualToString:self.trackerObject.imeiNumber]) {
                 [tracker saveInUserDefaults];
+                self.trackerObject = tracker;
                 DDLogVerbose(@"Done");
                 break;
             }
