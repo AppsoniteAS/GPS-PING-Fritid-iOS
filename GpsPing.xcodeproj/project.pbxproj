@@ -59,6 +59,8 @@
 		A68C1BA71C4F7006000E2BA6 /* UIStoryboard+ASHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = A68C1BA61C4F7006000E2BA6 /* UIStoryboard+ASHelper.m */; };
 		A68C1BAA1C4F71CB000E2BA6 /* ASTrackerConfigurationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A68C1BA91C4F71CB000E2BA6 /* ASTrackerConfigurationViewController.m */; };
 		A6AB682A1D3776A500F470D2 /* ASNewTrackerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6AB68291D3776A500F470D2 /* ASNewTrackerViewController.m */; };
+		A6D1E7751D3CFB0100D847EC /* ASNewUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A6D1E7741D3CFB0100D847EC /* ASNewUserModel.m */; };
+		A6D1E7781D3D01B300D847EC /* NSString+ASNameComponents.m in Sources */ = {isa = PBXBuildFile; fileRef = A6D1E7771D3D01B300D847EC /* NSString+ASNameComponents.m */; };
 		A6D8D0521C58B1EA00030E9F /* ASFriendModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A6D8D0511C58B1EA00030E9F /* ASFriendModel.m */; };
 		A6F6A74B1C5122210009579A /* ASSmsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A6F6A74A1C5122210009579A /* ASSmsManager.m */; };
 		A6F6A74E1C51742A0009579A /* ASSelectTrackerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6F6A74D1C51742A0009579A /* ASSelectTrackerViewController.m */; };
@@ -261,6 +263,10 @@
 		A6D1E7701D38BE1900D847EC /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = da; path = da.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
 		A6D1E7711D38BE1A00D847EC /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A6D1E7721D38BE1A00D847EC /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		A6D1E7731D3CFB0100D847EC /* ASNewUserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASNewUserModel.h; sourceTree = "<group>"; };
+		A6D1E7741D3CFB0100D847EC /* ASNewUserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASNewUserModel.m; sourceTree = "<group>"; };
+		A6D1E7761D3D01B300D847EC /* NSString+ASNameComponents.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+ASNameComponents.h"; sourceTree = "<group>"; };
+		A6D1E7771D3D01B300D847EC /* NSString+ASNameComponents.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+ASNameComponents.m"; sourceTree = "<group>"; };
 		A6D8D0501C58B1EA00030E9F /* ASFriendModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASFriendModel.h; sourceTree = "<group>"; };
 		A6D8D0511C58B1EA00030E9F /* ASFriendModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASFriendModel.m; sourceTree = "<group>"; };
 		A6F6A7491C5122210009579A /* ASSmsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASSmsManager.h; sourceTree = "<group>"; };
@@ -551,6 +557,8 @@
 		A68C1B881C4D2550000E2BA6 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				A6D1E7761D3D01B300D847EC /* NSString+ASNameComponents.h */,
+				A6D1E7771D3D01B300D847EC /* NSString+ASNameComponents.m */,
 				4042A7D51D2D0738009D2332 /* MapViewUtils.h */,
 				4042A7D21D2D0712009D2332 /* WMSTileOverlay.h */,
 				4042A7D31D2D0712009D2332 /* WMSTileOverlay.m */,
@@ -619,6 +627,8 @@
 			children = (
 				A68C1B961C4E3B0D000E2BA6 /* ASTrackerModel.h */,
 				A68C1B971C4E3B0D000E2BA6 /* ASTrackerModel.m */,
+				A6D1E7731D3CFB0100D847EC /* ASNewUserModel.h */,
+				A6D1E7741D3CFB0100D847EC /* ASNewUserModel.m */,
 				AB8946A61C549516002E86C8 /* ASUserProfileModel.h */,
 				AB8946A71C549516002E86C8 /* ASUserProfileModel.m */,
 				A6D8D0501C58B1EA00030E9F /* ASFriendModel.h */,
@@ -1037,6 +1047,7 @@
 				A68C1B361C4CE460000E2BA6 /* AppDelegate.m in Sources */,
 				A6AB682A1D3776A500F470D2 /* ASNewTrackerViewController.m in Sources */,
 				A603CEEE1C5B761C001D56A4 /* ASDevicePointAnnotation.m in Sources */,
+				A6D1E7781D3D01B300D847EC /* NSString+ASNameComponents.m in Sources */,
 				4042A7D11D2CEFBD009D2332 /* CompassController.m in Sources */,
 				A68C1B921C4E38D6000E2BA6 /* ASTrackerCell.m in Sources */,
 				AB8946AB1C549E9F002E86C8 /* RACSignal+BackendHelpers.m in Sources */,
@@ -1053,6 +1064,7 @@
 				A68C1BAA1C4F71CB000E2BA6 /* ASTrackerConfigurationViewController.m in Sources */,
 				ABE7C7281C78CB76008A6390 /* ASPointOfInterestAnnotation.m in Sources */,
 				A68C1B9B1C4E40D2000E2BA6 /* UIColor+ASColor.m in Sources */,
+				A6D1E7751D3CFB0100D847EC /* ASNewUserModel.m in Sources */,
 				AB89468D1C4F3203002E86C8 /* ASRegisterViewModel.m in Sources */,
 				AB8946AE1C54A4DD002E86C8 /* ASMainViewModel.m in Sources */,
 			);

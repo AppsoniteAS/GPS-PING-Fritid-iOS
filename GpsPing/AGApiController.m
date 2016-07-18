@@ -96,37 +96,16 @@ objection_initializer(initWithConfiguration:);
     return [self performHttpRequestWithAttempts:@"POST" resource:@"get_nonce" parameters:@{@"controller":@"user", @"method":@"register"}];
 }
 
--(RACSignal *)registerUser:(NSString*)userName
-                     email:(NSString*)email
-                 phoneCode:(NSString*)phoneCode
-               phoneNumber:(NSString*)phoneNumber
-                   address:(NSString*)address
-                      city:(NSString*)city
-                   country:(NSString*)country
-                   zipCode:(NSString*)zipCode
-                  password:(NSString*)password
-                     nonce:(NSString*)nonce
+-(RACSignal *)registerUser:(ASNewUserModel*)newUser
 {
     DDLogDebug(@"%s", __PRETTY_FUNCTION__);
+    NSDictionary *newUserDictionary = [MTLJSONAdapter JSONDictionaryFromModel:newUser error:nil];
     return [[self performHttpRequestWithAttempts:@"POST"
                                        resource:@"user/register/"
-                                     parameters:@{@"username":userName,
-                                                  @"user_pass":password,
-                                                  @"email":email,
-                                                  @"Phone_pref":phoneCode,
-                                                  @"Phone_num":phoneNumber,
-                                                  @"display_name":userName,
-                                                  @"nonce":nonce,
-                                                  @"first_name":@"",
-                                                  @"last_name":@"",
-                                                  @"m_address":address,
-                                                  @"m_city":city,
-                                                  @"m_country":country,
-                                                  @"m_zipcode":zipCode
-                                                  }] doNext:^(id x) {
-        [[NSUserDefaults standardUserDefaults] setObject:userName
+                                     parameters:newUserDictionary] doNext:^(id x) {
+        [[NSUserDefaults standardUserDefaults] setObject:newUser.username
                                                   forKey:kASUserDefaultsKeyUsername];
-        [[NSUserDefaults standardUserDefaults] setObject:password
+        [[NSUserDefaults standardUserDefaults] setObject:newUser.password
                                                   forKey:kASUserDefaultsKeyPassword];
         [[NSUserDefaults standardUserDefaults] synchronize];
     }];

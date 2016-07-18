@@ -8,6 +8,7 @@
 
 #import "ASProfileViewModel.h"
 #import "AGApiController.h"
+#import "NSString+ASNameComponents.h"
 
 #import <CocoaLumberjack.h>
 static DDLogLevel ddLogLevel = DDLogLevelDebug;
@@ -69,10 +70,10 @@ objection_requires(@keypath(ASProfileViewModel.new, apiController))
                                                         NSString* zipCode,
                                                         NSString* email)
                             {
-                                NSArray *fullNameComponents = [self getFullNameComponents];
                                 return @(
                                 (username.length > 0) &&
-                                (fullNameComponents.count >= 2) &&
+                                [fullName extractFirstName] &&
+                                [fullName extractLastName] &&
                                 (phoneCode.length > 0) &&
                                 (phoneNumber.length > 0) &&
                                 (address.length > 0) &&
@@ -86,10 +87,8 @@ objection_requires(@keypath(ASProfileViewModel.new, apiController))
                                    signalBlock:^RACSignal *(id input)
             {
                 ASUserProfileModel* profile = self.apiController.userProfile.copy ?: [ASUserProfileModel new];
-                NSArray *fullNameComponents = [self getFullNameComponents];
-                NSLog(@"%@ %@", fullNameComponents[0], fullNameComponents[1]);
-                profile.firstname    = fullNameComponents[0];
-                profile.lastname   = fullNameComponents[1];
+                profile.firstname    = [self.fullName extractFirstName];
+                profile.lastname   = [self.fullName extractLastName];
                 profile.address = self.address;
                 profile.phoneCode = self.phoneCode;
                 profile.phoneNumber = self.phoneNumber;
@@ -101,13 +100,6 @@ objection_requires(@keypath(ASProfileViewModel.new, apiController))
                 self.apiController.userProfile = profile;
                 return [self.apiController submitUserMetaData:profile];
             }];
-    
-}
-
--(NSArray *)getFullNameComponents {
-    NSString *trimmedFullName = [self.fullName stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-    NSArray *subStrings = [trimmedFullName componentsSeparatedByString:@" "];
-    return subStrings;
 }
 
 - (void)logOut {

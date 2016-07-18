@@ -13,6 +13,7 @@
 #import <Objection/Objection.h>
 #import <extobjc.h>
 #import "ASUserProfileModel.h"
+#import "ASNewUserModel.h"
 
 extern NSString* AGGpsPingBackendError;
 
@@ -37,16 +38,7 @@ extern NSString *kASDidRegisterNotification;
 
 -(RACSignal *)getNonce;
 
--(RACSignal *)registerUser:(NSString*)userName
-                     email:(NSString*)email
-                 phoneCode:(NSString*)phoneCode
-               phoneNumber:(NSString*)phoneNumber
-                   address:(NSString*)address
-                      city:(NSString*)city
-                   country:(NSString*)country
-                   zipCode:(NSString*)zipCode
-                  password:(NSString*)password
-                     nonce:(NSString*)nonce;
+-(RACSignal *)registerUser:(ASNewUserModel*)newUser;
 
 -(RACSignal *)authUser:(NSString*)userName password:(NSString*)password;
 -(RACSignal *)logout;

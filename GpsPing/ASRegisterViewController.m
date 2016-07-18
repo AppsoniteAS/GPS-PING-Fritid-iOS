@@ -34,6 +34,8 @@
 @property (weak, nonatomic) IBOutlet UIButton    *buttonSubmit;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
+@property (weak, nonatomic) IBOutlet UITextField *textFieldFullname;
+
 @end
 
 @implementation ASRegisterViewController
@@ -55,6 +57,9 @@
     
     self.textFieldPhoneNumber.text = self.viewModel.phoneNumber;
     RAC(self.viewModel, phoneNumber) = self.textFieldPhoneNumber.rac_textSignal;
+    
+    self.textFieldFullname.text = self.viewModel.fullName;
+    RAC(self.viewModel, fullName) = self.textFieldFullname.rac_textSignal;
     
     self.textFieldAddress.text   = self.viewModel.address;
     RAC(self.viewModel, address) = self.textFieldAddress.rac_textSignal;
