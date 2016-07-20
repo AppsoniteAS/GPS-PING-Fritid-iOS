@@ -165,6 +165,24 @@
 		A64326841C5F6F54000B63C1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A646053A1C68C2F90012467E /* AGGeoValueTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGGeoValueTransformer.h; sourceTree = "<group>"; };
 		A646053B1C68C2F90012467E /* AGGeoValueTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGGeoValueTransformer.m; sourceTree = "<group>"; };
+		A65EAB571D3F5D3D00BCE303 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/Main.strings; sourceTree = "<group>"; };
+		A65EAB581D3F5D3D00BCE303 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/Map.strings; sourceTree = "<group>"; };
+		A65EAB591D3F5D3D00BCE303 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/Auth.strings; sourceTree = "<group>"; };
+		A65EAB5A1D3F5D3D00BCE303 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/Settings.strings; sourceTree = "<group>"; };
+		A65EAB5B1D3F5D3D00BCE303 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/Trackers.strings; sourceTree = "<group>"; };
+		A65EAB5C1D3F5D3D00BCE303 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/TrackerConfiguration.strings; sourceTree = "<group>"; };
+		A65EAB5D1D3F5D3D00BCE303 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/DisplayOptions.strings; sourceTree = "<group>"; };
+		A65EAB5E1D3F5D3E00BCE303 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/Connect.strings; sourceTree = "<group>"; };
+		A65EAB5F1D3F5D3E00BCE303 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/Geofence.strings; sourceTree = "<group>"; };
+		A65EAB601D3F5D3E00BCE303 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/Profile.strings; sourceTree = "<group>"; };
+		A65EAB611D3F5D3E00BCE303 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/About.strings; sourceTree = "<group>"; };
+		A65EAB621D3F5D3E00BCE303 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		A65EAB631D3F5D3E00BCE303 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		A65EAB641D3F5D3E00BCE303 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/Errors.strings; sourceTree = "<group>"; };
+		A65EAB651D3F5D3E00BCE303 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/Localizable.strings; sourceTree = "<group>"; };
+		A65EAB661D3F5D3E00BCE303 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = sv; path = sv.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
+		A65EAB671D3F5D3E00BCE303 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		A65EAB681D3F5D3E00BCE303 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A6624DEE1D37D87200CDA336 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Auth.strings; sourceTree = "<group>"; };
 		A6624DF01D37D88D00CDA336 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Map.strings; sourceTree = "<group>"; };
 		A6624DF41D37D8E400CDA336 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Settings.strings; sourceTree = "<group>"; };
@@ -868,6 +886,7 @@
 				nb,
 				fi,
 				da,
+				sv,
 			);
 			mainGroup = A68C1B251C4CE460000E2BA6;
 			productRefGroup = A68C1B2F1C4CE460000E2BA6 /* Products */;
@@ -1112,6 +1131,7 @@
 				A6624E011D37D97C00CDA336 /* nb */,
 				A6D1E7541D38BE0C00D847EC /* fi */,
 				A6D1E7661D38BE1900D847EC /* da */,
+				A65EAB5C1D3F5D3D00BCE303 /* sv */,
 			);
 			name = TrackerConfiguration.storyboard;
 			sourceTree = "<group>";
@@ -1124,6 +1144,7 @@
 				A6624E051D37D9EE00CDA336 /* en */,
 				A6D1E74F1D38BE0C00D847EC /* fi */,
 				A6D1E7611D38BE1800D847EC /* da */,
+				A65EAB571D3F5D3D00BCE303 /* sv */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -1136,6 +1157,7 @@
 				A6624E0D1D37DC2900CDA336 /* en */,
 				A6D1E75A1D38BE0D00D847EC /* fi */,
 				A6D1E76C1D38BE1900D847EC /* da */,
+				A65EAB621D3F5D3E00BCE303 /* sv */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -1147,6 +1169,7 @@
 				A6FCAD381C89B8E800CA1745 /* nb */,
 				A6D1E75E1D38BE0D00D847EC /* fi */,
 				A6D1E7701D38BE1900D847EC /* da */,
+				A65EAB661D3F5D3E00BCE303 /* sv */,
 			);
 			name = Localizable.stringsdict;
 			sourceTree = "<group>";
@@ -1159,6 +1182,7 @@
 				AB63168E1C901B0500109B95 /* Base */,
 				A6D1E75B1D38BE0D00D847EC /* fi */,
 				A6D1E76D1D38BE1900D847EC /* da */,
+				A65EAB631D3F5D3E00BCE303 /* sv */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -1169,6 +1193,7 @@
 				AB60B7461C7F2EE4003CF277 /* nb */,
 				A6D1E7601D38BE0D00D847EC /* fi */,
 				A6D1E7721D38BE1A00D847EC /* da */,
+				A65EAB681D3F5D3E00BCE303 /* sv */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -1179,6 +1204,7 @@
 				AB60B74B1C7F2EE9003CF277 /* nb */,
 				A6D1E75F1D38BE0D00D847EC /* fi */,
 				A6D1E7711D38BE1A00D847EC /* da */,
+				A65EAB671D3F5D3E00BCE303 /* sv */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -1191,6 +1217,7 @@
 				ABA221211C79DF8200AE6F87 /* en */,
 				A6D1E75D1D38BE0D00D847EC /* fi */,
 				A6D1E76F1D38BE1900D847EC /* da */,
+				A65EAB651D3F5D3E00BCE303 /* sv */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -1203,6 +1230,7 @@
 				A6624DF41D37D8E400CDA336 /* en */,
 				A6D1E7521D38BE0C00D847EC /* fi */,
 				A6D1E7641D38BE1800D847EC /* da */,
+				A65EAB5A1D3F5D3D00BCE303 /* sv */,
 			);
 			name = Settings.storyboard;
 			sourceTree = "<group>";
@@ -1215,6 +1243,7 @@
 				A6624E031D37D9AC00CDA336 /* en */,
 				A6D1E7531D38BE0C00D847EC /* fi */,
 				A6D1E7651D38BE1900D847EC /* da */,
+				A65EAB5B1D3F5D3D00BCE303 /* sv */,
 			);
 			name = Trackers.storyboard;
 			sourceTree = "<group>";
@@ -1227,6 +1256,7 @@
 				A6624DEE1D37D87200CDA336 /* en */,
 				A6D1E7511D38BE0C00D847EC /* fi */,
 				A6D1E7631D38BE1800D847EC /* da */,
+				A65EAB591D3F5D3D00BCE303 /* sv */,
 			);
 			name = Auth.storyboard;
 			sourceTree = "<group>";
@@ -1239,6 +1269,7 @@
 				A6624DF01D37D88D00CDA336 /* en */,
 				A6D1E7501D38BE0C00D847EC /* fi */,
 				A6D1E7621D38BE1800D847EC /* da */,
+				A65EAB581D3F5D3D00BCE303 /* sv */,
 			);
 			name = Map.storyboard;
 			sourceTree = "<group>";
@@ -1251,6 +1282,7 @@
 				ABA221481C79E55500AE6F87 /* nb */,
 				A6D1E7551D38BE0C00D847EC /* fi */,
 				A6D1E7671D38BE1900D847EC /* da */,
+				A65EAB5D1D3F5D3D00BCE303 /* sv */,
 			);
 			name = DisplayOptions.storyboard;
 			sourceTree = "<group>";
@@ -1263,6 +1295,7 @@
 				A6624E071D37DA3D00CDA336 /* en */,
 				A6D1E7561D38BE0D00D847EC /* fi */,
 				A6D1E7681D38BE1900D847EC /* da */,
+				A65EAB5E1D3F5D3E00BCE303 /* sv */,
 			);
 			name = Connect.storyboard;
 			sourceTree = "<group>";
@@ -1275,6 +1308,7 @@
 				A6624E091D37DB0B00CDA336 /* en */,
 				A6D1E7571D38BE0D00D847EC /* fi */,
 				A6D1E7691D38BE1900D847EC /* da */,
+				A65EAB5F1D3F5D3E00BCE303 /* sv */,
 			);
 			name = Geofence.storyboard;
 			sourceTree = "<group>";
@@ -1287,6 +1321,7 @@
 				A6624E0B1D37DB1F00CDA336 /* en */,
 				A6D1E7581D38BE0D00D847EC /* fi */,
 				A6D1E76A1D38BE1900D847EC /* da */,
+				A65EAB601D3F5D3E00BCE303 /* sv */,
 			);
 			name = Profile.storyboard;
 			sourceTree = "<group>";
@@ -1299,6 +1334,7 @@
 				ABD8BB071C8580930075670C /* nb */,
 				A6D1E7591D38BE0D00D847EC /* fi */,
 				A6D1E76B1D38BE1900D847EC /* da */,
+				A65EAB611D3F5D3E00BCE303 /* sv */,
 			);
 			name = About.storyboard;
 			sourceTree = "<group>";
@@ -1311,6 +1347,7 @@
 				ABD8BAE41C7F5B930075670C /* en */,
 				A6D1E75C1D38BE0D00D847EC /* fi */,
 				A6D1E76E1D38BE1900D847EC /* da */,
+				A65EAB641D3F5D3E00BCE303 /* sv */,
 			);
 			name = Errors.strings;
 			sourceTree = "<group>";

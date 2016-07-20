@@ -1,0 +1,15 @@
+
+/* Class = "UILabel"; text = "Show on map tracking position during:"; ObjectID = "5Cn-xZ-eV0"; */
+"5Cn-xZ-eV0.text" = "Show on map tracking position during:";
+
+/* Class = "UILabel"; text = "Tracking History"; ObjectID = "PQQ-4g-moW"; */
+"PQQ-4g-moW.text" = "Tracking History";
+
+/* Class = "UIButton"; normalTitle = "Save"; ObjectID = "Pma-Ln-c1N"; */
+"Pma-Ln-c1N.normalTitle" = "Save";
+
+/* Class = "UINavigationItem"; title = "Display Options"; ObjectID = "dKs-pk-Psb"; */
+"dKs-pk-Psb.title" = "Display Options";
+
+/* Class = "UITextField"; text = "{15 minutes}"; ObjectID = "nJZ-ao-037"; */
+"nJZ-ao-037.text" = "{15 minutes}";
