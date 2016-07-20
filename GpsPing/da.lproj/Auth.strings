@@ -1,54 +1,54 @@
 
-/* Class = "UILabel"; text = "Email"; ObjectID = "2CF-wy-zJa"; */
-"2CF-wy-zJa.text" = "Email";
+/* Class = "UILabel"; text = "E-mail"; ObjectID = "2CF-wy-zJa"; */
+"2CF-wy-zJa.text" = "E-mail";
 
 /* Class = "UILabel"; text = "Login"; ObjectID = "4Lf-GL-fbP"; */
-"4Lf-GL-fbP.text" = "Login";
+"4Lf-GL-fbP.text" = "Log ind";
 
 /* Class = "UIButton"; normalTitle = "Login"; ObjectID = "7a1-CO-ILS"; */
-"7a1-CO-ILS.normalTitle" = "Login";
+"7a1-CO-ILS.normalTitle" = "Log ind";
 
-/* Class = "UILabel"; text = "ZIP Code"; ObjectID = "ALH-Is-KNg"; */
-"ALH-Is-KNg.text" = "ZIP Code";
+/* Class = "UILabel"; text = "Postnummer"; ObjectID = "ALH-Is-KNg"; */
+"ALH-Is-KNg.text" = "Postnummer";
 
-/* Class = "UILabel"; text = "Confirm Password"; ObjectID = "DqP-GK-hYC"; */
-"DqP-GK-hYC.text" = "Confirm Password";
+/* Class = "UILabel"; text = "Bekræft Password"; ObjectID = "DqP-GK-hYC"; */
+"DqP-GK-hYC.text" = "Bekræft Password";
 
-/* Class = "UILabel"; text = "Phone number"; ObjectID = "F3n-wT-Ysf"; */
-"F3n-wT-Ysf.text" = "Phone number";
+/* Class = "UILabel"; text = "Telefonummer"; ObjectID = "F3n-wT-Ysf"; */
+"F3n-wT-Ysf.text" = "Telefonumme";
 
-/* Class = "UINavigationItem"; title = "Register"; ObjectID = "MdX-Bd-4uL"; */
-"MdX-Bd-4uL.title" = "Register";
+/* Class = "UINavigationItem"; title = "Tilmeld"; ObjectID = "MdX-Bd-4uL"; */
+"MdX-Bd-4uL.title" = "Tilmeld";
 
-/* Class = "UILabel"; text = "Code"; ObjectID = "PHw-VA-hnR"; */
-"PHw-VA-hnR.text" = "Code";
+/* Class = "UILabel"; text = "Kode"; ObjectID = "PHw-VA-hnR"; */
+"PHw-VA-hnR.text" = "Kode";
 
-/* Class = "UIButton"; normalTitle = "Login"; ObjectID = "QJ3-OB-xJO"; */
-"QJ3-OB-xJO.normalTitle" = "Login";
+/* Class = "UIButton"; normalTitle = "Log ind"; ObjectID = "QJ3-OB-xJO"; */
+"QJ3-OB-xJO.normalTitle" = "Log ind";
 
 /* Class = "UILabel"; text = "Password"; ObjectID = "a0S-aa-Qj9"; */
 "a0S-aa-Qj9.text" = "Password";
 
-/* Class = "UILabel"; text = "Country"; ObjectID = "dQq-zX-mai"; */
-"dQq-zX-mai.text" = "Country";
+/* Class = "UILabel"; text = "Land"; ObjectID = "dQq-zX-mai"; */
+"dQq-zX-mai.text" = "Land";
 
-/* Class = "UIButton"; normalTitle = "Register"; ObjectID = "gPk-dc-z6Q"; */
-"gPk-dc-z6Q.normalTitle" = "Register";
+/* Class = "UIButton"; normalTitle = "Tilmeld"; ObjectID = "gPk-dc-z6Q"; */
+"gPk-dc-z6Q.normalTitle" = "Tilmeld";
 
-/* Class = "UILabel"; text = "Username"; ObjectID = "hg8-M5-MiD"; */
-"hg8-M5-MiD.text" = "Username";
+/* Class = "UILabel"; text = "Brugernavn"; ObjectID = "hg8-M5-MiD"; */
+"hg8-M5-MiD.text" = "Brugernavn";
 
-/* Class = "UILabel"; text = "Address"; ObjectID = "lJ9-iS-2GP"; */
-"lJ9-iS-2GP.text" = "Address";
+/* Class = "UILabel"; text = "Adresse"; ObjectID = "lJ9-iS-2GP"; */
+"lJ9-iS-2GP.text" = "Adresse";
 
 /* Class = "UILabel"; text = "Password"; ObjectID = "mfx-1X-Sln"; */
 "mfx-1X-Sln.text" = "Password";
 
-/* Class = "UILabel"; text = "Username"; ObjectID = "sUN-pf-joA"; */
-"sUN-pf-joA.text" = "Username";
+/* Class = "UILabel"; text = "Brugernavn"; ObjectID = "sUN-pf-joA"; */
+"sUN-pf-joA.text" = "Brugernavn";
 
-/* Class = "UILabel"; text = "City"; ObjectID = "yO4-pg-o4w"; */
-"yO4-pg-o4w.text" = "City";
+/* Class = "UILabel"; text = "By"; ObjectID = "yO4-pg-o4w"; */
+"yO4-pg-o4w.text" = "By";
 
 /* Class = "UILabel"; text = "+"; ObjectID = "yaN-tg-F24"; */
 "yaN-tg-F24.text" = "+";

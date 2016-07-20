@@ -13,9 +13,9 @@
                 <key>NSStringFormatValueTypeKey</key>
                 <string>d</string>
                 <key>one</key>
-                <string>%d minute</string>
+                <string>%d minuutti</string>
                 <key>other</key>
-                <string>%d minutes</string>
+                <string>%d minuuttia</string>
             </dict>
         </dict>
         <key>%d seconds</key>
@@ -29,9 +29,9 @@
                 <key>NSStringFormatValueTypeKey</key>
                 <string>d</string>
                 <key>one</key>
-                <string>%d second</string>
+                <string>%d sekunti</string>
                 <key>other</key>
-                <string>%d seconds</string>
+                <string>%d sekuntia</string>
             </dict>
         </dict>
     </dict>

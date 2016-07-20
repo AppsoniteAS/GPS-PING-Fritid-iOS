@@ -1,18 +1,19 @@
 
 /* Class = "UIButton"; normalTitle = "Connect"; ObjectID = "2Pk-J7-6Zh"; */
-"2Pk-J7-6Zh.normalTitle" = "Connect";
+"2Pk-J7-6Zh.normalTitle" = "Anslut";
 
 /* Class = "UINavigationItem"; title = "Settings"; ObjectID = "PiA-BG-Mjc"; */
-"PiA-BG-Mjc.title" = "Settings";
+"PiA-BG-Mjc.title" = "Inställningar";
 
 /* Class = "UIButton"; normalTitle = "Geofence"; ObjectID = "Xdm-N5-bVT"; */
-"Xdm-N5-bVT.normalTitle" = "Geofence";
+"Xdm-N5-bVT.normalTitle" = "Geostaket";
 
 /* Class = "UIButton"; normalTitle = "Display options"; ObjectID = "cTF-za-rkp"; */
-"cTF-za-rkp.normalTitle" = "Display options";
+"cTF-za-rkp.normalTitle" = "Visa alternativ";
 
 /* Class = "UIButton"; normalTitle = "Profile"; ObjectID = "tUt-jc-XWF"; */
-"tUt-jc-XWF.normalTitle" = "Profile";
+"tUt-jc-XWF.normalTitle" = "Profil";
 
 /* Class = "UIButton"; normalTitle = "About"; ObjectID = "zhj-4V-9NB"; */
-"zhj-4V-9NB.normalTitle" = "About";
+"zhj-4V-9NB.normalTitle" = "Om";
+

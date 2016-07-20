@@ -7,64 +7,64 @@
 */
 
 /* No comment provided by engineer. */
-"Friend already added" = "Friend already added";
+"Friend already added" = "Vännen är redan tillagd";
 
 /* No comment provided by engineer. */
-"Error insert to gpsping_friends table" = "Can\'t add new friend";
+"Error insert to gpsping_friends table" = "Kan inte läggas till som ny vän";
 
 /* No comment provided by engineer. */
-"Friendship request not found" = "Friendship request not found";
+"Friendship request not found" = "Vänförfrågan kan inte hittas";
 
 /* No comment provided by engineer. */
-"Error insert to gpsping_push_id table" = "Can\'t register user for notifications";
+"Error insert to gpsping_push_id table" = "Kan inte registrera användaren för aviseringar";
 
 /* No comment provided by engineer. */
-"Invalid authentication cookie. Use the `generate_auth_cookie` method." = "Invalid authentication cookie. Try to login again.";
+"Invalid authentication cookie. Use the `generate_auth_cookie` method." = "Ogiltig verifiering av cookie. Försök att logga in igen.";
 
 /* No comment provided by engineer. */
-"Error insert POI" = "Can\'t add new Point of Interest";
+"Error insert POI" = "Kan inte lägga till ny intressepunkt";
 
 /* No comment provided by engineer. */
-"Tracker already added." = "Tracker already added.";
+"Tracker already added." = "GPS-spåraren är redan tillagd.";
 
 /* No comment provided by engineer. */
-"Error insert to gps_device table" = "Can\'t add new device";
+"Error insert to gps_device table" = "Kan inte lägga till ny enhet";
 
 /* No comment provided by engineer. */
-"Error insert to gpsping_user_devices table" = "Can\'t add new device";
+"Error insert to gpsping_user_devices table" = "Kan inte lägga till ny enhet";
 
 /* No comment provided by engineer. */
-"Don't find tracker" = "Can\'t find tracker";
+"Don't find tracker" = "Kan inte hitta GPS-spåraren";
 
 /* No comment provided by engineer. */
-"Error insert to gps_eventdata_user table" = "Can\'t create point";
+"Error insert to gps_eventdata_user table" = "Kan inte skapa intressepunkt";
 
 /* No comment provided by engineer. */
-"Invalid access, unverifiable 'nonce' value. Use the 'get_nonce' Core API method. " = "Registration error, please try again";
+"Invalid access, unverifiable 'nonce' value. Use the 'get_nonce' Core API method. " = "Fel vid registrering, försök igen";
 
 /* No comment provided by engineer. */
-"Username is invalid." = "Username is invalid.";
+"Username is invalid." = "Ogiltigt användarnamn.";
 
 /* No comment provided by engineer. */
-"Username already exists." = "Username already exists.";
+"Username already exists." = "Användarnamnet finns redan.";
 
 /* No comment provided by engineer. */
-"E-mail address is invalid." = "E-mail address is invalid.";
+"E-mail address is invalid." = "Ogiltig e-postadress.";
 
 /* No comment provided by engineer. */
-"E-mail address is already in use." = "E-mail address is already in use.";
+"E-mail address is already in use." = "E-postadressen används redan.";
 
 /* No comment provided by engineer. */
-"Your email address not found!" = "Your email address not found!";
+"Your email address not found!" = "Din e-postadress kunde inte hittas.";
 
 /* No comment provided by engineer. */
-"password reset not allowed!" = "Password reset not allowed!";
+"password reset not allowed!" = "Inte tillåtet att återställa lösenord!";
 
 /* No comment provided by engineer. */
-"An error occured!" = "An error occured!";
+"An error occured!" = "Ett fel inträffade!";
 
 /* No comment provided by engineer. */
-"The e-mail could not be sent. Possible reason: your host may have disabled the mail() function..." = "The e-mail could not be sent.";
+"The e-mail could not be sent. Possible reason: your host may have disabled the mail() function..." = "E-postmeddelandet kunde inte skickas.";
 
 /* No comment provided by engineer. */
-"Invalid username and\/or password." = "Invalid username and\/or password.";
+"Invalid username and\/or password." = "Ogiltigt användarnamn och/eller lösenord.";

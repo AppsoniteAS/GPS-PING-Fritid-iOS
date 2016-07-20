@@ -1,15 +1,15 @@
 
-/* Class = "UILabel"; text = "Show on map tracking position during:"; ObjectID = "5Cn-xZ-eV0"; */
-"5Cn-xZ-eV0.text" = "Show on map tracking position during:";
+/* Class = "UILabel"; text = "Vis sporingspositionen på kortet under:"; ObjectID = "5Cn-xZ-eV0"; */
+"5Cn-xZ-eV0.text" = "Vis sporingspositionen på kortet under:";
 
-/* Class = "UILabel"; text = "Tracking History"; ObjectID = "PQQ-4g-moW"; */
-"PQQ-4g-moW.text" = "Tracking History";
+/* Class = "UILabel"; text = "Sporing Historik"; ObjectID = "PQQ-4g-moW"; */
+"PQQ-4g-moW.text" = "Sporings Historik";
 
-/* Class = "UIButton"; normalTitle = "Save"; ObjectID = "Pma-Ln-c1N"; */
-"Pma-Ln-c1N.normalTitle" = "Save";
+/* Class = "UIButton"; normalTitle = "Gem"; ObjectID = "Pma-Ln-c1N"; */
+"Pma-Ln-c1N.normalTitle" = "Gem";
 
-/* Class = "UINavigationItem"; title = "Display Options"; ObjectID = "dKs-pk-Psb"; */
-"dKs-pk-Psb.title" = "Display Options";
+/* Class = "UINavigationItem"; title = "Visnings Indstillinger"; ObjectID = "dKs-pk-Psb"; */
+"dKs-pk-Psb.title" = "Visnings Indstillinger";
 
-/* Class = "UITextField"; text = "{15 minutes}"; ObjectID = "nJZ-ao-037"; */
-"nJZ-ao-037.text" = "{15 minutes}";
+/* Class = "UITextField"; text = "{15 minutter}"; ObjectID = "nJZ-ao-037"; */
+"nJZ-ao-037.text" = "{15 minutter}";

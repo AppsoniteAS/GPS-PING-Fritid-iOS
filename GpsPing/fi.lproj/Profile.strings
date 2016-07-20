@@ -1,42 +1,42 @@
 
 /* Class = "UILabel"; text = "Address"; ObjectID = "36o-K2-3Qo"; */
-"36o-K2-3Qo.text" = "Address";
+"36o-K2-3Qo.text" = "Osoite";
 
 /* Class = "UILabel"; text = "City"; ObjectID = "GSd-4a-qro"; */
-"GSd-4a-qro.text" = "City";
+"GSd-4a-qro.text" = "Kaupunki";
 
 /* Class = "UILabel"; text = "+"; ObjectID = "MvS-zm-dAh"; */
 "MvS-zm-dAh.text" = "+";
 
 /* Class = "UIBarButtonItem"; title = "Logout"; ObjectID = "N34-ff-TKq"; */
-"N34-ff-TKq.title" = "Logout";
+"N34-ff-TKq.title" = "Kirjaudu ulos";
 
 /* Class = "UINavigationItem"; title = "Settings"; ObjectID = "TzK-Ia-6UW"; */
-"TzK-Ia-6UW.title" = "Settings";
+"TzK-Ia-6UW.title" = "Asetukset";
 
 /* Class = "UILabel"; text = "Phone number"; ObjectID = "ZSl-cC-ozM"; */
-"ZSl-cC-ozM.text" = "Phone number";
+"ZSl-cC-ozM.text" = "Puhelinnumero";
 
 /* Class = "UILabel"; text = "Email"; ObjectID = "buM-zW-NuX"; */
-"buM-zW-NuX.text" = "Email";
+"buM-zW-NuX.text" = "sähköposti";
 
 /* Class = "UILabel"; text = "Code"; ObjectID = "egL-5D-oNH"; */
-"egL-5D-oNH.text" = "Code";
+"egL-5D-oNH.text" = "Koodi";
 
 /* Class = "UILabel"; text = "Username"; ObjectID = "hRx-fF-uGf"; */
-"hRx-fF-uGf.text" = "Username";
+"hRx-fF-uGf.text" = "Käyttäjänimi";
 
 /* Class = "UILabel"; text = "Full Name"; ObjectID = "hdR-f6-V7t"; */
-"hdR-f6-V7t.text" = "Full Name";
+"hdR-f6-V7t.text" = "Nimi";
 
 /* Class = "UILabel"; text = "Profile"; ObjectID = "jE1-EO-Rdb"; */
-"jE1-EO-Rdb.text" = "Profile";
+"jE1-EO-Rdb.text" = "Profiili";
 
 /* Class = "UIButton"; normalTitle = "Save"; ObjectID = "kAR-F9-vgL"; */
-"kAR-F9-vgL.normalTitle" = "Save";
+"kAR-F9-vgL.normalTitle" = "Tallenna";
 
 /* Class = "UILabel"; text = "Country"; ObjectID = "mzO-Vx-EE6"; */
-"mzO-Vx-EE6.text" = "Country";
+"mzO-Vx-EE6.text" = "Maa";
 
 /* Class = "UILabel"; text = "ZIP Code"; ObjectID = "rqb-vO-ou3"; */
-"rqb-vO-ou3.text" = "ZIP Code";
+"rqb-vO-ou3.text" = "Postinumero";

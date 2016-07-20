@@ -1,3 +1,3 @@
-NSLocationAlwaysUsageDescription = "Accessing location to determine your address";
-NSLocationUsageDescription = "Accessing location to determine your address";
-NSLocationWhenInUseUsageDescription = "Accessing location to determine your address";
+NSLocationAlwaysUsageDescription = "Hämtar information om plats för att fastställa din adress";
+NSLocationUsageDescription = "Hämtar information om plats för att fastställa din adress";
+NSLocationWhenInUseUsageDescription = "Hämtar information om plats för att fastställa din adress";

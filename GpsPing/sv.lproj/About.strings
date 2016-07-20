@@ -1,24 +1,24 @@
 
 /* Class = "UIButton"; normalTitle = "Contact Us"; ObjectID = "0lh-iO-07F"; */
-"0lh-iO-07F.normalTitle" = "Contact Us";
+"0lh-iO-07F.normalTitle" = "Kontakta oss";
 
 /* Class = "UIButton"; normalTitle = "Visit Website"; ObjectID = "JFv-af-IZM"; */
-"JFv-af-IZM.normalTitle" = "Visit Website";
+"JFv-af-IZM.normalTitle" = "Besök vår hemsida";
 
 /* Class = "UIButton"; normalTitle = "About Us"; ObjectID = "MXm-WI-p3w"; */
-"MXm-WI-p3w.normalTitle" = "About Us";
+"MXm-WI-p3w.normalTitle" = "Om oss";
 
 /* Class = "UILabel"; text = "This app lets you see the gps position of a gps tracker. \nBefore you start, go to settings and input the imei number and tracker number.   Select signal interval. Tap save and go back to main menu to start the tracker. \nTap Start Tracker to turn the tracker signal on. You will receive a text message back from the tracker when it is sending. You will see the tracker's last position as a green triangle.  Earlier positions are marked with green circle."; ObjectID = "PWd-Fd-8CO"; */
-"PWd-Fd-8CO.text" = "This app lets you see the gps position of a gps tracker. \nBefore you start, go to settings and input the imei number and tracker number.   Select signal interval. Tap save and go back to main menu to start the tracker. \nTap Start Tracker to turn the tracker signal on. You will receive a text message back from the tracker when it is sending. You will see the tracker's last position as a green triangle.  Earlier positions are marked with green circle.";
+"PWd-Fd-8CO.text" = "Med den här appen kan du se en GPS-enhets position. \nInnan du börjar, gå till inställningar och skriv in imei-nummer och GPS-spårarens nummer.   Välj intervall för signalen. Klicka på Spara och gå tillbaka till huvudmenyn för att starta GPS-spåraren.  \nKlicka på Starta för att sätta igång GPS-spårarens signal. Du får ett sms från GPS-spåraren när den sänder. En grön triangel visar GPS-spårarens senaste position.   Tidigare positioner visas i form av gröna cirklar.";
 
 /* Class = "UIViewController"; title = "About"; ObjectID = "UbW-fB-OPx"; */
-"UbW-fB-OPx.title" = "About";
+"UbW-fB-OPx.title" = "Om";
 
 /* Class = "UILabel"; text = "You can order Tracker using Contact Us button"; ObjectID = "Uyg-CH-3xf"; */
-"Uyg-CH-3xf.text" = "You can order Tracker using Contact Us button";
+"Uyg-CH-3xf.text" = "Du kan beställa GPS-spårare på vår hemsida";
 
 /* Class = "UINavigationItem"; title = "About"; ObjectID = "etW-K0-K0w"; */
-"etW-K0-K0w.title" = "About";
+"etW-K0-K0w.title" = "Om";
 
 /* Class = "UILabel"; text = "About Us"; ObjectID = "yt0-yU-QTl"; */
-"yt0-yU-QTl.text" = "About Us";
+"yt0-yU-QTl.text" = "Om oss";

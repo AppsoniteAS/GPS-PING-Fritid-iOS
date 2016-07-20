@@ -7,64 +7,64 @@
 */
 
 /* No comment provided by engineer. */
-"Friend already added" = "Friend already added";
+"Friend already added" = "Kaveri on jo lisätty";
 
 /* No comment provided by engineer. */
-"Error insert to gpsping_friends table" = "Can\'t add new friend";
+"Error insert to gpsping_friends table" = "Uutta kaveria ei voida lisätä";
 
 /* No comment provided by engineer. */
-"Friendship request not found" = "Friendship request not found";
+"Friendship request not found" = "Kaveripyyntöä ei löytynyt";
 
 /* No comment provided by engineer. */
-"Error insert to gpsping_push_id table" = "Can\'t register user for notifications";
+"Error insert to gpsping_push_id table" = "Käyttäjää ei voida rekisteröidä ilmoituksia varten";
 
 /* No comment provided by engineer. */
-"Invalid authentication cookie. Use the `generate_auth_cookie` method." = "Invalid authentication cookie. Try to login again.";
+"Invalid authentication cookie. Use the `generate_auth_cookie` method." = "Virheellinen eväste. Yritä kirjautua uudelleen.";
 
 /* No comment provided by engineer. */
-"Error insert POI" = "Can\'t add new Point of Interest";
+"Error insert POI" = "Uutta Kohdepistettä ei voida lisätä.";
 
 /* No comment provided by engineer. */
-"Tracker already added." = "Tracker already added.";
+"Tracker already added." = "Paikannin on jo lisätty.";
 
 /* No comment provided by engineer. */
-"Error insert to gps_device table" = "Can\'t add new device";
+"Error insert to gps_device table" = "Uutta laitetta ei voida lisätä";
 
 /* No comment provided by engineer. */
-"Error insert to gpsping_user_devices table" = "Can\'t add new device";
+"Error insert to gpsping_user_devices table" = "Uutta laitetta ei voida lisät";
 
 /* No comment provided by engineer. */
-"Don't find tracker" = "Can\'t find tracker";
+"Don't find tracker" = "Paikanninta ei löytynyt";
 
 /* No comment provided by engineer. */
-"Error insert to gps_eventdata_user table" = "Can\'t create point";
+"Error insert to gps_eventdata_user table" = "Pistettä ei voida luoda";
 
 /* No comment provided by engineer. */
-"Invalid access, unverifiable 'nonce' value. Use the 'get_nonce' Core API method. " = "Registration error, please try again";
+"Invalid access, unverifiable 'nonce' value. Use the 'get_nonce' Core API method. " = "Rekisteröitymisessä on tapahtunut virhe. Yritä myöhemmin uudelleen";
 
 /* No comment provided by engineer. */
-"Username is invalid." = "Username is invalid.";
+"Username is invalid." = "Käyttäjänimi on virheellinen.";
 
 /* No comment provided by engineer. */
-"Username already exists." = "Username already exists.";
+"Username already exists." = "Käyttäjänimi on jo olemassa.";
 
 /* No comment provided by engineer. */
-"E-mail address is invalid." = "E-mail address is invalid.";
+"E-mail address is invalid." = "Sähköpostiosoite on virheellinen.";
 
 /* No comment provided by engineer. */
-"E-mail address is already in use." = "E-mail address is already in use.";
+"E-mail address is already in use." = "Sähköpostiosoite on jo käytössä.";
 
 /* No comment provided by engineer. */
-"Your email address not found!" = "Your email address not found!";
+"Your email address not found!" = "Sähköpostiosoitetta ei löytynyt!";
 
 /* No comment provided by engineer. */
-"password reset not allowed!" = "Password reset not allowed!";
+"password reset not allowed!" = "Salasanan palauttaminen ei ole sallittua!";
 
 /* No comment provided by engineer. */
-"An error occured!" = "An error occured!";
+"An error occured!" = "On tapahtunut virhe!";
 
 /* No comment provided by engineer. */
-"The e-mail could not be sent. Possible reason: your host may have disabled the mail() function..." = "The e-mail could not be sent.";
+"The e-mail could not be sent. Possible reason: your host may have disabled the mail() function..." = "Sähköpostia ei voitu lähettää.";
 
 /* No comment provided by engineer. */
-"Invalid username and\/or password." = "Invalid username and\/or password.";
+"Invalid username and\/or password." = "Virheellinen käyttäjänimi ja\/tai salasana.";

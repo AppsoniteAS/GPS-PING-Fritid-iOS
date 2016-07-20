@@ -1,93 +1,93 @@
 
-/* Class = "UILabel"; text = "Active"; ObjectID = "01K-64-mNb"; */
-"01K-64-mNb.text" = "Active";
+/* Class = "UILabel"; text = "Aktiv"; ObjectID = "01K-64-mNb"; */
+"01K-64-mNb.text" = "Aktiv";
 
-/* Class = "UILabel"; text = "Name"; ObjectID = "090-Ba-3Mf"; */
-"090-Ba-3Mf.text" = "Name";
+/* Class = "UILabel"; text = "Navn"; ObjectID = "090-Ba-3Mf"; */
+"090-Ba-3Mf.text" = "Navn";
 
-/* Class = "UILabel"; text = "Tracker"; ObjectID = "0eI-Ta-2vB"; */
-"0eI-Ta-2vB.text" = "Tracker";
+/* Class = "UILabel"; text = "Sporer"; ObjectID = "0eI-Ta-2vB"; */
+"0eI-Ta-2vB.text" = "Sporer";
 
 /* Class = "UILabel"; text = "Shock Flash Alarm"; ObjectID = "4zg-Qm-KJm"; */
 "4zg-Qm-KJm.text" = "Shock Flash Alarm";
 
-/* Class = "UILabel"; text = "IMEI Number"; ObjectID = "905-Dc-ZJV"; */
-"905-Dc-ZJV.text" = "IMEI Number";
+/* Class = "UILabel"; text = "IMEI Nummer"; ObjectID = "905-Dc-ZJV"; */
+"905-Dc-ZJV.text" = "IMEI Nummer";
 
-/* Class = "UILabel"; text = "Tracker"; ObjectID = "9fd-7G-EpS"; */
-"9fd-7G-EpS.text" = "Tracker";
+/* Class = "UILabel"; text = "Sporer"; ObjectID = "9fd-7G-EpS"; */
+"9fd-7G-EpS.text" = "Sporer";
 
 /* Class = "UILabel"; text = "Signal"; ObjectID = "Awb-MA-D3n"; */
 "Awb-MA-D3n.text" = "Signal";
 
-/* Class = "UILabel"; text = "Check this for dog in stand"; ObjectID = "CkU-gr-UcF"; */
-"CkU-gr-UcF.text" = "Check this for dog in stand";
+/* Class = "UILabel"; text = "Tjek her for DIS"; ObjectID = "CkU-gr-UcF"; */
+"CkU-gr-UcF.text" = "Tjek her for DIS";
 
-/* Class = "UILabel"; text = "Tracker Number"; ObjectID = "Ek1-cf-8pq"; */
-"Ek1-cf-8pq.text" = "Tracker Number";
+/* Class = "UILabel"; text = "Sporingsnummer"; ObjectID = "Ek1-cf-8pq"; */
+"Ek1-cf-8pq.text" = "Sporingsnummer";
 
 /* Class = "UILabel"; text = "Signal"; ObjectID = "FSy-sT-rYn"; */
 "FSy-sT-rYn.text" = "Signal";
 
-/* Class = "UITextField"; text = "{60 Seconds}"; ObjectID = "IzS-Ho-dxb"; */
-"IzS-Ho-dxb.text" = "{60 Seconds}";
+/* Class = "UITextField"; text = "{60 Sekunder}"; ObjectID = "IzS-Ho-dxb"; */
+"IzS-Ho-dxb.text" = "{60 Sekunder}";
 
-/* Class = "UIButton"; normalTitle = "{TURN ON}"; ObjectID = "Jgu-CU-fun"; */
-"Jgu-CU-fun.normalTitle" = "{TURN ON}";
+/* Class = "UIButton"; normalTitle = "{TÆND}"; ObjectID = "Jgu-CU-fun"; */
+"Jgu-CU-fun.normalTitle" = "{TÆND}";
 
-/* Class = "UINavigationItem"; title = "Edit Tracker"; ObjectID = "LIh-8B-4ma"; */
-"LIh-8B-4ma.title" = "Edit Tracker";
+/* Class = "UINavigationItem"; title = "Rediger Sporer"; ObjectID = "LIh-8B-4ma"; */
+"LIh-8B-4ma.title" = "Rediger Sporer";
 
-/* Class = "UILabel"; text = "Tracker Number"; ObjectID = "Mpa-3D-iEG"; */
-"Mpa-3D-iEG.text" = "Tracker Number";
+/* Class = "UILabel"; text = "Sporingsnummer"; ObjectID = "Mpa-3D-iEG"; */
+"Mpa-3D-iEG.text" = "Sporingsnummer";
 
-/* Class = "UILabel"; text = "Bike Tracking"; ObjectID = "TI1-Ra-ueR"; */
-"TI1-Ra-ueR.text" = "Bike Tracking";
+/* Class = "UILabel"; text = "Cykelsporing"; ObjectID = "TI1-Ra-ueR"; */
+"TI1-Ra-ueR.text" = "Cykelsporing";
 
-/* Class = "UILabel"; text = "Name"; ObjectID = "TMn-8v-clI"; */
-"TMn-8v-clI.text" = "Name";
+/* Class = "UILabel"; text = "Navn"; ObjectID = "TMn-8v-clI"; */
+"TMn-8v-clI.text" = "Navn";
 
-/* Class = "UILabel"; text = "IMEI Number"; ObjectID = "TXM-ME-DR1"; */
-"TXM-ME-DR1.text" = "IMEI Number";
+/* Class = "UILabel"; text = "IMEI Nummer"; ObjectID = "TXM-ME-DR1"; */
+"TXM-ME-DR1.text" = "IMEI Nummer";
 
-/* Class = "UITextField"; text = "{60 Seconds}"; ObjectID = "U3W-BK-NAC"; */
-"U3W-BK-NAC.text" = "{60 Seconds}";
+/* Class = "UITextField"; text = "{60 Sekunder}"; ObjectID = "U3W-BK-NAC"; */
+"U3W-BK-NAC.text" = "{60 Sekunder}";
 
-/* Class = "UIButton"; normalTitle = "Update"; ObjectID = "UYz-p4-EaA"; */
-"UYz-p4-EaA.normalTitle" = "Update";
+/* Class = "UIButton"; normalTitle = "Opdater"; ObjectID = "UYz-p4-EaA"; */
+"UYz-p4-EaA.normalTitle" = "Opdater";
 
-/* Class = "UILabel"; text = "Receive signal every"; ObjectID = "Uf9-he-SQY"; */
-"Uf9-he-SQY.text" = "Receive signal every";
+/* Class = "UILabel"; text = "Modtag signal hvert"; ObjectID = "Uf9-he-SQY"; */
+"Uf9-he-SQY.text" = "Modtag signal hvert";
 
-/* Class = "UIButton"; normalTitle = "Update"; ObjectID = "Uuq-uj-WQM"; */
-"Uuq-uj-WQM.normalTitle" = "Update";
+/* Class = "UIButton"; normalTitle = "Opdater"; ObjectID = "Uuq-uj-WQM"; */
+"Uuq-uj-WQM.normalTitle" = "Opdater";
 
 /* Class = "UILabel"; text = "Active"; ObjectID = "agE-al-SI4"; */
-"agE-al-SI4.text" = "Active";
+"agE-al-SI4.text" = "Aktiv";
 
-/* Class = "UILabel"; text = "Receive signal every"; ObjectID = "bwB-qh-rmZ"; */
-"bwB-qh-rmZ.text" = "Receive signal every";
+/* Class = "UILabel"; text = "Modtag signal hvert"; ObjectID = "bwB-qh-rmZ"; */
+"bwB-qh-rmZ.text" = "Modtag signal hvert";
 
 /* Class = "UILabel"; text = "Shock Alarm"; ObjectID = "chY-Xv-7i0"; */
 "chY-Xv-7i0.text" = "Shock Alarm";
 
-/* Class = "UIButton"; normalTitle = "{TURN ON}"; ObjectID = "eVf-FP-D1A"; */
-"eVf-FP-D1A.normalTitle" = "{TURN ON}";
+/* Class = "UIButton"; normalTitle = "{TÆND}"; ObjectID = "eVf-FP-D1A"; */
+"eVf-FP-D1A.normalTitle" = "{TÆND}";
 
-/* Class = "UILabel"; text = "Active"; ObjectID = "ivL-VR-U35"; */
-"ivL-VR-U35.text" = "Active";
+/* Class = "UILabel"; text = "AKTIV"; ObjectID = "ivL-VR-U35"; */
+"ivL-VR-U35.text" = "AKTIV";
 
-/* Class = "UINavigationItem"; title = "Edit Tracker"; ObjectID = "kFe-7K-OOG"; */
-"kFe-7K-OOG.title" = "Edit Tracker";
+/* Class = "UINavigationItem"; title = "Rediger Sporer"; ObjectID = "kFe-7K-OOG"; */
+"kFe-7K-OOG.title" = "Rediger Sporer";
 
-/* Class = "UILabel"; text = "LED Light"; ObjectID = "lX6-Xl-IU9"; */
-"lX6-Xl-IU9.text" = "LED Light";
+/* Class = "UILabel"; text = "LED Lys"; ObjectID = "lX6-Xl-IU9"; */
+"lX6-Xl-IU9.text" = "LED Lys";
 
-/* Class = "UIButton"; normalTitle = "Reset"; ObjectID = "qit-Id-GDR"; */
-"qit-Id-GDR.normalTitle" = "Reset";
+/* Class = "UIButton"; normalTitle = "Nulstil"; ObjectID = "qit-Id-GDR"; */
+"qit-Id-GDR.normalTitle" = "Nulstil";
 
-/* Class = "UIButton"; normalTitle = "Reset"; ObjectID = "r5i-ea-GHN"; */
-"r5i-ea-GHN.normalTitle" = "Reset";
+/* Class = "UIButton"; normalTitle = "Nulstil"; ObjectID = "r5i-ea-GHN"; */
+"r5i-ea-GHN.normalTitle" = "Nulstil";
 
-/* Class = "UIButton"; normalTitle = "{TURN ON}"; ObjectID = "rse-Sy-9tJ"; */
-"rse-Sy-9tJ.normalTitle" = "{TURN ON}";
+/* Class = "UIButton"; normalTitle = "{TÆND}"; ObjectID = "rse-Sy-9tJ"; */
+"rse-Sy-9tJ.normalTitle" = "{TÆND}";

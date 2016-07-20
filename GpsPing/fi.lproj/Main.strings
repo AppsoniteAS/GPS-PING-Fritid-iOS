@@ -1,9 +1,9 @@
 
 /* Class = "UIButton"; normalTitle = "STOP"; ObjectID = "43t-vi-idC"; */
-"43t-vi-idC.normalTitle" = "STOP";
+"43t-vi-idC.normalTitle" = "PYSÄYTÄ";
 
 /* Class = "UIButton"; normalTitle = "History"; ObjectID = "4pR-wg-wkB"; */
-"4pR-wg-wkB.normalTitle" = "History";
+"4pR-wg-wkB.normalTitle" = "Historia";
 
 /* Class = "UILabel"; text = "580009914518"; ObjectID = "BVJ-bU-GKf"; */
 "BVJ-bU-GKf.text" = "580009914518";
@@ -12,7 +12,7 @@
 "GJO-J7-6m3.text" = "Julie";
 
 /* Class = "UILabel"; text = "Active tracker:"; ObjectID = "Ilv-8n-7SK"; */
-"Ilv-8n-7SK.text" = "Active tracker:";
+"Ilv-8n-7SK.text" = "Aktiivinen paikannin:";
 
 /* Class = "UILabel"; text = "{Gerald Medina}"; ObjectID = "LYi-3d-xdn"; */
 "LYi-3d-xdn.text" = "{Gerald Medina}";
@@ -21,19 +21,19 @@
 "MXj-IQ-8Vv.text" = "580009914518";
 
 /* Class = "UIButton"; normalTitle = "Settings"; ObjectID = "Sis-JH-hrQ"; */
-"Sis-JH-hrQ.normalTitle" = "Settings";
+"Sis-JH-hrQ.normalTitle" = "Asetukset";
 
 /* Class = "UILabel"; text = "Select tracker you want to activate:"; ObjectID = "dET-ot-7m2"; */
-"dET-ot-7m2.text" = "Select tracker you want to activate:";
+"dET-ot-7m2.text" = "Valitse aktivoitava paikannin:";
 
 /* Class = "UILabel"; text = "IMEI Number:"; ObjectID = "jDt-Le-vQU"; */
-"jDt-Le-vQU.text" = "IMEI Number:";
+"jDt-Le-vQU.text" = "IMEI-numero:";
 
 /* Class = "UIButton"; normalTitle = "Map and Tracking"; ObjectID = "nif-xG-5z3"; */
-"nif-xG-5z3.normalTitle" = "Map and Tracking";
+"nif-xG-5z3.normalTitle" = "Kartta ja Paikannus";
 
 /* Class = "UILabel"; text = "Tracker Number:"; ObjectID = "scO-tD-Y7o"; */
-"scO-tD-Y7o.text" = "Tracker Number:";
+"scO-tD-Y7o.text" = "Paikantimen numero:";
 
 /* Class = "UIButton"; normalTitle = "Trackers"; ObjectID = "tge-DY-bzF"; */
-"tge-DY-bzF.normalTitle" = "Trackers";
+"tge-DY-bzF.normalTitle" = "Paikantimet";

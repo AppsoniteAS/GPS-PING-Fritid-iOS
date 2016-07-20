@@ -1,93 +1,93 @@
 
 /* Class = "UILabel"; text = "Active"; ObjectID = "01K-64-mNb"; */
-"01K-64-mNb.text" = "Active";
+"01K-64-mNb.text" = "Aktiivinen";
 
 /* Class = "UILabel"; text = "Name"; ObjectID = "090-Ba-3Mf"; */
-"090-Ba-3Mf.text" = "Name";
+"090-Ba-3Mf.text" = "Nimi";
 
 /* Class = "UILabel"; text = "Tracker"; ObjectID = "0eI-Ta-2vB"; */
-"0eI-Ta-2vB.text" = "Tracker";
+"0eI-Ta-2vB.text" = "Paikannin";
 
 /* Class = "UILabel"; text = "Shock Flash Alarm"; ObjectID = "4zg-Qm-KJm"; */
 "4zg-Qm-KJm.text" = "Shock Flash Alarm";
 
 /* Class = "UILabel"; text = "IMEI Number"; ObjectID = "905-Dc-ZJV"; */
-"905-Dc-ZJV.text" = "IMEI Number";
+"905-Dc-ZJV.text" = "IMEI-numero";
 
 /* Class = "UILabel"; text = "Tracker"; ObjectID = "9fd-7G-EpS"; */
-"9fd-7G-EpS.text" = "Tracker";
+"9fd-7G-EpS.text" = "Paikannin";
 
 /* Class = "UILabel"; text = "Signal"; ObjectID = "Awb-MA-D3n"; */
-"Awb-MA-D3n.text" = "Signal";
+"Awb-MA-D3n.text" = "Signaali";
 
 /* Class = "UILabel"; text = "Check this for dog in stand"; ObjectID = "CkU-gr-UcF"; */
-"CkU-gr-UcF.text" = "Check this for dog in stand";
+"CkU-gr-UcF.text" = "Tarkista onko koira seisonnassa";
 
 /* Class = "UILabel"; text = "Tracker Number"; ObjectID = "Ek1-cf-8pq"; */
-"Ek1-cf-8pq.text" = "Tracker Number";
+"Ek1-cf-8pq.text" = "Paikantimen numero";
 
 /* Class = "UILabel"; text = "Signal"; ObjectID = "FSy-sT-rYn"; */
-"FSy-sT-rYn.text" = "Signal";
+"FSy-sT-rYn.text" = "signaali";
 
 /* Class = "UITextField"; text = "{60 Seconds}"; ObjectID = "IzS-Ho-dxb"; */
-"IzS-Ho-dxb.text" = "{60 Seconds}";
+"IzS-Ho-dxb.text" = "{60 Sekuntia}";
 
 /* Class = "UIButton"; normalTitle = "{TURN ON}"; ObjectID = "Jgu-CU-fun"; */
-"Jgu-CU-fun.normalTitle" = "{TURN ON}";
+"Jgu-CU-fun.normalTitle" = "{KÄYNNISTÄ}";
 
 /* Class = "UINavigationItem"; title = "Edit Tracker"; ObjectID = "LIh-8B-4ma"; */
-"LIh-8B-4ma.title" = "Edit Tracker";
+"LIh-8B-4ma.title" = "Muokkaa paikanninta";
 
 /* Class = "UILabel"; text = "Tracker Number"; ObjectID = "Mpa-3D-iEG"; */
-"Mpa-3D-iEG.text" = "Tracker Number";
+"Mpa-3D-iEG.text" = "Paikantimen numero";
 
 /* Class = "UILabel"; text = "Bike Tracking"; ObjectID = "TI1-Ra-ueR"; */
-"TI1-Ra-ueR.text" = "Bike Tracking";
+"TI1-Ra-ueR.text" = "Pyörän paikannus";
 
 /* Class = "UILabel"; text = "Name"; ObjectID = "TMn-8v-clI"; */
-"TMn-8v-clI.text" = "Name";
+"TMn-8v-clI.text" = "Nimi";
 
 /* Class = "UILabel"; text = "IMEI Number"; ObjectID = "TXM-ME-DR1"; */
-"TXM-ME-DR1.text" = "IMEI Number";
+"TXM-ME-DR1.text" = "IMEI-numero";
 
 /* Class = "UITextField"; text = "{60 Seconds}"; ObjectID = "U3W-BK-NAC"; */
-"U3W-BK-NAC.text" = "{60 Seconds}";
+"U3W-BK-NAC.text" = "{60 Sekuntia}";
 
 /* Class = "UIButton"; normalTitle = "Update"; ObjectID = "UYz-p4-EaA"; */
-"UYz-p4-EaA.normalTitle" = "Update";
+"UYz-p4-EaA.normalTitle" = "Päivitä";
 
 /* Class = "UILabel"; text = "Receive signal every"; ObjectID = "Uf9-he-SQY"; */
-"Uf9-he-SQY.text" = "Receive signal every";
+"Uf9-he-SQY.text" = "Signaalin vastaanottamisen aikaväli";
 
 /* Class = "UIButton"; normalTitle = "Update"; ObjectID = "Uuq-uj-WQM"; */
-"Uuq-uj-WQM.normalTitle" = "Update";
+"Uuq-uj-WQM.normalTitle" = "Päivitä";
 
 /* Class = "UILabel"; text = "Active"; ObjectID = "agE-al-SI4"; */
-"agE-al-SI4.text" = "Active";
+"agE-al-SI4.text" = "Aktiivinen";
 
 /* Class = "UILabel"; text = "Receive signal every"; ObjectID = "bwB-qh-rmZ"; */
-"bwB-qh-rmZ.text" = "Receive signal every";
+"bwB-qh-rmZ.text" = "Signaalin vastaanottamisen aikaväli";
 
 /* Class = "UILabel"; text = "Shock Alarm"; ObjectID = "chY-Xv-7i0"; */
 "chY-Xv-7i0.text" = "Shock Alarm";
 
 /* Class = "UIButton"; normalTitle = "{TURN ON}"; ObjectID = "eVf-FP-D1A"; */
-"eVf-FP-D1A.normalTitle" = "{TURN ON}";
+"eVf-FP-D1A.normalTitle" = "{KÄYNNISTÄ}";
 
 /* Class = "UILabel"; text = "Active"; ObjectID = "ivL-VR-U35"; */
-"ivL-VR-U35.text" = "Active";
+"ivL-VR-U35.text" = "Aktiivinen";
 
 /* Class = "UINavigationItem"; title = "Edit Tracker"; ObjectID = "kFe-7K-OOG"; */
-"kFe-7K-OOG.title" = "Edit Tracker";
+"kFe-7K-OOG.title" = "Muokkaa paikanninta";
 
 /* Class = "UILabel"; text = "LED Light"; ObjectID = "lX6-Xl-IU9"; */
-"lX6-Xl-IU9.text" = "LED Light";
+"lX6-Xl-IU9.text" = "LED-valo";
 
 /* Class = "UIButton"; normalTitle = "Reset"; ObjectID = "qit-Id-GDR"; */
-"qit-Id-GDR.normalTitle" = "Reset";
+"qit-Id-GDR.normalTitle" = "Palauta";
 
 /* Class = "UIButton"; normalTitle = "Reset"; ObjectID = "r5i-ea-GHN"; */
-"r5i-ea-GHN.normalTitle" = "Reset";
+"r5i-ea-GHN.normalTitle" = "Palauta";
 
 /* Class = "UIButton"; normalTitle = "{TURN ON}"; ObjectID = "rse-Sy-9tJ"; */
-"rse-Sy-9tJ.normalTitle" = "{TURN ON}";
+"rse-Sy-9tJ.normalTitle" = "{Käynnistä}";

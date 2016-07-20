@@ -3,31 +3,31 @@
 "7Lp-uA-TJo.text" = "{Julie}";
 
 /* Class = "UIButton"; normalTitle = "Add Tracker"; ObjectID = "BZP-Pd-3a5"; */
-"BZP-Pd-3a5.normalTitle" = "Add Tracker";
+"BZP-Pd-3a5.normalTitle" = "Lisää paikannin";
 
 /* Class = "UILabel"; text = "580009914518"; ObjectID = "CZd-v3-kIQ"; */
 "CZd-v3-kIQ.text" = "580009914518";
 
 /* Class = "UILabel"; text = "Tracker Number last 4 digits"; ObjectID = "Di6-ls-fvH"; */
-"Di6-ls-fvH.text" = "Tracker Number last 4 digits";
+"Di6-ls-fvH.text" = "Paikantimen numeron 4 viimeistä merkkiä";
 
 /* Class = "UILabel"; text = "Tracker"; ObjectID = "EyD-xO-8dj"; */
-"EyD-xO-8dj.text" = "Tracker";
+"EyD-xO-8dj.text" = "Paikannin";
 
 /* Class = "UILabel"; text = "580009914518"; ObjectID = "Iem-dQ-Ist"; */
 "Iem-dQ-Ist.text" = "580009914518";
 
 /* Class = "UINavigationItem"; title = "Trackers"; ObjectID = "OdB-Mn-RO6"; */
-"OdB-Mn-RO6.title" = "Trackers";
+"OdB-Mn-RO6.title" = "Paikantimet";
 
 /* Class = "UINavigationItem"; title = "Add Tracker"; ObjectID = "VPe-bu-H3s"; */
-"VPe-bu-H3s.title" = "Add Tracker";
+"VPe-bu-H3s.title" = "Lisää paikannin";
 
 /* Class = "UILabel"; text = "IMEI Number"; ObjectID = "i7P-U5-doB"; */
-"i7P-U5-doB.text" = "IMEI Number";
+"i7P-U5-doB.text" = "IMEI-numero";
 
 /* Class = "UILabel"; text = "Tracker Number:"; ObjectID = "pu3-bz-ZPE"; */
-"pu3-bz-ZPE.text" = "Tracker Number:";
+"pu3-bz-ZPE.text" = "Paikantimen numero:";
 
 /* Class = "UILabel"; text = "IMEI Number:"; ObjectID = "vX0-lZ-iHN"; */
-"vX0-lZ-iHN.text" = "IMEI Number:";
+"vX0-lZ-iHN.text" = "IMEI-numero:";
