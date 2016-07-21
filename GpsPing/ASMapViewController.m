@@ -23,9 +23,13 @@
 #import <CocoaLumberjack.h>
 #import <Underscore.h>
 #import "NSDate+DateTools.h"
+#import "CompassController.h"
+#import "WMSTileOverlay.h"
 
 #define QUERY_RATE_IN_SECONDS 15
 static const DDLogLevel ddLogLevel = DDLogLevelDebug;
+
+static NSString *const kASUserDefaultsKeyRemoveTrackersDate = @"kASUserDefaultsKeyRemoveTrackersDate";
 
 @interface ASMapViewController () <MKMapViewDelegate,UIPickerViewDelegate, UIPickerViewDataSource, THDatePickerDelegate>
 
@@ -36,8 +40,10 @@ static const DDLogLevel ddLogLevel = DDLogLevelDebug;
 @property (strong, nonatomic) IBOutlet UITapGestureRecognizer *tapGestureDetails;
 @property (weak, nonatomic) IBOutlet UILabel *distanceLabel;
 @property (weak, nonatomic) IBOutlet UILabel *distanceMetricLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *compassImageView;
 
 @property (nonatomic        ) NSArray                    *originalPointsData;
+@property (nonatomic        ) NSArray                    *colorSetForUsers;
 @property (nonatomic        ) NSArray                    *arrayPOIs;
 @property (nonatomic        ) CLLocationManager          *locationManager;
 @property (nonatomic        ) NSTimer                    *timer;
@@ -54,6 +60,9 @@ static const DDLogLevel ddLogLevel = DDLogLevelDebug;
 @property (nonatomic, assign) BOOL isFirstLaunch;
 @property (nonatomic, assign) BOOL isUserLocationCentered;
 @property (nonatomic        ) ASPointOfInterestAnnotation *selectedAnnotation;
+
+@property (strong, nonatomic) CompassController *compassController;
+
 @end
 
 @implementation ASMapViewController
@@ -70,24 +79,6 @@ objection_requires(@keypath(ASMapViewController.new, apiController))
 - (void)viewDidLoad {
     [super viewDidLoad];
     [[JSObjection defaultInjector] injectDependencies:self];
-    
-//    if (!self.apiController.isReachableViaWWAN) {
-//        UIAlertController *alertController = [UIAlertController
-//                                              alertControllerWithTitle:NSLocalizedString(@"Error", nil)
-//                                              message:NSLocalizedString(@"You do not have mobile network.", nil)
-//                                              preferredStyle:UIAlertControllerStyleAlert];
-//        UIAlertAction *cancelAction = [UIAlertAction
-//                                       actionWithTitle:NSLocalizedString(@"Cancel", @"Cancel action")
-//                                       style:UIAlertActionStyleCancel
-//                                       handler:^(UIAlertAction *action)
-//                                       {
-//                                           DDLogDebug(@"Cancel action");
-//                                           [self.navigationController popoverPresentationController];
-//                                       }];
-//        
-//        [alertController addAction:cancelAction];
-//        [self presentViewController:alertController animated:YES completion:nil];
-//    }
 
     UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc]      initWithTarget:self action:@selector(handleLongPress:)];
     longPress.minimumPressDuration = 0.5;
@@ -121,17 +112,12 @@ objection_requires(@keypath(ASMapViewController.new, apiController))
     self.locationManager = [[CLLocationManager alloc] init];
     [self.locationManager requestWhenInUseAuthorization];
     [self.locationManager requestAlwaysAuthorization];
-//    [self.locationManager startUpdatingLocation];
     
     [self changeMapType:2];
 
     self.mapView.showsUserLocation = YES;
     
     self.filterTextField.enabled = NO;
-    
-//    NSDate *from = [NSDate dateWithTimeIntervalSince1970:1410739200];
-//    NSDate *to = [NSDate dateWithTimeIntervalSince1970:1410868800];
-//    [self loadTrackingPointsFrom:from to:to];
     
     self.timer = [NSTimer scheduledTimerWithTimeInterval:0.016
                                                   target:self
@@ -150,12 +136,24 @@ objection_requires(@keypath(ASMapViewController.new, apiController))
     }
     
     [self loadPointsOfInterest];
+    
+    self.compassController = [CompassController compassWithArrowImageView:self.compassImageView];
 }
 
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     [self refreshLine];
+}
+
+#pragma mark - Getters & setters
+
+-(NSArray *)colorSetForUsers {
+    return @[[UIColor redColor],
+             [UIColor blueColor],
+             [UIColor orangeColor],
+             [UIColor yellowColor],
+             [UIColor greenColor]];
 }
 
 #pragma mark - IBActions and Handlers
@@ -179,7 +177,7 @@ objection_requires(@keypath(ASMapViewController.new, apiController))
             return YES;
         return NO;
     }];
-    //[self.datePicker slideUpInView:self.view withModalColor:[UIColor lightGrayColor]];
+
     if (self.selectedDate) self.datePicker.date = self.selectedDate;
     [self presentSemiViewController:self.datePicker withOptions:@{
                                                                   KNSemiModalOptionKeys.pushParentBack    : @(NO),
@@ -308,10 +306,28 @@ objection_requires(@keypath(ASMapViewController.new, apiController))
         [self.mapView addOverlay:overlayWorld
                            level:MKOverlayLevelAboveLabels];
         
+        static NSString * const templateSweden = @"http://industri.gpsping.no:6057/service?LAYERS=sweden&FORMAT=image/png&SRS=EPSG:3857&EXCEPTIONS=application.vnd.ogc.se_inimage&TRANSPARENT=TRUE&SERVICE=WMS&VERSION=1.1.1&REQUEST=GetMap&STYLES=&WIDTH=256&HEIGHT=256";
+        WMSTileOverlay *overlaySweden = [[WMSTileOverlay alloc] initWithUrl:templateSweden UseMercator:YES];
+        overlaySweden.canReplaceMapContent = YES;
+        [self.mapView addOverlay:overlaySweden
+                           level:MKOverlayLevelAboveLabels];
+        
+        static NSString * const templateFinland = @"http://industri.gpsping.no:6057/service?LAYERS=finnish&FORMAT=image/png&SRS=EPSG:3857&EXCEPTIONS=application.vnd.ogc.se_inimage&TRANSPARENT=TRUE&SERVICE=WMS&VERSION=1.1.1&REQUEST=GetMap&STYLES=&WIDTH=256&HEIGHT=256";
+        WMSTileOverlay *overlayFinland = [[WMSTileOverlay alloc] initWithUrl:templateFinland UseMercator:YES];
+        overlayFinland.canReplaceMapContent = YES;
+        [self.mapView addOverlay:overlayFinland
+                           level:MKOverlayLevelAboveLabels];
+
         static NSString * const templateNorway = @"http://opencache.statkart.no/gatekeeper/gk/gk.open_gmaps?layers=topo2&zoom={z}&x={x}&y={y}&format=image/png";
         MKTileOverlay *overlayNorway = [[MKTileOverlay alloc] initWithURLTemplate:templateNorway];
         overlayNorway.canReplaceMapContent = YES;
         [self.mapView addOverlay:overlayNorway
+                           level:MKOverlayLevelAboveLabels];
+        
+        static NSString * const templateDenmark = @"http://kortforsyningen.kms.dk/topo100?LAYERS=dtk_1cm&FORMAT=image/png&BGCOLOR=0xFFFFFF&TICKET=8b4e36fe4c851004fd1e69463fbabe3b&PROJECTION=EPSG:3857&TRANSPARENT=TRUE&SERVICE=WMS&VERSION=1.1.1&REQUEST=GetMap&STYLES=&SRS=EPSG:3857&WIDTH=256&HEIGHT=256";
+        WMSTileOverlay *overlayDenmark = [[WMSTileOverlay alloc] initWithUrl:templateDenmark UseMercator:YES];
+        overlayDenmark.canReplaceMapContent = YES;
+        [self.mapView addOverlay:overlayDenmark
                            level:MKOverlayLevelAboveLabels];
         
     }
@@ -338,12 +354,9 @@ objection_requires(@keypath(ASMapViewController.new, apiController))
 {
     [self.mapView removeAnnotations:self.mapView.annotations];
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSNumber *duration = [defaults objectForKey:kTrackingDurationKey];
-    NSDate *removetracksdate  = [NSDate date];
-    NSDate *to = [NSDate date];
-    NSDate *from = [to dateByAddingTimeInterval:-60*duration.integerValue];
-    from =  [removetracksdate isEarlierThanOrEqualTo:from] ? from : removetracksdate;
-    [self loadTrackingPointsFrom:from to:to];
+    [defaults setObject:[NSDate date] forKey:kASUserDefaultsKeyRemoveTrackersDate];
+    [defaults synchronize];
+    [self loadTracks];
 }
 
 -(void)timerTick:(NSTimer*)timer
@@ -403,16 +416,19 @@ objection_requires(@keypath(ASMapViewController.new, apiController))
 }
 
 -(void)loadTracks {
-// for test
-//    NSDate *from = [NSDate dateWithTimeIntervalSince1970:1410739200];
-//    NSDate *to = [NSDate dateWithTimeIntervalSince1970:1410868800];
     NSDate *from;
     NSDate *to;
     if (!self.selectedDate) {
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        [defaults synchronize];
         NSNumber *duration = [defaults objectForKey:kTrackingDurationKey];
         to = [NSDate date];
         from = [to dateByAddingTimeInterval:-60*duration.integerValue];
+        
+        NSDate *removeTracksDate  = [defaults objectForKey:kASUserDefaultsKeyRemoveTrackersDate];
+        if (removeTracksDate) {
+            from =  [removeTracksDate isEarlierThanOrEqualTo:from] ? from : removeTracksDate;
+        }
     } else {
         from = self.selectedDate;
         to = [self.selectedDate dateByAddingTimeInterval:60*60*24];
@@ -437,18 +453,13 @@ objection_requires(@keypath(ASMapViewController.new, apiController))
         [self showAllPointsForUsers:x filterFor:self.userToFilter];
         self.filterTextField.enabled = YES;
     }] ;
-//    [self.timerForTrackQuery invalidate];
-//    [[[[[self.apiController getTrackingPointsFrom:from to:to friendId:nil] repeat] take:1] doNext:^(id x) {
-//        NSLog(@"do next");
-//    }] subscribeNext:^(id x) {
-//        NSLog(@"subscrive next");
-//    }];
 }
 
 -(void)fillColorsDictionaryWithUsers:(NSArray *)users {
     NSMutableDictionary *result = @{}.mutableCopy;
     for (ASFriendModel *user in users) {
-        result[user.userName] = [UIColor getRandomColor];
+        NSInteger indexOfColorInSet = [users indexOfObject:user] % self.colorSetForUsers.count;
+        result[user.userName] = self.colorSetForUsers[indexOfColorInSet];
     }
     
     self.colorsDictionary = result;
@@ -575,7 +586,6 @@ objection_requires(@keypath(ASMapViewController.new, apiController))
         MKCoordinateRegion mapRegion = MKCoordinateRegionMakeWithDistance(userLocation.coordinate, 800, 800);
         mapRegion.center = self.mapView.userLocation.coordinate;
         [self.mapView setRegion:[self.mapView regionThatFits:mapRegion] animated:YES];
-//        [self.locationManager stopUpdatingLocation];
     }
 }
 
@@ -583,19 +593,6 @@ objection_requires(@keypath(ASMapViewController.new, apiController))
 {
     if ([annotation isKindOfClass:[MKUserLocation class]]) {
         return nil;
-//        MKAnnotationView *userLocationAnnotationView = (id)[mapView dequeueReusableAnnotationViewWithIdentifier:@"ASFriendAnnotation"];
-//        
-//        if (!userLocationAnnotationView) {
-//            userLocationAnnotationView = [[MKAnnotationView alloc] initWithAnnotation:annotation
-//                                                                      reuseIdentifier:@"ASFriendAnnotation"];
-//            userLocationAnnotationView.canShowCallout = NO;
-//        } else {
-//            userLocationAnnotationView.annotation = annotation;
-//        }
-//        
-//        userLocationAnnotationView.image = [UIImage getUserAnnotationImageWithColor:[UIColor blackColor]];
-//        
-//        return userLocationAnnotationView;
     }
     
     if ([annotation isKindOfClass:[ASPointAnnotation class]]) {

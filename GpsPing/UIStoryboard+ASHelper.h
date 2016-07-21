@@ -11,6 +11,7 @@
 @interface UIStoryboard (ASHelper)
 
 +(UIStoryboard*)trackerStoryboard;
++(UIStoryboard*)trackerConfigurationStoryboard;
 +(UIStoryboard*)mainMenuStoryboard;
 +(UIStoryboard*)mapStoryboard;
 +(UIStoryboard*)connectStoryboard;

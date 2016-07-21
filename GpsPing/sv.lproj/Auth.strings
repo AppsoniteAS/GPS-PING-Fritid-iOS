@@ -1,0 +1,54 @@
+
+/* Class = "UILabel"; text = "Email"; ObjectID = "2CF-wy-zJa"; */
+"2CF-wy-zJa.text" = "E-postadress";
+
+/* Class = "UILabel"; text = "Login"; ObjectID = "4Lf-GL-fbP"; */
+"4Lf-GL-fbP.text" = "Logga in";
+
+/* Class = "UIButton"; normalTitle = "Login"; ObjectID = "7a1-CO-ILS"; */
+"7a1-CO-ILS.normalTitle" = "Logga in";
+
+/* Class = "UILabel"; text = "ZIP Code"; ObjectID = "ALH-Is-KNg"; */
+"ALH-Is-KNg.text" = "Postnummer";
+
+/* Class = "UILabel"; text = "Confirm Password"; ObjectID = "DqP-GK-hYC"; */
+"DqP-GK-hYC.text" = "Bekräfta lösenord";
+
+/* Class = "UILabel"; text = "Phone number"; ObjectID = "F3n-wT-Ysf"; */
+"F3n-wT-Ysf.text" = "Telefonnummer";
+
+/* Class = "UINavigationItem"; title = "Register"; ObjectID = "MdX-Bd-4uL"; */
+"MdX-Bd-4uL.title" = "Registrera";
+
+/* Class = "UILabel"; text = "Code"; ObjectID = "PHw-VA-hnR"; */
+"PHw-VA-hnR.text" = "Kod";
+
+/* Class = "UIButton"; normalTitle = "Login"; ObjectID = "QJ3-OB-xJO"; */
+"QJ3-OB-xJO.normalTitle" = "Logga in";
+
+/* Class = "UILabel"; text = "Password"; ObjectID = "a0S-aa-Qj9"; */
+"a0S-aa-Qj9.text" = "Lösenord";
+
+/* Class = "UILabel"; text = "Country"; ObjectID = "dQq-zX-mai"; */
+"dQq-zX-mai.text" = "Land";
+
+/* Class = "UIButton"; normalTitle = "Register"; ObjectID = "gPk-dc-z6Q"; */
+"gPk-dc-z6Q.normalTitle" = "Registrera";
+
+/* Class = "UILabel"; text = "Username"; ObjectID = "hg8-M5-MiD"; */
+"hg8-M5-MiD.text" = "Användarnamn";
+
+/* Class = "UILabel"; text = "Address"; ObjectID = "lJ9-iS-2GP"; */
+"lJ9-iS-2GP.text" = "Adress";
+
+/* Class = "UILabel"; text = "Password"; ObjectID = "mfx-1X-Sln"; */
+"mfx-1X-Sln.text" = "Lösenord";
+
+/* Class = "UILabel"; text = "Username"; ObjectID = "sUN-pf-joA"; */
+"sUN-pf-joA.text" = "Användarnamn";
+
+/* Class = "UILabel"; text = "City"; ObjectID = "yO4-pg-o4w"; */
+"yO4-pg-o4w.text" = "Stad";
+
+/* Class = "UILabel"; text = "+"; ObjectID = "yaN-tg-F24"; */
+"yaN-tg-F24.text" = "+";

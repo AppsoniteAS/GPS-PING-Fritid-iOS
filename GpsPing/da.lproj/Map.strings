@@ -1,0 +1,63 @@
+
+/* Class = "UILabel"; text = "Lon"; ObjectID = "0hE-Lw-AMO"; */
+"0hE-Lw-AMO.text" = "Lon";
+
+/* Class = "UINavigationItem"; title = "Kort"; ObjectID = "1ed-VU-bE2"; */
+"1ed-VU-bE2.title" = "Kort";
+
+/* Class = "UIButton"; normalTitle = "Billede"; ObjectID = "5cb-FP-WT6"; */
+"5cb-FP-WT6.normalTitle" = "Billede";
+
+/* Class = "UILabel"; text = "GRSM"; ObjectID = "7WU-3t-juJ"; */
+"7WU-3t-juJ.text" = "GRSM";
+
+/* Class = "UILabel"; text = "GRSM"; ObjectID = "8Ez-fn-Vmg"; */
+"8Ez-fn-Vmg.text" = "GRSM";
+
+/* Class = "UILabel"; text = "Lat"; ObjectID = "BCl-0X-cKd"; */
+"BCl-0X-cKd.text" = "Lat";
+
+/* Class = "UILabel"; text = "Lat"; ObjectID = "Cly-MA-Pa7"; */
+"Cly-MA-Pa7.text" = "Lat";
+
+/* Class = "UILabel"; text = "Sporingsnummer:"; ObjectID = "IM6-GA-TKR"; */
+"IM6-GA-TKR.text" = "Sporingsnummer:";
+
+/* Class = "UILabel"; text = "3"; ObjectID = "IYc-b2-PSW"; */
+"IYc-b2-PSW.text" = "3";
+
+/* Class = "UILabel"; text = "Ejer:"; ObjectID = "Laz-LX-8xG"; */
+"Laz-LX-8xG.text" = "Ejer:";
+
+/* Class = "UILabel"; text = "Lon"; ObjectID = "LlE-0d-HeU"; */
+"LlE-0d-HeU.text" = "Lon";
+
+/* Class = "UILabel"; text = "IMEI Nummer:"; ObjectID = "MrX-Y2-fnz"; */
+"MrX-Y2-fnz.text" = "IMEI Nummer:";
+
+/* Class = "UITextField"; text = "Alle"; ObjectID = "RGG-T8-o5l"; */
+"RGG-T8-o5l.text" = "Alle";
+
+/* Class = "UIBarButtonItem"; title = "Vare"; ObjectID = "Reb-Vd-InL"; */
+"Reb-Vd-InL.title" = "Vare";
+
+/* Class = "UILabel"; text = "Joe"; ObjectID = "Vqg-bM-nuj"; */
+"Vqg-bM-nuj.text" = "Joe";
+
+/* Class = "UISegmentedControl"; crt-P2-2iW.segmentTitles[0] = "Satelit"; ObjectID = "crt-P2-2iW"; */
+"crt-P2-2iW.segmentTitles[0]" = "Satelit";
+
+/* Class = "UISegmentedControl"; crt-P2-2iW.segmentTitles[1] = "Standard"; ObjectID = "crt-P2-2iW"; */
+"crt-P2-2iW.segmentTitles[1]" = "Standard";
+
+/* Class = "UISegmentedControl"; crt-P2-2iW.segmentTitles[2] = "Topo"; ObjectID = "crt-P2-2iW"; */
+"crt-P2-2iW.segmentTitles[2]" = "Topo";
+
+/* Class = "UILabel"; text = "Paul Chelly"; ObjectID = "eP4-0M-Hrw"; */
+"eP4-0M-Hrw.text" = "Paul Chelly";
+
+/* Class = "UILabel"; text = "Log Tid:"; ObjectID = "gkt-CM-wsG"; */
+"gkt-CM-wsG.text" = "Log Tid:";
+
+/* Class = "UILabel"; text = "km"; ObjectID = "sB5-ze-bMx"; */
+"sB5-ze-bMx.text" = "km";

@@ -40,4 +40,11 @@
                                      bundle:[NSBundle mainBundle]];
 }
 
++(UIStoryboard*)trackerConfigurationStoryboard
+{
+    return [UIStoryboard storyboardWithName:@"TrackerConfiguration"
+                                     bundle:[NSBundle mainBundle]];
+}
+
+
 @end

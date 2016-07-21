@@ -55,23 +55,22 @@
 #pragma mark - IBActions
 
 -(IBAction)doSubmit:(id)sender {
-    [self as_sendSMS:[ASTrackerModel getSmsTextsForGeofenceLaunch:!([ASTrackerModel getChoosedTracker].isGeofenceStarted)
+    [[self as_sendSMS:[ASTrackerModel getSmsTextsForGeofenceLaunch:!([ASTrackerModel getChoosedTracker].isGeofenceStarted)
                                                       distance:self.viewModel.yards]
-           recipient:[ASTrackerModel getChoosedTracker].trackerNumber];
-}
-
--(void)smsManagerMessageWasSentWithResult:(MessageComposeResult)result
-{
-    ASTrackerModel *activeTracker = [ASTrackerModel getChoosedTracker];
-    activeTracker.isGeofenceStarted = !activeTracker.isGeofenceStarted;
-    
-    if (activeTracker.isGeofenceStarted) {
-        activeTracker.geofenceYards = self.viewModel.yards;
-    }
-    
-    [activeTracker saveInUserDefaults];
-    
-    [self updateButton];
+           ToRecipient:[ASTrackerModel getChoosedTracker].trackerNumber] subscribeNext:^(id x) {
+        ASTrackerModel *activeTracker = [ASTrackerModel getChoosedTracker];
+        activeTracker.isGeofenceStarted = !activeTracker.isGeofenceStarted;
+        
+        if (activeTracker.isGeofenceStarted) {
+            activeTracker.geofenceYards = self.viewModel.yards;
+        }
+        
+        [activeTracker saveInUserDefaults];
+        
+        [self updateButton];
+    } error:^(NSError *error) {
+        ;
+    }];
 }
 
 -(void)updateButton {

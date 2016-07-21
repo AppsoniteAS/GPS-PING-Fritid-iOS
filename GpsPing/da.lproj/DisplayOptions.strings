@@ -1,0 +1,15 @@
+
+/* Class = "UILabel"; text = "Vis sporingspositionen på kortet under:"; ObjectID = "5Cn-xZ-eV0"; */
+"5Cn-xZ-eV0.text" = "Vis sporingspositionen på kortet under:";
+
+/* Class = "UILabel"; text = "Sporing Historik"; ObjectID = "PQQ-4g-moW"; */
+"PQQ-4g-moW.text" = "Sporings Historik";
+
+/* Class = "UIButton"; normalTitle = "Gem"; ObjectID = "Pma-Ln-c1N"; */
+"Pma-Ln-c1N.normalTitle" = "Gem";
+
+/* Class = "UINavigationItem"; title = "Visnings Indstillinger"; ObjectID = "dKs-pk-Psb"; */
+"dKs-pk-Psb.title" = "Visnings Indstillinger";
+
+/* Class = "UITextField"; text = "{15 minutter}"; ObjectID = "nJZ-ao-037"; */
+"nJZ-ao-037.text" = "{15 minutter}";

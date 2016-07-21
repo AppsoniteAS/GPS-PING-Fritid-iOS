@@ -11,23 +11,27 @@
 #import <CocoaLumberjack.h>
 #import "Underscore.h"
 #import <ErrorKit/ErrorKit.h>
+#import "ASUserProfileModel.h"
 
 #include <netdb.h>
 #include <arpa/inet.h>
 
 static DDLogLevel ddLogLevel               = DDLogLevelDebug;
 
-NSString* const kASTrackerName       = @"name";
-NSString* const kASTrackerNumber     = @"tracker_number";
-NSString* const kASTrackerImei       = @"imei_number";
-NSString* const kASTrackerType       = @"type";
-NSString* const kASTrackerIsChoosed  = @"choosed";
-NSString* const kASTrackerDogInStand = @"check_for_stand";
-NSString* const kASTrackerSignalRate = @"reciver_signal_repeat_time";
-NSString* const kASTrackerId         = @"tracker_id";
-NSString* const kASIsRunning         = @"isRunning";
-NSString* const kASIsGeofenceRunning = @"isGeofenceRunning";
-NSString* const kASGeofenceYards     = @"geofenceYards";
+NSString* const kASTrackerName        = @"name";
+NSString* const kASTrackerNumber      = @"tracker_number";
+NSString* const kASTrackerImei        = @"imei_number";
+NSString* const kASTrackerType        = @"type";
+NSString* const kASTrackerIsChoosed   = @"choosed";
+NSString* const kASTrackerDogInStand  = @"check_for_stand";
+NSString* const kASTrackerSignalRate  = @"reciver_signal_repeat_time";
+NSString* const kASTrackerId          = @"tracker_id";
+NSString* const kASIsRunning          = @"isRunning";
+NSString* const kASIsGeofenceRunning  = @"isGeofenceRunning";
+NSString* const kASGeofenceYards      = @"geofenceYards";
+NSString* const kASBikeLedLightIsOn   = @"kASBikeLedLightIsOn";
+NSString* const kASBikeFlashAlarmIsOn = @"kASBikeFlashAlarmIsOn";
+NSString* const kASBikeShockAlarmIsOn = @"kASBikeShockAlarmIsOn";
 
 @implementation ASTrackerModel
 
@@ -60,15 +64,17 @@ NSString* const kASGeofenceYards     = @"geofenceYards";
               @keypath(ASTrackerModel.new, signalRateInSeconds): kASTrackerSignalRate,
               @keypath(ASTrackerModel.new, isRunning)          : kASIsRunning,
               @keypath(ASTrackerModel.new, isGeofenceStarted)  : kASIsGeofenceRunning,
-              @keypath(ASTrackerModel.new, geofenceYards)      : kASGeofenceYards
-
+              @keypath(ASTrackerModel.new, geofenceYards)      : kASGeofenceYards,
+               @keypath(ASTrackerModel.new, bikeLedLightIsOn)      : kASBikeLedLightIsOn,
+               @keypath(ASTrackerModel.new, bikeFlashAlarmIsOn)      : kASBikeFlashAlarmIsOn,
+               @keypath(ASTrackerModel.new, bikeShockAlarmIsOn)      : kASBikeShockAlarmIsOn
               };
 }
 
 + (NSValueTransformer *)trackerTypeJSONTransformer {
     return [MTLValueTransformer transformerUsingForwardBlock:^id(NSString *trackerType, BOOL *success, NSError *__autoreleasing *error) {
         if (trackerType == nil) {
-            return kASTrackerTypeAnywhere;
+            return kASTrackerTypeTkStarPet;
         }
         
         return trackerType;
@@ -86,6 +92,10 @@ NSString* const kASGeofenceYards     = @"geofenceYards";
 
 -(void)setSignalRateInSeconds:(NSNumber *)signalRateInSeconds
 {
+    if (signalRateInSeconds.integerValue == 0) {
+        signalRateInSeconds = @(60);
+    }
+    
     if (signalRateInSeconds.integerValue > 60) {
         self.signalRate = signalRateInSeconds.integerValue/60;
         self.signalRateMetric = kASSignalMetricTypeMinutes;
@@ -215,20 +225,20 @@ NSString* const kASGeofenceYards     = @"geofenceYards";
         }
         
         NSArray *result;
-        if ([self.trackerType isEqualToString:kASTrackerTypeAnywhere]) {
-            result = @[@"Begin123456",
+        ASUserProfileModel *profileModel = [ASUserProfileModel loadSavedProfileInfo];
+        if ([self.trackerType isEqualToString:kASTrackerTypeTkStarPet]) {
+            result = @[[NSString stringWithFormat:@"admin123456 00%@%@", profileModel.phoneCode, profileModel.phoneNumber],
+                       @"apn123456 internet.ts.m2m",
+                       @"adminip123456 52.49.162.223 5013",
                        @"gprs123456",
-                       @"apn123456 netcom",
-                       [NSString stringWithFormat:@"adminip123456 %s 5000", buff],
                        @"sleep123456 off"];
         } else {
-            result = @[@"Begin123456",
+            result = @[[NSString stringWithFormat:@"admin123456 00%@%@", profileModel.phoneCode, profileModel.phoneNumber],
+                       @"apn123456 internet.ts.m2m",
+                       @"adminip123456 52.49.162.223 5093",
                        @"gprs123456",
-                       @"apn123456 netcom",
-                       [NSString stringWithFormat:@"adminip123456 %s 5013", buff],
                        @"sleep123456 off"];
         }
-
         
         [subscriber sendNext:result];
         [subscriber sendCompleted];
@@ -268,5 +278,29 @@ NSString* const kASGeofenceYards     = @"geofenceYards";
         return @"move123456 0";
     }
 }
+
++(NSString*)getSmsTextsForBikeLedLightForMode:(BOOL)turnOn
+{
+    if (turnOn) {
+        return @"Led123456 on";
+    } else {
+        return @"Led123456 off";
+    }
+}
+
++(NSString*)getSmsTextsForBikeShockAlarmForMode:(BOOL)turnOn
+{
+    if (turnOn) {
+        return @"shock123456";
+    } else {
+        return @"sleep123456 time";
+    }
+}
+
++(NSString*)getSmsTextsForBikeFlashAlarm
+{
+   return @"LED123456 shock";
+}
+
 
 @end

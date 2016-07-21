@@ -1,0 +1,34 @@
+
+/* Class = "UILabel"; text = "{Julie}"; ObjectID = "7Lp-uA-TJo"; */
+"7Lp-uA-TJo.text" = "{Julie}";
+
+/* Class = "UIButton"; normalTitle = "Add Tracker"; ObjectID = "BZP-Pd-3a5"; */
+"BZP-Pd-3a5.normalTitle" = "Lägg till GPS-spårare";
+
+/* Class = "UILabel"; text = "580009914518"; ObjectID = "CZd-v3-kIQ"; */
+"CZd-v3-kIQ.text" = "580009914518";
+
+/* Class = "UILabel"; text = "Tracker Number last 4 digits"; ObjectID = "Di6-ls-fvH"; */
+"Di6-ls-fvH.text" = "GPS-spårarens sista 4 siffror";
+
+/* Class = "UILabel"; text = "Tracker"; ObjectID = "EyD-xO-8dj"; */
+"EyD-xO-8dj.text" = "GPS-spårare";
+
+/* Class = "UILabel"; text = "580009914518"; ObjectID = "Iem-dQ-Ist"; */
+"Iem-dQ-Ist.text" = "580009914518";
+
+/* Class = "UINavigationItem"; title = "Trackers"; ObjectID = "OdB-Mn-RO6"; */
+"OdB-Mn-RO6.title" = "GPS-spårare";
+
+/* Class = "UINavigationItem"; title = "Add Tracker"; ObjectID = "VPe-bu-H3s"; */
+"VPe-bu-H3s.title" = "Lägg till GPS-spårare";
+
+/* Class = "UILabel"; text = "IMEI Number"; ObjectID = "i7P-U5-doB"; */
+"i7P-U5-doB.text" = "IMEI-nummer";
+
+/* Class = "UILabel"; text = "Tracker Number:"; ObjectID = "pu3-bz-ZPE"; */
+"pu3-bz-ZPE.text" = "GPS-spårarens nummer:";
+
+/* Class = "UILabel"; text = "IMEI Number:"; ObjectID = "vX0-lZ-iHN"; */
+"vX0-lZ-iHN.text" = "IMEI-nummer:";
+

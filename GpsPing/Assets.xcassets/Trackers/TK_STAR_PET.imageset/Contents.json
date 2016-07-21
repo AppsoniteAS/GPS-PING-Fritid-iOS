@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "tracker_icon_tkstar_pet.png",
+      "filename" : "TK_STAR_PET.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "tracker_icon_tkstar_pet@2x.png",
+      "filename" : "TK_STAR_PET@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "tracker_icon_tkstar_pet@3x.png",
+      "filename" : "TK_STAR_PET@3x.png",
       "scale" : "3x"
     }
   ],

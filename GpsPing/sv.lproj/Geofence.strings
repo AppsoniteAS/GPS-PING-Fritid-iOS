@@ -1,0 +1,21 @@
+
+/* Class = "UIButton"; normalTitle = "Start"; ObjectID = "4ti-tr-e0g"; */
+"4ti-tr-e0g.normalTitle" = "Starta";
+
+/* Class = "UILabel"; text = "Remember to turn off geofence when stopping."; ObjectID = "L0T-3l-8BW"; */
+"L0T-3l-8BW.text" = "Glöm inte att stänga av geostaketet när du stoppar. ";
+
+/* Class = "UILabel"; text = "{Gerald Medina}"; ObjectID = "Wbl-3L-J5m"; */
+"Wbl-3L-J5m.text" = "{Gerald Medina}";
+
+/* Class = "UINavigationItem"; title = "Geofence"; ObjectID = "hEy-wP-Rqq"; */
+"hEy-wP-Rqq.title" = "Geostaket";
+
+/* Class = "UILabel"; text = "Active tracker:"; ObjectID = "nlV-wY-0T6"; */
+"nlV-wY-0T6.text" = "Aktiverad GPS-spårare:";
+
+/* Class = "UILabel"; text = "Yards"; ObjectID = "tUB-pA-yZA"; */
+"tUB-pA-yZA.text" = "Meter";
+
+/* Class = "UILabel"; text = "Input number of yards in diameter for geofence."; ObjectID = "vrk-BT-mnp"; */
+"vrk-BT-mnp.text" = "Skriv in antal meter i diameter för geostaketet. ";

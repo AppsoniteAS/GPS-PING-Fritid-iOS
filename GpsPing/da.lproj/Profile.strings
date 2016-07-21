@@ -1,0 +1,42 @@
+
+/* Class = "UILabel"; text = "Adresse"; ObjectID = "36o-K2-3Qo"; */
+"36o-K2-3Qo.text" = "Adresse";
+
+/* Class = "UILabel"; text = "By"; ObjectID = "GSd-4a-qro"; */
+"GSd-4a-qro.text" = "By";
+
+/* Class = "UILabel"; text = "+"; ObjectID = "MvS-zm-dAh"; */
+"MvS-zm-dAh.text" = "+";
+
+/* Class = "UIBarButtonItem"; title = "Log ud"; ObjectID = "N34-ff-TKq"; */
+"N34-ff-TKq.title" = "Log ud";
+
+/* Class = "UINavigationItem"; title = "Indstillinger"; ObjectID = "TzK-Ia-6UW"; */
+"TzK-Ia-6UW.title" = "Indstillinger";
+
+/* Class = "UILabel"; text = "Telefon nummer"; ObjectID = "ZSl-cC-ozM"; */
+"ZSl-cC-ozM.text" = "Telefon nummer";
+
+/* Class = "UILabel"; text = "E-mail"; ObjectID = "buM-zW-NuX"; */
+"buM-zW-NuX.text" = "E-mail";
+
+/* Class = "UILabel"; text = "Kode"; ObjectID = "egL-5D-oNH"; */
+"egL-5D-oNH.text" = "Kode";
+
+/* Class = "UILabel"; text = "Brugernavn"; ObjectID = "hRx-fF-uGf"; */
+"hRx-fF-uGf.text" = "Brugernavn";
+
+/* Class = "UILabel"; text = "Fulde navn"; ObjectID = "hdR-f6-V7t"; */
+"hdR-f6-V7t.text" = "Fulde navn";
+
+/* Class = "UILabel"; text = "Profil"; ObjectID = "jE1-EO-Rdb"; */
+"jE1-EO-Rdb.text" = "Profil";
+
+/* Class = "UIButton"; normalTitle = "Gem"; ObjectID = "kAR-F9-vgL"; */
+"kAR-F9-vgL.normalTitle" = "Gem";
+
+/* Class = "UILabel"; text = "Land"; ObjectID = "mzO-Vx-EE6"; */
+"mzO-Vx-EE6.text" = "Land";
+
+/* Class = "UILabel"; text = "Postnummer"; ObjectID = "rqb-vO-ou3"; */
+"rqb-vO-ou3.text" = "Postnummer";

@@ -10,7 +10,7 @@
 #import "UIColor+ASColor.h"
 #import "AGApiController.h"
 #import "UIStoryboard+ASHelper.h"
-
+#import "ASNewTrackerViewController.h"
 #import <CocoaLumberjack/CocoaLumberjack.h>
 static const DDLogLevel ddLogLevel = DDLogLevelVerbose;
 
@@ -32,6 +32,7 @@ objection_requires(@keypath(ASNavigationController.new, apiController))
     self.isFirstLaunch = YES;
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didLogout) name:kASDidLogoutNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didRegister) name:kASDidRegisterNotification object:nil];
 }
 
 -(void)viewDidLayoutSubviews
@@ -62,6 +63,19 @@ objection_requires(@keypath(ASNavigationController.new, apiController))
     }
 }
 
+-(void)didRegister {
+    
+    if (self.presentedViewController) {
+        DDLogVerbose(@"%s with dismiss", __PRETTY_FUNCTION__);
+        [self.presentedViewController dismissViewControllerAnimated:YES completion:^{
+            [self presentAddTrackerViewController];
+        }];
+    } else {
+        DDLogVerbose(@"%s without dismiss", __PRETTY_FUNCTION__);
+        [self presentAddTrackerViewController];
+    }
+}
+
 -(void)presentLogInControllerAnimated:(BOOL)animated {
     DDLogVerbose(@"%s", __PRETTY_FUNCTION__);
      [self popToRootViewControllerAnimated:NO];
@@ -71,6 +85,11 @@ objection_requires(@keypath(ASNavigationController.new, apiController))
                      completion:^{
 
                      }];
+}
+
+-(void)presentAddTrackerViewController {
+    UIViewController* controller = [[UIStoryboard trackerStoryboard] instantiateViewControllerWithIdentifier:NSStringFromClass([ASNewTrackerViewController  class])];
+    [self presentViewController:controller animated:YES completion:nil];
 }
 
 @end

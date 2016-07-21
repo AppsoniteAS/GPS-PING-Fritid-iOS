@@ -52,7 +52,7 @@ objection_requires(@keypath(MainMenuViewController.new, apiController))
 - (IBAction)startStopButtonTap:(id)sender {
     ASTrackerModel *trackerModel = [ASTrackerModel getChoosedTracker];
     
-    if (![ASTrackerModel getChoosedTracker]) {
+    if (!trackerModel) {
         [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"No tracker choosed", nil)
                                     message:NSLocalizedString(@"You must choose tracker on Trackers screen in Settings to start it", nil)
                                    delegate:nil
@@ -61,18 +61,25 @@ objection_requires(@keypath(MainMenuViewController.new, apiController))
         return;
     }
 
-    [self as_sendSMS:[trackerModel getSmsTextsForTrackerLaunch:!trackerModel.isRunning]
-           recipient:trackerModel.trackerNumber];
+    [[self as_sendSMS:[trackerModel getSmsTextsForTrackerLaunch:!trackerModel.isRunning]
+           ToRecipient:trackerModel.trackerNumber] subscribeNext:^(id x) {
+        [self updateCurrentTracker];
+    } error:^(NSError *error) {
+        ;
+    }];
 }
 
 -(void)selectTracker:(ASSelectTrackerViewController *)controller trackerChoosed:(ASTrackerModel *)trackerModel
 {
-    [self as_sendSMS:[trackerModel getSmsTextsForTrackerLaunch:YES]
-           recipient:trackerModel.trackerNumber];
+    [[self as_sendSMS:[trackerModel getSmsTextsForTrackerLaunch:YES]
+           ToRecipient:trackerModel.trackerNumber] subscribeNext:^(id x) {
+        [self updateCurrentTracker];
+    } error:^(NSError *error) {
+        ;
+    }];
 }
 
-
--(void)smsManagerMessageWasSentWithResult:(MessageComposeResult)result
+-(void)updateCurrentTracker
 {
     ASTrackerModel *trackerModel = [ASTrackerModel getChoosedTracker];
     trackerModel.isRunning = !trackerModel.isRunning;

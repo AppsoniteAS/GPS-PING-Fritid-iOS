@@ -1,6 +1,6 @@
 //
 //  AGApiController.m
-//  Taxi-Rhytm
+//  Gps Ping
 //
 //  Created by Pavel Ivanov on 02/07/15.
 //  Copyright (c) 2015 Appgranula. All rights reserved.
@@ -20,13 +20,11 @@
 static const DDLogLevel ddLogLevel = DDLogLevelVerbose;
 
 #define BASE_URL_PRODUCTION @"https://fritid.gpsping.no/api"
-#define BASE_URL_LOCAL      @"http://appgranula.mooo.com/api/"
+//#define BASE_URL_LOCAL      @"http://appgranula.mooo.com/api/"
 //#define BASE_URL_LOCAL      @"http://192.168.139.201/api/"
+#define BASE_URL_LOCAL      @"https://industri.gpsping.no/api/"
 
-NSString* AGOpteumBackendError                     = @"AGOpteumBackendError";
-NSString* AGRhythmMobileError                      = @"AGRhythmMobileError";
-
-NSInteger AGRhythmMobileErrorOrderAlreadyExists    = 101;
+NSString* AGGpsPingBackendError                     = @"AGGpsPingBackendError";
 
 NSInteger AGOpteumBackendResponseCodeSuccess       = 1;
 NSInteger AGOpteumBackendResponseCodeNotAuthorized = -1;
@@ -36,14 +34,7 @@ NSString *kASUserDefaultsKeyUsername = @"";
 NSString *kASUserDefaultsKeyPassword = @"";
 
 NSString *kASDidLogoutNotification = @"kASDidLogoutNotification";
-
-#define XML_URL  @"passport.xml"
-#define XML_URL2 @"driverlicense.xml"
-#define XML_URL3 @"sts.xml"
-
-//#define XML_DROPBOX_1 @"https://dl.dropboxusercontent.com/u/36183426/CantharisTemplates/driverlicense.xml"
-//#define XML_DROPBOX_2 @"https://dl.dropboxusercontent.com/u/36183426/CantharisTemplates/passport.xml"
-//#define XML_DROPBOX_3 @"https://dl.dropboxusercontent.com/u/36183426/CantharisTemplates/sts.xml"
+NSString *kASDidRegisterNotification = @"kASDidRegisteredNotification";
 
 @interface AGApiController()
 
@@ -105,22 +96,16 @@ objection_initializer(initWithConfiguration:);
     return [self performHttpRequestWithAttempts:@"POST" resource:@"get_nonce" parameters:@{@"controller":@"user", @"method":@"register"}];
 }
 
--(RACSignal *)registerUser:(NSString*)userName email:(NSString*)email password:(NSString*)password nonce:(NSString*)nonce
+-(RACSignal *)registerUser:(ASNewUserModel*)newUser
 {
     DDLogDebug(@"%s", __PRETTY_FUNCTION__);
+    NSDictionary *newUserDictionary = [MTLJSONAdapter JSONDictionaryFromModel:newUser error:nil];
     return [[self performHttpRequestWithAttempts:@"POST"
                                        resource:@"user/register/"
-                                     parameters:@{@"username":userName,
-                                                  @"user_pass":password,
-                                                  @"email":email,
-                                                  @"display_name":userName,
-                                                  @"nonce":nonce,
-                                                  @"first_name":@"",
-                                                  @"last_name":@""
-                                                  }] doNext:^(id x) {
-        [[NSUserDefaults standardUserDefaults] setObject:userName
+                                     parameters:newUserDictionary] doNext:^(id x) {
+        [[NSUserDefaults standardUserDefaults] setObject:newUser.username
                                                   forKey:kASUserDefaultsKeyUsername];
-        [[NSUserDefaults standardUserDefaults] setObject:password
+        [[NSUserDefaults standardUserDefaults] setObject:newUser.password
                                                   forKey:kASUserDefaultsKeyPassword];
         [[NSUserDefaults standardUserDefaults] synchronize];
     }];
@@ -178,46 +163,63 @@ objection_initializer(initWithConfiguration:);
 
 -(RACSignal*)submitUserMetaData:(ASUserProfileModel *)profile {
     NSParameterAssert(profile);
-    return [[[self performHttpRequestWithAttempts:@"POST"
-                                        resource:@"user/update_user_meta/"
-                                      parameters:@{@"cookie":profile.cookie,
-                                                   @"meta_key":@"last_name",
-                                                   @"meta_value":profile.lastname
-                                                   }] flattenMap:^RACStream *(id x) {
+    return [[[[[[[self performHttpRequestWithAttempts:@"POST"
+                                             resource:@"user/update_user_meta/"
+                                           parameters:@{@"cookie":profile.cookie,
+                                                        @"meta_key":@"last_name",
+                                                        @"meta_value":profile.lastname
+                                                        }
+                  ] flattenMap:^RACStream *(id x) {
         return [self performHttpRequestWithAttempts:@"POST"
                                            resource:@"user/update_user_meta/"
                                          parameters:@{@"cookie":profile.cookie,
                                                       @"meta_key":@"first_name",
                                                       @"meta_value":profile.firstname
                                                       }];
+    }]  flattenMap:^RACStream *(id x) {
+        return [self performHttpRequestWithAttempts:@"POST"
+                                           resource:@"user/update_user_meta/"
+                                         parameters:@{@"cookie":profile.cookie,
+                                                      @"meta_key":@"m_address",
+                                                      @"meta_value":profile.address
+                                                      }];
+    }]  flattenMap:^RACStream *(id x) {
+        return [self performHttpRequestWithAttempts:@"POST"
+                                           resource:@"user/update_user_meta/"
+                                         parameters:@{@"cookie":profile.cookie,
+                                                      @"meta_key":@"m_city",
+                                                      @"meta_value":profile.city
+                                                      }];
+    }]  flattenMap:^RACStream *(id x) {
+        return [self performHttpRequestWithAttempts:@"POST"
+                                           resource:@"user/update_user_meta/"
+                                         parameters:@{@"cookie":profile.cookie,
+                                                      @"meta_key":@"m_country",
+                                                      @"meta_value":profile.country
+                                                      }];
+    }]  flattenMap:^RACStream *(id x) {
+        return [self performHttpRequestWithAttempts:@"POST"
+                                           resource:@"user/update_user_meta/"
+                                         parameters:@{@"cookie":profile.cookie,
+                                                      @"meta_key":@"m_zipcode",
+                                                      @"meta_value":profile.zipCode
+                                                      }];
     }] deliverOnMainThread];
 }
 
 #pragma mark - Tracker
 
--(RACSignal *)addTracker:(NSString*)name
-                    imei:(NSString*)imei
-                  number:(NSString*)number
-              repeatTime:(CGFloat)repeatTime
-                    type:(NSString*)type
-           checkForStand:(BOOL)checkForStand
+-(RACSignal *)bindTrackerImei:(NSString*)imei
+                      number:(NSString*)number
 {
     DDLogDebug(@"%s", __PRETTY_FUNCTION__);
-    NSString *checkForStandString;
-    if (checkForStand) {
-        checkForStandString = @"true";
-    } else {
-        checkForStandString = @"false";
-    }
-    NSDictionary *params = @{@"name":name,
-                             @"imei_number":imei,
-                             @"tracker_number":number,
-                             @"reciver_signal_repeat_time":@(repeatTime),
-                             @"check_for_stand":checkForStandString,
-                             @"type":type};
+    NSDictionary *params = @{
+                             @"imei":imei,
+                             @"lastdig":number
+                             };
     params = [self addAuthParamsByUpdatingParams:params];
     return [self performHttpRequestWithAttempts:@"POST"
-                                       resource:@"tracker/add_tracker"
+                                       resource:@"tracker/bind_tracker"
                                      parameters:params];
 }
 
@@ -507,7 +509,7 @@ objection_initializer(initWithConfiguration:);
     return [signal flattenMap:^RACStream *(id response) {
         if ([response[@"status"] isEqualToString:@"error"]) {
             NSError *error = [NSError buildError:^(MRErrorBuilder *builder) {
-                 builder.domain = AGOpteumBackendError;
+                 builder.domain = AGGpsPingBackendError;
                  builder.localizedDescription = response[@"error"];
              }];
             if (([response[@"code"] integerValue] == 5) || ([response[@"code"] integerValue] == 211)) {

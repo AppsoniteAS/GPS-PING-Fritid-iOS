@@ -8,24 +8,37 @@
 
 #import "ASSmsManager.h"
 #import <CocoaLumberjack.h>
+#import <Objection/Objection.h>
 
 static DDLogLevel ddLogLevel = DDLogLevelVerbose;
 
-@implementation UIViewController (ASSmsManager)
+@implementation UIViewController(ASSmsManager)
 
--(void)as_sendSMS:(NSString *)text
-     recipient:(NSString*)recipient
+- (void)messageComposeViewController:(MFMessageComposeViewController *)controller
+                 didFinishWithResult:(MessageComposeResult)result {
+    if (result == MessageComposeResultSent || result == MessageComposeResultCancelled) {
+        [self.smsSendSignal sendNext:@(result)];
+        [self.smsSendSignal sendCompleted];
+    } else if (result == MessageComposeResultFailed) {
+        NSError *error = [[NSError alloc]initWithDomain:@"ASSmsManagerDomain" code:0 userInfo:nil];
+        [self.smsSendSignal sendError:error];
+    }
+
+    [controller dismissViewControllerAnimated:YES completion:nil];
+}
+
+-(RACSignal *)as_sendSMS:(NSString *)text ToRecipient:(NSString*)recipient
 {
     DDLogVerbose(@"%s text: %@ recipient: %@", __PRETTY_FUNCTION__, text, recipient);
 #if TARGET_OS_SIMULATOR
-    NSObject <ASSmsManagerProtocol> *obj = (id)self;
-    [obj smsManagerMessageWasSentWithResult:MessageComposeResultSent];
     [[[UIAlertView alloc] initWithTitle:@"SMS is not supported on simulator"
                                 message:[NSString stringWithFormat:@"Attempt to send SMS with params: text = %@, recipient = %@", text, recipient]
                                delegate:nil
                       cancelButtonTitle:@"Close"
                       otherButtonTitles: nil] show];
+    return [RACSignal return:@(MessageComposeResultSent)];
 #else
+    self.smsSendSignal = [RACSubject subject];
     MFMessageComposeViewController *controller = [[MFMessageComposeViewController alloc] init];
     if([MFMessageComposeViewController canSendText])
     {
@@ -35,21 +48,17 @@ static DDLogLevel ddLogLevel = DDLogLevelVerbose;
         controller.navigationBarHidden=YES;
         [self presentViewController:controller animated:NO completion:nil];
     }
+    
+    return self.smsSendSignal;
 #endif
 }
 
-- (void)messageComposeViewController:(MFMessageComposeViewController *)controller
-                 didFinishWithResult:(MessageComposeResult)result {
-    if ([self respondsToSelector:@selector(smsManagerMessageWasSentWithResult:)]) {
-        if (result == MessageComposeResultSent) {
-            NSObject <ASSmsManagerProtocol> *obj = (id)self;
-            [obj smsManagerMessageWasSentWithResult:result];
-        }
-    } else {
-        DDLogWarn(@"messageWasSentWithResult: should be implemeted for sms callback");
-    }
+- (void)setSmsSendSignal:(id)object {
+    objc_setAssociatedObject(self, @selector(smsSendSignal), object, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
 
-    [controller dismissViewControllerAnimated:YES completion:nil];
+- (id)smsSendSignal {
+    return objc_getAssociatedObject(self, @selector(smsSendSignal));
 }
 
 @end

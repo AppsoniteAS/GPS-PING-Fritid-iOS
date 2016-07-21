@@ -14,7 +14,6 @@
 #import "AGApiController.h"
 
 #import <CocoaLumberjack/CocoaLumberjack.h>
-static const DDLogLevel ddLogLevel = DDLogLevelVerbose;
 
 @interface ASTrackersViewController () <ASTrackerCellProtocol>
 
@@ -31,6 +30,13 @@ objection_requires(@keypath(ASTrackersViewController.new, apiController))
     [[JSObjection defaultInjector] injectDependencies:self];
     [self registerCellClass:[ASTrackerCell class]
               forModelClass:[ASTrackerModel class]];
+    [[self.apiController getTrackers] subscribeNext:^(NSArray *trackers) {
+        for (ASTrackerModel *tracker in trackers) {
+            [tracker saveInUserDefaults];
+        }
+    } error:^(NSError *error) {
+        ;
+    }];
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -55,10 +61,8 @@ objection_requires(@keypath(ASTrackersViewController.new, apiController))
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-//    [super tableView:tableView didSelectRowAtIndexPath:indexPath];
-    ASTrackerConfigurationViewController *configVC = [ASTrackerConfigurationViewController initialize];
-    configVC.trackerObject = [self.memoryStorage itemAtIndexPath:indexPath];
-    configVC.shouldShowInEditMode = YES;
+    ASTrackerModel *model = [self.memoryStorage itemAtIndexPath:indexPath];
+    ASTrackerConfigurationViewController *configVC = [ASTrackerConfigurationViewController initializeWithTrackerModel:model];
     UINavigationController *navVC = [[UINavigationController alloc] initWithRootViewController:configVC];
     [self presentViewController:navVC animated:YES completion:nil];
 }

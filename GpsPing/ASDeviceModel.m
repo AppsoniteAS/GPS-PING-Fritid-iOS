@@ -20,8 +20,8 @@ NSString* const kASDeviceLatitude      = @"device.last_lat";
 NSString* const kASDeviceLastDate      = @"device.last_time_stamp";
 NSString* const kASDeviceLastUpdate    = @"device.last_update";
 NSString* const kASDevicePoints        = @"points";
-NSString* const kASDeviceTrackerNumber = @"tracker_number";
-NSString* const kASDeviceImei          = @"imei_number";
+NSString* const kASDeviceTrackerNumber = @"device.tracker_number";
+NSString* const kASDeviceImei          = @"device.imei_number";
 
 @implementation ASDeviceModel
 

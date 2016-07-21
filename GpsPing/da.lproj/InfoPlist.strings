@@ -1,0 +1,3 @@
+NSLocationAlwaysUsageDescription = "Tilgår placering for at fastlægge din adresse";
+NSLocationUsageDescription = "Tilgår placering for at fastlægge din adresse";
+NSLocationWhenInUseUsageDescription = "Tilgår placering for at fastlægge din adresse";

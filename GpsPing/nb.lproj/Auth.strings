@@ -14,7 +14,7 @@
 "MdX-Bd-4uL.title" = "Registrer";
 
 /* Class = "UIButton"; normalTitle = "Login"; ObjectID = "QJ3-OB-xJO"; */
-"QJ3-OB-xJO.normalTitle" = "Logg inn";
+"QJ3-OB-xJO.normalTitle" = "Registrer";
 
 /* Class = "UILabel"; text = "Password"; ObjectID = "a0S-aa-Qj9"; */
 "a0S-aa-Qj9.text" = "Passord";

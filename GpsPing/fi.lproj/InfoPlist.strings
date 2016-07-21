@@ -1,0 +1,3 @@
+NSLocationAlwaysUsageDescription = "Havaitaan sijaintia osoitteesi määrittämistä varten";
+NSLocationUsageDescription = "Havaitaan sijaintia osoitteesi määrittämistä varten";
+NSLocationWhenInUseUsageDescription = "Havaitaan sijaintia osoitteesi määrittämistä varten";

@@ -1,0 +1,43 @@
+
+/* Class = "UILabel"; text = "Address"; ObjectID = "36o-K2-3Qo"; */
+"36o-K2-3Qo.text" = "Adress";
+
+/* Class = "UILabel"; text = "City"; ObjectID = "GSd-4a-qro"; */
+"GSd-4a-qro.text" = "Stad";
+
+/* Class = "UILabel"; text = "+"; ObjectID = "MvS-zm-dAh"; */
+"MvS-zm-dAh.text" = "+";
+
+/* Class = "UIBarButtonItem"; title = "Logout"; ObjectID = "N34-ff-TKq"; */
+"N34-ff-TKq.title" = "Logga ut";
+
+/* Class = "UINavigationItem"; title = "Settings"; ObjectID = "TzK-Ia-6UW"; */
+"TzK-Ia-6UW.title" = "Inställningar";
+
+/* Class = "UILabel"; text = "Phone number"; ObjectID = "ZSl-cC-ozM"; */
+"ZSl-cC-ozM.text" = "Telefonnummer";
+
+/* Class = "UILabel"; text = "Email"; ObjectID = "buM-zW-NuX"; */
+"buM-zW-NuX.text" = "E-postadress";
+
+/* Class = "UILabel"; text = "Code"; ObjectID = "egL-5D-oNH"; */
+"egL-5D-oNH.text" = "Kod";
+
+/* Class = "UILabel"; text = "Username"; ObjectID = "hRx-fF-uGf"; */
+"hRx-fF-uGf.text" = "Användarnamn";
+
+/* Class = "UILabel"; text = "Full Name"; ObjectID = "hdR-f6-V7t"; */
+"hdR-f6-V7t.text" = "Fullständigt namn";
+
+/* Class = "UILabel"; text = "Profile"; ObjectID = "jE1-EO-Rdb"; */
+"jE1-EO-Rdb.text" = "Profil";
+
+/* Class = "UIButton"; normalTitle = "Save"; ObjectID = "kAR-F9-vgL"; */
+"kAR-F9-vgL.normalTitle" = "Spara";
+
+/* Class = "UILabel"; text = "Country"; ObjectID = "mzO-Vx-EE6"; */
+"mzO-Vx-EE6.text" = "Land";
+
+/* Class = "UILabel"; text = "ZIP Code"; ObjectID = "rqb-vO-ou3"; */
+"rqb-vO-ou3.text" = "Postnummer";
+

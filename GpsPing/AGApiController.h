@@ -13,20 +13,15 @@
 #import <Objection/Objection.h>
 #import <extobjc.h>
 #import "ASUserProfileModel.h"
+#import "ASNewUserModel.h"
 
-extern NSString* AGOpteumBackendError;
-extern NSString* AGRhythmMobileError;
-
-extern NSInteger AGRhythmMobileErrorOrderAlreadyExists;
-
-extern NSInteger AGOpteumBackendResponseCodeSuccess;
-extern NSInteger AGOpteumBackendResponseCodeNotAuthorized;
-extern NSInteger AGOpteumBackendResponseCodePhoneBlocked;
+extern NSString* AGGpsPingBackendError;
 
 extern NSString *kASUserDefaultsKeyUsername;
 extern NSString *kASUserDefaultsKeyPassword;
 
 extern NSString *kASDidLogoutNotification;
+extern NSString *kASDidRegisterNotification;
 
 @protocol AGApplicationConfigurationDelegate
 
@@ -42,19 +37,17 @@ extern NSString *kASDidLogoutNotification;
 #pragma mark - Auth
 
 -(RACSignal *)getNonce;
--(RACSignal *)registerUser:(NSString*)userName email:(NSString*)email password:(NSString*)password nonce:(NSString*)nonce;
+
+-(RACSignal *)registerUser:(ASNewUserModel*)newUser;
+
 -(RACSignal *)authUser:(NSString*)userName password:(NSString*)password;
 -(RACSignal *)logout;
 -(RACSignal*)submitUserMetaData:(ASUserProfileModel *)profile;
 -(RACSignal*)fetchProfile;
 
 #pragma mark - Tracker
--(RACSignal *)addTracker:(NSString*)name
-                    imei:(NSString*)imei 
-                  number:(NSString*)number
-              repeatTime:(CGFloat)repeatTime
-                    type:(NSString*)type
-           checkForStand:(BOOL)checkForStand;
+-(RACSignal *)bindTrackerImei:(NSString*)imei
+                       number:(NSString*)number;
 -(RACSignal *)getTrackers;
 -(RACSignal *)updateTracker:(NSString*)name
                   trackerId:(NSString*)trackerId

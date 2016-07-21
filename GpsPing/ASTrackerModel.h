@@ -11,8 +11,10 @@
 #import <ReactiveCocoa.h>
 
 static NSString * const kASTrackerTypeTkStar      = @"TK_STAR";
-static NSString * const kASTrackerTypeTkStarPet   = @"TK_STAR_PET";
 static NSString * const kASTrackerTypeAnywhere    = @"TK_ANYWHERE";
+
+static NSString * const kASTrackerTypeTkStarPet   = @"TK_STAR_PET";
+static NSString * const kASTrackerTypeTkBike    = @"TK_BIKE";
 
 static NSString * const kASSignalMetricTypeSeconds   = @"Seconds";
 static NSString * const kASSignalMetricTypeMinutes   = @"Minutes";
@@ -30,6 +32,11 @@ static NSString * const kASUserDefaultsTrackersKey   = @"kASUserDefaultsTrackers
 @property (nonatomic, assign) BOOL      isRunning;
 @property (nonatomic, assign) BOOL      isGeofenceStarted;
 @property (nonatomic, assign) BOOL      dogInStand;
+
+@property (nonatomic, assign) BOOL      bikeLedLightIsOn;
+@property (nonatomic, assign) BOOL      bikeShockAlarmIsOn;
+@property (nonatomic, assign) BOOL      bikeFlashAlarmIsOn;
+
 @property (nonatomic, assign) NSInteger signalRate;
 @property (nonatomic        ) NSNumber  *signalRateInSeconds;
 @property (nonatomic        ) NSString  *signalRateMetric;
@@ -53,4 +60,9 @@ static NSString * const kASUserDefaultsTrackersKey   = @"kASUserDefaultsTrackers
 -(NSString*)getSmsTextsForTrackerLaunch:(BOOL)isOn;
 +(NSString*)getSmsTextsForGeofenceLaunch:(BOOL)turnOn
                                 distance:(NSString*)distance;
+
++(NSString*)getSmsTextsForBikeLedLightForMode:(BOOL)turnOn;
++(NSString*)getSmsTextsForBikeShockAlarmForMode:(BOOL)turnOn;
++(NSString*)getSmsTextsForBikeFlashAlarm;
+
 @end

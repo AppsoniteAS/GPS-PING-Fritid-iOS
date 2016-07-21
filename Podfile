@@ -27,5 +27,6 @@ target :GpsPing do
     pod 'Google/CloudMessaging'
     pod 'mgrs', '~> 0.1.0'
     pod 'DateTools', '~> 1.7.0'
+    pod 'TPKeyboardAvoiding', '~> 1.2'
     
 end

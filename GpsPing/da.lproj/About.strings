@@ -1,0 +1,24 @@
+
+/* Class = "UIButton"; normalTitle = "Kontakt os"; ObjectID = "0lh-iO-07F"; */
+"0lh-iO-07F.normalTitle" = "Kontakt os";
+
+/* Class = "UIButton"; normalTitle = "Besøg hjemmeside"; ObjectID = "JFv-af-IZM"; */
+"JFv-af-IZM.normalTitle" = "Besøg hjemmeside";
+
+/* Class = "UIButton"; normalTitle = "Om os"; ObjectID = "MXm-WI-p3w"; */
+"MXm-WI-p3w.normalTitle" = "Om Os";
+
+/* Class = "UILabel"; text = "Denne app lader dig se GPS positionen på en gps sporer â€¨\nFør du starter, gå da til Indstillinger og intast IMEI nummeret samt sporingsnummeret. â€¨â€¨Vælg signal intervallet. Tap 'Gem' og gå tilbage til hovedmenuen for at starte sporeren.â€¨\nTap Start Sporer for at tænde for sporingsignalet. Du modtager en besked fra sporeren når den afsender. Du kan se sporerens sidste position vist som en grøn trekant.â€¨â€¨Tidligere positioner er markerede med en grøn cirkel."; ObjectID = "PWd-Fd-8CO"; */
+"PWd-Fd-8CO.text" = "Denne app lader dig se GPS positionen på en gps sporer â€¨\nFør du starter, gå da til Indstillinger og intast IMEI nummeret samt sporingsnummeret. â€¨â€¨Vælg signal intervallet. Tap 'Gem' og gå tilbage til hovedmenuen for at starte sporeren.â€¨\nTap Start Sporer for at tænde for sporingsignalet. Du modtager en besked fra sporeren når den afsender. Du kan se sporerens sidste position vist som en grøn trekant.â€¨â€¨Tidligere positioner er markerede med en grøn cirkel.";
+
+/* Class = "UIViewController"; title = "Om"; ObjectID = "UbW-fB-OPx"; */
+"UbW-fB-OPx.title" = "Om";
+
+/* Class = "UILabel"; text = "Du kan bestille Sporeren ved at benytte dig af Kontakt Os knappen"; ObjectID = "Uyg-CH-3xf"; */
+"Uyg-CH-3xf.text" = "Du kan bestille Sporeren ved at benytte dig af Kontakt Os knappen";
+
+/* Class = "UINavigationItem"; title = "Om"; ObjectID = "etW-K0-K0w"; */
+"etW-K0-K0w.title" = "Om";
+
+/* Class = "UILabel"; text = "Om Os"; ObjectID = "yt0-yU-QTl"; */
+"yt0-yU-QTl.text" = "Om Os";

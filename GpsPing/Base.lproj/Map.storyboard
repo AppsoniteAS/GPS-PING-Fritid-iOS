@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="sw3-fk-UAu">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="sw3-fk-UAu">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -165,13 +165,18 @@
                                                 </variation>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qd5-Mo-uzn">
-                                                <rect key="frame" x="66" y="15" width="0.0" height="0.0"/>
+                                                <rect key="frame" x="66" y="10" width="0.0" height="10"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" id="GF2-5u-tYJ"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="8"/>
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
+                                                <variation key="default">
+                                                    <mask key="constraints">
+                                                        <exclude reference="GF2-5u-tYJ"/>
+                                                    </mask>
+                                                </variation>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hes-4O-1Di">
                                                 <rect key="frame" x="66" y="20" width="0.0" height="10"/>
@@ -197,6 +202,7 @@
                                             <constraint firstItem="ST3-ip-4f4" firstAttribute="leading" secondItem="qd5-Mo-uzn" secondAttribute="leading" id="hLt-ny-lBY"/>
                                             <constraint firstItem="Hes-4O-1Di" firstAttribute="leading" secondItem="qd5-Mo-uzn" secondAttribute="leading" id="iUz-ai-CaE"/>
                                             <constraint firstItem="ST3-ip-4f4" firstAttribute="leading" secondItem="IM6-GA-TKR" secondAttribute="leading" constant="65" id="kbz-bD-tl9"/>
+                                            <constraint firstItem="qd5-Mo-uzn" firstAttribute="height" secondItem="MrX-Y2-fnz" secondAttribute="height" id="nt4-YD-DKO"/>
                                             <constraint firstItem="MrX-Y2-fnz" firstAttribute="top" secondItem="IM6-GA-TKR" secondAttribute="bottom" id="sKv-qs-gTk"/>
                                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="ST3-ip-4f4" secondAttribute="trailing" constant="6" id="u3g-LN-63Z"/>
                                             <constraint firstItem="qd5-Mo-uzn" firstAttribute="centerY" secondItem="MrX-Y2-fnz" secondAttribute="centerY" id="uNM-vf-vt5"/>
@@ -579,6 +585,9 @@
                                     </mask>
                                 </variation>
                             </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image_compass" translatesAutoresizingMaskIntoConstraints="NO" id="ret-Ku-nCK">
+                                <rect key="frame" x="264" y="130" width="48" height="48"/>
+                            </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="map_cursor" translatesAutoresizingMaskIntoConstraints="NO" id="M8s-by-y94">
                                 <rect key="frame" x="135" y="259" width="50" height="50"/>
                             </imageView>
@@ -592,12 +601,14 @@
                         <constraints>
                             <constraint firstItem="hPV-uE-2fI" firstAttribute="top" secondItem="zmk-Dv-JcT" secondAttribute="topMargin" id="0jm-DI-fwY"/>
                             <constraint firstAttribute="trailing" secondItem="y6O-VD-VEg" secondAttribute="trailing" id="2Vx-NF-tht"/>
+                            <constraint firstAttribute="trailing" secondItem="ret-Ku-nCK" secondAttribute="trailing" constant="8" id="4I3-Hd-lgf"/>
                             <constraint firstItem="M8s-by-y94" firstAttribute="centerX" secondItem="y6O-VD-VEg" secondAttribute="centerX" id="Lk2-bt-Ayz"/>
                             <constraint firstAttribute="bottomMargin" secondItem="gzy-Op-7ej" secondAttribute="bottom" id="QeI-Y7-Sta"/>
                             <constraint firstItem="1xD-Dc-EO1" firstAttribute="leading" secondItem="zmk-Dv-JcT" secondAttribute="leading" constant="18" id="TCb-Dj-Y0p"/>
                             <constraint firstItem="y6O-VD-VEg" firstAttribute="leading" secondItem="zmk-Dv-JcT" secondAttribute="leading" id="TOH-t1-GKw"/>
                             <constraint firstItem="hPV-uE-2fI" firstAttribute="leading" secondItem="zmk-Dv-JcT" secondAttribute="leading" id="VPD-W5-Qfq"/>
                             <constraint firstItem="gzy-Op-7ej" firstAttribute="leading" secondItem="zmk-Dv-JcT" secondAttribute="leading" id="d7H-I9-3dr"/>
+                            <constraint firstItem="ret-Ku-nCK" firstAttribute="top" secondItem="hPV-uE-2fI" secondAttribute="bottom" constant="8" id="e70-02-0g3"/>
                             <constraint firstItem="M8s-by-y94" firstAttribute="centerY" secondItem="y6O-VD-VEg" secondAttribute="centerY" id="fJ5-sO-17b"/>
                             <constraint firstAttribute="bottomMargin" secondItem="y6O-VD-VEg" secondAttribute="bottom" id="gkT-Fu-EER"/>
                             <constraint firstAttribute="bottom" secondItem="ni7-Ru-box" secondAttribute="bottom" id="j9D-Bp-dEL"/>
@@ -629,6 +640,7 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
+                        <outlet property="compassImageView" destination="ret-Ku-nCK" id="dey-Fw-WXX"/>
                         <outlet property="dashedLineView" destination="ni7-Ru-box" id="VPL-VE-xue"/>
                         <outlet property="detailsPlank" destination="1xD-Dc-EO1" id="qfI-ph-G3g"/>
                         <outlet property="distanceLabel" destination="IYc-b2-PSW" id="w22-YI-eNK"/>
@@ -651,6 +663,7 @@
     </scenes>
     <resources>
         <image name="annotation_user_icon" width="36" height="36"/>
+        <image name="image_compass" width="48" height="48"/>
         <image name="map_cursor" width="50" height="50"/>
     </resources>
 </document>

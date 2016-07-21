@@ -1,0 +1,70 @@
+/* 
+  Errors.strings
+  GpsPing
+
+  Created by Maks Niagolov on 2/25/16.
+  Copyright © 2016 Robin Grønvold. All rights reserved.
+*/
+
+/* No comment provided by engineer. */
+"Friend already added" = "Ven allerede tilføjet";
+
+/* No comment provided by engineer. */
+"Error insert to gpsping_friends table" = "Kan ikke tilføje ny ven";
+
+/* No comment provided by engineer. */
+"Friendship request not found" = "Venneanmodning ikke fndet";
+
+/* No comment provided by engineer. */
+"Error insert to gpsping_push_id table" = "Kan ikke registrere brugernotifikationer";
+
+/* No comment provided by engineer. */
+"Invalid authentication cookie. Use the `generate_auth_cookie` method." = "Ugyldig valideringscookie. Prøv igen.";
+
+/* No comment provided by engineer. */
+"Error insert POI" = "Kan ikke tilføje nyt interessepunkt";
+
+/* No comment provided by engineer. */
+"Tracker already added." = "Sporer allerede tilføjet.";
+
+/* No comment provided by engineer. */
+"Error insert to gps_device table" = "Kan ikke tilføje ny enhed";
+
+/* No comment provided by engineer. */
+"Error insert to gpsping_user_devices table" = "Kan ikke tilføje ny enhed";
+
+/* No comment provided by engineer. */
+"Don't find tracker" = "Kan ikke finde sporer";
+
+/* No comment provided by engineer. */
+"Error insert to gps_eventdata_user table" = "Kan ikke oprette punkt";
+
+/* No comment provided by engineer. */
+"Invalid access, unverifiable 'nonce' value. Use the 'get_nonce' Core API method. " = "Registreringsfejl, prøv venligst igen";
+
+/* No comment provided by engineer. */
+"Username is invalid." = "Brugernavnet er ugyldigt.";
+
+/* No comment provided by engineer. */
+"Username already exists." = "Brugernavn eksisterer allerede.";
+
+/* No comment provided by engineer. */
+"E-mail address is invalid." = "E-mail adressen er ugyldig.";
+
+/* No comment provided by engineer. */
+"E-mail address is already in use." = "E-mail adressen er allerede i brug"; 
+
+/* No comment provided by engineer. */
+"Your email address not found!" = "Din e-mail aresse blev ikke fundet!";
+
+/* No comment provided by engineer. */
+"password reset not allowed!" = "Password nulstillelse er ikke tilladt!";
+
+/* No comment provided by engineer. */
+"An error occured!" = "En fejl opstod!";
+
+/* No comment provided by engineer. */
+"The e-mail could not be sent. Possible reason: your host may have disabled the mail() function..." = "E-mailen kunne ikke sendes";
+
+/* No comment provided by engineer. */
+"Invalid username and\/or password." = "Ugyldigt brugernavn og/eller password.";

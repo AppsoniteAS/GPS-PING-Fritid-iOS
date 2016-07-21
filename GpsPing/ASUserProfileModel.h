@@ -11,12 +11,21 @@
 
 @interface ASUserProfileModel : MTLModel<MTLJSONSerializing>
 
-@property (strong, nonatomic) NSString   *username;
-@property (strong, nonatomic) NSString   *email;
-@property (strong, nonatomic) NSString   *firstname;
-@property (strong, nonatomic) NSString   *lastname;
-@property (strong, nonatomic) NSString   *cookie;
-@property (strong, nonatomic) NSString   *cookieName;
+@property (strong, nonatomic) NSString *username;
+@property (strong, nonatomic) NSString *email;
+
+@property (strong, nonatomic) NSString *phoneCode;
+@property (strong, nonatomic) NSString *phoneNumber;
+
+@property (strong, nonatomic) NSString *address;
+@property (strong, nonatomic) NSString *city;
+@property (strong, nonatomic) NSString *country;
+@property (strong, nonatomic) NSString *zipCode;
+
+@property (strong, nonatomic) NSString *firstname;
+@property (strong, nonatomic) NSString *lastname;
+@property (strong, nonatomic) NSString *cookie;
+@property (strong, nonatomic) NSString *cookieName;
 
 + (void)saveProfileInfoLocally:(ASUserProfileModel *)profile;
 + (ASUserProfileModel *)loadSavedProfileInfo;
