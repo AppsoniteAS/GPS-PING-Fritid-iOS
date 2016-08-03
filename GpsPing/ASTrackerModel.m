@@ -202,7 +202,7 @@ NSString* const kASGeofenceYards     = @"geofenceYards";
 
 -(RACSignal*)getSmsTextsForActivation {
     return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
-        struct hostent *host_entry = gethostbyname("fritid.gpsping.no");
+        struct hostent *host_entry = gethostbyname("industri.gpsping.no");
         char *buff;
         buff = inet_ntoa(*((struct in_addr *)host_entry->h_addr_list[0]));
         if (buff == NULL) {
@@ -219,7 +219,7 @@ NSString* const kASGeofenceYards     = @"geofenceYards";
         if ([self.trackerType isEqualToString:kASTrackerTypeAnywhere]) {
             result = @[@"Begin123456",
                        @"gprs123456",
-                       @"apn123456 netcom",
+                       @"apn123456 internet.ts.m2m",
                        [NSString stringWithFormat:@"adminip123456 %s 5000", buff],
                        @"sleep123456 off"];
         } else if ([self.trackerType isEqualToString:kASTrackerTypeLK209]) {
@@ -235,17 +235,17 @@ NSString* const kASGeofenceYards     = @"geofenceYards";
             }
             
             result = @[[NSString stringWithFormat:@"admin123456 %@", phone],
-                       @"apn123456 netcom",
+                       @"apn123456 internet.ts.m2m",
                        [NSString stringWithFormat:@"adminip123456 %s 5013", buff],
                        @"gprs123456"];
         } else if ([self.trackerType isEqualToString:kASTrackerTypeVT600]) {
-            result = @[@"W000000,010,netcom",
+            result = @[@"W000000,010,internet.ts.m2m",
                        [NSString stringWithFormat:@"W000000,012,%s,5009", buff],
                        @"W000000,013,1"];
         } else {
             result = @[@"Begin123456",
                        @"gprs123456",
-                       @"apn123456 netcom",
+                       @"apn123456 internet.ts.m2m",
                        [NSString stringWithFormat:@"adminip123456 %s 5013", buff],
                        @"sleep123456 off"];
         }
