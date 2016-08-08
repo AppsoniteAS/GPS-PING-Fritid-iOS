@@ -312,11 +312,11 @@ objection_requires(@keypath(ASMapViewController.new, apiController))
         [self.mapView addOverlay:overlaySweden
                            level:MKOverlayLevelAboveLabels];
         
-        static NSString * const templateFinland = @"http://industri.gpsping.no:6057/service?LAYERS=finnish&FORMAT=image/png&SRS=EPSG:3857&EXCEPTIONS=application.vnd.ogc.se_inimage&TRANSPARENT=TRUE&SERVICE=WMS&VERSION=1.1.1&REQUEST=GetMap&STYLES=&WIDTH=256&HEIGHT=256";
-        WMSTileOverlay *overlayFinland = [[WMSTileOverlay alloc] initWithUrl:templateFinland UseMercator:YES];
-        overlayFinland.canReplaceMapContent = YES;
-        [self.mapView addOverlay:overlayFinland
-                           level:MKOverlayLevelAboveLabels];
+//        static NSString * const templateFinland = @"http://industri.gpsping.no:6057/service?LAYERS=finnish&FORMAT=image/png&SRS=EPSG:3857&EXCEPTIONS=application.vnd.ogc.se_inimage&TRANSPARENT=TRUE&SERVICE=WMS&VERSION=1.1.1&REQUEST=GetMap&STYLES=&WIDTH=256&HEIGHT=256";
+//        WMSTileOverlay *overlayFinland = [[WMSTileOverlay alloc] initWithUrl:templateFinland UseMercator:YES];
+//        overlayFinland.canReplaceMapContent = YES;
+//        [self.mapView addOverlay:overlayFinland
+//                           level:MKOverlayLevelAboveLabels];
 
         static NSString * const templateNorway = @"http://opencache.statkart.no/gatekeeper/gk/gk.open_gmaps?layers=topo2&zoom={z}&x={x}&y={y}&format=image/png";
         MKTileOverlay *overlayNorway = [[MKTileOverlay alloc] initWithURLTemplate:templateNorway];
