@@ -31,7 +31,13 @@ objection_requires(@keypath(ASTrackersViewController.new, apiController))
     [self registerCellClass:[ASTrackerCell class]
               forModelClass:[ASTrackerModel class]];
     [[self.apiController getTrackers] subscribeNext:^(NSArray *trackers) {
+        NSArray *memoryTrackers = [ASTrackerModel getTrackersFromUserDefaults];
         for (ASTrackerModel *tracker in trackers) {
+            for(ASTrackerModel *memoryTracker in memoryTrackers){
+                if([memoryTracker.imeiNumber isEqualToString:tracker.imeiNumber]){
+                    tracker.isChoosed = memoryTracker.isChoosed;
+                }
+            }
             [tracker saveInUserDefaults];
         }
     } error:^(NSError *error) {
