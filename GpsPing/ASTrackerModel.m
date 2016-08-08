@@ -253,7 +253,8 @@ NSString* const kASBikeShockAlarmIsOn = @"kASBikeShockAlarmIsOn";
     }
     
     if ([self.trackerType isEqualToString:kASTrackerTypeTkStar] ||
-        [self.trackerType isEqualToString:kASTrackerTypeTkStarPet]) {
+        [self.trackerType isEqualToString:kASTrackerTypeTkStarPet] ||
+        [self.trackerType isEqualToString:kASTrackerTypeTkBike]) {
         NSInteger signalRate = self.signalRate;
         if ([self.signalRateMetric isEqualToString:kASSignalMetricTypeMinutes]){
             signalRate *= 60;
