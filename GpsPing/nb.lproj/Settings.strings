@@ -1,18 +1,21 @@
-/* Class = "UIButton"; normalTitle = "Connect"; ObjectID = "2Pk-J7-6Zh"; */
+
+/* Class = "UIButton"; normalTitle = "Koble til"; ObjectID = "2Pk-J7-6Zh"; */
 "2Pk-J7-6Zh.normalTitle" = "Koble til";
 
-/* Class = "UINavigationItem"; title = "Settings"; ObjectID = "PiA-BG-Mjc"; */
+/* Class = "UINavigationItem"; title = "Innstillinger"; ObjectID = "PiA-BG-Mjc"; */
 "PiA-BG-Mjc.title" = "Innstillinger";
+
+/* Class = "UIButton"; normalTitle = "Pause subscription"; ObjectID = "TSu-3F-tjY"; */
+"TSu-3F-tjY.normalTitle" = "Pause abbonnement";
 
 /* Class = "UIButton"; normalTitle = "Geofence"; ObjectID = "Xdm-N5-bVT"; */
 "Xdm-N5-bVT.normalTitle" = "Geofence";
 
-/* Class = "UIButton"; normalTitle = "Display options"; ObjectID = "cTF-za-rkp"; */
+/* Class = "UIButton"; normalTitle = "Visnings alternativer"; ObjectID = "cTF-za-rkp"; */
 "cTF-za-rkp.normalTitle" = "Visnings alternativer";
 
-/* Class = "UIButton"; normalTitle = "Profile"; ObjectID = "tUt-jc-XWF"; */
+/* Class = "UIButton"; normalTitle = "Profil"; ObjectID = "tUt-jc-XWF"; */
 "tUt-jc-XWF.normalTitle" = "Profil";
 
-/* Class = "UIButton"; normalTitle = "About"; ObjectID = "zhj-4V-9NB"; */
+/* Class = "UIButton"; normalTitle = "Om"; ObjectID = "zhj-4V-9NB"; */
 "zhj-4V-9NB.normalTitle" = "Om";
-
