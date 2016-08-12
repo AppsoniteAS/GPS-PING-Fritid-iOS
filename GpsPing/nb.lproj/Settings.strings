@@ -6,7 +6,7 @@
 "PiA-BG-Mjc.title" = "Innstillinger";
 
 /* Class = "UIButton"; normalTitle = "Pause subscription"; ObjectID = "TSu-3F-tjY"; */
-"TSu-3F-tjY.normalTitle" = "Pause abbonnement";
+"TSu-3F-tjY.normalTitle" = "Pause abonnement";
 
 /* Class = "UIButton"; normalTitle = "Geofence"; ObjectID = "Xdm-N5-bVT"; */
 "Xdm-N5-bVT.normalTitle" = "Geofence";

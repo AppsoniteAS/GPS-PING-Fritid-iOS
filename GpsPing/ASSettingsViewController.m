@@ -94,7 +94,7 @@ static DDLogLevel ddLogLevel = DDLogLevelDebug;
     [composeVC setSubject:@"Pause Subscription"];
 
     ASUserProfileModel *profileModel = [ASUserProfileModel loadSavedProfileInfo];
-    NSString *message = [NSString stringWithFormat:@"Name: %@ %@\nAddress: %@\nUsername: %@\n", profileModel.firstname, profileModel.lastname, profileModel.address, profileModel.username];
+    NSString *message = [NSString stringWithFormat:@"Please put my subscription on pause\n\n Name: %@ %@\nAddress: %@\nUsername: %@\n", profileModel.firstname, profileModel.lastname, profileModel.address, profileModel.username];
 
     [composeVC setMessageBody:message isHTML:NO];
     [self presentViewController:composeVC animated:NO completion:nil];
