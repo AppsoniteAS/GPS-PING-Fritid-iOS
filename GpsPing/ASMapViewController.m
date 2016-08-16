@@ -412,7 +412,8 @@ objection_requires(@keypath(ASMapViewController.new, apiController))
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         NSNumber *duration = [defaults objectForKey:kTrackingDurationKey];
         to = [NSDate date];
-        from = [to dateByAddingTimeInterval:-60*duration.integerValue];
+//        from = [to dateByAddingTimeInterval:-60*duration.integerValue];
+        from = [to dateByAddingTimeInterval:-60*60*24];
     } else {
         from = self.selectedDate;
         to = [self.selectedDate dateByAddingTimeInterval:60*60*24];
