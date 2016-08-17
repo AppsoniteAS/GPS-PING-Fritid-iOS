@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="14m-h1-zoy">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="14m-h1-zoy">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -14,7 +14,6 @@
             <string>Roboto-Light</string>
         </mutableArray>
         <mutableArray key="Roboto-Regular.ttf">
-            <string>Roboto-Regular</string>
             <string>Roboto-Regular</string>
             <string>Roboto-Regular</string>
             <string>Roboto-Regular</string>
@@ -643,32 +642,10 @@
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NHg-rL-p9I">
                                                                 <rect key="frame" x="18" y="178" width="338" height="50"/>
-                                                                <subviews>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Check this for dog in stand" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="0Yv-uA-5f2">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="271" height="31"/>
-                                                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="18"/>
-                                                                        <nil key="highlightedColor"/>
-                                                                    </label>
-                                                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ucd-85-8ki">
-                                                                        <rect key="frame" x="281" y="0.0" width="51" height="31"/>
-                                                                        <constraints>
-                                                                            <constraint firstAttribute="width" constant="49" id="PGs-Zb-A6x"/>
-                                                                        </constraints>
-                                                                        <connections>
-                                                                            <action selector="dogInStandValueChanged:" destination="G9O-Js-ufp" eventType="valueChanged" id="uzE-kS-jFG"/>
-                                                                        </connections>
-                                                                    </switch>
-                                                                </subviews>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                 <constraints>
-                                                                    <constraint firstItem="ucd-85-8ki" firstAttribute="top" secondItem="NHg-rL-p9I" secondAttribute="top" id="6kj-4d-Cd0"/>
-                                                                    <constraint firstItem="0Yv-uA-5f2" firstAttribute="top" secondItem="NHg-rL-p9I" secondAttribute="top" id="8lw-AC-ldc"/>
-                                                                    <constraint firstItem="ucd-85-8ki" firstAttribute="leading" secondItem="0Yv-uA-5f2" secondAttribute="trailing" constant="10" id="CAX-A0-OaO"/>
-                                                                    <constraint firstItem="0Yv-uA-5f2" firstAttribute="leading" secondItem="NHg-rL-p9I" secondAttribute="leading" id="DOB-Lk-K6T"/>
                                                                     <constraint firstAttribute="height" constant="50" id="F8A-EE-C3q"/>
                                                                     <constraint firstAttribute="width" constant="240" id="JXF-MF-Dig"/>
-                                                                    <constraint firstItem="0Yv-uA-5f2" firstAttribute="centerY" secondItem="ucd-85-8ki" secondAttribute="centerY" id="Tjk-yv-4nf"/>
-                                                                    <constraint firstAttribute="trailing" secondItem="ucd-85-8ki" secondAttribute="trailing" constant="8" id="qRq-LS-qb1"/>
                                                                 </constraints>
                                                                 <variation key="default">
                                                                     <mask key="constraints">
@@ -870,7 +847,6 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
                         <outlet property="completeButton" destination="ggc-8a-Zg5" id="fg0-r9-jM5"/>
-                        <outlet property="dogInStandSwitcher" destination="ucd-85-8ki" id="LIT-1X-vz6"/>
                         <outlet property="editButtonsPanel" destination="eLv-bS-P3I" id="0Pf-kb-jAe"/>
                         <outlet property="imeiTextField" destination="gpC-jB-ZyF" id="PGD-br-JMR"/>
                         <outlet property="nameTextField" destination="D4H-Gd-6ZS" id="K4j-dL-SZe"/>

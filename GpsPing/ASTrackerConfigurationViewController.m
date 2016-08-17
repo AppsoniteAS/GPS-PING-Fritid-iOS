@@ -15,37 +15,38 @@
 #import "AGApiController.h"
 
 #import <CocoaLumberjack/CocoaLumberjack.h>
+
 static const DDLogLevel ddLogLevel = DDLogLevelVerbose;
 
-@interface ASTrackerConfigurationViewController()<UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource, MFMessageComposeViewControllerDelegate, ASSmsManagerProtocol>
+@interface ASTrackerConfigurationViewController () <UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource, MFMessageComposeViewControllerDelegate, ASSmsManagerProtocol>
 
-@property (weak, nonatomic) IBOutlet UIView *outerWrapperView;
-@property (weak, nonatomic) IBOutlet UITextField *nameTextField;
-@property (weak, nonatomic) IBOutlet UITextField *imeiTextField;
-@property (weak, nonatomic) IBOutlet UITextField *trackerNumberTextField;
-@property (weak, nonatomic) IBOutlet UISwitch *dogInStandSwitcher;
-@property (weak, nonatomic) IBOutlet ASButton *completeButton;
-@property (weak, nonatomic) IBOutlet UIView *editButtonsPanel;
-@property (weak, nonatomic) IBOutlet ASButton *resetButton;
+@property(weak, nonatomic) IBOutlet UIView *outerWrapperView;
+@property(weak, nonatomic) IBOutlet UITextField *nameTextField;
+@property(weak, nonatomic) IBOutlet UITextField *imeiTextField;
+@property(weak, nonatomic) IBOutlet UITextField *trackerNumberTextField;
+@property(weak, nonatomic) IBOutlet UISwitch *dogInStandSwitcher;
+@property(weak, nonatomic) IBOutlet ASButton *completeButton;
+@property(weak, nonatomic) IBOutlet UIView *editButtonsPanel;
+@property(weak, nonatomic) IBOutlet ASButton *resetButton;
 
-@property (nonatomic) NSString *metricType;
-@property (nonatomic, assign) CGFloat signalRate;
-@property (weak, nonatomic) IBOutlet UITextField *signalRateTextField;
+@property(nonatomic) NSString *metricType;
+@property(nonatomic, assign) CGFloat signalRate;
+@property(weak, nonatomic) IBOutlet UITextField *signalRateTextField;
 
-@property (nonatomic) NSArray      *ratePickerData;
-@property (nonatomic) NSDictionary  *ratePickerStrings;
+@property(nonatomic) NSArray *ratePickerData;
+@property(nonatomic) NSDictionary *ratePickerStrings;
 
-@property (nonatomic) NSArray      *rateMetricPickerData;
-@property (nonatomic) UIPickerView *ratePicker;
+@property(nonatomic) NSArray *rateMetricPickerData;
+@property(nonatomic) UIPickerView *ratePicker;
 
-@property (nonatomic, assign) NSInteger smsCount;
+@property(nonatomic, assign) NSInteger smsCount;
 
-@property (nonatomic, strong) AGApiController   *apiController;
+@property(nonatomic, strong) AGApiController *apiController;
 
-@property (nonatomic) NSArray *smsesForActivation;
+@property(nonatomic) NSArray *smsesForActivation;
 
 
-@property (nonatomic) NSNumber      *choosedTime;
+@property(nonatomic) NSNumber *choosedTime;
 
 @end
 
@@ -53,25 +54,24 @@ static const DDLogLevel ddLogLevel = DDLogLevelVerbose;
 
 objection_requires(@keypath(ASTrackerConfigurationViewController.new, apiController))
 
-+(instancetype)initialize
-{
++ (instancetype)initialize {
     return [[UIStoryboard trackerStoryboard] instantiateViewControllerWithIdentifier:NSStringFromClass([ASTrackerConfigurationViewController class])];
 }
 
 #pragma mark - UIViewController methods
 
--(void)viewDidLoad {
+- (void)viewDidLoad {
     [super viewDidLoad];
     [[JSObjection defaultInjector] injectDependencies:self];
     [self jps_viewDidLoad];
 
     if (self.shouldShowInEditMode) {
         self.navigationItem.title = NSLocalizedString(@"Edit Tracker", nil);
-        
+
         if (self.trackerObject.trackerName) {
             self.nameTextField.text = self.trackerObject.trackerName;
         }
-        
+
         self.trackerNumberTextField.text = self.trackerObject.trackerNumber;
         self.imeiTextField.text = self.trackerObject.imeiNumber;
 
@@ -79,59 +79,54 @@ objection_requires(@keypath(ASTrackerConfigurationViewController.new, apiControl
     }
 
     [self configPickers];
-    
+
     NSString *newTitle = NSLocalizedString(@"Activation: step %ld", nil);
-    [self.completeButton setTitle:[NSString stringWithFormat:newTitle, (long)self.smsCount + 1]
+    [self.completeButton setTitle:[NSString stringWithFormat:newTitle, (long) self.smsCount + 1]
                          forState:UIControlStateNormal];
-    
+
     NSString *newResetTitle = NSLocalizedString(@"Reset: step %ld", nil);
-    [self.resetButton setTitle:[NSString stringWithFormat:newResetTitle, (long)self.smsCount + 1]
-                         forState:UIControlStateNormal];
+    [self.resetButton setTitle:[NSString stringWithFormat:newResetTitle, (long) self.smsCount + 1]
+                      forState:UIControlStateNormal];
 }
 
--(void)viewWillAppear:(BOOL)animated
-{
+- (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     self.editButtonsPanel.hidden = !self.shouldShowInEditMode;
-    self.completeButton.hidden   = self.shouldShowInEditMode;
+    self.completeButton.hidden = self.shouldShowInEditMode;
     [self jps_viewWillAppear:animated];
     [self.outerWrapperView mas_makeConstraints:^
-     (MASConstraintMaker *make) {
-         make.bottom.equalTo(self.keyboardLayoutGuide);
-     }];
+    (MASConstraintMaker *make) {
+        make.bottom.equalTo(self.keyboardLayoutGuide);
+    }];
 }
 
--(void)viewDidDisappear:(BOOL)animated {
+- (void)viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear:animated];
     [self jps_viewDidDisappear:animated];
 }
 
 #pragma mark - UIPickerView delegate & datasource
 
--(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
-    return  1;
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
+    return 1;
 }
 
--(NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
-{
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
     return self.ratePickerData.count;
 }
 
--(NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
-{
+- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
     return self.ratePickerStrings[self.ratePickerData[row]];
 }
 
--(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
-{
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
     self.choosedTime = self.ratePickerData[[pickerView selectedRowInComponent:0]];
     [self updateRateTextField];
 }
 
 #pragma mark - UITextField Delegate
 
--(BOOL)textFieldShouldReturn:(UITextField *)textField
-{
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [textField resignFirstResponder];
     return YES;
 }
@@ -170,12 +165,12 @@ objection_requires(@keypath(ASTrackerConfigurationViewController.new, apiControl
 
 #pragma mark - SMS stuff
 
--(void)sendSmses {
+- (void)sendSmses {
     if (!self.smsesForActivation) {
         [[self.trackerObject getSmsTextsForActivation] subscribeNext:^(id x) {
             self.smsesForActivation = x;
             [self checkSmsCount];
-        } error:^(NSError *error) {
+        }                                                      error:^(NSError *error) {
             [[UIAlertView alertWithTitle:NSLocalizedString(@"Error", nil) error:error] show];
         }];
     } else {
@@ -183,27 +178,27 @@ objection_requires(@keypath(ASTrackerConfigurationViewController.new, apiControl
     }
 }
 
--(void)checkSmsCount{
+- (void)checkSmsCount {
     if (self.smsCount == self.smsesForActivation.count) {
         if (self.shouldShowInEditMode) {
             [self dismissViewControllerAnimated:YES completion:nil];
             return;
         }
-        
+
         CGFloat repeatTime = [self.trackerObject.signalRateMetric isEqualToString:kASSignalMetricTypeSeconds] ?
-        self.trackerObject.signalRate : self.trackerObject.signalRate * 60;
+                self.trackerObject.signalRate : self.trackerObject.signalRate * 60;
         [[self.apiController addTracker:self.trackerObject.trackerName
-                                  imei:self.trackerObject.imeiNumber
-                                number:self.trackerObject.trackerNumber
-                            repeatTime:repeatTime
-                                  type:self.trackerObject.trackerType
-                         checkForStand:self.trackerObject.dogInStand] subscribeNext:^(id x) {
+                                   imei:self.trackerObject.imeiNumber
+                                 number:self.trackerObject.trackerNumber
+                             repeatTime:repeatTime
+                                   type:self.trackerObject.trackerType
+                          checkForStand:self.trackerObject.dogInStand] subscribeNext:^(id x) {
             DDLogDebug(@"Tracker Added!");
             [self.trackerObject saveInUserDefaults];
             [self dismissViewControllerAnimated:YES completion:nil];
-        } error:^(NSError *error) {
+        }                                                                      error:^(NSError *error) {
             if ([NSLocalizedStringFromTable(error.localizedDescription, @"Errors", nil) isEqualToString:@"Invalid authentication cookie. Use the `generate_auth_cookie` method."]) {
-                UIViewController* controller = [[UIStoryboard authStoryboard] instantiateInitialViewController];
+                UIViewController *controller = [[UIStoryboard authStoryboard] instantiateInitialViewController];
                 [self presentViewController:controller
                                    animated:YES
                                  completion:nil];
@@ -212,52 +207,53 @@ objection_requires(@keypath(ASTrackerConfigurationViewController.new, apiControl
         }];
     } else {
         [self as_sendSMS:self.smsesForActivation[self.smsCount]
-           recipient:self.trackerObject.trackerNumber];
+               recipient:self.trackerObject.trackerNumber];
     }
 }
 
--(void)smsManagerMessageWasSentWithResult:(MessageComposeResult)result
-{
+- (void)smsManagerMessageWasSentWithResult:(MessageComposeResult)result {
     self.smsCount++;
-    
+
     [self.completeButton setTitle:[self newTitleForActivation:self.smsCount]
-                             forState:UIControlStateNormal];
-    [self.resetButton setTitle:[self newTitleForReset:self.smsCount]
                          forState:UIControlStateNormal];
+    [self.resetButton setTitle:[self newTitleForReset:self.smsCount]
+                      forState:UIControlStateNormal];
 }
 
--(NSString *)newTitleForReset:(NSInteger)smsCount {
+- (NSString *)newTitleForReset:(NSInteger)smsCount {
     NSString *newTitle;
     if (smsCount == self.smsesForActivation.count) {
         newTitle = NSLocalizedString(@"Finish reset", nil);
     } else {
-        newTitle = [NSString stringWithFormat:NSLocalizedString(@"Reset: step %ld", nil), (long)self.smsCount + 1];
+        newTitle = [NSString stringWithFormat:NSLocalizedString(@"Reset: step %ld", nil), (long) self.smsCount + 1];
     }
-    
+
     return newTitle;
 }
 
--(NSString *)newTitleForActivation:(NSInteger)smsCount {
+- (NSString *)newTitleForActivation:(NSInteger)smsCount {
     NSString *newTitle;
     if (smsCount == self.smsesForActivation.count) {
         newTitle = NSLocalizedString(@"Finish activation", nil);
     } else {
-        newTitle = [NSString stringWithFormat:NSLocalizedString(@"Activation: step %ld", nil), (long)self.smsCount + 1];
+        newTitle = [NSString stringWithFormat:NSLocalizedString(@"Activation: step %ld", nil), (long) self.smsCount + 1];
     }
-    
+
     return newTitle;
 }
 
--(void)setRatePickerData:(NSArray *)ratePickerData
-{
+- (void)setRatePickerData:(NSArray *)ratePickerData {
     _ratePickerData = ratePickerData;
-    
+
     NSMutableDictionary *valuesDictionary = @{}.mutableCopy;
     NSString *secondsString = NSLocalizedString(@"%d seconds", nil);
     NSString *minutesString = NSLocalizedString(@"%d minutes", nil);
+    NSString *hoursString = NSLocalizedString(@"%d hours", nil);
     for (NSNumber *value in ratePickerData) {
-        if (value.integerValue >= 60) {
-            valuesDictionary[value] = [NSString localizedStringWithFormat:minutesString, value.integerValue/60];
+        if (value.integerValue >= 3600) {
+            valuesDictionary[value] = [NSString localizedStringWithFormat:hoursString, value.integerValue / 60 / 60];
+        } else if (value.integerValue >= 60) {
+            valuesDictionary[value] = [NSString localizedStringWithFormat:minutesString, value.integerValue / 60];
         } else {
             valuesDictionary[value] = [NSString localizedStringWithFormat:secondsString, value.integerValue];
         }
@@ -267,16 +263,22 @@ objection_requires(@keypath(ASTrackerConfigurationViewController.new, apiControl
 
 #pragma mark - Private methods
 
--(void)configPickers {
-    self.ratePickerData = @[@(20), @(30), @(40), @(50), @(60), @(2*60), @(3*60), @(5*60), @(7*60), @(10*60), @(20*60), @(30*60), @(40*60), @(50*60), @(60*60)];
-    
+- (void)configPickers {
+    if ([self.trackerObject.trackerType isEqualToString:kASTrackerTypeLK330] || [self.trackerObject.trackerType isEqualToString:kASTrackerTypeLK209]) {
+        self.ratePickerData = @[@(1 * 60 * 60), @(2 * 60 * 60), @(3 * 60 * 60), @(4 * 60 * 60), @(5 * 60 * 60), @(6 * 60 * 60), @(7 * 60 * 60), @(8 * 60 * 60), @(9 * 60 * 60), @(10 * 60 * 60),
+                @(11 * 60 * 60), @(12 * 60 * 60), @(13 * 60 * 60), @(14 * 60 * 60), @(15 * 60 * 60), @(16 * 60 * 60), @(17 * 60 * 60), @(18 * 60 * 60), @(19 * 60 * 60), @(20 * 60 * 60), @(21 * 60 * 60),
+                @(22 * 60 * 60), @(23 * 60 * 60), @(24 * 60 * 60)];
+    } else {
+        self.ratePickerData = @[@(20), @(30), @(40), @(50), @(60), @(2 * 60), @(3 * 60), @(5 * 60), @(7 * 60), @(10 * 60), @(20 * 60), @(30 * 60), @(40 * 60), @(50 * 60), @(60 * 60)];
+    }
+
     self.ratePicker = [[UIPickerView alloc] init];
     self.ratePicker.backgroundColor = [UIColor whiteColor];
     self.ratePicker.delegate = self;
     self.ratePicker.dataSource = self;
 
     self.choosedTime = (self.trackerObject.signalRateInSeconds.integerValue == 0) ? @60 : self.trackerObject.signalRateInSeconds;
-    
+
     if ([self.ratePickerData containsObject:self.choosedTime]) {
         [self.ratePicker selectRow:[self.ratePickerData indexOfObject:self.choosedTime]
                        inComponent:0
@@ -287,35 +289,34 @@ objection_requires(@keypath(ASTrackerConfigurationViewController.new, apiControl
                        inComponent:0
                           animated:NO];
     }
-    
+
     self.signalRateTextField.inputView = self.ratePicker;
     UIToolbar *accessoryView = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, self.ratePicker.frame.size.width, 44)];
     accessoryView.barStyle = UIBarStyleDefault;
-    
+
     UIBarButtonItem *space = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
-    
+
     UIBarButtonItem *done = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(doneTapped:)];
-    
-    accessoryView.items = [NSArray arrayWithObjects:space,done, nil];
+
+    accessoryView.items = [NSArray arrayWithObjects:space, done, nil];
     self.signalRateTextField.inputAccessoryView = accessoryView;
-    
+
     [self updateRateTextField];
 }
 
--(void)doneTapped:(id)sender
-{
+- (void)doneTapped:(id)sender {
     [self.signalRateTextField resignFirstResponder];
 }
 
--(void)updateTrackerObject {
-    self.trackerObject.trackerName         = self.nameTextField.text;
-    self.trackerObject.imeiNumber          = self.imeiTextField.text;
-    self.trackerObject.trackerNumber       = self.trackerNumberTextField.text;
-    self.trackerObject.dogInStand          = self.dogInStandSwitcher.isOn;
+- (void)updateTrackerObject {
+    self.trackerObject.trackerName = self.nameTextField.text;
+    self.trackerObject.imeiNumber = self.imeiTextField.text;
+    self.trackerObject.trackerNumber = self.trackerNumberTextField.text;
+    self.trackerObject.dogInStand = self.dogInStandSwitcher.isOn;
     self.trackerObject.signalRateInSeconds = self.choosedTime;
 }
 
--(void)updateRateTextField {
+- (void)updateRateTextField {
     self.signalRateTextField.text = self.ratePickerStrings[self.choosedTime];
 }
 
