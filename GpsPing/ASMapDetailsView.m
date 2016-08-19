@@ -24,17 +24,17 @@
                  color:(UIColor*)color {
     self.labelOwnerName.text = owner.userName;
     self.imaeViewOwnerIcon.image = [UIImage getUserAnnotationImageWithColor:color];
-    
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    dateFormatter.dateStyle  = NSDateFormatterShortStyle;
+    dateFormatter.timeStyle  = NSDateFormatterShortStyle;
     if (deviceModel) {
         self.labelTrackerNumber.text = deviceModel.trackerNumber;
         self.labelImei.text = deviceModel.imei;
         self.labelTrackerName.text = deviceModel.name;
+        self.labelLogTime.text = [dateFormatter stringFromDate:deviceModel.lastDate];
     }
     
     if (pointModel) {
-        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-        dateFormatter.dateStyle  = NSDateFormatterShortStyle;
-        dateFormatter.timeStyle  = NSDateFormatterShortStyle;
         self.labelLogTime.text   = [dateFormatter stringFromDate:pointModel.timestamp];
     }
     

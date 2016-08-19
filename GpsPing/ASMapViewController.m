@@ -533,6 +533,15 @@ objection_requires(@keypath(ASMapViewController.new, apiController))
             }
         }
     }
+    if(self.isFirstLaunch){
+        ASDeviceModel *deviceModel = friendModel.devices.firstObject;
+        if(deviceModel) {
+            self.isFirstLaunch = NO;
+            CLLocationCoordinate2D coord = CLLocationCoordinate2DMake(deviceModel.latitude.doubleValue, deviceModel.longitude.doubleValue);
+            MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(coord, 800, 800);
+            [self.mapView setRegion:viewRegion animated:YES];
+        }
+    }
 }
 
 -(void)showPointOfInterest:(ASPointOfInterestModel*)poi withColor:(UIColor*)color
