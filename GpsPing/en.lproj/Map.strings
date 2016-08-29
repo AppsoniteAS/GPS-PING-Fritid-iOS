@@ -53,9 +53,6 @@
 /* Class = "UISegmentedControl"; crt-P2-2iW.segmentTitles[2] = "Topo"; ObjectID = "crt-P2-2iW"; */
 "crt-P2-2iW.segmentTitles[2]" = "Topo";
 
-/* Class = "UILabel"; text = "Paul Chelly"; ObjectID = "eP4-0M-Hrw"; */
-"eP4-0M-Hrw.text" = "Paul Chelly";
-
 /* Class = "UILabel"; text = "Log Time:"; ObjectID = "gkt-CM-wsG"; */
 "gkt-CM-wsG.text" = "Log Time:";
 
