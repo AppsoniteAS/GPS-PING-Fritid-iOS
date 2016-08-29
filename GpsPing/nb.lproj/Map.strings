@@ -40,9 +40,6 @@
 /* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "Reb-Vd-InL"; */
 "Reb-Vd-InL.title" = "Enhet";
 
-/* Class = "UILabel"; text = "Joe"; ObjectID = "Vqg-bM-nuj"; */
-"Vqg-bM-nuj.text" = "Joe";
-
 /* Class = "UISegmentedControl"; crt-P2-2iW.segmentTitles[0] = "Satellite"; ObjectID = "crt-P2-2iW"; */
 "crt-P2-2iW.segmentTitles[0]" = "Satelitt";
 
