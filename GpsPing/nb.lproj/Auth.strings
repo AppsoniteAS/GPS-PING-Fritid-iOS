@@ -31,3 +31,26 @@
 /* Class = "UILabel"; text = "Username"; ObjectID = "sUN-pf-joA"; */
 "sUN-pf-joA.text" = "Brukernavn";
 
+/* Class = "UILabel"; text = "Full name"; ObjectID = "eyC-jc-OdV"; */
+"eyC-jc-OdV.text" = "Navn";
+
+/* Class = "UILabel"; text = "ZIP Code"; ObjectID = "ALH-Is-KNg"; */
+"ALH-Is-KNg.text" = "Post nr";
+
+/* Class = "UILabel"; text = "Phone number"; ObjectID = "F3n-wT-Ysf"; */
+"F3n-wT-Ysf.text" = "Telefon nummer";
+
+/* Class = "UILabel"; text = "Code"; ObjectID = "PHw-VA-hnR"; */
+"PHw-VA-hnR.text" = "Kode";
+
+/* Class = "UILabel"; text = "Country"; ObjectID = "dQq-zX-mai"; */
+"dQq-zX-mai.text" = "Land";
+
+/* Class = "UILabel"; text = "Address"; ObjectID = "lJ9-iS-2GP"; */
+"lJ9-iS-2GP.text" = "Adresse";
+
+/* Class = "UILabel"; text = "City"; ObjectID = "yO4-pg-o4w"; */
+"yO4-pg-o4w.text" = "Poststed";
+
+/* Class = "UILabel"; text = "+"; ObjectID = "yaN-tg-F24"; */
+"yaN-tg-F24.text" = "+";

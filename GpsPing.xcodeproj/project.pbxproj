@@ -129,6 +129,8 @@
 
 /* Begin PBXFileReference section */
 		0237DDBF4E202A6CE571FB17 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		218B1EB01D745D1D00E19FD7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Profile.strings; sourceTree = "<group>"; };
+		218B1EB21D745FC000E19FD7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Auth.strings; sourceTree = "<group>"; };
 		33DCF0FA5B248C4A92C1C0B0 /* Pods-GpsPing.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GpsPing.release.xcconfig"; path = "Pods/Target Support Files/Pods-GpsPing/Pods-GpsPing.release.xcconfig"; sourceTree = "<group>"; };
 		4042A7CF1D2CEFBD009D2332 /* CompassController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompassController.h; sourceTree = "<group>"; };
 		4042A7D01D2CEFBD009D2332 /* CompassController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompassController.m; sourceTree = "<group>"; };
@@ -183,7 +185,6 @@
 		A65EAB661D3F5D3E00BCE303 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = sv; path = sv.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
 		A65EAB671D3F5D3E00BCE303 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A65EAB681D3F5D3E00BCE303 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		A6624DEE1D37D87200CDA336 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Auth.strings; sourceTree = "<group>"; };
 		A6624DF01D37D88D00CDA336 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Map.strings; sourceTree = "<group>"; };
 		A6624DF41D37D8E400CDA336 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Settings.strings; sourceTree = "<group>"; };
 		A6624DF81D37D90900CDA336 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/TrackerConfiguration.storyboard; sourceTree = "<group>"; };
@@ -193,7 +194,6 @@
 		A6624E051D37D9EE00CDA336 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		A6624E071D37DA3D00CDA336 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Connect.strings; sourceTree = "<group>"; };
 		A6624E091D37DB0B00CDA336 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Geofence.strings; sourceTree = "<group>"; };
-		A6624E0B1D37DB1F00CDA336 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Profile.strings; sourceTree = "<group>"; };
 		A6624E0D1D37DC2900CDA336 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		A68C1B2E1C4CE460000E2BA6 /* GpsPing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GpsPing.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A68C1B321C4CE460000E2BA6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -1253,10 +1253,10 @@
 			children = (
 				ABA221351C79E50200AE6F87 /* Base */,
 				ABA2213A1C79E51400AE6F87 /* nb */,
-				A6624DEE1D37D87200CDA336 /* en */,
 				A6D1E7511D38BE0C00D847EC /* fi */,
 				A6D1E7631D38BE1800D847EC /* da */,
 				A65EAB591D3F5D3D00BCE303 /* sv */,
+				218B1EB21D745FC000E19FD7 /* en */,
 			);
 			name = Auth.storyboard;
 			sourceTree = "<group>";
@@ -1318,10 +1318,10 @@
 			children = (
 				ABA221581C79E59C00AE6F87 /* Base */,
 				ABA2215D1C79E5A100AE6F87 /* nb */,
-				A6624E0B1D37DB1F00CDA336 /* en */,
 				A6D1E7581D38BE0D00D847EC /* fi */,
 				A6D1E76A1D38BE1900D847EC /* da */,
 				A65EAB601D3F5D3E00BCE303 /* sv */,
+				218B1EB01D745D1D00E19FD7 /* en */,
 			);
 			name = Profile.storyboard;
 			sourceTree = "<group>";

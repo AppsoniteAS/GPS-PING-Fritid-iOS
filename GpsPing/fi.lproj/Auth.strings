@@ -52,3 +52,6 @@
 
 /* Class = "UILabel"; text = "+"; ObjectID = "yaN-tg-F24"; */
 "yaN-tg-F24.text" = "+";
+
+/* Class = "UILabel"; text = "Full name"; ObjectID = "eyC-jc-OdV"; */
+"eyC-jc-OdV.text" = "Koko nimi";
