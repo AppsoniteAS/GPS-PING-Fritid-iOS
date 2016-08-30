@@ -17,6 +17,8 @@
 #import "ReactiveCocoa.h"
 
 #import <CocoaLumberjack/CocoaLumberjack.h>
+#import <FCOverlay/FCOverlay.h>
+
 static const DDLogLevel ddLogLevel = DDLogLevelVerbose;
 
 @interface ASNewTrackerViewController ()
@@ -30,6 +32,7 @@ static const DDLogLevel ddLogLevel = DDLogLevelVerbose;
 @property (nonatomic) ASTrackerModel *trackerObject;
 @property (nonatomic, assign) NSInteger smsCount;
 @property (nonatomic, strong) AGApiController   *apiController;
+- (IBAction)helpTap:(id)sender;
 
 @end
 
@@ -161,5 +164,10 @@ objection_requires(@keypath(ASNewTrackerViewController.new, apiController))
     return newTitle;
 }
 
-
+- (IBAction)helpTap:(id)sender {
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"HelpPopup" bundle:[NSBundle mainBundle]];
+    UIViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:@"HelpPopup"];
+    viewController.transitioningDelegate = self.transitioningDelegate;
+    [FCOverlay presentOverlayWithViewController:viewController windowLevel:UIWindowLevelNormal animated:YES completion:nil];
+}
 @end

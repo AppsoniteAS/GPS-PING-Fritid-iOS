@@ -28,5 +28,6 @@ target :GpsPing do
     pod 'mgrs', '~> 0.1.0'
     pod 'DateTools', '~> 1.7.0'
     pod 'TPKeyboardAvoiding', '~> 1.2'
+    pod 'FCOverlay', '~>1.0.1'
     
 end

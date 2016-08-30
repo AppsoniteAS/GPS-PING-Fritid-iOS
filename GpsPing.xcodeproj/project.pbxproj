@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		218B1EB51D755C0C00E19FD7 /* HelpPopup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 218B1EB41D755C0C00E19FD7 /* HelpPopup.storyboard */; };
+		218B1EB81D757C8F00E19FD7 /* ASHelpPopupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 218B1EB71D757C8F00E19FD7 /* ASHelpPopupViewController.m */; };
 		4042A7D11D2CEFBD009D2332 /* CompassController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4042A7D01D2CEFBD009D2332 /* CompassController.m */; };
 		4042A7D41D2D0712009D2332 /* WMSTileOverlay.m in Sources */ = {isa = PBXBuildFile; fileRef = 4042A7D31D2D0712009D2332 /* WMSTileOverlay.m */; };
 		71DBF3B032586FC58BFD9D10 /* libPods-GpsPing.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B7FFCCE62480932E5875CD50 /* libPods-GpsPing.a */; };
@@ -131,6 +133,9 @@
 		0237DDBF4E202A6CE571FB17 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		218B1EB01D745D1D00E19FD7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Profile.strings; sourceTree = "<group>"; };
 		218B1EB21D745FC000E19FD7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Auth.strings; sourceTree = "<group>"; };
+		218B1EB41D755C0C00E19FD7 /* HelpPopup.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = HelpPopup.storyboard; sourceTree = "<group>"; };
+		218B1EB61D757C8F00E19FD7 /* ASHelpPopupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASHelpPopupViewController.h; sourceTree = "<group>"; };
+		218B1EB71D757C8F00E19FD7 /* ASHelpPopupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASHelpPopupViewController.m; sourceTree = "<group>"; };
 		33DCF0FA5B248C4A92C1C0B0 /* Pods-GpsPing.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GpsPing.release.xcconfig"; path = "Pods/Target Support Files/Pods-GpsPing/Pods-GpsPing.release.xcconfig"; sourceTree = "<group>"; };
 		4042A7CF1D2CEFBD009D2332 /* CompassController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompassController.h; sourceTree = "<group>"; };
 		4042A7D01D2CEFBD009D2332 /* CompassController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompassController.m; sourceTree = "<group>"; };
@@ -414,6 +419,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		218B1EB31D755B8900E19FD7 /* Help */ = {
+			isa = PBXGroup;
+			children = (
+				218B1EB41D755C0C00E19FD7 /* HelpPopup.storyboard */,
+				218B1EB61D757C8F00E19FD7 /* ASHelpPopupViewController.h */,
+				218B1EB71D757C8F00E19FD7 /* ASHelpPopupViewController.m */,
+			);
+			name = Help;
+			sourceTree = "<group>";
+		};
 		452CAC4333D41FC9BE1B550F /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -744,6 +759,7 @@
 		AB89467E1C4E6B2B002E86C8 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				218B1EB31D755B8900E19FD7 /* Help */,
 				A68C1BA01C4E4788000E2BA6 /* Main screen */,
 				A603CED01C58D4EF001D56A4 /* Map and Tracking */,
 				AB89467F1C4F2F11002E86C8 /* Auth */,
@@ -782,12 +798,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A68C1B5B1C4CE461000E2BA6 /* Build configuration list for PBXNativeTarget "GpsPing" */;
 			buildPhases = (
-				51987DA7A85E487CD8D58EA7 /* 📦 Check Pods Manifest.lock */,
+				51987DA7A85E487CD8D58EA7 /* [CP] Check Pods Manifest.lock */,
 				A68C1B2A1C4CE460000E2BA6 /* Sources */,
 				A68C1B2B1C4CE460000E2BA6 /* Frameworks */,
 				A68C1B2C1C4CE460000E2BA6 /* Resources */,
-				A5C41E725E322862948ACD98 /* 📦 Embed Pods Frameworks */,
-				75093ACCB7993C6C42A400E9 /* 📦 Copy Pods Resources */,
+				A5C41E725E322862948ACD98 /* [CP] Embed Pods Frameworks */,
+				75093ACCB7993C6C42A400E9 /* [CP] Copy Pods Resources */,
 				99157A53B4E8777ED7E241F8 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
@@ -909,6 +925,7 @@
 				AB60B7401C7F2EE2003CF277 /* InfoPlist.strings in Resources */,
 				A68C1B7D1C4D24DC000E2BA6 /* Roboto-Italic.ttf in Resources */,
 				ABD8BAE01C7F5B350075670C /* Errors.strings in Resources */,
+				218B1EB51D755C0C00E19FD7 /* HelpPopup.storyboard in Resources */,
 				A68C1B7F1C4D24DC000E2BA6 /* Roboto-LightItalic.ttf in Resources */,
 				A68C1B7A1C4D24DC000E2BA6 /* Roboto-BoldItalic.ttf in Resources */,
 				A68C1B411C4CE460000E2BA6 /* LaunchScreen.storyboard in Resources */,
@@ -961,14 +978,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		51987DA7A85E487CD8D58EA7 /* 📦 Check Pods Manifest.lock */ = {
+		51987DA7A85E487CD8D58EA7 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -976,14 +993,14 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		75093ACCB7993C6C42A400E9 /* 📦 Copy Pods Resources */ = {
+		75093ACCB7993C6C42A400E9 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1006,14 +1023,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GpsPing/Pods-GpsPing-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		A5C41E725E322862948ACD98 /* 📦 Embed Pods Frameworks */ = {
+		A5C41E725E322862948ACD98 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1041,6 +1058,7 @@
 				A61D75591C578FCE00E75999 /* ASFriendsListViewController.m in Sources */,
 				A61D755F1C58A8BE00E75999 /* ASFriendTableViewCell.m in Sources */,
 				A68C1B391C4CE460000E2BA6 /* MainMenuViewController.m in Sources */,
+				218B1EB81D757C8F00E19FD7 /* ASHelpPopupViewController.m in Sources */,
 				A6D8D0521C58B1EA00030E9F /* ASFriendModel.m in Sources */,
 				AB5428181C5BAE2300F33E8B /* ASDisplayOptionsViewController.m in Sources */,
 				A603CEDF1C5A3401001D56A4 /* ASPointAnnotation.m in Sources */,
