@@ -234,13 +234,13 @@ NSString* const kASBikeShockAlarmIsOn = @"kASBikeShockAlarmIsOn";
         if ([self.trackerType isEqualToString:kASTrackerTypeTkStarPet]) {
             result = @[[NSString stringWithFormat:@"admin123456 00%@%@", phoneCode, profileModel.phoneNumber],
                        @"apn123456 internet.ts.m2m",
-                       @"adminip123456 52.49.162.223 5013",
+                       @"adminip123456 52.19.58.234 5013",
                        @"gprs123456",
                        @"sleep123456 off"];
         } else {
             result = @[[NSString stringWithFormat:@"admin123456 00%@%@", phoneCode, profileModel.phoneNumber],
                        @"apn123456 internet.ts.m2m",
-                       @"adminip123456 52.49.162.223 5093",
+                       @"adminip123456 52.19.58.234 5093",
                        @"gprs123456",
                        @"sleep123456 off"];
         }
