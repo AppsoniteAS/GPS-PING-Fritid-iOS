@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="14m-h1-zoy">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="14m-h1-zoy">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -440,51 +440,16 @@
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="help" translatesAutoresizingMaskIntoConstraints="NO" id="mLE-YS-lCG">
                                         <rect key="frame" x="20" y="15" width="38" height="38"/>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="9" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1Ie-fK-DrG">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" misplaced="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="9" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1Ie-fK-DrG">
                                         <rect key="frame" x="78" y="13" width="228" height="43"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="273" id="jbz-Fp-bO7"/>
                                             <constraint firstAttribute="width" relation="lessThanOrEqual" constant="250" id="zM7-S2-T7s"/>
                                         </constraints>
-                                        <attributedString key="attributedText">
-                                            <fragment>
-                                                <string key="content">Where can I find my
-</string>
-                                                <attributes>
-                                                    <color key="NSColor" red="0.35759571340000001" green="0.35759571340000001" blue="0.35759571340000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <font key="NSFont" size="18" name="HelveticaNeue"/>
-                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                </attributes>
-                                            </fragment>
-                                            <fragment content="Tracker Number">
-                                                <attributes>
-                                                    <color key="NSColor" red="0.35759571340000001" green="0.35759571340000001" blue="0.35759571340000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <font key="NSFont" size="18" name="HelveticaNeue-Bold"/>
-                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                </attributes>
-                                            </fragment>
-                                            <fragment content=" and ">
-                                                <attributes>
-                                                    <color key="NSColor" red="0.35759571340000001" green="0.35759571340000001" blue="0.35759571340000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <font key="NSFont" size="18" name="HelveticaNeue"/>
-                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                </attributes>
-                                            </fragment>
-                                            <fragment content="IMEI">
-                                                <attributes>
-                                                    <color key="NSColor" red="0.35759571340000001" green="0.35759571340000001" blue="0.35759571340000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <font key="NSFont" size="18" name="HelveticaNeue-Bold"/>
-                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                </attributes>
-                                            </fragment>
-                                            <fragment content="?">
-                                                <attributes>
-                                                    <color key="NSColor" red="0.35759571340000001" green="0.35759571340000001" blue="0.35759571340000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <font key="NSFont" size="18" name="HelveticaNeue"/>
-                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                </attributes>
-                                            </fragment>
-                                        </attributedString>
+                                        <string key="text">Where can I find my
+Tracker Number and IMEI?</string>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                        <color key="textColor" red="0.35759571340000001" green="0.35759571340000001" blue="0.35759571340000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                         <variation key="default">
                                             <mask key="constraints">

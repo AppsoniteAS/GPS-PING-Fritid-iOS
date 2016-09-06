@@ -1,3 +1,7 @@
+
+/* Class = "UILabel"; text = "Where can I find my\nTracker Number and IMEI?"; ObjectID = "1Ie-fK-DrG"; */
+"1Ie-fK-DrG.text" = "Hvor finner jeg trackerens mobil og IMEI nummer";
+
 /* Class = "UINavigationItem"; title = "Add Tracker"; ObjectID = "4bQ-sI-qb3"; */
 "4bQ-sI-qb3.title" = "Legg til Tracker";
 
