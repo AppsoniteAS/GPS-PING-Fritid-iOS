@@ -7,11 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		218B1EB51D755C0C00E19FD7 /* HelpPopup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 218B1EB41D755C0C00E19FD7 /* HelpPopup.storyboard */; };
 		218B1EB81D757C8F00E19FD7 /* ASHelpPopupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 218B1EB71D757C8F00E19FD7 /* ASHelpPopupViewController.m */; };
 		4042A7D11D2CEFBD009D2332 /* CompassController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4042A7D01D2CEFBD009D2332 /* CompassController.m */; };
 		4042A7D41D2D0712009D2332 /* WMSTileOverlay.m in Sources */ = {isa = PBXBuildFile; fileRef = 4042A7D31D2D0712009D2332 /* WMSTileOverlay.m */; };
-		71DBF3B032586FC58BFD9D10 /* libPods-GpsPing.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B7FFCCE62480932E5875CD50 /* libPods-GpsPing.a */; };
+		7827F722326EC4278C597BBB /* libPods-GpsPing.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4851A107D6080063732BC1BC /* libPods-GpsPing.a */; };
 		A603CED51C58D5C2001D56A4 /* ASMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A603CED41C58D5C2001D56A4 /* ASMapViewController.m */; };
 		A603CED81C5900CE001D56A4 /* ASDeviceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A603CED71C5900CE001D56A4 /* ASDeviceModel.m */; };
 		A603CEDB1C5A0986001D56A4 /* ASPointModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A603CEDA1C5A0986001D56A4 /* ASPointModel.m */; };
@@ -21,6 +20,7 @@
 		A603CEE81C5A4E45001D56A4 /* UIImage+ASAnnotations.m in Sources */ = {isa = PBXBuildFile; fileRef = A603CEE71C5A4E45001D56A4 /* UIImage+ASAnnotations.m */; };
 		A603CEEB1C5B66E3001D56A4 /* ASMapDetailsView.m in Sources */ = {isa = PBXBuildFile; fileRef = A603CEEA1C5B66E3001D56A4 /* ASMapDetailsView.m */; };
 		A603CEEE1C5B761C001D56A4 /* ASDevicePointAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = A603CEED1C5B761C001D56A4 /* ASDevicePointAnnotation.m */; };
+		A6198B841D7EE453000E01EE /* HelpPopup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6198B861D7EE453000E01EE /* HelpPopup.storyboard */; };
 		A61D75591C578FCE00E75999 /* ASFriendsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A61D75581C578FCD00E75999 /* ASFriendsListViewController.m */; };
 		A61D755F1C58A8BE00E75999 /* ASFriendTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A61D755E1C58A8BE00E75999 /* ASFriendTableViewCell.m */; };
 		A626CCEB1C5D1DC5003762A2 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A626CCEA1C5D1DC5003762A2 /* MapKit.framework */; };
@@ -130,19 +130,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0237DDBF4E202A6CE571FB17 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		1173EA6874AD60AE6C7B3250 /* Pods-GpsPing.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GpsPing.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GpsPing/Pods-GpsPing.debug.xcconfig"; sourceTree = "<group>"; };
 		218B1EB01D745D1D00E19FD7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Profile.strings; sourceTree = "<group>"; };
 		218B1EB21D745FC000E19FD7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Auth.strings; sourceTree = "<group>"; };
-		218B1EB41D755C0C00E19FD7 /* HelpPopup.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = HelpPopup.storyboard; sourceTree = "<group>"; };
 		218B1EB61D757C8F00E19FD7 /* ASHelpPopupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASHelpPopupViewController.h; sourceTree = "<group>"; };
 		218B1EB71D757C8F00E19FD7 /* ASHelpPopupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASHelpPopupViewController.m; sourceTree = "<group>"; };
-		33DCF0FA5B248C4A92C1C0B0 /* Pods-GpsPing.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GpsPing.release.xcconfig"; path = "Pods/Target Support Files/Pods-GpsPing/Pods-GpsPing.release.xcconfig"; sourceTree = "<group>"; };
 		4042A7CF1D2CEFBD009D2332 /* CompassController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompassController.h; sourceTree = "<group>"; };
 		4042A7D01D2CEFBD009D2332 /* CompassController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompassController.m; sourceTree = "<group>"; };
 		4042A7D21D2D0712009D2332 /* WMSTileOverlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMSTileOverlay.h; sourceTree = "<group>"; };
 		4042A7D31D2D0712009D2332 /* WMSTileOverlay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMSTileOverlay.m; sourceTree = "<group>"; };
 		4042A7D51D2D0738009D2332 /* MapViewUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewUtils.h; sourceTree = "<group>"; };
-		77A21FE96824543E1D08D970 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		4851A107D6080063732BC1BC /* libPods-GpsPing.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GpsPing.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		52B8C3A7A4AC1008FD79C14A /* Pods-GpsPing.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GpsPing.release.xcconfig"; path = "Pods/Target Support Files/Pods-GpsPing/Pods-GpsPing.release.xcconfig"; sourceTree = "<group>"; };
 		A603CED31C58D5C2001D56A4 /* ASMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASMapViewController.h; sourceTree = "<group>"; };
 		A603CED41C58D5C2001D56A4 /* ASMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASMapViewController.m; sourceTree = "<group>"; };
 		A603CED61C5900CE001D56A4 /* ASDeviceModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASDeviceModel.h; sourceTree = "<group>"; };
@@ -162,6 +161,13 @@
 		A603CEEA1C5B66E3001D56A4 /* ASMapDetailsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASMapDetailsView.m; sourceTree = "<group>"; };
 		A603CEEC1C5B761C001D56A4 /* ASDevicePointAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASDevicePointAnnotation.h; sourceTree = "<group>"; };
 		A603CEED1C5B761C001D56A4 /* ASDevicePointAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASDevicePointAnnotation.m; sourceTree = "<group>"; };
+		A6198B831D7EE30F000E01EE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Trackers.strings; sourceTree = "<group>"; };
+		A6198B851D7EE453000E01EE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/HelpPopup.storyboard; sourceTree = "<group>"; };
+		A6198B881D7EE457000E01EE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/HelpPopup.strings; sourceTree = "<group>"; };
+		A6198B8A1D7EE458000E01EE /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/HelpPopup.strings; sourceTree = "<group>"; };
+		A6198B8C1D7EE459000E01EE /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/HelpPopup.strings; sourceTree = "<group>"; };
+		A6198B8E1D7EE459000E01EE /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/HelpPopup.strings; sourceTree = "<group>"; };
+		A6198B901D7EE45B000E01EE /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/HelpPopup.strings; sourceTree = "<group>"; };
 		A61D75571C578FCD00E75999 /* ASFriendsListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASFriendsListViewController.h; sourceTree = "<group>"; };
 		A61D75581C578FCD00E75999 /* ASFriendsListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASFriendsListViewController.m; sourceTree = "<group>"; };
 		A61D755D1C58A8BE00E75999 /* ASFriendTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASFriendTableViewCell.h; sourceTree = "<group>"; };
@@ -195,7 +201,6 @@
 		A6624DF81D37D90900CDA336 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/TrackerConfiguration.storyboard; sourceTree = "<group>"; };
 		A6624DFF1D37D97A00CDA336 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/TrackerConfiguration.strings; sourceTree = "<group>"; };
 		A6624E011D37D97C00CDA336 /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/TrackerConfiguration.strings; sourceTree = "<group>"; };
-		A6624E031D37D9AC00CDA336 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Trackers.strings; sourceTree = "<group>"; };
 		A6624E051D37D9EE00CDA336 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		A6624E071D37DA3D00CDA336 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Connect.strings; sourceTree = "<group>"; };
 		A6624E091D37DB0B00CDA336 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Geofence.strings; sourceTree = "<group>"; };
@@ -386,9 +391,6 @@
 		ABE7C7241C784500008A6390 /* ASPointOfInterestModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASPointOfInterestModel.m; sourceTree = "<group>"; };
 		ABE7C7261C78CB76008A6390 /* ASPointOfInterestAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASPointOfInterestAnnotation.h; sourceTree = "<group>"; };
 		ABE7C7271C78CB76008A6390 /* ASPointOfInterestAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASPointOfInterestAnnotation.m; sourceTree = "<group>"; };
-		B7FFCCE62480932E5875CD50 /* libPods-GpsPing.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GpsPing.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		D56B56EC24DC9B71F55AC4BB /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
-		DC335D2385B5A1CD2997D0EB /* Pods-GpsPing.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GpsPing.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GpsPing/Pods-GpsPing.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -398,7 +400,7 @@
 			files = (
 				AB60B7341C7D9CA9003CF277 /* StoreKit.framework in Frameworks */,
 				A626CCEB1C5D1DC5003762A2 /* MapKit.framework in Frameworks */,
-				71DBF3B032586FC58BFD9D10 /* libPods-GpsPing.a in Frameworks */,
+				7827F722326EC4278C597BBB /* libPods-GpsPing.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -422,20 +424,18 @@
 		218B1EB31D755B8900E19FD7 /* Help */ = {
 			isa = PBXGroup;
 			children = (
-				218B1EB41D755C0C00E19FD7 /* HelpPopup.storyboard */,
+				A6198B861D7EE453000E01EE /* HelpPopup.storyboard */,
 				218B1EB61D757C8F00E19FD7 /* ASHelpPopupViewController.h */,
 				218B1EB71D757C8F00E19FD7 /* ASHelpPopupViewController.m */,
 			);
 			name = Help;
 			sourceTree = "<group>";
 		};
-		452CAC4333D41FC9BE1B550F /* Pods */ = {
+		6B999BB8841C694C542AA283 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				D56B56EC24DC9B71F55AC4BB /* Pods.debug.xcconfig */,
-				77A21FE96824543E1D08D970 /* Pods.release.xcconfig */,
-				DC335D2385B5A1CD2997D0EB /* Pods-GpsPing.debug.xcconfig */,
-				33DCF0FA5B248C4A92C1C0B0 /* Pods-GpsPing.release.xcconfig */,
+				1173EA6874AD60AE6C7B3250 /* Pods-GpsPing.debug.xcconfig */,
+				52B8C3A7A4AC1008FD79C14A /* Pods-GpsPing.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -445,8 +445,7 @@
 			children = (
 				AB60B7331C7D9CA9003CF277 /* StoreKit.framework */,
 				A626CCEA1C5D1DC5003762A2 /* MapKit.framework */,
-				0237DDBF4E202A6CE571FB17 /* libPods.a */,
-				B7FFCCE62480932E5875CD50 /* libPods-GpsPing.a */,
+				4851A107D6080063732BC1BC /* libPods-GpsPing.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -497,8 +496,8 @@
 				A68C1B4A1C4CE461000E2BA6 /* GpsPingTests */,
 				A68C1B551C4CE461000E2BA6 /* GpsPingUITests */,
 				A68C1B2F1C4CE460000E2BA6 /* Products */,
-				452CAC4333D41FC9BE1B550F /* Pods */,
 				9A79422222BEFCC2E332FDE1 /* Frameworks */,
+				6B999BB8841C694C542AA283 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -798,13 +797,15 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A68C1B5B1C4CE461000E2BA6 /* Build configuration list for PBXNativeTarget "GpsPing" */;
 			buildPhases = (
+				85679F19064FAB0AB0FE3096 /* 📦 Check Pods Manifest.lock */,
 				51987DA7A85E487CD8D58EA7 /* [CP] Check Pods Manifest.lock */,
 				A68C1B2A1C4CE460000E2BA6 /* Sources */,
 				A68C1B2B1C4CE460000E2BA6 /* Frameworks */,
 				A68C1B2C1C4CE460000E2BA6 /* Resources */,
 				A5C41E725E322862948ACD98 /* [CP] Embed Pods Frameworks */,
 				75093ACCB7993C6C42A400E9 /* [CP] Copy Pods Resources */,
-				99157A53B4E8777ED7E241F8 /* Embed Pods Frameworks */,
+				3C62225C9A682B9AC226CE51 /* 📦 Embed Pods Frameworks */,
+				1726F7192A967D2007F78BD3 /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -925,7 +926,7 @@
 				AB60B7401C7F2EE2003CF277 /* InfoPlist.strings in Resources */,
 				A68C1B7D1C4D24DC000E2BA6 /* Roboto-Italic.ttf in Resources */,
 				ABD8BAE01C7F5B350075670C /* Errors.strings in Resources */,
-				218B1EB51D755C0C00E19FD7 /* HelpPopup.storyboard in Resources */,
+				A6198B841D7EE453000E01EE /* HelpPopup.storyboard in Resources */,
 				A68C1B7F1C4D24DC000E2BA6 /* Roboto-LightItalic.ttf in Resources */,
 				A68C1B7A1C4D24DC000E2BA6 /* Roboto-BoldItalic.ttf in Resources */,
 				A68C1B411C4CE460000E2BA6 /* LaunchScreen.storyboard in Resources */,
@@ -978,6 +979,36 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		1726F7192A967D2007F78BD3 /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GpsPing/Pods-GpsPing-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3C62225C9A682B9AC226CE51 /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GpsPing/Pods-GpsPing-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		51987DA7A85E487CD8D58EA7 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1008,19 +1039,19 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GpsPing/Pods-GpsPing-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		99157A53B4E8777ED7E241F8 /* Embed Pods Frameworks */ = {
+		85679F19064FAB0AB0FE3096 /* 📦 Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "📦 Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GpsPing/Pods-GpsPing-frameworks.sh\"\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		A5C41E725E322862948ACD98 /* [CP] Embed Pods Frameworks */ = {
@@ -1141,6 +1172,19 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		A6198B861D7EE453000E01EE /* HelpPopup.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A6198B851D7EE453000E01EE /* Base */,
+				A6198B881D7EE457000E01EE /* en */,
+				A6198B8A1D7EE458000E01EE /* nb */,
+				A6198B8C1D7EE459000E01EE /* fi */,
+				A6198B8E1D7EE459000E01EE /* da */,
+				A6198B901D7EE45B000E01EE /* sv */,
+			);
+			name = HelpPopup.storyboard;
+			sourceTree = "<group>";
+		};
 		A6624DF91D37D90900CDA336 /* TrackerConfiguration.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -1258,10 +1302,10 @@
 			children = (
 				ABA2212A1C79E4A400AE6F87 /* Base */,
 				ABA221311C79E4DC00AE6F87 /* nb */,
-				A6624E031D37D9AC00CDA336 /* en */,
 				A6D1E7531D38BE0C00D847EC /* fi */,
 				A6D1E7651D38BE1900D847EC /* da */,
 				A65EAB5B1D3F5D3D00BCE303 /* sv */,
+				A6198B831D7EE30F000E01EE /* en */,
 			);
 			name = Trackers.storyboard;
 			sourceTree = "<group>";
@@ -1455,7 +1499,7 @@
 		};
 		A68C1B5C1C4CE461000E2BA6 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DC335D2385B5A1CD2997D0EB /* Pods-GpsPing.debug.xcconfig */;
+			baseConfigurationReference = 1173EA6874AD60AE6C7B3250 /* Pods-GpsPing.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "";
@@ -1475,7 +1519,7 @@
 		};
 		A68C1B5D1C4CE461000E2BA6 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 33DCF0FA5B248C4A92C1C0B0 /* Pods-GpsPing.release.xcconfig */;
+			baseConfigurationReference = 52B8C3A7A4AC1008FD79C14A /* Pods-GpsPing.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "";

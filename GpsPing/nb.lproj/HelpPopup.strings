@@ -1,0 +1,15 @@
+
+/* Class = "UILabel"; text = "is placed on the back side fo your tracker:"; ObjectID = "AR7-dz-7WK"; */
+"AR7-dz-7WK.text" = "er på baksiden av selve trackeren";
+
+/* Class = "UILabel"; text = "IMEI number"; ObjectID = "IIQ-YW-Kox"; */
+"IIQ-YW-Kox.text" = "IMEI nummeret";
+
+/* Class = "UILabel"; text = "Tracker number"; ObjectID = "VHa-Vu-GA9"; */
+"VHa-Vu-GA9.text" = "Trackerens mobil nummer";
+
+/* Class = "UILabel"; text = "can be found inside the box with tracker:"; ObjectID = "hEm-Yz-lfs"; */
+"hEm-Yz-lfs.text" = "finner du inne i boksen til trackeren";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "ubS-YG-iN9"; */
+"ubS-YG-iN9.normalTitle" = "Button";

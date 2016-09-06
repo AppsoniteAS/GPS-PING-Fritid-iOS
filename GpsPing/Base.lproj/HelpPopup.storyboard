@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="m3F-hd-eWM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="m3F-hd-eWM">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -24,10 +24,6 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GoF-Ea-Teh">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L5U-Zt-EEV">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
-                                                <color key="backgroundColor" red="0.51764705879999995" green="0.086274509799999996" blue="0.33725490200000002" alpha="0.0" colorSpace="calibratedRGB"/>
-                                            </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iNP-sI-cy5" userLabel="Content">
                                                 <rect key="frame" x="0.0" y="70" width="375" height="597"/>
                                                 <subviews>
@@ -52,13 +48,13 @@
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="IMEI number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IIQ-YW-Kox">
                                                         <rect key="frame" x="20" y="316" width="335" height="26"/>
                                                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="22"/>
-                                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tracker number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VHa-Vu-GA9">
                                                         <rect key="frame" x="20" y="35" width="335" height="26"/>
                                                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="22"/>
-                                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ubS-YG-iN9">
@@ -113,11 +109,8 @@
                                         <constraints>
                                             <constraint firstAttribute="bottom" secondItem="iNP-sI-cy5" secondAttribute="bottom" id="F5b-u2-XBU"/>
                                             <constraint firstItem="iNP-sI-cy5" firstAttribute="leading" secondItem="GoF-Ea-Teh" secondAttribute="leading" id="IH5-vl-EhK"/>
-                                            <constraint firstItem="L5U-Zt-EEV" firstAttribute="bottom" secondItem="iNP-sI-cy5" secondAttribute="top" id="Pk0-Qj-g1c"/>
                                             <constraint firstAttribute="trailing" secondItem="iNP-sI-cy5" secondAttribute="trailing" id="R8y-41-YYM"/>
-                                            <constraint firstItem="L5U-Zt-EEV" firstAttribute="top" secondItem="GoF-Ea-Teh" secondAttribute="top" id="Rhf-kn-jKh"/>
-                                            <constraint firstItem="L5U-Zt-EEV" firstAttribute="leading" secondItem="GoF-Ea-Teh" secondAttribute="leading" id="pu6-eY-EsF"/>
-                                            <constraint firstAttribute="trailing" secondItem="L5U-Zt-EEV" secondAttribute="trailing" id="xtL-lJ-ftV"/>
+                                            <constraint firstItem="iNP-sI-cy5" firstAttribute="top" secondItem="GoF-Ea-Teh" secondAttribute="top" constant="70" id="YIK-ZK-TAi"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -139,6 +132,11 @@
                             <constraint firstItem="NxJ-zC-613" firstAttribute="top" secondItem="Crd-qj-qdl" secondAttribute="topMargin" id="XuB-ul-NAP"/>
                             <constraint firstAttribute="trailing" secondItem="NxJ-zC-613" secondAttribute="trailing" id="z8g-DY-Plh"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="OZZ-OL-Sat"/>
+                            </mask>
+                        </variation>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </viewController>
