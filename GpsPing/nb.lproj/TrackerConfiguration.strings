@@ -21,7 +21,7 @@
 "Awb-MA-D3n.text" = "Signal";
 
 /* Class = "UILabel"; text = "Check this for dog in stand"; ObjectID = "CkU-gr-UcF"; */
-"CkU-gr-UcF.text" = "Check this for dog in stand";
+"CkU-gr-UcF.text" = "Motta signal når hunden går i stand";
 
 /* Class = "UILabel"; text = "Tracker Number"; ObjectID = "Ek1-cf-8pq"; */
 "Ek1-cf-8pq.text" = "Tracker Number";
@@ -54,19 +54,19 @@
 "U3W-BK-NAC.text" = "{60 Seconds}";
 
 /* Class = "UIButton"; normalTitle = "Update"; ObjectID = "UYz-p4-EaA"; */
-"UYz-p4-EaA.normalTitle" = "Update";
+"UYz-p4-EaA.normalTitle" = "Oppdater";
 
 /* Class = "UILabel"; text = "Receive signal every"; ObjectID = "Uf9-he-SQY"; */
-"Uf9-he-SQY.text" = "Receive signal every";
+"Uf9-he-SQY.text" = "Motta GPS signal hvert";
 
 /* Class = "UIButton"; normalTitle = "Update"; ObjectID = "Uuq-uj-WQM"; */
-"Uuq-uj-WQM.normalTitle" = "Update";
+"Uuq-uj-WQM.normalTitle" = "Oppdater";
 
 /* Class = "UILabel"; text = "Active"; ObjectID = "agE-al-SI4"; */
 "agE-al-SI4.text" = "Active";
 
 /* Class = "UILabel"; text = "Receive signal every"; ObjectID = "bwB-qh-rmZ"; */
-"bwB-qh-rmZ.text" = "Receive signal every";
+"bwB-qh-rmZ.text" = "Motta GPS signal hvert";
 
 /* Class = "UILabel"; text = "Shock Alarm"; ObjectID = "chY-Xv-7i0"; */
 "chY-Xv-7i0.text" = "Shock Alarm";
