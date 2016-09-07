@@ -1,0 +1,16 @@
+
+/* Class = "UILabel"; text = "Take the tracker outside and push the \"On\" button on top of the tracker. A green and a blue light will light up."; ObjectID = "11d-d8-sDU"; */
+"11d-d8-sDU.text" = "Vie paikannin ulos ja paina sen päällä olevaa käynnistyspainiketta. Vihreä ja sininen valo syttyvät";
+
+/* Class = "UILabel"; text = "Open the app and tap on Trackers on the main menu to view your tracker.\nTap on small circle to the right of tracker to mark it."; ObjectID = "O1K-lg-bXh"; */
+"O1K-lg-bXh.text" = "Avaa sovellus ja napauta päävalikossa sijaitsevaa \"Paikantimet\"-painiketta tarkastellaksesi paikannintasi. Napauta paikantimen oikealla puolella sijaitsevaa pientä ympyrää sen merkitsemistä varten.";
+
+/* Class = "UILabel"; text = "Go back to main menu. Make sure the name of the tracker is shown over the start button.
+Push start."; ObjectID = "dle-FN-aSn"; */
+"dle-FN-aSn.text" = "Palaa päävalikkoon. Varmista, että paikantimen nimi näkyy käynnistyspainikkeen yläpuolella. Paina käynnistyspainiketta.";
+
+/* Class = "UILabel"; text = "Welcome to GPS Ping! If you have bought a GPS tracker we will show you how to set it up. If not, please check out our store: www.gpsping.no"; ObjectID = "nEi-0D-Bu8"; */
+"nEi-0D-Bu8.text" = "Tervetuloa GPS Ping sovellukseen! Jos olet ostanut GPS-paikantimen, opastamme sen käyttöönottamisessa. Jos et ole vielä ostanut paikanninta, voit tutustua kauppaamme osoitteessa: www.gpsping.no";
+
+/* Class = "UILabel"; text = "First charge your tracker for at least 8 hours. The tracker is fully charged when the red charge light turns off."; ObjectID = "qNh-dQ-8Ft"; */
+"qNh-dQ-8Ft.text" = "Lataa paikanninta vähintään 8 tuntia ennen sen käyttöönottoa. Paikannin on täysin latautunut kun punainen valo on sammunut.";

@@ -1,0 +1,16 @@
+
+/* Class = "UILabel"; text = "Take the tracker outside and push the \"On\" button on top of the tracker. A green and a blue light will light up."; ObjectID = "11d-d8-sDU"; */
+"11d-d8-sDU.text" = "Tag sporeren udendørs og tryk på \"Tændt\"-knappen som findes ovenpå sporeren. En grøn og en blå lampe vil derefter tænde.";
+
+/* Class = "UILabel"; text = "Open the app and tap on Trackers on the main menu to view your tracker.\nTap on small circle to the right of tracker to mark it."; ObjectID = "O1K-lg-bXh"; */
+"O1K-lg-bXh.text" = "Åbn appen og tryk på Sporere i hovedmenuen for at se din sporer. Tryk på den lille cirkel til højre for din sporer for at markere den.";
+
+/* Class = "UILabel"; text = "Go back to main menu. Make sure the name of the tracker is shown over the start button.
+Push start."; ObjectID = "dle-FN-aSn"; */
+"dle-FN-aSn.text" = "Gå tilbage til hovedmenuen. Vær sikker på at sporerens navn vises ovenfor start-knappen. Tryk på start.";
+
+/* Class = "UILabel"; text = "Welcome to GPS Ping! If you have bought a GPS tracker we will show you how to set it up. If not, please check out our store: www.gpsping.no"; ObjectID = "nEi-0D-Bu8"; */
+"nEi-0D-Bu8.text" = "Velkommen til GPS Ping! Hvis du har købt en GPS sporer, vil vi vise dig, hvordan du indstiller den. Hvis ikke, så tjek vores webshop: www.gpsping.no";
+
+/* Class = "UILabel"; text = "First charge your tracker for at least 8 hours. The tracker is fully charged when the red charge light turns off."; ObjectID = "qNh-dQ-8Ft"; */
+"qNh-dQ-8Ft.text" = "Lad først din sporer lade op i mindst 8 timer. Sporeren er fuldt opladet når lyset slukker.";
