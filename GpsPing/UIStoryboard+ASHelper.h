@@ -16,5 +16,6 @@
 +(UIStoryboard*)mapStoryboard;
 +(UIStoryboard*)connectStoryboard;
 +(UIStoryboard*)authStoryboard;
++(UIStoryboard*)introStoryboard;
 
 @end

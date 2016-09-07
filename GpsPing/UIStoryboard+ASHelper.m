@@ -46,5 +46,12 @@
                                      bundle:[NSBundle mainBundle]];
 }
 
++(UIStoryboard*)introStoryboard
+{
+    return [UIStoryboard storyboardWithName:@"Intro"
+                                     bundle:[NSBundle mainBundle]];
+}
+
+
 
 @end
