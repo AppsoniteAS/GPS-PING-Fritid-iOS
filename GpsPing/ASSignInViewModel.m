@@ -44,6 +44,7 @@ objection_requires(@keypath(ASSignInViewModel.new, apiController))
             {
                 return [[self.apiController authUser:self.username password:self.password] then:^RACSignal *{
                     @strongify(self);
+                    [[NSNotificationCenter defaultCenter] postNotificationName:kASDidLoginNotification object:nil];
                     return [[self.apiController getTrackers] flattenMap:^RACStream *(NSArray *value) {
                         DDLogDebug(@"%@", value);
                         for (ASTrackerModel *tracker in value) {

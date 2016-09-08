@@ -33,7 +33,8 @@ NSInteger AGOpteumBackendResponseCodePhoneBlocked  = -4;
 NSString *kASUserDefaultsKeyUsername = @"";
 NSString *kASUserDefaultsKeyPassword = @"";
 
-NSString *kASDidLogoutNotification = @"kASDidLogoutNotification";
+NSString *kASDidLoginNotification    = @"kASDidLoginNotification";
+NSString *kASDidLogoutNotification   = @"kASDidLogoutNotification";
 NSString *kASDidRegisterNotification = @"kASDidRegisteredNotification";
 
 @interface AGApiController()

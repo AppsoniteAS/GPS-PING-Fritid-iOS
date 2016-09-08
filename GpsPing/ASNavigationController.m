@@ -12,6 +12,8 @@
 #import "UIStoryboard+ASHelper.h"
 #import "ASNewTrackerViewController.h"
 #import <CocoaLumberjack/CocoaLumberjack.h>
+#import <FCOverlay/FCOverlay.h>
+
 static const DDLogLevel ddLogLevel = DDLogLevelVerbose;
 
 @interface ASNavigationController()
@@ -31,6 +33,7 @@ objection_requires(@keypath(ASNavigationController.new, apiController))
     [[JSObjection defaultInjector] injectDependencies:self];
     self.isFirstLaunch = YES;
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didLogin) name:kASDidLoginNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didLogout) name:kASDidLogoutNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didRegister) name:kASDidRegisterNotification object:nil];
 }
@@ -50,6 +53,17 @@ objection_requires(@keypath(ASNavigationController.new, apiController))
     }
 }
 
+-(void)presentIntro {
+    NSNumber *didShowIntro = [[NSUserDefaults standardUserDefaults] objectForKey:kASUserDefaultsDidShowIntro];
+    if (!didShowIntro.boolValue) {
+        [FCOverlay presentOverlayWithViewController:[UIStoryboard introStoryboard].instantiateInitialViewController animated:YES completion:nil];
+    }
+}
+
+-(void)didLogin {
+    [self presentIntro];
+}
+
 -(void)didLogout {
 
     if (self.presentedViewController) {
@@ -64,7 +78,7 @@ objection_requires(@keypath(ASNavigationController.new, apiController))
 }
 
 -(void)didRegister {
-    
+    [self presentIntro];
     if (self.presentedViewController) {
         DDLogVerbose(@"%s with dismiss", __PRETTY_FUNCTION__);
         [self.presentedViewController dismissViewControllerAnimated:YES completion:^{

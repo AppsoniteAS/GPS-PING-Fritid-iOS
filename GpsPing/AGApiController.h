@@ -20,6 +20,7 @@ extern NSString* AGGpsPingBackendError;
 extern NSString *kASUserDefaultsKeyUsername;
 extern NSString *kASUserDefaultsKeyPassword;
 
+extern NSString *kASDidLoginNotification;
 extern NSString *kASDidLogoutNotification;
 extern NSString *kASDidRegisterNotification;
 

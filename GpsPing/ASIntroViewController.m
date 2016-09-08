@@ -7,6 +7,8 @@
 //
 
 #import "ASIntroViewController.h"
+#import "ASUserProfileModel.h"
+#import <FCOverlay/FCOverlay.h>
 
 @interface ASIntroViewController ()
 
@@ -17,6 +19,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+}
+
+-(void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [[NSUserDefaults standardUserDefaults] setObject:@YES forKey:kASUserDefaultsDidShowIntro];
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 -(BOOL)prefersStatusBarHidden {
@@ -38,7 +46,7 @@
 }
 */
 - (IBAction)close:(id)sender {
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [FCOverlay dismissOverlayAnimated:YES completion:nil];
 }
 
 @end

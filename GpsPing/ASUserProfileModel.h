@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "Mantle.h"
 
+extern NSString *kASUserDefaultsDidShowIntro;
+
 @interface ASUserProfileModel : MTLModel<MTLJSONSerializing>
 
 @property (strong, nonatomic) NSString *username;

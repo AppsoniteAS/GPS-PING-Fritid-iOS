@@ -10,6 +10,8 @@
 #import <CocoaLumberjack.h>
 #import <ReactiveCocoa.h>
 
+NSString *kASUserDefaultsDidShowIntro = @"kASUserDefaultsDidShowIntro";
+
 @implementation ASUserProfileModel
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -82,5 +84,7 @@
     [defaults removeObjectForKey:@"profile_info"];
     [defaults synchronize];
 }
+
+
 
 @end
