@@ -12,6 +12,8 @@
 #import "ASMainViewModel.h"
 #import "ASMapViewController.h"
 #import "AGApiController.h"
+#import <FCOverlay/FCOverlay.h>
+#import "UIStoryboard+ASHelper.h"
 
 #import <CocoaLumberjack.h>
 static DDLogLevel ddLogLevel = DDLogLevelDebug;
@@ -106,6 +108,10 @@ objection_requires(@keypath(MainMenuViewController.new, apiController))
     } else {
         [self.startStopButton setTitle:NSLocalizedString(@"Start", nil) forState:UIControlStateNormal];
     }
+}
+
+- (IBAction)helpTap:(id)sender {
+    [FCOverlay presentOverlayWithViewController:[UIStoryboard introStoryboard].instantiateInitialViewController animated:YES completion:nil];
 }
 
 @end

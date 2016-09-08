@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AzC-4k-N6d">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AzC-4k-N6d">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -280,6 +280,11 @@
                                 <constraint firstItem="l0H-kc-Uv6" firstAttribute="centerY" secondItem="hm0-Xf-3yx" secondAttribute="centerY" id="kdW-pN-jHS"/>
                             </constraints>
                         </view>
+                        <barButtonItem key="rightBarButtonItem" image="help_icon" id="DKQ-d9-94I">
+                            <connections>
+                                <action selector="helpTap:" destination="BYZ-38-t0r" id="RpX-E8-dvf"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
@@ -490,6 +495,7 @@
     <resources>
         <image name="TK_STAR_PET" width="158" height="158"/>
         <image name="background" width="414" height="736"/>
+        <image name="help_icon" width="30" height="30"/>
         <image name="logo" width="92" height="82"/>
     </resources>
 </document>
