@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+    <array>
+        <dict>
+            <key>Jeg har trykket på "Start" og modtaget en sms med meddelsen "upload ok" men jeg kan ikke se sporeren.</key><string>Vær sikker på at sporeren er udendørs. Hvis den befinder sig indenfor, vil den få problemer med at tilkoble sig satelitter. Når sporeren får kontakt med satelitterne, begynder det blå lys at blinke.</string>
+        </dict>
+        <dict>
+            <key>Jeg har trykket på "Start", men får intet svar via sms fra sporeren.</key><string>Gå til Indstillinger -> Profil og udfyld dit land-og telefonnummer. Gå derefter til Sporere -> og tryk på din sporer. Rediger Sporer åbner sig nu. Rul ned, og tryk på Gendan knappen. Når du trykker på Gendan knappen, vil fem sms'er blive afsendt. På Android telefoner bliver alle fem sms'er sendt på en gang. På iPhone telefoner vil sms funktionen åbnes, og sendes enkeltvis. Gå derefter tilbage til hovedmenuen og tryk på "Start".</string>
+        </dict>
+        <dict>
+            <key>Sporeren lyser ikke</key><string>Vær sikker på at sporeren er fuldt opladet. Når du oplader den, vil du se et rødt lys på sporeren. Når sporeret er opladet, slukkes dette lys af sig selv. Efter at sporeren er fuldt opldet, tryk da på knappen oppe på sporeren.</string>
+        </dict>
+        <dict>
+            <key>Når jeg trypper på "Start"-knappen i appen sker der intet.</key><string>Du har ikke valgt hvilken sporer, du skal starte. Tryk på Sporere i hovedmenuen. Tryk derefter på den lille cirkel til højre for sporeren. Gå tilbage til hovedmenuen. Navnet på sporeren bør nu så over "Start"-knappen. Tryk herefter på "Start" knappen og appen vil nu sende en sms til sporeren for at starte den.</string>
+        </dict>
+        <dict>
+            <key>Det grønne lys på sporeren blinker ikke.</key><string>Dette betyder, at du ikke er koblet til GSM-netværket. Tjek at du har mobilt dækning. Gå til hovedmenuen og tryk på "Sporere". Tryk derefter på din sporer, og en ny side åbnes nu. Rul ned til bunden og tryk på "Gendan" knappen. Når du trykker på Gendan knappen, vil fem sms'er blive afsendt. På Android telefoner bliver alle fem sms'er sendt på en gang. På iPhone telefoner vil sms funktionen åbnes, og du må sende enkeltvis. Gå derefter tilbage til hovedmenuen og tryk "Start".</string>
+        </dict>
+        <dict>
+            <key>Jeg vil ændre hvor ofte sporeren sender GPS signaler.</key><string>Gå til hovedmenuen -> Sporere og tryk på sporeren som du ønsker at ændre signal frekvens på. Rul ned til "Signal". Indtast tiden som står under "Signal" og ændr denne til den ønskede varighed. Tryk på "Opdater". Gå tilbage til hovedmenuen, og tryk på "Start".</string>
+        </dict>
+        <dict>
+            <key>Jeg ser kun enkelte GPS-positioner på kortet.</key><string>Du kan indstille varigheden på din sporingshistorik ved at gå til hovedmenuen -> Visningsindstillinger. Vælg derefter ønsket tid og tryk gem. Du vil nu se GPS positionerne inden for denne tidsramme.</string>
+        </dict>
+        <dict>
+            <key>Jeg vil se min vens sporer / Jeg vil give min ven adgang til min sporer</key><string>Gå til Indstillinger -> Tilslut og klik derefter på "+" tegnet i det højre hjørne. Søg efter din vens brugernavn. Når du ser brugernavnet, klik da på "+" tegnet til højre for det. Når du har tilføjet din vens brugernavn, vil dit brugernavn blive tilføjet til din vens liste. Din ven må derefter klikke på "+" tegnet for at tilføje dig som ven. Han eller hende må derefter klikke på "Øje" ikonet for at godkende at du ser hans eller hendes sporere. "Øj" ikonet vil da forandre sig fra at være gråt med en streg igennem til at blive grønt.</string>
+        </dict>
+        <dict>
+            <key>Jeg vil stoppe min ven fra at se min sporer.</key><string>Gå til Indstillinger -> Tilslut og klik på "Øje" ikonet som findes til højre for din vens brugernavn. Ikonet vil ændre sig fra at være grønt til i stedet at blive gråt med en streg igennem. Din ven kan ikke længere se din sporer.</string>
+        </dict>
+        <dict>
+            <key>Jeg vil se min vens sporer, men der står at jeg skal betale for dette.</key><string>Hvis du ikke selv har en sporer registreret, må du betale et mindre månedligt gebyr for at anvende tjenesten og se din vens sporer. Betalingen sker månedligt, og du kan stoppe abonnementet når du ønsker det.</string>
+        </dict>
+        <dict>
+            <key>Jeg ønsker at sætte mit sporings-abonnement i bero.</key><string>Gå til Indstillinger og tryk på "Sæt abonnement i bero".En e-mail vil blive sendt til din GPS Ping og vi pauser dit abonnement.</string>
+        </dict>
+        <dict>
+            <key>Min sporerers position er midt i havet.</key><string>Dette betyder at sporeren ikke har opdateret sin GPS position, og ikke har fået kontakt til nogle satelitter. Tag sporeren udendørs og genstart den ved at trykke på "Tænd" og "Sluk" knappen.</string>
+        </dict>
+        <dict>
+            <key>Jeg ønsker at stoppe abonnementet jeg købte via appen for at se min vens sporer.</key><string>Dette skal afsluttes i App Store eller i Google Play Store. For iPhone, gå da til App Store og rul ned til din bruger. Indtast passwordet, gå til abonnomenter og tryk adminstrer. Der kan d stoppe abonnementet. På Android: Åbn Google Play Store på Din telefon. Gå til Mine Apps via Google Play Store Menuen. Til venstre side for dine installerede apps, har du en liste over dine abonnementer. Her kan du vælge det abonnement som du ønsker at stoppe.</string>
+        </dict>
+        <dict>
+            <key>Jeg kan ikke se min egen GPS position.</key><string>Dette betyder at du ikke har givet appen adgang til din sporerens GPS funktion på din telefon. Gå til Indstillinger på din telefon, og giv herefter GPS Ping appen tilgang.</string>
+        </dict>
+        <dict>
+            <key>Hvordan indstiller jeg Geofence?</key><string>Gå til Indstillinger -> Geofence og indtast antallet af meter, som du ønsker som geofence. Tryk "Start". Appen vil herefter sende en sms til sporeren, og du modtager nu "Move ok". Når sporeren bevæger sig udenfor de angivne metre, vil du få en sms med teksten "Move alarm" fra sporeren.</string>
+        </dict>
+        <dict>
+            <key>Jeg vil ændre sporerens navn.</key><string>Gå til Sporere og tryk på din sporers navn. Rediger Sporer vil derefter åbnes. Her kan du indtaste et navn på sporeren under "Navn".</string>
+        </dict>
+        <dict>
+            <key>Hvordan kan jeg se historikken / den daglige log.</key><string>Gå til Historik og klik på kalender-ikonet i det øverste højre hjørne. Vælg den ønskede dato og appen vil derefter hente GPS positionerne for denne dag.</string>
+        </dict>
+        <dict>
+            <key>Hvordan finder jeg nord på kortet?</key><string>Ån Kort og Sporing og læg to fingre på kortet, og vend det. Et kompas vil vise sig på venstre side af skærmen. Dette kompas viser nords placering på kortet.</string>
+        </dict>
+        <dict>
+            <key>Hvad viser kompasset som altid er på kortet?</key><string>Dette kompas viser det virkelige Nord.</string>
+        </dict>
+        <dict>
+            <key>Hvor mange sporere kan jeg have i appen?</key><string>Du kan købe og se så mange apps som du ønsker.</string>
+        </dict>
+    </array>
+</plist>

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+    <array>
+        <dict>
+            <key>Olen painanut "Käynnistä" ja saanut "lähetys ok"-tekstiviestin, mutta en näe paikanninta.</key>
+            <string>Varmista, että paikannin ei ole sisätilassa. Sisätiloissa oleva paikannin ei pysty muodostamaan yhteyttä satelliitteihin. Sininen valo aloittaa välkkymisen, kun paikannin on muodostanut onnistuneesti yhteyden,</string>
+        </dict>
+        <dict>
+            <key>Olen painanut "Käynnistä", mutta en saanut tekstiviestiä paikantimelta</key>
+            <string>Varmista, että profiilisi sisältää puhelinnumerosi maakoodeineen. Siirry tämän jälkeen Paikantimet -> Muokkaa paikanninta ja paina "palauta". Sinun pitäisi saada nyt vastaus paikantimeltasi, kun lähetät tekstiviestin sovellusta käyttäen.</string>
+        </dict>
+        <dict>
+            <key>Mikään paikantimen valoista ei syty.</key>
+            <string>Varmista, että paikantimen akku on ladattu täyteen. Punainen valo ilmoittaa paikantimen latautumisesta. Valo sammuu paikantimen ollessa täysin latautunut. Paina tämän jälkeen paikantimen käynnistyspainiketta.</string>
+        </dict>
+        <dict>
+            <key>Painoin sovelluksen "Käynnistä"-painiketta, mutta mitään ei tapahdu.</key>
+            <string>Siirry päävalikko ->Paikantimet ja napauta paikantimen oikealla puolella olevaa pientä ympyrää. Siirry takaisin päävalikkoon. Paikantimen nimen pitäisi näkyä "Käynnistä"-painikkeen yläpuolella. Paina uudelleen "Käynnistä"-painiketta, ja sovellus lähettää tekstiviestin paikantimeen.</string>
+        </dict>
+        <dict>
+            <key>Paikantimen vihreä valo ei vilku.</key>
+            <string>Tämä tarkoittaa, että et ole yhteydessä matkapuhelinverkkoon. Varmista, että matkapuhelinverkolla on kuuluvuutta sijainnissasi. Siirry tämän jälkeen Päävalikko ->Paikantimet -> napauta paikanninta ja vieritä ruutua alaspäin, kunnes löydät palautuspainikkeen. Paina "Palauta". Tämä toiminto lähettää 5 tekstiviestiä paikantimeen oletusasetuksien palauttamiseksi. Android-laiteitta käyttäessä nämä viisi viestiä lähtevät yhdellä painalluksella. iPhone laitetta käyttäessä sinun tulee lähettää nämä viisi tekstiviestiä yksitellen.</string>
+        </dict>
+        <dict>
+            <key>Haluan muuttaa gps sijaintipäivitysten tiheyttä.</key>
+            <string>Mene Päävalikko ->Paikantimet->Napauta paikanninta ja valitse ruudun alareunassa oleva "Signaali"-valikko. Napauta Signaalin Päivitystiheys. Valitse liukupainiketta käyttäen haluamasi päivitystiheys. Napauta "Päivitä". Siirry takaisin päävalikkoon ja napauta "Käynnistä"</string>
+        </dict>
+        <dict>
+            <key>Näen kartalla vain muutamia gps-sijainteja</key>
+            <string>Voit muokata paikannushistorian kestoa siirtymällä Päävalikko->Asetukset->Näyttöasetukset. Täällä voit muokata sijaintien näkymistä kartalla.</string>
+        </dict>
+        <dict>
+            <key>Halua nähdä kaverini paikantimen / Haluan antaa kaverilleni pääsyn paikantimeeni.</key>
+            <string>Mene Asetukset->Yhdistä ja napauta oikeassa yläkulmassa näkyvää "+"-painiketta. Suorita haku kaverisi käyttäjänimellä. Käyttäjänimen löytyessä, paina sen oikealla puolella sijaitsevaa "+"-painiketta. Tämän jälkeen kyseinen käyttäjä lisätään kaverilistaasi. Nyt kaverisi on painettava "+"-painiketta ja lisättävä sinut kaverikseen. Tämän jälkeen hänen tulee vielä napauttaa "Silmä"-kuvaketta, jotta voit seurata hänen paikannintaan. Tämä muuttaa kuvakkeen värin yliviivatusta harmaasta vihreäksi.</string>
+        </dict>
+        <dict>
+            <key>Haluan estää kaveriani näkemästä paikannintani.</key>
+            <string>Mene Asetukset->Yhdistä ja napauta käyttäjän oikealla puolella sijaitsevaa "Silmä"-kuvaketta. Tämä muuttaa kuvakkeen värin harmaaksi ja yliviivaa sen.</string>
+        </dict>
+        <dict>
+            <key>Haluan katsoa kaverini paikanninta, mutta sovelluksen mukaan minun tulee maksaa siitä.</key>
+            <string>Jos et itse omista paikanninta, sinun tulee maksaa pieni tilausmaksu palvelun käytöstä ja kaverisi paikantimen seuraamisesta. Maksu veloitetaan kuukausittain. Voi lopettaa palvelun käytön milloin tahansa.</string>
+        </dict>
+        <dict>
+            <key>Haluan keskeyttää palvelun tilauksen</key>
+            <string>Siirry Asetukset-valikkoon ja paina "Keskeytä Tilaus". Tämä lähettää sähköpostin GPS Pingille, ja keskeytämme tilauksesi.</string>
+        </dict>
+        <dict>
+            <key>Paikantimeni sijainti näkyy meren keskellä.</key>
+            <string>Tämä tarkoittaa, että paikantimesi ei ole päivittänyt gps-sijaintitietoaan ja se ei ole muodostanut yhteyttä yhteenkään satelliittiin. Vie paikannin ulos ja käynnistä se uudelleen.</string>
+        </dict>
+        <dict>
+            <key>Haluan lopettaa tilauksen, jonka tein sovelluksen sisällä kaverini paikantimen sijaintitietojen tarkastelua varten.</key>
+            <string>"Tilaus tulee keskeyttää sovelluskaupassa. Jos käytät iPhone puhelinta, mene sovelluskauppaan vieritä ruutua alas, kunnes löydät käyttäjätilisi. Paina Apple id ja syötä salasanasi. Siirry tilauksiin ja keskeytä tilaus. Jos käytät Android-laitetta, avaa Play Kauppa Android älypuhelimellasi tai tablet-laitteellasi.
+            Avaa Omat sovellukset Google Kaupan valikosta.
+            Asennettujen sovellusten vasemmalla puolella on lista tilauksistasi. Valitse tilaus, jonka haluat perua.
+            Klikkaa ""Peruuta"" ja vahtista toiminto klikkaamalla ""Kyllä""."</string>
+        </dict>
+        <dict>
+            <key>En näe omaa sijaintiani.</key>
+            <string>Tämä tarkoittaa, että et ole antanut sovellukselle lupaa käyttää laitteen gps-toimintoa. Mene laitteen asetuksiin (ei sovelluksen asetuksiin), ja GPS Ping sovellukselle lupa käyttää laitteen GPS-toimintoa.</string>
+        </dict>
+        <dict>
+            <key>Miten asetan Geofence-toiminnon paikantimeeni</key>
+            <string>Siirry Asetukset->Geofence ja aseta haluamasi geofence-alueen halkaisija metreinä. Paina "Käynnistä". Sovellus lähettää tekstiviestin paikantimeen sinun pitäisi saada "Move ok"-viesti paikantimeltasi. Mikäli paikannin siirtyy määrittelemäsi alueen ulkopuolelle, saat siitä tekstiviestin "Move Alarm".</string>
+        </dict>
+        <dict>
+            <key>Haluan muuttaa paikantimen nimeä</key>
+            <string>Siirry Paikantimet ja napauta paikannintasi. Tämä avaa paikantimen muokkausnäkymän. Täällä voit valita haluamasi nimen paikantimelle.</string>
+        </dict>
+        <dict>
+            <key>Miten näen paikantimen sijaintihistorian/päivittäisen lokitiedoston</key>
+            <string>Siirry Historia ja napauta oikeassa yläkulmassa sijaitsevaa kalenteri-ikonia. Valitse haluamasi päivä ja sovellus näyttää sinulle kyseisen päivän gps-sijainnit.</string>
+        </dict>
+        <dict>
+            <key>Miten löydän kartalta pohjoisen?</key>
+            <string>Avaa "Kartta ja paikannus" ja käännä karttaa käyttämällä kahta sormea. Ruudun vasempaan reunaan ilmestyy kompassi. Kompassi osoittaa kartan pohjoiseen.</string>
+        </dict>
+        <dict>
+            <key>Mitä jatkuvasti ruudulla näkyvä kompassi osoittaa</key>
+            <string>Tämä kompassi näyttää todellisen pohjoisen</string>
+        </dict>
+        <dict>
+            <key>Kuinka monta paikanninta voin lisätä sovellukseen?</key>
+            <string>Voit ostaa ja lisätä niin monta paikanninta kuin vain haluat.</string>
+        </dict>
+        
+    </array>
+</plist>
