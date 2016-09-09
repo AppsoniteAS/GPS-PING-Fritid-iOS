@@ -31,8 +31,8 @@
 }
 
 +(CGFloat)heightOfCellForText:(NSString*)text {
-    CGFloat labelSizeWidth = [UIScreen mainScreen].bounds.size.width - 15*2;
-    UIFont *font = [UIFont fontWithName:@"Roboto-Regular" size:15.0];
+    CGFloat labelSizeWidth = [UIScreen mainScreen].bounds.size.width - 15 - 48;
+    UIFont *font = [UIFont fontWithName:@"Roboto-Light" size:15.0];
     
     CGSize constraint = CGSizeMake(labelSizeWidth, CGFLOAT_MAX);
     
@@ -43,7 +43,8 @@
                                                   context:context].size;
     
     CGSize size = CGSizeMake(ceil(boundingBox.width), ceil(boundingBox.height));
-    return size.height;
+    CGFloat sumOfVerticalSpacesToAndFromLabel = 10.0;
+    return size.height + sumOfVerticalSpacesToAndFromLabel + 1; // plus 1 for separator i guess
 }
 
 @end

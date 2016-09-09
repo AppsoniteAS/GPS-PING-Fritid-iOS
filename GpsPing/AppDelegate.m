@@ -63,6 +63,12 @@ DDLogLevel ddLogLevel = DDLogLevelError;
 //        [self handlePush];
 //    }
     
+    for (NSString *fontFamilyName in [UIFont familyNames]) {
+        for (NSString *fontName in [UIFont fontNamesForFamilyName:fontFamilyName]) {
+            NSLog(@"Family: %@    Font: %@", fontFamilyName, fontName);
+        }
+    }
+    
     return YES;
 }
 
