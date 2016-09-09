@@ -171,7 +171,6 @@
 		A60C46921D80114B00141ED3 /* ASIntroViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIntroViewController.h; sourceTree = "<group>"; };
 		A60C46931D80114B00141ED3 /* ASIntroViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIntroViewController.m; sourceTree = "<group>"; };
 		A60C46961D8035A800141ED3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Intro.storyboard; sourceTree = "<group>"; };
-		A60C46991D8035AA00141ED3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Intro.strings; sourceTree = "<group>"; };
 		A60C469B1D8035AB00141ED3 /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/Intro.strings; sourceTree = "<group>"; };
 		A60C469D1D8035AD00141ED3 /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/Intro.strings; sourceTree = "<group>"; };
 		A60C469F1D8035AE00141ED3 /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/Intro.strings; sourceTree = "<group>"; };
@@ -330,6 +329,7 @@
 		A6EAA9671D82ADC900FBBEE6 /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/FAQ.strings; sourceTree = "<group>"; };
 		A6EAA9691D82ADCA00FBBEE6 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/FAQ.strings; sourceTree = "<group>"; };
 		A6EAA96B1D82ADCB00FBBEE6 /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/FAQ.strings; sourceTree = "<group>"; };
+		A6EAA96D1D82B94F00FBBEE6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Intro.strings; sourceTree = "<group>"; };
 		A6F6A7491C5122210009579A /* ASSmsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASSmsManager.h; sourceTree = "<group>"; };
 		A6F6A74A1C5122210009579A /* ASSmsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASSmsManager.m; sourceTree = "<group>"; };
 		A6F6A74C1C51742A0009579A /* ASSelectTrackerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASSelectTrackerViewController.h; sourceTree = "<group>"; };
@@ -1243,11 +1243,11 @@
 			isa = PBXVariantGroup;
 			children = (
 				A60C46961D8035A800141ED3 /* Base */,
-				A60C46991D8035AA00141ED3 /* en */,
 				A60C469B1D8035AB00141ED3 /* nb */,
 				A60C469D1D8035AD00141ED3 /* fi */,
 				A60C469F1D8035AE00141ED3 /* da */,
 				A60C46A11D8035AF00141ED3 /* sv */,
+				A6EAA96D1D82B94F00FBBEE6 /* en */,
 			);
 			name = Intro.storyboard;
 			sourceTree = "<group>";

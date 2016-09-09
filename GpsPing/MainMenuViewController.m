@@ -114,4 +114,8 @@ objection_requires(@keypath(MainMenuViewController.new, apiController))
     [FCOverlay presentOverlayWithViewController:[UIStoryboard introStoryboard].instantiateInitialViewController animated:YES completion:nil];
 }
 
+-(BOOL)prefersStatusBarHidden {
+    return NO;
+}
+
 @end

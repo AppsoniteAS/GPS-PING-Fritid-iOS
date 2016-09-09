@@ -3,7 +3,7 @@
 "11d-d8-sDU.text" = "Tag sporeren udendørs og tryk på \"Tændt\"-knappen som findes ovenpå sporeren. En grøn og en blå lampe vil derefter tænde.";
 
 /* Class = "UILabel"; text = "Open the app and tap on Trackers on the main menu to view your tracker.\nTap on small circle to the right of tracker to mark it."; ObjectID = "O1K-lg-bXh"; */
-"O1K-lg-bXh.text" = "Åbn appen og tryk på Sporere i hovedmenuen for at se din sporer. Tryk på den lille cirkel til højre for din sporer for at markere den.";
+"O1K-lg-bXh.text" = "Åbn appen og tryk på Sporere i hovedmenuen for at se din sporer.";
 
 /* Class = "UILabel"; text = "Go back to main menu. Make sure the name of the tracker is shown over the start button.
 Push start."; ObjectID = "dle-FN-aSn"; */
@@ -14,3 +14,6 @@ Push start."; ObjectID = "dle-FN-aSn"; */
 
 /* Class = "UILabel"; text = "First charge your tracker for at least 8 hours. The tracker is fully charged when the red charge light turns off."; ObjectID = "qNh-dQ-8Ft"; */
 "qNh-dQ-8Ft.text" = "Lad først din sporer lade op i mindst 8 timer. Sporeren er fuldt opladet når lyset slukker.";
+
+/* Class = "UILabel"; text = "Tap on small circle to the right of tracker to mark it."; ObjectID = "vlU-o7-jpY"; */
+"vlU-o7-jpY.text" = "Tryk på den lille cirkel til højre for din sporer for at markere den.";

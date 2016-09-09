@@ -3,7 +3,7 @@
 "11d-d8-sDU.text" = "Ta trackeren ut og trykk på \"På\" knappen som er på toppen av trackeren. Et grønt og blue lyst vil så lyse. Trackeren er har mobilnett når det grønne lyset blinker, og satelitt kontakt når det blå lyset blinker.";
 
 /* Class = "UILabel"; text = "Open the app and tap on Trackers on the main menu to view your tracker.\nTap on small circle to the right of tracker to mark it."; ObjectID = "O1K-lg-bXh"; */
-"O1K-lg-bXh.text" = "Trykk på Trackere i hovedmenyen på din app. Trykk på den lille sirkelen til høyre for trackeren.";
+"O1K-lg-bXh.text" = "Trykk på Trackere i hovedmenyen på din app.";
 
 /* Class = "UILabel"; text = "Go back to main menu. Make sure the name of the tracker is shown over the start button.
 Push start."; ObjectID = "dle-FN-aSn"; */
@@ -14,3 +14,6 @@ Push start."; ObjectID = "dle-FN-aSn"; */
 
 /* Class = "UILabel"; text = "First charge your tracker for at least 8 hours. The tracker is fully charged when the red charge light turns off."; ObjectID = "qNh-dQ-8Ft"; */
 "qNh-dQ-8Ft.text" = "Sett trackeren på ladding i minst åtte timer. Trackeren er ferdig laddet når det røde lyset slår seg av.";
+
+/* Class = "UILabel"; text = "Tap on small circle to the right of tracker to mark it."; ObjectID = "vlU-o7-jpY"; */
+"vlU-o7-jpY.text" = "Trykk på den lille sirkelen til høyre for trackeren.";
