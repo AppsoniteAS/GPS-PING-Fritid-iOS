@@ -19,3 +19,6 @@
 
 /* Class = "UIButton"; normalTitle = "Om"; ObjectID = "zhj-4V-9NB"; */
 "zhj-4V-9NB.normalTitle" = "Om";
+
+/* Class = "UIButton"; normalTitle = "FAQ"; ObjectID = "LPc-gy-waf"; */
+"LPc-gy-waf.normalTitle" = "Ofte spurte spørsmål / Problem løsning";

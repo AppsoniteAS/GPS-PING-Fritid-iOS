@@ -19,3 +19,6 @@
 
 
 "TSu-3F-tjY.normalTitle" = "Pausa prenumerationen";
+
+/* Class = "UIButton"; normalTitle = "FAQ"; ObjectID = "LPc-gy-waf"; */
+"LPc-gy-waf.normalTitle" = "FAQ / Problemlösning";

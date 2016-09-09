@@ -64,13 +64,13 @@
 		A68C1BAA1C4F71CB000E2BA6 /* ASTrackerConfigurationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A68C1BA91C4F71CB000E2BA6 /* ASTrackerConfigurationViewController.m */; };
 		A6AB682A1D3776A500F470D2 /* ASNewTrackerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6AB68291D3776A500F470D2 /* ASNewTrackerViewController.m */; };
 		A6D194EF1D81743700394F31 /* ASQuestionListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6D194EE1D81743700394F31 /* ASQuestionListTableViewController.m */; };
-		A6D194F31D817B9200394F31 /* FAQ.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6D194F21D817B9200394F31 /* FAQ.storyboard */; };
 		A6D194F61D817D0E00394F31 /* ASQuestionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A6D194F51D817D0E00394F31 /* ASQuestionCell.m */; };
 		A6D194F91D828E8400394F31 /* ASAnswerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6D194F81D828E8400394F31 /* ASAnswerViewController.m */; };
 		A6D194FA1D82961E00394F31 /* FAQ.plist in Resources */ = {isa = PBXBuildFile; fileRef = A6D194FC1D82961E00394F31 /* FAQ.plist */; };
 		A6D1E7751D3CFB0100D847EC /* ASNewUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A6D1E7741D3CFB0100D847EC /* ASNewUserModel.m */; };
 		A6D1E7781D3D01B300D847EC /* NSString+ASNameComponents.m in Sources */ = {isa = PBXBuildFile; fileRef = A6D1E7771D3D01B300D847EC /* NSString+ASNameComponents.m */; };
 		A6D8D0521C58B1EA00030E9F /* ASFriendModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A6D8D0511C58B1EA00030E9F /* ASFriendModel.m */; };
+		A6EAA95F1D82ADBE00FBBEE6 /* FAQ.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6EAA9611D82ADBE00FBBEE6 /* FAQ.storyboard */; };
 		A6F6A74B1C5122210009579A /* ASSmsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A6F6A74A1C5122210009579A /* ASSmsManager.m */; };
 		A6F6A74E1C51742A0009579A /* ASSelectTrackerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6F6A74D1C51742A0009579A /* ASSelectTrackerViewController.m */; };
 		A6F6A7511C52246E0009579A /* ASTapView.m in Sources */ = {isa = PBXBuildFile; fileRef = A6F6A7501C52246E0009579A /* ASTapView.m */; };
@@ -212,7 +212,6 @@
 		A65EAB671D3F5D3E00BCE303 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A65EAB681D3F5D3E00BCE303 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A6624DF01D37D88D00CDA336 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Map.strings; sourceTree = "<group>"; };
-		A6624DF41D37D8E400CDA336 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Settings.strings; sourceTree = "<group>"; };
 		A6624DF81D37D90900CDA336 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/TrackerConfiguration.storyboard; sourceTree = "<group>"; };
 		A6624DFF1D37D97A00CDA336 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/TrackerConfiguration.strings; sourceTree = "<group>"; };
 		A6624E011D37D97C00CDA336 /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/TrackerConfiguration.strings; sourceTree = "<group>"; };
@@ -272,7 +271,6 @@
 		A6AB68291D3776A500F470D2 /* ASNewTrackerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASNewTrackerViewController.m; sourceTree = "<group>"; };
 		A6D194ED1D81743700394F31 /* ASQuestionListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASQuestionListTableViewController.h; sourceTree = "<group>"; };
 		A6D194EE1D81743700394F31 /* ASQuestionListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASQuestionListTableViewController.m; sourceTree = "<group>"; };
-		A6D194F21D817B9200394F31 /* FAQ.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FAQ.storyboard; sourceTree = "<group>"; };
 		A6D194F41D817D0E00394F31 /* ASQuestionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASQuestionCell.h; sourceTree = "<group>"; };
 		A6D194F51D817D0E00394F31 /* ASQuestionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASQuestionCell.m; sourceTree = "<group>"; };
 		A6D194F71D828E8400394F31 /* ASAnswerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASAnswerViewController.h; sourceTree = "<group>"; };
@@ -325,6 +323,13 @@
 		A6D1E7771D3D01B300D847EC /* NSString+ASNameComponents.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+ASNameComponents.m"; sourceTree = "<group>"; };
 		A6D8D0501C58B1EA00030E9F /* ASFriendModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASFriendModel.h; sourceTree = "<group>"; };
 		A6D8D0511C58B1EA00030E9F /* ASFriendModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASFriendModel.m; sourceTree = "<group>"; };
+		A6EAA95E1D82AD5000FBBEE6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Settings.strings; sourceTree = "<group>"; };
+		A6EAA9601D82ADBE00FBBEE6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/FAQ.storyboard; sourceTree = "<group>"; };
+		A6EAA9631D82ADC000FBBEE6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/FAQ.strings; sourceTree = "<group>"; };
+		A6EAA9651D82ADC700FBBEE6 /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/FAQ.strings; sourceTree = "<group>"; };
+		A6EAA9671D82ADC900FBBEE6 /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/FAQ.strings; sourceTree = "<group>"; };
+		A6EAA9691D82ADCA00FBBEE6 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/FAQ.strings; sourceTree = "<group>"; };
+		A6EAA96B1D82ADCB00FBBEE6 /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/FAQ.strings; sourceTree = "<group>"; };
 		A6F6A7491C5122210009579A /* ASSmsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASSmsManager.h; sourceTree = "<group>"; };
 		A6F6A74A1C5122210009579A /* ASSmsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASSmsManager.m; sourceTree = "<group>"; };
 		A6F6A74C1C51742A0009579A /* ASSelectTrackerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASSelectTrackerViewController.h; sourceTree = "<group>"; };
@@ -732,7 +737,7 @@
 				A6D194ED1D81743700394F31 /* ASQuestionListTableViewController.h */,
 				A6D194EE1D81743700394F31 /* ASQuestionListTableViewController.m */,
 				A6D194FC1D82961E00394F31 /* FAQ.plist */,
-				A6D194F21D817B9200394F31 /* FAQ.storyboard */,
+				A6EAA9611D82ADBE00FBBEE6 /* FAQ.storyboard */,
 				A6D194F41D817D0E00394F31 /* ASQuestionCell.h */,
 				A6D194F51D817D0E00394F31 /* ASQuestionCell.m */,
 				A6D194F71D828E8400394F31 /* ASAnswerViewController.h */,
@@ -1008,7 +1013,7 @@
 				ABA221421C79E54900AE6F87 /* DisplayOptions.storyboard in Resources */,
 				A68C1B841C4D24DC000E2BA6 /* Roboto-ThinItalic.ttf in Resources */,
 				ABA221341C79E50200AE6F87 /* Auth.storyboard in Resources */,
-				A6D194F31D817B9200394F31 /* FAQ.storyboard in Resources */,
+				A6EAA95F1D82ADBE00FBBEE6 /* FAQ.storyboard in Resources */,
 				ABA2211C1C79DF4000AE6F87 /* Localizable.strings in Resources */,
 				A6D194FA1D82961E00394F31 /* FAQ.plist in Resources */,
 				A64326851C5F6F54000B63C1 /* GoogleService-Info.plist in Resources */,
@@ -1312,6 +1317,19 @@
 			name = FAQ.plist;
 			sourceTree = "<group>";
 		};
+		A6EAA9611D82ADBE00FBBEE6 /* FAQ.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A6EAA9601D82ADBE00FBBEE6 /* Base */,
+				A6EAA9631D82ADC000FBBEE6 /* en */,
+				A6EAA9651D82ADC700FBBEE6 /* nb */,
+				A6EAA9671D82ADC900FBBEE6 /* fi */,
+				A6EAA9691D82ADCA00FBBEE6 /* sv */,
+				A6EAA96B1D82ADCB00FBBEE6 /* da */,
+			);
+			name = FAQ.storyboard;
+			sourceTree = "<group>";
+		};
 		A6FCAD371C89B8E600CA1745 /* Localizable.stringsdict */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -1377,10 +1395,10 @@
 			children = (
 				ABA221231C79E44700AE6F87 /* Base */,
 				ABA221281C79E46800AE6F87 /* nb */,
-				A6624DF41D37D8E400CDA336 /* en */,
 				A6D1E7521D38BE0C00D847EC /* fi */,
 				A6D1E7641D38BE1800D847EC /* da */,
 				A65EAB5A1D3F5D3D00BCE303 /* sv */,
+				A6EAA95E1D82AD5000FBBEE6 /* en */,
 			);
 			name = Settings.storyboard;
 			sourceTree = "<group>";

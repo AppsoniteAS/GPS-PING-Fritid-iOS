@@ -1,0 +1,15 @@
+
+/* Class = "UILabel"; text = "{Question text}"; ObjectID = "MRD-NK-zct"; */
+"MRD-NK-zct.text" = "{Question text}";
+
+/* Class = "UINavigationItem"; title = "Troubleshooting"; ObjectID = "a9V-LJ-CJG"; */
+"a9V-LJ-CJG.title" = "Ofte spurte spørsmål / Problem løsning";
+
+/* Class = "UILabel"; text = "{Question text}"; ObjectID = "ect-nP-gb4"; */
+"ect-nP-gb4.text" = "{Question text}";
+
+/* Class = "UINavigationItem"; title = "Troubleshooting"; ObjectID = "fRF-JS-7Kr"; */
+"fRF-JS-7Kr.title" = "Ofte spurte spørsmål / Problem løsning";
+
+/* Class = "UILabel"; text = "{answer text}"; ObjectID = "pFc-lx-GlF"; */
+"pFc-lx-GlF.text" = "{answer text}";

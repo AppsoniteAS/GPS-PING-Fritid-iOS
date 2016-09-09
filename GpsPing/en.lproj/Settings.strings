@@ -2,8 +2,14 @@
 /* Class = "UIButton"; normalTitle = "Connect"; ObjectID = "2Pk-J7-6Zh"; */
 "2Pk-J7-6Zh.normalTitle" = "Connect";
 
+/* Class = "UIButton"; normalTitle = "FAQ"; ObjectID = "LPc-gy-waf"; */
+"LPc-gy-waf.normalTitle" = "Troubleshooting";
+
 /* Class = "UINavigationItem"; title = "Settings"; ObjectID = "PiA-BG-Mjc"; */
 "PiA-BG-Mjc.title" = "Settings";
+
+/* Class = "UIButton"; normalTitle = "Pause subscription"; ObjectID = "TSu-3F-tjY"; */
+"TSu-3F-tjY.normalTitle" = "Pause subscription";
 
 /* Class = "UIButton"; normalTitle = "Geofence"; ObjectID = "Xdm-N5-bVT"; */
 "Xdm-N5-bVT.normalTitle" = "Geofence";
@@ -16,5 +22,3 @@
 
 /* Class = "UIButton"; normalTitle = "About"; ObjectID = "zhj-4V-9NB"; */
 "zhj-4V-9NB.normalTitle" = "About";
-
-"TSu-3F-tjY.normalTitle" = "Pause Subscription";

@@ -13,7 +13,7 @@
         </mutableArray>
     </customFonts>
     <scenes>
-        <!--Question List Table View Controller-->
+        <!--Troubleshooting-->
         <scene sceneID="QQx-br-L8R">
             <objects>
                 <viewController extendedLayoutIncludesOpaqueBars="YES" automaticallyAdjustsScrollViewInsets="NO" id="Cys-cO-Ucd" customClass="ASQuestionListTableViewController" sceneMemberID="viewController">
@@ -74,6 +74,7 @@
                             <constraint firstAttribute="trailing" secondItem="L0L-AJ-M72" secondAttribute="trailing" id="t5b-RC-dUa"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Troubleshooting" id="fRF-JS-7Kr"/>
                     <connections>
                         <outlet property="tableView" destination="L0L-AJ-M72" id="aMt-CR-FAZ"/>
                     </connections>
@@ -82,7 +83,7 @@
             </objects>
             <point key="canvasLocation" x="488" y="451"/>
         </scene>
-        <!--Answer View Controller-->
+        <!--Troubleshooting-->
         <scene sceneID="BoP-eg-yt8">
             <objects>
                 <viewController storyboardIdentifier="ASAnswerViewController" id="8E3-NO-WPP" customClass="ASAnswerViewController" sceneMemberID="viewController">
@@ -117,6 +118,7 @@
                             <constraint firstItem="pFc-lx-GlF" firstAttribute="top" secondItem="ect-nP-gb4" secondAttribute="bottom" constant="30" id="yip-qb-Ttj"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Troubleshooting" id="a9V-LJ-CJG"/>
                     <connections>
                         <outlet property="answerLabel" destination="pFc-lx-GlF" id="nyp-Nb-Y74"/>
                         <outlet property="questionLabel" destination="ect-nP-gb4" id="ifl-My-tQD"/>
