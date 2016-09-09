@@ -17,5 +17,6 @@
 +(UIStoryboard*)connectStoryboard;
 +(UIStoryboard*)authStoryboard;
 +(UIStoryboard*)introStoryboard;
++(UIStoryboard*)faqStoryboard;
 
 @end

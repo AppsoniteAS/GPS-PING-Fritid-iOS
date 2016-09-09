@@ -51,7 +51,11 @@
     return [UIStoryboard storyboardWithName:@"Intro"
                                      bundle:[NSBundle mainBundle]];
 }
++(UIStoryboard*)faqStoryboard
 
-
+{
+    return [UIStoryboard storyboardWithName:@"FAQ"
+                                     bundle:[NSBundle mainBundle]];
+}
 
 @end

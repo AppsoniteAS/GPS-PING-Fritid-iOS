@@ -63,6 +63,11 @@
 		A68C1BA71C4F7006000E2BA6 /* UIStoryboard+ASHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = A68C1BA61C4F7006000E2BA6 /* UIStoryboard+ASHelper.m */; };
 		A68C1BAA1C4F71CB000E2BA6 /* ASTrackerConfigurationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A68C1BA91C4F71CB000E2BA6 /* ASTrackerConfigurationViewController.m */; };
 		A6AB682A1D3776A500F470D2 /* ASNewTrackerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6AB68291D3776A500F470D2 /* ASNewTrackerViewController.m */; };
+		A6D194EF1D81743700394F31 /* ASQuestionListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6D194EE1D81743700394F31 /* ASQuestionListTableViewController.m */; };
+		A6D194F11D81748100394F31 /* FAQ.plist in Resources */ = {isa = PBXBuildFile; fileRef = A6D194F01D81748100394F31 /* FAQ.plist */; };
+		A6D194F31D817B9200394F31 /* FAQ.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6D194F21D817B9200394F31 /* FAQ.storyboard */; };
+		A6D194F61D817D0E00394F31 /* ASQuestionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A6D194F51D817D0E00394F31 /* ASQuestionCell.m */; };
+		A6D194F91D828E8400394F31 /* ASAnswerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6D194F81D828E8400394F31 /* ASAnswerViewController.m */; };
 		A6D1E7751D3CFB0100D847EC /* ASNewUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A6D1E7741D3CFB0100D847EC /* ASNewUserModel.m */; };
 		A6D1E7781D3D01B300D847EC /* NSString+ASNameComponents.m in Sources */ = {isa = PBXBuildFile; fileRef = A6D1E7771D3D01B300D847EC /* NSString+ASNameComponents.m */; };
 		A6D8D0521C58B1EA00030E9F /* ASFriendModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A6D8D0511C58B1EA00030E9F /* ASFriendModel.m */; };
@@ -265,6 +270,14 @@
 		A68C1BA91C4F71CB000E2BA6 /* ASTrackerConfigurationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASTrackerConfigurationViewController.m; sourceTree = "<group>"; };
 		A6AB68281D3776A500F470D2 /* ASNewTrackerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASNewTrackerViewController.h; sourceTree = "<group>"; };
 		A6AB68291D3776A500F470D2 /* ASNewTrackerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASNewTrackerViewController.m; sourceTree = "<group>"; };
+		A6D194ED1D81743700394F31 /* ASQuestionListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASQuestionListTableViewController.h; sourceTree = "<group>"; };
+		A6D194EE1D81743700394F31 /* ASQuestionListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASQuestionListTableViewController.m; sourceTree = "<group>"; };
+		A6D194F01D81748100394F31 /* FAQ.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = FAQ.plist; sourceTree = "<group>"; };
+		A6D194F21D817B9200394F31 /* FAQ.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FAQ.storyboard; sourceTree = "<group>"; };
+		A6D194F41D817D0E00394F31 /* ASQuestionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASQuestionCell.h; sourceTree = "<group>"; };
+		A6D194F51D817D0E00394F31 /* ASQuestionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASQuestionCell.m; sourceTree = "<group>"; };
+		A6D194F71D828E8400394F31 /* ASAnswerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASAnswerViewController.h; sourceTree = "<group>"; };
+		A6D194F81D828E8400394F31 /* ASAnswerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASAnswerViewController.m; sourceTree = "<group>"; };
 		A6D1E74F1D38BE0C00D847EC /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/Main.strings; sourceTree = "<group>"; };
 		A6D1E7501D38BE0C00D847EC /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/Map.strings; sourceTree = "<group>"; };
 		A6D1E7511D38BE0C00D847EC /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/Auth.strings; sourceTree = "<group>"; };
@@ -708,6 +721,21 @@
 			name = "Configure tracker";
 			sourceTree = "<group>";
 		};
+		A6D194EC1D816FF800394F31 /* FAQ */ = {
+			isa = PBXGroup;
+			children = (
+				A6D194ED1D81743700394F31 /* ASQuestionListTableViewController.h */,
+				A6D194EE1D81743700394F31 /* ASQuestionListTableViewController.m */,
+				A6D194F01D81748100394F31 /* FAQ.plist */,
+				A6D194F21D817B9200394F31 /* FAQ.storyboard */,
+				A6D194F41D817D0E00394F31 /* ASQuestionCell.h */,
+				A6D194F51D817D0E00394F31 /* ASQuestionCell.m */,
+				A6D194F71D828E8400394F31 /* ASAnswerViewController.h */,
+				A6D194F81D828E8400394F31 /* ASAnswerViewController.m */,
+			);
+			name = FAQ;
+			sourceTree = "<group>";
+		};
 		AB5428131C5BA9EF00F33E8B /* Display options */ = {
 			isa = PBXGroup;
 			children = (
@@ -778,6 +806,7 @@
 		AB89467E1C4E6B2B002E86C8 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				A6D194EC1D816FF800394F31 /* FAQ */,
 				218B1EB31D755B8900E19FD7 /* Help */,
 				A68C1BA01C4E4788000E2BA6 /* Main screen */,
 				A603CED01C58D4EF001D56A4 /* Map and Tracking */,
@@ -974,7 +1003,9 @@
 				ABA221421C79E54900AE6F87 /* DisplayOptions.storyboard in Resources */,
 				A68C1B841C4D24DC000E2BA6 /* Roboto-ThinItalic.ttf in Resources */,
 				ABA221341C79E50200AE6F87 /* Auth.storyboard in Resources */,
+				A6D194F31D817B9200394F31 /* FAQ.storyboard in Resources */,
 				ABA2211C1C79DF4000AE6F87 /* Localizable.strings in Resources */,
+				A6D194F11D81748100394F31 /* FAQ.plist in Resources */,
 				A64326851C5F6F54000B63C1 /* GoogleService-Info.plist in Resources */,
 				A68C1B791C4D24DC000E2BA6 /* Roboto-BoldCondensedItalic.ttf in Resources */,
 				A68C1B751C4D24DC000E2BA6 /* Roboto-Black.ttf in Resources */,
@@ -1110,10 +1141,12 @@
 				A603CED81C5900CE001D56A4 /* ASDeviceModel.m in Sources */,
 				A603CEEB1C5B66E3001D56A4 /* ASMapDetailsView.m in Sources */,
 				A61D75591C578FCE00E75999 /* ASFriendsListViewController.m in Sources */,
+				A6D194EF1D81743700394F31 /* ASQuestionListTableViewController.m in Sources */,
 				A61D755F1C58A8BE00E75999 /* ASFriendTableViewCell.m in Sources */,
 				A68C1B391C4CE460000E2BA6 /* MainMenuViewController.m in Sources */,
 				218B1EB81D757C8F00E19FD7 /* ASHelpPopupViewController.m in Sources */,
 				A6D8D0521C58B1EA00030E9F /* ASFriendModel.m in Sources */,
+				A6D194F61D817D0E00394F31 /* ASQuestionCell.m in Sources */,
 				AB5428181C5BAE2300F33E8B /* ASDisplayOptionsViewController.m in Sources */,
 				A603CEDF1C5A3401001D56A4 /* ASPointAnnotation.m in Sources */,
 				AB8946931C4F725D002E86C8 /* ASGeofenceViewController.m in Sources */,
@@ -1143,6 +1176,7 @@
 				A68C1B921C4E38D6000E2BA6 /* ASTrackerCell.m in Sources */,
 				AB8946AB1C549E9F002E86C8 /* RACSignal+BackendHelpers.m in Sources */,
 				AB89469C1C510E96002E86C8 /* ASViewController.m in Sources */,
+				A6D194F91D828E8400394F31 /* ASAnswerViewController.m in Sources */,
 				AB8946711C4E3372002E86C8 /* ASAboutViewController.m in Sources */,
 				A68C1B331C4CE460000E2BA6 /* main.m in Sources */,
 				AB60B73C1C7ECED7003CF277 /* ASSettingsViewController.m in Sources */,
