@@ -17,7 +17,7 @@
 #import "AppDelegate.h"
 
 #import <CocoaLumberjack/CocoaLumberjack.h>
-static const DDLogLevel ddLogLevel = DDLogLevelVerbose;
+static const DDLogLevel ddLogLevel = DDLogLevelDebug;
 
 #define BASE_URL_PRODUCTION @"https://fritid.gpsping.no/api"
 //#define BASE_URL_LOCAL      @"http://appgranula.mooo.com/api/"
@@ -414,6 +414,8 @@ objection_initializer(initWithConfiguration:);
                                      parameters:params];
 }
 
+#pragma mark - Tracking
+
 -(RACSignal *)getTrackingPointsFrom:(NSDate*)from
                                  to:(NSDate*)to
                            friendId:(NSNumber*)friendId
@@ -433,7 +435,7 @@ objection_initializer(initWithConfiguration:);
     return [[self performHttpRequestWithAttempts:@"POST"
                                        resource:@"tracker/get_points"
                                      parameters:params] map:^id(id value) {
-        DDLogDebug(@"%@", value);
+        DDLogVerbose(@"%@", value);
         NSMutableArray *resultArray = @[].mutableCopy;
         for (NSDictionary *userDictionary in value[@"users"]) {
             NSError *error;
@@ -452,6 +454,16 @@ objection_initializer(initWithConfiguration:);
 //        NSArray *resultArray = [MTLJSONAdapter modelsOfClass:[ASFriendModel class] fromJSONArray:value[@"users"] error:&error];
         return resultArray;
     }];
+}
+
+-(RACSignal *)sendUserPosition:(CLLocationCoordinate2D)coordinate {
+    DDLogDebug(@"%s", __PRETTY_FUNCTION__);
+    NSDictionary *params = @{@"lat":@(coordinate.latitude),
+                             @"lon":@(coordinate.longitude)};
+    params = [self addAuthParamsByUpdatingParams:params];
+    return [self performHttpRequestWithAttempts:@"GET"
+                                       resource:@"tracker/add_position/"
+                                     parameters:params];
 }
 
 #pragma mark - Pushes

@@ -63,6 +63,7 @@
 		A68C1BA71C4F7006000E2BA6 /* UIStoryboard+ASHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = A68C1BA61C4F7006000E2BA6 /* UIStoryboard+ASHelper.m */; };
 		A68C1BAA1C4F71CB000E2BA6 /* ASTrackerConfigurationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A68C1BA91C4F71CB000E2BA6 /* ASTrackerConfigurationViewController.m */; };
 		A6AB682A1D3776A500F470D2 /* ASNewTrackerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6AB68291D3776A500F470D2 /* ASNewTrackerViewController.m */; };
+		A6D136521DA26C630069F08C /* ASLocationTrackingService.m in Sources */ = {isa = PBXBuildFile; fileRef = A6D136511DA26C630069F08C /* ASLocationTrackingService.m */; };
 		A6D194EF1D81743700394F31 /* ASQuestionListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6D194EE1D81743700394F31 /* ASQuestionListTableViewController.m */; };
 		A6D194F61D817D0E00394F31 /* ASQuestionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A6D194F51D817D0E00394F31 /* ASQuestionCell.m */; };
 		A6D194F91D828E8400394F31 /* ASAnswerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6D194F81D828E8400394F31 /* ASAnswerViewController.m */; };
@@ -268,6 +269,8 @@
 		A68C1BA91C4F71CB000E2BA6 /* ASTrackerConfigurationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASTrackerConfigurationViewController.m; sourceTree = "<group>"; };
 		A6AB68281D3776A500F470D2 /* ASNewTrackerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASNewTrackerViewController.h; sourceTree = "<group>"; };
 		A6AB68291D3776A500F470D2 /* ASNewTrackerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASNewTrackerViewController.m; sourceTree = "<group>"; };
+		A6D136501DA26C630069F08C /* ASLocationTrackingService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASLocationTrackingService.h; sourceTree = "<group>"; };
+		A6D136511DA26C630069F08C /* ASLocationTrackingService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASLocationTrackingService.m; sourceTree = "<group>"; };
 		A6D194ED1D81743700394F31 /* ASQuestionListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASQuestionListTableViewController.h; sourceTree = "<group>"; };
 		A6D194EE1D81743700394F31 /* ASQuestionListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASQuestionListTableViewController.m; sourceTree = "<group>"; };
 		A6D194F41D817D0E00394F31 /* ASQuestionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASQuestionCell.h; sourceTree = "<group>"; };
@@ -632,6 +635,10 @@
 		A68C1B881C4D2550000E2BA6 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				A6D136531DA271CE0069F08C /* LocationService */,
+				A6D136541DA271DF0069F08C /* Backend */,
+				A6D136561DA272130069F08C /* InAppPurchaseManager */,
+				A6D136551DA2720A0069F08C /* SmsManager */,
 				A6D1E7761D3D01B300D847EC /* NSString+ASNameComponents.h */,
 				A6D1E7771D3D01B300D847EC /* NSString+ASNameComponents.m */,
 				4042A7D51D2D0738009D2332 /* MapViewUtils.h */,
@@ -645,8 +652,6 @@
 				A68C1B9A1C4E40D2000E2BA6 /* UIColor+ASColor.m */,
 				A603CEE61C5A4E45001D56A4 /* UIImage+ASAnnotations.h */,
 				A603CEE71C5A4E45001D56A4 /* UIImage+ASAnnotations.m */,
-				A6F6A7521C524E680009579A /* AGApiController.h */,
-				A6F6A7531C524E680009579A /* AGApiController.m */,
 				AB5428101C5BA1F000F33E8B /* ASSearchBar.h */,
 				AB5428111C5BA1F000F33E8B /* ASSearchBar.m */,
 				A68C1B851C4D2549000E2BA6 /* ASButton.h */,
@@ -657,12 +662,8 @@
 				A68C1BA61C4F7006000E2BA6 /* UIStoryboard+ASHelper.m */,
 				AB8946A91C549E9F002E86C8 /* RACSignal+BackendHelpers.h */,
 				AB8946AA1C549E9F002E86C8 /* RACSignal+BackendHelpers.m */,
-				A6F6A7491C5122210009579A /* ASSmsManager.h */,
-				A6F6A74A1C5122210009579A /* ASSmsManager.m */,
 				A6F6A74F1C52246E0009579A /* ASTapView.h */,
 				A6F6A7501C52246E0009579A /* ASTapView.m */,
-				AB60B7371C7EBCDB003CF277 /* ASInAppPurchaseManager.h */,
-				AB60B7381C7EBCDB003CF277 /* ASInAppPurchaseManager.m */,
 			);
 			name = Tools;
 			sourceTree = "<group>";
@@ -729,6 +730,42 @@
 				A6624DF91D37D90900CDA336 /* TrackerConfiguration.storyboard */,
 			);
 			name = "Configure tracker";
+			sourceTree = "<group>";
+		};
+		A6D136531DA271CE0069F08C /* LocationService */ = {
+			isa = PBXGroup;
+			children = (
+				A6D136501DA26C630069F08C /* ASLocationTrackingService.h */,
+				A6D136511DA26C630069F08C /* ASLocationTrackingService.m */,
+			);
+			name = LocationService;
+			sourceTree = "<group>";
+		};
+		A6D136541DA271DF0069F08C /* Backend */ = {
+			isa = PBXGroup;
+			children = (
+				A6F6A7521C524E680009579A /* AGApiController.h */,
+				A6F6A7531C524E680009579A /* AGApiController.m */,
+			);
+			name = Backend;
+			sourceTree = "<group>";
+		};
+		A6D136551DA2720A0069F08C /* SmsManager */ = {
+			isa = PBXGroup;
+			children = (
+				A6F6A7491C5122210009579A /* ASSmsManager.h */,
+				A6F6A74A1C5122210009579A /* ASSmsManager.m */,
+			);
+			name = SmsManager;
+			sourceTree = "<group>";
+		};
+		A6D136561DA272130069F08C /* InAppPurchaseManager */ = {
+			isa = PBXGroup;
+			children = (
+				AB60B7371C7EBCDB003CF277 /* ASInAppPurchaseManager.h */,
+				AB60B7381C7EBCDB003CF277 /* ASInAppPurchaseManager.m */,
+			);
+			name = InAppPurchaseManager;
 			sourceTree = "<group>";
 		};
 		A6D194EC1D816FF800394F31 /* FAQ */ = {
@@ -1146,6 +1183,7 @@
 				AB8946901C4F7244002E86C8 /* ASGeofenceViewModel.m in Sources */,
 				A603CEDB1C5A0986001D56A4 /* ASPointModel.m in Sources */,
 				A603CEE81C5A4E45001D56A4 /* UIImage+ASAnnotations.m in Sources */,
+				A6D136521DA26C630069F08C /* ASLocationTrackingService.m in Sources */,
 				A68C1B9E1C4E43AB000E2BA6 /* ASNavigationController.m in Sources */,
 				ABE7C7251C784500008A6390 /* ASPointOfInterestModel.m in Sources */,
 				A603CED81C5900CE001D56A4 /* ASDeviceModel.m in Sources */,

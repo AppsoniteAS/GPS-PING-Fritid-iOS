@@ -25,6 +25,7 @@
 #import "NSDate+DateTools.h"
 #import "CompassController.h"
 #import "WMSTileOverlay.h"
+#import "ASLocationTrackingService.h"
 
 #define QUERY_RATE_IN_SECONDS 15
 static const DDLogLevel ddLogLevel = DDLogLevelDebug;
@@ -32,6 +33,7 @@ static const DDLogLevel ddLogLevel = DDLogLevelDebug;
 static NSString *const kASUserDefaultsKeyRemoveTrackersDate = @"kASUserDefaultsKeyRemoveTrackersDate";
 
 @interface ASMapViewController () <MKMapViewDelegate,UIPickerViewDelegate, UIPickerViewDataSource, THDatePickerDelegate>
+@property (weak, nonatomic) IBOutlet UIButton *startLocateUserButton;
 
 @property (weak, nonatomic) IBOutlet UIView           *filterPlank;
 @property (weak, nonatomic) IBOutlet UITextField      *filterTextField;
@@ -52,6 +54,8 @@ static NSString *const kASUserDefaultsKeyRemoveTrackersDate = @"kASUserDefaultsK
 @property (nonatomic        ) NSDate                     *selectedDate;
 
 @property (nonatomic        ) AGApiController            *apiController;
+@property (nonatomic, strong) ASLocationTrackingService  *locationTrackingService;
+
 @property (nonatomic        ) THDatePickerViewController *datePicker;
 
 @property (nonatomic        ) ASFriendModel              *userToFilter;
@@ -67,7 +71,7 @@ static NSString *const kASUserDefaultsKeyRemoveTrackersDate = @"kASUserDefaultsK
 
 @implementation ASMapViewController
 
-objection_requires(@keypath(ASMapViewController.new, apiController))
+objection_requires(@keypath(ASMapViewController.new, apiController), @keypath(ASMapViewController.new, locationTrackingService))
 
 +(instancetype)initialize
 {
@@ -138,6 +142,14 @@ objection_requires(@keypath(ASMapViewController.new, apiController))
     [self loadPointsOfInterest];
     
     self.compassController = [CompassController compassWithArrowImageView:self.compassImageView];
+    
+    [RACObserve(self, locationTrackingService.isServiceRunning) subscribeNext:^(NSNumber *isRunning) {
+        if (isRunning.boolValue) {
+            [self.startLocateUserButton setTitle:NSLocalizedString(@"stop", nil) forState:UIControlStateNormal];
+        } else {
+            [self.startLocateUserButton setTitle:NSLocalizedString(@"start", nil) forState:UIControlStateNormal];
+        }
+    }];
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -157,6 +169,15 @@ objection_requires(@keypath(ASMapViewController.new, apiController))
 }
 
 #pragma mark - IBActions and Handlers
+
+- (IBAction)startServiceTap:(id)sender {
+    if (!self.locationTrackingService.isServiceRunning) {
+        [self.locationTrackingService startLocationTracking];
+    } else {
+        [self.locationTrackingService stopLocationTracking];
+    }
+}
+
 - (IBAction)calendarTap:(id)sender {
     if(!self.datePicker)
         self.datePicker = [THDatePickerViewController datePicker];
@@ -441,7 +462,7 @@ objection_requires(@keypath(ASMapViewController.new, apiController))
 -(void)loadPointsOfInterest {
     @weakify(self)
     [[self.apiController getPOI] subscribeNext:^(NSArray* pois) {
-        DDLogDebug(@"POIs: %@",pois);
+        DDLogVerbose(@"POIs: %@",pois);
         @strongify(self)
         self.arrayPOIs = pois;
     }] ;

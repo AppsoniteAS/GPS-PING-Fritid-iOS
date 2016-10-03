@@ -17,6 +17,7 @@ target :GpsPing do
     pod 'DTTableViewManager', '~>3.2.0'
     pod 'DTCollectionViewManager', '~>3.2.0'
     pod 'UINavigationBar+Addition'
+    pod 'MMPReactiveCoreLocation', '~> 0.6'
 
     pod 'UIImage-ResizeMagick', :git => 'https://github.com/lazarev/UIImage-ResizeMagick'
     pod 'JPSKeyboardLayoutGuide', :git => 'https://github.com/jpsim/JPSKeyboardLayoutGuide.git'

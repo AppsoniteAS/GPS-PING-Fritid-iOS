@@ -67,6 +67,8 @@ extern NSString *kASDidRegisterNotification;
 -(RACSignal *)getTrackingPointsFrom:(NSDate*)from
                                  to:(NSDate*)to
                            friendId:(NSNumber*)friendId;
+-(RACSignal *)sendUserPosition:(CLLocationCoordinate2D)coordinate;
+
 #pragma mark - POI
 -(RACSignal *)getPOI;
 -(RACSignal *)addPOI:(NSString*)name
