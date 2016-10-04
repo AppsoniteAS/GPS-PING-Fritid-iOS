@@ -15,6 +15,8 @@
 @property (nonatomic, strong) RACSubject *stopSignal;
 @property (nonatomic, strong) MMPReactiveCoreLocation *locationManager;
 @property (nonatomic, strong) CLLocation *lastLocation;
+@property (nonatomic, assign) BOOL canMakeRequest;
+
 
 @end
 
@@ -26,6 +28,7 @@ objection_requires(@keypath(ASLocationTrackingService.new, apiController))
 -(void)awakeFromObjection {
     [super awakeFromObjection];
     self.isServiceRunning = NO;
+    self.canMakeRequest = YES;
     self.stopSignal = [RACSubject subject];
     self.locationManager = [MMPReactiveCoreLocation service];
 }
@@ -40,8 +43,14 @@ objection_requires(@keypath(ASLocationTrackingService.new, apiController))
          }
          
          self.lastLocation = location;
-        [[self.apiController sendUserPosition:location.coordinate] subscribeNext:^(id x) {
-        }];
+        if (self.canMakeRequest) {
+            self.canMakeRequest = NO;
+            [[self.apiController sendUserPosition:location.coordinate] subscribeNext:^(id x) {
+                self.canMakeRequest = YES;
+            } error:^(NSError *error) {
+                self.canMakeRequest = YES;
+            }];
+        }
      }];
     
     self.isServiceRunning = YES;
