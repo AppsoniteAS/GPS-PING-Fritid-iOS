@@ -28,7 +28,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="y6O-VD-VEg" customClass="ASMapView">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="y6O-VD-VEg" customClass="ASMapView">
+                                <frame key="frameInset" width="1000" height="1000"/>
                                 <gestureRecognizers/>
                                 <connections>
                                     <outlet property="delegate" destination="sw3-fk-UAu" id="EVl-mQ-BSm"/>
@@ -250,11 +251,11 @@
                                         </constraints>
                                         <variation key="default">
                                             <mask key="constraints">
+                                                <exclude reference="Uzz-9F-Knr"/>
                                                 <exclude reference="mUd-u3-LfB"/>
                                                 <exclude reference="7Mj-yn-Eca"/>
                                                 <exclude reference="Gcm-8H-FLB"/>
                                                 <exclude reference="ykC-kY-qvK"/>
-                                                <exclude reference="Uzz-9F-Knr"/>
                                             </mask>
                                         </variation>
                                     </view>
@@ -330,10 +331,10 @@
                                         <variation key="default">
                                             <mask key="constraints">
                                                 <exclude reference="iF9-h3-Ggd"/>
+                                                <exclude reference="uz6-8E-vB0"/>
                                                 <exclude reference="GeD-qH-bon"/>
                                                 <exclude reference="HdS-N8-WUh"/>
                                                 <exclude reference="Q5V-7r-bWj"/>
-                                                <exclude reference="uz6-8E-vB0"/>
                                             </mask>
                                         </variation>
                                     </view>
@@ -414,10 +415,10 @@
                                         </constraints>
                                         <variation key="default">
                                             <mask key="constraints">
-                                                <exclude reference="CSr-ic-x2F"/>
-                                                <exclude reference="cDx-0A-UlN"/>
                                                 <exclude reference="frW-HJ-YAH"/>
                                                 <exclude reference="gGN-Q6-1SD"/>
+                                                <exclude reference="CSr-ic-x2F"/>
+                                                <exclude reference="cDx-0A-UlN"/>
                                             </mask>
                                         </variation>
                                     </view>
@@ -460,13 +461,13 @@
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
-                                        <exclude reference="3I6-Fm-O5n"/>
-                                        <exclude reference="Zcp-hm-TE3"/>
+                                        <exclude reference="v41-1g-bHr"/>
                                         <exclude reference="XUr-Sq-oKU"/>
                                         <exclude reference="gnz-f2-frx"/>
+                                        <exclude reference="3I6-Fm-O5n"/>
+                                        <exclude reference="Zcp-hm-TE3"/>
                                         <exclude reference="WK5-43-TVO"/>
                                         <exclude reference="Khl-mu-dnD"/>
-                                        <exclude reference="v41-1g-bHr"/>
                                     </mask>
                                 </variation>
                                 <connections>
@@ -489,9 +490,24 @@
                                     <outletCollection property="gestureRecognizers" destination="i13-Sb-vaL" appends="YES" id="rQI-gE-ZZF"/>
                                 </connections>
                             </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image_compass" translatesAutoresizingMaskIntoConstraints="NO" id="ret-Ku-nCK"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="map_cursor" translatesAutoresizingMaskIntoConstraints="NO" id="M8s-by-y94">
+                                <frame key="frameInset" width="1000" height="1000"/>
+                            </imageView>
+                            <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ni7-Ru-box" customClass="ASDashedLine">
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                <gestureRecognizers/>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gzy-Op-7ej">
                                 <subviews>
-                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="2" translatesAutoresizingMaskIntoConstraints="NO" id="crt-P2-2iW">
+                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sCZ-8G-eLJ">
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <state key="normal" image="friend_list_icon_invisible"/>
+                                        <connections>
+                                            <action selector="startServiceTap:" destination="sw3-fk-UAu" eventType="touchUpInside" id="Mup-kY-NcB"/>
+                                        </connections>
+                                    </button>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="left" contentVerticalAlignment="top" apportionsSegmentWidthsByContent="YES" segmentControlStyle="plain" selectedSegmentIndex="2" translatesAutoresizingMaskIntoConstraints="NO" id="crt-P2-2iW" userLabel="IISatellite, Standard, Topo">
                                         <segments>
                                             <segment title="Satellite"/>
                                             <segment title="Standard"/>
@@ -502,7 +518,7 @@
                                             <action selector="mapTypeValueChanged:" destination="sw3-fk-UAu" eventType="valueChanged" id="HHe-Gx-W9M"/>
                                         </connections>
                                     </segmentedControl>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5cb-FP-WT6">
+                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5cb-FP-WT6">
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <state key="normal" title="Photo">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -514,11 +530,14 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.54509803921568623" green="0.76470588235294112" blue="0.29019607843137252" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstItem="crt-P2-2iW" firstAttribute="leading" secondItem="gzy-Op-7ej" secondAttribute="leading" constant="8" id="GJI-dC-5v8"/>
+                                    <constraint firstItem="sCZ-8G-eLJ" firstAttribute="centerY" secondItem="crt-P2-2iW" secondAttribute="centerY" id="I5N-zc-ri9"/>
                                     <constraint firstItem="crt-P2-2iW" firstAttribute="centerY" secondItem="gzy-Op-7ej" secondAttribute="centerY" id="O2k-M4-9dW"/>
+                                    <constraint firstItem="5cb-FP-WT6" firstAttribute="leading" secondItem="crt-P2-2iW" secondAttribute="trailing" constant="20" id="UVK-RS-2NN"/>
                                     <constraint firstItem="5cb-FP-WT6" firstAttribute="centerY" secondItem="crt-P2-2iW" secondAttribute="centerY" id="Z5Y-Lm-pwr"/>
                                     <constraint firstAttribute="trailing" secondItem="5cb-FP-WT6" secondAttribute="trailing" constant="18" id="cEr-Ws-yn6"/>
+                                    <constraint firstItem="crt-P2-2iW" firstAttribute="leading" secondItem="sCZ-8G-eLJ" secondAttribute="trailing" constant="8" id="fTe-ub-uhw"/>
                                     <constraint firstAttribute="height" constant="57" id="lc4-N5-40e"/>
+                                    <constraint firstItem="sCZ-8G-eLJ" firstAttribute="leading" secondItem="gzy-Op-7ej" secondAttribute="leading" constant="8" id="mLm-WS-G9T"/>
                                     <constraint firstAttribute="width" constant="320" id="uzF-3I-ahz"/>
                                 </constraints>
                                 <variation key="default">
@@ -527,19 +546,6 @@
                                     </mask>
                                 </variation>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image_compass" translatesAutoresizingMaskIntoConstraints="NO" id="ret-Ku-nCK"/>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="map_cursor" translatesAutoresizingMaskIntoConstraints="NO" id="M8s-by-y94"/>
-                            <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ni7-Ru-box" customClass="ASDashedLine">
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
-                                <gestureRecognizers/>
-                            </view>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sCZ-8G-eLJ">
-                                <frame key="frameInset" minX="109" minY="269" width="102" height="30"/>
-                                <state key="normal" title="Start Service"/>
-                                <connections>
-                                    <action selector="startServiceTap:" destination="sw3-fk-UAu" eventType="touchUpInside" id="Mup-kY-NcB"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -548,7 +554,6 @@
                             <constraint firstAttribute="trailing" secondItem="ret-Ku-nCK" secondAttribute="trailing" constant="8" id="4I3-Hd-lgf"/>
                             <constraint firstItem="M8s-by-y94" firstAttribute="centerX" secondItem="y6O-VD-VEg" secondAttribute="centerX" id="Lk2-bt-Ayz"/>
                             <constraint firstAttribute="bottomMargin" secondItem="gzy-Op-7ej" secondAttribute="bottom" id="QeI-Y7-Sta"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="sCZ-8G-eLJ" secondAttribute="trailing" id="R1J-nU-Mpb"/>
                             <constraint firstItem="1xD-Dc-EO1" firstAttribute="leading" secondItem="zmk-Dv-JcT" secondAttribute="leading" constant="18" id="TCb-Dj-Y0p"/>
                             <constraint firstItem="y6O-VD-VEg" firstAttribute="leading" secondItem="zmk-Dv-JcT" secondAttribute="leading" id="TOH-t1-GKw"/>
                             <constraint firstItem="hPV-uE-2fI" firstAttribute="leading" secondItem="zmk-Dv-JcT" secondAttribute="leading" id="VPD-W5-Qfq"/>
@@ -556,7 +561,6 @@
                             <constraint firstItem="ret-Ku-nCK" firstAttribute="top" secondItem="hPV-uE-2fI" secondAttribute="bottom" constant="8" id="e70-02-0g3"/>
                             <constraint firstItem="M8s-by-y94" firstAttribute="centerY" secondItem="y6O-VD-VEg" secondAttribute="centerY" id="fJ5-sO-17b"/>
                             <constraint firstAttribute="bottomMargin" secondItem="y6O-VD-VEg" secondAttribute="bottom" id="gkT-Fu-EER"/>
-                            <constraint firstItem="sCZ-8G-eLJ" firstAttribute="centerY" secondItem="zmk-Dv-JcT" secondAttribute="centerY" id="gqN-7n-nvg"/>
                             <constraint firstAttribute="bottom" secondItem="ni7-Ru-box" secondAttribute="bottom" id="j9D-Bp-dEL"/>
                             <constraint firstAttribute="trailing" secondItem="gzy-Op-7ej" secondAttribute="trailing" id="khC-m7-AQ3"/>
                             <constraint firstAttribute="trailing" secondItem="ni7-Ru-box" secondAttribute="trailing" id="ksd-B0-NCF"/>
@@ -609,6 +613,7 @@
     </scenes>
     <resources>
         <image name="annotation_user_icon" width="36" height="36"/>
+        <image name="friend_list_icon_invisible" width="20" height="16"/>
         <image name="image_compass" width="48" height="48"/>
         <image name="map_cursor" width="50" height="50"/>
     </resources>

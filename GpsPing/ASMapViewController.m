@@ -145,9 +145,11 @@ objection_requires(@keypath(ASMapViewController.new, apiController), @keypath(AS
     
     [RACObserve(self, locationTrackingService.isServiceRunning) subscribeNext:^(NSNumber *isRunning) {
         if (isRunning.boolValue) {
-            [self.startLocateUserButton setTitle:NSLocalizedString(@"stop", nil) forState:UIControlStateNormal];
+            [self.startLocateUserButton setImage:[[UIImage imageNamed:@"friend_list_icon_visible"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]
+                                        forState:UIControlStateNormal];
         } else {
-            [self.startLocateUserButton setTitle:NSLocalizedString(@"start", nil) forState:UIControlStateNormal];
+            [self.startLocateUserButton setImage:[[UIImage imageNamed:@"friend_list_icon_invisible"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]
+                                        forState:UIControlStateNormal];
         }
     }];
 }
