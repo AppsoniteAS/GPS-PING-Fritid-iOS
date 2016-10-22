@@ -1,6 +1,6 @@
 
 /* Class = "UILabel"; text = "Take the tracker outside and push the \"On\" button on top of the tracker. A green and a blue light will light up."; ObjectID = "11d-d8-sDU"; */
-"11d-d8-sDU.text" = "Ta trackeren ut og trykk på \"På\" knappen som er på toppen av trackeren. Et grønt og blue lyst vil så lyse. Trackeren er har mobilnett når det grønne lyset blinker, og satelitt kontakt når det blå lyset blinker.";
+"11d-d8-sDU.text" = "Ta trackeren og trykk på «På» knappen som er på toppen av trackeren. Et grønt og blått lys vil så lyse. Trackeren har mobilnett når det grønne lyset blinker og satelitt kontakt når det blå lyset blinker.";
 
 /* Class = "UILabel"; text = "Open the app and tap on Trackers on the main menu to view your tracker.\nTap on small circle to the right of tracker to mark it."; ObjectID = "O1K-lg-bXh"; */
 "O1K-lg-bXh.text" = "Trykk på Trackere i hovedmenyen på din app.";
@@ -13,7 +13,7 @@ Push start."; ObjectID = "dle-FN-aSn"; */
 "nEi-0D-Bu8.text" = "Velkommen til GPS Ping! Hvis du har kjøpt en GPS Tracker skal vi vise deg hvordan du setter den opp. Hvis ikke, vennligst gå til vår nettbutikk og kjøp din GPS Tracker: www.gpsping.no";
 
 /* Class = "UILabel"; text = "First charge your tracker for at least 8 hours. The tracker is fully charged when the red charge light turns off."; ObjectID = "qNh-dQ-8Ft"; */
-"qNh-dQ-8Ft.text" = "Sett trackeren på ladding i minst åtte timer. Trackeren er ferdig laddet når det røde lyset slår seg av.";
+"qNh-dQ-8Ft.text" = "Sett trackeren på lading i minst åtte timer. Trackeren er ferdig ladet når det røde lyset slår seg av.";
 
 /* Class = "UILabel"; text = "Tap on small circle to the right of tracker to mark it."; ObjectID = "vlU-o7-jpY"; */
 "vlU-o7-jpY.text" = "Trykk på den lille sirkelen til høyre for trackeren.";

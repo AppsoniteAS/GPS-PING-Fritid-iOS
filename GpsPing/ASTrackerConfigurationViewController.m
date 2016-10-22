@@ -189,12 +189,19 @@ objection_requires(@keypath(ASTrackerConfigurationViewController.new, apiControl
     [self updateTrackerObject];
     [self.trackerObject saveInUserDefaults];
     CGFloat repeatTime = self.trackerObject.signalRateInSeconds.integerValue;
-    [[self.apiController updateTracker:self.trackerObject.trackerName
-                             trackerId:self.trackerObject.imeiNumber
-                            repeatTime:repeatTime
-                         checkForStand:self.trackerObject.dogInStand] subscribeNext:^(id x) {
-        DDLogDebug(@"Tracker updated!");
-        [self dismissViewControllerAnimated:YES completion:nil];
+    
+    [[self as_sendSMS:[self.trackerObject getSmsTextsForTrackerUpdate]
+          ToRecipient:self.trackerObject.trackerNumber] subscribeNext:^(id x) {
+        
+        [[[self.apiController updateTracker:self.trackerObject.trackerName
+                                 trackerId:self.trackerObject.imeiNumber
+                                repeatTime:repeatTime
+                             checkForStand:self.trackerObject.dogInStand] deliverOnMainThread] subscribeNext:^(id x) {
+            DDLogDebug(@"Tracker updated!");
+            [self dismissViewControllerAnimated:YES completion:nil];
+        }];
+    } error:^(NSError *error) {
+        [[UIAlertView alertWithTitle:NSLocalizedString(@"Error", nil) error:error] show];
     }];
 }
 
@@ -268,7 +275,7 @@ objection_requires(@keypath(ASTrackerConfigurationViewController.new, apiControl
 #pragma mark - Private methods
 
 -(void)configPickers {
-    self.ratePickerData = @[@(20), @(30), @(40), @(50), @(60), @(2*60), @(3*60), @(5*60), @(7*60), @(10*60), @(20*60), @(30*60), @(40*60), @(50*60), @(60*60)];
+    self.ratePickerData = @[@(20), @(30), @(40), @(50), @(60), @(2*60), @(3*60)];
     
     self.ratePicker = [[UIPickerView alloc] init];
     self.ratePicker.backgroundColor = [UIColor whiteColor];

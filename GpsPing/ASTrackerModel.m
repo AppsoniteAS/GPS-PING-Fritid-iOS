@@ -235,13 +235,11 @@ NSString* const kASBikeShockAlarmIsOn = @"kASBikeShockAlarmIsOn";
             result = @[[NSString stringWithFormat:@"admin123456 00%@%@", phoneCode, profileModel.phoneNumber],
                        @"apn123456 internet.ts.m2m",
                        @"adminip123456 52.19.58.234 5013",
-                       @"gprs123456",
                        @"sleep123456 off"];
         } else {
             result = @[[NSString stringWithFormat:@"admin123456 00%@%@", phoneCode, profileModel.phoneNumber],
                        @"apn123456 internet.ts.m2m",
                        @"adminip123456 52.19.58.234 5093",
-                       @"gprs123456",
                        @"sleep123456 off"];
         }
         
@@ -254,18 +252,13 @@ NSString* const kASBikeShockAlarmIsOn = @"kASBikeShockAlarmIsOn";
 -(NSString*)getSmsTextsForTrackerLaunch:(BOOL)isOn
 {
     if (!isOn) {
-        return @"Notn123456";
+        return @"nogprs123456";
     }
     
     if ([self.trackerType isEqualToString:kASTrackerTypeTkStar] ||
         [self.trackerType isEqualToString:kASTrackerTypeTkStarPet] ||
         [self.trackerType isEqualToString:kASTrackerTypeTkBike]) {
-        NSInteger signalRate = self.signalRate;
-        if ([self.signalRateMetric isEqualToString:kASSignalMetricTypeMinutes]){
-            signalRate *= 60;
-        }
-        
-        return [NSString stringWithFormat:@"Upload123456 %03d", (int)signalRate];
+        return @"gprs123456";
     } else {
         NSString *rateMetric = [self.signalRateMetric isEqualToString:kASSignalMetricTypeMinutes] ?
         @"m" : @"s";
@@ -273,6 +266,16 @@ NSString* const kASBikeShockAlarmIsOn = @"kASBikeShockAlarmIsOn";
                               (int)self.signalRate,
                               rateMetric];
     }
+}
+
+-(NSString*)getSmsTextsForTrackerUpdate
+{
+    NSInteger signalRate = self.signalRate;
+    if ([self.signalRateMetric isEqualToString:kASSignalMetricTypeMinutes]){
+        signalRate *= 60;
+    }
+    
+    return [NSString stringWithFormat:@"Upload123456 %03d", (int)signalRate];
 }
 
 +(NSString*)getSmsTextsForGeofenceLaunch:(BOOL)turnOn
