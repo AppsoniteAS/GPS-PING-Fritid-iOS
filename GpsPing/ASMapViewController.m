@@ -64,7 +64,7 @@ static NSString *const kASUserDefaultsKeyRemoveTrackersDate = @"kASUserDefaultsK
 @property (nonatomic, assign) BOOL isFirstLaunch;
 @property (nonatomic, assign) BOOL isUserLocationCentered;
 @property (nonatomic        ) ASPointOfInterestAnnotation *selectedAnnotation;
-
+@property (nonatomic, assign) BOOL modifyingMap;
 @property (strong, nonatomic) CompassController *compassController;
 
 @end
@@ -84,6 +84,7 @@ objection_requires(@keypath(ASMapViewController.new, apiController), @keypath(AS
     [super viewDidLoad];
     [[JSObjection defaultInjector] injectDependencies:self];
 
+    self.modifyingMap = NO;
     UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc]      initWithTarget:self action:@selector(handleLongPress:)];
     longPress.minimumPressDuration = 0.5;
     longPress.numberOfTapsRequired = 0;
@@ -607,17 +608,33 @@ objection_requires(@keypath(ASMapViewController.new, apiController), @keypath(AS
 -(void)mapView:(MKMapView *)mapView regionDidChangeAnimated:(BOOL)animated
 {
     [self.timer invalidate];
+    if (mapView.camera.altitude < [self getMinAltitude] && !self.modifyingMap) {
+        self.modifyingMap = YES;
+        mapView.camera.altitude = [self getMinAltitude];
+        self.modifyingMap = NO;
+    }
+}
+
+-(CLLocationDistance)getMinAltitude {
+    NSString * language = [[NSLocale preferredLanguages] objectAtIndex:0];
+    if ([language isEqualToString:@"sv"]){
+        return 2400;
+    }
+    
+    return 0;
 }
 
 - (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation
 {
     [self refreshLine];
-    
+    DDLogDebug(@"user location %@",userLocation);
     if (self.isUserLocationCentered == NO) {
         self.isUserLocationCentered = YES;
-        MKCoordinateRegion mapRegion = MKCoordinateRegionMakeWithDistance(userLocation.coordinate, 800, 800);
-        mapRegion.center = self.mapView.userLocation.coordinate;
-        [self.mapView setRegion:[self.mapView regionThatFits:mapRegion] animated:YES];
+        MKMapCamera* camera = [MKMapCamera
+                               cameraLookingAtCenterCoordinate:self.mapView.userLocation.coordinate
+                               fromEyeCoordinate:self.mapView.userLocation.coordinate
+                               eyeAltitude:150];
+        [mapView setCamera:camera animated:NO];
     }
 }
 
