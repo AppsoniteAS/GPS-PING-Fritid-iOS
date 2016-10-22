@@ -17,11 +17,17 @@
 /* Class = "UILabel"; text = "Tracker"; ObjectID = "9fd-7G-EpS"; */
 "9fd-7G-EpS.text" = "Tracker";
 
+/* Class = "UILabel"; text = "Active"; ObjectID = "ASt-uk-fVy"; */
+"ASt-uk-fVy.text" = "Active";
+
 /* Class = "UILabel"; text = "Signal"; ObjectID = "Awb-MA-D3n"; */
 "Awb-MA-D3n.text" = "Signal";
 
 /* Class = "UILabel"; text = "Check this for dog in stand"; ObjectID = "CkU-gr-UcF"; */
 "CkU-gr-UcF.text" = "Check this for dog in stand";
+
+/* Class = "UILabel"; text = "Active"; ObjectID = "Cr1-dp-F3S"; */
+"Cr1-dp-F3S.text" = "Active";
 
 /* Class = "UILabel"; text = "Tracker Number"; ObjectID = "Ek1-cf-8pq"; */
 "Ek1-cf-8pq.text" = "Tracker Number";
@@ -38,6 +44,9 @@
 /* Class = "UINavigationItem"; title = "Edit Tracker"; ObjectID = "LIh-8B-4ma"; */
 "LIh-8B-4ma.title" = "Edit Tracker";
 
+/* Class = "UIButton"; normalTitle = "{TURN ON}"; ObjectID = "MHd-Ru-bkp"; */
+"MHd-Ru-bkp.normalTitle" = "{TURN ON}";
+
 /* Class = "UILabel"; text = "Tracker Number"; ObjectID = "Mpa-3D-iEG"; */
 "Mpa-3D-iEG.text" = "Tracker Number";
 
@@ -49,6 +58,9 @@
 
 /* Class = "UILabel"; text = "IMEI Number"; ObjectID = "TXM-ME-DR1"; */
 "TXM-ME-DR1.text" = "IMEI Number";
+
+/* Class = "UILabel"; text = "Check Battery"; ObjectID = "TqV-11-i4G"; */
+"TqV-11-i4G.text" = "Check Battery";
 
 /* Class = "UITextField"; text = "{60 Seconds}"; ObjectID = "U3W-BK-NAC"; */
 "U3W-BK-NAC.text" = "{60 Seconds}";
@@ -74,6 +86,9 @@
 /* Class = "UIButton"; normalTitle = "{TURN ON}"; ObjectID = "eVf-FP-D1A"; */
 "eVf-FP-D1A.normalTitle" = "{TURN ON}";
 
+/* Class = "UIButton"; normalTitle = "Check"; ObjectID = "iGZ-gl-MXe"; */
+"iGZ-gl-MXe.normalTitle" = "Check";
+
 /* Class = "UILabel"; text = "Active"; ObjectID = "ivL-VR-U35"; */
 "ivL-VR-U35.text" = "Active";
 
@@ -91,3 +106,9 @@
 
 /* Class = "UIButton"; normalTitle = "{TURN ON}"; ObjectID = "rse-Sy-9tJ"; */
 "rse-Sy-9tJ.normalTitle" = "{TURN ON}";
+
+/* Class = "UILabel"; text = "Sleep Mode"; ObjectID = "sEq-Bh-D6R"; */
+"sEq-Bh-D6R.text" = "Sleep Mode";
+
+/* Class = "UILabel"; text = "Sleep mode"; ObjectID = "tk5-cz-5IL"; */
+"tk5-cz-5IL.text" = "Sleep mode";

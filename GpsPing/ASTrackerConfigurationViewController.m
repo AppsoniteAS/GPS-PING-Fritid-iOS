@@ -38,6 +38,9 @@ static NSString *const kASUserDefaultsKeyBikeFlashAlarm = @"kASUserDefaultsKeyBi
 @property (weak, nonatomic) IBOutlet ASButton    *buttonBikeFlashAlarm;
 @property (weak, nonatomic) IBOutlet UITextField *signalRateTextField;
 @property (weak, nonatomic) IBOutlet ASButton    *resetButton;
+@property (weak, nonatomic) IBOutlet UILabel *labelStatusSleepMode;
+@property (weak, nonatomic) IBOutlet ASButton *buttonDogSleepMode;
+@property (weak, nonatomic) IBOutlet ASButton *buttonCheckBattery;
 
 @property (nonatomic) NSString *metricType;
 @property (nonatomic, assign) CGFloat signalRate;
@@ -98,6 +101,9 @@ objection_requires(@keypath(ASTrackerConfigurationViewController.new, apiControl
     self.buttonBikeLEDLight.titleLabel.font = [UIFont fontWithName:@"Roboto-Bold" size:9];
     self.buttonBikeFlashAlarm.titleLabel.font = [UIFont fontWithName:@"Roboto-Bold" size:9];
     self.buttonBikeShockAlarm.titleLabel.font = [UIFont fontWithName:@"Roboto-Bold" size:9];
+    self.buttonCheckBattery.titleLabel.font = [UIFont fontWithName:@"Roboto-Bold" size:9];
+    self.buttonDogSleepMode.titleLabel.font = [UIFont fontWithName:@"Roboto-Bold" size:9];
+
     
     [RACObserve(self.trackerObject, bikeLedLightIsOn) subscribeNext:^(NSNumber *x) {
         [self configBikeSettingButton:self.buttonBikeLEDLight Status:x.boolValue];
@@ -112,6 +118,11 @@ objection_requires(@keypath(ASTrackerConfigurationViewController.new, apiControl
     [RACObserve(self.trackerObject, bikeFlashAlarmIsOn) subscribeNext:^(NSNumber *x) {
         [self configBikeSettingButton:self.buttonBikeFlashAlarm Status:x.boolValue];
         [self configBikeSettingStatusLabel:self.labelStatusBikeFlashAlarm Status:x.boolValue];
+    }];
+    
+    [RACObserve(self.trackerObject, dogSleepModeIsOn) subscribeNext:^(NSNumber *x) {
+        [self configBikeSettingButton:self.buttonDogSleepMode Status:x.boolValue];
+        [self configBikeSettingStatusLabel:self.labelStatusSleepMode Status:x.boolValue];
     }];
 }
 
@@ -365,6 +376,27 @@ objection_requires(@keypath(ASTrackerConfigurationViewController.new, apiControl
             [self.trackerObject saveInUserDefaults];
         }
     } error:^(NSError *error) {
+        DDLogError(@"Error sending Sms %@", error);
+    }];
+}
+
+- (IBAction)sleepModeTap:(id)sender {
+    RACSignal *signal = [self as_sendSMS:[ASTrackerModel getSmsTextForSleepMode:!self.trackerObject.dogSleepModeIsOn]
+                             ToRecipient:self.trackerObject.trackerNumber];
+    [signal subscribeNext:^(NSNumber *result) {
+        if (result.integerValue == MessageComposeResultSent) {
+            self.trackerObject.dogSleepModeIsOn = !self.trackerObject.dogSleepModeIsOn;
+            [self.trackerObject saveInUserDefaults];
+        }
+    } error:^(NSError *error) {
+        DDLogError(@"Error sending Sms %@", error);
+    }];
+}
+
+- (IBAction)batteryCheckTap:(id)sender {
+    RACSignal *signal = [self as_sendSMS:[ASTrackerModel getSmsTextForCheckBattery]
+                             ToRecipient:self.trackerObject.trackerNumber];
+    [signal subscribeError:^(NSError *error) {
         DDLogError(@"Error sending Sms %@", error);
     }];
 }

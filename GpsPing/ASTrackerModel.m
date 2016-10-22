@@ -32,6 +32,7 @@ NSString* const kASGeofenceYards      = @"geofenceYards";
 NSString* const kASBikeLedLightIsOn   = @"kASBikeLedLightIsOn";
 NSString* const kASBikeFlashAlarmIsOn = @"kASBikeFlashAlarmIsOn";
 NSString* const kASBikeShockAlarmIsOn = @"kASBikeShockAlarmIsOn";
+NSString* const kASDogSleepModeIsOn   = @"kASDogSleepModeIsOn";
 
 @implementation ASTrackerModel
 
@@ -67,7 +68,8 @@ NSString* const kASBikeShockAlarmIsOn = @"kASBikeShockAlarmIsOn";
               @keypath(ASTrackerModel.new, geofenceYards)      : kASGeofenceYards,
                @keypath(ASTrackerModel.new, bikeLedLightIsOn)      : kASBikeLedLightIsOn,
                @keypath(ASTrackerModel.new, bikeFlashAlarmIsOn)      : kASBikeFlashAlarmIsOn,
-               @keypath(ASTrackerModel.new, bikeShockAlarmIsOn)      : kASBikeShockAlarmIsOn
+               @keypath(ASTrackerModel.new, bikeShockAlarmIsOn)      : kASBikeShockAlarmIsOn,
+               @keypath(ASTrackerModel.new, dogSleepModeIsOn)      : kASDogSleepModeIsOn
               };
 }
 
@@ -311,5 +313,16 @@ NSString* const kASBikeShockAlarmIsOn = @"kASBikeShockAlarmIsOn";
    return @"LED123456 shock";
 }
 
++(NSString*)getSmsTextForSleepMode:(BOOL)on {
+    if (on) {
+        return @"sleep123456";
+    } else {
+        return @"sleep123456 off";
+    }
+}
+
++(NSString*)getSmsTextForCheckBattery {
+    return @"G123456#";
+}
 
 @end

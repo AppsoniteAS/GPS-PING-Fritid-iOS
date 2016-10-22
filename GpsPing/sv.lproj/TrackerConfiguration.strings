@@ -92,3 +92,23 @@
 /* Class = "UIButton"; normalTitle = "{TURN ON}"; ObjectID = "rse-Sy-9tJ"; */
 "rse-Sy-9tJ.normalTitle" = "{SÄTT IGÅNG}";
 
+/* Class = "UILabel"; text = "Active"; ObjectID = "ASt-uk-fVy"; */
+"ASt-uk-fVy.text" = "Active";
+
+/* Class = "UILabel"; text = "Active"; ObjectID = "Cr1-dp-F3S"; */
+"Cr1-dp-F3S.text" = "Active";
+
+/* Class = "UIButton"; normalTitle = "{TURN ON}"; ObjectID = "MHd-Ru-bkp"; */
+"MHd-Ru-bkp.normalTitle" = "{TURN ON}";
+
+/* Class = "UILabel"; text = "Check Battery"; ObjectID = "TqV-11-i4G"; */
+"TqV-11-i4G.text" = "Kontrollera Batteriet";
+
+/* Class = "UIButton"; normalTitle = "Check"; ObjectID = "iGZ-gl-MXe"; */
+"iGZ-gl-MXe.normalTitle" = "Kontrollera";
+
+/* Class = "UILabel"; text = "Sleep Mode"; ObjectID = "sEq-Bh-D6R"; */
+"sEq-Bh-D6R.text" = "Village";
+
+/* Class = "UILabel"; text = "Sleep mode"; ObjectID = "tk5-cz-5IL"; */
+"tk5-cz-5IL.text" = "Village";

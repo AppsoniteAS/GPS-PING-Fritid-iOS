@@ -213,8 +213,6 @@
 		A65EAB681D3F5D3E00BCE303 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A6624DF01D37D88D00CDA336 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Map.strings; sourceTree = "<group>"; };
 		A6624DF81D37D90900CDA336 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/TrackerConfiguration.storyboard; sourceTree = "<group>"; };
-		A6624DFF1D37D97A00CDA336 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/TrackerConfiguration.strings; sourceTree = "<group>"; };
-		A6624E011D37D97C00CDA336 /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/TrackerConfiguration.strings; sourceTree = "<group>"; };
 		A6624E051D37D9EE00CDA336 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		A6624E071D37DA3D00CDA336 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Connect.strings; sourceTree = "<group>"; };
 		A6624E091D37DB0B00CDA336 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Geofence.strings; sourceTree = "<group>"; };
@@ -269,6 +267,8 @@
 		A68C1BA91C4F71CB000E2BA6 /* ASTrackerConfigurationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASTrackerConfigurationViewController.m; sourceTree = "<group>"; };
 		A6AB68281D3776A500F470D2 /* ASNewTrackerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASNewTrackerViewController.h; sourceTree = "<group>"; };
 		A6AB68291D3776A500F470D2 /* ASNewTrackerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASNewTrackerViewController.m; sourceTree = "<group>"; };
+		A6AD6C671DBB70B500552D78 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/TrackerConfiguration.strings; sourceTree = "<group>"; };
+		A6AD6C681DBB710400552D78 /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/TrackerConfiguration.strings; sourceTree = "<group>"; };
 		A6D136501DA26C630069F08C /* ASLocationTrackingService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASLocationTrackingService.h; sourceTree = "<group>"; };
 		A6D136511DA26C630069F08C /* ASLocationTrackingService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASLocationTrackingService.m; sourceTree = "<group>"; };
 		A6D194ED1D81743700394F31 /* ASQuestionListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASQuestionListTableViewController.h; sourceTree = "<group>"; };
@@ -961,7 +961,7 @@
 				TargetAttributes = {
 					A68C1B2D1C4CE460000E2BA6 = {
 						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = KMYDCL9KDQ;
+						DevelopmentTeam = EM65889ZEZ;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -1307,11 +1307,11 @@
 			isa = PBXVariantGroup;
 			children = (
 				A6624DF81D37D90900CDA336 /* Base */,
-				A6624DFF1D37D97A00CDA336 /* en */,
-				A6624E011D37D97C00CDA336 /* nb */,
 				A6D1E7541D38BE0C00D847EC /* fi */,
 				A6D1E7661D38BE1900D847EC /* da */,
 				A65EAB5C1D3F5D3D00BCE303 /* sv */,
+				A6AD6C671DBB70B500552D78 /* en */,
+				A6AD6C681DBB710400552D78 /* nb */,
 			);
 			name = TrackerConfiguration.storyboard;
 			sourceTree = "<group>";
@@ -1649,13 +1649,14 @@
 				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = EM65889ZEZ;
 				ENABLE_BITCODE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = GpsPing/PrefixHeader.pch;
 				INFOPLIST_FILE = GpsPing/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.gpsping.tracker;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gpsping1.tracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -1669,13 +1670,14 @@
 				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = EM65889ZEZ;
 				ENABLE_BITCODE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = GpsPing/PrefixHeader.pch;
 				INFOPLIST_FILE = GpsPing/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.gpsping.tracker;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gpsping1.tracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};

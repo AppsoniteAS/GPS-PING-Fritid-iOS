@@ -36,6 +36,8 @@ static NSString * const kASUserDefaultsTrackersKey   = @"kASUserDefaultsTrackers
 @property (nonatomic, assign) BOOL      bikeLedLightIsOn;
 @property (nonatomic, assign) BOOL      bikeShockAlarmIsOn;
 @property (nonatomic, assign) BOOL      bikeFlashAlarmIsOn;
+@property (nonatomic, assign) BOOL      dogSleepModeIsOn;
+
 
 @property (nonatomic, assign) NSInteger signalRate;
 @property (nonatomic        ) NSNumber  *signalRateInSeconds;
@@ -65,5 +67,8 @@ static NSString * const kASUserDefaultsTrackersKey   = @"kASUserDefaultsTrackers
 +(NSString*)getSmsTextsForBikeLedLightForMode:(BOOL)turnOn;
 +(NSString*)getSmsTextsForBikeShockAlarmForMode:(BOOL)turnOn;
 +(NSString*)getSmsTextsForBikeFlashAlarm;
+
++(NSString*)getSmsTextForSleepMode:(BOOL)on;
++(NSString*)getSmsTextForCheckBattery;
 
 @end
