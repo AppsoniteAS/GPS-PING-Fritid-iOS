@@ -124,6 +124,14 @@ objection_requires(@keypath(ASTrackerConfigurationViewController.new, apiControl
         [self configBikeSettingButton:self.buttonDogSleepMode Status:x.boolValue];
         [self configBikeSettingStatusLabel:self.labelStatusSleepMode Status:x.boolValue];
     }];
+    
+    [self.outerWrapperView mas_remakeConstraints:^
+     (MASConstraintMaker *make) {
+         make.leading.equalTo(self.outerWrapperView.superview.mas_leading);
+         make.trailing.equalTo(self.outerWrapperView.superview.mas_trailing);
+         make.top.equalTo(self.mas_topLayoutGuide);
+         make.bottom.equalTo(self.keyboardLayoutGuide);
+     }];
 }
 
 -(void)configBikeSettingStatusLabel:(UILabel*)label Status:(BOOL)isActive {
@@ -150,14 +158,10 @@ objection_requires(@keypath(ASTrackerConfigurationViewController.new, apiControl
 {
     [super viewWillAppear:animated];
     [self jps_viewWillAppear:animated];
-    [self.outerWrapperView mas_makeConstraints:^
-     (MASConstraintMaker *make) {
-         make.bottom.equalTo(self.keyboardLayoutGuide);
-     }];
 }
 
--(void)viewDidDisappear:(BOOL)animated {
-    [super viewDidDisappear:animated];
+-(void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
     [self jps_viewDidDisappear:animated];
 }
 

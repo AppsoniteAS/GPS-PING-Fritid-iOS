@@ -46,7 +46,7 @@ static DDLogLevel ddLogLevel = DDLogLevelVerbose;
         controller.recipients = @[recipient];
         controller.messageComposeDelegate = (id)self;
         controller.navigationBarHidden=YES;
-        [self presentViewController:controller animated:NO completion:nil];
+        [self presentViewController:controller animated:YES completion:nil];
     }
     
     return self.smsSendSignal;
