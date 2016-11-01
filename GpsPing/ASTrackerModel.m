@@ -233,13 +233,18 @@ NSString* const kASDogSleepModeIsOn   = @"kASDogSleepModeIsOn";
                 [[NSCharacterSet decimalDigitCharacterSet] invertedSet]]
                 componentsJoinedByString:@""];
 
+        if ([phoneCode isEqualToString:@"358"]) {
+            phoneCode = [NSString stringWithFormat:@"%@%@", @"+", phoneCode];
+        } else {
+            phoneCode = [NSString stringWithFormat:@"%@%@", @"00", phoneCode];
+        }
         if ([self.trackerType isEqualToString:kASTrackerTypeTkStarPet]) {
-            result = @[[NSString stringWithFormat:@"admin123456 00%@%@", phoneCode, profileModel.phoneNumber],
+            result = @[[NSString stringWithFormat:@"admin123456 %@%@", phoneCode, profileModel.phoneNumber],
                        @"apn123456 internet.ts.m2m",
                        @"adminip123456 52.19.58.234 5013",
                        @"sleep123456 off"];
         } else {
-            result = @[[NSString stringWithFormat:@"admin123456 00%@%@", phoneCode, profileModel.phoneNumber],
+            result = @[[NSString stringWithFormat:@"admin123456 %@%@", phoneCode, profileModel.phoneNumber],
                        @"apn123456 internet.ts.m2m",
                        @"adminip123456 52.19.58.234 5093",
                        @"sleep123456 off"];
