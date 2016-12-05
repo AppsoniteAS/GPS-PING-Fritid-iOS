@@ -10,6 +10,7 @@
 #import <Mantle.h>
 #import <ReactiveCocoa.h>
 
+
 static NSString * const kASTrackerTypeTkStar      = @"TK_STAR";
 static NSString * const kASTrackerTypeAnywhere    = @"TK_ANYWHERE";
 
@@ -43,6 +44,8 @@ static NSString * const kASUserDefaultsTrackersKey   = @"kASUserDefaultsTrackers
 @property (nonatomic        ) NSNumber  *signalRateInSeconds;
 @property (nonatomic        ) NSString  *signalRateMetric;
 @property (nonatomic        ) NSString  *geofenceYards;
+
+@property (nonatomic, strong) NSString *trackerPhoneNumber;
 
 +(instancetype)initTrackerWithName:(NSString *)name
                             number:(NSString *)number

@@ -206,7 +206,7 @@ objection_requires(@keypath(ASTrackerConfigurationViewController.new, apiControl
     CGFloat repeatTime = self.trackerObject.signalRateInSeconds.integerValue;
     
     [[self as_sendSMS:[self.trackerObject getSmsTextsForTrackerUpdate]
-          ToRecipient:self.trackerObject.trackerNumber] subscribeNext:^(id x) {
+          ToRecipient:self.trackerObject.trackerPhoneNumber] subscribeNext:^(id x) {
         
         [[[self.apiController updateTracker:self.trackerObject.trackerName
                                  trackerId:self.trackerObject.imeiNumber
@@ -249,7 +249,7 @@ objection_requires(@keypath(ASTrackerConfigurationViewController.new, apiControl
         [self dismissViewControllerAnimated:YES completion:nil];
     } else {
         [[self as_sendSMS:self.smsesForActivation[self.smsCount]
-           ToRecipient:self.trackerObject.trackerNumber] subscribeNext:^(id x) {
+              ToRecipient:self.trackerObject.trackerPhoneNumber] subscribeNext:^(id x) {
             self.smsCount++;
             [self.resetButton setTitle:[self newTitleForReset:self.smsCount]
                               forState:UIControlStateNormal];
@@ -343,7 +343,7 @@ objection_requires(@keypath(ASTrackerConfigurationViewController.new, apiControl
 
 - (IBAction)ledLightTap:(id)sender {
     RACSignal *signal = [self as_sendSMS:[ASTrackerModel getSmsTextsForBikeLedLightForMode:!self.trackerObject.bikeLedLightIsOn]
-                             ToRecipient:self.trackerObject.trackerNumber];
+                             ToRecipient:self.trackerObject.trackerPhoneNumber];
     [signal subscribeNext:^(NSNumber *result) {
         if (result.integerValue == MessageComposeResultSent) {
             self.trackerObject.bikeLedLightIsOn = !self.trackerObject.bikeLedLightIsOn;
@@ -356,7 +356,7 @@ objection_requires(@keypath(ASTrackerConfigurationViewController.new, apiControl
 
 - (IBAction)shockAlarmTap:(id)sender {
     RACSignal *signal = [self as_sendSMS:[ASTrackerModel getSmsTextsForBikeShockAlarmForMode:!self.trackerObject.bikeShockAlarmIsOn]
-                             ToRecipient:self.trackerObject.trackerNumber];
+                             ToRecipient:self.trackerObject.trackerPhoneNumber];
     [signal subscribeNext:^(NSNumber *result) {
         if (result.integerValue == MessageComposeResultSent) {
             self.trackerObject.bikeShockAlarmIsOn = !self.trackerObject.bikeShockAlarmIsOn;
@@ -373,7 +373,7 @@ objection_requires(@keypath(ASTrackerConfigurationViewController.new, apiControl
     }
     
     RACSignal *signal = [self as_sendSMS:[ASTrackerModel getSmsTextsForBikeFlashAlarm]
-                             ToRecipient:self.trackerObject.trackerNumber];
+                             ToRecipient:self.trackerObject.trackerPhoneNumber];
     [signal subscribeNext:^(NSNumber *result) {
         if (result.integerValue == MessageComposeResultSent) {
             self.trackerObject.bikeFlashAlarmIsOn = !self.trackerObject.bikeFlashAlarmIsOn;
@@ -386,7 +386,7 @@ objection_requires(@keypath(ASTrackerConfigurationViewController.new, apiControl
 
 - (IBAction)sleepModeTap:(id)sender {
     RACSignal *signal = [self as_sendSMS:[ASTrackerModel getSmsTextForSleepMode:!self.trackerObject.dogSleepModeIsOn]
-                             ToRecipient:self.trackerObject.trackerNumber];
+                             ToRecipient:self.trackerObject.trackerPhoneNumber];
     [signal subscribeNext:^(NSNumber *result) {
         if (result.integerValue == MessageComposeResultSent) {
             self.trackerObject.dogSleepModeIsOn = !self.trackerObject.dogSleepModeIsOn;
@@ -399,7 +399,7 @@ objection_requires(@keypath(ASTrackerConfigurationViewController.new, apiControl
 
 - (IBAction)batteryCheckTap:(id)sender {
     RACSignal *signal = [self as_sendSMS:[ASTrackerModel getSmsTextForCheckBattery]
-                             ToRecipient:self.trackerObject.trackerNumber];
+                             ToRecipient:self.trackerObject.trackerPhoneNumber];
     [signal subscribeError:^(NSError *error) {
         DDLogError(@"Error sending Sms %@", error);
     }];

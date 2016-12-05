@@ -12,7 +12,9 @@
 #import "Underscore.h"
 #import <ErrorKit/ErrorKit.h>
 #import "ASUserProfileModel.h"
+#import "AGApiController.h"
 
+#import <Objection/Objection.h>
 #include <netdb.h>
 #include <arpa/inet.h>
 
@@ -233,11 +235,8 @@ NSString* const kASDogSleepModeIsOn   = @"kASDogSleepModeIsOn";
                 [[NSCharacterSet decimalDigitCharacterSet] invertedSet]]
                 componentsJoinedByString:@""];
 
-        if ([phoneCode isEqualToString:@"358"]) {
-            phoneCode = [NSString stringWithFormat:@"%@%@", @"+", phoneCode];
-        } else {
-            phoneCode = [NSString stringWithFormat:@"%@%@", @"00", phoneCode];
-        }
+        phoneCode = [NSString stringWithFormat:@"%@%@", @"00", phoneCode];
+        
         if ([self.trackerType isEqualToString:kASTrackerTypeTkStarPet]) {
             result = @[[NSString stringWithFormat:@"admin123456 %@%@", phoneCode, profileModel.phoneNumber],
                        @"apn123456 internet.ts.m2m",
@@ -328,6 +327,22 @@ NSString* const kASDogSleepModeIsOn   = @"kASDogSleepModeIsOn";
 
 +(NSString*)getSmsTextForCheckBattery {
     return @"G123456#";
+}
+
+-(NSString *)trackerPhoneNumber {
+    AGApiController *ctl = [[JSObjection defaultInjector] getObject:AGApiController.class];
+    NSString *code = ctl.userProfile.phoneCode;
+    
+    if ([code isEqual:@"358"]) {
+        @try {
+            NSString *clearString = [self.trackerNumber substringFromIndex:2];
+            return [NSString stringWithFormat:@"+%@", clearString];
+        } @catch(NSException *ex) {
+            DDLogError(@"Error while creating trackerPhoneNumber, reason: %@", ex.reason);
+        }
+    }
+    
+    return self.trackerNumber;
 }
 
 @end

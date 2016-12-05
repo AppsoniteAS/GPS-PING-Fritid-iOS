@@ -143,7 +143,7 @@ objection_requires(@keypath(ASNewTrackerViewController.new, apiController))
         [self dismissViewControllerAnimated:YES completion:nil];
     } else {
         [[self as_sendSMS:self.smsesForActivation[self.smsCount]
-              ToRecipient:self.trackerObject.trackerNumber] subscribeNext:^(id x) {
+              ToRecipient:self.trackerObject.trackerPhoneNumber] subscribeNext:^(id x) {
             self.smsCount++;
             [self.completeButton setTitle:[self newTitleForActivation:self.smsCount]
                                  forState:UIControlStateNormal];

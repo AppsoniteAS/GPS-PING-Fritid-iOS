@@ -58,10 +58,10 @@ objection_initializer(initWithConfiguration:);
 
     if (self) {
         self.httpRequestOperationManager = [AFHTTPRequestOperationManager new];
-        
+
         AFJSONResponseSerializer *jsonSerializer = [AFJSONResponseSerializer serializer];
-        AFHTTPResponseSerializer *xmlSerializer = [AFHTTPResponseSerializer serializer];
-        xmlSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/xml", nil];
+        AFHTTPResponseSerializer *xmlSerializer  = [AFHTTPResponseSerializer serializer];
+        xmlSerializer.acceptableContentTypes     = [NSSet setWithObjects:@"text/xml", nil];
         
         AFCompoundResponseSerializer *compoundSerializer = [AFCompoundResponseSerializer compoundSerializerWithResponseSerializers:@[jsonSerializer, xmlSerializer]];
         

@@ -12,7 +12,7 @@
 #import "ASPointModel.h"
 #import "AGGeoValueTransformer.h"
 
-static DDLogLevel ddLogLevel               = DDLogLevelDebug;
+static DDLogLevel ddLogLevel           = DDLogLevelDebug;
 
 NSString* const kASDeviceName          = @"device.name";
 NSString* const kASDeviceLongitude     = @"device.last_lon";
