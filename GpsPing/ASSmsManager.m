@@ -16,15 +16,17 @@ static DDLogLevel ddLogLevel = DDLogLevelVerbose;
 
 - (void)messageComposeViewController:(MFMessageComposeViewController *)controller
                  didFinishWithResult:(MessageComposeResult)result {
-    if (result == MessageComposeResultSent || result == MessageComposeResultCancelled) {
-        [self.smsSendSignal sendNext:@(result)];
-        [self.smsSendSignal sendCompleted];
-    } else if (result == MessageComposeResultFailed) {
-        NSError *error = [[NSError alloc]initWithDomain:@"ASSmsManagerDomain" code:0 userInfo:nil];
-        [self.smsSendSignal sendError:error];
-    }
+   
+    [controller dismissViewControllerAnimated:YES completion:^{
+        if (result == MessageComposeResultSent || result == MessageComposeResultCancelled) {
+            [self.smsSendSignal sendNext:@(result)];
+            [self.smsSendSignal sendCompleted];
+        } else if (result == MessageComposeResultFailed) {
+            NSError *error = [[NSError alloc]initWithDomain:@"ASSmsManagerDomain" code:0 userInfo:nil];
+            [self.smsSendSignal sendError:error];
+        }
 
-    [controller dismissViewControllerAnimated:YES completion:nil];
+    }];
 }
 
 -(RACSignal *)as_sendSMS:(NSString *)text ToRecipient:(NSString*)recipient

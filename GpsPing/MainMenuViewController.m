@@ -14,6 +14,7 @@
 #import "AGApiController.h"
 #import <FCOverlay/FCOverlay.h>
 #import "UIStoryboard+ASHelper.h"
+#import "ASSmsManager.h"
 
 #import <CocoaLumberjack.h>
 static DDLogLevel ddLogLevel = DDLogLevelDebug;
@@ -39,6 +40,8 @@ objection_requires(@keypath(MainMenuViewController.new, apiController))
     
     self.startStopButton.layer.borderColor = [UIColor colorWithRed:0.4796 green:0.7302 blue:0.2274 alpha:1.0].CGColor;
     self.startStopButton.layer.borderWidth = 6.0;
+    
+    [self handleExistedTracker];
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -50,6 +53,8 @@ objection_requires(@keypath(MainMenuViewController.new, apiController))
     ASTrackerModel *activeTracker = [ASTrackerModel getChoosedTracker];
     self.activeTrackerLabel.text = activeTracker.trackerName;
 }
+
+
 
 - (IBAction)startStopButtonTap:(id)sender {
     ASTrackerModel *trackerModel = [ASTrackerModel getChoosedTracker];
@@ -116,6 +121,61 @@ objection_requires(@keypath(MainMenuViewController.new, apiController))
 
 -(BOOL)prefersStatusBarHidden {
     return NO;
+}
+
+- (void) handleExistedTracker{
+    
+    
+    [[self.apiController getTrackers] subscribeNext:^(NSArray* trackers) {
+        for (ASTrackerModel* tracker in trackers) {
+            int smsNumber = 0;
+            [[tracker getSmsTextsForActivation] subscribeNext:^(NSArray* list) {
+                
+                RACSignal *signal = [RACSignal empty];
+                for (NSString* text in list) {
+                    signal = [signal then:^{
+                        return [self as_sendSMS:text ToRecipient:tracker.trackerPhoneNumber];
+                    }];
+                }
+                
+                
+//                RACSignal *signal = [RACSignal concat:[list.rac_sequence map:^(NSString* text) {
+//                    return [self as_sendSMS:text ToRecipient:tracker.trackerPhoneNumber];
+//                }]];
+//                
+                [signal subscribeCompleted:^{
+                    DDLogDebug(@"completed");
+                }];
+            }];
+        }
+    }];
+    
+    
+//    [[[self.apiController getTrackers] flattenMap:^id(NSArray *trackers)  {
+//        NSMutableArray* result = [NSMutableArray array];
+//        for (ASTrackerModel* tracker in trackers) {
+//            [result addObject:[tracker getSmsTextsForActivation]];
+//        }
+//        return [RACSignal zip:result reduce:;
+//    }] subscribeNext:^(NSArray* listOfSMSList) {
+//        
+//        
+//        NSMutableArray* arr = [NSMutableArray array];
+//        for (NSArray* a in listOfSMSList) {
+//            [arr addObjectsFromArray:a];
+//        }
+//        
+//        
+//        
+//        RACSignal *signal = [RACSignal concat:[arr.rac_sequence map:^(NSString* text) {
+//            return self as_sendSMS:text ToRecipient:<#(NSString *)#>;
+//        }]];
+//        
+//        DDLogDebug(@"%@", x);
+//    }];
+//    
+
+
 }
 
 @end
