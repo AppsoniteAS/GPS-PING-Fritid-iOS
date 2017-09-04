@@ -25,7 +25,7 @@ static DDLogLevel ddLogLevel = DDLogLevelDebug;
 @property (weak, nonatomic) IBOutlet UIButton *startStopButton;
 @property (nonatomic, strong) AGApiController   *apiController;
 @property (weak, nonatomic) IBOutlet UILabel *activeTrackerLabel;
-
+@property (assign, nonatomic) bool willShow;
 @end
 
 @implementation MainMenuViewController
@@ -40,7 +40,8 @@ objection_requires(@keypath(MainMenuViewController.new, apiController))
     
     self.startStopButton.layer.borderColor = [UIColor colorWithRed:0.4796 green:0.7302 blue:0.2274 alpha:1.0].CGColor;
     self.startStopButton.layer.borderWidth = 6.0;
-    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(needShow) name:kASDidLoginNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(needShow) name:kASDidRegisterNotification object:nil];
     [self handleExistedTracker];
 }
 
@@ -54,7 +55,17 @@ objection_requires(@keypath(MainMenuViewController.new, apiController))
     self.activeTrackerLabel.text = activeTracker.trackerName;
 }
 
+- (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    if (self.willShow){
+        [self handleExistedTracker];
+        self.willShow = false;
+    }
+}
 
+- (void) needShow{
+    self.willShow = true;
+}
 
 - (IBAction)startStopButtonTap:(id)sender {
     ASTrackerModel *trackerModel = [ASTrackerModel getChoosedTracker];
@@ -125,11 +136,14 @@ objection_requires(@keypath(MainMenuViewController.new, apiController))
 
 - (void) handleExistedTracker{
     @weakify(self)
+    if (!self.apiController.userProfile.cookie){
+        return;
+    }
+    
     
     if ([[NSUserDefaults standardUserDefaults] valueForKey:kASUserDefaultsKeyResetAll]){
         return;
     }
-    
     [[self.apiController getTrackers] subscribeNext:^(NSArray* trackers) {
         if (!trackers || trackers.count == 0){
             return;
