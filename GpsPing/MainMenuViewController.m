@@ -124,58 +124,54 @@ objection_requires(@keypath(MainMenuViewController.new, apiController))
 }
 
 - (void) handleExistedTracker{
+    @weakify(self)
     
+    if ([[NSUserDefaults standardUserDefaults] valueForKey:kASUserDefaultsKeyResetAll]){
+        return;
+    }
     
     [[self.apiController getTrackers] subscribeNext:^(NSArray* trackers) {
-        for (ASTrackerModel* tracker in trackers) {
-            int smsNumber = 0;
-            [[tracker getSmsTextsForActivation] subscribeNext:^(NSArray* list) {
-                
-                RACSignal *signal = [RACSignal empty];
-                for (NSString* text in list) {
-                    signal = [signal then:^{
-                        return [self as_sendSMS:text ToRecipient:tracker.trackerPhoneNumber];
-                    }];
-                }
-                
-                
-//                RACSignal *signal = [RACSignal concat:[list.rac_sequence map:^(NSString* text) {
-//                    return [self as_sendSMS:text ToRecipient:tracker.trackerPhoneNumber];
-//                }]];
-//                
-                [signal subscribeCompleted:^{
-                    DDLogDebug(@"completed");
-                }];
-            }];
+        if (!trackers || trackers.count == 0){
+            return;
         }
+        
+        UIAlertController* alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"reset_all", nil)
+                                                                       message:nil
+                                                                preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction* okAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"reset_all_btn", nil) style:UIAlertActionStyleDefault
+                                                         handler:^(UIAlertAction * action) {
+                                                             
+                                                             for (ASTrackerModel* tracker in trackers) {
+                                                                 [[tracker getSmsTextsForActivation] subscribeNext:^(NSArray* list) {
+                                                                     @strongify(self)
+                                                                     RACSignal *signal = [RACSignal empty];
+                                                                     for (NSString* text in list) {
+                                                                         signal = [signal then:^{
+                                                                             return [self as_sendSMS:text ToRecipient:tracker.trackerPhoneNumber];
+                                                                         }];
+                                                                     }
+                                                                     
+                                                                     [signal subscribeCompleted:^{
+                                                                         DDLogDebug(@"completed");
+                                                                         [[NSUserDefaults standardUserDefaults] setObject:@"updated"
+                                                                                                                   forKey:kASUserDefaultsKeyResetAll];                                                                     }];
+                                                                 }];
+                                                             }
+                                                         }];
+        
+        
+        [alert addAction:okAction];
+        
+        //[alert.view setTintColor:[UIColor colorWithRed:22 / 255.0 green:189 / 255.0 blue:78/ 255.0 alpha:1.0]];
+        [self presentViewController:alert animated:YES completion:nil];
+        
     }];
-    
-    
-//    [[[self.apiController getTrackers] flattenMap:^id(NSArray *trackers)  {
-//        NSMutableArray* result = [NSMutableArray array];
-//        for (ASTrackerModel* tracker in trackers) {
-//            [result addObject:[tracker getSmsTextsForActivation]];
-//        }
-//        return [RACSignal zip:result reduce:;
-//    }] subscribeNext:^(NSArray* listOfSMSList) {
-//        
-//        
-//        NSMutableArray* arr = [NSMutableArray array];
-//        for (NSArray* a in listOfSMSList) {
-//            [arr addObjectsFromArray:a];
-//        }
-//        
-//        
-//        
-//        RACSignal *signal = [RACSignal concat:[arr.rac_sequence map:^(NSString* text) {
-//            return self as_sendSMS:text ToRecipient:<#(NSString *)#>;
-//        }]];
-//        
-//        DDLogDebug(@"%@", x);
-//    }];
-//    
 
 
+    
+    
+ 
 }
 
 @end

@@ -33,6 +33,7 @@ NSInteger AGOpteumBackendResponseCodePhoneBlocked  = -4;
 
 NSString *kASUserDefaultsKeyUsername = @"";
 NSString *kASUserDefaultsKeyPassword = @"";
+NSString *kASUserDefaultsKeyResetAll = @"reset_all";
 
 NSString *kASDidLoginNotification    = @"kASDidLoginNotification";
 NSString *kASDidLogoutNotification   = @"kASDidLogoutNotification";

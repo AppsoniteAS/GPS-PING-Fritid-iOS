@@ -23,7 +23,7 @@ extern NSString *kASUserDefaultsKeyPassword;
 extern NSString *kASDidLoginNotification;
 extern NSString *kASDidLogoutNotification;
 extern NSString *kASDidRegisterNotification;
-
+extern NSString *kASUserDefaultsKeyResetAll;
 @protocol AGApplicationConfigurationDelegate
 
 @property (readonly) NSString* backendBaseURL;
