@@ -183,7 +183,7 @@
                     <navigationItem key="navigationItem" title="Trackers" id="OdB-Mn-RO6">
                         <barButtonItem key="rightBarButtonItem" image="addIcon" id="SgF-pa-dtq">
                             <connections>
-                                <segue destination="fEd-Ml-aQJ" kind="modal" id="et4-MA-UTC"/>
+                                <segue destination="gdV-zc-Gra" kind="modal" id="FtR-Yy-xrJ"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -230,6 +230,22 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dfG-AH-UB2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1971" y="314"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="feG-PI-DpX">
+            <objects>
+                <navigationController id="gdV-zc-Gra" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="qT4-JJ-zQL">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="fEd-Ml-aQJ" kind="relationship" relationship="rootViewController" id="cVH-Ej-Upo"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xEN-6z-zUf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1896" y="1048"/>
         </scene>
         <!--Add Tracker-->
         <scene sceneID="To9-kD-7rI">
@@ -315,7 +331,13 @@
                             <constraint firstAttribute="trailing" secondItem="yue-s2-yrb" secondAttribute="trailing" id="f5y-Xj-oJP"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Add Tracker" id="qc9-yp-Sa2"/>
+                    <navigationItem key="navigationItem" title="Add Tracker" id="qc9-yp-Sa2">
+                        <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="c0q-p6-uJE">
+                            <connections>
+                                <action selector="cancelBtnTap:" destination="fEd-Ml-aQJ" id="cao-zp-M9y"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="tableView" destination="yue-s2-yrb" id="SZi-n3-lnD"/>
@@ -323,12 +345,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jcb-OA-N3K" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1712" y="1048"/>
+            <point key="canvasLocation" x="2681" y="1048"/>
         </scene>
         <!--Add Tracker-->
         <scene sceneID="B16-yu-wQ3">
             <objects>
-                <viewController id="4HN-DH-Iqs" customClass="ASNewTrackerViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ASNewTrackerViewController_main" useStoryboardIdentifierAsRestorationIdentifier="YES" id="4HN-DH-Iqs" customClass="ASNewTrackerViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="gKo-Mh-nfW"/>
                         <viewControllerLayoutGuide type="bottom" id="9A8-tC-cmk"/>

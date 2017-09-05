@@ -90,7 +90,7 @@ objection_requires(@keypath(ASNewTrackerViewController.new, apiController))
     self.trackerObject =  [ASTrackerModel initTrackerWithName:nil
                                                        number:self.trackerNumberTextField.text
                                                          imei:self.imeiTextField.text
-                                                         type:nil
+                                                         type:self.trackerName
                                                     isChoosed:NO
                                                     isRunning:NO];
 }

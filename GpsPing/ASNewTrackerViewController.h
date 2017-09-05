@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface ASNewTrackerViewController : UIViewController
-
+@property (strong, nonatomic) NSString* trackerName;
 @end

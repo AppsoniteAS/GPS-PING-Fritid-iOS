@@ -66,8 +66,17 @@
 //                                                       isRunning:NO];
 //    [self.navigationController pushViewController:configVC animated:YES];
     
-    ASNewTrackerViewController* controller = ASNewTrackerViewController 
-
+//    UINavigationController* nc = (UINavigationController*)[self.storyboard instantiateViewControllerWithIdentifier:@"ASNewTrackerViewController"];
+//    ASNewTrackerViewController* trackerController = nc.childViewControllers[0];
+//    
+//    trackerController.trackerName = trackerName;
+    ASNewTrackerViewController* trackerController = [self.storyboard instantiateViewControllerWithIdentifier:@"ASNewTrackerViewController_main"];
+    trackerController.trackerName = trackerName;
+    
+    [self.navigationController pushViewController: trackerController animated:YES];
 }
 
+- (IBAction)cancelBtnTap:(UIBarButtonItem *)sender {
+    [self dismissViewControllerAnimated:true completion:nil];
+}
 @end
