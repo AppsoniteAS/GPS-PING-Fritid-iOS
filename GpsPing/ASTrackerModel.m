@@ -18,6 +18,8 @@
 #include <netdb.h>
 #include <arpa/inet.h>
 
+#define ipAddress @"54.77.4.166" // @"52.19.58.234"
+
 static DDLogLevel ddLogLevel               = DDLogLevelDebug;
 
 NSString* const kASTrackerName        = @"name";
@@ -240,12 +242,12 @@ NSString* const kASDogSleepModeIsOn   = @"kASDogSleepModeIsOn";
         if ([self.trackerType isEqualToString:kASTrackerTypeTkStarPet]) {
             result = @[[NSString stringWithFormat:@"admin123456 %@%@", phoneCode, profileModel.phoneNumber],
                        @"apn123456 internet.ts.m2m",
-                       @"adminip123456 52.19.58.234 5013",
+                       [NSString stringWithFormat: @"adminip123456 %@ 5013", ipAddress],
                        @"sleep123456 off"];
         } else {
             result = @[[NSString stringWithFormat:@"admin123456 %@%@", phoneCode, profileModel.phoneNumber],
                        @"apn123456 internet.ts.m2m",
-                       @"adminip123456 52.19.58.234 5093",
+                       [NSString stringWithFormat: @"adminip123456 %@ 5093", ipAddress],
                        @"sleep123456 off"];
         }
         
