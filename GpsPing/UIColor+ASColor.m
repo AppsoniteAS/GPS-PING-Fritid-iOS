@@ -34,4 +34,8 @@
     return [UIColor colorWithHue:hue saturation:saturation brightness:brightness alpha:1];
 }
 
++ (UIColor*)as_darkestBlueColor {
+    return [UIColor colorWithRed: 69.0/255.0 green: 90.0/255.0 blue:100.0/255.0 alpha:1.0];
+}
+
 @end

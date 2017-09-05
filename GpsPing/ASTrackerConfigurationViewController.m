@@ -75,6 +75,11 @@ objection_requires(@keypath(ASTrackerConfigurationViewController.new, apiControl
     result.trackerObject = trackerModel;
     return result;
 }
++ (instancetype)initialize {
+    return [[UIStoryboard trackerConfigurationStoryboard] instantiateViewControllerWithIdentifier:NSStringFromClass([ASTrackerConfigurationViewController class])];
+}
+
+
 
 #pragma mark - UIViewController methods
 

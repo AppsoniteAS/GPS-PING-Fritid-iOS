@@ -14,4 +14,7 @@
 +(UIColor*)as_grayColor;
 +(UIColor*)as_colorWithImage:(UIImage*)image;
 +(UIColor *)getRandomColor;
++(UIColor*)as_darkestBlueColor;
+
+
 @end

@@ -15,7 +15,12 @@ static NSString * const kASTrackerTypeTkStar      = @"TK_STAR";
 static NSString * const kASTrackerTypeAnywhere    = @"TK_ANYWHERE";
 
 static NSString * const kASTrackerTypeTkStarPet   = @"TK_STAR_PET";
-static NSString * const kASTrackerTypeTkBike    = @"TK_BIKE";
+static NSString * const kASTrackerTypeTkBike      = @"TK_BIKE";
+
+
+static NSString * const kASTrackerTypeLK209       = @"LK209";
+static NSString * const kASTrackerTypeVT600       = @"VT600";
+static NSString * const kASTrackerTypeLK330       = @"LK330";
 
 static NSString * const kASSignalMetricTypeSeconds   = @"Seconds";
 static NSString * const kASSignalMetricTypeMinutes   = @"Minutes";

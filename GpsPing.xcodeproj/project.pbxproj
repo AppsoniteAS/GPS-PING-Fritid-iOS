@@ -118,6 +118,8 @@
 		ABD8BAE01C7F5B350075670C /* Errors.strings in Resources */ = {isa = PBXBuildFile; fileRef = ABD8BAE21C7F5B350075670C /* Errors.strings */; };
 		ABE7C7251C784500008A6390 /* ASPointOfInterestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ABE7C7241C784500008A6390 /* ASPointOfInterestModel.m */; };
 		ABE7C7281C78CB76008A6390 /* ASPointOfInterestAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = ABE7C7271C78CB76008A6390 /* ASPointOfInterestAnnotation.m */; };
+		E9FFBD871F5EFE590062069B /* ASAddTrackerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E9FFBD861F5EFE590062069B /* ASAddTrackerCell.m */; };
+		E9FFBD8A1F5F00800062069B /* ASChooseTrackerController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9FFBD891F5F00800062069B /* ASChooseTrackerController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -427,6 +429,10 @@
 		ABE7C7241C784500008A6390 /* ASPointOfInterestModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASPointOfInterestModel.m; sourceTree = "<group>"; };
 		ABE7C7261C78CB76008A6390 /* ASPointOfInterestAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASPointOfInterestAnnotation.h; sourceTree = "<group>"; };
 		ABE7C7271C78CB76008A6390 /* ASPointOfInterestAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASPointOfInterestAnnotation.m; sourceTree = "<group>"; };
+		E9FFBD851F5EFE590062069B /* ASAddTrackerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASAddTrackerCell.h; sourceTree = "<group>"; };
+		E9FFBD861F5EFE590062069B /* ASAddTrackerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASAddTrackerCell.m; sourceTree = "<group>"; };
+		E9FFBD881F5F00800062069B /* ASChooseTrackerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASChooseTrackerController.h; sourceTree = "<group>"; };
+		E9FFBD891F5F00800062069B /* ASChooseTrackerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASChooseTrackerController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -678,6 +684,10 @@
 				A68C1B911C4E38D6000E2BA6 /* ASTrackerCell.m */,
 				A6AB68281D3776A500F470D2 /* ASNewTrackerViewController.h */,
 				A6AB68291D3776A500F470D2 /* ASNewTrackerViewController.m */,
+				E9FFBD851F5EFE590062069B /* ASAddTrackerCell.h */,
+				E9FFBD861F5EFE590062069B /* ASAddTrackerCell.m */,
+				E9FFBD881F5F00800062069B /* ASChooseTrackerController.h */,
+				E9FFBD891F5F00800062069B /* ASChooseTrackerController.m */,
 			);
 			name = "Trackers list";
 			sourceTree = "<group>";
@@ -1179,6 +1189,7 @@
 				A68C1BA71C4F7006000E2BA6 /* UIStoryboard+ASHelper.m in Sources */,
 				A60C46941D80114B00141ED3 /* ASIntroViewController.m in Sources */,
 				A603CED51C58D5C2001D56A4 /* ASMapViewController.m in Sources */,
+				E9FFBD871F5EFE590062069B /* ASAddTrackerCell.m in Sources */,
 				A68C1B8F1C4E3860000E2BA6 /* ASTrackersViewController.m in Sources */,
 				AB8946901C4F7244002E86C8 /* ASGeofenceViewModel.m in Sources */,
 				A603CEDB1C5A0986001D56A4 /* ASPointModel.m in Sources */,
@@ -1202,6 +1213,7 @@
 				A68C1B871C4D2549000E2BA6 /* ASButton.m in Sources */,
 				A603CEE21C5A4CD8001D56A4 /* ASFriendAnnotation.m in Sources */,
 				A646053C1C68C2F90012467E /* AGGeoValueTransformer.m in Sources */,
+				E9FFBD8A1F5F00800062069B /* ASChooseTrackerController.m in Sources */,
 				AB89468A1C4F31F3002E86C8 /* ASSignInViewModel.m in Sources */,
 				AB5428211C5E376A00F33E8B /* ASRequestTableViewCell.m in Sources */,
 				AB8946961C50D6B0002E86C8 /* ASProfileViewController.m in Sources */,
