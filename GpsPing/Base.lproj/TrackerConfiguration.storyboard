@@ -796,7 +796,7 @@
                                                         <rect key="frame" x="29" y="318" width="356" height="153"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Signal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FSy-sT-rYn">
-                                                                <rect key="frame" x="20" y="20" width="94" height="40"/>
+                                                                <rect key="frame" x="20" y="20" width="92.5" height="40"/>
                                                                 <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="34"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
@@ -896,7 +896,7 @@
                                                                                 </connections>
                                                                             </button>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LED Light" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lX6-Xl-IU9">
-                                                                                <rect key="frame" x="19" y="12" width="74.5" height="20"/>
+                                                                                <rect key="frame" x="19" y="12" width="73.5" height="20"/>
                                                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
                                                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                 <nil key="highlightedColor"/>
@@ -1020,7 +1020,7 @@
                                                                 </constraints>
                                                             </view>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bike Tracking" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TI1-Ra-ueR">
-                                                                <rect key="frame" x="20" y="20" width="204.5" height="40"/>
+                                                                <rect key="frame" x="20" y="20" width="200" height="40"/>
                                                                 <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="34"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>

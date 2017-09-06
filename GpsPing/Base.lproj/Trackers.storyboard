@@ -183,7 +183,7 @@
                     <navigationItem key="navigationItem" title="Trackers" id="OdB-Mn-RO6">
                         <barButtonItem key="rightBarButtonItem" image="addIcon" id="SgF-pa-dtq">
                             <connections>
-                                <segue destination="gdV-zc-Gra" kind="modal" id="FtR-Yy-xrJ"/>
+                                <segue destination="3fg-Tg-ShT" kind="modal" id="NSE-GI-mqH"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -193,7 +193,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6fj-vn-bTS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1095" y="314"/>
+            <point key="canvasLocation" x="1074" y="314"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="0n4-4a-rDV">
