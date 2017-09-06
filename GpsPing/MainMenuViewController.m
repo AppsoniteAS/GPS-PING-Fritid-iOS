@@ -141,7 +141,7 @@ objection_requires(@keypath(MainMenuViewController.new, apiController))
     }
     
     
-    if ([[NSUserDefaults standardUserDefaults] valueForKey:kASUserDefaultsKeyResetAll]){
+    if (![[NSUserDefaults standardUserDefaults] valueForKey:kASUserDefaultsKeyResetAll]){
         return;
     }
     [[self.apiController getTrackers] subscribeNext:^(NSArray* trackers) {
@@ -156,22 +156,47 @@ objection_requires(@keypath(MainMenuViewController.new, apiController))
         UIAlertAction* okAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"reset_all_btn", nil) style:UIAlertActionStyleDefault
                                                          handler:^(UIAlertAction * action) {
                                                              
-                                                             for (ASTrackerModel* tracker in trackers) {
-                                                                 [[tracker getSmsTextsForActivation] subscribeNext:^(NSArray* list) {
+
+                                                             
+                                                                __block NSArray<ASTrackerModel*>* trackerList;
+                                                                 [[[self.apiController getTrackers] flattenMap:^id(NSArray *trackers)  {
+                                                                     NSMutableArray* result = [NSMutableArray array];
+                                                                     for (ASTrackerModel* tracker in trackers) {
+                                                                         [result addObject:[tracker getSmsTextsForActivation]];
+                                                                     }
+                                                                     trackerList = trackers;
+                                                                     return [RACSignal zip:result];
+                                                                 }] subscribeNext:^(NSArray* listOfSMSList) {
+                                                             
+                                                             
+                                                                     NSMutableArray* arr = [NSMutableArray array];
+                                                                     
+                                                                     for (int i = 0; i < trackerList.count; i++) {
+                                                                         for (NSString* text in listOfSMSList[i]) {
+                                                                             [arr addObject:@{trackerList[i].trackerPhoneNumber : text}];
+                                                                         }
+                                                                     }
+                                                                     
+                                                           
+                                                                     
                                                                      @strongify(self)
                                                                      RACSignal *signal = [RACSignal empty];
-                                                                     for (NSString* text in list) {
+                                                                     for (NSDictionary* dict in arr) {
                                                                          signal = [signal then:^{
-                                                                             return [self as_sendSMS:text ToRecipient:tracker.trackerPhoneNumber];
+                                                                             return [self as_sendSMS:dict.allValues[0] ToRecipient:dict.allKeys[0]];
                                                                          }];
                                                                      }
                                                                      
                                                                      [signal subscribeCompleted:^{
                                                                          DDLogDebug(@"completed");
                                                                          [[NSUserDefaults standardUserDefaults] setObject:@"updated"
-                                                                                                                   forKey:kASUserDefaultsKeyResetAll];                                                                     }];
+                                                                                                                   forKey:kASUserDefaultsKeyResetAll];
+                                                                     }];
+                                                                     
+
+//
                                                                  }];
-                                                             }
+
                                                          }];
         
         
