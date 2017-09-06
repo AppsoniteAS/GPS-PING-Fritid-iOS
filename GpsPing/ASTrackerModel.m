@@ -265,7 +265,7 @@ NSString* const kASDogSleepModeIsOn   = @"kASDogSleepModeIsOn";
     
     if ([self.trackerType isEqualToString:kASTrackerTypeTkStar] ||
         [self.trackerType isEqualToString:kASTrackerTypeTkStarPet] ||
-        [self.trackerType isEqualToString:kASTrackerTypeTkBike]) {
+        [self.trackerType isEqualToString:kASTrackerTypeTkStarBike]) {
         return @"gprs123456";
     } else {
         NSString *rateMetric = [self.signalRateMetric isEqualToString:kASSignalMetricTypeMinutes] ?

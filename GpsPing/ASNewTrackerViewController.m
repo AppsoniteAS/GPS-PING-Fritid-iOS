@@ -97,7 +97,8 @@ objection_requires(@keypath(ASNewTrackerViewController.new, apiController))
 
 -(void)bindTrackerOnServer {
     [[[self.apiController bindTrackerImei:self.trackerObject.imeiNumber
-                                   number:self.trackerObject.trackerNumber] flattenMap:^RACStream *(id value) {
+                                   number:self.trackerObject.trackerNumber
+                                     type: self.trackerObject.trackerType] flattenMap:^RACStream *(id value) {
         DDLogDebug(@"Tracker Added! Acquiring tracker list...");
         return [self.apiController getTrackers];
     }] subscribeNext:^(NSArray *trackers) {

@@ -13,5 +13,5 @@
 @property (nonatomic) ASTrackerModel *trackerObject;
 
 +(instancetype)initializeWithTrackerModel:(ASTrackerModel *)trackerModel;
-+ (instancetype)initialize;
+//+ (instancetype)initialize;
 @end

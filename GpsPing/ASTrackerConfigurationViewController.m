@@ -69,16 +69,22 @@ objection_requires(@keypath(ASTrackerConfigurationViewController.new, apiControl
 
 +(instancetype)initializeWithTrackerModel:(ASTrackerModel *)trackerModel
 {
-    NSString *className = [NSString stringWithFormat:@"%@_%@", NSStringFromClass([ASTrackerConfigurationViewController class]),
+    NSString *className;
+    NSString* t = trackerModel.trackerType;
+    if ([t isEqualToString:kASTrackerTypeLK209] || [t isEqualToString:kASTrackerTypeVT600] || [t isEqualToString:kASTrackerTypeLK330]){
+        className = @"ASTrackerConfigurationViewController_Industry";
+    } else {
+        className = [NSString stringWithFormat:@"%@_%@", NSStringFromClass([ASTrackerConfigurationViewController class]),
                                                               trackerModel.trackerType];
+    }
     ASTrackerConfigurationViewController *result = [[UIStoryboard trackerConfigurationStoryboard] instantiateViewControllerWithIdentifier:className];
     result.trackerObject = trackerModel;
     return result;
 }
-+ (instancetype)initialize {
-    return [[UIStoryboard trackerConfigurationStoryboard] instantiateViewControllerWithIdentifier:NSStringFromClass([ASTrackerConfigurationViewController class])];
-}
-
+//+ (instancetype)initialize {
+//    return [[UIStoryboard trackerConfigurationStoryboard] instantiateViewControllerWithIdentifier:NSStringFromClass([ASTrackerConfigurationViewController class])];
+//}
+//
 
 
 #pragma mark - UIViewController methods

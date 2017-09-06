@@ -49,6 +49,9 @@ extern NSString *kASUserDefaultsKeyResetAll;
 #pragma mark - Tracker
 -(RACSignal *)bindTrackerImei:(NSString*)imei
                        number:(NSString*)number;
+-(RACSignal *)bindTrackerImei:(NSString*)imei
+                       number:(NSString*)number
+                         type:(NSString*) type;
 -(RACSignal *)getTrackers;
 -(RACSignal *)updateTracker:(NSString*)name
                   trackerId:(NSString*)trackerId

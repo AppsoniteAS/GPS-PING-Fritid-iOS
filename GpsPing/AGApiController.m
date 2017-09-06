@@ -233,6 +233,22 @@ objection_initializer(initWithConfiguration:);
                                      parameters:params];
 }
 
+-(RACSignal *)bindTrackerImei:(NSString*)imei
+                       number:(NSString*)number
+                         type:(NSString*) type
+{
+    DDLogDebug(@"%s", __PRETTY_FUNCTION__);
+    NSDictionary *params = @{
+                             @"imei":imei,
+                             @"lastdig":number,
+                             @"type": type
+                             };
+    params = [self addAuthParamsByUpdatingParams:params];
+    return [self performHttpRequestWithAttempts:requestMethod
+                                       resource:@"tracker/bind_tracker"
+                                     parameters:params];
+}
+
 -(RACSignal *)getTrackers
 {
     DDLogDebug(@"%s", __PRETTY_FUNCTION__);

@@ -23,7 +23,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
-    self.trackers = @[kASTrackerTypeTkStarPet, kASTrackerTypeTkBike, kASTrackerTypeLK209, kASTrackerTypeLK330, kASTrackerTypeVT600];
+    self.trackers = @[kASTrackerTypeTkStarPet, kASTrackerTypeTkStarBike, kASTrackerTypeLK209, kASTrackerTypeLK330, kASTrackerTypeVT600, kASTrackerTypeTkS1];
     [self.tableView reloadData];
 }
 
@@ -56,23 +56,8 @@
 #pragma mark - ASAddTrackerCellProtocol
 
 - (void)didSelectTracker:(NSString *)trackerName{
-//    ASTrackerConfigurationViewController *configVC = [ASTrackerConfigurationViewController initialize];
-//    
-//    configVC.trackerObject = [ASTrackerModel initTrackerWithName:nil
-//                                                          number:nil
-//                                                            imei:nil
-//                                                            type:trackerName
-//                                                       isChoosed:NO
-//                                                       isRunning:NO];
-//    [self.navigationController pushViewController:configVC animated:YES];
-    
-//    UINavigationController* nc = (UINavigationController*)[self.storyboard instantiateViewControllerWithIdentifier:@"ASNewTrackerViewController"];
-//    ASNewTrackerViewController* trackerController = nc.childViewControllers[0];
-//    
-//    trackerController.trackerName = trackerName;
     ASNewTrackerViewController* trackerController = [self.storyboard instantiateViewControllerWithIdentifier:@"ASNewTrackerViewController_main"];
     trackerController.trackerName = trackerName;
-    
     [self.navigationController pushViewController: trackerController animated:YES];
 }
 
