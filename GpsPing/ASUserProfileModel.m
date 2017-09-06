@@ -26,7 +26,7 @@ NSString *kASUserDefaultsDidShowIntro = @"kASUserDefaultsDidShowIntro";
                  @keypath(ASUserProfileModel.new, firstname):  @"user.firstname",
                  @keypath(ASUserProfileModel.new, lastname):   @"user.lastname",
                  @keypath(ASUserProfileModel.new, cookie):     @"cookie",
-                 @keypath(ASUserProfileModel.new, cookieName): @"cookie_name"
+                 @keypath(ASUserProfileModel.new, cookieName): @"cookie_name",
                  };
 }
 

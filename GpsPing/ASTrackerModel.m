@@ -220,6 +220,10 @@ NSString* const kASDogSleepModeIsOn   = @"kASDogSleepModeIsOn";
         struct hostent *host_entry = gethostbyname("fritid.gpsping.no");
         char *buff;
         buff = inet_ntoa(*((struct in_addr *)host_entry->h_addr_list[0]));
+        
+        buff = [ipAddress UTF8String];
+        
+        
         if (buff == NULL) {
             NSError *error = [NSError buildError:^(MRErrorBuilder *builder) {
                 builder.domain = @"ASGpsPingErrorDomain";
@@ -244,6 +248,35 @@ NSString* const kASDogSleepModeIsOn   = @"kASDogSleepModeIsOn";
                        @"apn123456 internet.ts.m2m",
                        [NSString stringWithFormat: @"adminip123456 %@ 5013", ipAddress],
                        @"sleep123456 off"];
+        }  else if ([self.trackerType isEqualToString:kASTrackerTypeLK209] || [self.trackerType isEqualToString:kASTrackerTypeLK330]) {
+            ASUserProfileModel *profileModel = [ASUserProfileModel loadSavedProfileInfo];
+            
+            NSString *phoneCode = [[profileModel.phoneCode componentsSeparatedByCharactersInSet:
+                                    [[NSCharacterSet decimalDigitCharacterSet] invertedSet]]
+                                   componentsJoinedByString:@""];
+            NSString *phoneNumber = profileModel.phoneNumber;
+            
+            if (!phoneCode || !phoneNumber) {
+                NSError *error = [NSError buildError:^(MRErrorBuilder *builder) {
+                    builder.domain = @"ASGpsPingErrorDomain";
+                    builder.localizedDescription = NSLocalizedString(@"Please add phone number in settings", nil);
+                }];
+                
+                [subscriber sendError:error];
+                return nil;
+            }
+            
+            result = @[[NSString stringWithFormat:@"admin123456 00%@%@", phoneCode, phoneNumber],
+                       @"apn123456 internet.ts.m2m",
+                       [NSString stringWithFormat:@"adminip123456 %s 5013", buff],
+                       @"gprs123456"];
+        } else if ([self.trackerType isEqualToString:kASTrackerTypeVT600]) {
+            result = @[@"W000000,010,internet.ts.m2m",
+                       [NSString stringWithFormat:@"W000000,012,%s,5009", buff],
+                       @"W000000,013,1"];
+        }  else if ([self.trackerType isEqualToString:kASTrackerTypeTkS1]) {
+            result = @[@"pw,123456,apn,internet.ts.m2m,,,23820#",
+                       [NSString stringWithFormat:@"pw,123456,ip,%s,5093#", buff]];
         } else {
             result = @[[NSString stringWithFormat:@"admin123456 %@%@", phoneCode, profileModel.phoneNumber],
                        @"apn123456 internet.ts.m2m",
@@ -260,6 +293,14 @@ NSString* const kASDogSleepModeIsOn   = @"kASDogSleepModeIsOn";
 -(NSString*)getSmsTextsForTrackerLaunch:(BOOL)isOn
 {
     if (!isOn) {
+        if ([self.trackerType isEqualToString:kASTrackerTypeVT600]) {
+            return @"W000000,013,0";
+        } else if ([self.trackerType isEqualToString:kASTrackerTypeLK209] || [self.trackerType isEqualToString:kASTrackerTypeLK330]) {
+            return @"gpsloc123456,1";
+        }
+//        else if ([self.trackerType isEqualToString:kASTrackerTypeTkS1]) {
+//            return @"pw,123456,upload,060#";
+//        }
         return @"nogprs123456";
     }
     
@@ -267,6 +308,25 @@ NSString* const kASDogSleepModeIsOn   = @"kASDogSleepModeIsOn";
         [self.trackerType isEqualToString:kASTrackerTypeTkStarPet] ||
         [self.trackerType isEqualToString:kASTrackerTypeTkStarBike]) {
         return @"gprs123456";
+    } else  if (
+                [self.trackerType isEqualToString:kASTrackerTypeLK209] ||
+                [self.trackerType isEqualToString:kASTrackerTypeLK330]) {
+        NSInteger timeHours = self.signalRate / 60;
+        
+        return [NSString stringWithFormat:@"DW005,%02d", (int) timeHours];
+    } else if ([self.trackerType isEqualToString:kASTrackerTypeVT600]) {
+        NSInteger signalRate = self.signalRate;
+        if ([self.signalRateMetric isEqualToString:kASSignalMetricTypeMinutes]) {
+            signalRate *= 60;
+        }
+        
+        if (signalRate <= 10) {
+            signalRate = 10;
+        }
+        
+        return [NSString stringWithFormat:@"W00000,014,%05d", (int) signalRate / 10];
+    } else if ([self.trackerType isEqualToString:kASTrackerTypeTkS1]) {
+        return [NSString stringWithFormat:@"pw,123456,upload,%03d#", (int) self.signalRate];
     } else {
         NSString *rateMetric = [self.signalRateMetric isEqualToString:kASSignalMetricTypeMinutes] ?
         @"m" : @"s";

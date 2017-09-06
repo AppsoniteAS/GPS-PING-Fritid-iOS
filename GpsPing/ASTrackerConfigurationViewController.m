@@ -71,7 +71,7 @@ objection_requires(@keypath(ASTrackerConfigurationViewController.new, apiControl
 {
     NSString *className;
     NSString* t = trackerModel.trackerType;
-    if ([t isEqualToString:kASTrackerTypeLK209] || [t isEqualToString:kASTrackerTypeVT600] || [t isEqualToString:kASTrackerTypeLK330]){
+    if ([t isEqualToString:kASTrackerTypeLK209] || [t isEqualToString:kASTrackerTypeVT600] || [t isEqualToString:kASTrackerTypeLK330] || [t isEqualToString:kASTrackerTypeTkS1]){
         className = @"ASTrackerConfigurationViewController_Industry";
     } else {
         className = [NSString stringWithFormat:@"%@_%@", NSStringFromClass([ASTrackerConfigurationViewController class]),
@@ -311,7 +311,10 @@ objection_requires(@keypath(ASTrackerConfigurationViewController.new, apiControl
                                 @(22 * 60 * 60), @(23 * 60 * 60), @(24 * 60 * 60)];
     } else if ([self.trackerObject.trackerType isEqualToString:kASTrackerTypeVT600]) {
         self.ratePickerData = @[@(20), @(30), @(40), @(50), @(60), @(2 * 60), @(3 * 60), @(5 * 60), @(7 * 60), @(10 * 60), @(20 * 60), @(30 * 60), @(40 * 60), @(50 * 60), @(60 * 60)];
-    } else {    
+    } else if ([self.trackerObject.trackerType isEqualToString:kASTrackerTypeTkS1]){
+        self.ratePickerData = @[@(10),@(20), @(30), @(40), @(50), @(60), @(2*60), @(3*60), @(4 * 60), @(5 * 60), @(7 * 60), @(8 * 60), @(9 * 60), @(10 * 60)];
+    
+    } else {
         self.ratePickerData = @[@(20), @(30), @(40), @(50), @(60), @(2*60), @(3*60)];
     }
     
