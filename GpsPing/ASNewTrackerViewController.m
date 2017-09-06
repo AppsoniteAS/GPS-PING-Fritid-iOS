@@ -57,11 +57,13 @@ objection_requires(@keypath(ASNewTrackerViewController.new, apiController))
 {
     [super viewWillAppear:animated];
     [self jps_viewWillAppear:animated];
-    [self.outerWrapperView mas_makeConstraints:^
-     (MASConstraintMaker *make) {
-         make.bottom.equalTo(self.keyboardLayoutGuide);
-     }];
+//    [self.outerWrapperView mas_makeConstraints:^
+//     (MASConstraintMaker *make) {
+//         make.bottom.equalTo(self.keyboardLayoutGuide);
+//     }];
 }
+
+
 
 -(void)viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear:animated];
@@ -98,7 +100,7 @@ objection_requires(@keypath(ASNewTrackerViewController.new, apiController))
 -(void)bindTrackerOnServer {
     [[[self.apiController bindTrackerImei:self.trackerObject.imeiNumber
                                    number:self.trackerObject.trackerNumber
-                                     type: self.trackerObject.trackerType] flattenMap:^RACStream *(id value) {
+                                     /*type: self.trackerObject.trackerType*/] flattenMap:^RACStream *(id value) {
         DDLogDebug(@"Tracker Added! Acquiring tracker list...");
         return [self.apiController getTrackers];
     }] subscribeNext:^(NSArray *trackers) {

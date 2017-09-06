@@ -141,7 +141,7 @@ objection_requires(@keypath(MainMenuViewController.new, apiController))
     }
     
     
-    if (![[NSUserDefaults standardUserDefaults] valueForKey:kASUserDefaultsKeyResetAll]){
+    if ([[NSUserDefaults standardUserDefaults] valueForKey:kASUserDefaultsKeyResetAll]){
         return;
     }
     [[self.apiController getTrackers] subscribeNext:^(NSArray* trackers) {
@@ -162,6 +162,9 @@ objection_requires(@keypath(MainMenuViewController.new, apiController))
                                                                  [[[self.apiController getTrackers] flattenMap:^id(NSArray *trackers)  {
                                                                      NSMutableArray* result = [NSMutableArray array];
                                                                      for (ASTrackerModel* tracker in trackers) {
+                                                                         if (!tracker.trackerPhoneNumber){
+                                                                             continue;
+                                                                         }
                                                                          [result addObject:[tracker getSmsTextsForActivation]];
                                                                      }
                                                                      trackerList = trackers;

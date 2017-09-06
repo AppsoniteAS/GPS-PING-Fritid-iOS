@@ -298,9 +298,9 @@ NSString* const kASDogSleepModeIsOn   = @"kASDogSleepModeIsOn";
         } else if ([self.trackerType isEqualToString:kASTrackerTypeLK209] || [self.trackerType isEqualToString:kASTrackerTypeLK330]) {
             return @"gpsloc123456,1";
         }
-//        else if ([self.trackerType isEqualToString:kASTrackerTypeTkS1]) {
-//            return @"pw,123456,upload,060#";
-//        }
+        else if ([self.trackerType isEqualToString:kASTrackerTypeTkS1]) {
+            return @"pw,123456,upload,000#";
+        }
         return @"nogprs123456";
     }
     
