@@ -288,8 +288,12 @@ objection_requires(@keypath(ASTrackerConfigurationViewController.new, apiControl
     NSMutableDictionary *valuesDictionary = @{}.mutableCopy;
     NSString *secondsString = NSLocalizedString(@"%d seconds", nil);
     NSString *minutesString = NSLocalizedString(@"%d minutes", nil);
+    NSString *hoursString = NSLocalizedString(@"%d hours", nil);
+
     for (NSNumber *value in ratePickerData) {
-        if (value.integerValue >= 60) {
+        if (value.integerValue >= 3600) {
+            valuesDictionary[value] = [NSString localizedStringWithFormat:hoursString, value.integerValue / 60 / 60];
+        } else if (value.integerValue >= 60) {
             valuesDictionary[value] = [NSString localizedStringWithFormat:minutesString, value.integerValue/60];
         } else {
             valuesDictionary[value] = [NSString localizedStringWithFormat:secondsString, value.integerValue];
@@ -301,7 +305,15 @@ objection_requires(@keypath(ASTrackerConfigurationViewController.new, apiControl
 #pragma mark - Private methods
 
 -(void)configPickers {
-    self.ratePickerData = @[@(20), @(30), @(40), @(50), @(60), @(2*60), @(3*60)];
+    if ([self.trackerObject.trackerType isEqualToString:kASTrackerTypeLK330] || [self.trackerObject.trackerType isEqualToString:kASTrackerTypeLK209]) {
+        self.ratePickerData = @[@(1 * 60 * 60), @(2 * 60 * 60), @(3 * 60 * 60), @(4 * 60 * 60), @(5 * 60 * 60), @(6 * 60 * 60), @(7 * 60 * 60), @(8 * 60 * 60), @(9 * 60 * 60), @(10 * 60 * 60),
+                                @(11 * 60 * 60), @(12 * 60 * 60), @(13 * 60 * 60), @(14 * 60 * 60), @(15 * 60 * 60), @(16 * 60 * 60), @(17 * 60 * 60), @(18 * 60 * 60), @(19 * 60 * 60), @(20 * 60 * 60), @(21 * 60 * 60),
+                                @(22 * 60 * 60), @(23 * 60 * 60), @(24 * 60 * 60)];
+    } else if ([self.trackerObject.trackerType isEqualToString:kASTrackerTypeVT600]) {
+        self.ratePickerData = @[@(20), @(30), @(40), @(50), @(60), @(2 * 60), @(3 * 60), @(5 * 60), @(7 * 60), @(10 * 60), @(20 * 60), @(30 * 60), @(40 * 60), @(50 * 60), @(60 * 60)];
+    } else {    
+        self.ratePickerData = @[@(20), @(30), @(40), @(50), @(60), @(2*60), @(3*60)];
+    }
     
     self.ratePicker = [[UIPickerView alloc] init];
     self.ratePicker.backgroundColor = [UIColor whiteColor];
