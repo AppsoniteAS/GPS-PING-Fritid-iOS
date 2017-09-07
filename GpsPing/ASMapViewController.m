@@ -551,6 +551,9 @@ objection_requires(@keypath(ASMapViewController.new, apiController), @keypath(AS
             if (self.isFirstLaunch &&
                 pointModel == deviceModel.points.lastObject) {
                 self.isFirstLaunch = NO;
+                if (deviceModel.latitude.integerValue == 0 && deviceModel.longitude.integerValue == 0){
+                    return;
+                }
                 MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(coord, 800, 800);
                 [self.mapView setRegion:viewRegion animated:YES];
 
@@ -561,6 +564,9 @@ objection_requires(@keypath(ASMapViewController.new, apiController), @keypath(AS
         ASDeviceModel *deviceModel = friendModel.devices.firstObject;
         if(deviceModel) {
             self.isFirstLaunch = NO;
+            if (deviceModel.latitude.integerValue == 0 && deviceModel.longitude.integerValue == 0){
+                return;
+            }
             CLLocationCoordinate2D coord = CLLocationCoordinate2DMake(deviceModel.latitude.doubleValue, deviceModel.longitude.doubleValue);
             MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(coord, 800, 800);
             [self.mapView setRegion:viewRegion animated:YES];
@@ -627,7 +633,7 @@ objection_requires(@keypath(ASMapViewController.new, apiController), @keypath(AS
 - (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation
 {
     [self refreshLine];
-    DDLogDebug(@"user location %@",userLocation);
+    DDLogDebug(@"user location %f %f",userLocation.coordinate.latitude, userLocation.coordinate.longitude);
     if (self.isUserLocationCentered == NO) {
         self.isUserLocationCentered = YES;
         MKMapCamera* camera = [MKMapCamera
