@@ -118,6 +118,10 @@
 		ABD8BAE01C7F5B350075670C /* Errors.strings in Resources */ = {isa = PBXBuildFile; fileRef = ABD8BAE21C7F5B350075670C /* Errors.strings */; };
 		ABE7C7251C784500008A6390 /* ASPointOfInterestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ABE7C7241C784500008A6390 /* ASPointOfInterestModel.m */; };
 		ABE7C7281C78CB76008A6390 /* ASPointOfInterestAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = ABE7C7271C78CB76008A6390 /* ASPointOfInterestAnnotation.m */; };
+		E9CFA3711F6144BD00516EE2 /* Chel.gpx in Resources */ = {isa = PBXBuildFile; fileRef = E9CFA36D1F6144BD00516EE2 /* Chel.gpx */; };
+		E9CFA3721F6144BD00516EE2 /* Home.gpx in Resources */ = {isa = PBXBuildFile; fileRef = E9CFA36E1F6144BD00516EE2 /* Home.gpx */; };
+		E9CFA3731F6144BD00516EE2 /* Norway.gpx in Resources */ = {isa = PBXBuildFile; fileRef = E9CFA36F1F6144BD00516EE2 /* Norway.gpx */; };
+		E9CFA3741F6144BD00516EE2 /* route.gpx in Resources */ = {isa = PBXBuildFile; fileRef = E9CFA3701F6144BD00516EE2 /* route.gpx */; };
 		E9FFBD871F5EFE590062069B /* ASAddTrackerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E9FFBD861F5EFE590062069B /* ASAddTrackerCell.m */; };
 		E9FFBD8A1F5F00800062069B /* ASChooseTrackerController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9FFBD891F5F00800062069B /* ASChooseTrackerController.m */; };
 /* End PBXBuildFile section */
@@ -429,6 +433,10 @@
 		ABE7C7241C784500008A6390 /* ASPointOfInterestModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASPointOfInterestModel.m; sourceTree = "<group>"; };
 		ABE7C7261C78CB76008A6390 /* ASPointOfInterestAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASPointOfInterestAnnotation.h; sourceTree = "<group>"; };
 		ABE7C7271C78CB76008A6390 /* ASPointOfInterestAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASPointOfInterestAnnotation.m; sourceTree = "<group>"; };
+		E9CFA36D1F6144BD00516EE2 /* Chel.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Chel.gpx; sourceTree = "<group>"; };
+		E9CFA36E1F6144BD00516EE2 /* Home.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Home.gpx; sourceTree = "<group>"; };
+		E9CFA36F1F6144BD00516EE2 /* Norway.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Norway.gpx; sourceTree = "<group>"; };
+		E9CFA3701F6144BD00516EE2 /* route.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = route.gpx; sourceTree = "<group>"; };
 		E9FFBD851F5EFE590062069B /* ASAddTrackerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASAddTrackerCell.h; sourceTree = "<group>"; };
 		E9FFBD861F5EFE590062069B /* ASAddTrackerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASAddTrackerCell.m; sourceTree = "<group>"; };
 		E9FFBD881F5F00800062069B /* ASChooseTrackerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASChooseTrackerController.h; sourceTree = "<group>"; };
@@ -544,6 +552,7 @@
 		A68C1B251C4CE460000E2BA6 = {
 			isa = PBXGroup;
 			children = (
+				E9CFA36C1F6144A800516EE2 /* GPX */,
 				A68C1B301C4CE460000E2BA6 /* GpsPing */,
 				A68C1B4A1C4CE461000E2BA6 /* GpsPingTests */,
 				A68C1B551C4CE461000E2BA6 /* GpsPingUITests */,
@@ -897,6 +906,17 @@
 			name = Auth;
 			sourceTree = "<group>";
 		};
+		E9CFA36C1F6144A800516EE2 /* GPX */ = {
+			isa = PBXGroup;
+			children = (
+				E9CFA36D1F6144BD00516EE2 /* Chel.gpx */,
+				E9CFA36E1F6144BD00516EE2 /* Home.gpx */,
+				E9CFA36F1F6144BD00516EE2 /* Norway.gpx */,
+				E9CFA3701F6144BD00516EE2 /* route.gpx */,
+			);
+			name = GPX;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1046,16 +1066,20 @@
 				ABA221601C79E5AF00AE6F87 /* About.storyboard in Resources */,
 				A68C1B831C4D24DC000E2BA6 /* Roboto-Thin.ttf in Resources */,
 				A68C1B771C4D24DC000E2BA6 /* Roboto-Bold.ttf in Resources */,
+				E9CFA3731F6144BD00516EE2 /* Norway.gpx in Resources */,
 				A68C1B781C4D24DC000E2BA6 /* Roboto-BoldCondensed.ttf in Resources */,
 				A6624DF71D37D90900CDA336 /* TrackerConfiguration.storyboard in Resources */,
 				A68C1B761C4D24DC000E2BA6 /* Roboto-BlackItalic.ttf in Resources */,
 				ABA221501C79E58100AE6F87 /* Geofence.storyboard in Resources */,
 				A68C1B7E1C4D24DC000E2BA6 /* Roboto-Light.ttf in Resources */,
+				E9CFA3721F6144BD00516EE2 /* Home.gpx in Resources */,
 				A68C1B811C4D24DC000E2BA6 /* Roboto-MediumItalic.ttf in Resources */,
 				ABA221571C79E59C00AE6F87 /* Profile.storyboard in Resources */,
 				A68C1B3C1C4CE460000E2BA6 /* Main.storyboard in Resources */,
+				E9CFA3741F6144BD00516EE2 /* route.gpx in Resources */,
 				ABA221291C79E4A400AE6F87 /* Trackers.storyboard in Resources */,
 				ABA2213B1C79E52700AE6F87 /* Map.storyboard in Resources */,
+				E9CFA3711F6144BD00516EE2 /* Chel.gpx in Resources */,
 				A68C1B821C4D24DC000E2BA6 /* Roboto-Regular.ttf in Resources */,
 				ABA221421C79E54900AE6F87 /* DisplayOptions.storyboard in Resources */,
 				A68C1B841C4D24DC000E2BA6 /* Roboto-ThinItalic.ttf in Resources */,
