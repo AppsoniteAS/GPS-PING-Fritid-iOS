@@ -15,7 +15,9 @@ static NSString * const kASTrackerTypeTkStar      = @"TK_STAR";
 static NSString * const kASTrackerTypeAnywhere    = @"TK_ANYWHERE";
 
 static NSString * const kASTrackerTypeTkStarPet   = @"TK_STAR_PET";
-static NSString * const kASTrackerTypeTkStarBike  = @"TK_BIKE";
+static NSString * const kASTrackerTypeTkStarBike  = @"TK_STAR_BIKE";
+static NSString * const kASTrackerTypeTkBike      = @"TK_BIKE";
+
 static NSString * const kASTrackerTypeTkS1        = @"S1";
 
 

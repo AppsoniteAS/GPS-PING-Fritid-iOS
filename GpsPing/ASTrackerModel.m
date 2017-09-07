@@ -82,7 +82,9 @@ NSString* const kASDogSleepModeIsOn   = @"kASDogSleepModeIsOn";
         if (trackerType == nil) {
             return kASTrackerTypeTkStarPet;
         }
-        
+        if ([trackerType isEqualToString:kASTrackerTypeTkBike]){
+            return kASTrackerTypeTkStarBike;
+        }
         return trackerType;
     }];
 }
