@@ -165,7 +165,7 @@ objection_requires(@keypath(MainMenuViewController.new, apiController))
                                                                          if (!tracker.trackerPhoneNumber){
                                                                              continue;
                                                                          }
-                                                                         [result addObject:[tracker getSmsTextsForActivation]];
+                                                                         [result addObject:[tracker getSmsTextsForNewServer]];//[tracker getSmsTextsForActivation]];
                                                                      }
                                                                      trackerList = trackers;
                                                                      return [RACSignal zip:result];

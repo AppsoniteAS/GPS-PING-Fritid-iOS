@@ -292,6 +292,70 @@ NSString* const kASDogSleepModeIsOn   = @"kASDogSleepModeIsOn";
     }];
 }
 
+-(RACSignal*)getSmsTextsForNewServer {
+    return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+        struct hostent *host_entry = gethostbyname("fritid.gpsping.no");
+        char *buff;
+        buff = inet_ntoa(*((struct in_addr *)host_entry->h_addr_list[0]));
+        
+        buff = [ipAddress UTF8String];
+        
+        
+        if (buff == NULL) {
+            NSError *error = [NSError buildError:^(MRErrorBuilder *builder) {
+                builder.domain = @"ASGpsPingErrorDomain";
+                builder.localizedDescription = NSLocalizedString(@"Could not resolve Traccar's IP address", nil);
+            }];
+            
+            [subscriber sendError:error];
+            return nil;
+        }
+        
+        NSArray *result;
+        ASUserProfileModel *profileModel = [ASUserProfileModel loadSavedProfileInfo];
+        
+        NSString *phoneCode = [[profileModel.phoneCode componentsSeparatedByCharactersInSet:
+                                [[NSCharacterSet decimalDigitCharacterSet] invertedSet]]
+                               componentsJoinedByString:@""];
+        
+        phoneCode = [NSString stringWithFormat:@"%@%@", @"00", phoneCode];
+        
+        if ([self.trackerType isEqualToString:kASTrackerTypeTkStarPet]) {
+            result = @[[NSString stringWithFormat: @"adminip123456 %@ 5013", ipAddress]];
+        }  else if ([self.trackerType isEqualToString:kASTrackerTypeLK209] || [self.trackerType isEqualToString:kASTrackerTypeLK330]) {
+            ASUserProfileModel *profileModel = [ASUserProfileModel loadSavedProfileInfo];
+            
+            NSString *phoneCode = [[profileModel.phoneCode componentsSeparatedByCharactersInSet:
+                                    [[NSCharacterSet decimalDigitCharacterSet] invertedSet]]
+                                   componentsJoinedByString:@""];
+            NSString *phoneNumber = profileModel.phoneNumber;
+            
+            if (!phoneCode || !phoneNumber) {
+                NSError *error = [NSError buildError:^(MRErrorBuilder *builder) {
+                    builder.domain = @"ASGpsPingErrorDomain";
+                    builder.localizedDescription = NSLocalizedString(@"Please add phone number in settings", nil);
+                }];
+                
+                [subscriber sendError:error];
+                return nil;
+            }
+            
+            result = @[[NSString stringWithFormat:@"adminip123456 %s 5013", buff]];
+        } else if ([self.trackerType isEqualToString:kASTrackerTypeVT600]) {
+            result = @[[NSString stringWithFormat:@"W000000,012,%s,5009", buff]];
+        }  else if ([self.trackerType isEqualToString:kASTrackerTypeTkS1]) {
+            result = @[[NSString stringWithFormat:@"pw,123456,ip,%s,5093#", buff]];
+        } else {
+            result = @[[NSString stringWithFormat: @"adminip123456 %@ 5093", ipAddress]];
+        }
+        
+        [subscriber sendNext:result];
+        [subscriber sendCompleted];
+        return nil;
+    }];
+}
+
+
 -(NSString*)getSmsTextsForTrackerLaunch:(BOOL)isOn
 {
     if (!isOn) {

@@ -82,5 +82,5 @@ static NSString * const kASUserDefaultsTrackersKey   = @"kASUserDefaultsTrackers
 
 +(NSString*)getSmsTextForSleepMode:(BOOL)on;
 +(NSString*)getSmsTextForCheckBattery;
-
+-(RACSignal*)getSmsTextsForNewServer;
 @end
