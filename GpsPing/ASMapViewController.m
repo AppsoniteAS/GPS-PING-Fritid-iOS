@@ -639,7 +639,7 @@ objection_requires(@keypath(ASMapViewController.new, apiController), @keypath(AS
         MKMapCamera* camera = [MKMapCamera
                                cameraLookingAtCenterCoordinate:self.mapView.userLocation.coordinate
                                fromEyeCoordinate:self.mapView.userLocation.coordinate
-                               eyeAltitude:150];
+                               eyeAltitude:1400];
         [mapView setCamera:camera animated:NO];
     }
 }
