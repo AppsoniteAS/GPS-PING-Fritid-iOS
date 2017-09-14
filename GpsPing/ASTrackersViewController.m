@@ -69,6 +69,9 @@ objection_requires(@keypath(ASTrackersViewController.new, apiController))
 {
     ASTrackerModel *model = [self.memoryStorage itemAtIndexPath:indexPath];
     ASTrackerConfigurationViewController *configVC = [ASTrackerConfigurationViewController initializeWithTrackerModel:model];
+    if (!configVC){
+        return;
+    }
     UINavigationController *navVC = [[UINavigationController alloc] initWithRootViewController:configVC];
     [self presentViewController:navVC animated:YES completion:nil];
 }

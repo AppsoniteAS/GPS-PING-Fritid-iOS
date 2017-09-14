@@ -79,6 +79,7 @@ NSString* const kASDogSleepModeIsOn   = @"kASDogSleepModeIsOn";
 
 + (NSValueTransformer *)trackerTypeJSONTransformer {
     return [MTLValueTransformer transformerUsingForwardBlock:^id(NSString *trackerType, BOOL *success, NSError *__autoreleasing *error) {
+        trackerType = [trackerType stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
         if (trackerType == nil) {
             return kASTrackerTypeTkStarPet;
         }

@@ -924,7 +924,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A68C1B5B1C4CE461000E2BA6 /* Build configuration list for PBXNativeTarget "GpsPing" */;
 			buildPhases = (
-				85679F19064FAB0AB0FE3096 /* 📦 Check Pods Manifest.lock */,
+				85679F19064FAB0AB0FE3096 /* [CP] Check Pods Manifest.lock */,
 				51987DA7A85E487CD8D58EA7 /* [CP] Check Pods Manifest.lock */,
 				A68C1B2A1C4CE460000E2BA6 /* Sources */,
 				A68C1B2B1C4CE460000E2BA6 /* Frameworks */,
@@ -933,6 +933,7 @@
 				75093ACCB7993C6C42A400E9 /* [CP] Copy Pods Resources */,
 				3C62225C9A682B9AC226CE51 /* 📦 Embed Pods Frameworks */,
 				1726F7192A967D2007F78BD3 /* 📦 Copy Pods Resources */,
+				E9B93A161F6AD25100653A8E /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -1173,19 +1174,19 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GpsPing/Pods-GpsPing-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		85679F19064FAB0AB0FE3096 /* 📦 Check Pods Manifest.lock */ = {
+		85679F19064FAB0AB0FE3096 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		A5C41E725E322862948ACD98 /* [CP] Embed Pods Frameworks */ = {
@@ -1202,6 +1203,19 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GpsPing/Pods-GpsPing-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		E9B93A161F6AD25100653A8E /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" 3a07a946aea34bb88040f1c6289e132a980f7e0c de3831671c33e4ae469035d79c7c85c33669c45c3988cb2974d989dd89fa2966";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -1685,6 +1699,7 @@
 				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = EM65889ZEZ;
 				ENABLE_BITCODE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;

@@ -70,13 +70,21 @@ objection_requires(@keypath(ASTrackerConfigurationViewController.new, apiControl
 +(instancetype)initializeWithTrackerModel:(ASTrackerModel *)trackerModel
 {
     NSString *className;
-    NSString* t = trackerModel.trackerType;
+    NSString* t = [trackerModel.trackerType stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     if ([t isEqualToString:kASTrackerTypeLK209] || [t isEqualToString:kASTrackerTypeVT600] || [t isEqualToString:kASTrackerTypeLK330] || [t isEqualToString:kASTrackerTypeTkS1]){
         className = @"ASTrackerConfigurationViewController_Industry";
+    } else if ([t isEqualToString:kASTrackerTypeTkStarBike] ||  [t isEqualToString:kASTrackerTypeTkStarPet]){
+            className = [NSString stringWithFormat:@"%@_%@", NSStringFromClass([ASTrackerConfigurationViewController class]),
+                                                              t];
     } else {
-        className = [NSString stringWithFormat:@"%@_%@", NSStringFromClass([ASTrackerConfigurationViewController class]),
-                                                              trackerModel.trackerType];
+        [[[UIAlertView alloc] initWithTitle:nil
+                                    message:@"A server has returned the incorrect tracker's type"
+                                   delegate:nil
+                          cancelButtonTitle:@"Close"
+                          otherButtonTitles: nil] show];
+        return nil;
     }
+    
     ASTrackerConfigurationViewController *result = [[UIStoryboard trackerConfigurationStoryboard] instantiateViewControllerWithIdentifier:className];
     result.trackerObject = trackerModel;
     return result;

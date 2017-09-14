@@ -16,6 +16,8 @@
 #import "ASDisplayOptionsViewController.h"
 #import "UIStoryboard+ASHelper.h"
 #import "ASFriendsListViewController.h"
+#import <Fabric/Fabric.h>
+#import <Crashlytics/Crashlytics.h>
 
 DDLogLevel ddLogLevel = DDLogLevelError;
 
@@ -56,6 +58,10 @@ DDLogLevel ddLogLevel = DDLogLevelError;
     [self configUI];
     [self initUserDefaults];
     [self configPushes:application];
+    [Fabric with:@[[Crashlytics class]]];
+
+    
+    
 //    NSDictionary *userInfo = [launchOptions valueForKey:@"UIApplicationLaunchOptionsRemoteNotificationKey"];
 //    NSDictionary *apsInfo = [userInfo objectForKey:@"aps"];
 //    
@@ -63,12 +69,17 @@ DDLogLevel ddLogLevel = DDLogLevelError;
 //        [self handlePush];
 //    }
     
-    for (NSString *fontFamilyName in [UIFont familyNames]) {
-        for (NSString *fontName in [UIFont fontNamesForFamilyName:fontFamilyName]) {
-            NSLog(@"Family: %@    Font: %@", fontFamilyName, fontName);
-        }
-    }
+//    for (NSString *fontFamilyName in [UIFont familyNames]) {
+//        for (NSString *fontName in [UIFont fontNamesForFamilyName:fontFamilyName]) {
+//            NSLog(@"Family: %@    Font: %@", fontFamilyName, fontName);
+//        }
+//    }
+//
     
+    
+    
+    
+
     return YES;
 }
 

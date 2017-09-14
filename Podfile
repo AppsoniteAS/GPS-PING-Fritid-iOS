@@ -31,4 +31,6 @@ target :GpsPing do
     pod 'TPKeyboardAvoiding', '~> 1.2'
     pod 'FCOverlay', '~>1.0.1'
     
+    pod 'Fabric'
+    pod 'Crashlytics'
 end
