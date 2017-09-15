@@ -225,18 +225,20 @@ objection_requires(@keypath(ASTrackerConfigurationViewController.new, apiControl
     CGFloat repeatTime = self.trackerObject.signalRateInSeconds.integerValue;
     
     [[self as_sendSMS:[self.trackerObject getSmsTextsForTrackerUpdate]
-          ToRecipient:self.trackerObject.trackerPhoneNumber] subscribeNext:^(id x) {
-        
+          ToRecipient:self.trackerObject.trackerPhoneNumber] subscribeError:^(NSError *error) {
+        [[UIAlertView alertWithTitle:NSLocalizedString(@"Error", nil) error:error] show];
+
+    } completed:^{
         [[[self.apiController updateTracker:self.trackerObject.trackerName
-                                 trackerId:self.trackerObject.imeiNumber
-                                repeatTime:repeatTime
-                             checkForStand:self.trackerObject.dogInStand] deliverOnMainThread] subscribeNext:^(id x) {
+                                  trackerId:self.trackerObject.imeiNumber
+                                 repeatTime:repeatTime
+                              checkForStand:self.trackerObject.dogInStand] deliverOnMainThread] subscribeNext:^(id x) {
             DDLogDebug(@"Tracker updated!");
             [self dismissViewControllerAnimated:YES completion:nil];
         }];
-    } error:^(NSError *error) {
-        [[UIAlertView alertWithTitle:NSLocalizedString(@"Error", nil) error:error] show];
     }];
+    
+
 }
 
 - (IBAction)resetButtonTap:(id)sender {

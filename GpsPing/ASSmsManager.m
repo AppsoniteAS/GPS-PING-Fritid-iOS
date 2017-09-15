@@ -31,6 +31,10 @@ static DDLogLevel ddLogLevel = DDLogLevelVerbose;
 
 -(RACSignal *)as_sendSMS:(NSString *)text ToRecipient:(NSString*)recipient
 {
+    if (!text){
+        return [RACSignal empty];
+    }
+    
     DDLogVerbose(@"%s text: %@ recipient: %@", __PRETTY_FUNCTION__, text, recipient);
 #if TARGET_OS_SIMULATOR
     [[[UIAlertView alloc] initWithTitle:@"SMS is not supported on simulator"

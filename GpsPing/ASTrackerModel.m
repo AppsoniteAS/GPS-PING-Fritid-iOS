@@ -409,8 +409,13 @@ NSString* const kASDogSleepModeIsOn   = @"kASDogSleepModeIsOn";
     if ([self.signalRateMetric isEqualToString:kASSignalMetricTypeMinutes]){
         signalRate *= 60;
     }
-    
-    return [NSString stringWithFormat:@"Upload123456 %03d", (int)signalRate];
+    NSString* t = self.trackerType ;
+    if ([t isEqualToString:kASTrackerTypeTkStar] || [t isEqualToString:kASTrackerTypeTkStarPet] || [t isEqualToString:kASTrackerTypeAnywhere] ){
+        return [NSString stringWithFormat:@"Upload123456 %03d", (int)signalRate];
+    } else if ([t isEqualToString:kASTrackerTypeTkS1]){
+        return [NSString stringWithFormat:@"pw,123456,upload,%03d#", (int)signalRate];
+    }
+    return nil;
 }
 
 +(NSString*)getSmsTextsForGeofenceLaunch:(BOOL)turnOn
