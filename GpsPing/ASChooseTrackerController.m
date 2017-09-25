@@ -23,7 +23,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
-    self.trackers = @[kASTrackerTypeTkStarPet, kASTrackerTypeTkStarBike, kASTrackerTypeLK209, kASTrackerTypeLK330, kASTrackerTypeVT600, kASTrackerTypeTkS1];
+    self.trackers = @[kASTrackerTypeTkStarPet, kASTrackerTypeTkStarBike, kASTrackerTypeLK209, kASTrackerTypeLK330, kASTrackerTypeVT600, kASTrackerTypeTkS1, kASTrackerTypeTkA9];
     [self.tableView reloadData];
 }
 
