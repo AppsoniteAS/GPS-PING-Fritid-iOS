@@ -14,17 +14,23 @@
 #import "ASNewTrackerViewController.h"
 #import "ASUserProfileModel.h"
 @import MessageUI;
-
+#import "AGApiController.h"
+#import "ASTrackerModel.h"
 static DDLogLevel ddLogLevel = DDLogLevelDebug;
 
 @interface ASSettingsViewController () <ASInAppPurchaseDelegate, MFMailComposeViewControllerDelegate>
 @property(nonatomic, strong) ASInAppPurchaseManager *inAppPurchaseManager;
+@property (nonatomic, strong) AGApiController   *apiController;
+
 @end
 
 @implementation ASSettingsViewController
+objection_requires(@keypath(ASSettingsViewController.new, apiController))
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [[JSObjection defaultInjector] injectDependencies:self];
+
     self.inAppPurchaseManager = [ASInAppPurchaseManager new];
     self.inAppPurchaseManager.delegate = self;
 
@@ -84,20 +90,41 @@ static DDLogLevel ddLogLevel = DDLogLevelDebug;
 }
 
 - (IBAction)pauseSubscription:(id)sender {
+    @weakify(self)
     if (![MFMailComposeViewController canSendMail]) {
         NSLog(@"Mail services are not available.");
         return;
     }
-    MFMailComposeViewController *composeVC = [[MFMailComposeViewController alloc] init];
-    composeVC.mailComposeDelegate = self;
-    [composeVC setToRecipients:@[@"support@gpsping.no"]];
-    [composeVC setSubject:@"Pause Subscription"];
-
-    ASUserProfileModel *profileModel = [ASUserProfileModel loadSavedProfileInfo];
-    NSString *message = [NSString stringWithFormat:@"Please put my subscription on pause\n\n Name: %@ %@\nAddress: %@\nUsername: %@\n", profileModel.firstname, profileModel.lastname, profileModel.address, profileModel.username];
-
-    [composeVC setMessageBody:message isHTML:NO];
-    [self presentViewController:composeVC animated:NO completion:nil];
+    [[self.apiController getTrackers] subscribeNext:^(NSArray *trackers) {
+        @strongify(self)
+        
+        
+        NSMutableString* trackers_info = [NSMutableString string];
+        for (int i = 0; i < trackers.count; i++){
+            ASTrackerModel* tracker = trackers[i];
+            [trackers_info appendString:@"phone: "];
+            [trackers_info appendString:tracker.trackerPhoneNumber];
+            [trackers_info appendString:@" imei: "];
+            [trackers_info appendString:tracker.imeiNumber];
+            if (i != trackers.count - 1){
+                [trackers_info appendString:@", "];
+            }
+            [trackers_info appendString:@"\n"];
+        }
+        
+        MFMailComposeViewController *composeVC = [[MFMailComposeViewController alloc] init];
+        composeVC.mailComposeDelegate = self;
+        [composeVC setToRecipients:@[@"support@gpsping.no"]];
+        [composeVC setSubject:@"Pause Subscription"];
+        
+        ASUserProfileModel *profileModel = [ASUserProfileModel loadSavedProfileInfo];
+        NSString *message = [NSString stringWithFormat:@"Please put my subscription on pause\n\n Name: %@ %@\nAddress: %@\nUsername: %@\nTrackers:\n %@", profileModel.firstname, profileModel.lastname, profileModel.address, profileModel.username, trackers_info];
+        
+        [composeVC setMessageBody:message isHTML:NO];
+        [self presentViewController:composeVC animated:NO completion:nil];
+    }];
+    
+   
 }
 
 - (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error {
