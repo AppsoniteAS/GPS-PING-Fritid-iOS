@@ -36,6 +36,7 @@ objection_requires(@keypath(ASTrackersViewController.new, apiController))
             for(ASTrackerModel *memoryTracker in memoryTrackers){
                 if([memoryTracker.imeiNumber isEqualToString:tracker.imeiNumber]){
                     tracker.isChoosed = memoryTracker.isChoosed;
+                    tracker.isRunning = memoryTracker.isRunning;
                 }
             }
             [tracker saveInUserDefaults];
