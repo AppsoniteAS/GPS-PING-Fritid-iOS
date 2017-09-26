@@ -23,7 +23,8 @@ static const DDLogLevel ddLogLevel = DDLogLevelDebug;
 //#define BASE_URL_LOCAL      @"http://appgranula.mooo.com/api/"
 //#define BASE_URL_LOCAL      @"http://192.168.139.201/api/"
 //#define BASE_URL_LOCAL      @"https://industri.gpsping.no/api/"
-#define BASE_URL_LOCAL @"http://54.77.4.166/api/"
+//#define BASE_URL_LOCAL @"http://54.77.4.166/api/"
+#define BASE_URL_LOCAL @"https://fritid.gpsping.no/api"
 
 #define requestMethod @"GET"
 
@@ -71,10 +72,10 @@ objection_initializer(initWithConfiguration:);
         
         self.httpRequestOperationManager.responseSerializer = compoundSerializer;
         
-        AFSecurityPolicy *securityPolicy = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeNone];
-        [securityPolicy setValidatesDomainName:NO];
-        [securityPolicy setAllowInvalidCertificates:YES];
-        self.httpRequestOperationManager.securityPolicy = securityPolicy;
+//        AFSecurityPolicy *securityPolicy = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeNone];
+//        [securityPolicy setValidatesDomainName:NO];
+//        [securityPolicy setAllowInvalidCertificates:YES];
+//        self.httpRequestOperationManager.securityPolicy = securityPolicy;
         
 #ifdef AG_DEBUG_MODE
         self.baseUrl = [NSURL URLWithString:BASE_URL_LOCAL];
