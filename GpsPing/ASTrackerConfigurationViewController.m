@@ -71,6 +71,9 @@ static NSString *const kASUserDefaultsKeyBikeFlashAlarm = @"kASUserDefaultsKeyBi
 @property (nonatomic) UIPickerView *durationPicker;
 
 
+@property (strong, nonatomic  ) NSString      *yards;
+@property (nonatomic, weak    ) IBOutlet UITextField  *textFieldYards;
+@property (nonatomic, weak    ) IBOutlet UIButton     *buttonGeofence;
 @end
 
 @implementation ASTrackerConfigurationViewController
@@ -170,6 +173,19 @@ objection_requires(@keypath(ASTrackerConfigurationViewController.new, apiControl
     }
     
     [self configPickers];
+    
+    
+    
+    self.textFieldYards.text      = self.yards;
+    RAC(self, yards)    = self.textFieldYards.rac_textSignal;
+    self.buttonGeofence.rac_command = self.submitGeo;
+    
+    [self rac_liftSelector:@selector(doSubmit:)
+               withSignals:self.buttonGeofence.rac_command.executionSignals.flatten, nil];
+    [self rac_liftSelector:@selector(onError:)
+               withSignals:self.buttonGeofence.rac_command.errors, nil];
+    
+    [self updateGeoButton];
 }
 
 
@@ -515,5 +531,60 @@ objection_requires(@keypath(ASTrackerConfigurationViewController.new, apiControl
     [self saveTrackingDurationLocally:[formatter numberFromString:subStrings[0]]];
 }
 
+#pragma mark - Geofence
+
+-(IBAction)doSubmit:(id)sender {
+    [[self as_sendSMS:[ASTrackerModel getSmsTextsForGeofenceLaunch:!(self.trackerObject.isGeofenceStarted)
+                                                          distance:self.yards]
+          ToRecipient:self.trackerObject.trackerPhoneNumber] subscribeNext:^(id x) {
+        ASTrackerModel *activeTracker = self.trackerObject;
+        activeTracker.isGeofenceStarted = !activeTracker.isGeofenceStarted;
+        
+        if (activeTracker.isGeofenceStarted) {
+            activeTracker.geofenceYards = self.yards;
+        }
+        
+        [activeTracker saveInUserDefaults];
+        
+        [self updateGeoButton];
+    } error:^(NSError *error) {
+        ;
+    }];
+}
+
+-(void)onError:(NSError*)error {
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"ERROR"
+                                                    message:error.localizedDescription
+                                                   delegate:self
+                                          cancelButtonTitle:@"OK"
+                                          otherButtonTitles:nil];
+    [alert show];
+}
+
+
+-(void)updateGeoButton {
+    if (self.trackerObject.isGeofenceStarted) {
+        [self.buttonGeofence setTitle:NSLocalizedString(@"STOP", nil) forState:UIControlStateNormal];
+        self.textFieldYards.text = self.trackerObject.geofenceYards;
+    } else {
+        [self.buttonGeofence setTitle:NSLocalizedString(@"Start", nil) forState:UIControlStateNormal];
+    }
+}
+
+
+-(RACCommand *)submitGeo {
+    
+    RACSignal* isCorrect = [RACSignal combineLatest:@[RACObserve(self, yards)]
+                                             reduce:^id(NSString* yards)
+                            {
+                                return @((yards.length > 0) && self.trackerObject.isChoosed);
+                            }];
+    
+    return [[RACCommand alloc] initWithEnabled:isCorrect
+                                   signalBlock:^RACSignal *(id input)
+            {
+                return [RACSignal return:nil];
+            }];
+}
 
 @end

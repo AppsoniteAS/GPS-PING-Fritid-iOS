@@ -676,6 +676,9 @@
                                                                 <state key="normal" title="Start">
                                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 </state>
+                                                                <connections>
+                                                                    <action selector="doSubmit:" destination="ljM-ah-kA4" eventType="touchUpInside" id="AgY-n4-OLs"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
@@ -830,6 +833,7 @@
                     <connections>
                         <outlet property="buttonCheckBattery" destination="iGZ-gl-MXe" id="UxP-Mp-e43"/>
                         <outlet property="buttonDogSleepMode" destination="MHd-Ru-bkp" id="sdB-hq-ZIS"/>
+                        <outlet property="buttonGeofence" destination="qAe-nq-nj6" id="5x5-vS-AQw"/>
                         <outlet property="dogInStandSwitcher" destination="u3q-EC-Sjf" id="5ux-39-k9S"/>
                         <outlet property="durationTextField" destination="IpA-dR-jld" id="k2I-jz-VR3"/>
                         <outlet property="editButtonsPanel" destination="vE5-cs-AT2" id="iyJ-3d-poo"/>
@@ -840,6 +844,7 @@
                         <outlet property="resetButton" destination="qit-Id-GDR" id="Vy0-38-Lcg"/>
                         <outlet property="signalRateTextField" destination="IzS-Ho-dxb" id="PDr-w9-I8h"/>
                         <outlet property="submitButton" destination="uJL-yJ-Ljm" id="7EI-xJ-wV0"/>
+                        <outlet property="textFieldYards" destination="vcH-Bg-aaD" id="c8m-HS-uCd"/>
                         <outlet property="trackerNumberTextField" destination="iyE-3X-dPy" id="XnI-YQ-9YX"/>
                     </connections>
                 </viewController>
