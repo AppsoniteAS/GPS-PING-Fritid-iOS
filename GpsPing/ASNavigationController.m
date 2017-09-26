@@ -13,6 +13,7 @@
 #import "ASNewTrackerViewController.h"
 #import <CocoaLumberjack/CocoaLumberjack.h>
 #import <FCOverlay/FCOverlay.h>
+#import "ASTrackerModel.h"
 
 static const DDLogLevel ddLogLevel = DDLogLevelVerbose;
 
@@ -62,6 +63,17 @@ objection_requires(@keypath(ASNavigationController.new, apiController))
 
 -(void)didLogin {
     [self presentIntro];
+    
+    
+    [[self.apiController getTrackers]  subscribeNext:^(NSArray* value) {
+        DDLogInfo(@"-->2");
+                DDLogDebug(@"%@", value);
+                for (ASTrackerModel *tracker in value) {
+                    [tracker saveInUserDefaults];
+                }
+    } ];
+
+
 }
 
 -(void)didLogout {
