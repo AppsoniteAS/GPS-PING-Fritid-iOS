@@ -14,7 +14,7 @@
 #import "ASSmsManager.h"
 #import "AGApiController.h"
 #import "UIColor+ASColor.h"
-
+#import "ASDisplayOptionsViewController.h"
 #import <CocoaLumberjack/CocoaLumberjack.h>
 static const DDLogLevel ddLogLevel = DDLogLevelVerbose;
 
@@ -60,6 +60,16 @@ static NSString *const kASUserDefaultsKeyBikeFlashAlarm = @"kASUserDefaultsKeyBi
 
 
 @property (nonatomic) NSNumber      *choosedTime;
+
+
+@property (weak, nonatomic) IBOutlet ASButton *submitButton;
+
+@property (nonatomic) NSNumber *duration;
+@property (weak, nonatomic) IBOutlet UITextField *durationTextField;
+
+@property (nonatomic) NSArray      *durationPickerData;
+@property (nonatomic) UIPickerView *durationPicker;
+
 
 @end
 
@@ -151,7 +161,19 @@ objection_requires(@keypath(ASTrackerConfigurationViewController.new, apiControl
          make.top.equalTo(self.mas_topLayoutGuide);
          make.bottom.equalTo(self.keyboardLayoutGuide);
      }];
+
+    self.durationPickerData = @[@"10 minutes", @"15 minutes", @"30 minutes", @"60 minutes"];
+    
+    self.duration = [self loadSavedTrackingDuration];
+    if ([self.duration intValue] > 0) {
+        self.durationTextField.text = [NSString stringWithFormat:@"%@ minutes", self.duration];
+    }
+    
+    [self configPickers];
 }
+
+
+
 
 -(void)configBikeSettingStatusLabel:(UILabel*)label Status:(BOOL)isActive {
     if (isActive) {
@@ -186,22 +208,35 @@ objection_requires(@keypath(ASTrackerConfigurationViewController.new, apiControl
 
 #pragma mark - UIPickerView delegate & datasource
 
+
+
+
 -(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
     return  1;
 }
 
 -(NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
 {
+    if (pickerView == self.durationPicker){
+        return self.durationPickerData.count;
+    }
     return self.ratePickerData.count;
 }
 
 -(NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
 {
+    if (pickerView == self.durationPicker){
+         return self.durationPickerData[row];
+    }
     return self.ratePickerStrings[self.ratePickerData[row]];
 }
 
 -(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
+    if (pickerView == self.durationPicker){
+        self.durationTextField.text = self.durationPickerData[row];
+        return;
+    }
     self.choosedTime = self.ratePickerData[[pickerView selectedRowInComponent:0]];
     [self updateRateTextField];
 }
@@ -315,6 +350,7 @@ objection_requires(@keypath(ASTrackerConfigurationViewController.new, apiControl
 #pragma mark - Private methods
 
 -(void)configPickers {
+    
     if ([self.trackerObject.trackerType isEqualToString:kASTrackerTypeLK330] || [self.trackerObject.trackerType isEqualToString:kASTrackerTypeLK209]) {
         self.ratePickerData = @[@(1 * 60 * 60), @(2 * 60 * 60), @(3 * 60 * 60), @(4 * 60 * 60), @(5 * 60 * 60), @(6 * 60 * 60), @(7 * 60 * 60), @(8 * 60 * 60), @(9 * 60 * 60), @(10 * 60 * 60),
                                 @(11 * 60 * 60), @(12 * 60 * 60), @(13 * 60 * 60), @(14 * 60 * 60), @(15 * 60 * 60), @(16 * 60 * 60), @(17 * 60 * 60), @(18 * 60 * 60), @(19 * 60 * 60), @(20 * 60 * 60), @(21 * 60 * 60),
@@ -358,11 +394,29 @@ objection_requires(@keypath(ASTrackerConfigurationViewController.new, apiControl
     self.signalRateTextField.inputAccessoryView = accessoryView;
     
     [self updateRateTextField];
+    
+    
+    self.durationPicker = [[UIPickerView alloc] init];
+    self.durationPicker.backgroundColor = [UIColor whiteColor];
+    self.durationPicker.delegate = self;
+    self.durationPicker.dataSource = self;
+    self.durationTextField.inputView = self.durationPicker;
+    UIToolbar *accessoryView2 = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, self.durationPicker.frame.size.width, 44)];
+    accessoryView2.barStyle = UIBarStyleDefault;
+    
+    UIBarButtonItem *space2 = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+    
+    UIBarButtonItem *done2 = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(doneTapped:)];
+    
+    accessoryView2.items = [NSArray arrayWithObjects:space2,done2, nil];
+    self.durationTextField.inputAccessoryView = accessoryView2;
 }
 
 -(void)doneTapped:(id)sender
 {
     [self.signalRateTextField resignFirstResponder];
+    [self.durationTextField resignFirstResponder];
+
 }
 
 -(void)updateTrackerObject {
@@ -440,5 +494,26 @@ objection_requires(@keypath(ASTrackerConfigurationViewController.new, apiControl
         DDLogError(@"Error sending Sms %@", error);
     }];
 }
+
+#pragma mark - Tracking History
+
+- (void)saveTrackingDurationLocally:(NSNumber*)duration{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:duration forKey:kTrackingDurationKey];
+    [defaults synchronize];
+}
+
+- (NSNumber*)loadSavedTrackingDuration {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    return [defaults objectForKey:kTrackingDurationKey];
+}
+
+- (IBAction)doSave:(id)sender {
+    NSArray *subStrings = [self.durationTextField.text componentsSeparatedByString:@" "];
+    NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+    formatter.numberStyle = NSNumberFormatterNoStyle;
+    [self saveTrackingDurationLocally:[formatter numberFromString:subStrings[0]]];
+}
+
 
 @end

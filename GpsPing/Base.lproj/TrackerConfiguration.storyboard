@@ -201,7 +201,7 @@
                                                         <rect key="frame" x="23" y="318" width="275" height="292"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Signal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Awb-MA-D3n">
-                                                                <rect key="frame" x="20" y="20" width="94" height="40"/>
+                                                                <rect key="frame" x="20" y="20" width="92.5" height="40"/>
                                                                 <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="34"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
@@ -369,7 +369,7 @@
                                                                                 </connections>
                                                                             </button>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sleep Mode" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sEq-Bh-D6R">
-                                                                                <rect key="frame" x="19" y="12" width="92" height="20"/>
+                                                                                <rect key="frame" x="19" y="12" width="89.5" height="20"/>
                                                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
                                                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                 <nil key="highlightedColor"/>
@@ -413,7 +413,7 @@
                                                                                 </connections>
                                                                             </button>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Check Battery" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TqV-11-i4G">
-                                                                                <rect key="frame" x="19" y="12" width="108.5" height="20"/>
+                                                                                <rect key="frame" x="19" y="12" width="106.5" height="20"/>
                                                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
                                                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                 <nil key="highlightedColor"/>
@@ -448,7 +448,7 @@
                                                                 </constraints>
                                                             </view>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sleep mode" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tk5-cz-5IL">
-                                                                <rect key="frame" x="20" y="20" width="183" height="40"/>
+                                                                <rect key="frame" x="20" y="20" width="176" height="40"/>
                                                                 <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="34"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
@@ -547,8 +547,8 @@
                                                                 </constraints>
                                                                 <variation key="default">
                                                                     <mask key="constraints">
-                                                                        <exclude reference="yez-oR-rQd"/>
                                                                         <exclude reference="QG3-Iy-Sto"/>
+                                                                        <exclude reference="yez-oR-rQd"/>
                                                                         <exclude reference="X0r-gU-kWJ"/>
                                                                         <exclude reference="mfC-8m-1pL"/>
                                                                     </mask>
@@ -566,6 +566,9 @@
                                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <color key="titleShadowColor" red="0.82352941180000006" green="0.82352941180000006" blue="0.82352941180000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 </state>
+                                                                <connections>
+                                                                    <action selector="doSave:" destination="ljM-ah-kA4" eventType="touchUpInside" id="TLU-7t-GLC"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
@@ -714,6 +717,7 @@
                         <outlet property="buttonCheckBattery" destination="iGZ-gl-MXe" id="UxP-Mp-e43"/>
                         <outlet property="buttonDogSleepMode" destination="MHd-Ru-bkp" id="sdB-hq-ZIS"/>
                         <outlet property="dogInStandSwitcher" destination="u3q-EC-Sjf" id="5ux-39-k9S"/>
+                        <outlet property="durationTextField" destination="IpA-dR-jld" id="k2I-jz-VR3"/>
                         <outlet property="editButtonsPanel" destination="vE5-cs-AT2" id="iyJ-3d-poo"/>
                         <outlet property="imeiTextField" destination="AYK-up-rNb" id="PJD-eQ-gam"/>
                         <outlet property="labelStatusSleepMode" destination="Cr1-dp-F3S" id="a5T-3R-k0T"/>
@@ -721,6 +725,7 @@
                         <outlet property="outerWrapperView" destination="1PF-Ie-fBS" id="frF-4B-Zox"/>
                         <outlet property="resetButton" destination="qit-Id-GDR" id="Vy0-38-Lcg"/>
                         <outlet property="signalRateTextField" destination="IzS-Ho-dxb" id="PDr-w9-I8h"/>
+                        <outlet property="submitButton" destination="uJL-yJ-Ljm" id="7EI-xJ-wV0"/>
                         <outlet property="trackerNumberTextField" destination="iyE-3X-dPy" id="XnI-YQ-9YX"/>
                     </connections>
                 </viewController>
@@ -910,7 +915,7 @@
                                                         <rect key="frame" x="23" y="318" width="275" height="213"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Signal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FSy-sT-rYn">
-                                                                <rect key="frame" x="20" y="20" width="94" height="40"/>
+                                                                <rect key="frame" x="20" y="20" width="92.5" height="40"/>
                                                                 <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="34"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
@@ -1040,7 +1045,7 @@
                                                                                 </connections>
                                                                             </button>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LED Light" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lX6-Xl-IU9">
-                                                                                <rect key="frame" x="19" y="12" width="74.5" height="20"/>
+                                                                                <rect key="frame" x="19" y="12" width="73.5" height="20"/>
                                                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
                                                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                 <nil key="highlightedColor"/>
@@ -1164,7 +1169,7 @@
                                                                 </constraints>
                                                             </view>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bike Tracking" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TI1-Ra-ueR">
-                                                                <rect key="frame" x="20" y="20" width="204.5" height="40"/>
+                                                                <rect key="frame" x="20" y="20" width="200" height="40"/>
                                                                 <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="34"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
@@ -1263,8 +1268,8 @@
                                                                 </constraints>
                                                                 <variation key="default">
                                                                     <mask key="constraints">
-                                                                        <exclude reference="TFx-pg-j9p"/>
                                                                         <exclude reference="GmT-4r-yFk"/>
+                                                                        <exclude reference="TFx-pg-j9p"/>
                                                                         <exclude reference="JGd-XU-y2Z"/>
                                                                         <exclude reference="AkI-7H-MMD"/>
                                                                     </mask>
@@ -1282,6 +1287,9 @@
                                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <color key="titleShadowColor" red="0.82352941180000006" green="0.82352941180000006" blue="0.82352941180000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 </state>
+                                                                <connections>
+                                                                    <action selector="doSave:" destination="IA0-W0-fqj" eventType="touchUpInside" id="aYa-OY-GKY"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1430,6 +1438,7 @@
                         <outlet property="buttonBikeFlashAlarm" destination="eVf-FP-D1A" id="cyu-E8-Yb5"/>
                         <outlet property="buttonBikeLEDLight" destination="Jgu-CU-fun" id="ydM-ja-h1f"/>
                         <outlet property="buttonBikeShockAlarm" destination="rse-Sy-9tJ" id="wiB-21-qKW"/>
+                        <outlet property="durationTextField" destination="yVB-nV-LFj" id="o2D-yo-sNQ"/>
                         <outlet property="editButtonsPanel" destination="DwL-gg-xTA" id="ugY-1M-pHe"/>
                         <outlet property="imeiTextField" destination="u2q-Hy-8Sb" id="GyH-wQ-jiw"/>
                         <outlet property="labelStatusBikeFlashAlarm" destination="ivL-VR-U35" id="lmF-Vp-fp9"/>
@@ -1439,6 +1448,7 @@
                         <outlet property="outerWrapperView" destination="dhI-ix-P8G" id="ea5-PC-gsC"/>
                         <outlet property="resetButton" destination="r5i-ea-GHN" id="V6L-UV-sCo"/>
                         <outlet property="signalRateTextField" destination="U3W-BK-NAC" id="4X0-HO-kF5"/>
+                        <outlet property="submitButton" destination="fD3-m4-M5d" id="fYF-Ad-iQ5"/>
                         <outlet property="trackerNumberTextField" destination="pp5-oj-btn" id="R1k-xo-g7o"/>
                     </connections>
                 </viewController>
@@ -1628,7 +1638,7 @@
                                                         <rect key="frame" x="23" y="318" width="275" height="213"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Signal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q5b-Ak-Arv">
-                                                                <rect key="frame" x="20" y="20" width="94" height="40"/>
+                                                                <rect key="frame" x="20" y="20" width="92.5" height="40"/>
                                                                 <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="34"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
@@ -1870,6 +1880,9 @@
                                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <color key="titleShadowColor" red="0.82352941180000006" green="0.82352941180000006" blue="0.82352941180000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 </state>
+                                                                <connections>
+                                                                    <action selector="doSave:" destination="LVp-l4-aEn" eventType="touchUpInside" id="mHL-dD-WkT"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1966,12 +1979,14 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="1000"/>
                     <connections>
+                        <outlet property="durationTextField" destination="AbH-Dv-36r" id="Sh4-iy-I2z"/>
                         <outlet property="editButtonsPanel" destination="u1U-WT-t6B" id="gf6-LX-H8B"/>
                         <outlet property="imeiTextField" destination="SuS-EW-s3i" id="QQk-q2-Dba"/>
                         <outlet property="nameTextField" destination="A5T-7C-nZx" id="8Jh-qR-i5O"/>
                         <outlet property="outerWrapperView" destination="a4P-qe-aRh" id="CHR-64-za3"/>
                         <outlet property="resetButton" destination="kO7-e0-klY" id="Gz9-sO-9jk"/>
                         <outlet property="signalRateTextField" destination="vi9-7R-V1R" id="eIs-Jt-G5j"/>
+                        <outlet property="submitButton" destination="EfE-JK-j92" id="7kl-va-L0x"/>
                         <outlet property="trackerNumberTextField" destination="Shl-FM-nfn" id="DbI-jt-15H"/>
                     </connections>
                 </viewController>
