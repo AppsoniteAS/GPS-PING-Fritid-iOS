@@ -135,7 +135,15 @@ NSString* const kASDogSleepModeIsOn   = @"kASDogSleepModeIsOn";
         return nil;
     }
     
-    return result;
+    NSMutableArray* r = [NSMutableArray array];
+    for (ASTrackerModel* tracker in result) {
+        if (!tracker.trackerNumber || [tracker.trackerNumber isEqual:[NSNull null]]){
+            continue;
+        }
+        [r addObject:tracker];
+    }
+    
+    return r;
 }
 
 +(ASTrackerModel *)getChoosedTracker
