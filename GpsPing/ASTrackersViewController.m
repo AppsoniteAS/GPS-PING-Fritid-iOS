@@ -40,18 +40,23 @@ objection_requires(@keypath(ASTrackersViewController.new, apiController))
                 }
             }
             [tracker saveInUserDefaults];
+            [self reloadTrackers];
         }
     } error:^(NSError *error) {
         ;
     }];
 }
 
--(void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
+- (void) reloadTrackers{
     [self.memoryStorage removeAllTableItems];
     [self.memoryStorage addItems:[ASTrackerModel getTrackersFromUserDefaults]];
     [self.tableView reloadData];
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self reloadTrackers];
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath

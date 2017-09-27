@@ -42,6 +42,23 @@ objection_requires(@keypath(MainMenuViewController.new, apiController))
     self.startStopButton.layer.borderWidth = 6.0;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(needShow) name:kASDidLoginNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(needShow) name:kASDidRegisterNotification object:nil];
+    
+    [[self.apiController getTrackers] subscribeNext:^(NSArray *trackers) {
+        //[ASTrackerModel clearTrackersInUserDefaults];
+        NSArray *memoryTrackers = [ASTrackerModel getTrackersFromUserDefaults];
+        for (ASTrackerModel *tracker in trackers) {
+            for(ASTrackerModel *memoryTracker in memoryTrackers){
+                if([memoryTracker.imeiNumber isEqualToString:tracker.imeiNumber]){
+                    tracker.isChoosed = memoryTracker.isChoosed;
+                    tracker.isRunning = memoryTracker.isRunning;
+                }
+            }
+            [tracker saveInUserDefaults];
+        }
+    } error:^(NSError *error) {
+        ;
+    }];
+    
     [self handleExistedTracker];
 }
 
@@ -139,7 +156,8 @@ objection_requires(@keypath(MainMenuViewController.new, apiController))
     if (!self.apiController.userProfile.cookie){
         return;
     }
-    
+    DDLogInfo(@"-->3");
+
     
     if ([[NSUserDefaults standardUserDefaults] valueForKey:kASUserDefaultsKeyResetAll]){
         return;
