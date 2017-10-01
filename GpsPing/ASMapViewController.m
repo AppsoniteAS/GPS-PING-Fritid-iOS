@@ -43,7 +43,7 @@ static NSString *const kASUserDefaultsKeyRemoveTrackersDate = @"kASUserDefaultsK
 @property (weak, nonatomic) IBOutlet UIView *bottomPlank;
 @property (weak, nonatomic) IBOutlet ASPOIDetailsView *poiView;
 @property (weak, nonatomic) IBOutlet ASDashedLine     *dashedLineView;
-@property (strong, nonatomic) IBOutlet UITapGestureRecognizer *tapGestureDetails;
+@property (strong, nonatomic)  UITapGestureRecognizer *tapGestureDetails;
 @property (weak, nonatomic) IBOutlet UILabel *distanceLabel;
 @property (weak, nonatomic) IBOutlet UILabel *distanceMetricLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *compassImageView;
@@ -84,18 +84,21 @@ objection_requires(@keypath(ASMapViewController.new, apiController), @keypath(AS
 
 #pragma mark - view controller methods
 
-- (void)viewDidLoad {
+- (void)viewDidLoad{
     [super viewDidLoad];
     [[JSObjection defaultInjector] injectDependencies:self];
 
     self.modifyingMap = NO;
     UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc]      initWithTarget:self action:@selector(handleLongPress:)];
+    
+    
+    self.tapGestureDetails = [[UITapGestureRecognizer alloc]      initWithTarget:self action:@selector(tapHandle:)];
     longPress.minimumPressDuration = 0.5;
     longPress.numberOfTapsRequired = 0;
     self.mapView.userInteractionEnabled = YES;
     
     [self.mapView addGestureRecognizer:longPress];
-    
+    [self.mapView addGestureRecognizer:self.tapGestureDetails];
     self.isFirstLaunch = YES;
     [self configFilter];
     
@@ -215,7 +218,7 @@ objection_requires(@keypath(ASMapViewController.new, apiController), @keypath(AS
     
 }
 
-- (IBAction)tapHandle:(id)sender {
+- (void)tapHandle:(id)sender {
     self.bottomPlank.hidden = YES;
     self.tapGestureDetails.enabled = NO;
 }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01S-Ts-0Lk">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="sw3-fk-UAu">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -22,7 +22,7 @@
         <!--Map-->
         <scene sceneID="gs6-5P-3e0">
             <objects>
-                <viewController storyboardIdentifier="ASMapViewController3" id="sw3-fk-UAu" customClass="ASMapViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ASMapViewController" id="sw3-fk-UAu" customClass="ASMapViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="bg3-na-OtA"/>
                         <viewControllerLayoutGuide type="bottom" id="ZDC-GW-5Nd"/>
@@ -300,7 +300,6 @@
                                 </constraints>
                                 <connections>
                                     <outlet property="labelTrackerName" destination="Vqg-bM-nuj" id="NjX-IC-54w"/>
-                                    <outletCollection property="gestureRecognizers" destination="i13-Sb-vaL" appends="YES" id="rQI-gE-ZZF"/>
                                 </connections>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image_compass" translatesAutoresizingMaskIntoConstraints="NO" id="ret-Ku-nCK">
@@ -411,23 +410,17 @@
                         <outlet property="mapView" destination="y6O-VD-VEg" id="Ofq-DE-bY0"/>
                         <outlet property="poiView" destination="c9b-JA-1fO" id="cSx-HT-H0d"/>
                         <outlet property="startLocateUserButton" destination="sCZ-8G-eLJ" id="hQV-LO-pqI"/>
-                        <outlet property="tapGestureDetails" destination="i13-Sb-vaL" id="roo-BU-Fde"/>
                         <outlet property="trackerView" destination="igY-om-RWR" id="aTe-HN-RHb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wHx-9V-rqV" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer enabled="NO" id="i13-Sb-vaL">
-                    <connections>
-                        <action selector="tapHandle:" destination="sw3-fk-UAu" id="8w7-0b-xdj"/>
-                    </connections>
-                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="420" y="289.20539730134936"/>
         </scene>
         <!--Map-->
         <scene sceneID="z5p-jv-efG">
             <objects>
-                <viewController storyboardIdentifier="ASMapViewController" id="01S-Ts-0Lk" customClass="ASMapViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ASMapViewController3" id="01S-Ts-0Lk" customClass="ASMapViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="hg6-fq-axr"/>
                         <viewControllerLayoutGuide type="bottom" id="qil-w2-BX6"/>
@@ -1044,7 +1037,6 @@
                         <outlet property="filterTextField" destination="fnd-5A-EM2" id="qg7-oR-bIE"/>
                         <outlet property="mapView" destination="hRo-bz-CoZ" id="6HO-Ko-C1l"/>
                         <outlet property="startLocateUserButton" destination="HPJ-LW-u6P" id="LkK-a8-T1r"/>
-                        <outlet property="tapGestureDetails" destination="i13-Sb-vaL" id="0r4-fi-9fp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QOg-vE-ZL8" userLabel="First Responder" sceneMemberID="firstResponder"/>
