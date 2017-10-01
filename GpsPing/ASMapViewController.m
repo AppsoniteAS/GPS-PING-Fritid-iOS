@@ -722,18 +722,23 @@ objection_requires(@keypath(ASMapViewController.new, apiController), @keypath(AS
 {
     if ([view.annotation isKindOfClass:[ASDevicePointAnnotation class]]) {
         ASDevicePointAnnotation *annotation = view.annotation;
+        [self.bottomPlank bringSubviewToFront:self.trackerView];
         [self.trackerView configWithOwner:annotation.owner
                                    tracker:annotation.deviceObject
                                      point:annotation.pointObject
                                      color:annotation.annotationColor];
     } else if ([view.annotation isKindOfClass:[ASFriendAnnotation class]]) {
         ASFriendAnnotation *annotation = view.annotation;
+        [self.bottomPlank bringSubviewToFront:self.trackerView];
+
         [self.trackerView configWithOwner:annotation.userObject
                                    tracker:nil
                                      point:nil
                                      color:annotation.annotationColor];
     } else if ([view.annotation isKindOfClass:[ASPointOfInterestAnnotation class]]) {
         self.selectedAnnotation = view.annotation;
+        [self.bottomPlank bringSubviewToFront:self.poiView];
+
         ASPointOfInterestAnnotation *annotation = view.annotation;
         ASFriendModel* owner = Underscore.find (self.originalPointsData, ^BOOL (ASFriendModel *friend) {
             return (friend.userId == annotation.poiObject.userId);

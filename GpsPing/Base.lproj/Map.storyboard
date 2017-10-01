@@ -87,14 +87,14 @@
                                 </variation>
                             </view>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1xD-Dc-EO1" userLabel="bottom plank" customClass="ASMapDetailsView">
-                                <rect key="frame" x="18" y="266" width="339" height="300"/>
+                                <rect key="frame" x="18" y="236" width="339" height="330"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c9b-JA-1fO" customClass="ASPOIDetailsView">
-                                        <rect key="frame" x="0.0" y="0.0" width="339" height="300"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="339" height="330"/>
                                         <color key="backgroundColor" red="0.67843137249999996" green="0.20784313730000001" blue="0.17254901959999999" alpha="1" colorSpace="calibratedRGB"/>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="igY-om-RWR" customClass="ASTrackerDetailsView">
-                                        <rect key="frame" x="0.0" y="0.0" width="339" height="300"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="339" height="330"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tracker name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vqg-bM-nuj">
                                                 <rect key="frame" x="8" y="8" width="104.5" height="20"/>
@@ -183,16 +183,22 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yrr-Zh-WLC">
-                                                <rect key="frame" x="37" y="248" width="36" height="34"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yrr-Zh-WLC" customClass="ASMapDetailsButton">
+                                                <rect key="frame" x="37" y="278" width="80" height="34"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="80" id="EKv-Xb-Fjj"/>
+                                                </constraints>
                                                 <state key="normal" title="Map">
                                                     <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KLn-SY-QPN">
-                                                <rect key="frame" x="260" y="248" width="32" height="34"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KLn-SY-QPN" customClass="ASMapDetailsButton">
+                                                <rect key="frame" x="212" y="278" width="80" height="34"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="80" id="mpg-Ce-ObJ"/>
+                                                </constraints>
                                                 <state key="normal" title="Edit">
                                                     <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
@@ -212,7 +218,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HRj-be-kYs">
-                                                <rect key="frame" x="20" y="249" width="299" height="1"/>
+                                                <rect key="frame" x="20" y="259" width="299" height="1"/>
                                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="Ama-MB-aP1"/>
@@ -244,7 +250,7 @@
                                             <constraint firstAttribute="trailing" secondItem="qqt-Bf-ebv" secondAttribute="trailing" constant="20" id="Thc-37-WYv"/>
                                             <constraint firstAttribute="trailing" secondItem="nAl-1j-AiI" secondAttribute="trailing" constant="20" id="X02-Mh-1zh"/>
                                             <constraint firstItem="dOX-2T-Fif" firstAttribute="leading" secondItem="dzB-7A-Xl3" secondAttribute="trailing" constant="9" id="ZBi-kE-koc"/>
-                                            <constraint firstAttribute="bottom" secondItem="HRj-be-kYs" secondAttribute="bottom" constant="50" id="bNt-1T-6dm"/>
+                                            <constraint firstAttribute="bottom" secondItem="HRj-be-kYs" secondAttribute="bottom" constant="70" id="bNt-1T-6dm"/>
                                             <constraint firstItem="Yrr-Zh-WLC" firstAttribute="leading" secondItem="igY-om-RWR" secondAttribute="leading" constant="37" id="bSo-CT-HSW"/>
                                             <constraint firstItem="qQ0-8a-PKb" firstAttribute="leading" secondItem="iW8-4G-eXm" secondAttribute="trailing" constant="7.5" id="bbD-fb-vbb"/>
                                             <constraint firstItem="KLn-SY-QPN" firstAttribute="centerY" secondItem="Yrr-Zh-WLC" secondAttribute="centerY" id="cFa-lD-Vyn"/>
@@ -263,7 +269,7 @@
                                             <constraint firstItem="qqt-Bf-ebv" firstAttribute="top" secondItem="igY-om-RWR" secondAttribute="top" constant="8" id="sr8-Vk-t4x"/>
                                             <constraint firstItem="i9a-19-f1r" firstAttribute="centerY" secondItem="ZHC-AQ-JHt" secondAttribute="centerY" id="tL4-Dz-OTn"/>
                                             <constraint firstItem="dzB-7A-Xl3" firstAttribute="leading" secondItem="tK9-ar-GQJ" secondAttribute="leading" id="v8I-59-zqw"/>
-                                            <constraint firstAttribute="bottom" secondItem="tK9-ar-GQJ" secondAttribute="bottom" constant="90" id="vww-OS-elY"/>
+                                            <constraint firstAttribute="bottom" secondItem="tK9-ar-GQJ" secondAttribute="bottom" constant="120" id="vww-OS-elY"/>
                                             <constraint firstItem="iW8-4G-eXm" firstAttribute="leading" secondItem="Vqg-bM-nuj" secondAttribute="leading" id="xQE-Mv-7FL"/>
                                             <constraint firstItem="dOX-2T-Fif" firstAttribute="centerY" secondItem="dzB-7A-Xl3" secondAttribute="centerY" id="yap-We-cnx"/>
                                         </constraints>
@@ -289,7 +295,7 @@
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstItem="igY-om-RWR" firstAttribute="leading" secondItem="1xD-Dc-EO1" secondAttribute="leading" id="0D2-vH-BWK"/>
-                                    <constraint firstAttribute="height" constant="300" id="6jv-ak-mLF"/>
+                                    <constraint firstAttribute="height" constant="330" id="6jv-ak-mLF"/>
                                     <constraint firstItem="c9b-JA-1fO" firstAttribute="top" secondItem="igY-om-RWR" secondAttribute="top" id="UqS-8r-qIK"/>
                                     <constraint firstItem="c9b-JA-1fO" firstAttribute="bottom" secondItem="igY-om-RWR" secondAttribute="bottom" id="ZFV-wT-2WR"/>
                                     <constraint firstItem="c9b-JA-1fO" firstAttribute="leading" secondItem="igY-om-RWR" secondAttribute="leading" id="bTo-CN-B9m"/>

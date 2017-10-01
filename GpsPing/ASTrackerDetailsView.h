@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "ASModel.h"
+#import "ASMapDetailsButton.h"
+
 @interface ASTrackerDetailsView : UIView
 
 @property (nonatomic) IBOutlet UILabel *labelTrackerName;
@@ -30,8 +32,8 @@
 
 @property (nonatomic) IBOutlet UIImageView *imageViewGSM;
 @property (nonatomic) IBOutlet UIImageView *imageViewGPS;
-@property (nonatomic) IBOutlet UIButton *btnMap;
-@property (nonatomic) IBOutlet UIButton *btnEdit;
+@property (nonatomic) IBOutlet ASMapDetailsButton *btnMap;
+@property (nonatomic) IBOutlet ASMapDetailsButton *btnEdit;
 
 @property (nonatomic) IBOutlet UIView *separator1;
 @property (nonatomic) IBOutlet UIView *separator2;

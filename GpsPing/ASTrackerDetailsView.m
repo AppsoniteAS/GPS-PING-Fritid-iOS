@@ -10,8 +10,13 @@
 #import "UIImage+ASAnnotations.h"
 #import "MGRS.h"
 
-
 @implementation ASTrackerDetailsView
+
+- (void)awakeFromNib{
+    [super awakeFromNib];
+    [self.btnMap setEnabled:true];
+    [self.btnEdit setEnabled:false];
+}
 
 -(void)configWithOwner:(ASFriendModel*)owner
                tracker:(ASDeviceModel*)deviceModel
