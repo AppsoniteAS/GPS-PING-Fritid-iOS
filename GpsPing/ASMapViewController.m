@@ -26,7 +26,8 @@
 #import "CompassController.h"
 #import "WMSTileOverlay.h"
 #import "ASLocationTrackingService.h"
-
+#import "ASTrackerDetailsView.h"
+#import "ASPOIDetailsView.h"
 #define QUERY_RATE_IN_SECONDS 15
 static const DDLogLevel ddLogLevel = DDLogLevelDebug;
 
@@ -37,7 +38,10 @@ static NSString *const kASUserDefaultsKeyRemoveTrackersDate = @"kASUserDefaultsK
 
 @property (weak, nonatomic) IBOutlet UIView           *filterPlank;
 @property (weak, nonatomic) IBOutlet UITextField      *filterTextField;
-@property (weak, nonatomic) IBOutlet ASMapDetailsView *detailsPlank;
+@property (weak, nonatomic) IBOutlet ASTrackerDetailsView *trackerView;
+//@property (weak, nonatomic) IBOutlet ASMapDetailsView *detailsPlank;
+@property (weak, nonatomic) IBOutlet UIView *bottomPlank;
+@property (weak, nonatomic) IBOutlet ASPOIDetailsView *poiView;
 @property (weak, nonatomic) IBOutlet ASDashedLine     *dashedLineView;
 @property (strong, nonatomic) IBOutlet UITapGestureRecognizer *tapGestureDetails;
 @property (weak, nonatomic) IBOutlet UILabel *distanceLabel;
@@ -212,7 +216,7 @@ objection_requires(@keypath(ASMapViewController.new, apiController), @keypath(AS
 }
 
 - (IBAction)tapHandle:(id)sender {
-    self.detailsPlank.hidden = YES;
+    self.bottomPlank.hidden = YES;
     self.tapGestureDetails.enabled = NO;
 }
 
@@ -232,7 +236,7 @@ objection_requires(@keypath(ASMapViewController.new, apiController), @keypath(AS
                                handler:^(UIAlertAction *action)
                                {
                                    pointOfInterestModel.name = alertController.textFields.firstObject.text;
-                                   [self.detailsPlank configWithPOI:pointOfInterestModel withOwner:nil color:self.selectedAnnotation.annotationColor];
+                                   [self.poiView configWithPOI:pointOfInterestModel withOwner:nil color:self.selectedAnnotation.annotationColor];
                                    [[[self.apiController updatePOI:pointOfInterestModel.name id:pointOfInterestModel.identificator.integerValue latitude:pointOfInterestModel.latitude.floatValue longitude:pointOfInterestModel.longitude.floatValue] deliverOnMainThread] subscribeNext:^(id x) {
                                        [self loadPointsOfInterest];
                                    }] ;
@@ -252,7 +256,7 @@ objection_requires(@keypath(ASMapViewController.new, apiController), @keypath(AS
 
 - (IBAction)removePOI:(id)sender {
     [self.mapView removeAnnotation:self.selectedAnnotation];
-    self.detailsPlank.hidden = YES;
+    self.bottomPlank.hidden = YES;
     self.tapGestureDetails.enabled = NO;
     ASPointOfInterestModel *pointOfInterestModel = self.selectedAnnotation.poiObject;
     [[[self.apiController removePOIWithId:pointOfInterestModel.identificator.integerValue] deliverOnMainThread] subscribeNext:^(id x) {
@@ -715,13 +719,13 @@ objection_requires(@keypath(ASMapViewController.new, apiController), @keypath(AS
 {
     if ([view.annotation isKindOfClass:[ASDevicePointAnnotation class]]) {
         ASDevicePointAnnotation *annotation = view.annotation;
-        [self.detailsPlank configWithOwner:annotation.owner
+        [self.trackerView configWithOwner:annotation.owner
                                    tracker:annotation.deviceObject
                                      point:annotation.pointObject
                                      color:annotation.annotationColor];
     } else if ([view.annotation isKindOfClass:[ASFriendAnnotation class]]) {
         ASFriendAnnotation *annotation = view.annotation;
-        [self.detailsPlank configWithOwner:annotation.userObject
+        [self.trackerView configWithOwner:annotation.userObject
                                    tracker:nil
                                      point:nil
                                      color:annotation.annotationColor];
@@ -732,14 +736,14 @@ objection_requires(@keypath(ASMapViewController.new, apiController), @keypath(AS
             return (friend.userId == annotation.poiObject.userId);
         });
         if (owner.userId == [self.originalPointsData.firstObject userId]) {
-            self.detailsPlank.viewPOIRightColumn.hidden = NO;
+           // self.detailsPlank.viewPOIRightColumn.hidden = NO;
         } else {
-            self.detailsPlank.viewPOIRightColumn.hidden = YES;
+           // self.detailsPlank.viewPOIRightColumn.hidden = YES;
         }
-        [self.detailsPlank configWithPOI:annotation.poiObject withOwner:owner color:annotation.annotationColor];
+        [self.poiView configWithPOI:annotation.poiObject withOwner:owner color:annotation.annotationColor];
     }
     
-    self.detailsPlank.hidden = NO;
+    self.bottomPlank.hidden = NO;
     self.tapGestureDetails.enabled = YES;
 }
 

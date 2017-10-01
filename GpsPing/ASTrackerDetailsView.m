@@ -6,9 +6,9 @@
 //  Copyright © 2017 Robin Grønvold. All rights reserved.
 //
 
-#import "ASWhiteMapDetailsView.h"
+#import "ASTrackerDetailsView.h"
 
-@implementation ASWhiteMapDetailsView
+@implementation ASTrackerDetailsView
 
 /*
 // Only override drawRect: if you perform custom drawing.

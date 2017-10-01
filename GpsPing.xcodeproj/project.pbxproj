@@ -118,7 +118,8 @@
 		ABD8BAE01C7F5B350075670C /* Errors.strings in Resources */ = {isa = PBXBuildFile; fileRef = ABD8BAE21C7F5B350075670C /* Errors.strings */; };
 		ABE7C7251C784500008A6390 /* ASPointOfInterestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ABE7C7241C784500008A6390 /* ASPointOfInterestModel.m */; };
 		ABE7C7281C78CB76008A6390 /* ASPointOfInterestAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = ABE7C7271C78CB76008A6390 /* ASPointOfInterestAnnotation.m */; };
-		E94127E61F7D631600190D8E /* ASWhiteMapDetailsView.m in Sources */ = {isa = PBXBuildFile; fileRef = E94127E51F7D631600190D8E /* ASWhiteMapDetailsView.m */; };
+		E94127E61F7D631600190D8E /* ASTrackerDetailsView.m in Sources */ = {isa = PBXBuildFile; fileRef = E94127E51F7D631600190D8E /* ASTrackerDetailsView.m */; };
+		E98C98581F811B1C00A028DC /* ASPOIDetailsView.m in Sources */ = {isa = PBXBuildFile; fileRef = E98C98571F811B1C00A028DC /* ASPOIDetailsView.m */; };
 		E9CFA3711F6144BD00516EE2 /* Chel.gpx in Resources */ = {isa = PBXBuildFile; fileRef = E9CFA36D1F6144BD00516EE2 /* Chel.gpx */; };
 		E9CFA3721F6144BD00516EE2 /* Home.gpx in Resources */ = {isa = PBXBuildFile; fileRef = E9CFA36E1F6144BD00516EE2 /* Home.gpx */; };
 		E9CFA3731F6144BD00516EE2 /* Norway.gpx in Resources */ = {isa = PBXBuildFile; fileRef = E9CFA36F1F6144BD00516EE2 /* Norway.gpx */; };
@@ -434,8 +435,10 @@
 		ABE7C7241C784500008A6390 /* ASPointOfInterestModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASPointOfInterestModel.m; sourceTree = "<group>"; };
 		ABE7C7261C78CB76008A6390 /* ASPointOfInterestAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASPointOfInterestAnnotation.h; sourceTree = "<group>"; };
 		ABE7C7271C78CB76008A6390 /* ASPointOfInterestAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASPointOfInterestAnnotation.m; sourceTree = "<group>"; };
-		E94127E41F7D631600190D8E /* ASWhiteMapDetailsView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ASWhiteMapDetailsView.h; sourceTree = "<group>"; };
-		E94127E51F7D631600190D8E /* ASWhiteMapDetailsView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ASWhiteMapDetailsView.m; sourceTree = "<group>"; };
+		E94127E41F7D631600190D8E /* ASTrackerDetailsView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ASTrackerDetailsView.h; sourceTree = "<group>"; };
+		E94127E51F7D631600190D8E /* ASTrackerDetailsView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ASTrackerDetailsView.m; sourceTree = "<group>"; };
+		E98C98561F811B1C00A028DC /* ASPOIDetailsView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ASPOIDetailsView.h; sourceTree = "<group>"; };
+		E98C98571F811B1C00A028DC /* ASPOIDetailsView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ASPOIDetailsView.m; sourceTree = "<group>"; };
 		E9CFA36D1F6144BD00516EE2 /* Chel.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Chel.gpx; sourceTree = "<group>"; };
 		E9CFA36E1F6144BD00516EE2 /* Home.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Home.gpx; sourceTree = "<group>"; };
 		E9CFA36F1F6144BD00516EE2 /* Norway.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Norway.gpx; sourceTree = "<group>"; };
@@ -521,10 +524,12 @@
 				A603CEE11C5A4CD8001D56A4 /* ASFriendAnnotation.m */,
 				A603CEE91C5B66E3001D56A4 /* ASMapDetailsView.h */,
 				A603CEEA1C5B66E3001D56A4 /* ASMapDetailsView.m */,
-				E94127E41F7D631600190D8E /* ASWhiteMapDetailsView.h */,
-				E94127E51F7D631600190D8E /* ASWhiteMapDetailsView.m */,
+				E94127E41F7D631600190D8E /* ASTrackerDetailsView.h */,
+				E94127E51F7D631600190D8E /* ASTrackerDetailsView.m */,
 				A626CCEF1C5D4FFA003762A2 /* ASDashedLine.h */,
 				A626CCF01C5D4FFA003762A2 /* ASDashedLine.m */,
+				E98C98561F811B1C00A028DC /* ASPOIDetailsView.h */,
+				E98C98571F811B1C00A028DC /* ASPOIDetailsView.m */,
 			);
 			name = "Map and Tracking";
 			sourceTree = "<group>";
@@ -1259,7 +1264,7 @@
 				E9FFBD8A1F5F00800062069B /* ASChooseTrackerController.m in Sources */,
 				AB89468A1C4F31F3002E86C8 /* ASSignInViewModel.m in Sources */,
 				AB5428211C5E376A00F33E8B /* ASRequestTableViewCell.m in Sources */,
-				E94127E61F7D631600190D8E /* ASWhiteMapDetailsView.m in Sources */,
+				E94127E61F7D631600190D8E /* ASTrackerDetailsView.m in Sources */,
 				AB8946961C50D6B0002E86C8 /* ASProfileViewController.m in Sources */,
 				AB5428061C5BA1B300F33E8B /* ASAddFriendModel.m in Sources */,
 				A6F6A74B1C5122210009579A /* ASSmsManager.m in Sources */,
@@ -1287,6 +1292,7 @@
 				AB54280D1C5BA1C800F33E8B /* ASAddFriendTableViewCell.m in Sources */,
 				A6F6A74E1C51742A0009579A /* ASSelectTrackerViewController.m in Sources */,
 				A6F6A7541C524E680009579A /* AGApiController.m in Sources */,
+				E98C98581F811B1C00A028DC /* ASPOIDetailsView.m in Sources */,
 				AB54280F1C5BA1C800F33E8B /* ASAddFriendViewModel.m in Sources */,
 				AB5428121C5BA1F000F33E8B /* ASSearchBar.m in Sources */,
 				4042A7D41D2D0712009D2332 /* WMSTileOverlay.m in Sources */,

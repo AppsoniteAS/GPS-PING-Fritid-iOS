@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "ASModel.h"
-@interface ASWhiteMapDetailsView : UIView
+@interface ASTrackerDetailsView : UIView
 
 @property (nonatomic) IBOutlet UILabel *labelTrackerName;
 //@property (nonatomic) IBOutlet UILabel *labelOwnerName;
@@ -33,6 +33,10 @@
 @property (nonatomic) IBOutlet UIButton *btnMap;
 @property (nonatomic) IBOutlet UIButton *btnEdit;
 
+@property (nonatomic) IBOutlet UIView *separator1;
+@property (nonatomic) IBOutlet UIView *separator2;
+@property (nonatomic) IBOutlet UIView *separator3;
+
 //@property (nonatomic) IBOutlet UILabel *labelPOILatitude;
 //@property (nonatomic) IBOutlet UILabel *labelPOILongitude;
 //@property (nonatomic) IBOutlet UILabel *labelPOIGrsm;
@@ -46,8 +50,5 @@
                tracker:(ASDeviceModel*)deviceModel
                  point:(ASPointModel*)pointModel
                  color:(UIColor*)color;
--(void)configWithPOI:(ASPointOfInterestModel*)poi
-           withOwner:(ASFriendModel*)owner
-               color:(UIColor*)color;
 
 @end
