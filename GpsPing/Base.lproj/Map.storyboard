@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="sw3-fk-UAu">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="PuK-Qn-jIC">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -19,7 +19,23 @@
         </array>
     </customFonts>
     <scenes>
-        <!--Map-->
+        <!--Navigation Controller-->
+        <scene sceneID="KIl-I6-Qsx">
+            <objects>
+                <navigationController id="PuK-Qn-jIC" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="4vn-0Q-tAC">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="sw3-fk-UAu" kind="relationship" relationship="rootViewController" id="r6Y-lx-ctv"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UfN-vk-KyC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1065" y="412"/>
+        </scene>
+        <!--Map View Controller-->
         <scene sceneID="gs6-5P-3e0">
             <objects>
                 <viewController storyboardIdentifier="ASMapViewController" id="sw3-fk-UAu" customClass="ASMapViewController" sceneMemberID="viewController">
@@ -87,7 +103,7 @@
                                 </variation>
                             </view>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1xD-Dc-EO1" userLabel="bottom plank" customClass="ASMapDetailsView">
-                                <rect key="frame" x="18" y="231" width="339" height="330"/>
+                                <rect key="frame" x="18" y="288" width="339" height="330"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c9b-JA-1fO" customClass="ASPOIDetailsView">
                                         <rect key="frame" x="0.0" y="0.0" width="339" height="330"/>
@@ -97,7 +113,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="339" height="330"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tracker name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vqg-bM-nuj">
-                                                <rect key="frame" x="8" y="8" width="103" height="20"/>
+                                                <rect key="frame" x="8" y="8" width="104.5" height="20"/>
                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
@@ -311,58 +327,6 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image_compass" translatesAutoresizingMaskIntoConstraints="NO" id="ret-Ku-nCK">
                                 <rect key="frame" x="319" y="130" width="48" height="48"/>
                             </imageView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gzy-Op-7ej">
-                                <rect key="frame" x="0.0" y="561" width="375" height="57"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sCZ-8G-eLJ">
-                                        <rect key="frame" x="8" y="17.5" width="20" height="22"/>
-                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <state key="normal" image="friend_list_icon_invisible"/>
-                                        <connections>
-                                            <action selector="startServiceTap:" destination="sw3-fk-UAu" eventType="touchUpInside" id="Mup-kY-NcB"/>
-                                        </connections>
-                                    </button>
-                                    <segmentedControl opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="top" apportionsSegmentWidthsByContent="YES" segmentControlStyle="plain" selectedSegmentIndex="2" translatesAutoresizingMaskIntoConstraints="NO" id="crt-P2-2iW" userLabel="IISatellite, Standard, Topo">
-                                        <rect key="frame" x="36" y="14" width="303" height="29"/>
-                                        <segments>
-                                            <segment title="Satellite"/>
-                                            <segment title="Standard"/>
-                                            <segment title="Topo"/>
-                                        </segments>
-                                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <connections>
-                                            <action selector="mapTypeValueChanged:" destination="sw3-fk-UAu" eventType="valueChanged" id="HHe-Gx-W9M"/>
-                                        </connections>
-                                    </segmentedControl>
-                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5cb-FP-WT6">
-                                        <rect key="frame" x="305" y="10.5" width="52" height="36"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <state key="normal" title="Photo">
-                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="photoActionTap:" destination="sw3-fk-UAu" eventType="touchUpInside" id="kkN-9c-GcB"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" red="0.54509803921568623" green="0.76470588235294112" blue="0.29019607843137252" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstItem="sCZ-8G-eLJ" firstAttribute="centerY" secondItem="crt-P2-2iW" secondAttribute="centerY" id="I5N-zc-ri9"/>
-                                    <constraint firstItem="crt-P2-2iW" firstAttribute="centerY" secondItem="gzy-Op-7ej" secondAttribute="centerY" id="O2k-M4-9dW"/>
-                                    <constraint firstItem="5cb-FP-WT6" firstAttribute="centerY" secondItem="crt-P2-2iW" secondAttribute="centerY" id="Z5Y-Lm-pwr"/>
-                                    <constraint firstAttribute="trailing" secondItem="5cb-FP-WT6" secondAttribute="trailing" constant="18" id="cEr-Ws-yn6"/>
-                                    <constraint firstItem="crt-P2-2iW" firstAttribute="leading" secondItem="sCZ-8G-eLJ" secondAttribute="trailing" constant="8" id="fTe-ub-uhw"/>
-                                    <constraint firstAttribute="height" constant="57" id="lc4-N5-40e"/>
-                                    <constraint firstItem="sCZ-8G-eLJ" firstAttribute="leading" secondItem="gzy-Op-7ej" secondAttribute="leading" constant="8" id="mLm-WS-G9T"/>
-                                    <constraint firstAttribute="width" constant="320" id="uzF-3I-ahz"/>
-                                    <constraint firstItem="crt-P2-2iW" firstAttribute="centerX" secondItem="gzy-Op-7ej" secondAttribute="centerX" id="xvM-vX-Tx3"/>
-                                </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="uzF-3I-ahz"/>
-                                    </mask>
-                                </variation>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -370,18 +334,15 @@
                             <constraint firstAttribute="trailing" secondItem="y6O-VD-VEg" secondAttribute="trailing" id="2Vx-NF-tht"/>
                             <constraint firstAttribute="trailing" secondItem="ret-Ku-nCK" secondAttribute="trailing" constant="8" id="4I3-Hd-lgf"/>
                             <constraint firstItem="M8s-by-y94" firstAttribute="centerX" secondItem="y6O-VD-VEg" secondAttribute="centerX" id="Lk2-bt-Ayz"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="gzy-Op-7ej" secondAttribute="bottom" id="QeI-Y7-Sta"/>
                             <constraint firstItem="1xD-Dc-EO1" firstAttribute="leading" secondItem="zmk-Dv-JcT" secondAttribute="leading" constant="18" id="TCb-Dj-Y0p"/>
                             <constraint firstItem="y6O-VD-VEg" firstAttribute="leading" secondItem="zmk-Dv-JcT" secondAttribute="leading" id="TOH-t1-GKw"/>
+                            <constraint firstItem="ZDC-GW-5Nd" firstAttribute="top" secondItem="1xD-Dc-EO1" secondAttribute="bottom" id="UX8-DH-yFP"/>
                             <constraint firstItem="hPV-uE-2fI" firstAttribute="leading" secondItem="zmk-Dv-JcT" secondAttribute="leading" id="VPD-W5-Qfq"/>
-                            <constraint firstItem="gzy-Op-7ej" firstAttribute="leading" secondItem="zmk-Dv-JcT" secondAttribute="leading" id="d7H-I9-3dr"/>
                             <constraint firstItem="ret-Ku-nCK" firstAttribute="top" secondItem="hPV-uE-2fI" secondAttribute="bottom" constant="8" id="e70-02-0g3"/>
                             <constraint firstItem="M8s-by-y94" firstAttribute="centerY" secondItem="y6O-VD-VEg" secondAttribute="centerY" id="fJ5-sO-17b"/>
                             <constraint firstAttribute="bottomMargin" secondItem="y6O-VD-VEg" secondAttribute="bottom" id="gkT-Fu-EER"/>
                             <constraint firstAttribute="bottom" secondItem="ni7-Ru-box" secondAttribute="bottom" id="j9D-Bp-dEL"/>
-                            <constraint firstAttribute="trailing" secondItem="gzy-Op-7ej" secondAttribute="trailing" id="khC-m7-AQ3"/>
                             <constraint firstAttribute="trailing" secondItem="ni7-Ru-box" secondAttribute="trailing" id="ksd-B0-NCF"/>
-                            <constraint firstItem="gzy-Op-7ej" firstAttribute="top" secondItem="1xD-Dc-EO1" secondAttribute="bottom" id="mQY-3M-Tbi"/>
                             <constraint firstItem="hPV-uE-2fI" firstAttribute="top" secondItem="bg3-na-OtA" secondAttribute="bottom" id="oDS-LP-hgk"/>
                             <constraint firstAttribute="trailing" secondItem="hPV-uE-2fI" secondAttribute="trailing" id="ozq-0s-rUo"/>
                             <constraint firstItem="ni7-Ru-box" firstAttribute="leading" secondItem="zmk-Dv-JcT" secondAttribute="leading" id="rqj-Xl-gxT"/>
@@ -396,7 +357,61 @@
                         </variation>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Map" id="1ed-VU-bE2">
+                    <navigationItem key="navigationItem" id="1ed-VU-bE2">
+                        <nil key="title"/>
+                        <view key="titleView" contentMode="scaleToFill" id="gzy-Op-7ej">
+                            <rect key="frame" x="24" y="22" width="301" height="0.0"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sCZ-8G-eLJ">
+                                    <rect key="frame" x="8" y="-11" width="20" height="22"/>
+                                    <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <state key="normal" image="friend_list_icon_invisible"/>
+                                    <connections>
+                                        <action selector="startServiceTap:" destination="sw3-fk-UAu" eventType="touchUpInside" id="Mup-kY-NcB"/>
+                                    </connections>
+                                </button>
+                                <segmentedControl opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="top" apportionsSegmentWidthsByContent="YES" segmentControlStyle="plain" selectedSegmentIndex="2" translatesAutoresizingMaskIntoConstraints="NO" id="crt-P2-2iW" userLabel="IISatellite, Standard, Topo">
+                                    <rect key="frame" x="36" y="-14" width="229" height="29"/>
+                                    <segments>
+                                        <segment title="Satellite"/>
+                                        <segment title="Standard"/>
+                                        <segment title="Topo"/>
+                                    </segments>
+                                    <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <connections>
+                                        <action selector="mapTypeValueChanged:" destination="sw3-fk-UAu" eventType="valueChanged" id="HHe-Gx-W9M"/>
+                                    </connections>
+                                </segmentedControl>
+                                <button hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5cb-FP-WT6">
+                                    <rect key="frame" x="231" y="-18" width="52" height="36"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                    <state key="normal" title="Photo">
+                                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="photoActionTap:" destination="sw3-fk-UAu" eventType="touchUpInside" id="kkN-9c-GcB"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstItem="sCZ-8G-eLJ" firstAttribute="centerY" secondItem="crt-P2-2iW" secondAttribute="centerY" id="I5N-zc-ri9"/>
+                                <constraint firstItem="crt-P2-2iW" firstAttribute="centerY" secondItem="gzy-Op-7ej" secondAttribute="centerY" id="O2k-M4-9dW"/>
+                                <constraint firstItem="5cb-FP-WT6" firstAttribute="centerY" secondItem="crt-P2-2iW" secondAttribute="centerY" id="Z5Y-Lm-pwr"/>
+                                <constraint firstAttribute="trailing" secondItem="5cb-FP-WT6" secondAttribute="trailing" constant="18" id="cEr-Ws-yn6"/>
+                                <constraint firstItem="crt-P2-2iW" firstAttribute="leading" secondItem="sCZ-8G-eLJ" secondAttribute="trailing" constant="8" id="fTe-ub-uhw"/>
+                                <constraint firstAttribute="height" constant="57" id="lc4-N5-40e"/>
+                                <constraint firstItem="sCZ-8G-eLJ" firstAttribute="leading" secondItem="gzy-Op-7ej" secondAttribute="leading" constant="8" id="mLm-WS-G9T"/>
+                                <constraint firstAttribute="width" constant="320" id="uzF-3I-ahz"/>
+                                <constraint firstItem="crt-P2-2iW" firstAttribute="centerX" secondItem="gzy-Op-7ej" secondAttribute="centerX" id="xvM-vX-Tx3"/>
+                            </constraints>
+                            <variation key="default">
+                                <mask key="constraints">
+                                    <exclude reference="uzF-3I-ahz"/>
+                                </mask>
+                            </variation>
+                        </view>
                         <barButtonItem key="rightBarButtonItem" title="Item" id="Reb-Vd-InL">
                             <connections>
                                 <action selector="calendarTap:" destination="sw3-fk-UAu" id="sqA-iF-MLT"/>
@@ -1052,7 +1067,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-526" y="280"/>
+            <point key="canvasLocation" x="-2119" y="407"/>
         </scene>
     </scenes>
     <resources>
