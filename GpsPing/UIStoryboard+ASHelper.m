@@ -22,6 +22,12 @@
                                      bundle:[NSBundle mainBundle]];
 }
 
++(UIStoryboard*)settingsStoryboard
+{
+    return [UIStoryboard storyboardWithName:@"Settings"
+                                     bundle:[NSBundle mainBundle]];
+}
+
 +(UIStoryboard*)mapStoryboard
 {
     return [UIStoryboard storyboardWithName:@"Map"

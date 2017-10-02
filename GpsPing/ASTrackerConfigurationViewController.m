@@ -178,13 +178,11 @@ objection_requires(@keypath(ASTrackerConfigurationViewController.new, apiControl
     
     self.textFieldYards.text      = self.yards;
     RAC(self, yards)    = self.textFieldYards.rac_textSignal;
-    self.buttonGeofence.rac_command = self.submitGeo;
     
-    [self rac_liftSelector:@selector(doSubmit:)
-               withSignals:self.buttonGeofence.rac_command.executionSignals.flatten, nil];
-    [self rac_liftSelector:@selector(onError:)
-               withSignals:self.buttonGeofence.rac_command.errors, nil];
-    
+    [self.buttonGeofence addTarget:self
+                 action:@selector(doSubmit:)
+       forControlEvents:UIControlEventTouchUpInside];
+
     [self updateGeoButton];
 }
 
@@ -533,7 +531,11 @@ objection_requires(@keypath(ASTrackerConfigurationViewController.new, apiControl
 
 #pragma mark - Geofence
 
--(IBAction)doSubmit:(id)sender {
+-(void)doSubmit:(id)sender {
+    
+    if (!(self.yards.length > 0 && self.trackerObject.isChoosed)){
+        return;
+    }
     [[self as_sendSMS:[ASTrackerModel getSmsTextsForGeofenceLaunch:!(self.trackerObject.isGeofenceStarted)
                                                           distance:self.yards]
           ToRecipient:self.trackerObject.trackerPhoneNumber] subscribeNext:^(id x) {

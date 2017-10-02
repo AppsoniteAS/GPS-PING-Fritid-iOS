@@ -26,7 +26,7 @@
         <!--Trackers-->
         <scene sceneID="n8E-3f-XOL">
             <objects>
-                <viewController id="14m-h1-zoy" customClass="ASTrackersViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ASTrackersViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="14m-h1-zoy" customClass="ASTrackersViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="0By-Wg-SSD"/>
                         <viewControllerLayoutGuide type="bottom" id="G4E-Tn-bbE"/>
@@ -273,7 +273,7 @@
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose Tracker" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YBk-2q-iKw" userLabel="name">
-                                            <rect key="frame" x="55.5" y="22.5" width="211" height="35"/>
+                                            <rect key="frame" x="55" y="22.5" width="211" height="35"/>
                                             <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="30"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>

@@ -83,6 +83,9 @@ objection_initializer(initWithConfiguration:);
         self.baseUrl = [NSURL URLWithString:BASE_URL_PRODUCTION];
 #endif
         [self setupReachabilityManager];
+        
+        
+        self.userProfile =  [ASUserProfileModel loadSavedProfileInfo];
     }
     
     return self;
@@ -447,6 +450,7 @@ objection_initializer(initWithConfiguration:);
                            friendId:(NSNumber*)friendId
 {
     DDLogDebug(@"%s", __PRETTY_FUNCTION__);
+    
     NSDictionary *params = @{@"from":@(from.timeIntervalSince1970),
                              @"to":@(to.timeIntervalSince1970)};
     ///
@@ -523,7 +527,11 @@ objection_initializer(initWithConfiguration:);
 
 -(NSDictionary *)addAuthParamsByUpdatingParams:(NSDictionary*)params
 {
-    return [params mtl_dictionaryByAddingEntriesFromDictionary:@{@"cookie":self.userProfile.cookie}];
+    if (!self.userProfile.cookie){
+        return @{};
+    }
+
+    return [params mtl_dictionaryByAddingEntriesFromDictionary:@{@"cookie":self.userProfile.cookie }];
 }
 
 -(RACSignal*)performHttpRequestWithAttempts:(NSString*)method resource:(NSString*)resource parameters:(NSDictionary*)params

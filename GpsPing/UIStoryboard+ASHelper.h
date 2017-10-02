@@ -18,5 +18,5 @@
 +(UIStoryboard*)authStoryboard;
 +(UIStoryboard*)introStoryboard;
 +(UIStoryboard*)faqStoryboard;
-
++(UIStoryboard*)settingsStoryboard;
 @end

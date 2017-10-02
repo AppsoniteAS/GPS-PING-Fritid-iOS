@@ -119,6 +119,7 @@
 		ABE7C7251C784500008A6390 /* ASPointOfInterestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ABE7C7241C784500008A6390 /* ASPointOfInterestModel.m */; };
 		ABE7C7281C78CB76008A6390 /* ASPointOfInterestAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = ABE7C7271C78CB76008A6390 /* ASPointOfInterestAnnotation.m */; };
 		E94127E61F7D631600190D8E /* ASTrackerDetailsView.m in Sources */ = {isa = PBXBuildFile; fileRef = E94127E51F7D631600190D8E /* ASTrackerDetailsView.m */; };
+		E945E4391F8256EB0070B64E /* ASTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = E945E4381F8256EB0070B64E /* ASTabBarController.m */; };
 		E98C98581F811B1C00A028DC /* ASPOIDetailsView.m in Sources */ = {isa = PBXBuildFile; fileRef = E98C98571F811B1C00A028DC /* ASPOIDetailsView.m */; };
 		E98C985B1F815A1F00A028DC /* ASMapDetailsButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E98C985A1F815A1F00A028DC /* ASMapDetailsButton.m */; };
 		E9CFA3711F6144BD00516EE2 /* Chel.gpx in Resources */ = {isa = PBXBuildFile; fileRef = E9CFA36D1F6144BD00516EE2 /* Chel.gpx */; };
@@ -438,6 +439,8 @@
 		ABE7C7271C78CB76008A6390 /* ASPointOfInterestAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASPointOfInterestAnnotation.m; sourceTree = "<group>"; };
 		E94127E41F7D631600190D8E /* ASTrackerDetailsView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ASTrackerDetailsView.h; sourceTree = "<group>"; };
 		E94127E51F7D631600190D8E /* ASTrackerDetailsView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ASTrackerDetailsView.m; sourceTree = "<group>"; };
+		E945E4371F8256EB0070B64E /* ASTabBarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ASTabBarController.h; sourceTree = "<group>"; };
+		E945E4381F8256EB0070B64E /* ASTabBarController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ASTabBarController.m; sourceTree = "<group>"; };
 		E98C98561F811B1C00A028DC /* ASPOIDetailsView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ASPOIDetailsView.h; sourceTree = "<group>"; };
 		E98C98571F811B1C00A028DC /* ASPOIDetailsView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ASPOIDetailsView.m; sourceTree = "<group>"; };
 		E98C98591F815A1E00A028DC /* ASMapDetailsButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ASMapDetailsButton.h; sourceTree = "<group>"; };
@@ -728,6 +731,8 @@
 				AB8946AD1C54A4DD002E86C8 /* ASMainViewModel.m */,
 				A6F6A74C1C51742A0009579A /* ASSelectTrackerViewController.h */,
 				A6F6A74D1C51742A0009579A /* ASSelectTrackerViewController.m */,
+				E945E4371F8256EB0070B64E /* ASTabBarController.h */,
+				E945E4381F8256EB0070B64E /* ASTabBarController.m */,
 			);
 			name = "Main screen";
 			sourceTree = "<group>";
@@ -1244,6 +1249,7 @@
 				A603CED51C58D5C2001D56A4 /* ASMapViewController.m in Sources */,
 				E9FFBD871F5EFE590062069B /* ASAddTrackerCell.m in Sources */,
 				A68C1B8F1C4E3860000E2BA6 /* ASTrackersViewController.m in Sources */,
+				E945E4391F8256EB0070B64E /* ASTabBarController.m in Sources */,
 				AB8946901C4F7244002E86C8 /* ASGeofenceViewModel.m in Sources */,
 				A603CEDB1C5A0986001D56A4 /* ASPointModel.m in Sources */,
 				A603CEE81C5A4E45001D56A4 /* UIImage+ASAnnotations.m in Sources */,

@@ -300,7 +300,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="825" y="968"/>
+            <point key="canvasLocation" x="1126" y="870"/>
         </scene>
         <!--Select Tracker View Controller-->
         <scene sceneID="SbZ-yt-L7h">
@@ -435,7 +435,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1551" y="917"/>
+            <point key="canvasLocation" x="3642" y="1323"/>
         </scene>
         <!--Settings-->
         <scene sceneID="fpr-zC-lOe">
@@ -446,6 +446,51 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PoD-c1-XTM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1208.5" y="1094"/>
+        </scene>
+        <!--Map-->
+        <scene sceneID="22g-ym-wtk">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Map" id="SBE-ZC-GwH" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="4el-79-L3e"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Vje-qW-dQR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="595" y="1552"/>
+        </scene>
+        <!--Trackers-->
+        <scene sceneID="fHg-v9-wfp">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Trackers" id="ffQ-5f-YOF" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="trP-qz-obm"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="F5q-Ye-47l" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="617" y="1661"/>
+        </scene>
+        <!--Settings-->
+        <scene sceneID="vNW-Y9-zb3">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Settings" id="jIT-91-elW" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="ohc-wN-nce"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MWQ-b2-gCZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="615" y="1762"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="aEf-v6-C1V">
+            <objects>
+                <tabBarController storyboardIdentifier="ASTabBarController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="f41-gX-XOV" customClass="ASTabBarController" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="Arq-pw-YpN"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Ajv-4W-FC6">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Gp9-m0-ehv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-42" y="1662"/>
         </scene>
         <!--Trackers-->
         <scene sceneID="faB-zg-eG4">
@@ -479,7 +524,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="gHE-3f-VKk"/>
+                        <segue destination="f41-gX-XOV" kind="relationship" relationship="rootViewController" id="YpY-Gt-Ddg"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XAL-Z5-8Ll" userLabel="First Responder" sceneMemberID="firstResponder"/>
