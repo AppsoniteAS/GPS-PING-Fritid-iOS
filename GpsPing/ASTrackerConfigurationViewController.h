@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "ASTrackerModel.h"
 
-@interface ASTrackerConfigurationViewController : UIViewController
+@interface ASTrackerConfigurationViewController : UITableViewController
 @property (nonatomic) ASTrackerModel *trackerObject;
 
 +(instancetype)initializeWithTrackerModel:(ASTrackerModel *)trackerModel;

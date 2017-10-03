@@ -36,7 +36,6 @@ static NSString *const kASUserDefaultsKeyBikeFlashAlarm = @"kASUserDefaultsKeyBi
 @property (weak, nonatomic) IBOutlet ASButton    *buttonBikeLEDLight;
 @property (weak, nonatomic) IBOutlet ASButton    *buttonBikeShockAlarm;
 @property (weak, nonatomic) IBOutlet ASButton    *buttonBikeFlashAlarm;
-@property (weak, nonatomic) IBOutlet UITextField *signalRateTextField;
 @property (weak, nonatomic) IBOutlet ASButton    *resetButton;
 @property (weak, nonatomic) IBOutlet UILabel *labelStatusSleepMode;
 @property (weak, nonatomic) IBOutlet ASButton *buttonDogSleepMode;
@@ -60,11 +59,10 @@ static NSString *const kASUserDefaultsKeyBikeFlashAlarm = @"kASUserDefaultsKeyBi
 
 
 @property (nonatomic) NSNumber      *choosedTime;
-
-
-@property (weak, nonatomic) IBOutlet ASButton *submitButton;
-
 @property (nonatomic) NSNumber *duration;
+
+//tracking history
+@property (weak, nonatomic) IBOutlet ASButton *submitButton;
 @property (weak, nonatomic) IBOutlet UITextField *durationTextField;
 
 @property (nonatomic) NSArray      *durationPickerData;
@@ -72,8 +70,12 @@ static NSString *const kASUserDefaultsKeyBikeFlashAlarm = @"kASUserDefaultsKeyBi
 
 
 @property (strong, nonatomic  ) NSString      *yards;
+//signal
 @property (nonatomic, weak    ) IBOutlet UITextField  *textFieldYards;
 @property (nonatomic, weak    ) IBOutlet UIButton     *buttonGeofence;
+
+@property (weak, nonatomic) IBOutlet UITextField *signalRateTextField;
+
 @end
 
 @implementation ASTrackerConfigurationViewController
@@ -184,6 +186,11 @@ objection_requires(@keypath(ASTrackerConfigurationViewController.new, apiControl
        forControlEvents:UIControlEventTouchUpInside];
 
     [self updateGeoButton];
+    
+    UIImageView *tempImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"background"]];
+    [tempImageView setFrame:self.tableView.frame];
+    
+    self.tableView.backgroundView = tempImageView;
 }
 
 
