@@ -70,6 +70,7 @@ static NSString *const kASUserDefaultsKeyRemoveTrackersDate = @"kASUserDefaultsK
 @property (nonatomic        ) ASPointOfInterestAnnotation *selectedAnnotation;
 @property (nonatomic, assign) BOOL modifyingMap;
 @property (strong, nonatomic) CompassController *compassController;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomViewHeight;
 
 @end
 
@@ -479,6 +480,10 @@ objection_requires(@keypath(ASMapViewController.new, apiController), @keypath(AS
 }
 
 -(void)loadTrackingPointsFrom:(NSDate*)from to:(NSDate*)to {
+    if (!self.apiController.userProfile.cookie){
+        return;
+    }
+
     [[self.apiController getTrackingPointsFrom:from to:to friendId:nil] subscribeNext:^(id x) {
         self.originalPointsData = x;
         [self showAllPointsForUsers:x filterFor:self.userToFilter];
@@ -718,18 +723,26 @@ objection_requires(@keypath(ASMapViewController.new, apiController), @keypath(AS
     return nil;
 }
 
+- (void) showTrackerView:(bool) show{
+    [self.trackerView setHidden:!show];
+    [self.poiView setHidden:show];
+    
+    self.bottomViewHeight.constant = show ? 330.0 : 109.0;
+    [self.view layoutIfNeeded];
+}
+
 -(void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view
 {
     if ([view.annotation isKindOfClass:[ASDevicePointAnnotation class]]) {
         ASDevicePointAnnotation *annotation = view.annotation;
-        [self.bottomPlank bringSubviewToFront:self.trackerView];
+        [self showTrackerView:true];
         [self.trackerView configWithOwner:annotation.owner
                                    tracker:annotation.deviceObject
                                      point:annotation.pointObject
                                      color:annotation.annotationColor];
     } else if ([view.annotation isKindOfClass:[ASFriendAnnotation class]]) {
         ASFriendAnnotation *annotation = view.annotation;
-        [self.bottomPlank bringSubviewToFront:self.trackerView];
+        [self showTrackerView:true];
 
         [self.trackerView configWithOwner:annotation.userObject
                                    tracker:nil
@@ -737,16 +750,16 @@ objection_requires(@keypath(ASMapViewController.new, apiController), @keypath(AS
                                      color:annotation.annotationColor];
     } else if ([view.annotation isKindOfClass:[ASPointOfInterestAnnotation class]]) {
         self.selectedAnnotation = view.annotation;
-        [self.bottomPlank bringSubviewToFront:self.poiView];
+        [self showTrackerView:false];
 
         ASPointOfInterestAnnotation *annotation = view.annotation;
         ASFriendModel* owner = Underscore.find (self.originalPointsData, ^BOOL (ASFriendModel *friend) {
             return (friend.userId == annotation.poiObject.userId);
         });
         if (owner.userId == [self.originalPointsData.firstObject userId]) {
-           // self.detailsPlank.viewPOIRightColumn.hidden = NO;
+            self.poiView.viewPOIRightColumn.hidden = NO;
         } else {
-           // self.detailsPlank.viewPOIRightColumn.hidden = YES;
+            self.poiView.viewPOIRightColumn.hidden = YES;
         }
         [self.poiView configWithPOI:annotation.poiObject withOwner:owner color:annotation.annotationColor];
     }
