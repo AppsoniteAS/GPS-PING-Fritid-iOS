@@ -727,7 +727,7 @@ objection_requires(@keypath(ASMapViewController.new, apiController), @keypath(AS
     [self.trackerView setHidden:!show];
     [self.poiView setHidden:show];
     
-    self.bottomViewHeight.constant = show ? 330.0 : 109.0;
+    self.bottomViewHeight.constant = show ? 340.0 : 109.0;
     [self.view layoutIfNeeded];
 }
 

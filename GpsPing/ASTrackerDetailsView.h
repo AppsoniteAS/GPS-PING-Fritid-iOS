@@ -25,6 +25,7 @@
 @property (nonatomic) IBOutlet UILabel *labelGrsm;
 @property (nonatomic) IBOutlet UILabel *labelDistance;
 @property (nonatomic) IBOutlet UILabel *labelDistanceTravelled;
+@property (nonatomic) IBOutlet UILabel *labelSpeed;
 
 
 @property (nonatomic) IBOutlet UILabel *labelBatteryLevel;
@@ -34,6 +35,8 @@
 @property (nonatomic) IBOutlet UIImageView *imageViewGPS;
 @property (nonatomic) IBOutlet ASMapDetailsButton *btnMap;
 @property (nonatomic) IBOutlet ASMapDetailsButton *btnEdit;
+@property (nonatomic) IBOutlet UIImageView *profileImageView;
+@property (nonatomic) IBOutlet UIButton *callBtn;
 
 @property (nonatomic) IBOutlet UIView *separator1;
 @property (nonatomic) IBOutlet UIView *separator2;
