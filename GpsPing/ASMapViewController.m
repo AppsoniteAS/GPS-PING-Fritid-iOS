@@ -330,7 +330,7 @@ objection_requires(@keypath(ASMapViewController.new, apiController), @keypath(AS
         [self.mapView addOverlay:overlayWorld
                            level:MKOverlayLevelAboveLabels];
         
-        static NSString * const templateSweden = @"http://industri.gpsping.no:6057/service?LAYERS=sweden&FORMAT=image/png&SRS=EPSG:3857&EXCEPTIONS=application.vnd.ogc.se_inimage&TRANSPARENT=TRUE&SERVICE=WMS&VERSION=1.1.1&REQUEST=GetMap&STYLES=&WIDTH=256&HEIGHT=256";
+        static NSString * const templateSweden = @"http://fritid.gpsping.no:6057/service?LAYERS=sweden&FORMAT=image/png&SRS=EPSG:3857&EXCEPTIONS=application.vnd.ogc.se_inimage&TRANSPARENT=TRUE&SERVICE=WMS&VERSION=1.1.1&REQUEST=GetMap&STYLES=&WIDTH=256&HEIGHT=256";
         WMSTileOverlay *overlaySweden = [[WMSTileOverlay alloc] initWithUrl:templateSweden UseMercator:YES];
         overlaySweden.canReplaceMapContent = YES;
         [self.mapView addOverlay:overlaySweden
