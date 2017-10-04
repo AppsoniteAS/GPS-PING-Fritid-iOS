@@ -22,7 +22,7 @@ static NSString *const kASUserDefaultsKeyBikeLedLight   = @"kASUserDefaultsKeyBi
 static NSString *const kASUserDefaultsKeyBikeShockAlarm = @"kASUserDefaultsKeyBikeShockAlarm";
 static NSString *const kASUserDefaultsKeyBikeFlashAlarm = @"kASUserDefaultsKeyBikeFlashAlarm";
 
-@interface ASTrackerConfigurationViewController()<UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource>
+@interface ASTrackerConfigurationViewController()<UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIView      *outerWrapperView;
 @property (weak, nonatomic) IBOutlet UITextField *nameTextField;
@@ -41,6 +41,10 @@ static NSString *const kASUserDefaultsKeyBikeFlashAlarm = @"kASUserDefaultsKeyBi
 @property (weak, nonatomic) IBOutlet ASButton *buttonDogSleepMode;
 @property (weak, nonatomic) IBOutlet ASButton *buttonCheckBattery;
 @property (weak, nonatomic) IBOutlet UIButton *startStopButton;
+
+@property (weak, nonatomic) IBOutlet UIImageView *imageViewPlaceholder;
+@property (weak, nonatomic) IBOutlet UIImageView *imageViewPhoto;
+@property (weak, nonatomic) IBOutlet UIButton *buttonPhoto;
 
 @property (nonatomic) NSString *metricType;
 @property (nonatomic, assign) CGFloat signalRate;
@@ -585,6 +589,62 @@ objection_requires(@keypath(ASTrackerConfigurationViewController.new, apiControl
     }
 }
 
+#pragma mark - Photo
+
+- (IBAction)pressedPhoto:(UIButton *)sender {
+    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+    picker.delegate = self;
+    picker.allowsEditing = YES;
+    
+    UIAlertController* alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"reset_all", nil)
+                                                                   message:nil
+                                                            preferredStyle:UIAlertControllerStyleActionSheet];
+    
+    UIAlertAction* libraryAction = [UIAlertAction actionWithTitle:@"Photo album" style:UIAlertActionStyleDefault
+                                                 handler:^(UIAlertAction * action) {
+    
+    
+                                                         picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    
+                                                         [self presentViewController:picker animated:YES completion:NULL];
+                                                     }];
+    
+    
+    UIAlertAction* cameraAction = [UIAlertAction actionWithTitle:@"Camera" style:UIAlertActionStyleDefault
+                                                     handler:^(UIAlertAction * action) {
+                                                         
+                                                         
+                                                         picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+                                                         
+                                                         [self presentViewController:picker animated:YES completion:NULL];
+                                                     }];
+    
+    UIAlertAction* cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleDefault
+                                                         handler:^(UIAlertAction * action) {
+                                                             
+                                                             
+                                                         }];
+    
+    [alert addAction:libraryAction];
+    [alert addAction:cameraAction];
+    [alert addAction:cancelAction];
+
+    [self presentViewController:alert animated:true completion:nil];
+}
+
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+    
+    
+    UIImage* selectedImage = info[UIImagePickerControllerEditedImage];
+    self.imageViewPhoto.image  = selectedImage;
+    [picker dismissViewControllerAnimated:YES completion:NULL];
+
+}
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
+    [picker dismissViewControllerAnimated:YES completion:NULL];
+}
 
 #pragma mark - Geofence
 

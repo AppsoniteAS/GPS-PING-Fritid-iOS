@@ -98,6 +98,8 @@
 			</dict>
 		</dict>
 	</dict>
+	<key>NSCameraUsageDescription</key>
+	<string>Accessing camera to take photo for tracker</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
 	<string>Accessing location to determine your address</string>
 	<key>NSLocationAlwaysUsageDescription</key>
@@ -106,6 +108,8 @@
 	<string>Accessing location to determine your address</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Accessing location to determine your address</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Accessing photo library to take photo for tracker</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Roboto-Black.ttf</string>
