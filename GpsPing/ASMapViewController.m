@@ -554,6 +554,7 @@ objection_requires(@keypath(ASMapViewController.new, apiController), @keypath(AS
                 if (deviceModel.latitude.integerValue == 0 && deviceModel.longitude.integerValue == 0){
                     return;
                 }
+                self.isUserLocationCentered = YES;
                 MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(coord, 800, 800);
                 [self.mapView setRegion:viewRegion animated:YES];
 
@@ -567,6 +568,7 @@ objection_requires(@keypath(ASMapViewController.new, apiController), @keypath(AS
             if (deviceModel.latitude.integerValue == 0 && deviceModel.longitude.integerValue == 0){
                 return;
             }
+             self.isUserLocationCentered = YES;
             CLLocationCoordinate2D coord = CLLocationCoordinate2DMake(deviceModel.latitude.doubleValue, deviceModel.longitude.doubleValue);
             MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(coord, 800, 800);
             [self.mapView setRegion:viewRegion animated:YES];

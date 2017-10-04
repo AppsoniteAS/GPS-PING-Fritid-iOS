@@ -1,3 +1,4 @@
-NSLocationAlwaysUsageDescription = "Tilgår placering for at fastlægge din adresse";
+NSLocationAlwaysUsageDescription = "Tilgår placering for at fastlægge din adresse, mens appen er aktiv eller i baggrunden";
 NSLocationUsageDescription = "Tilgår placering for at fastlægge din adresse";
-NSLocationWhenInUseUsageDescription = "Tilgår placering for at fastlægge din adresse";
+NSLocationWhenInUseUsageDescription = "Tilgår placering for at fastlægge din adresse, mens appen er aktiv";
+NSLocationAlwaysAndWhenInUseUsageDescription = "Tilgår placering for at fastlægge din adresse, mens appen er aktiv eller i baggrunden";
