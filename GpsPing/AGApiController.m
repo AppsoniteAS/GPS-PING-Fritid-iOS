@@ -23,7 +23,7 @@ static const DDLogLevel ddLogLevel = DDLogLevelDebug;
 //#define BASE_URL_LOCAL      @"http://appgranula.mooo.com/api/"
 //#define BASE_URL_LOCAL      @"http://192.168.139.201/api/"
 //#define BASE_URL_LOCAL      @"https://industri.gpsping.no/api/"
-#define BASE_URL_LOCAL @"http://54.77.4.166/api/"
+#define BASE_URL_LOCAL @"https://fritid.gpsping.no/api"
 
 #define requestMethod @"GET"
 
