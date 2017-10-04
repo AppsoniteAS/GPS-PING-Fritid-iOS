@@ -338,7 +338,7 @@ objection_requires(@keypath(ASMapViewController.new, apiController), @keypath(AS
         [self.mapView addOverlay:overlayWorld
                            level:MKOverlayLevelAboveLabels];
         
-        static NSString * const templateSweden = @"http://industri.gpsping.no:6057/service?LAYERS=sweden&FORMAT=image/png&SRS=EPSG:3857&EXCEPTIONS=application.vnd.ogc.se_inimage&TRANSPARENT=TRUE&SERVICE=WMS&VERSION=1.1.1&REQUEST=GetMap&STYLES=&WIDTH=256&HEIGHT=256";
+        static NSString * const templateSweden = @"http://fritid.gpsping.no:6057/service?LAYERS=sweden&FORMAT=image/png&SRS=EPSG:3857&EXCEPTIONS=application.vnd.ogc.se_inimage&TRANSPARENT=TRUE&SERVICE=WMS&VERSION=1.1.1&REQUEST=GetMap&STYLES=&WIDTH=256&HEIGHT=256";
         WMSTileOverlay *overlaySweden = [[WMSTileOverlay alloc] initWithUrl:templateSweden UseMercator:YES];
         overlaySweden.canReplaceMapContent = YES;
         [self.mapView addOverlay:overlaySweden
@@ -566,6 +566,7 @@ objection_requires(@keypath(ASMapViewController.new, apiController), @keypath(AS
                 if (deviceModel.latitude.integerValue == 0 && deviceModel.longitude.integerValue == 0){
                     return;
                 }
+                self.isUserLocationCentered = YES;
                 MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(coord, 800, 800);
                 [self.mapView setRegion:viewRegion animated:YES];
 
@@ -579,6 +580,7 @@ objection_requires(@keypath(ASMapViewController.new, apiController), @keypath(AS
             if (deviceModel.latitude.integerValue == 0 && deviceModel.longitude.integerValue == 0){
                 return;
             }
+             self.isUserLocationCentered = YES;
             CLLocationCoordinate2D coord = CLLocationCoordinate2DMake(deviceModel.latitude.doubleValue, deviceModel.longitude.doubleValue);
             MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(coord, 800, 800);
             [self.mapView setRegion:viewRegion animated:YES];

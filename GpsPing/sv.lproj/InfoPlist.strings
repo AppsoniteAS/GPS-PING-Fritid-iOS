@@ -1,3 +1,4 @@
-NSLocationAlwaysUsageDescription = "Hämtar information om plats för att fastställa din adress";
+NSLocationAlwaysUsageDescription = "Hämtar information om plats för att fastställa din adress medan appen är aktiv eller i bakgrunden";
 NSLocationUsageDescription = "Hämtar information om plats för att fastställa din adress";
-NSLocationWhenInUseUsageDescription = "Hämtar information om plats för att fastställa din adress";
+NSLocationWhenInUseUsageDescription = "Hämtar information om plats för att fastställa din adress medan appen är aktiv";
+NSLocationAlwaysAndWhenInUseUsageDescription = "Hämtar information om plats för att fastställa din adress medan appen är aktiv eller i bakgrunden";

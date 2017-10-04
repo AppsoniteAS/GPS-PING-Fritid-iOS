@@ -1,3 +1,5 @@
-NSLocationAlwaysUsageDescription = "Accessing location to determine your address";
+NSLocatiNSLocationAlwaysUsageDescription = "Accessing location to determine your address while the app is active or in background";
 NSLocationUsageDescription = "Accessing location to determine your address";
-NSLocationWhenInUseUsageDescription = "Accessing location to determine your address";
+NSLocationWhenInUseUsageDescription = "Accessing location to determine your address while the app is active";
+NSLocationAlwaysAndWhenInUseUsageDescription = "Accessing location to determine your address while the app is active or in background";
+

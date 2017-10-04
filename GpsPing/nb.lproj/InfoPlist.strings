@@ -1,3 +1,4 @@
-NSLocationAlwaysUsageDescription = "Henter din lokasjon";
+NSLocationAlwaysUsageDescription = "Henter din lokasjon når appen er aktiv eller går i bakgrunnen";
 NSLocationUsageDescription = "Henter din lokasjon";
-NSLocationWhenInUseUsageDescription = "Henter din lokasjon";
+NSLocationWhenInUseUsageDescription = "Henter din lokasjon når appen er aktiv";
+NSLocationAlwaysAndWhenInUseUsageDescription = "Henter din lokasjon når appen er aktiv eller går i bakgrunnen";

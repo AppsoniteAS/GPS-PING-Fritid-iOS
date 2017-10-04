@@ -1,3 +1,4 @@
-NSLocationAlwaysUsageDescription = "Havaitaan sijaintia osoitteesi määrittämistä varten";
+NSLocationAlwaysUsageDescription = "Havaitaan sijaintia osoitteesi määrittämistä varten kun sovellus on aktiivinen tai taustalla";
 NSLocationUsageDescription = "Havaitaan sijaintia osoitteesi määrittämistä varten";
-NSLocationWhenInUseUsageDescription = "Havaitaan sijaintia osoitteesi määrittämistä varten";
+NSLocationWhenInUseUsageDescription = "Havaitaan sijaintia osoitteesi määrittämistä varten kun sovellus on aktiivinen";
+NSLocationAlwaysAndWhenInUseUsageDescription = "Havaitaan sijaintia osoitteesi määrittämistä varten kun sovellus on aktiivinen tai taustalla";

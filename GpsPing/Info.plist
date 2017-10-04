@@ -47,6 +47,13 @@
 				<key>NSIncludesSubdomains</key>
 				<true/>
 			</dict>
+			<key>fritid.gpsping.no</key>
+			<dict>
+				<key>NSExceptionAllowsInsecureHTTPLoads</key>
+				<true/>
+				<key>NSIncludesSubdomains</key>
+				<true/>
+			</dict>
 			<key>http://192.168.139.201/</key>
 			<dict>
 				<key>NSExceptionAllowsInsecureHTTPLoads</key>
@@ -91,6 +98,8 @@
 			</dict>
 		</dict>
 	</dict>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Accessing location to determine your address</string>
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>Accessing location to determine your address</string>
 	<key>NSLocationUsageDescription</key>
