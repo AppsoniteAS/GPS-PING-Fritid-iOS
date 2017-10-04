@@ -40,6 +40,7 @@ static NSString *const kASUserDefaultsKeyBikeFlashAlarm = @"kASUserDefaultsKeyBi
 @property (weak, nonatomic) IBOutlet UILabel *labelStatusSleepMode;
 @property (weak, nonatomic) IBOutlet ASButton *buttonDogSleepMode;
 @property (weak, nonatomic) IBOutlet ASButton *buttonCheckBattery;
+@property (weak, nonatomic) IBOutlet UIButton *startStopButton;
 
 @property (nonatomic) NSString *metricType;
 @property (nonatomic, assign) CGFloat signalRate;
@@ -127,6 +128,12 @@ objection_requires(@keypath(ASTrackerConfigurationViewController.new, apiControl
     [self.dogInStandSwitcher setOn:self.trackerObject.dogInStand];
 
     [self configPickers];
+    
+    self.startStopButton.layer.borderColor = [UIColor colorWithRed:0.4796 green:0.7302 blue:0.2274 alpha:1.0].CGColor;
+    self.startStopButton.layer.borderWidth = 6.0;
+    
+    self.startStopButton.layer.cornerRadius = self.startStopButton.frame.size.width/2;
+    
     
     NSString *newResetTitle = NSLocalizedString(@"Reset: step %ld", nil);
     [self.resetButton setTitle:[NSString stringWithFormat:newResetTitle, (long)self.smsCount + 1]
@@ -220,6 +227,8 @@ objection_requires(@keypath(ASTrackerConfigurationViewController.new, apiControl
 {
     [super viewWillAppear:animated];
     [self jps_viewWillAppear:animated];
+    [self updateButton];
+
 }
 
 -(void)viewWillDisappear:(BOOL)animated {
@@ -535,6 +544,47 @@ objection_requires(@keypath(ASTrackerConfigurationViewController.new, apiControl
     formatter.numberStyle = NSNumberFormatterNoStyle;
     [self saveTrackingDurationLocally:[formatter numberFromString:subStrings[0]]];
 }
+
+
+#pragma mark - start stop
+
+- (IBAction)startStopButtonTap:(id)sender {
+    ASTrackerModel *trackerModel = self.trackerObject;
+    
+    if (!trackerModel) {
+        [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"No tracker choosed", nil)
+                                    message:NSLocalizedString(@"You must choose tracker on Trackers screen in Settings to start it", nil)
+                                   delegate:nil
+                          cancelButtonTitle:NSLocalizedString(@"OK", nil)
+                          otherButtonTitles: nil] show];
+        return;
+    }
+    
+    [[self as_sendSMS:[trackerModel getSmsTextsForTrackerLaunch:!trackerModel.isRunning]
+          ToRecipient:trackerModel.trackerPhoneNumber] subscribeNext:^(id x) {
+        [self updateCurrentTracker];
+    } error:^(NSError *error) {
+        ;
+    }];
+}
+
+-(void)updateCurrentTracker
+{
+    ASTrackerModel *trackerModel = self.trackerObject;
+    trackerModel.isRunning = !trackerModel.isRunning;
+    [trackerModel saveInUserDefaults];
+    [self updateButton];
+}
+
+-(void)updateButton {
+    ASTrackerModel *trackerModel = self.trackerObject;
+    if (trackerModel.isRunning) {
+        [self.startStopButton setTitle:NSLocalizedString(@"STOP", nil) forState:UIControlStateNormal];
+    } else {
+        [self.startStopButton setTitle:NSLocalizedString(@"Start", nil) forState:UIControlStateNormal];
+    }
+}
+
 
 #pragma mark - Geofence
 

@@ -123,7 +123,7 @@ objection_requires(@keypath(ASMapViewController.new, apiController), @keypath(AS
     self.mapView.delegate = self;
     
     self.locationManager = [[CLLocationManager alloc] init];
-    [self.locationManager requestWhenInUseAuthorization];
+   // [self.locationManager requestWhenInUseAuthorization];
     [self.locationManager requestAlwaysAuthorization];
     
     [self changeMapType:2];
@@ -169,6 +169,12 @@ objection_requires(@keypath(ASMapViewController.new, apiController), @keypath(AS
     [self refreshLine];
 }
 
+
+- (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+//    [self.locationManager requestWhenInUseAuthorization];
+//    [self.locationManager requestAlwaysAuthorization];
+}
 #pragma mark - Getters & setters
 
 -(NSArray *)colorSetForUsers {
