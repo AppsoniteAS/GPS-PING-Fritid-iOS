@@ -12,7 +12,7 @@
 #import "Masonry.h"
 #import "ASTrackerConfigurationViewController.h"
 #import "AGApiController.h"
-
+#import "ASSimpleTrackerCell.h"
 #import <CocoaLumberjack/CocoaLumberjack.h>
 
 @interface ASTrackersViewController () <ASTrackerCellProtocol>
@@ -61,13 +61,13 @@ objection_requires(@keypath(ASTrackersViewController.new, apiController))
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell * cell = [super tableView:tableView cellForRowAtIndexPath:indexPath];
-    ((ASTrackerCell*)cell).delegate = self;
+    ASSimpleTrackerCell * cell = [self.tableView dequeueReusableCellWithIdentifier:@"ASSimpleTrackerCell" forIndexPath:indexPath];
+   // ((ASSimpleTrackerCell*)cell).delegate = self;
     ASTrackerModel *model = [self.memoryStorage itemAtIndexPath:indexPath];
     if (model.isChoosed) {
 //        [tableView selectRowAtIndexPath:indexPath animated:YES scrollPosition:UITableViewScrollPositionNone];
     }
-    
+    [cell handleByTracker:model];
     return cell;
 }
 
