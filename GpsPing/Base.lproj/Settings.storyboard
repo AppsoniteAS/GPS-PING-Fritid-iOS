@@ -163,7 +163,7 @@
                                                     </mask>
                                                 </variation>
                                                 <connections>
-                                                    <segue destination="s82-Ve-ReF" kind="show" id="G0N-Kc-4HZ"/>
+                                                    <segue destination="s82-Ve-ReF" kind="push" id="G0N-Kc-4HZ"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -280,10 +280,12 @@
         <!--FAQ-->
         <scene sceneID="XGk-8X-WLB">
             <objects>
-                <viewControllerPlaceholder storyboardName="FAQ" id="s82-Ve-ReF" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="FAQ" id="s82-Ve-ReF" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="pNU-gX-k2M"/>
+                </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qtc-zu-ASW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2004.5" y="1139"/>
+            <point key="canvasLocation" x="2121" y="1149"/>
         </scene>
     </scenes>
     <resources>

@@ -120,6 +120,8 @@
 		ABE7C7281C78CB76008A6390 /* ASPointOfInterestAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = ABE7C7271C78CB76008A6390 /* ASPointOfInterestAnnotation.m */; };
 		E94127E61F7D631600190D8E /* ASTrackerDetailsView.m in Sources */ = {isa = PBXBuildFile; fileRef = E94127E51F7D631600190D8E /* ASTrackerDetailsView.m */; };
 		E945E4391F8256EB0070B64E /* ASTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = E945E4381F8256EB0070B64E /* ASTabBarController.m */; };
+		E987820B1F8617EA0098C143 /* ASFAQTrackersListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E987820A1F8617EA0098C143 /* ASFAQTrackersListViewController.m */; };
+		E987820E1F861DDC0098C143 /* ASFAQTrackerListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E987820D1F861DDC0098C143 /* ASFAQTrackerListCell.m */; };
 		E98C98581F811B1C00A028DC /* ASPOIDetailsView.m in Sources */ = {isa = PBXBuildFile; fileRef = E98C98571F811B1C00A028DC /* ASPOIDetailsView.m */; };
 		E98C985B1F815A1F00A028DC /* ASMapDetailsButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E98C985A1F815A1F00A028DC /* ASMapDetailsButton.m */; };
 		E9CFA3711F6144BD00516EE2 /* Chel.gpx in Resources */ = {isa = PBXBuildFile; fileRef = E9CFA36D1F6144BD00516EE2 /* Chel.gpx */; };
@@ -441,6 +443,10 @@
 		E94127E51F7D631600190D8E /* ASTrackerDetailsView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ASTrackerDetailsView.m; sourceTree = "<group>"; };
 		E945E4371F8256EB0070B64E /* ASTabBarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ASTabBarController.h; sourceTree = "<group>"; };
 		E945E4381F8256EB0070B64E /* ASTabBarController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ASTabBarController.m; sourceTree = "<group>"; };
+		E98782091F8617EA0098C143 /* ASFAQTrackersListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ASFAQTrackersListViewController.h; sourceTree = "<group>"; };
+		E987820A1F8617EA0098C143 /* ASFAQTrackersListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ASFAQTrackersListViewController.m; sourceTree = "<group>"; };
+		E987820C1F861DDC0098C143 /* ASFAQTrackerListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ASFAQTrackerListCell.h; sourceTree = "<group>"; };
+		E987820D1F861DDC0098C143 /* ASFAQTrackerListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ASFAQTrackerListCell.m; sourceTree = "<group>"; };
 		E98C98561F811B1C00A028DC /* ASPOIDetailsView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ASPOIDetailsView.h; sourceTree = "<group>"; };
 		E98C98571F811B1C00A028DC /* ASPOIDetailsView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ASPOIDetailsView.m; sourceTree = "<group>"; };
 		E98C98591F815A1E00A028DC /* ASMapDetailsButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ASMapDetailsButton.h; sourceTree = "<group>"; };
@@ -818,6 +824,10 @@
 				A6D194F51D817D0E00394F31 /* ASQuestionCell.m */,
 				A6D194F71D828E8400394F31 /* ASAnswerViewController.h */,
 				A6D194F81D828E8400394F31 /* ASAnswerViewController.m */,
+				E98782091F8617EA0098C143 /* ASFAQTrackersListViewController.h */,
+				E987820A1F8617EA0098C143 /* ASFAQTrackersListViewController.m */,
+				E987820C1F861DDC0098C143 /* ASFAQTrackerListCell.h */,
+				E987820D1F861DDC0098C143 /* ASFAQTrackerListCell.m */,
 			);
 			name = FAQ;
 			sourceTree = "<group>";
@@ -1277,6 +1287,7 @@
 				218B1EB81D757C8F00E19FD7 /* ASHelpPopupViewController.m in Sources */,
 				A6D8D0521C58B1EA00030E9F /* ASFriendModel.m in Sources */,
 				A6D194F61D817D0E00394F31 /* ASQuestionCell.m in Sources */,
+				E987820E1F861DDC0098C143 /* ASFAQTrackerListCell.m in Sources */,
 				AB5428181C5BAE2300F33E8B /* ASDisplayOptionsViewController.m in Sources */,
 				A603CEDF1C5A3401001D56A4 /* ASPointAnnotation.m in Sources */,
 				AB8946931C4F725D002E86C8 /* ASGeofenceViewController.m in Sources */,
@@ -1309,6 +1320,7 @@
 				A68C1B921C4E38D6000E2BA6 /* ASTrackerCell.m in Sources */,
 				AB8946AB1C549E9F002E86C8 /* RACSignal+BackendHelpers.m in Sources */,
 				AB89469C1C510E96002E86C8 /* ASViewController.m in Sources */,
+				E987820B1F8617EA0098C143 /* ASFAQTrackersListViewController.m in Sources */,
 				A6D194F91D828E8400394F31 /* ASAnswerViewController.m in Sources */,
 				AB8946711C4E3372002E86C8 /* ASAboutViewController.m in Sources */,
 				A68C1B331C4CE460000E2BA6 /* main.m in Sources */,
