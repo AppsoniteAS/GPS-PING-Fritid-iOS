@@ -106,6 +106,10 @@
 	<string>Accessing location to determine your address</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Accessing location to determine your address</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>Accesing photo library to save screenshots</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Accesing photo library to save screenshots</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Roboto-Black.ttf</string>
