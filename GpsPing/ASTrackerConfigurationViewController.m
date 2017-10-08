@@ -17,12 +17,13 @@
 #import "ASDisplayOptionsViewController.h"
 #import <CocoaLumberjack/CocoaLumberjack.h>
 static const DDLogLevel ddLogLevel = DDLogLevelVerbose;
+@import MessageUI;
 
 static NSString *const kASUserDefaultsKeyBikeLedLight   = @"kASUserDefaultsKeyBikeLedLight";
 static NSString *const kASUserDefaultsKeyBikeShockAlarm = @"kASUserDefaultsKeyBikeShockAlarm";
 static NSString *const kASUserDefaultsKeyBikeFlashAlarm = @"kASUserDefaultsKeyBikeFlashAlarm";
 
-@interface ASTrackerConfigurationViewController()<UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+@interface ASTrackerConfigurationViewController()<UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate, MFMailComposeViewControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIView      *outerWrapperView;
 @property (weak, nonatomic) IBOutlet UITextField *nameTextField;
@@ -646,11 +647,42 @@ objection_requires(@keypath(ASTrackerConfigurationViewController.new, apiControl
     [picker dismissViewControllerAnimated:YES completion:NULL];
 }
 
+#pragma mark - Pause subscription
+- (IBAction)pauseSubscription:(id)sender {
+    @weakify(self)
+    if (![MFMailComposeViewController canSendMail]) {
+        NSLog(@"Mail services are not available.");
+        return;
+    }
+    [[self.apiController getTrackers] subscribeNext:^(NSArray *trackers) {
+        @strongify(self)
+        
+        
+        MFMailComposeViewController *composeVC = [[MFMailComposeViewController alloc] init];
+        composeVC.mailComposeDelegate = self;
+        [composeVC setToRecipients:@[@"support@gpsping.no"]];
+        [composeVC setSubject:@"Pause Subscription"];
+        
+        ASUserProfileModel *profileModel = [ASUserProfileModel loadSavedProfileInfo];
+        NSString *message = [NSString stringWithFormat:@"Please put my subscription on pause\n\n Name: %@ %@\nAddress: %@\nUsername: %@\nTracker's phone: %@\n  imei: %@\n", profileModel.firstname, profileModel.lastname, profileModel.address, profileModel.username, self.trackerObject.trackerPhoneNumber, self.trackerObject.imeiNumber];
+        
+        [composeVC setMessageBody:message isHTML:NO];
+        [self presentViewController:composeVC animated:NO completion:nil];
+    }];
+    
+    
+}
+
+- (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+
 #pragma mark - Geofence
 
 -(void)doSubmit:(id)sender {
     
-    if (!(self.yards.length > 0 && self.trackerObject.isChoosed)){
+    if (!(self.yards.length > 0)){
         return;
     }
     [[self as_sendSMS:[ASTrackerModel getSmsTextsForGeofenceLaunch:!(self.trackerObject.isGeofenceStarted)

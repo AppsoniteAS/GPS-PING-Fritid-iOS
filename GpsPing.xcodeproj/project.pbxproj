@@ -118,6 +118,7 @@
 		ABD8BAE01C7F5B350075670C /* Errors.strings in Resources */ = {isa = PBXBuildFile; fileRef = ABD8BAE21C7F5B350075670C /* Errors.strings */; };
 		ABE7C7251C784500008A6390 /* ASPointOfInterestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ABE7C7241C784500008A6390 /* ASPointOfInterestModel.m */; };
 		ABE7C7281C78CB76008A6390 /* ASPointOfInterestAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = ABE7C7271C78CB76008A6390 /* ASPointOfInterestAnnotation.m */; };
+		E93D75A81F8A7B39001C8AD7 /* old.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E93D75A71F8A7B39001C8AD7 /* old.storyboard */; };
 		E94127E61F7D631600190D8E /* ASTrackerDetailsView.m in Sources */ = {isa = PBXBuildFile; fileRef = E94127E51F7D631600190D8E /* ASTrackerDetailsView.m */; };
 		E945E4391F8256EB0070B64E /* ASTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = E945E4381F8256EB0070B64E /* ASTabBarController.m */; };
 		E947D8C21F86685700A4B16D /* ASSimpleTrackerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E947D8C11F86685700A4B16D /* ASSimpleTrackerCell.m */; };
@@ -440,6 +441,7 @@
 		ABE7C7241C784500008A6390 /* ASPointOfInterestModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASPointOfInterestModel.m; sourceTree = "<group>"; };
 		ABE7C7261C78CB76008A6390 /* ASPointOfInterestAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASPointOfInterestAnnotation.h; sourceTree = "<group>"; };
 		ABE7C7271C78CB76008A6390 /* ASPointOfInterestAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASPointOfInterestAnnotation.m; sourceTree = "<group>"; };
+		E93D75A71F8A7B39001C8AD7 /* old.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = old.storyboard; sourceTree = "<group>"; };
 		E94127E41F7D631600190D8E /* ASTrackerDetailsView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ASTrackerDetailsView.h; sourceTree = "<group>"; };
 		E94127E51F7D631600190D8E /* ASTrackerDetailsView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ASTrackerDetailsView.m; sourceTree = "<group>"; };
 		E945E4371F8256EB0070B64E /* ASTabBarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ASTabBarController.h; sourceTree = "<group>"; };
@@ -778,6 +780,7 @@
 				A68C1BA81C4F71CB000E2BA6 /* ASTrackerConfigurationViewController.h */,
 				A68C1BA91C4F71CB000E2BA6 /* ASTrackerConfigurationViewController.m */,
 				A6624DF91D37D90900CDA336 /* TrackerConfiguration.storyboard */,
+				E93D75A71F8A7B39001C8AD7 /* old.storyboard */,
 			);
 			name = "Configure tracker";
 			sourceTree = "<group>";
@@ -1111,6 +1114,7 @@
 				E9CFA3721F6144BD00516EE2 /* Home.gpx in Resources */,
 				A68C1B811C4D24DC000E2BA6 /* Roboto-MediumItalic.ttf in Resources */,
 				ABA221571C79E59C00AE6F87 /* Profile.storyboard in Resources */,
+				E93D75A81F8A7B39001C8AD7 /* old.storyboard in Resources */,
 				A68C1B3C1C4CE460000E2BA6 /* Main.storyboard in Resources */,
 				E9CFA3741F6144BD00516EE2 /* route.gpx in Resources */,
 				ABA221291C79E4A400AE6F87 /* Trackers.storyboard in Resources */,
