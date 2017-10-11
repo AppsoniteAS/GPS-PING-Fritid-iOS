@@ -80,8 +80,10 @@ objection_requires(@keypath(ASMapViewController.new, apiController), @keypath(AS
 
 +(instancetype)initialize
 {
-    return [[UIStoryboard mapStoryboard] instantiateInitialViewController];
+    return [[UIStoryboard mapStoryboard] instantiateViewControllerWithIdentifier:@"ASMapViewController"];
 }
+
+
 
 #pragma mark - view controller methods
 

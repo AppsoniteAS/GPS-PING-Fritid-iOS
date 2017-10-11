@@ -16,6 +16,8 @@
 #import "UIColor+ASColor.h"
 #import "ASDisplayOptionsViewController.h"
 #import <CocoaLumberjack/CocoaLumberjack.h>
+#import "ASMapViewController.h"
+#import "UIStoryboard+ASHelper.h"
 static const DDLogLevel ddLogLevel = DDLogLevelVerbose;
 @import MessageUI;
 
@@ -203,6 +205,8 @@ objection_requires(@keypath(ASTrackerConfigurationViewController.new, apiControl
     [tempImageView setFrame:self.tableView.frame];
     
     self.tableView.backgroundView = tempImageView;
+    
+    self.navigationItem.rightBarButtonItem = nil;
 }
 
 
@@ -645,6 +649,15 @@ objection_requires(@keypath(ASTrackerConfigurationViewController.new, apiControl
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
     [picker dismissViewControllerAnimated:YES completion:NULL];
+}
+- (IBAction)viewHistory:(ASButton *)sender {
+    ASMapViewController *mapVC = [ASMapViewController initialize];
+    mapVC.isHistoryMode = YES;
+    [self.navigationController pushViewController:mapVC animated:true];
+    //[self presentViewController:mapVC animated:true completion:nil];
+    
+    
+  //  [[UIStoryboard mapStoryboard] instantiateViewController
 }
 
 #pragma mark - Pause subscription

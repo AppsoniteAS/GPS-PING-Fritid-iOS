@@ -326,7 +326,7 @@
                                                 <rect key="frame" x="0.0" y="28" width="287" height="70"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="D0f-FI-lOC" id="y97-6A-nTy">
-                                                    <rect key="frame" x="0.0" y="0.0" width="287" height="69.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="287" height="70"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Julie" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GJO-J7-6m3" userLabel="name">

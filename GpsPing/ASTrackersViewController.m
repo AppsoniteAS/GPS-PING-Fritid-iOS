@@ -78,8 +78,11 @@ objection_requires(@keypath(ASTrackersViewController.new, apiController))
     if (!configVC){
         return;
     }
-    UINavigationController *navVC = [[UINavigationController alloc] initWithRootViewController:configVC];
-    [self presentViewController:navVC animated:YES completion:nil];
+    [self.navigationController pushViewController:configVC animated:true];
+    return;
+    
+//    UINavigationController *navVC = [[UINavigationController alloc] initWithRootViewController:configVC];
+//    [self presentViewController:navVC animated:YES completion:nil];
 }
 
 -(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
