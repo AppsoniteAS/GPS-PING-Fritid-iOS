@@ -149,8 +149,9 @@ objection_requires(@keypath(ASMapViewController.new, apiController), @keypath(AS
     } else {
         [self loadTracks];
     }
-    
-    [self loadPointsOfInterest];
+    if (!(self.isHistoryMode && self.selectedTracker)){
+        [self loadPointsOfInterest];
+    }
     
     self.compassController = [CompassController compassWithArrowImageView:self.compassImageView];
     
@@ -491,6 +492,15 @@ objection_requires(@keypath(ASMapViewController.new, apiController), @keypath(AS
     if (!self.apiController.userProfile.cookie){
         return;
     }
+    if (self.isHistoryMode && self.selectedTracker){
+        [[self.apiController getTrackingPointsFrom:from to:to friendId:nil for:self.selectedTracker] subscribeNext:^(id x) {
+            self.originalPointsData = x;
+            [self showAllPointsForUsers:x filterFor:self.userToFilter];
+            self.filterTextField.enabled = YES;
+        }] ;
+        return;
+    }
+    
 
     [[self.apiController getTrackingPointsFrom:from to:to friendId:nil] subscribeNext:^(id x) {
         self.originalPointsData = x;

@@ -486,6 +486,58 @@ objection_initializer(initWithConfiguration:);
     }];
 }
 
+
+-(RACSignal *)getTrackingPointsFrom:(NSDate*)from
+                                 to:(NSDate*)to
+                           friendId:(NSNumber*)friendId
+                                for: (ASTrackerModel*) trackerModel
+{
+    DDLogDebug(@"%s", __PRETTY_FUNCTION__);
+    
+    NSDictionary *params = @{@"from":@(from.timeIntervalSince1970),
+                             @"to":@(to.timeIntervalSince1970)};
+    ///
+    //    friendId = @(8042);
+    ///
+    
+    if (friendId) {
+        params = [params mtl_dictionaryByAddingEntriesFromDictionary:@{@"id":friendId}];
+    }
+    
+    params = [self addAuthParamsByUpdatingParams:params];
+    return [[self performHttpRequestWithAttempts:requestMethod
+                                        resource:@"tracker/get_points"
+                                      parameters:params] map:^id(id value) {
+        DDLogVerbose(@"%@", value);
+        NSMutableArray *resultArray = @[].mutableCopy;
+        for (NSDictionary *userDictionary in value[@"users"]) {
+            NSError *error;
+            NSArray *devicesArray = [MTLJSONAdapter modelsOfClass:[ASDeviceModel class]
+                                                    fromJSONArray:userDictionary[@"devices"]
+                                                            error:&error];
+            
+            ASFriendModel *friendModel = [MTLJSONAdapter modelOfClass:[ASFriendModel class]
+                                                   fromJSONDictionary:userDictionary[@"user"]
+                                                                error:&error];
+            
+            //friendModel.devices = devicesArray;
+            for (ASDeviceModel* device in devicesArray){
+                if ([device.trackerNumber isEqualToString:trackerModel.trackerNumber]){
+                    friendModel.devices = @[device];
+                }
+            }
+            if (friendModel.devices.count > 0){
+                [resultArray addObject:friendModel];
+            }
+        }
+        
+        //        NSError *error;
+        //        NSArray *resultArray = [MTLJSONAdapter modelsOfClass:[ASFriendModel class] fromJSONArray:value[@"users"] error:&error];
+        return resultArray;
+    }];
+}
+
+
 -(RACSignal *)sendUserPosition:(CLLocationCoordinate2D)coordinate {
     DDLogDebug(@"%s", __PRETTY_FUNCTION__);
     NSDictionary *params = @{@"lat":@(coordinate.latitude),

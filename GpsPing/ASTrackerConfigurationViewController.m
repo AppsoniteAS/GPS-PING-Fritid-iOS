@@ -653,6 +653,7 @@ objection_requires(@keypath(ASTrackerConfigurationViewController.new, apiControl
 - (IBAction)viewHistory:(ASButton *)sender {
     ASMapViewController *mapVC = [ASMapViewController initialize];
     mapVC.isHistoryMode = YES;
+    mapVC.selectedTracker = self.trackerObject;
     [self.navigationController pushViewController:mapVC animated:true];
     //[self presentViewController:mapVC animated:true completion:nil];
     

@@ -14,7 +14,7 @@
 #import <extobjc.h>
 #import "ASUserProfileModel.h"
 #import "ASNewUserModel.h"
-
+#import "ASTrackerModel.h"
 extern NSString* AGGpsPingBackendError;
 
 extern NSString *kASUserDefaultsKeyUsername;
@@ -70,6 +70,10 @@ extern NSString *kASUserDefaultsKeyResetAll;
 -(RACSignal *)getTrackingPointsFrom:(NSDate*)from
                                  to:(NSDate*)to
                            friendId:(NSNumber*)friendId;
+-(RACSignal *)getTrackingPointsFrom:(NSDate*)from
+                                 to:(NSDate*)to
+                           friendId:(NSNumber*)friendId
+                                for: (ASTrackerModel*) trackerModel;
 -(RACSignal *)sendUserPosition:(CLLocationCoordinate2D)coordinate;
 
 #pragma mark - POI
