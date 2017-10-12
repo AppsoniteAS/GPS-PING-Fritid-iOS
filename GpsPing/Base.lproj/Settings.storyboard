@@ -45,7 +45,7 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cRb-xl-Ghl">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="360"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="292"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Pk-J7-6Zh" customClass="ASButton">
                                                 <rect key="frame" x="20" y="20" width="335" height="65"/>
@@ -86,28 +86,8 @@
                                                     <segue destination="Ggy-6B-K5E" kind="push" id="XAc-oo-E8N"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TSu-3F-tjY" customClass="ASButton">
-                                                <rect key="frame" x="20" y="156" width="335" height="65"/>
-                                                <color key="backgroundColor" red="0.33333333329999998" green="0.5450980392" blue="0.1843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="40" id="KbT-xM-bpn"/>
-                                                    <constraint firstAttribute="width" constant="200" id="cU1-Oa-hbz"/>
-                                                </constraints>
-                                                <state key="normal" title="Pause subscription">
-                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                </state>
-                                                <variation key="default">
-                                                    <mask key="constraints">
-                                                        <exclude reference="KbT-xM-bpn"/>
-                                                        <exclude reference="cU1-Oa-hbz"/>
-                                                    </mask>
-                                                </variation>
-                                                <connections>
-                                                    <action selector="pauseSubscription:" destination="wF7-Ch-xf9" eventType="touchUpInside" id="Pyw-Ky-o68"/>
-                                                </connections>
-                                            </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zhj-4V-9NB" customClass="ASButton">
-                                                <rect key="frame" x="20" y="224" width="335" height="65"/>
+                                                <rect key="frame" x="20" y="156" width="335" height="65"/>
                                                 <color key="backgroundColor" red="0.33333333329999998" green="0.5450980392" blue="0.1843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="9Tz-cF-4nX"/>
@@ -127,7 +107,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LPc-gy-waf" userLabel="FAQ" customClass="ASButton">
-                                                <rect key="frame" x="20" y="292" width="335" height="65"/>
+                                                <rect key="frame" x="20" y="224" width="335" height="65"/>
                                                 <color key="backgroundColor" red="0.33333333329999998" green="0.5450980392" blue="0.1843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="NFw-de-deB"/>
@@ -157,26 +137,15 @@
                                             <constraint firstAttribute="bottom" secondItem="LPc-gy-waf" secondAttribute="bottom" constant="3" id="GA0-NR-1y9"/>
                                             <constraint firstItem="LPc-gy-waf" firstAttribute="width" secondItem="2Pk-J7-6Zh" secondAttribute="width" id="Heu-Go-UvB"/>
                                             <constraint firstItem="tUt-jc-XWF" firstAttribute="height" secondItem="2Pk-J7-6Zh" secondAttribute="height" id="JNy-qn-yoq"/>
-                                            <constraint firstItem="TSu-3F-tjY" firstAttribute="top" secondItem="tUt-jc-XWF" secondAttribute="bottom" constant="3" id="NFt-xI-soD"/>
                                             <constraint firstItem="tUt-jc-XWF" firstAttribute="centerX" secondItem="2Pk-J7-6Zh" secondAttribute="centerX" id="P35-M9-yIR"/>
+                                            <constraint firstItem="zhj-4V-9NB" firstAttribute="top" secondItem="tUt-jc-XWF" secondAttribute="bottom" constant="3" id="Prn-oQ-ZrL"/>
                                             <constraint firstItem="zhj-4V-9NB" firstAttribute="centerX" secondItem="2Pk-J7-6Zh" secondAttribute="centerX" id="TNA-Rf-3dh"/>
-                                            <constraint firstItem="TSu-3F-tjY" firstAttribute="height" secondItem="2Pk-J7-6Zh" secondAttribute="height" id="aWS-Pn-pF4"/>
                                             <constraint firstItem="tUt-jc-XWF" firstAttribute="width" secondItem="2Pk-J7-6Zh" secondAttribute="width" id="agd-qQ-czQ"/>
                                             <constraint firstItem="2Pk-J7-6Zh" firstAttribute="leading" secondItem="cRb-xl-Ghl" secondAttribute="leading" constant="20" id="bbd-7i-Oq0"/>
-                                            <constraint firstItem="TSu-3F-tjY" firstAttribute="centerX" secondItem="2Pk-J7-6Zh" secondAttribute="centerX" id="cil-6y-3gw"/>
                                             <constraint firstItem="LPc-gy-waf" firstAttribute="height" secondItem="2Pk-J7-6Zh" secondAttribute="height" id="dGe-T3-DrF"/>
                                             <constraint firstItem="2Pk-J7-6Zh" firstAttribute="top" secondItem="cRb-xl-Ghl" secondAttribute="top" constant="20" id="eue-cJ-iKh"/>
-                                            <constraint firstItem="TSu-3F-tjY" firstAttribute="width" secondItem="2Pk-J7-6Zh" secondAttribute="width" id="hiO-g8-pnc"/>
-                                            <constraint firstItem="TSu-3F-tjY" firstAttribute="height" secondItem="cRb-xl-Ghl" secondAttribute="height" id="hlX-UT-fXc"/>
                                             <constraint firstItem="LPc-gy-waf" firstAttribute="top" secondItem="zhj-4V-9NB" secondAttribute="bottom" constant="3" id="jVe-fx-jbx"/>
-                                            <constraint firstItem="zhj-4V-9NB" firstAttribute="top" secondItem="TSu-3F-tjY" secondAttribute="bottom" constant="3" id="lOI-Re-8Dg"/>
-                                            <constraint firstItem="zhj-4V-9NB" firstAttribute="top" secondItem="TSu-3F-tjY" secondAttribute="bottom" constant="3" id="pkG-zq-wTG"/>
                                         </constraints>
-                                        <variation key="default">
-                                            <mask key="constraints">
-                                                <exclude reference="hlX-UT-fXc"/>
-                                            </mask>
-                                        </variation>
                                     </view>
                                 </subviews>
                                 <constraints>
