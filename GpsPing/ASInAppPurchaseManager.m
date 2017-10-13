@@ -95,7 +95,7 @@ static DDLogLevel ddLogLevel = DDLogLevelDebug;
     DDLogDebug(@"received restored transactions: %lu", (unsigned long)queue.transactions.count);
     bool restored = false;
     for(SKPaymentTransaction *transaction in queue.transactions){
-        if(transaction.transactionState == SKPaymentTransactionStateRestored){
+        if(transaction.transactionState == SKPaymentTransactionStateRestored || transaction.transactionState == SKPaymentTransactionStatePurchased){
             DDLogDebug(@"Transaction state -> Restored");
             [self doSubcribeWithDate:[[NSUbiquitousKeyValueStore defaultStore] objectForKey:@"areSubscribedAtDate"]];
             [[SKPaymentQueue defaultQueue] finishTransaction:transaction];
