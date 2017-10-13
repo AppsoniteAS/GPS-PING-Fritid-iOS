@@ -72,9 +72,13 @@
 
 //subscription
 "You don't have any tracker" = "Du har ikke registrert tracker på din bruker";
+"You don't have any subscription" = "Du har ikke abonnement";
+
 "Please add a tracker or subscribe to your friend's tracker" = "Legg til tracker eller kjøp abonnement slik at du kan se din venns tracker";
 "Add tracker" = "Legg til tracker";
 "Restore" = "Gjenopprett kjøp";
 "Subscribe" = "Abonner";
+"Please subscribe" = "Vennligst abonner";
+
 "reset_all" = "Du trenger å oppdatere appen med ny ip-adresse for at trackeren skal fungere. Trykk på knappen under og send SMS til trackeren for å oppdatere.";
 "reset_all_btn" = "Oppdater»";
