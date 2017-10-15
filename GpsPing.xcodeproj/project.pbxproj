@@ -126,6 +126,7 @@
 		E987820E1F861DDC0098C143 /* ASFAQTrackerListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E987820D1F861DDC0098C143 /* ASFAQTrackerListCell.m */; };
 		E98C98581F811B1C00A028DC /* ASPOIDetailsView.m in Sources */ = {isa = PBXBuildFile; fileRef = E98C98571F811B1C00A028DC /* ASPOIDetailsView.m */; };
 		E98C985B1F815A1F00A028DC /* ASMapDetailsButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E98C985A1F815A1F00A028DC /* ASMapDetailsButton.m */; };
+		E9AB7B671F93B49300EBC7B5 /* ASS3Manager.m in Sources */ = {isa = PBXBuildFile; fileRef = E9AB7B661F93B49300EBC7B5 /* ASS3Manager.m */; };
 		E9CFA3711F6144BD00516EE2 /* Chel.gpx in Resources */ = {isa = PBXBuildFile; fileRef = E9CFA36D1F6144BD00516EE2 /* Chel.gpx */; };
 		E9CFA3721F6144BD00516EE2 /* Home.gpx in Resources */ = {isa = PBXBuildFile; fileRef = E9CFA36E1F6144BD00516EE2 /* Home.gpx */; };
 		E9CFA3731F6144BD00516EE2 /* Norway.gpx in Resources */ = {isa = PBXBuildFile; fileRef = E9CFA36F1F6144BD00516EE2 /* Norway.gpx */; };
@@ -456,6 +457,8 @@
 		E98C98571F811B1C00A028DC /* ASPOIDetailsView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ASPOIDetailsView.m; sourceTree = "<group>"; };
 		E98C98591F815A1E00A028DC /* ASMapDetailsButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ASMapDetailsButton.h; sourceTree = "<group>"; };
 		E98C985A1F815A1F00A028DC /* ASMapDetailsButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ASMapDetailsButton.m; sourceTree = "<group>"; };
+		E9AB7B651F93B49300EBC7B5 /* ASS3Manager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ASS3Manager.h; sourceTree = "<group>"; };
+		E9AB7B661F93B49300EBC7B5 /* ASS3Manager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ASS3Manager.m; sourceTree = "<group>"; };
 		E9CFA36D1F6144BD00516EE2 /* Chel.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Chel.gpx; sourceTree = "<group>"; };
 		E9CFA36E1F6144BD00516EE2 /* Home.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Home.gpx; sourceTree = "<group>"; };
 		E9CFA36F1F6144BD00516EE2 /* Norway.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Norway.gpx; sourceTree = "<group>"; };
@@ -677,6 +680,7 @@
 		A68C1B881C4D2550000E2BA6 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				E9AB7B641F93AF6600EBC7B5 /* S3 */,
 				A6D136531DA271CE0069F08C /* LocationService */,
 				A6D136541DA271DF0069F08C /* Backend */,
 				A6D136561DA272130069F08C /* InAppPurchaseManager */,
@@ -942,6 +946,15 @@
 				AB89468C1C4F3203002E86C8 /* ASRegisterViewModel.m */,
 			);
 			name = Auth;
+			sourceTree = "<group>";
+		};
+		E9AB7B641F93AF6600EBC7B5 /* S3 */ = {
+			isa = PBXGroup;
+			children = (
+				E9AB7B651F93B49300EBC7B5 /* ASS3Manager.h */,
+				E9AB7B661F93B49300EBC7B5 /* ASS3Manager.m */,
+			);
+			name = S3;
 			sourceTree = "<group>";
 		};
 		E9CFA36C1F6144A800516EE2 /* GPX */ = {
@@ -1276,6 +1289,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A68C1BA71C4F7006000E2BA6 /* UIStoryboard+ASHelper.m in Sources */,
+				E9AB7B671F93B49300EBC7B5 /* ASS3Manager.m in Sources */,
 				A60C46941D80114B00141ED3 /* ASIntroViewController.m in Sources */,
 				A603CED51C58D5C2001D56A4 /* ASMapViewController.m in Sources */,
 				E9FFBD871F5EFE590062069B /* ASAddTrackerCell.m in Sources */,

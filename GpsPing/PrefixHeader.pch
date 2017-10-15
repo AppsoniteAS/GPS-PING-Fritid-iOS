@@ -15,4 +15,16 @@
 //#import <CocoaLumberjack.h>
 #define AG_DEBUG_MODE
 
+#define DECLARE_SINGLTON + (instancetype)sharedInstance;
+#define IMPLEMENT_SINGLETON(classname)\
+\
++ (instancetype)sharedInstance {\
+\
+static dispatch_once_t pred;\
+__strong static classname * sharedInstance = nil;\
+dispatch_once( &pred, ^{\
+sharedInstance = [[self alloc] init]; });\
+return sharedInstance;\
+}
+
 #endif /* PrefixHeader_pch */

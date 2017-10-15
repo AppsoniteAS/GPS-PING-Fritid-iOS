@@ -20,7 +20,7 @@
 #import "UIStoryboard+ASHelper.h"
 static const DDLogLevel ddLogLevel = DDLogLevelVerbose;
 @import MessageUI;
-#import <AWSS3/AWSS3.h>
+#import "ASS3Manager.h"
 
 static NSString *const kASUserDefaultsKeyBikeLedLight   = @"kASUserDefaultsKeyBikeLedLight";
 static NSString *const kASUserDefaultsKeyBikeShockAlarm = @"kASUserDefaultsKeyBikeShockAlarm";
@@ -644,7 +644,14 @@ objection_requires(@keypath(ASTrackerConfigurationViewController.new, apiControl
     
     UIImage* selectedImage = info[UIImagePickerControllerEditedImage];
     self.imageViewPhoto.image  = selectedImage;
-    [self handleS3:[NSString stringWithFormat: @"xxx_%d", arc4random_uniform(10000) ] image:selectedImage];
+    
+    
+    [[[ASS3Manager sharedInstance] handleS3: [[NSUUID UUID] UUIDString] image:selectedImage] subscribeNext:^(id x) {
+        ;
+    } error:^(NSError *error) {
+        ;
+    }];
+    
     [picker dismissViewControllerAnimated:YES completion:NULL];
 
 }
@@ -754,71 +761,5 @@ objection_requires(@keypath(ASTrackerConfigurationViewController.new, apiControl
             }];
 }
 
-- (void) handleS3: (NSString*) imageName image: (UIImage*) image{
-    DDLogInfo(@"%@", imageName);
-    AWSStaticCredentialsProvider *credentialsProvider =
-    [[AWSStaticCredentialsProvider alloc]
-     initWithAccessKey:@"AKIAJIH5WTKMPAXM27EA"
-     secretKey:@"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"];
-    
-    NSFileManager*  fileManager = [NSFileManager defaultManager];
-    NSString* path =  [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject] stringByAppendingPathComponent: [NSString stringWithFormat: @"%@.jpg", imageName]];
-    NSData* imageData = UIImageJPEGRepresentation(image, 1.0);
-    
-    [fileManager createFileAtPath:path contents:imageData attributes:nil];// .createFile(atPath: path as String, contents: imageData, attributes: nil)
-    
-    //let fileUrl = NSURL(fileURLWithPath: path)
-    
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc]initWithRegion:AWSRegionEUWest1 credentialsProvider:credentialsProvider];
-    // S3 has only a Global Region -- establish our creds configuration
-    [AWSS3TransferManager registerS3TransferManagerWithConfiguration:configuration forKey:@"GlobalS3TransferManager"];
-    
-    AWSS3TransferManagerUploadRequest *uploadRequest = [AWSS3TransferManagerUploadRequest new];
-    uploadRequest.ACL = AWSS3ObjectCannedACLPublicRead;
-    
-    AWSS3TransferManager * transferManager = [AWSS3TransferManager S3TransferManagerForKey:@"GlobalS3TransferManager"];
-    
-    uploadRequest.bucket = @"fritidbucket";
-    uploadRequest.key = [NSString stringWithFormat: @"%@.jpg", imageName];
-    uploadRequest.contentType = @"image/jpeg";
-    uploadRequest.body = [NSURL fileURLWithPath: path];
-    [[transferManager upload:uploadRequest] continueWithBlock:^id _Nullable(AWSTask * _Nonnull t) {
-        if (t.error){
-            DDLogError(@"Error: %@", t.error);
-            return nil;
-        }
-        DDLogInfo(@"Result: %@", t.result);
-        return nil;
-    }];
-    
-    
-//    [[transferManager download:downloadRequest] continueWithExecutor:[AWSExecutor mainThreadExecutor] withBlock:^id(AWSTask *task){
-//
-//        if (task.error){
-//            if ([task.error.domain isEqualToString:AWSS3TransferManagerErrorDomain]) {
-//                switch (task.error.code) {
-//                    case AWSS3TransferManagerErrorCancelled:
-//                    case AWSS3TransferManagerErrorPaused:
-//                        break;
-//
-//                    default:
-//                        NSLog(@"Error: %@", task.error);
-//                        break;
-//                }
-//            } else {
-//                NSLog(@"Error: %@", task.error);
-//            }
-//        }
-//
-//        if (task.result) {
-//            // ...this runs on main thread already
-//            NSLog(@"Result: %@", task.result);
-//
-//           // cell.imageView.image = [UIImage imageWithContentsOfFile:downloadingFilePath];
-//        }
-//        return nil;
-//    }];
-
-}
 
 @end
