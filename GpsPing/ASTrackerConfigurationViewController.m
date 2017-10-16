@@ -45,6 +45,7 @@ static NSString *const kASUserDefaultsKeyBikeFlashAlarm = @"kASUserDefaultsKeyBi
 @property (weak, nonatomic) IBOutlet ASButton *buttonDogSleepMode;
 @property (weak, nonatomic) IBOutlet ASButton *buttonCheckBattery;
 @property (weak, nonatomic) IBOutlet UIButton *startStopButton;
+@property (weak, nonatomic) IBOutlet UIView *photoContainer;
 
 @property (weak, nonatomic) IBOutlet UIImageView *imageViewPlaceholder;
 @property (weak, nonatomic) IBOutlet UIImageView *imageViewPhoto;
@@ -645,11 +646,15 @@ objection_requires(@keypath(ASTrackerConfigurationViewController.new, apiControl
     UIImage* selectedImage = info[UIImagePickerControllerEditedImage];
     self.imageViewPhoto.image  = selectedImage;
     
-    
-    [[[ASS3Manager sharedInstance] handleS3: [[NSUUID UUID] UUIDString] image:selectedImage] subscribeNext:^(id x) {
-        ;
+    self.photoContainer.backgroundColor = [UIColor clearColor];
+
+    [[[ASS3Manager sharedInstance] handleCognitoS3: [[NSUUID UUID] UUIDString] image:selectedImage] subscribeNext:^(id x) {
+        DDLogInfo(@"succefull upload!");
+        self.photoContainer.backgroundColor = [UIColor clearColor];
+        self.imageViewPlaceholder.alpha = 0;
     } error:^(NSError *error) {
-        ;
+        DDLogError(@"error upload!");
+
     }];
     
     [picker dismissViewControllerAnimated:YES completion:NULL];

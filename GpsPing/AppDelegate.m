@@ -18,7 +18,7 @@
 #import "ASFriendsListViewController.h"
 #import <Fabric/Fabric.h>
 #import <Crashlytics/Crashlytics.h>
-
+#import "ASS3Manager.h"
 DDLogLevel ddLogLevel = DDLogLevelError;
 
 @interface AppDelegate ()
@@ -60,7 +60,7 @@ DDLogLevel ddLogLevel = DDLogLevelError;
     [self configPushes:application];
     [Fabric with:@[[Crashlytics class]]];
 
-    
+    [[ASS3Manager sharedInstance] prepareCognito];
     
 //    NSDictionary *userInfo = [launchOptions valueForKey:@"UIApplicationLaunchOptionsRemoteNotificationKey"];
 //    NSDictionary *apsInfo = [userInfo objectForKey:@"aps"];

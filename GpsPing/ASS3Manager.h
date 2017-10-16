@@ -14,6 +14,7 @@
 
 @interface ASS3Manager : NSObject
 DECLARE_SINGLTON
-
+- (void) prepareCognito;
+- (RACSignal*) handleCognitoS3: (NSString*) imageName image: (UIImage*) image;
 - (RACSignal*) handleS3: (NSString*) imageName image: (UIImage*) image;
 @end
