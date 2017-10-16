@@ -58,6 +58,7 @@ static NSString * const kASUserDefaultsTrackersKey   = @"kASUserDefaultsTrackers
 @property (nonatomic        ) NSString  *geofenceYards;
 
 @property (nonatomic, strong) NSString *trackerPhoneNumber;
+@property (nonatomic, strong) NSString *imageId;
 
 +(instancetype)initTrackerWithName:(NSString *)name
                             number:(NSString *)number

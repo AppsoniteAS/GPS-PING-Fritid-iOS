@@ -47,7 +47,7 @@ IMPLEMENT_SINGLETON(ASS3Manager)
     return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
         
         NSFileManager*  fileManager = [NSFileManager defaultManager];
-        NSString* path =  [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject] stringByAppendingPathComponent: [NSString stringWithFormat: @"%@.jpg", imageName]];
+        NSString* path =  [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject] stringByAppendingPathComponent:  imageName];
         NSData* imageData = UIImageJPEGRepresentation(image, 1.0);
         
         [fileManager createFileAtPath:path contents:imageData attributes:nil];// .createFile(atPath: path as String, contents: imageData, attributes: nil)
@@ -58,7 +58,7 @@ IMPLEMENT_SINGLETON(ASS3Manager)
         AWSS3TransferManager * transferManager = [AWSS3TransferManager defaultS3TransferManager];
         
         uploadRequest.bucket = S3BucketName;
-        uploadRequest.key = [NSString stringWithFormat: @"%@.jpg", imageName];
+        uploadRequest.key =  imageName;
         uploadRequest.contentType = @"image/jpeg";
         uploadRequest.body = [NSURL fileURLWithPath: path];
         
@@ -92,7 +92,7 @@ IMPLEMENT_SINGLETON(ASS3Manager)
          secretKey:S3SecretKey];
         
         NSFileManager*  fileManager = [NSFileManager defaultManager];
-        NSString* path =  [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject] stringByAppendingPathComponent: [NSString stringWithFormat: @"%@.jpg", imageName]];
+        NSString* path =  [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject] stringByAppendingPathComponent: imageName];
         NSData* imageData = UIImageJPEGRepresentation(image, 1.0);
         
         [fileManager createFileAtPath:path contents:imageData attributes:nil];// .createFile(atPath: path as String, contents: imageData, attributes: nil)
@@ -109,7 +109,7 @@ IMPLEMENT_SINGLETON(ASS3Manager)
         AWSS3TransferManager * transferManager = [AWSS3TransferManager S3TransferManagerForKey:S3Region];
         
         uploadRequest.bucket = S3BucketName;
-        uploadRequest.key = [NSString stringWithFormat: @"%@.jpg", imageName];
+        uploadRequest.key = imageName;// [NSString stringWithFormat: @"%@.jpg", imageName];
         uploadRequest.contentType = @"image/jpeg";
         uploadRequest.body = [NSURL fileURLWithPath: path];
         
@@ -158,5 +158,11 @@ IMPLEMENT_SINGLETON(ASS3Manager)
 //        return nil;
 //    }];
 
+
+- (NSURL*) getURLByImageIdentifier: (NSString*) imageId{
+    //https://s3-eu-west-1.amazonaws.com/fritidbucket/
+    
+    return [NSURL URLWithString: [NSString stringWithFormat:@"https://s3-eu-west-1.amazonaws.com/%@/%@", S3BucketName, imageId]];
+}
 
 @end

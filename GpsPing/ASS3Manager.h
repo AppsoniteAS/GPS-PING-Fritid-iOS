@@ -17,4 +17,6 @@ DECLARE_SINGLTON
 - (void) prepareCognito;
 - (RACSignal*) handleCognitoS3: (NSString*) imageName image: (UIImage*) image;
 - (RACSignal*) handleS3: (NSString*) imageName image: (UIImage*) image;
+
+- (NSURL*) getURLByImageIdentifier: (NSString*) imageId;
 @end

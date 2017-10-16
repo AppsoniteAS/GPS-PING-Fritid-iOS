@@ -18,6 +18,7 @@
 #import <CocoaLumberjack/CocoaLumberjack.h>
 #import "ASMapViewController.h"
 #import "UIStoryboard+ASHelper.h"
+#import <YYWebImage.h>
 static const DDLogLevel ddLogLevel = DDLogLevelVerbose;
 @import MessageUI;
 #import "ASS3Manager.h"
@@ -209,6 +210,14 @@ objection_requires(@keypath(ASTrackerConfigurationViewController.new, apiControl
     self.tableView.backgroundView = tempImageView;
     
     self.navigationItem.rightBarButtonItem = nil;
+    
+    if (self.trackerObject.imageId){
+        [self.imageViewPhoto yy_setImageWithURL:[ [ASS3Manager sharedInstance] getURLByImageIdentifier: self.trackerObject.imageId ]placeholder:nil options:YYWebImageOptionSetImageWithFadeAnimation completion:^(UIImage * _Nullable image, NSURL * _Nonnull url, YYWebImageFromType from, YYWebImageStage stage, NSError * _Nullable error) {
+            if (from == YYWebImageFromDiskCache) {
+                DDLogDebug(@"load from disk cache");
+            }
+        }];
+    }
 }
 
 
@@ -644,18 +653,32 @@ objection_requires(@keypath(ASTrackerConfigurationViewController.new, apiControl
     
     
     UIImage* selectedImage = info[UIImagePickerControllerEditedImage];
-    self.imageViewPhoto.image  = selectedImage;
+    //self.imageViewPhoto.image  = selectedImage;
     
-    self.photoContainer.backgroundColor = [UIColor clearColor];
-
-    [[[ASS3Manager sharedInstance] handleCognitoS3: [[NSUUID UUID] UUIDString] image:selectedImage] subscribeNext:^(id x) {
+    //self.photoContainer.backgroundColor = [UIColor clearColor];
+    
+    NSString* imageIdentifier =  [NSString stringWithFormat:@"%@.jpg", [[NSUUID UUID] UUIDString] ];
+    [[[[ASS3Manager sharedInstance] handleS3:imageIdentifier image:selectedImage] flattenMap:^RACStream *(id value) {
+        return [self.apiController updateImage:imageIdentifier forTrackerId:self.trackerObject.imeiNumber];
+    }] subscribeNext:^(id x) {
         DDLogInfo(@"succefull upload!");
         self.photoContainer.backgroundColor = [UIColor clearColor];
         self.imageViewPlaceholder.alpha = 0;
+        self.imageViewPhoto.image  = selectedImage;
     } error:^(NSError *error) {
         DDLogError(@"error upload!");
-
     }];
+    
+
+//    [[[ASS3Manager sharedInstance] handleCognitoS3: [[NSUUID UUID] UUIDString] image:selectedImage]
+//     subscribeNext:^(id x) {
+//        DDLogInfo(@"succefull upload!");
+//        self.photoContainer.backgroundColor = [UIColor clearColor];
+//        self.imageViewPlaceholder.alpha = 0;
+//        self.imageViewPhoto.image  = selectedImage;
+//    } error:^(NSError *error) {
+//        DDLogError(@"error upload!");
+//    }];
     
     [picker dismissViewControllerAnimated:YES completion:NULL];
 

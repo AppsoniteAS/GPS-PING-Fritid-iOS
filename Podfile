@@ -30,7 +30,7 @@ target :GpsPing do
     pod 'DateTools', '~> 1.7.0'
     pod 'TPKeyboardAvoiding', '~> 1.2'
     pod 'FCOverlay', '~>1.0.1'
-    
+    pod 'YYWebImage'
     pod 'AWSS3'
     pod 'Fabric'
     pod 'Crashlytics'

@@ -30,6 +30,8 @@ NSString* const kASTrackerIsChoosed   = @"choosed";
 NSString* const kASTrackerDogInStand  = @"check_for_stand";
 NSString* const kASTrackerSignalRate  = @"reciver_signal_repeat_time";
 NSString* const kASTrackerId          = @"tracker_id";
+NSString* const kASTrackerImageId     = @"image";
+
 NSString* const kASIsRunning          = @"isRunning";
 NSString* const kASIsGeofenceRunning  = @"isGeofenceRunning";
 NSString* const kASGeofenceYards      = @"geofenceYards";
@@ -66,6 +68,8 @@ NSString* const kASDogSleepModeIsOn   = @"kASDogSleepModeIsOn";
               @keypath(ASTrackerModel.new, trackerType)        : kASTrackerType,
               @keypath(ASTrackerModel.new, isChoosed)          : kASTrackerIsChoosed,
               @keypath(ASTrackerModel.new, dogInStand)         : kASTrackerDogInStand,
+               @keypath(ASTrackerModel.new, imageId)         : kASTrackerImageId,
+
               @keypath(ASTrackerModel.new, signalRateInSeconds): kASTrackerSignalRate,
               @keypath(ASTrackerModel.new, isRunning)          : kASIsRunning,
               @keypath(ASTrackerModel.new, isGeofenceStarted)  : kASIsGeofenceRunning,

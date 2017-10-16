@@ -14,4 +14,6 @@
 @property (assign, nonatomic) BOOL isHistoryMode;
 +(instancetype)initialize;
 @property (strong, nonatomic) ASTrackerModel* selectedTracker;
+@property (assign, nonatomic) bool needRefresh;
+- (void) refresh;
 @end

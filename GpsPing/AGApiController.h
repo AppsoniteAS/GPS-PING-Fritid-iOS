@@ -87,6 +87,9 @@ extern NSString *kASUserDefaultsKeyResetAll;
               longitude:(CGFloat)longitude;
 -(RACSignal *)removePOIWithId:(NSUInteger)identificator;
 
+-(RACSignal *)updateImage:(NSString*)name
+             forTrackerId:(NSString*)trackerId;
+
 #pragma mark - Pushes
 
 -(RACSignal *)registerForPushes;

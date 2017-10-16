@@ -288,6 +288,20 @@ objection_initializer(initWithConfiguration:);
                                      parameters:params];
 }
 
+-(RACSignal *)updateImage:(NSString*)name
+                  forTrackerId:(NSString*)trackerId
+
+{
+    DDLogDebug(@"%s", __PRETTY_FUNCTION__);
+
+    NSDictionary *params = @{@"name":name,
+                             @"imei_number":trackerId};
+    params = [self addAuthParamsByUpdatingParams:params];
+    return [self performHttpRequestWithAttempts:requestMethod
+                                       resource:@"tracker/update_image"
+                                     parameters:params];
+}
+
 -(RACSignal *)removeTrackerByImei:(NSString*)imei
 {
     DDLogDebug(@"%s", __PRETTY_FUNCTION__);

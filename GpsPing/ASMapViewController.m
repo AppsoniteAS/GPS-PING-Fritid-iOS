@@ -33,7 +33,7 @@ static const DDLogLevel ddLogLevel = DDLogLevelDebug;
 
 static NSString *const kASUserDefaultsKeyRemoveTrackersDate = @"kASUserDefaultsKeyRemoveTrackersDate";
 
-@interface ASMapViewController () <MKMapViewDelegate,UIPickerViewDelegate, UIPickerViewDataSource, THDatePickerDelegate>
+@interface ASMapViewController () <MKMapViewDelegate,UIPickerViewDelegate, UIPickerViewDataSource, THDatePickerDelegate, UITabBarControllerDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *startLocateUserButton;
 
 @property (weak, nonatomic) IBOutlet UIView           *filterPlank;
@@ -102,7 +102,7 @@ objection_requires(@keypath(ASMapViewController.new, apiController), @keypath(AS
     
     [self.mapView addGestureRecognizer:longPress];
     [self.mapView addGestureRecognizer:self.tapGestureDetails];
-    self.isFirstLaunch = YES;
+
     [self configFilter];
     
 //    UIBarButtonItem *rightBBI;
@@ -128,7 +128,7 @@ objection_requires(@keypath(ASMapViewController.new, apiController), @keypath(AS
    // [self.locationManager requestWhenInUseAuthorization];
     [self.locationManager requestAlwaysAuthorization];
     
-    [self changeMapType:2];
+    [self changeMapType:1];
 
     self.mapView.showsUserLocation = YES;
     
@@ -139,6 +139,26 @@ objection_requires(@keypath(ASMapViewController.new, apiController), @keypath(AS
                                                 selector:@selector(timerTick:)
                                                 userInfo:nil
                                                  repeats:YES];
+   
+    self.compassController = [CompassController compassWithArrowImageView:self.compassImageView];
+    
+    [RACObserve(self, locationTrackingService.isServiceRunning) subscribeNext:^(NSNumber *isRunning) {
+        if (isRunning.boolValue) {
+            [self.startLocateUserButton setImage:[[UIImage imageNamed:@"friend_list_icon_visible"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]
+                                        forState:UIControlStateNormal];
+        } else {
+            [self.startLocateUserButton setImage:[[UIImage imageNamed:@"friend_list_icon_invisible"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]
+                                        forState:UIControlStateNormal];
+        }
+    }];
+    UITabBarController* t =  ((UITabBarController*)[[[[UIApplication sharedApplication] delegate] window] rootViewController] );
+    t.delegate = self;
+    [self refresh];
+}
+
+- (void) refresh{
+        self.isFirstLaunch = YES;
+    
     if (!self.isHistoryMode) {
         self.timerForTrackQuery = [NSTimer scheduledTimerWithTimeInterval:QUERY_RATE_IN_SECONDS
                                                                    target:self
@@ -153,23 +173,20 @@ objection_requires(@keypath(ASMapViewController.new, apiController), @keypath(AS
         [self loadPointsOfInterest];
     }
     
-    self.compassController = [CompassController compassWithArrowImageView:self.compassImageView];
-    
-    [RACObserve(self, locationTrackingService.isServiceRunning) subscribeNext:^(NSNumber *isRunning) {
-        if (isRunning.boolValue) {
-            [self.startLocateUserButton setImage:[[UIImage imageNamed:@"friend_list_icon_visible"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]
-                                        forState:UIControlStateNormal];
-        } else {
-            [self.startLocateUserButton setImage:[[UIImage imageNamed:@"friend_list_icon_invisible"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]
-                                        forState:UIControlStateNormal];
-        }
-    }];
+}
+
+- (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController{
+    if (self.needRefresh){
+        self.needRefresh = false;
+        [self refresh];
+    }
 }
 
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     [self refreshLine];
+
 }
 
 
@@ -592,17 +609,30 @@ objection_requires(@keypath(ASMapViewController.new, apiController), @keypath(AS
         }
     }
     if(self.isFirstLaunch){
-        ASDeviceModel *deviceModel = friendModel.devices.firstObject;
-        if(deviceModel) {
-            self.isFirstLaunch = NO;
-            if (deviceModel.latitude.integerValue == 0 && deviceModel.longitude.integerValue == 0){
-                return;
+        
+        for (ASDeviceModel *deviceModel in friendModel.devices) {
+            if(deviceModel) {
+                self.isFirstLaunch = NO;
+                if (deviceModel.latitude.integerValue == 0 && deviceModel.longitude.integerValue == 0){
+                    continue;
+                }
+                self.isUserLocationCentered = YES;
+                CLLocationCoordinate2D coord = CLLocationCoordinate2DMake(deviceModel.latitude.doubleValue, deviceModel.longitude.doubleValue);
+                MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(coord, 800, 800);
+                [self.mapView setRegion:viewRegion animated:YES];
             }
-             self.isUserLocationCentered = YES;
-            CLLocationCoordinate2D coord = CLLocationCoordinate2DMake(deviceModel.latitude.doubleValue, deviceModel.longitude.doubleValue);
-            MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(coord, 800, 800);
-            [self.mapView setRegion:viewRegion animated:YES];
         }
+//        ASDeviceModel *deviceModel = friendModel.devices.firstObject;
+//        if(deviceModel) {
+//            self.isFirstLaunch = NO;
+//            if (deviceModel.latitude.integerValue == 0 && deviceModel.longitude.integerValue == 0){
+//                return;
+//            }
+//             self.isUserLocationCentered = YES;
+//            CLLocationCoordinate2D coord = CLLocationCoordinate2DMake(deviceModel.latitude.doubleValue, deviceModel.longitude.doubleValue);
+//            MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(coord, 800, 800);
+//            [self.mapView setRegion:viewRegion animated:YES];
+//        }
     }
 }
 
