@@ -9,6 +9,7 @@
 #import "ASProfileViewModel.h"
 #import "AGApiController.h"
 #import "NSString+ASNameComponents.h"
+#import "ASMapViewController.h"
 
 #import <CocoaLumberjack.h>
 static DDLogLevel ddLogLevel = DDLogLevelDebug;
@@ -113,6 +114,12 @@ objection_requires(@keypath(ASProfileViewModel.new, apiController))
     self.city = nil;
     self.country = nil;
     self.zipCode = nil;
+    
+    
+   UITabBarController* target =  (UITabBarController*)[[[[UIApplication sharedApplication] delegate] window] rootViewController] ;
+    ASMapViewController* map = [((UINavigationController*)[target childViewControllers][0]) childViewControllers][0];
+    [map setNeedRefresh:true];
+    //[map refresh];
 }
 
 @end

@@ -124,6 +124,7 @@ objection_requires(@keypath(ASTrackerConfigurationViewController.new, apiControl
 #pragma mark - UIViewController methods
 
 -(void)viewDidLoad {
+    @weakify(self)
     [super viewDidLoad];
     [[JSObjection defaultInjector] injectDependencies:self];
     [self jps_viewDidLoad];
@@ -214,9 +215,14 @@ objection_requires(@keypath(ASTrackerConfigurationViewController.new, apiControl
     if (self.trackerObject.imageId){
         [self.imageViewPhoto yy_setImageWithURL:[ [ASS3Manager sharedInstance] getURLByImageIdentifier: self.trackerObject.imageId ]placeholder:nil options:YYWebImageOptionSetImageWithFadeAnimation completion:^(UIImage * _Nullable image, NSURL * _Nonnull url, YYWebImageFromType from, YYWebImageStage stage, NSError * _Nullable error) {
             if (from == YYWebImageFromDiskCache) {
+                @strongify(self)
                 DDLogDebug(@"load from disk cache");
+                [self showPhotoHidePlaceholder:true];
+
             }
         }];
+    } else{
+        [self showPhotoHidePlaceholder:false];
     }
 }
 
@@ -607,12 +613,20 @@ objection_requires(@keypath(ASTrackerConfigurationViewController.new, apiControl
 
 #pragma mark - Photo
 
+- (void) showPhotoHidePlaceholder: (bool) need{
+    self.imageViewPlaceholder.alpha = need ? 0 : 1;
+    if (!need){
+        self.imageViewPhoto.image = nil;
+    }
+    self.photoContainer.backgroundColor = need ? [UIColor clearColor] : [UIColor colorWithWhite:1.0 alpha:0.8];
+}
+
 - (IBAction)pressedPhoto:(UIButton *)sender {
     UIImagePickerController *picker = [[UIImagePickerController alloc] init];
     picker.delegate = self;
     picker.allowsEditing = YES;
     
-    UIAlertController* alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"reset_all", nil)
+    UIAlertController* alert = [UIAlertController alertControllerWithTitle:nil
                                                                    message:nil
                                                             preferredStyle:UIAlertControllerStyleActionSheet];
     
@@ -624,6 +638,19 @@ objection_requires(@keypath(ASTrackerConfigurationViewController.new, apiControl
     
                                                          [self presentViewController:picker animated:YES completion:NULL];
                                                      }];
+    
+    
+    UIAlertAction* removeAction = [UIAlertAction actionWithTitle:@"Remove photo" style:UIAlertActionStyleDefault
+                                                          handler:^(UIAlertAction * action) {
+                                                              
+
+                                                              [[self.apiController removeTrackerByImei:self.trackerObject.imeiNumber] subscribeNext:^(id x) {
+                                                                  DDLogDebug(@"removed photo");
+                                                                  [self showPhotoHidePlaceholder:false];
+                                                              } error:^(NSError *error) {
+                                                                  DDLogError(@"%@", error.localizedDescription);
+                                                              }];
+                                                          }];
     
     
     UIAlertAction* cameraAction = [UIAlertAction actionWithTitle:@"Camera" style:UIAlertActionStyleDefault
@@ -643,6 +670,7 @@ objection_requires(@keypath(ASTrackerConfigurationViewController.new, apiControl
     
     [alert addAction:libraryAction];
     [alert addAction:cameraAction];
+    [alert addAction:removeAction];
     [alert addAction:cancelAction];
 
     [self presentViewController:alert animated:true completion:nil];
@@ -665,6 +693,8 @@ objection_requires(@keypath(ASTrackerConfigurationViewController.new, apiControl
         self.photoContainer.backgroundColor = [UIColor clearColor];
         self.imageViewPlaceholder.alpha = 0;
         self.imageViewPhoto.image  = selectedImage;
+        self.trackerObject.imageId = imageIdentifier;
+        [self.trackerObject saveInUserDefaults];
     } error:^(NSError *error) {
         DDLogError(@"error upload!");
     }];

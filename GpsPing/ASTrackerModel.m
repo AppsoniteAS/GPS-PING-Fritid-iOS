@@ -30,7 +30,7 @@ NSString* const kASTrackerIsChoosed   = @"choosed";
 NSString* const kASTrackerDogInStand  = @"check_for_stand";
 NSString* const kASTrackerSignalRate  = @"reciver_signal_repeat_time";
 NSString* const kASTrackerId          = @"tracker_id";
-NSString* const kASTrackerImageId     = @"image";
+NSString* const kASTrackerImageId     = @"picUrl";
 
 NSString* const kASIsRunning          = @"isRunning";
 NSString* const kASIsGeofenceRunning  = @"isGeofenceRunning";

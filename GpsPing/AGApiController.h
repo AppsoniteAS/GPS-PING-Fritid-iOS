@@ -89,7 +89,7 @@ extern NSString *kASUserDefaultsKeyResetAll;
 
 -(RACSignal *)updateImage:(NSString*)name
              forTrackerId:(NSString*)trackerId;
-
+-(RACSignal *)removeImageForTrackerId:(NSString*)trackerId;
 #pragma mark - Pushes
 
 -(RACSignal *)registerForPushes;

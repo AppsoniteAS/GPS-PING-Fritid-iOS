@@ -863,7 +863,7 @@
                                         <action selector="startServiceTap:" destination="sw3-fk-UAu" eventType="touchUpInside" id="Mup-kY-NcB"/>
                                     </connections>
                                 </button>
-                                <segmentedControl opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="top" apportionsSegmentWidthsByContent="YES" segmentControlStyle="plain" selectedSegmentIndex="2" translatesAutoresizingMaskIntoConstraints="NO" id="crt-P2-2iW" userLabel="IISatellite, Standard, Topo">
+                                <segmentedControl opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="top" apportionsSegmentWidthsByContent="YES" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="crt-P2-2iW" userLabel="IISatellite, Standard, Topo">
                                     <rect key="frame" x="36" y="-14" width="190" height="29"/>
                                     <segments>
                                         <segment title="Satellite"/>

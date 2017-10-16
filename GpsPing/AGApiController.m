@@ -294,13 +294,25 @@ objection_initializer(initWithConfiguration:);
 {
     DDLogDebug(@"%s", __PRETTY_FUNCTION__);
 
-    NSDictionary *params = @{@"name":name,
+    NSDictionary *params = @{@"imageName":name,
                              @"imei_number":trackerId};
     params = [self addAuthParamsByUpdatingParams:params];
     return [self performHttpRequestWithAttempts:requestMethod
                                        resource:@"tracker/update_image"
                                      parameters:params];
 }
+
+-(RACSignal *)removeImageForTrackerId:(NSString*)trackerId
+{
+    DDLogDebug(@"%s", __PRETTY_FUNCTION__);
+    
+    NSDictionary *params = @{@"imei_number":trackerId};
+    params = [self addAuthParamsByUpdatingParams:params];
+    return [self performHttpRequestWithAttempts:requestMethod
+                                       resource:@"tracker/delete_tracker_image"
+                                     parameters:params];
+}
+
 
 -(RACSignal *)removeTrackerByImei:(NSString*)imei
 {
