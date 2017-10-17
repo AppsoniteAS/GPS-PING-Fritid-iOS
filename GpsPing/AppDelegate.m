@@ -60,7 +60,10 @@ DDLogLevel ddLogLevel = DDLogLevelError;
     [self configPushes:application];
     [Fabric with:@[[Crashlytics class]]];
 
-    [[ASS3Manager sharedInstance] prepareCognito];
+    
+    
+
+     [[ASS3Manager sharedInstance] prepareCognito];
     
 //    NSDictionary *userInfo = [launchOptions valueForKey:@"UIApplicationLaunchOptionsRemoteNotificationKey"];
 //    NSDictionary *apsInfo = [userInfo objectForKey:@"aps"];

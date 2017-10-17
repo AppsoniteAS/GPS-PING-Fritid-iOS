@@ -28,8 +28,14 @@ objection_requires(@keypath(ASTrackersViewController.new, apiController))
 - (void)viewDidLoad {
     [super viewDidLoad];
     [[JSObjection defaultInjector] injectDependencies:self];
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     [self registerCellClass:[ASTrackerCell class]
               forModelClass:[ASTrackerModel class]];
+    [self fetchFromServer];
+   
+}
+
+- (void) fetchFromServer{
     [[self.apiController getTrackers] subscribeNext:^(NSArray *trackers) {
         NSArray *memoryTrackers = [ASTrackerModel getTrackersFromUserDefaults];
         for (ASTrackerModel *tracker in trackers) {
@@ -56,7 +62,8 @@ objection_requires(@keypath(ASTrackersViewController.new, apiController))
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    [self reloadTrackers];
+//    [self fetchFromServer];
+   // [self reloadTrackers];
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath

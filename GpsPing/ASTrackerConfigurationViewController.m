@@ -618,7 +618,7 @@ objection_requires(@keypath(ASTrackerConfigurationViewController.new, apiControl
     if (!need){
         self.imageViewPhoto.image = nil;
     }
-    self.photoContainer.backgroundColor = need ? [UIColor clearColor] : [UIColor colorWithWhite:1.0 alpha:0.8];
+   // self.photoContainer.backgroundColor = need ? [UIColor clearColor] : [UIColor colorWithWhite:1.0 alpha:0.8];
 }
 
 - (IBAction)pressedPhoto:(UIButton *)sender {
@@ -644,9 +644,11 @@ objection_requires(@keypath(ASTrackerConfigurationViewController.new, apiControl
                                                           handler:^(UIAlertAction * action) {
                                                               
 
-                                                              [[self.apiController removeTrackerByImei:self.trackerObject.imeiNumber] subscribeNext:^(id x) {
+                                                              [[self.apiController removeImageForTrackerId:self.trackerObject.imeiNumber] subscribeNext:^(id x) {
                                                                   DDLogDebug(@"removed photo");
                                                                   [self showPhotoHidePlaceholder:false];
+                                                                  self.trackerObject.imageId = nil;
+                                                                  [self.trackerObject saveInUserDefaults];
                                                               } error:^(NSError *error) {
                                                                   DDLogError(@"%@", error.localizedDescription);
                                                               }];
@@ -679,18 +681,14 @@ objection_requires(@keypath(ASTrackerConfigurationViewController.new, apiControl
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
     
-    
     UIImage* selectedImage = info[UIImagePickerControllerEditedImage];
-    //self.imageViewPhoto.image  = selectedImage;
-    
-    //self.photoContainer.backgroundColor = [UIColor clearColor];
-    
     NSString* imageIdentifier =  [NSString stringWithFormat:@"%@.jpg", [[NSUUID UUID] UUIDString] ];
-    [[[[ASS3Manager sharedInstance] handleS3:imageIdentifier image:selectedImage] flattenMap:^RACStream *(id value) {
+
+    [[[[ASS3Manager sharedInstance] handleCognitoS3:imageIdentifier image:selectedImage] flattenMap:^RACStream *(id value) {
         return [self.apiController updateImage:imageIdentifier forTrackerId:self.trackerObject.imeiNumber];
     }] subscribeNext:^(id x) {
         DDLogInfo(@"succefull upload!");
-        self.photoContainer.backgroundColor = [UIColor clearColor];
+        //self.photoContainer.backgroundColor = [UIColor clearColor];
         self.imageViewPlaceholder.alpha = 0;
         self.imageViewPhoto.image  = selectedImage;
         self.trackerObject.imageId = imageIdentifier;
@@ -700,16 +698,6 @@ objection_requires(@keypath(ASTrackerConfigurationViewController.new, apiControl
     }];
     
 
-//    [[[ASS3Manager sharedInstance] handleCognitoS3: [[NSUUID UUID] UUIDString] image:selectedImage]
-//     subscribeNext:^(id x) {
-//        DDLogInfo(@"succefull upload!");
-//        self.photoContainer.backgroundColor = [UIColor clearColor];
-//        self.imageViewPlaceholder.alpha = 0;
-//        self.imageViewPhoto.image  = selectedImage;
-//    } error:^(NSError *error) {
-//        DDLogError(@"error upload!");
-//    }];
-    
     [picker dismissViewControllerAnimated:YES completion:NULL];
 
 }
