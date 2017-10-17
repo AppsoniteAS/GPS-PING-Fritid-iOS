@@ -62,7 +62,7 @@ objection_requires(@keypath(ASTrackersViewController.new, apiController))
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-//    [self fetchFromServer];
+    [self fetchFromServer];
    // [self reloadTrackers];
 }
 

@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "ASViewController.h"
 
-@interface ASProfileViewController : ASViewController
+@interface ASProfileViewController : UITableViewController
 
 @end

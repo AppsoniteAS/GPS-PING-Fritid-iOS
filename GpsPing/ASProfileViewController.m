@@ -34,6 +34,10 @@
 
 -(void)viewDidLoad {
     [super viewDidLoad];
+    UIImageView *tempImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"background"]];
+    [tempImageView setFrame:self.tableView.frame];
+    
+    self.tableView.backgroundView = tempImageView;
     
     self->_viewModel = [[ASProfileViewModel alloc] init];
     
