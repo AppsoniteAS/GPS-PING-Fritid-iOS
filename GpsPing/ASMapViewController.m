@@ -105,22 +105,23 @@ objection_requires(@keypath(ASMapViewController.new, apiController), @keypath(AS
 
     [self configFilter];
     
-//    UIBarButtonItem *rightBBI;
-//
-//    if (self.isHistoryMode) {
-//        rightBBI = [[UIBarButtonItem alloc] initWithTitle:@""
-//                                                    style:UIBarButtonItemStylePlain
-//                                                   target:self
-//                                                   action:@selector(calendarTap:)];
-//        rightBBI.image = [UIImage imageNamed:@"calendarIcon"];
-//    } else {
+    UIBarButtonItem *rightBBI;
+
+    if (self.isHistoryMode) {
+        rightBBI = [[UIBarButtonItem alloc] initWithTitle:@""
+                                                    style:UIBarButtonItemStylePlain
+                                                   target:self
+                                                   action:@selector(calendarTap:)];
+        rightBBI.image = [UIImage imageNamed:@"calendarIcon"];
+    } else {
+        rightBBI = nil;
 //        rightBBI = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Remove tracks", nil)
 //                                                    style:UIBarButtonItemStylePlain
 //                                                   target:self
 //                                                   action:@selector(removeTracksTap)];
-//    }
+    }
     
-    self.navigationItem.rightBarButtonItem = nil;//rightBBI;
+    self.navigationItem.rightBarButtonItem = rightBBI;
     
     self.mapView.delegate = self;
     
