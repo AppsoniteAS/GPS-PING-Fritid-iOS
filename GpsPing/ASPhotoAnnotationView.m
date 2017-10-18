@@ -16,11 +16,10 @@
 - (instancetype)initWithAnnotation:(id<MKAnnotation>)annotation reuseIdentifier:(NSString *)reuseIdentifier{
     self = [super initWithAnnotation:annotation reuseIdentifier:reuseIdentifier];
     if (self) {
-        [self setBackgroundColor:[UIColor redColor]];
         self.marker = [ASPinMainView getMarkerView];
-        CGRect frame = CGRectMake(0, 0, self.marker.bounds.size.width, self.marker.bounds.size.height);
-        [self setFrame:frame];
-        [self setCenterOffset:CGPointMake(-CGRectGetHeight(frame) / 2, -CGRectGetHeight(frame) / 2)];
+        CGRect frame = CGRectMake(-self.marker.bounds.size.width /2.0, -self.marker.bounds.size.height / 2.0, self.marker.bounds.size.width, self.marker.bounds.size.height);
+        [self.marker setFrame:frame];
+      //  [self setCenterOffset:CGPointMake(-CGRectGetHeight(width) / 2, -CGRectGetHeight(frame) / 2)];
         [self addSubview:self.marker];
     }
     

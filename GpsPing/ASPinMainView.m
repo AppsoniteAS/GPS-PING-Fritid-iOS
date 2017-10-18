@@ -19,7 +19,7 @@
 
 - (void)awakeFromNib{
     [super awakeFromNib];
-    self.cornerRadius = 5;
+    self.cornerRadius = 17;
     [self.imageViewPhoto.layer setCornerRadius:self.cornerRadius];
     [self.imageViewPhoto.layer setMasksToBounds:true];
 }
