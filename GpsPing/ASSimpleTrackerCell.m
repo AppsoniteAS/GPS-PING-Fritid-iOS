@@ -7,6 +7,9 @@
 //
 
 #import "ASSimpleTrackerCell.h"
+#import <YYWebImage.h>
+#import "ASS3Manager.h"
+static const DDLogLevel ddLogLevel = DDLogLevelVerbose;
 
 @implementation ASSimpleTrackerCell
 
@@ -18,12 +21,21 @@
 }
 
 - (void)handleByTracker:(ASTrackerModel *)tracker{
+    @weakify(self)
     self.tracker = tracker;
     self.labelName.text = tracker.trackerName;
 
     
-    self.imageViewIcon.image = [UIImage imageNamed:tracker.trackerType];
-
+    if (self.tracker.imageId){
+        [self.imageViewIcon yy_setImageWithURL:[ [ASS3Manager sharedInstance] getURLByImageIdentifier: self.tracker.imageId ] placeholder:nil options:YYWebImageOptionSetImageWithFadeAnimation completion:^(UIImage * _Nullable image, NSURL * _Nonnull url, YYWebImageFromType from, YYWebImageStage stage, NSError * _Nullable error) {
+            if (from == YYWebImageFromDiskCache) {
+                @strongify(self)
+                DDLogDebug(@"load from disk cache");
+            }
+        }];
+    } else{
+        self.imageViewIcon.image = [UIImage imageNamed:tracker.trackerType];
+    }
 }
 
 @end
