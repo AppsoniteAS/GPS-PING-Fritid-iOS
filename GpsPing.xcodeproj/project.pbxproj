@@ -131,6 +131,9 @@
 		E9CFA3721F6144BD00516EE2 /* Home.gpx in Resources */ = {isa = PBXBuildFile; fileRef = E9CFA36E1F6144BD00516EE2 /* Home.gpx */; };
 		E9CFA3731F6144BD00516EE2 /* Norway.gpx in Resources */ = {isa = PBXBuildFile; fileRef = E9CFA36F1F6144BD00516EE2 /* Norway.gpx */; };
 		E9CFA3741F6144BD00516EE2 /* route.gpx in Resources */ = {isa = PBXBuildFile; fileRef = E9CFA3701F6144BD00516EE2 /* route.gpx */; };
+		E9D86BF81F97A75C0061FD6C /* ASPinMainView.m in Sources */ = {isa = PBXBuildFile; fileRef = E9D86BF71F97A75C0061FD6C /* ASPinMainView.m */; };
+		E9D86BFA1F97A7DB0061FD6C /* ASPinMainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9D86BF91F97A7DB0061FD6C /* ASPinMainView.xib */; };
+		E9D86BFD1F97D0810061FD6C /* ASPhotoAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = E9D86BFC1F97D0810061FD6C /* ASPhotoAnnotationView.m */; };
 		E9FFBD871F5EFE590062069B /* ASAddTrackerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E9FFBD861F5EFE590062069B /* ASAddTrackerCell.m */; };
 		E9FFBD8A1F5F00800062069B /* ASChooseTrackerController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9FFBD891F5F00800062069B /* ASChooseTrackerController.m */; };
 /* End PBXBuildFile section */
@@ -463,6 +466,11 @@
 		E9CFA36E1F6144BD00516EE2 /* Home.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Home.gpx; sourceTree = "<group>"; };
 		E9CFA36F1F6144BD00516EE2 /* Norway.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Norway.gpx; sourceTree = "<group>"; };
 		E9CFA3701F6144BD00516EE2 /* route.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = route.gpx; sourceTree = "<group>"; };
+		E9D86BF61F97A75C0061FD6C /* ASPinMainView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ASPinMainView.h; sourceTree = "<group>"; };
+		E9D86BF71F97A75C0061FD6C /* ASPinMainView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ASPinMainView.m; sourceTree = "<group>"; };
+		E9D86BF91F97A7DB0061FD6C /* ASPinMainView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ASPinMainView.xib; sourceTree = "<group>"; };
+		E9D86BFB1F97D0810061FD6C /* ASPhotoAnnotationView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ASPhotoAnnotationView.h; sourceTree = "<group>"; };
+		E9D86BFC1F97D0810061FD6C /* ASPhotoAnnotationView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ASPhotoAnnotationView.m; sourceTree = "<group>"; };
 		E9FFBD851F5EFE590062069B /* ASAddTrackerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASAddTrackerCell.h; sourceTree = "<group>"; };
 		E9FFBD861F5EFE590062069B /* ASAddTrackerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASAddTrackerCell.m; sourceTree = "<group>"; };
 		E9FFBD881F5F00800062069B /* ASChooseTrackerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASChooseTrackerController.h; sourceTree = "<group>"; };
@@ -550,6 +558,11 @@
 				A626CCF01C5D4FFA003762A2 /* ASDashedLine.m */,
 				E98C98561F811B1C00A028DC /* ASPOIDetailsView.h */,
 				E98C98571F811B1C00A028DC /* ASPOIDetailsView.m */,
+				E9D86BF61F97A75C0061FD6C /* ASPinMainView.h */,
+				E9D86BF71F97A75C0061FD6C /* ASPinMainView.m */,
+				E9D86BF91F97A7DB0061FD6C /* ASPinMainView.xib */,
+				E9D86BFB1F97D0810061FD6C /* ASPhotoAnnotationView.h */,
+				E9D86BFC1F97D0810061FD6C /* ASPhotoAnnotationView.m */,
 			);
 			name = "Map and Tracking";
 			sourceTree = "<group>";
@@ -1126,6 +1139,7 @@
 				A68C1B7E1C4D24DC000E2BA6 /* Roboto-Light.ttf in Resources */,
 				E9CFA3721F6144BD00516EE2 /* Home.gpx in Resources */,
 				A68C1B811C4D24DC000E2BA6 /* Roboto-MediumItalic.ttf in Resources */,
+				E9D86BFA1F97A7DB0061FD6C /* ASPinMainView.xib in Resources */,
 				ABA221571C79E59C00AE6F87 /* Profile.storyboard in Resources */,
 				E93D75A81F8A7B39001C8AD7 /* old.storyboard in Resources */,
 				A68C1B3C1C4CE460000E2BA6 /* Main.storyboard in Resources */,
@@ -1316,6 +1330,7 @@
 				AB8946931C4F725D002E86C8 /* ASGeofenceViewController.m in Sources */,
 				A626CCF11C5D4FFA003762A2 /* ASDashedLine.m in Sources */,
 				A68C1B871C4D2549000E2BA6 /* ASButton.m in Sources */,
+				E9D86BF81F97A75C0061FD6C /* ASPinMainView.m in Sources */,
 				A603CEE21C5A4CD8001D56A4 /* ASFriendAnnotation.m in Sources */,
 				A646053C1C68C2F90012467E /* AGGeoValueTransformer.m in Sources */,
 				E9FFBD8A1F5F00800062069B /* ASChooseTrackerController.m in Sources */,
@@ -1345,6 +1360,7 @@
 				AB89469C1C510E96002E86C8 /* ASViewController.m in Sources */,
 				E987820B1F8617EA0098C143 /* ASFAQTrackersListViewController.m in Sources */,
 				A6D194F91D828E8400394F31 /* ASAnswerViewController.m in Sources */,
+				E9D86BFD1F97D0810061FD6C /* ASPhotoAnnotationView.m in Sources */,
 				AB8946711C4E3372002E86C8 /* ASAboutViewController.m in Sources */,
 				A68C1B331C4CE460000E2BA6 /* main.m in Sources */,
 				AB60B73C1C7ECED7003CF277 /* ASSettingsViewController.m in Sources */,

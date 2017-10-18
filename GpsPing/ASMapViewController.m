@@ -28,6 +28,8 @@
 #import "ASLocationTrackingService.h"
 #import "ASTrackerDetailsView.h"
 #import "ASPOIDetailsView.h"
+#import "ASPinMainView.h"
+#import "ASDeviceModel.h"
 #define QUERY_RATE_IN_SECONDS 15
 static const DDLogLevel ddLogLevel = DDLogLevelDebug;
 
@@ -727,20 +729,36 @@ objection_requires(@keypath(ASMapViewController.new, apiController), @keypath(AS
         pinView.image = [UIImage getPointAnnotationImageWithColor:((ASPointAnnotation*)annotation).annotationColor];
         return pinView;
     } else if ([annotation isKindOfClass:[ASLastPointAnnotation class]]) {
-        MKAnnotationView *pinView = (MKPinAnnotationView*)[mapView dequeueReusableAnnotationViewWithIdentifier:@"ASLastPointAnnotation"];
+        MKAnnotationView *pinView = (MKAnnotationView*)[mapView dequeueReusableAnnotationViewWithIdentifier:@"ASLastPointAnnotation"];
         
         if (!pinView) {
             pinView = [[MKAnnotationView alloc] initWithAnnotation:annotation
                                                    reuseIdentifier:@"ASLastPointAnnotation"];
-            
+            ASPinMainView* content = [ASPinMainView getMarkerView];
+            [pinView addSubview:content];
             pinView.canShowCallout = NO;
         } else {
             pinView.annotation = annotation;
         }
-        
-        pinView.image = [UIImage getLastPointAnnotationImageWithColor:((ASLastPointAnnotation*)annotation).annotationColor];
+        ASLastPointAnnotation* a = (ASLastPointAnnotation*) annotation;
+        [((ASPinMainView*)[pinView subviews][0]) handleByImageName:@"2E975A96-7ED1-4D90-BD82-234B55059EE9.jpg"];
+       // pinView.image = [UIImage getLastPointAnnotationImageWithColor:((ASLastPointAnnotation*)annotation).annotationColor];
         
         return pinView;
+//        MKAnnotationView *pinView = (MKPinAnnotationView*)[mapView dequeueReusableAnnotationViewWithIdentifier:@"ASLastPointAnnotation"];
+//
+//        if (!pinView) {
+//            pinView = [[MKAnnotationView alloc] initWithAnnotation:annotation
+//                                                   reuseIdentifier:@"ASLastPointAnnotation"];
+//
+//            pinView.canShowCallout = NO;
+//        } else {
+//            pinView.annotation = annotation;
+//        }
+//
+//        pinView.image = [UIImage getLastPointAnnotationImageWithColor:((ASLastPointAnnotation*)annotation).annotationColor];
+//
+//        return pinView;
     } else if ([annotation isKindOfClass:[ASFriendAnnotation class]]) {
         MKAnnotationView *pinView = (MKAnnotationView*)[mapView dequeueReusableAnnotationViewWithIdentifier:@"ASFriendAnnotation"];
         
