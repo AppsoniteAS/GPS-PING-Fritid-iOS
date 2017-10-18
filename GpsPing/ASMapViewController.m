@@ -74,7 +74,7 @@ static NSString *const kASUserDefaultsKeyRemoveTrackersDate = @"kASUserDefaultsK
 @property (nonatomic, assign) BOOL modifyingMap;
 @property (strong, nonatomic) CompassController *compassController;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomViewHeight;
-
+@property (strong, nonatomic) NSArray<ASTrackerModel*>* trackers;
 @end
 
 @implementation ASMapViewController
@@ -158,6 +158,17 @@ objection_requires(@keypath(ASMapViewController.new, apiController), @keypath(AS
     UITabBarController* t =  ((UITabBarController*)[[[[UIApplication sharedApplication] delegate] window] rootViewController] );
     t.delegate = self;
     [self refresh];
+    
+    self.trackers = [ASTrackerModel getTrackersFromUserDefaults];
+}
+
+- (NSString*) getTrackerImageByImei: (NSString*) imei{
+    for (ASTrackerModel* tracker in self.trackers) {
+        if ([tracker.imeiNumber isEqual:imei]){
+            return tracker.imageId;
+        }
+    }
+    return nil;
 }
 
 - (void) refresh{
@@ -731,34 +742,38 @@ objection_requires(@keypath(ASMapViewController.new, apiController), @keypath(AS
         return pinView;
     } else if ([annotation isKindOfClass:[ASLastPointAnnotation class]]) {
         ASLastPointAnnotation* a = (ASLastPointAnnotation*) annotation;
+        NSString* imageTracker = [self getTrackerImageByImei:a.deviceObject.imei];
+        if (imageTracker){
+            DDLogDebug(@"imageTracker %@ ", a.deviceObject.imei);
+            ASPhotoAnnotationView *pinView = (ASPhotoAnnotationView*)[mapView dequeueReusableAnnotationViewWithIdentifier:@"ASLastPointAnnotation"];
+            
+            if (!pinView) {
+                pinView = [[ASPhotoAnnotationView alloc] initWithAnnotation:annotation
+                                                            reuseIdentifier:@"ASLastPointAnnotation"];
+                pinView.canShowCallout = NO;
+            } else {
+                pinView.annotation = a;
+            }
+            [pinView.marker handleByImageName:imageTracker];
+            
+            return pinView;
+        }
+        DDLogDebug(@"imageTracker %@ ", a.deviceObject.imei);
 
-        ASPhotoAnnotationView *pinView = (ASPhotoAnnotationView*)[mapView dequeueReusableAnnotationViewWithIdentifier:@"ASLastPointAnnotation"];
-        
+        MKAnnotationView *pinView = (MKPinAnnotationView*)[mapView dequeueReusableAnnotationViewWithIdentifier:@"ASLastPointAnnotation2"];
+
         if (!pinView) {
-            pinView = [[ASPhotoAnnotationView alloc] initWithAnnotation:annotation
-                                                   reuseIdentifier:@"ASLastPointAnnotation"];
+            pinView = [[MKAnnotationView alloc] initWithAnnotation:annotation
+                                                   reuseIdentifier:@"ASLastPointAnnotation2"];
+
             pinView.canShowCallout = NO;
         } else {
-            pinView.annotation = a;
+            pinView.annotation = annotation;
         }
-        [pinView.marker handleByImageName:@"2E975A96-7ED1-4D90-BD82-234B55059EE9.jpg"];
-       // pinView.image = [UIImage getLastPointAnnotationImageWithColor:((ASLastPointAnnotation*)annotation).annotationColor];
-        
+
+        pinView.image = [UIImage getLastPointAnnotationImageWithColor:((ASLastPointAnnotation*)annotation).annotationColor];
+
         return pinView;
-//        MKAnnotationView *pinView = (MKPinAnnotationView*)[mapView dequeueReusableAnnotationViewWithIdentifier:@"ASLastPointAnnotation"];
-//
-//        if (!pinView) {
-//            pinView = [[MKAnnotationView alloc] initWithAnnotation:annotation
-//                                                   reuseIdentifier:@"ASLastPointAnnotation"];
-//
-//            pinView.canShowCallout = NO;
-//        } else {
-//            pinView.annotation = annotation;
-//        }
-//
-//        pinView.image = [UIImage getLastPointAnnotationImageWithColor:((ASLastPointAnnotation*)annotation).annotationColor];
-//
-//        return pinView;
     } else if ([annotation isKindOfClass:[ASFriendAnnotation class]]) {
         MKAnnotationView *pinView = (MKAnnotationView*)[mapView dequeueReusableAnnotationViewWithIdentifier:@"ASFriendAnnotation"];
         

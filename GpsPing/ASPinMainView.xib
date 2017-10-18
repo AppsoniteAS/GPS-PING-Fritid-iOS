@@ -18,7 +18,7 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Cq-eA-YKV">
                     <rect key="frame" x="0.0" y="0.0" width="34" height="34"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="V4P-PZ-pD8">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="V4P-PZ-pD8">
                             <rect key="frame" x="0.0" y="0.0" width="34" height="34"/>
                         </imageView>
                     </subviews>
@@ -31,12 +31,12 @@
                     </constraints>
                 </view>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="5Cq-eA-YKV" secondAttribute="bottom" id="Vj6-9s-tz8"/>
-                <constraint firstItem="5Cq-eA-YKV" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="gCC-JU-Wac"/>
-                <constraint firstItem="5Cq-eA-YKV" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="ukp-FW-YnH"/>
-                <constraint firstAttribute="trailing" secondItem="5Cq-eA-YKV" secondAttribute="trailing" id="ygl-Zo-EjB"/>
+                <constraint firstAttribute="trailing" secondItem="5Cq-eA-YKV" secondAttribute="trailing" id="3Og-UJ-0gX"/>
+                <constraint firstItem="5Cq-eA-YKV" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="IJ6-Ff-6b8"/>
+                <constraint firstItem="5Cq-eA-YKV" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Kz1-nU-YYz"/>
+                <constraint firstAttribute="bottom" secondItem="5Cq-eA-YKV" secondAttribute="bottom" id="ToC-r8-d5a"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
