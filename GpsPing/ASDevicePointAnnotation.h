@@ -17,6 +17,8 @@
 @property (nonatomic) ASDeviceModel *deviceObject;
 @property (nonatomic) ASFriendModel *owner;
 @property (nonatomic) UIColor       *annotationColor;
+@property (nonatomic) NSString       *colorName;
+
 
 - (id)initWithLocation:(CLLocationCoordinate2D)coord;
 

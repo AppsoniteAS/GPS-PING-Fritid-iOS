@@ -633,7 +633,7 @@ objection_initializer(initWithConfiguration:);
     
     return [signal flattenMap:^RACStream *(id response) {
         DDLogDebug(@"!! %@ %@", NSStringFromClass([response class]), response);
-        if ([response isKindOfClass:[NSDictionary class]] && [response[@"status"] isEqualToString:@"error"]) {
+        if ([response isKindOfClass:[NSDictionary class]] && [response[@"status"] isKindOfClass:[NSString class]] && [response[@"status"] isEqualToString:@"error"]) {
             NSError *error = [NSError buildError:^(MRErrorBuilder *builder) {
                  builder.domain = AGGpsPingBackendError;
                  builder.localizedDescription = response[@"error"];

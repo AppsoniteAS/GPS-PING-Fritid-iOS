@@ -13,5 +13,6 @@
 +(UIImage*)getUserAnnotationImageWithColor:(UIColor*)color;
 +(UIImage*)getLastPointAnnotationImageWithColor:(UIColor*)color;
 +(UIImage*)getPointAnnotationImageWithColor:(UIColor*)color;
-
++(UIImage*)getLastPointAnnotationImageWithColorName:(NSString*) name andRotation: (CGFloat) rotation;
++(UIImage*)getPointAnnotationImageWithColorName:(NSString*) name andRotation: (CGFloat) rotation;
 @end

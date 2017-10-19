@@ -23,6 +23,15 @@
                                         image:[[UIImage imageNamed:@"annotation_point_icon"] imageTintedWithColor:color]];
 }
 
++(UIImage*)getLastPointAnnotationImageWithColorName:(NSString*) name andRotation: (CGFloat) rotation{
+    return [UIImage imageNamed: [NSString stringWithFormat: @"direction-%@", name ]];
+}
+
++(UIImage*)getPointAnnotationImageWithColorName:(NSString*) name andRotation: (CGFloat) rotation{
+    return  [UIImage imageNamed: [NSString stringWithFormat: @"direction-%@-small", name ]];
+}
+
+
 +(UIImage*)getPointAnnotationImageWithColor:(UIColor*)color
 {
     return [self generateImageWithBottomImage:[UIImage imageNamed:@"annotation_circle_point_frame"]

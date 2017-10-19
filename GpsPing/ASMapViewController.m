@@ -68,6 +68,8 @@ static NSString *const kASUserDefaultsKeyRemoveTrackersDate = @"kASUserDefaultsK
 @property (nonatomic        ) ASFriendModel              *userToFilter;
 
 @property (nonatomic        ) NSDictionary *colorsDictionary;
+@property (nonatomic        ) NSDictionary *colorsNameDictionary;
+
 @property (nonatomic, assign) BOOL isFirstLaunch;
 @property (nonatomic, assign) BOOL isUserLocationCentered;
 @property (nonatomic        ) ASPointOfInterestAnnotation *selectedAnnotation;
@@ -214,10 +216,18 @@ objection_requires(@keypath(ASMapViewController.new, apiController), @keypath(AS
 
 -(NSArray *)colorSetForUsers {
     return @[[UIColor redColor],
-             [UIColor blueColor],
+           //  [UIColor blueColor],
              [UIColor orangeColor],
              [UIColor yellowColor],
              [UIColor greenColor]];
+}
+
+-(NSArray *)colorNameSetForUsers {
+    return @[@"red",
+
+             @"orange",
+             @"yellow",
+             @"green"];
 }
 
 #pragma mark - IBActions and Handlers
@@ -543,17 +553,20 @@ objection_requires(@keypath(ASMapViewController.new, apiController), @keypath(AS
 
 -(void)fillColorsDictionaryWithUsers:(NSArray *)users {
     NSMutableDictionary *result = @{}.mutableCopy;
+    NSMutableDictionary *resultName = @{}.mutableCopy;
     for (ASFriendModel *user in users) {
         NSInteger indexOfColorInSet = [users indexOfObject:user] % self.colorSetForUsers.count;
         result[user.userName] = self.colorSetForUsers[indexOfColorInSet];
+        resultName[user.userName] = self.colorNameSetForUsers[indexOfColorInSet];
     }
     
     self.colorsDictionary = result;
+    self.colorsNameDictionary = resultName;
 }
 
 -(void)showAllPointsForUsers:(NSArray*)users filterFor:(ASFriendModel*)user
 {
-    if (!self.colorsDictionary) {
+    if (!self.colorsDictionary || !self.colorsNameDictionary) {
         [self fillColorsDictionaryWithUsers:users];
     }
     
@@ -583,6 +596,7 @@ objection_requires(@keypath(ASMapViewController.new, apiController), @keypath(AS
 -(void)showPointsForUser:(ASFriendModel*)friendModel
 {
     UIColor *colorForUser = self.colorsDictionary[friendModel.userName];
+    NSString * colorNameForUser = self.colorsNameDictionary[friendModel.userName];
     if (friendModel.latitude.doubleValue && friendModel.longitude.doubleValue) {
         CLLocationCoordinate2D friendCoord = CLLocationCoordinate2DMake(friendModel.latitude.doubleValue, friendModel.longitude.doubleValue);
         ASFriendAnnotation *friendAnnotation = [[ASFriendAnnotation alloc] initWithLocation:friendCoord];
@@ -596,6 +610,8 @@ objection_requires(@keypath(ASMapViewController.new, apiController), @keypath(AS
         CLLocationCoordinate2D deviceCoord = CLLocationCoordinate2DMake(deviceModel.latitude.doubleValue, deviceModel.longitude.doubleValue);
         ASLastPointAnnotation *deviceAnnotation = [[ASLastPointAnnotation alloc] initWithLocation:deviceCoord];
         deviceAnnotation.annotationColor = colorForUser;
+        deviceAnnotation.colorName = colorNameForUser;
+
         deviceAnnotation.deviceObject = deviceModel;
         deviceAnnotation.owner = friendModel;
         [self.mapView addAnnotation:deviceAnnotation];
@@ -605,6 +621,8 @@ objection_requires(@keypath(ASMapViewController.new, apiController), @keypath(AS
             annotation = [[ASPointAnnotation alloc] initWithLocation:coord];
             
             [annotation setAnnotationColor:colorForUser];
+            annotation.colorName = colorNameForUser;
+
             annotation.deviceObject = deviceModel;
             annotation.pointObject = pointModel;
             annotation.owner = friendModel;
@@ -729,7 +747,8 @@ objection_requires(@keypath(ASMapViewController.new, apiController), @keypath(AS
     
     if ([annotation isKindOfClass:[ASPointAnnotation class]]) {
         MKAnnotationView *pinView = (MKPinAnnotationView*)[mapView dequeueReusableAnnotationViewWithIdentifier:@"ASPointAnnotation"];
-        
+        ASPointAnnotation* a = (ASPointAnnotation*) annotation;
+
         if (!pinView) {
             pinView = [[MKAnnotationView alloc] initWithAnnotation:annotation
                                                    reuseIdentifier:@"ASPointAnnotation"];
@@ -738,7 +757,7 @@ objection_requires(@keypath(ASMapViewController.new, apiController), @keypath(AS
             pinView.annotation = annotation;
         }
         
-        pinView.image = [UIImage getPointAnnotationImageWithColor:((ASPointAnnotation*)annotation).annotationColor];
+        pinView.image =  [UIImage getPointAnnotationImageWithColorName:a.colorName andRotation:0.0f];//[UIImage getPointAnnotationImageWithColor:((ASPointAnnotation*)annotation).annotationColor];
         return pinView;
     } else if ([annotation isKindOfClass:[ASLastPointAnnotation class]]) {
         ASLastPointAnnotation* a = (ASLastPointAnnotation*) annotation;
@@ -771,7 +790,7 @@ objection_requires(@keypath(ASMapViewController.new, apiController), @keypath(AS
             pinView.annotation = annotation;
         }
 
-        pinView.image = [UIImage getLastPointAnnotationImageWithColor:((ASLastPointAnnotation*)annotation).annotationColor];
+        pinView.image = [UIImage getLastPointAnnotationImageWithColorName:a.colorName andRotation:0.0f];// [UIImage getLastPointAnnotationImageWithColor:((ASLastPointAnnotation*)annotation).annotationColor];
 
         return pinView;
     } else if ([annotation isKindOfClass:[ASFriendAnnotation class]]) {
