@@ -664,6 +664,9 @@
                                                 <state key="normal" title="Map">
                                                     <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="pressedMapBtn:" destination="sw3-fk-UAu" eventType="touchUpInside" id="ND1-k9-f7d"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KLn-SY-QPN" customClass="ASMapDetailsButton">
                                                 <rect key="frame" x="157" y="288" width="80" height="34"/>
@@ -674,6 +677,9 @@
                                                 <state key="normal" title="Edit">
                                                     <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="pressedEdit:" destination="sw3-fk-UAu" eventType="touchUpInside" id="8Oe-JA-onn"/>
+                                                </connections>
                                             </button>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nAl-1j-AiI">
                                                 <rect key="frame" x="20" y="100" width="244" height="1"/>
@@ -797,6 +803,7 @@
                                             <outlet property="separator1" destination="nAl-1j-AiI" id="UZH-5Z-2Z1"/>
                                             <outlet property="separator2" destination="ebO-Cn-hWI" id="yMd-x2-fvk"/>
                                             <outlet property="separator3" destination="HRj-be-kYs" id="TyL-SN-eDq"/>
+                                            <outlet property="widthImage" destination="bmK-z2-3pI" id="SZR-Pi-2N3"/>
                                         </connections>
                                     </view>
                                 </subviews>

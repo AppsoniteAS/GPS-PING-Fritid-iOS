@@ -41,6 +41,7 @@
 @property (nonatomic) IBOutlet UIView *separator1;
 @property (nonatomic) IBOutlet UIView *separator2;
 @property (nonatomic) IBOutlet UIView *separator3;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *widthImage;
 
 //@property (nonatomic) IBOutlet UILabel *labelPOILatitude;
 //@property (nonatomic) IBOutlet UILabel *labelPOILongitude;

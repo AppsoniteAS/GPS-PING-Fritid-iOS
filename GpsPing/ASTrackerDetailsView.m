@@ -17,7 +17,7 @@
 - (void)awakeFromNib{
     [super awakeFromNib];
     [self.btnMap setEnabled:true];
-    [self.btnEdit setEnabled:false];
+    [self.btnEdit setEnabled:true];
     self.profileImageView.layer.cornerRadius = 22.0;
     [self.profileImageView.layer setMasksToBounds:true];
 }
@@ -32,6 +32,8 @@
     dateFormatter.dateStyle  = NSDateFormatterShortStyle;
     dateFormatter.timeStyle  = NSDateFormatterShortStyle;
     if (deviceModel) {
+        [self.widthImage setConstant:44];
+        [self layoutIfNeeded];
         //self.labelTrackerNumber.text = deviceModel.trackerNumber;
        // self.labelImei.text = deviceModel.imei;
         self.labelTrackerName.text = deviceModel.name;
@@ -42,7 +44,8 @@
                 }
             }];
         } else{
-            [self.profileImageView setImage:[UIImage imageNamed:@"direction-red"]];
+            [self.widthImage setConstant:0];
+            [self layoutIfNeeded];
         }
     }
     

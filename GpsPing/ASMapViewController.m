@@ -31,6 +31,7 @@
 #import "ASPinMainView.h"
 #import "ASDeviceModel.h"
 #import "ASPhotoAnnotationView.h"
+#import "ASTrackerConfigurationViewController.h"
 #define QUERY_RATE_IN_SECONDS 15
 static const DDLogLevel ddLogLevel = DDLogLevelDebug;
 
@@ -50,6 +51,7 @@ static NSString *const kASUserDefaultsKeyRemoveTrackersDate = @"kASUserDefaultsK
 @property (weak, nonatomic) IBOutlet UILabel *distanceLabel;
 @property (weak, nonatomic) IBOutlet UILabel *distanceMetricLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *compassImageView;
+@property (strong, nonatomic) ASTrackerModel* popedTracker;
 
 @property (nonatomic        ) NSArray                    *originalPointsData;
 @property (nonatomic        ) NSArray                    *colorSetForUsers;
@@ -162,12 +164,14 @@ objection_requires(@keypath(ASMapViewController.new, apiController), @keypath(AS
     [self refresh];
     
     self.trackers = [ASTrackerModel getTrackersFromUserDefaults];
+    
+    
 }
 
-- (NSString*) getTrackerImageByImei: (NSString*) imei{
+- (ASTrackerModel*) getTrackerByImei: (NSString*) imei{
     for (ASTrackerModel* tracker in self.trackers) {
         if ([tracker.imeiNumber isEqual:imei]){
-            return tracker.imageId;
+            return tracker;
         }
     }
     return nil;
@@ -838,6 +842,7 @@ objection_requires(@keypath(ASMapViewController.new, apiController), @keypath(AS
 {
     if ([view.annotation isKindOfClass:[ASDevicePointAnnotation class]]) {
         ASDevicePointAnnotation *annotation = view.annotation;
+        self.popedTracker = annotation.deviceObject.imei ? [self getTrackerByImei: annotation.deviceObject.imei] : nil;
         [self showTrackerView:true];
         [self.trackerView configWithOwner:annotation.owner
                                    tracker:annotation.deviceObject
@@ -918,6 +923,21 @@ objection_requires(@keypath(ASMapViewController.new, apiController), @keypath(AS
 
 -(void)datePickerCancelPressed:(THDatePickerViewController *)datePicker
 {
+    
+}
+- (IBAction)pressedEdit:(UIButton *)sender {
+    if (!self.popedTracker){
+        return;
+    }
+    ASTrackerConfigurationViewController *configVC = [ASTrackerConfigurationViewController initializeWithTrackerModel:self.popedTracker];
+    if (!configVC){
+        return;
+    }
+    [self.navigationController pushViewController:configVC animated:true];
+}
+- (IBAction)pressedMapBtn:(UIButton *)sender {
+    self.bottomPlank.hidden = YES;
+    self.tapGestureDetails.enabled = NO;
     
 }
 
