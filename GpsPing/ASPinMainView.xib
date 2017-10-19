@@ -21,6 +21,10 @@
                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="V4P-PZ-pD8">
                             <rect key="frame" x="0.0" y="0.0" width="34" height="34"/>
                         </imageView>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="btT-hR-dbG">
+                            <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
@@ -40,6 +44,7 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
+                <outlet property="imageViewArrow" destination="btT-hR-dbG" id="vfa-aS-Bop"/>
                 <outlet property="imageViewPhoto" destination="V4P-PZ-pD8" id="DAe-ac-KZ0"/>
             </connections>
             <point key="canvasLocation" x="-454.5" y="-207.5"/>

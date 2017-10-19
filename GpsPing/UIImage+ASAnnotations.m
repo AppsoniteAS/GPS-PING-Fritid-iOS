@@ -55,22 +55,13 @@ static CGFloat DegreesToRadians(CGFloat degrees) {return degrees * M_PI / 180;};
 +(UIImage*)getLastPointAnnotationImageWithColorName:(NSString*) name andRotation: (CGFloat) rotation{
     UIImage* im =  [UIImage imageNamed: [NSString stringWithFormat: @"direction-%@", name ]];
 
-    return [im imageRotatedByDegrees:90];
+    return [im imageRotatedByDegrees:rotation];
 }
 
-- (UIImage*)rotateUIImage:(UIImage*)sourceImage clockwise:(BOOL)clockwise
-{
-    CGSize size = sourceImage.size;
-    UIGraphicsBeginImageContext(CGSizeMake(size.height, size.width));
-    [[UIImage imageWithCGImage:[sourceImage CGImage] scale:1.0 orientation:clockwise ? UIImageOrientationRight : UIImageOrientationLeft] drawInRect:CGRectMake(0,0,size.height ,size.width)];
-    UIImage* newImage = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    
-    return newImage;
-}
+
 
 +(UIImage*)getPointAnnotationImageWithColorName:(NSString*) name andRotation: (CGFloat) rotation{
-    return  [UIImage imageNamed: [NSString stringWithFormat: @"direction-%@-small", name ]];
+    return  [[UIImage imageNamed: [NSString stringWithFormat: @"direction-%@-small", name ]] imageRotatedByDegrees:rotation];
 }
 
 
@@ -115,6 +106,49 @@ static CGFloat DegreesToRadians(CGFloat degrees) {return degrees * M_PI / 180;};
     }
     
     return self;
+}
+
+
++ (UIImage*) combineImages: (UIImage*) image1 andImage: (UIImage*) image2 withVerticalOffset: (CGFloat) offset{
+    //CGSize size = CGSizeMake(image1.size.width, image1.size.height + image2.size.height);
+    CGSize size = image1.size;
+    
+    
+    image2 = [UIImage scaleImage:image2 ToSize:CGSizeMake(image1.size.width  * 0.7 , image1.size.width* 0.7)];
+    
+    UIGraphicsBeginImageContextWithOptions(size, false, 0.0); // Use this call
+    
+    [image1 drawInRect:CGRectMake(0,0,size.width, size.height)];
+    // DDLogInfo(@"%@ %@",NSStringFromCGSize(image1.size),  NSStringFromCGSize(image2.size));
+    [image2 drawInRect:CGRectMake(size.width / 2.0 - image2.size.width / 2.0,  offset , image2.size.width, image2.size.height)];
+    
+    UIImage *finalImage = UIGraphicsGetImageFromCurrentImageContext();
+    
+    UIGraphicsEndImageContext();
+    return finalImage;
+}
+
++ (UIImage *)scaleImage: (UIImage*) image ToSize:(CGSize)newSize {
+    
+    CGRect scaledImageRect = CGRectZero;
+    
+    CGFloat aspectWidth = newSize.width / image.size.width;
+    CGFloat aspectHeight = newSize.height / image.size.height;
+    CGFloat aspectRatio = MAX ( aspectWidth, aspectHeight );
+    
+    scaledImageRect.size.width = image.size.width * aspectRatio;
+    scaledImageRect.size.height = image.size.height * aspectRatio;
+    scaledImageRect.origin.x = (newSize.width - scaledImageRect.size.width) / 2.0f;
+    scaledImageRect.origin.y = (newSize.height - scaledImageRect.size.height) / 2.0f;
+    
+    UIGraphicsBeginImageContextWithOptions( newSize, NO, 0 );
+    [image drawInRect:scaledImageRect];
+    UIImage* scaledImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    // DDLogInfo(@"logo aspect fill scale: %f", scaledImage.scale);
+    
+    return scaledImage;
+    
 }
 
 @end
