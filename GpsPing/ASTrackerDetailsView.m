@@ -9,6 +9,8 @@
 #import "ASTrackerDetailsView.h"
 #import "UIImage+ASAnnotations.h"
 #import "MGRS.h"
+#import <YYWebImage.h>
+#import "ASS3Manager.h"
 
 @implementation ASTrackerDetailsView
 
@@ -16,6 +18,8 @@
     [super awakeFromNib];
     [self.btnMap setEnabled:true];
     [self.btnEdit setEnabled:false];
+    self.profileImageView.layer.cornerRadius = 22.0;
+    [self.profileImageView.layer setMasksToBounds:true];
 }
 
 -(void)configWithOwner:(ASFriendModel*)owner
@@ -32,6 +36,14 @@
        // self.labelImei.text = deviceModel.imei;
         self.labelTrackerName.text = deviceModel.name;
         self.labelLogTime.text = [dateFormatter stringFromDate:deviceModel.lastDate];
+        if (deviceModel.imageId){
+            [self.profileImageView yy_setImageWithURL:[ [ASS3Manager sharedInstance] getURLByImageIdentifier: deviceModel.imageId ]placeholder:nil options:YYWebImageOptionSetImageWithFadeAnimation completion:^(UIImage * _Nullable image, NSURL * _Nonnull url, YYWebImageFromType from, YYWebImageStage stage, NSError * _Nullable error) {
+                if (from == YYWebImageFromDiskCache) {
+                }
+            }];
+        } else{
+            [self.profileImageView setImage:[UIImage imageNamed:@"direction-red"]];
+        }
     }
     
     if (pointModel) {
