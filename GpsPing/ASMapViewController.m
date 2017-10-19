@@ -742,7 +742,7 @@ objection_requires(@keypath(ASMapViewController.new, apiController), @keypath(AS
         return pinView;
     } else if ([annotation isKindOfClass:[ASLastPointAnnotation class]]) {
         ASLastPointAnnotation* a = (ASLastPointAnnotation*) annotation;
-        NSString* imageTracker = [self getTrackerImageByImei:a.deviceObject.imei];
+        NSString* imageTracker = a.deviceObject.imageId;
         if (imageTracker){
             DDLogDebug(@"imageTracker %@ ", a.deviceObject.imei);
             ASPhotoAnnotationView *pinView = (ASPhotoAnnotationView*)[mapView dequeueReusableAnnotationViewWithIdentifier:@"ASLastPointAnnotation"];

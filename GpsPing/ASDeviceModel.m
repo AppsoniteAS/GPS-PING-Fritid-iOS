@@ -22,6 +22,7 @@ NSString* const kASDeviceLastUpdate    = @"device.last_update";
 NSString* const kASDevicePoints        = @"points";
 NSString* const kASDeviceTrackerNumber = @"device.tracker_number";
 NSString* const kASDeviceImei          = @"device.imei_number";
+NSString* const kASDeviceImageId          = @"device.picUrl";
 
 @implementation ASDeviceModel
 
@@ -35,6 +36,8 @@ NSString* const kASDeviceImei          = @"device.imei_number";
               @keypath(ASDeviceModel.new, points) : kASDevicePoints,
               @keypath(ASDeviceModel.new, trackerNumber) : kASDeviceTrackerNumber,
               @keypath(ASDeviceModel.new, imei) : kASDeviceImei,
+              @keypath(ASDeviceModel.new, imageId) : kASDeviceImageId,
+
               };
 }
 

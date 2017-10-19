@@ -21,5 +21,7 @@
 @property (nonatomic        ) NSString *name;
 @property (nonatomic        ) NSString *trackerNumber;
 @property (nonatomic        ) NSString *imei;
+@property (nonatomic, strong ) NSString *imageId;
+
 
 @end
