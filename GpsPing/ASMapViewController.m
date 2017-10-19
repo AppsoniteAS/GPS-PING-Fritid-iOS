@@ -936,8 +936,8 @@ objection_requires(@keypath(ASMapViewController.new, apiController), @keypath(AS
     [self.navigationController pushViewController:configVC animated:true];
 }
 - (IBAction)pressedMapBtn:(UIButton *)sender {
-    self.bottomPlank.hidden = YES;
-    self.tapGestureDetails.enabled = NO;
+    [self.trackerView setHidden:true];
+    [self.poiView setHidden:true];
     
 }
 
