@@ -124,8 +124,8 @@
                                                     <rect key="frame" x="22" y="0.0" width="331" height="67.5"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </view>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gqj-xb-N6k">
-                                                    <rect key="frame" x="42" y="10" width="38" height="17"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Full Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gqj-xb-N6k">
+                                                    <rect key="frame" x="42" y="10" width="64" height="17"/>
                                                     <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                                                     <color key="textColor" red="0.42745098040000001" green="0.42745098040000001" blue="0.42745098040000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -239,8 +239,92 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="68" id="GMr-Ag-xek">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="68" id="Nhj-MO-jd9">
                                         <rect key="frame" x="0.0" y="338" width="375" height="68"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Nhj-MO-jd9" id="Cii-4l-v60">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="68"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s1a-5y-SCe">
+                                                    <rect key="frame" x="22" y="0.0" width="331" height="67.5"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </view>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="City" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ffk-Ih-09N">
+                                                    <rect key="frame" x="42" y="10" width="25" height="17"/>
+                                                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
+                                                    <color key="textColor" red="0.42745098040000001" green="0.42745098040000001" blue="0.42745098040000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="jXW-0D-zxf">
+                                                    <rect key="frame" x="42" y="27" width="289" height="40"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="40" id="MR0-aL-o3t"/>
+                                                    </constraints>
+                                                    <color key="textColor" red="0.20392156859999999" green="0.20392156859999999" blue="0.20392156859999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" autocorrectionType="no"/>
+                                                </textField>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="s1a-5y-SCe" secondAttribute="bottom" id="76v-TL-0Hq"/>
+                                                <constraint firstAttribute="trailing" secondItem="s1a-5y-SCe" secondAttribute="trailing" constant="22" id="7rJ-ow-prc"/>
+                                                <constraint firstItem="jXW-0D-zxf" firstAttribute="top" secondItem="ffk-Ih-09N" secondAttribute="bottom" id="8Lk-2d-hnx"/>
+                                                <constraint firstItem="s1a-5y-SCe" firstAttribute="leading" secondItem="Cii-4l-v60" secondAttribute="leading" constant="22" id="HN4-vP-fhl"/>
+                                                <constraint firstItem="ffk-Ih-09N" firstAttribute="top" secondItem="Cii-4l-v60" secondAttribute="top" constant="10" id="I2X-Tn-bJE"/>
+                                                <constraint firstItem="s1a-5y-SCe" firstAttribute="top" secondItem="Cii-4l-v60" secondAttribute="top" id="JUo-s5-Urf"/>
+                                                <constraint firstItem="jXW-0D-zxf" firstAttribute="leading" secondItem="ffk-Ih-09N" secondAttribute="leading" id="MrD-z2-DEp"/>
+                                                <constraint firstAttribute="trailing" secondItem="jXW-0D-zxf" secondAttribute="trailing" constant="44" id="R03-2y-hVJ"/>
+                                                <constraint firstItem="ffk-Ih-09N" firstAttribute="leading" secondItem="Cii-4l-v60" secondAttribute="leading" constant="42" id="dAO-R0-l6h"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="68" id="2Hb-9X-8nH">
+                                        <rect key="frame" x="0.0" y="406" width="375" height="68"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2Hb-9X-8nH" id="cMU-mG-CNC">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="68"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bhs-Ep-E8I">
+                                                    <rect key="frame" x="22" y="0.0" width="331" height="67.5"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </view>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Country" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GhE-Mc-Zgq">
+                                                    <rect key="frame" x="42" y="10" width="50" height="17"/>
+                                                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
+                                                    <color key="textColor" red="0.42745098040000001" green="0.42745098040000001" blue="0.42745098040000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="OHJ-2y-57k">
+                                                    <rect key="frame" x="42" y="27" width="289" height="40"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="40" id="O9E-rQ-gQl"/>
+                                                    </constraints>
+                                                    <color key="textColor" red="0.20392156859999999" green="0.20392156859999999" blue="0.20392156859999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" autocorrectionType="no"/>
+                                                </textField>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstItem="OHJ-2y-57k" firstAttribute="top" secondItem="GhE-Mc-Zgq" secondAttribute="bottom" id="75Q-5S-dwn"/>
+                                                <constraint firstItem="bhs-Ep-E8I" firstAttribute="top" secondItem="cMU-mG-CNC" secondAttribute="top" id="F5d-eV-8Z3"/>
+                                                <constraint firstItem="OHJ-2y-57k" firstAttribute="leading" secondItem="GhE-Mc-Zgq" secondAttribute="leading" id="JJg-Di-msb"/>
+                                                <constraint firstItem="GhE-Mc-Zgq" firstAttribute="leading" secondItem="cMU-mG-CNC" secondAttribute="leading" constant="42" id="Jsg-AK-dee"/>
+                                                <constraint firstAttribute="trailing" secondItem="OHJ-2y-57k" secondAttribute="trailing" constant="44" id="OYP-Le-Fqt"/>
+                                                <constraint firstAttribute="trailing" secondItem="bhs-Ep-E8I" secondAttribute="trailing" constant="22" id="W5i-6i-f2r"/>
+                                                <constraint firstItem="GhE-Mc-Zgq" firstAttribute="top" secondItem="cMU-mG-CNC" secondAttribute="top" constant="10" id="ot1-PM-COB"/>
+                                                <constraint firstAttribute="bottom" secondItem="bhs-Ep-E8I" secondAttribute="bottom" id="r2D-0i-HOL"/>
+                                                <constraint firstItem="bhs-Ep-E8I" firstAttribute="leading" secondItem="cMU-mG-CNC" secondAttribute="leading" constant="22" id="uY5-if-JXc"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="68" id="GMr-Ag-xek">
+                                        <rect key="frame" x="0.0" y="474" width="375" height="68"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="GMr-Ag-xek" id="NQb-tF-Ine">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="68"/>
@@ -317,7 +401,7 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="68" id="PKd-rR-BMd">
-                                        <rect key="frame" x="0.0" y="406" width="375" height="68"/>
+                                        <rect key="frame" x="0.0" y="542" width="375" height="68"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="PKd-rR-BMd" id="rhf-oS-nA0">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="68"/>
@@ -359,7 +443,7 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="68" id="N9L-u3-gDq">
-                                        <rect key="frame" x="0.0" y="474" width="375" height="68"/>
+                                        <rect key="frame" x="0.0" y="610" width="375" height="68"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="N9L-u3-gDq" id="sag-YA-nfS">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="68"/>
@@ -407,6 +491,8 @@
                     <connections>
                         <outlet property="buttonSubmit" destination="uHO-Dz-Gg1" id="SOj-Q4-4rw"/>
                         <outlet property="textFieldAddress" destination="e99-D5-XWl" id="VOu-NW-Rv4"/>
+                        <outlet property="textFieldCity" destination="jXW-0D-zxf" id="tTg-94-E4o"/>
+                        <outlet property="textFieldCountry" destination="OHJ-2y-57k" id="Raz-Xo-OPc"/>
                         <outlet property="textFieldEmail" destination="1Ix-kY-u01" id="uSF-x6-Kov"/>
                         <outlet property="textFieldFullName" destination="wVc-PX-ErQ" id="KRS-kf-3Vs"/>
                         <outlet property="textFieldPhoneCode" destination="lfv-Ms-qaF" id="dXp-lI-bJf"/>
