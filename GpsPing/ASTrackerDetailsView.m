@@ -20,12 +20,19 @@
     [self.btnEdit setEnabled:true];
     self.profileImageView.layer.cornerRadius = 22.0;
     [self.profileImageView.layer setMasksToBounds:true];
+    self.profileImageView.layer.borderWidth = 2;
+    self.profileImageView.layer.borderColor = [UIColor colorWithRed:139/255.0 green:195/255.0 blue:74/255.0 alpha:1.0].CGColor;
 }
 
 -(void)configWithOwner:(ASFriendModel*)owner
                tracker:(ASDeviceModel*)deviceModel
                  point:(ASPointModel*)pointModel
                  color:(UIColor*)color {
+    if (owner && !deviceModel && !pointModel){
+        self.labelTrackerName.text = owner.userName;
+        self.profileImageView.image = [UIImage getUserAnnotationImageWithColor:color];
+    }
+    
    // self.labelOwnerName.text = owner.userName;
   //  self.imaeViewOwnerIcon.image = [UIImage getUserAnnotationImageWithColor:color];
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
@@ -64,6 +71,8 @@
                                        longitude:owner.longitude.doubleValue];
     }
 
+    
+    
 }
 
 

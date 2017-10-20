@@ -31,6 +31,7 @@ objection_requires(@keypath(ASTrackersViewController.new, apiController))
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     [self registerCellClass:[ASTrackerCell class]
               forModelClass:[ASTrackerModel class]];
+    [self reloadTrackers];
     [self fetchFromServer];
    
 }
