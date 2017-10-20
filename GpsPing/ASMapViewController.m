@@ -944,4 +944,20 @@ objection_requires(@keypath(ASMapViewController.new, apiController), @keypath(AS
     
 }
 
+- (IBAction)pressedCallBtn:(id)sender {
+    if (!self.popedTracker || ![self.popedTracker trackerPhoneNumber]){
+        return;
+    }
+    
+    NSURL *phoneUrl = [NSURL URLWithString:[NSString  stringWithFormat:@"telprompt:%@",[self.popedTracker trackerPhoneNumber]]];
+    
+    if ([[UIApplication sharedApplication] canOpenURL:phoneUrl]) {
+        [[UIApplication sharedApplication] openURL:phoneUrl];
+    } else
+    {
+        UIAlertView* calert = [[UIAlertView alloc]initWithTitle:@"Alert" message:@"Call facility is not available!!!" delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
+        [calert show];
+    }
+}
+
 @end
