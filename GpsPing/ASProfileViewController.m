@@ -8,6 +8,8 @@
 
 #import "ASProfileViewController.h"
 #import "ASProfileViewModel.h"
+#import <CocoaLumberjack.h>
+static const DDLogLevel ddLogLevel = DDLogLevelDebug;
 
 @interface ASProfileViewController ()
 
@@ -100,6 +102,10 @@
 
     [self rac_liftSelector:@selector(onError:)
                withSignals:self.buttonSubmit.rac_command.errors, nil];
+    
+    [self rac_liftSelector:@selector(doSubmit:)
+               withSignals:self.buttonSubmit.rac_command.executionSignals.flatten, nil];
+    
 }
 
 -(void)onError:(NSError*)error {
@@ -109,6 +115,11 @@
                                           cancelButtonTitle:@"OK"
                                           otherButtonTitles:nil];
     [alert show];
+}
+
+-(void)doSubmit:(id)x {
+    
+    DDLogInfo(@"x: %@", x);
 }
 
 #pragma mark - IBActions
