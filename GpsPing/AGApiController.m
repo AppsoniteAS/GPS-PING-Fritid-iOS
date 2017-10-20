@@ -176,7 +176,9 @@ objection_initializer(initWithConfiguration:);
 }
 
 -(RACSignal*)submitUserMetaData:(ASUserProfileModel *)profile {
-    NSParameterAssert(profile);
+    if (!profile){
+        return [RACSignal empty];
+    }
     return [[[[[[[self performHttpRequestWithAttempts:requestMethod
                                              resource:@"user/update_user_meta/"
                                            parameters:@{@"cookie":profile.cookie,
