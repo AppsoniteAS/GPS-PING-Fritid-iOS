@@ -925,6 +925,10 @@ objection_requires(@keypath(ASMapViewController.new, apiController), @keypath(AS
 {
     
 }
+
+
+#pragma mark - Popup btns
+
 - (IBAction)pressedEdit:(UIButton *)sender {
     if (!self.popedTracker){
         return;
@@ -936,8 +940,7 @@ objection_requires(@keypath(ASMapViewController.new, apiController), @keypath(AS
     [self.navigationController pushViewController:configVC animated:true];
 }
 - (IBAction)pressedMapBtn:(UIButton *)sender {
-    [self.trackerView setHidden:true];
-    [self.poiView setHidden:true];
+    [self.bottomPlank setHidden:true];
     
 }
 
