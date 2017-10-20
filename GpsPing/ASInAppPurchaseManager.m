@@ -24,15 +24,21 @@ static DDLogLevel ddLogLevel = DDLogLevelDebug;
 - (instancetype)init {
     self = [super init];
     if (self) {
-        [self initialize];
+       // [self initialize];
     }
     return self;
 }
 
 - (void)initialize {
-    NSDate *date = [[NSUserDefaults standardUserDefaults] valueForKey:@"areSubscribedAtDate"];
+    NSDate *date = [[NSUserDefaults standardUserDefaults] objectForKey:@"areSubscribedAtDate"];
     [[NSUserDefaults standardUserDefaults] synchronize];
     self.areSubscribed = [[[NSDate date] dateBySubtractingYears:1] isEarlierThan:date];
+}
+
+- (BOOL)areSubscribed{
+    NSDate *date = [[NSUserDefaults standardUserDefaults] objectForKey:@"areSubscribedAtDate"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    return [[[NSDate date] dateBySubtractingYears:1] isEarlierThan:date];
 }
 
 - (void)subscribe {
@@ -87,14 +93,25 @@ static DDLogLevel ddLogLevel = DDLogLevelDebug;
 #pragma mark - SKPaymentTransactionObserver
 - (void)paymentQueueRestoreCompletedTransactionsFinished:(SKPaymentQueue *)queue {
     DDLogDebug(@"received restored transactions: %lu", (unsigned long)queue.transactions.count);
+    bool restored = false;
     for(SKPaymentTransaction *transaction in queue.transactions){
-        if(transaction.transactionState == SKPaymentTransactionStateRestored){
+        if(transaction.transactionState == SKPaymentTransactionStateRestored || transaction.transactionState == SKPaymentTransactionStatePurchased){
             DDLogDebug(@"Transaction state -> Restored");
-            [self doSubcribeWithDate:[[NSUbiquitousKeyValueStore defaultStore] valueForKey:@"areSubscribedAtDate"]];
+            [self doSubcribeWithDate:[[NSUbiquitousKeyValueStore defaultStore] objectForKey:@"areSubscribedAtDate"]];
             [[SKPaymentQueue defaultQueue] finishTransaction:transaction];
+            restored = true;
             break;
         }
     }
+    if (!restored){
+        [[[UIAlertView alloc] initWithTitle: NSLocalizedString( @"You don't have any subscription", nil) message: NSLocalizedString(@"Please subscribe", nil) delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil] show];
+
+    }
+}
+
+-(void)paymentQueue:(SKPaymentQueue *)queue restoreCompletedTransactionsFailedWithError:(NSError *)error{
+    [[[UIAlertView alloc] initWithTitle:@"Error" message:error.localizedDescription delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil] show];
+
 }
 
 - (void)paymentQueue:(SKPaymentQueue *)queue updatedTransactions:(NSArray *)transactions{

@@ -82,6 +82,7 @@ NSString *kASUserDefaultsDidShowIntro = @"kASUserDefaultsDidShowIntro";
 + (void)removeLocallyProfileInfo {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults removeObjectForKey:@"profile_info"];
+    [defaults removeObjectForKey:@"areSubscribedAtDate"];
     [defaults synchronize];
 }
 

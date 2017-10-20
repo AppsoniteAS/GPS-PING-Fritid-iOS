@@ -77,9 +77,11 @@ objection_requires(@keypath(ASFriendsListViewController.new, apiController))
 }
 
 -(void)refreshListOfFriends{
-    [[self.apiController getFriends] subscribeNext:^(id x) {
-        [self.memoryStorage removeAllTableItems];
-        [self.memoryStorage addItems:x];
+    [[[self.apiController getFriends] doError:^(NSError *error) {
+        NSLog(@"%@", error.localizedDescription);
+    } ]subscribeNext:^(id x) {
+        NSLog(@"completed refreshListOfFriends");
+        [self.memoryStorage setItems:x forSectionIndex:0];
         [self.tableView reloadData];
     }];
 }
