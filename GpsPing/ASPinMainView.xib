@@ -18,14 +18,19 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Cq-eA-YKV">
                     <rect key="frame" x="0.0" y="0.0" width="36" height="36"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dog_border" translatesAutoresizingMaskIntoConstraints="NO" id="OV4-Cc-loN">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dog_border" translatesAutoresizingMaskIntoConstraints="NO" id="OV4-Cc-loN">
                             <rect key="frame" x="0.0" y="0.0" width="36" height="36"/>
                         </imageView>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="V4P-PZ-pD8">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="V4P-PZ-pD8">
                             <rect key="frame" x="3" y="3" width="30" height="30"/>
                         </imageView>
+                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TUA-sr-aIA">
+                            <rect key="frame" x="0.0" y="0.0" width="18" height="18"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </view>
                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="btT-hR-dbG">
-                            <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
+                            <rect key="frame" x="0.0" y="0.0" width="12" height="12"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
                     </subviews>
@@ -53,6 +58,7 @@
             <connections>
                 <outlet property="imageViewArrow" destination="btT-hR-dbG" id="vfa-aS-Bop"/>
                 <outlet property="imageViewPhoto" destination="V4P-PZ-pD8" id="DAe-ac-KZ0"/>
+                <outlet property="viewArrowContainer" destination="TUA-sr-aIA" id="Axd-6G-UGv"/>
             </connections>
             <point key="canvasLocation" x="-454.5" y="-207.5"/>
         </view>

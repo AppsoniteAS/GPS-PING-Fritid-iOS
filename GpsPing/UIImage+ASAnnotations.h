@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface UIImage (ASAnnotations)
-
+- (UIImage *)imageRotatedByDegrees:(CGFloat)degrees;
 +(UIImage*)getUserAnnotationImageWithColor:(UIColor*)color;
 +(UIImage*)getLastPointAnnotationImageWithColor:(UIColor*)color;
 +(UIImage*)getPointAnnotationImageWithColor:(UIColor*)color;

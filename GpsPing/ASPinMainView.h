@@ -12,6 +12,6 @@
 @interface ASPinMainView : UIView
 @property (weak, nonatomic) IBOutlet UIImageView *imageViewPhoto;
 - (void) handleByImage: (UIImage*) image;
-- (void) handleByImageName: (NSString*) name arrowColor: (NSString*) color rotation:(CGFloat) rotation;
+- (void) handleByImageName: (NSString*) name arrowColor: (UIColor*) color rotation:(CGFloat) rotation;
 + (ASPinMainView*) getMarkerView;
 @end

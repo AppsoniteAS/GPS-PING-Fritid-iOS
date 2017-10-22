@@ -777,7 +777,7 @@ objection_requires(@keypath(ASMapViewController.new, apiController), @keypath(AS
             } else {
                 pinView.annotation = a;
             }
-            [pinView.marker handleByImageName:imageTracker arrowColor:a.colorName rotation:200.0f];
+            [pinView.marker handleByImageName:imageTracker arrowColor:a.annotationColor rotation:200.0f];
             
             return pinView;
         }

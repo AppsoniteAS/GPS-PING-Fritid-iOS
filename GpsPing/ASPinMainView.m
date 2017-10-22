@@ -14,6 +14,7 @@
 
 @interface ASPinMainView()
 @property (weak, nonatomic) IBOutlet UIImageView *imageViewArrow;
+@property (weak, nonatomic) IBOutlet UIView *viewArrowContainer;
 @property (assign, nonatomic) CGFloat cornerRadius;
 @end;
 
@@ -25,6 +26,12 @@
     self.cornerRadius = 15;
     [self.imageViewPhoto.layer setCornerRadius:self.cornerRadius];
     [self.imageViewPhoto.layer setMasksToBounds:true];
+    [self.viewArrowContainer.layer setCornerRadius:9];
+    [self.viewArrowContainer.layer setMasksToBounds:true];
+    [self.viewArrowContainer.layer setBorderWidth:1];
+    [self.viewArrowContainer.layer setBorderColor:[UIColor whiteColor].CGColor];
+    [self.imageViewPhoto.layer setBorderWidth:1];
+    [self.imageViewPhoto.layer setBorderColor:[UIColor whiteColor].CGColor];
 }
 
 
@@ -32,15 +39,17 @@
     [self.imageViewPhoto setImage:image];
 }
 
-- (void) handleByImageName: (NSString*) name arrowColor: (NSString*) arrowColor rotation:(CGFloat) rotation{
+- (void) handleByImageName: (NSString*) name arrowColor: (UIColor*) arrowColor rotation:(CGFloat) rotation{
         [self.imageViewPhoto yy_setImageWithURL:[ [ASS3Manager sharedInstance] getURLByImageIdentifier: name ]placeholder:nil options:YYWebImageOptionSetImageWithFadeAnimation completion:^(UIImage * _Nullable image, NSURL * _Nonnull url, YYWebImageFromType from, YYWebImageStage stage, NSError * _Nullable error) {
             if (from == YYWebImageFromDiskCache) {
             }
         }];
     
         self.imageViewArrow.alpha = arrowColor ? 1.0 : 0.0;
-    self.imageViewArrow.image = [UIImage getLastPointAnnotationImageWithColorName:arrowColor andRotation:rotation];
-    self.imageViewArrow.center = [self setPointToAngle:rotation - 90.0f center:self.center radius:CGRectGetWidth(self.frame)/2.0];
+    self.imageViewArrow.image = [[UIImage imageNamed:@"direction"] imageRotatedByDegrees:rotation];
+    self.imageViewArrow.center = [self setPointToAngle:rotation - 90.0f center:self.center radius:CGRectGetWidth(self.imageViewPhoto.frame)/2.0];
+    self.viewArrowContainer.center = self.imageViewArrow.center;
+    self.viewArrowContainer.backgroundColor = arrowColor;
 }
 
 -(CGPoint)setPointToAngle:(int)angle center:(CGPoint)centerPoint radius:(double)radius
