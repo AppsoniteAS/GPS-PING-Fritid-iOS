@@ -103,9 +103,12 @@ static const DDLogLevel ddLogLevel = DDLogLevelDebug;
     [self rac_liftSelector:@selector(onError:)
                withSignals:self.buttonSubmit.rac_command.errors, nil];
     
-    [self rac_liftSelector:@selector(doSubmit:)
-               withSignals:self.buttonSubmit.rac_command.executionSignals.flatten, nil];
+//    [self rac_liftSelector:@selector(doSubmit:)
+//               withSignals:self.buttonSubmit.rac_command.executionSignals.flatten, nil];
+//
     
+//    [self rac_liftSelector:@selector(doSubmit:)
+//               withSignals:self.buttonSubmit.rac_command.executing, nil];    
 }
 
 -(void)onError:(NSError*)error {
@@ -120,12 +123,19 @@ static const DDLogLevel ddLogLevel = DDLogLevelDebug;
 -(void)doSubmit:(id)x {
     
     DDLogInfo(@"x: %@", x);
+    if ([x integerValue] == 1){
+        self.navigationItem.hidesBackButton = true;
+    } else {
+        self.navigationItem.hidesBackButton = false;
+    }
 }
 
 #pragma mark - IBActions
 
 -(IBAction)doLogout:(id)sender {
     [self.viewModel logOut];
+    self.navigationItem.backBarButtonItem.enabled = true;
+
 }
 
 @end

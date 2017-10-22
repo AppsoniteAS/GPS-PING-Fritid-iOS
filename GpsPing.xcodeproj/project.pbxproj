@@ -122,6 +122,7 @@
 		E94127E61F7D631600190D8E /* ASTrackerDetailsView.m in Sources */ = {isa = PBXBuildFile; fileRef = E94127E51F7D631600190D8E /* ASTrackerDetailsView.m */; };
 		E945E4391F8256EB0070B64E /* ASTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = E945E4381F8256EB0070B64E /* ASTabBarController.m */; };
 		E947D8C21F86685700A4B16D /* ASSimpleTrackerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E947D8C11F86685700A4B16D /* ASSimpleTrackerCell.m */; };
+		E95454211F9CFD080016D726 /* FAQ 6.plist in Resources */ = {isa = PBXBuildFile; fileRef = E95454201F9CFD060016D726 /* FAQ 6.plist */; };
 		E987820B1F8617EA0098C143 /* ASFAQTrackersListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E987820A1F8617EA0098C143 /* ASFAQTrackersListViewController.m */; };
 		E987820E1F861DDC0098C143 /* ASFAQTrackerListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E987820D1F861DDC0098C143 /* ASFAQTrackerListCell.m */; };
 		E98C98581F811B1C00A028DC /* ASPOIDetailsView.m in Sources */ = {isa = PBXBuildFile; fileRef = E98C98571F811B1C00A028DC /* ASPOIDetailsView.m */; };
@@ -452,6 +453,7 @@
 		E945E4381F8256EB0070B64E /* ASTabBarController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ASTabBarController.m; sourceTree = "<group>"; };
 		E947D8C01F86685700A4B16D /* ASSimpleTrackerCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ASSimpleTrackerCell.h; sourceTree = "<group>"; };
 		E947D8C11F86685700A4B16D /* ASSimpleTrackerCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ASSimpleTrackerCell.m; sourceTree = "<group>"; };
+		E95454201F9CFD060016D726 /* FAQ 6.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "FAQ 6.plist"; sourceTree = "<group>"; };
 		E98782091F8617EA0098C143 /* ASFAQTrackersListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ASFAQTrackersListViewController.h; sourceTree = "<group>"; };
 		E987820A1F8617EA0098C143 /* ASFAQTrackersListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ASFAQTrackersListViewController.m; sourceTree = "<group>"; };
 		E987820C1F861DDC0098C143 /* ASFAQTrackerListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ASFAQTrackerListCell.h; sourceTree = "<group>"; };
@@ -841,6 +843,7 @@
 		A6D194EC1D816FF800394F31 /* FAQ */ = {
 			isa = PBXGroup;
 			children = (
+				E95454201F9CFD060016D726 /* FAQ 6.plist */,
 				A6D194ED1D81743700394F31 /* ASQuestionListTableViewController.h */,
 				A6D194EE1D81743700394F31 /* ASQuestionListTableViewController.m */,
 				A6D194FC1D82961E00394F31 /* FAQ.plist */,
@@ -1122,6 +1125,7 @@
 				A6198B841D7EE453000E01EE /* HelpPopup.storyboard in Resources */,
 				A68C1B7F1C4D24DC000E2BA6 /* Roboto-LightItalic.ttf in Resources */,
 				A68C1B7A1C4D24DC000E2BA6 /* Roboto-BoldItalic.ttf in Resources */,
+				E95454211F9CFD080016D726 /* FAQ 6.plist in Resources */,
 				A68C1B411C4CE460000E2BA6 /* LaunchScreen.storyboard in Resources */,
 				A68C1B801C4D24DC000E2BA6 /* Roboto-Medium.ttf in Resources */,
 				ABA221491C79E56C00AE6F87 /* Connect.storyboard in Resources */,

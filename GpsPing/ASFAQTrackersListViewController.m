@@ -61,7 +61,7 @@
 
 - (void)didSelectTracker:(NSString *)trackerName{
     ASQuestionListTableViewController* trackerController = [[UIStoryboard faqStoryboard] instantiateViewControllerWithIdentifier:@"ASQuestionListTableViewController"];
-   // trackerController.trackerName = trackerName;
+    trackerController.trackerType = trackerName;
     [self.navigationController pushViewController: trackerController animated:YES];
 }
 

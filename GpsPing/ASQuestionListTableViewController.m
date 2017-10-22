@@ -10,6 +10,7 @@
 #import "ASQuestionCell.h"
 #import "ASAnswerViewController.h"
 #import "UIStoryboard+ASHelper.h"
+#import "ASTrackerModel.h"
 
 @interface ASQuestionListTableViewController ()
 @property (nonatomic, strong) NSArray *faq;
@@ -19,8 +20,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    bool S1A9 =  [self.trackerType isEqualToString:kASTrackerTypeTkS1 ]  ||  [self.trackerType isEqualToString:kASTrackerTypeTkA9 ] ;
     
-    self.faq = [NSArray arrayWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"FAQ" ofType:@"plist"]];
+    self.faq = [NSArray arrayWithContentsOfFile:[[NSBundle mainBundle] pathForResource: S1A9 ? @"FAQ 6" : @"FAQ" ofType:@"plist"]];
     NSMutableArray *allQuestions = @[].mutableCopy;
     
     for (NSDictionary *qa in self.faq) {

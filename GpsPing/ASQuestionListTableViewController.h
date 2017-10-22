@@ -10,5 +10,5 @@
 #import <DTTableViewManager/DTTableViewManager.h>
 
 @interface ASQuestionListTableViewController : DTTableViewController
-
+@property (strong, nonatomic) NSString* trackerType;
 @end
