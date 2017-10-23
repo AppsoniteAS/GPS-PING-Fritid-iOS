@@ -39,12 +39,20 @@ objection_requires(@keypath(ASTabBarController.new, apiController))
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didRegister) name:kASDidRegisterNotification object:nil];
     
     
-    ASMapViewController* map = [[UIStoryboard mapStoryboard] instantiateInitialViewController];
+    UINavigationController* map = [[UIStoryboard mapStoryboard] instantiateInitialViewController];
     map.tabBarItem =
     [[UITabBarItem alloc] initWithTitle:@"Map"
                                   image:[UIImage imageNamed:@"tabbar_maps"]
                                     tag:1];
     
+    
+    UINavigationController* historyNC = [[UIStoryboard mapStoryboard] instantiateInitialViewController];
+    ASMapViewController* history = [historyNC childViewControllers][0];
+    history.isHistoryMode = true;
+    history.tabBarItem =
+    [[UITabBarItem alloc] initWithTitle:@"History"
+                                  image:[UIImage imageNamed:@"tabbar_history"]
+                                    tag:1];
     
     ASTrackersViewController* tracker =[[UIStoryboard trackerStoryboard] instantiateInitialViewController];
     tracker.tabBarItem =
@@ -59,7 +67,7 @@ objection_requires(@keypath(ASTabBarController.new, apiController))
                                     tag:3];
     
     
-    [self setViewControllers:@[map, tracker, settings]];
+    [self setViewControllers:@[map, historyNC, tracker, settings]];
 }
 
 -(void)viewDidLayoutSubviews
