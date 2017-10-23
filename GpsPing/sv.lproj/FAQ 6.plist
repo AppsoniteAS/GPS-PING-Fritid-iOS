@@ -3,84 +3,114 @@
 <plist version="1.0">
 <array>
 	<dict>
-		<key>Jeg har trykket &quot;Start&quot; upload ok&quot; sms, men jeg klarer ennå ikke å se trackeren.</key>
-		<string>Pass på at trackeren er ute. Hvis den er inne vil den få problemer med å koble seg til satelitter. Når trackeren får kontakt med satelittene begynner det blå lyset å blinke.</string>
+		<key>Jag har tryckt på "Start" ladda upp ok "sms, men jag kan inte se spåraren.</key>
+        <string>Se till att spåraren är ute. Om det är i, kommer det att vara problem med att ansluta
+            satelliter. När spåraren kommer i kontakt med satelliterna börjar det blå ljuset blinka.</string>
 	</dict>
 	<dict>
-		<key>Jeg har trykket &quot;Start, men jeg får ikke sms svar fra trackeren.</key>
-		<string>Gå til Innstillinger-&gt;Profil og fyll inn landkode og ditt telefon nummer. Gå så til Trackere-&gt; og trykk på din tracker. Edit Tracker åpner seg. Skroll ned, og trykk reset knappen. Når du trykker Reset knappen vil fem sms`er sendes. På Android telefoner vil alle fem sendes på en gang. På iPhone telefoner vil sms funksjonen åpnes og du må sende en etter en. Gå så tilbake til hoved menyen og trykk &quot;Start&quot;</string>
+		<key>Jag har tryckt på "Start, men jag får inte sms-svar från spåraren..</key>
+        <string> Gå till Inställningar-> Profil och ange landskod och ditt telefonnummer.
+            Gå sedan till Trackers-> och tryck på din spårare. Edit Tracker öppnas. Scrolla ner,
+            och tryck på återställningsknappen. När du trycker på återställningsknappen skickas fem textmeddelanden.
+            På Android-telefoner skickas alla fem på en gång. På iPhone-telefoner kommer sms
+            Funktionen öppnas och du måste skicka en efter en. Gå sedan tillbaka till huvudmenyn och tryck på "Start"</string>
 	</dict>
 	<dict>
-		<key>Når jeg trykker &quot;Start&quot; knappen i appen så skjer det ingenting.</key>
-		<string>Du har ikke valgt hvilken tracker du skal starte. Trykk på Trackere i hoved menyen. Trykk så på den lille sirkelen til høyre for trackeren. Gå tilbake til hoved menyen. Navnet på trackeren skal nå stå over &quot;Start&quot; knappen. Trykk så på &quot;Start&quot; knappen og appen vil nå sende en sms til trackeren for å starte den.</string>
+		<key>När jag trycker på knappen "Start" i appen händer ingenting.</key>
+        <string>Du har inte valt vilken tracker som ska startas. Tryck på Trackers i huvudmenyn.
+            Rör sedan den lilla cirkeln till höger om spåraren. Återgå till huvudmenyn.
+            Trackerens namn måste nu ligga över "Start" -knappen. Tryck sedan på "Start" -knappen och
+            Appen skickar nu ett textmeddelande till spåraren för att starta det.</string>
 	</dict>
 	<dict>
-		<key>Jeg vil endre hvor ofte trackeren sender gps signalet.</key>
-		<string>Gå til Trackere og trykk på trackeren du vil endre signal frekvensen på. Scroll ned til &quot;Signal&quot;. Trykke tiden som står under &quot;Signal&quot; og endre det til ønsket lengde. Trykk &quot;Oppdater&quot;. Gå tilbake til hoved menyen og trykk &quot;Start&quot;.</string>
+		<key>Jag vill ändra hur ofta spåraren skickar GPS-signalen.</key>
+        <string>Gå till Trackers och tryck på spåret du vill ändra signalfrekvensen.
+            Bläddra ner till "Signal". Tryck på tiden som visas under "Signal" och ändra den till önskad längd.
+            Tryck på "Uppdatera". Återgå till huvudmenyn och tryck på "Start".</string>
 	</dict>
 	<dict>
-		<key>Jeg ser bare gps posisjoner for siste del av turen.</key>
-		<string>Du kan sette lengden på tracking historikken din ved å gå til hoved meny-&gt;Innstillinger-&gt;Visning alternativer. Velg så ønsket tid og trykk lagre. Du vil nå få se gps posisjoner innen denne tidsrammen.</string>
+		<key>JJag ser bara GPS-positioner för den sista delen av resan.</key>
+        <string>Du kan ställa in hur lång tid som spårar din historia genom att gå till huvudet
+            meny-> Inställningar-> Visningsalternativ. Välj önskad tid och tryck på Spara.
+            Du kommer nu att se GPS-positioner inom denna tidsram.</string>
 	</dict>
 	<dict>
-		<key>Jeg vil se min venns tracker</key>
-		<string>Gå på innstillinger-Koble til og trykk på &quot;+&quot; tegnet oppe i høyre hjørne. Søk opp din venns brukernavn og trykk &quot;+&quot;. Din venn vil nå få opp ditt brukernavn under hans &quot;Koble til&quot; liste. Han må så legge deg til ved å trykke på &quot;+&quot; tegnet ved siden av ditt navn. For at du skal se hans tracker må han trykke på &quot;Øye&quot; ikonet ved siden av ditt navn. &quot;Øye&quot; ikonet vil så bli grønt.</string>
+		<key>Jag vill se min väns tracker</key>
+        <string> Gå till Inställningar-Anslut och tryck på "+" tecknet längst upp till höger.
+            Sök din användares användarnamn och tryck på "+". Din vän kommer nu att få ditt användarnamn nedan
+            hans "ansluta till" lista. Han måste sedan lägga till dig genom att trycka på tecknet "+" bredvid det
+            ditt namn. För att du ska kunna se sin spårare måste han vidröra ikonen "Eye" bredvid den
+            ditt namn. "Eye" -ikonen blir då grön.</string>
 	</dict>
 	<dict>
-		<key>Jeg vil stoppe min venn fra å se min tracker.</key>
-		<string>Gå på Innstillinger-&gt;Koble til og trykk på &quot;Øye&quot; ikonet.  Øye ikonet vil endre seg fra grønt til grått og få en linje gjennom. Din venn kan ikke lenger se din tracker.</string>
+		<key>Jag vill stoppa min vän från att se min spårare.</key>
+        <string>Gå till Inställningar-> Anslut och peka på "Eye" -ikonen. Ögonikonen kommer att ändras
+            från grönt till grått och få en linje genom. Din vän kan inte längre se din spårare.</string>
 	</dict>
 	<dict>
-		<key>Jeg vil min venns tracker men det står jeg må betale for det</key>
-		<string>Hvis du ikke eier en tracker som er registrert på ditt brukernavn må du betale en liten sum i måneden for å se den. Du kan stoppe betalingen når du ønsker.</string>
+		<key>Jag vill ha min väns spårare men jag säger att jag måste betala för det</key>
+        <string>Om du inte äger en spårare registrerad i ditt användarnamn måste du betala en liten summa
+            summan av månaden för att se den. Du kan sluta betala när du vill.</string>
 	</dict>
 	<dict>
-		<key>Jeg vil sette tracker abonnementet mitt på pause</key>
-		<string>Gå til Innstillinger og trykk &quot;Pause abonnement&quot;. En epost vil så bli sendt til GPS Ping og vi setter abonnementet på pause.</string>
+		<key>Jag lägger mitt spårarabonnemang på vent.</key>
+        <string>Gå till Inställningar och tryck på "Pausa prenumeration". Ett e-postmeddelande skickas sedan till GPS
+            Ping och vi avbryter prenumerationen.</string>
 	</dict>
 	<dict>
-		<key>Trackerens posisjon er midt i havet.</key>
-		<string>Dette betyr at trackeren ikke har oppdatert gps posisjonen sin og har ikke fått satelitt kontakt. Ta trackeren ut og restart den ved å trykke på av og på knappen.</string>
+		<key>Spårarens läge ligger mitt i havet.</key>
+        <string>Det betyder att spåraren inte har uppdaterat sin GPS-position och inte har mottagit satellit
+            kontakta. Ta bort spåraren och starta om den genom att trycka på på / av-knappen.</string>
 	</dict>
 	<dict>
-		<key>Jeg ønsker å stoppe abonnementet jeg kjøpte i appen for å se min venns tracker.</key>
-		<string>Dette må stoppes i Apples App store eller i Google Play Store. For iPhone gå til App Store appen og scroll ned til din bruker. Trykk på apple id´en din og så View Apple id. Skriv inn passordet ditt, gå til abonnementer og trykk adminstrer. Der kan du stoppe abonnementet. På Android: Åpne Google Play store på din telefon. Gå til Mine Apper via Google Play store menyen. På venstre siden av installerte apper er en liste over dine abonnementer. Her kan du velge det abonnementet du ønsker å stoppe.</string>
+		<key>Jag vill sluta prenumerationen jag köpte i appen för att se min väns spårare.</key>
+        <string>Det måste stoppas i Apples App Store eller i Google Play Butik. För iPhone gå till App
+            Spara appen och bläddra ner till din användare. Tryck på ditt äpple-ID och visa sedan visnings-id.
+            Ange ditt lösenord, gå till prenumerationer och tryck på adminstrer. Där kan du sluta
+            prenumeration. På Android: Öppna Google Play Butik på din telefon. Gå till Mina Apps via
+            Butiksmenyn i Google Play. På vänster sida av installerade appar finns en lista över din
+            abonnemang. Här kan du välja den prenumeration du vill stoppa.</string>
 	</dict>
 	<dict>
-		<key>Jeg kan ikke se min egen posisjon.</key>
-		<string>Dette betyr at du ikke har gitt appen tilgang til gps funksjonen på telefonen. Gå til innstillinger på dine telefon og gi GPS Ping appen tilgang.</string>
+		<key>Jag kan inte se min egen position.</key>
+        <string> Det innebär att du inte har beviljat appen tillgång till GPS-funktionen på telefonen.
+            Gå till inställningarna på din telefon och ge åtkomst till GPS Ping-appen.</string>
 	</dict>
 	<dict>
-		<key>Jeg vil endre navn på trackeren</key>
-		<string>Gå på Trackere og trykk på din tracker. Edit tracker vil så åpne seg. Her kan du skrive inn navnet på trackeren under &quot;Navn&quot;</string>
+		<key>Jag vill byta namn på spåraren</key>
+        <string>Gå till Trackers och slå din spårare. Edit Tracker öppnas.
+            Här kan du skriva in spårarens namn under "Namn"</string>
 	</dict>
 	<dict>
-		<key>Hvordan kan jeg se den daglige loggen til trackeren</key>
-		<string>Gå på  Logg og trykk på kalenderen oppe i høyre hjørne. Velg den aktuelle datoen og appen henter gps posisjonene for denne datoen.</string>
+		<key>Hur kan jag se trackerens dagliga logg</key>
+        <string>Gå till Logga och tryck på kalendern längst upp till höger.
+            Välj det aktuella datumet och appen hämtar GPS-positionerna för det datumet.</string>
 	</dict>
 	<dict>
-		<key>Hvordan finner jeg nord på kartet</key>
-		<string>Åpne Kart og tracking og legg to fingre på kartet og vri. Et kompass vil komme opp på venstre side av skjermen. Dette kompasset viser nord på kartet.</string>
+		<key> Hur hittar jag norrut på kartan</key>
+        <string>Öppna karta och spår och sätt två fingrar på kartan och vrid. En kompass kommer att komma upp
+            på vänster sida av skärmen. Kompassen visar norr på kartan.</string>
 	</dict>
 	<dict>
-		<key>Hva viser kompasset som alltid er på kartet.</key>
-		<string>Dette kompasset viser virkelig Nord.</string>
+		<key>Vad visar kompassen som alltid finns på kartan.</key>
+		<string>Denna kompass visar verkligen norr.</string>
 	</dict>
 	<dict>
-		<key>Hvor mange trackere kan jeg ha i appen</key>
-		<string>Du kan kjøpe og se så mange trackere som du vil.</string>
+		<key>Hur många trackers kan jag få i appen</key>
+		<string>Du kan köpa och titta på så många trackers som du vill.</string>
 	</dict>
 	<dict>
-		<key>Hvordan er AV/PÅ knappen</key>
-		<string>Denne knappen er på kanten/siden av trackeren. Hold den inne i minst tre sekunder.</string>
+		<key>Hur är knappen ON / OFF?</key>
+		<string>Den här knappen ligger på spårarens kant / sida. Håll den i minst tre sekunder.</string>
 	</dict>
 	<dict>
-		<key>Hvordan ser jeg om trackeren har GPS Signal</key>
-		<string>Trykk på AV/PÅ Knappen for å få skjermen opp. Hvis du har en sirkel inne i hjulet på skjermen, da har du GPS Signal.</string>
+		<key>Hur ser jag om spåraren har GPS-signal</key>
+        <string> Tryck på ON / OFF knappen för att få fram skärmen. Om du har en cirkel inne i hjulet
+            På skärmen har du GPS-signal.</string>
 	</dict>
 	<dict>
-		<key>Hvordan kan jeg ringe til trackeren</key>
-		<string>Trykk på siste pos i kartet. Trykk på ringe ikonet.</string>
+		<key>Hur kan jag ringa till trackeren</key>
+		<string>Tryck på det senaste inlägget i kartan. Tryck på ringsymbolen.</string>
 	</dict>
 </array>
 </plist>
