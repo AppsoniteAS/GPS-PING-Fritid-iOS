@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+    <dict>
+        <key>I have pressed &quot;Start&quot; upload ok &quot;sms, but I can not yet see the tracker.</key>
+        <string>Make sure the tracker is out. If it is in, it will have trouble connecting
+            satellites. When the tracker gets in touch with the satellites, the blue light starts to flash.</string>
+    </dict>
+    <dict>
+        <key>I have pressed &quot;Start, but I do not get sms response from the tracker.</key>
+        <string> Go to Settings-> Profile and enter country code and your phone number.
+            Then go to Trackers-> and tap your tracker. Edit Tracker opens. Scroll down,
+            and press the reset button. When you press the Reset button, five text messages will be sent.
+            On Android phones, all five will be sent at once. On iPhone phones will sms
+            The feature opens and you must send one by one. Then go back to the main menu and press "Start"</string>
+    </dict>
+    <dict>
+        <key> When I press the "Start" button in the app, nothing happens</key>
+        <string> You have not chosen which tracker to start. Touch Trackers in the main menu.
+            Then touch the small circle to the right of the tracker. Return to the main menu.
+            The name of the tracker must now be above the "Start" button. Then press the "Start" button and
+            The app will now send a text message to the tracker to start it.</string>
+    </dict>
+    <dict>
+        <key>I want to change how often the tracker sends the GPS signal.</key>
+        <string> Go to Trackers and tap the track you want to change the signal frequency.
+            Scroll down to "Signal". Press the time shown under "Signal" and change it to the desired length.
+            Press "Update". Return to the main menu and press "Start"</string>
+    </dict>
+    <dict>
+        <key>I only see GPS positions for the last part of the trip.</key>
+        <string>  You can set the length of tracking your history by going to the head
+            menu-> Settings-> Viewing options. Select the desired time and press save.
+            You will now see GPS positions within this time frame.</string>
+    </dict>
+    <dict>
+        <key> I want to see my friend's tracker</key>
+        <string>Go to Settings-Connect and tap the "+" character in the top right corner.
+            Search your friend\'s username and press "+". Your friend will now get your username below
+            his "connect to" list. He must then add you by touching the "+" character next to it
+            your name. In order for you to see his tracker, he must touch the "Eye" icon next to it
+            your name. The "eye" icon will then turn green.</string>
+    </dict>
+    <dict>
+        <key> I want to stop my friend from seeing my tracker.</key>
+        <string> Go to Settings-> Connect and touch the "Eye" icon. Eye icon will change
+            from green to gray and get a line through. Your friend can no longer see your tracker.</string>
+    </dict>
+    <dict>
+        <key> I want my friend\'s tracker but I say I have to pay for it</key>
+        <string> If you do not own a tracker registered in your username, you must pay a small amount
+            sum of the month to see it. You can stop payment when you wish.</string>
+    </dict>
+    <dict>
+        <key>I will put my tracker subscription on hold.</key>
+        <string>  Go to Settings and press "Pause subscription". An email will then be sent to GPS
+            Ping and we cancel the subscription.</string>
+    </dict>
+    <dict>
+        <key>The tracker\'s position is in the middle of the ocean.</key>
+        <string>This means that the tracker has not updated his GPS position and has not received satellite
+            contact. Take the tracker out and restart it by pressing the on and off button.</string>
+    </dict>
+    <dict>
+        <key>I want to stop the subscription I purchased in the app to see my friend\'s tracker.</key>
+        <string>This must be stopped in Apple App Store or in the Google Play Store. For iPhone go to App
+            Store the app and scroll down to your user. Touch your apple ID and then view the View ID.
+            Enter your password, go to subscriptions and press adminstrer. There you can stop
+            subscription. On Android: Open the Google Play store on your phone. Go to My Apps via
+            Google Play store menu. On the left side of installed apps is a list of your
+            subscriptions. Here you can select the subscription you want to stop.</string>
+    </dict>
+    <dict>
+        <key>  I can not see my own position.</key>
+        <string>This means that you have not granted the app access to the GPS feature on the phone.
+            Go to settings on your phone and provide the GPS Ping app access.</string>
+    </dict>
+    <dict>
+        <key>I want to rename the tracker</key>
+        <string>Go to Trackers and hit your tracker. Edit Tracker will open.
+            Here you can enter the name of the tracker under "Name"</string>
+    </dict>
+    <dict>
+        <key>How can I see the daily log of the tracker</key>
+        <string>Go to Log and tap the calendar in the top right corner.
+            Select the current date and the app will pick up GPS positions for that date.</string>
+    </dict>
+    <dict>
+        <key>How can I find north on the map</key>
+        <string> Open Map and Track and put two fingers on the map and twist. A compass will come up
+            on the left side of the screen. This compass shows north on the map.</string>
+    </dict>
+    <dict>
+        <key>What shows the compass that is always on the map.</key>
+        <string>This compass really shows the North.</string>
+    </dict>
+    <dict>
+        <key>How many trackers can I have in the app</key>
+        <string>You can buy and watch as many trackers as you want.</string>
+    </dict>
+    <dict>
+        <key> Where is the ON / OFF button</key>
+        <string>This button is on the edge / side of the tracker. Hold it for at least three seconds.</string>
+    </dict>
+    <dict>
+        <key>How do I see if the tracker has GPS Signal</key>
+        <string> Press the ON / OFF button to bring up the screen. If you have a circle inside the wheel
+            On screen, then you have GPS Signal.</string>
+    </dict>
+    <dict>
+        <key>How can I call the tracker</key>
+        <string>Tap last post in the map. Touch the call icon.</string>
+    </dict>
+</array>
+</plist>

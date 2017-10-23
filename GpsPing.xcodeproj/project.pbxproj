@@ -118,11 +118,11 @@
 		ABD8BAE01C7F5B350075670C /* Errors.strings in Resources */ = {isa = PBXBuildFile; fileRef = ABD8BAE21C7F5B350075670C /* Errors.strings */; };
 		ABE7C7251C784500008A6390 /* ASPointOfInterestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ABE7C7241C784500008A6390 /* ASPointOfInterestModel.m */; };
 		ABE7C7281C78CB76008A6390 /* ASPointOfInterestAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = ABE7C7271C78CB76008A6390 /* ASPointOfInterestAnnotation.m */; };
+		E93D155A1F9E0FAB00962D7E /* FAQ 6.plist in Resources */ = {isa = PBXBuildFile; fileRef = E93D155C1F9E0FAC00962D7E /* FAQ 6.plist */; };
 		E93D75A81F8A7B39001C8AD7 /* old.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E93D75A71F8A7B39001C8AD7 /* old.storyboard */; };
 		E94127E61F7D631600190D8E /* ASTrackerDetailsView.m in Sources */ = {isa = PBXBuildFile; fileRef = E94127E51F7D631600190D8E /* ASTrackerDetailsView.m */; };
 		E945E4391F8256EB0070B64E /* ASTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = E945E4381F8256EB0070B64E /* ASTabBarController.m */; };
 		E947D8C21F86685700A4B16D /* ASSimpleTrackerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E947D8C11F86685700A4B16D /* ASSimpleTrackerCell.m */; };
-		E95454211F9CFD080016D726 /* FAQ 6.plist in Resources */ = {isa = PBXBuildFile; fileRef = E95454201F9CFD060016D726 /* FAQ 6.plist */; };
 		E987820B1F8617EA0098C143 /* ASFAQTrackersListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E987820A1F8617EA0098C143 /* ASFAQTrackersListViewController.m */; };
 		E987820E1F861DDC0098C143 /* ASFAQTrackerListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E987820D1F861DDC0098C143 /* ASFAQTrackerListCell.m */; };
 		E98C98581F811B1C00A028DC /* ASPOIDetailsView.m in Sources */ = {isa = PBXBuildFile; fileRef = E98C98571F811B1C00A028DC /* ASPOIDetailsView.m */; };
@@ -446,6 +446,12 @@
 		ABE7C7241C784500008A6390 /* ASPointOfInterestModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASPointOfInterestModel.m; sourceTree = "<group>"; };
 		ABE7C7261C78CB76008A6390 /* ASPointOfInterestAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASPointOfInterestAnnotation.h; sourceTree = "<group>"; };
 		ABE7C7271C78CB76008A6390 /* ASPointOfInterestAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASPointOfInterestAnnotation.m; sourceTree = "<group>"; };
+		E93D155B1F9E0FAC00962D7E /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Base; path = "Base.lproj/FAQ 6.plist"; sourceTree = "<group>"; };
+		E93D155D1F9E0FB400962D7E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = en; path = "en.lproj/FAQ 6.plist"; sourceTree = "<group>"; };
+		E93D155E1F9E0FB800962D7E /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = nb; path = "nb.lproj/FAQ 6.plist"; sourceTree = "<group>"; };
+		E93D155F1F9E0FBE00962D7E /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = fi; path = "fi.lproj/FAQ 6.plist"; sourceTree = "<group>"; };
+		E93D15601F9E0FC300962D7E /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = da; path = "da.lproj/FAQ 6.plist"; sourceTree = "<group>"; };
+		E93D15611F9E0FCA00962D7E /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = sv; path = "sv.lproj/FAQ 6.plist"; sourceTree = "<group>"; };
 		E93D75A71F8A7B39001C8AD7 /* old.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = old.storyboard; sourceTree = "<group>"; };
 		E94127E41F7D631600190D8E /* ASTrackerDetailsView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ASTrackerDetailsView.h; sourceTree = "<group>"; };
 		E94127E51F7D631600190D8E /* ASTrackerDetailsView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ASTrackerDetailsView.m; sourceTree = "<group>"; };
@@ -453,7 +459,6 @@
 		E945E4381F8256EB0070B64E /* ASTabBarController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ASTabBarController.m; sourceTree = "<group>"; };
 		E947D8C01F86685700A4B16D /* ASSimpleTrackerCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ASSimpleTrackerCell.h; sourceTree = "<group>"; };
 		E947D8C11F86685700A4B16D /* ASSimpleTrackerCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ASSimpleTrackerCell.m; sourceTree = "<group>"; };
-		E95454201F9CFD060016D726 /* FAQ 6.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "FAQ 6.plist"; sourceTree = "<group>"; };
 		E98782091F8617EA0098C143 /* ASFAQTrackersListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ASFAQTrackersListViewController.h; sourceTree = "<group>"; };
 		E987820A1F8617EA0098C143 /* ASFAQTrackersListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ASFAQTrackersListViewController.m; sourceTree = "<group>"; };
 		E987820C1F861DDC0098C143 /* ASFAQTrackerListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ASFAQTrackerListCell.h; sourceTree = "<group>"; };
@@ -843,7 +848,7 @@
 		A6D194EC1D816FF800394F31 /* FAQ */ = {
 			isa = PBXGroup;
 			children = (
-				E95454201F9CFD060016D726 /* FAQ 6.plist */,
+				E93D155C1F9E0FAC00962D7E /* FAQ 6.plist */,
 				A6D194ED1D81743700394F31 /* ASQuestionListTableViewController.h */,
 				A6D194EE1D81743700394F31 /* ASQuestionListTableViewController.m */,
 				A6D194FC1D82961E00394F31 /* FAQ.plist */,
@@ -1125,7 +1130,7 @@
 				A6198B841D7EE453000E01EE /* HelpPopup.storyboard in Resources */,
 				A68C1B7F1C4D24DC000E2BA6 /* Roboto-LightItalic.ttf in Resources */,
 				A68C1B7A1C4D24DC000E2BA6 /* Roboto-BoldItalic.ttf in Resources */,
-				E95454211F9CFD080016D726 /* FAQ 6.plist in Resources */,
+				E93D155A1F9E0FAB00962D7E /* FAQ 6.plist in Resources */,
 				A68C1B411C4CE460000E2BA6 /* LaunchScreen.storyboard in Resources */,
 				A68C1B801C4D24DC000E2BA6 /* Roboto-Medium.ttf in Resources */,
 				ABA221491C79E56C00AE6F87 /* Connect.storyboard in Resources */,
@@ -1699,6 +1704,19 @@
 				A65EAB641D3F5D3E00BCE303 /* sv */,
 			);
 			name = Errors.strings;
+			sourceTree = "<group>";
+		};
+		E93D155C1F9E0FAC00962D7E /* FAQ 6.plist */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E93D155B1F9E0FAC00962D7E /* Base */,
+				E93D155D1F9E0FB400962D7E /* en */,
+				E93D155E1F9E0FB800962D7E /* nb */,
+				E93D155F1F9E0FBE00962D7E /* fi */,
+				E93D15601F9E0FC300962D7E /* da */,
+				E93D15611F9E0FCA00962D7E /* sv */,
+			);
+			name = "FAQ 6.plist";
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

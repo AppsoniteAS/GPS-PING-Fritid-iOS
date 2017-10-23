@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>Jeg har trykket &quot;Start&quot; upload ok&quot; sms, men jeg klarer ennå ikke å se trackeren.</key>
+		<string>Pass på at trackeren er ute. Hvis den er inne vil den få problemer med å koble seg til satelitter. Når trackeren får kontakt med satelittene begynner det blå lyset å blinke.</string>
+	</dict>
+	<dict>
+		<key>Jeg har trykket &quot;Start, men jeg får ikke sms svar fra trackeren.</key>
+		<string>Gå til Innstillinger-&gt;Profil og fyll inn landkode og ditt telefon nummer. Gå så til Trackere-&gt; og trykk på din tracker. Edit Tracker åpner seg. Skroll ned, og trykk reset knappen. Når du trykker Reset knappen vil fem sms`er sendes. På Android telefoner vil alle fem sendes på en gang. På iPhone telefoner vil sms funksjonen åpnes og du må sende en etter en. Gå så tilbake til hoved menyen og trykk &quot;Start&quot;</string>
+	</dict>
+	<dict>
+		<key>Når jeg trykker &quot;Start&quot; knappen i appen så skjer det ingenting.</key>
+		<string>Du har ikke valgt hvilken tracker du skal starte. Trykk på Trackere i hoved menyen. Trykk så på den lille sirkelen til høyre for trackeren. Gå tilbake til hoved menyen. Navnet på trackeren skal nå stå over &quot;Start&quot; knappen. Trykk så på &quot;Start&quot; knappen og appen vil nå sende en sms til trackeren for å starte den.</string>
+	</dict>
+	<dict>
+		<key>Jeg vil endre hvor ofte trackeren sender gps signalet.</key>
+		<string>Gå til Trackere og trykk på trackeren du vil endre signal frekvensen på. Scroll ned til &quot;Signal&quot;. Trykke tiden som står under &quot;Signal&quot; og endre det til ønsket lengde. Trykk &quot;Oppdater&quot;. Gå tilbake til hoved menyen og trykk &quot;Start&quot;.</string>
+	</dict>
+	<dict>
+		<key>Jeg ser bare gps posisjoner for siste del av turen.</key>
+		<string>Du kan sette lengden på tracking historikken din ved å gå til hoved meny-&gt;Innstillinger-&gt;Visning alternativer. Velg så ønsket tid og trykk lagre. Du vil nå få se gps posisjoner innen denne tidsrammen.</string>
+	</dict>
+	<dict>
+		<key>Jeg vil se min venns tracker</key>
+		<string>Gå på innstillinger-Koble til og trykk på &quot;+&quot; tegnet oppe i høyre hjørne. Søk opp din venns brukernavn og trykk &quot;+&quot;. Din venn vil nå få opp ditt brukernavn under hans &quot;Koble til&quot; liste. Han må så legge deg til ved å trykke på &quot;+&quot; tegnet ved siden av ditt navn. For at du skal se hans tracker må han trykke på &quot;Øye&quot; ikonet ved siden av ditt navn. &quot;Øye&quot; ikonet vil så bli grønt.</string>
+	</dict>
+	<dict>
+		<key>Jeg vil stoppe min venn fra å se min tracker.</key>
+		<string>Gå på Innstillinger-&gt;Koble til og trykk på &quot;Øye&quot; ikonet.  Øye ikonet vil endre seg fra grønt til grått og få en linje gjennom. Din venn kan ikke lenger se din tracker.</string>
+	</dict>
+	<dict>
+		<key>Jeg vil min venns tracker men det står jeg må betale for det</key>
+		<string>Hvis du ikke eier en tracker som er registrert på ditt brukernavn må du betale en liten sum i måneden for å se den. Du kan stoppe betalingen når du ønsker.</string>
+	</dict>
+	<dict>
+		<key>Jeg vil sette tracker abonnementet mitt på pause</key>
+		<string>Gå til Innstillinger og trykk &quot;Pause abonnement&quot;. En epost vil så bli sendt til GPS Ping og vi setter abonnementet på pause.</string>
+	</dict>
+	<dict>
+		<key>Trackerens posisjon er midt i havet.</key>
+		<string>Dette betyr at trackeren ikke har oppdatert gps posisjonen sin og har ikke fått satelitt kontakt. Ta trackeren ut og restart den ved å trykke på av og på knappen.</string>
+	</dict>
+	<dict>
+		<key>Jeg ønsker å stoppe abonnementet jeg kjøpte i appen for å se min venns tracker.</key>
+		<string>Dette må stoppes i Apples App store eller i Google Play Store. For iPhone gå til App Store appen og scroll ned til din bruker. Trykk på apple id´en din og så View Apple id. Skriv inn passordet ditt, gå til abonnementer og trykk adminstrer. Der kan du stoppe abonnementet. På Android: Åpne Google Play store på din telefon. Gå til Mine Apper via Google Play store menyen. På venstre siden av installerte apper er en liste over dine abonnementer. Her kan du velge det abonnementet du ønsker å stoppe.</string>
+	</dict>
+	<dict>
+		<key>Jeg kan ikke se min egen posisjon.</key>
+		<string>Dette betyr at du ikke har gitt appen tilgang til gps funksjonen på telefonen. Gå til innstillinger på dine telefon og gi GPS Ping appen tilgang.</string>
+	</dict>
+	<dict>
+		<key>Jeg vil endre navn på trackeren</key>
+		<string>Gå på Trackere og trykk på din tracker. Edit tracker vil så åpne seg. Her kan du skrive inn navnet på trackeren under &quot;Navn&quot;</string>
+	</dict>
+	<dict>
+		<key>Hvordan kan jeg se den daglige loggen til trackeren</key>
+		<string>Gå på  Logg og trykk på kalenderen oppe i høyre hjørne. Velg den aktuelle datoen og appen henter gps posisjonene for denne datoen.</string>
+	</dict>
+	<dict>
+		<key>Hvordan finner jeg nord på kartet</key>
+		<string>Åpne Kart og tracking og legg to fingre på kartet og vri. Et kompass vil komme opp på venstre side av skjermen. Dette kompasset viser nord på kartet.</string>
+	</dict>
+	<dict>
+		<key>Hva viser kompasset som alltid er på kartet.</key>
+		<string>Dette kompasset viser virkelig Nord.</string>
+	</dict>
+	<dict>
+		<key>Hvor mange trackere kan jeg ha i appen</key>
+		<string>Du kan kjøpe og se så mange trackere som du vil.</string>
+	</dict>
+	<dict>
+		<key>Hvordan er AV/PÅ knappen</key>
+		<string>Denne knappen er på kanten/siden av trackeren. Hold den inne i minst tre sekunder.</string>
+	</dict>
+	<dict>
+		<key>Hvordan ser jeg om trackeren har GPS Signal</key>
+		<string>Trykk på AV/PÅ Knappen for å få skjermen opp. Hvis du har en sirkel inne i hjulet på skjermen, da har du GPS Signal.</string>
+	</dict>
+	<dict>
+		<key>Hvordan kan jeg ringe til trackeren</key>
+		<string>Trykk på siste pos i kartet. Trykk på ringe ikonet.</string>
+	</dict>
+</array>
+</plist>
