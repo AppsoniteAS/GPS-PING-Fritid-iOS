@@ -3,84 +3,114 @@
 <plist version="1.0">
 <array>
 	<dict>
-		<key>Jeg har trykket &quot;Start&quot; upload ok&quot; sms, men jeg klarer ennå ikke å se trackeren.</key>
-		<string>Pass på at trackeren er ute. Hvis den er inne vil den få problemer med å koble seg til satelitter. Når trackeren får kontakt med satelittene begynner det blå lyset å blinke.</string>
+		<key>Olen painanut "Käynnistä" lähetä ok "sms, mutta en vielä näe seurantaohjelmaa.</key>
+        <string>Varmista, että seuranta on poissa. Jos se on päällä, sillä on ongelmia yhteyden muodostamisessa
+            satelliitit. Kun seuranta tulee kosketuksiin satelliittien kanssa, sininen valo alkaa vilkkua.</string>
 	</dict>
 	<dict>
-		<key>Jeg har trykket &quot;Start, men jeg får ikke sms svar fra trackeren.</key>
-		<string>Gå til Innstillinger-&gt;Profil og fyll inn landkode og ditt telefon nummer. Gå så til Trackere-&gt; og trykk på din tracker. Edit Tracker åpner seg. Skroll ned, og trykk reset knappen. Når du trykker Reset knappen vil fem sms`er sendes. På Android telefoner vil alle fem sendes på en gang. På iPhone telefoner vil sms funksjonen åpnes og du må sende en etter en. Gå så tilbake til hoved menyen og trykk &quot;Start&quot;</string>
+		<key>Olen painanut "Käynnistä, mutta en saa sms-vastausta trackeriltä.</key>
+        <string>Siirry kohtaan Asetukset-> Profiili ja kirjoita maakoodi ja puhelinnumero.
+            Siirry sitten seuraajille-> ja napauta seurantaasi. Muokkaa Trackeria avautuu. Rullaa alas,
+            ja paina nollauspainiketta. Kun painat Nollaa-painiketta, lähetetään viisi tekstiviestiä.
+            Android-puhelimissa kaikki viisi lähetetään kerralla. IPhone-puhelimissa tulee tekstiviestejä
+            Ominaisuus avautuu ja sinun on lähetettävä yksi kerrallaan. Palaa sitten päävalikkoon ja paina "Käynnistä"</string>
 	</dict>
 	<dict>
-		<key>Når jeg trykker &quot;Start&quot; knappen i appen så skjer det ingenting.</key>
-		<string>Du har ikke valgt hvilken tracker du skal starte. Trykk på Trackere i hoved menyen. Trykk så på den lille sirkelen til høyre for trackeren. Gå tilbake til hoved menyen. Navnet på trackeren skal nå stå over &quot;Start&quot; knappen. Trykk så på &quot;Start&quot; knappen og appen vil nå sende en sms til trackeren for å starte den.</string>
+		<key>Kun painan sovelluksen "Aloita" -painiketta, mitään ei tapahdu.</key>
+        <string>Et ole valinnut, mihin seurantaan haluat aloittaa. Kosketa kaukovalot päävalikossa.
+            Kosketa sitten pientä ympyrää trackerin oikealla puolella. Palaa päävalikkoon.
+            Trackerin nimen on nyt oltava "Käynnistä" -painikkeen yläpuolella. Paina sitten "Start" -painiketta ja
+            Sovellus lähettää tekstiviestin seurantaan sen käynnistämiseksi.</string>
 	</dict>
 	<dict>
-		<key>Jeg vil endre hvor ofte trackeren sender gps signalet.</key>
-		<string>Gå til Trackere og trykk på trackeren du vil endre signal frekvensen på. Scroll ned til &quot;Signal&quot;. Trykke tiden som står under &quot;Signal&quot; og endre det til ønsket lengde. Trykk &quot;Oppdater&quot;. Gå tilbake til hoved menyen og trykk &quot;Start&quot;.</string>
+		<key>Haluan vaihtaa kuinka usein seuranta lähettää GPS-signaalin.</key>
+        <string>Siirry seurattimiin ja napauta raitaa, jonka haluat muuttaa signaalin taajuutta.
+            Selaa alas kohtaan "Signaali". Paina painiketta "Signal" ja vaihda haluamasi pituus.
+            Paina "Päivitä". Palaa päävalikkoon ja paina "Käynnistä".</string>
 	</dict>
 	<dict>
-		<key>Jeg ser bare gps posisjoner for siste del av turen.</key>
-		<string>Du kan sette lengden på tracking historikken din ved å gå til hoved meny-&gt;Innstillinger-&gt;Visning alternativer. Velg så ønsket tid og trykk lagre. Du vil nå få se gps posisjoner innen denne tidsrammen.</string>
+		<key>Katson vain GPS-sijaintia matkan viimeiselle osalle.</key>
+        <string>Voit asettaa historian seurannan pituuden menemällä päähän
+            valikko-> Asetukset-> Katseluasetukset. Valitse haluamasi aika ja paina Tallenna.
+            Nyt näet GPS-sijainnin tässä ajassa.</string>
 	</dict>
 	<dict>
-		<key>Jeg vil se min venns tracker</key>
-		<string>Gå på innstillinger-Koble til og trykk på &quot;+&quot; tegnet oppe i høyre hjørne. Søk opp din venns brukernavn og trykk &quot;+&quot;. Din venn vil nå få opp ditt brukernavn under hans &quot;Koble til&quot; liste. Han må så legge deg til ved å trykke på &quot;+&quot; tegnet ved siden av ditt navn. For at du skal se hans tracker må han trykke på &quot;Øye&quot; ikonet ved siden av ditt navn. &quot;Øye&quot; ikonet vil så bli grønt.</string>
+		<key>Haluan nähdä ystäväni seuran</key>
+        <string>Siirry kohtaan Asetukset-Yhdistä ja napauta "+" -merkkiä oikeassa yläkulmassa.
+            Etsi ystäväsi käyttäjätunnus ja paina "+". Ystäväsi saa nyt käyttäjätunnuksesi alla
+            hänen "connect to" -luettelonsa. Hänen täytyy lisätä sinut koskettamalla sen vieressä olevaa "+" -merkkiä
+            sinun nimesi. Jotta voit nähdä hänen seurantaansa, hänen on koskettava sen vieressä olevaa "Eye" -kuvaketta
+            sinun nimesi. Silmän kuvake muuttuu vihreäksi.</string>
 	</dict>
 	<dict>
-		<key>Jeg vil stoppe min venn fra å se min tracker.</key>
-		<string>Gå på Innstillinger-&gt;Koble til og trykk på &quot;Øye&quot; ikonet.  Øye ikonet vil endre seg fra grønt til grått og få en linje gjennom. Din venn kan ikke lenger se din tracker.</string>
+		<key>Haluan estää ystäväni näkemästä seurantaani.</key>
+        <string>Siirry kohtaan Asetukset-> Liitä ja kosketa "Eye" -kuvaketta. Eye-kuvake muuttuu
+            vihreästä harmaaseen ja saada linja läpi. Ystäväsi ei enää näe seurantaasi.</string>
 	</dict>
 	<dict>
-		<key>Jeg vil min venns tracker men det står jeg må betale for det</key>
-		<string>Hvis du ikke eier en tracker som er registrert på ditt brukernavn må du betale en liten sum i måneden for å se den. Du kan stoppe betalingen når du ønsker.</string>
+		<key>Haluan ystäväni seuran, mutta sanon, että minun täytyy maksaa siitä</key>
+        <string>Jos et omista käyttäjänimessäsi rekisteröitynyttä jäljitteliä, sinun on maksettava pieni summa
+            Kuukauden summa nähdäksesi sen. Voit lopettaa maksun, kun haluat.</string>
 	</dict>
 	<dict>
-		<key>Jeg vil sette tracker abonnementet mitt på pause</key>
-		<string>Gå til Innstillinger og trykk &quot;Pause abonnement&quot;. En epost vil så bli sendt til GPS Ping og vi setter abonnementet på pause.</string>
+		<key>Laitoin tracker-tilauksen pitoon.</key>
+        <string>Siirry Asetukset-kohtaan ja paina "Keskeytä tilaus". Sitten lähetetään sähköpostia GPS: lle
+            Ping ja peruutamme tilauksen.</string>
 	</dict>
 	<dict>
-		<key>Trackerens posisjon er midt i havet.</key>
-		<string>Dette betyr at trackeren ikke har oppdatert gps posisjonen sin og har ikke fått satelitt kontakt. Ta trackeren ut og restart den ved å trykke på av og på knappen.</string>
+		<key>Trackerin sijainti on keskellä merta.</key>
+        <string>Tämä tarkoittaa, että seuranta ei ole päivittänyt GPS-sijaintiaan eikä ole saanut satelliittia
+            ottaa yhteyttä. Ota seuranta ulos ja käynnistä se uudelleen painamalla virtapainiketta.</string>
 	</dict>
 	<dict>
-		<key>Jeg ønsker å stoppe abonnementet jeg kjøpte i appen for å se min venns tracker.</key>
-		<string>Dette må stoppes i Apples App store eller i Google Play Store. For iPhone gå til App Store appen og scroll ned til din bruker. Trykk på apple id´en din og så View Apple id. Skriv inn passordet ditt, gå til abonnementer og trykk adminstrer. Der kan du stoppe abonnementet. På Android: Åpne Google Play store på din telefon. Gå til Mine Apper via Google Play store menyen. På venstre siden av installerte apper er en liste over dine abonnementer. Her kan du velge det abonnementet du ønsker å stoppe.</string>
+		<key>Haluan lopettaa sovelluksessani hankitun tilauksen nähdäksesi ystäväni seurannan.</key>
+        <string>Tämä on pysäytettävä Apple App Storessa tai Google Play -kaupassa. IPhonelle siirtyy App
+            Tallenna sovellus ja selaa alaspäin käyttäjälle. Kosketa omenunnistustunnusta ja katso sitten Näytä-tunnusta.
+            Anna salasanasi, siirry tilauksiin ja paina adminstrer. Siellä voit pysähtyä
+            tilaus. Android: avaa puhelimesi Google Play -kaupasta. Siirry Omat sovellukset kautta
+            Google Play -kaupan valikko. Asennettujen sovellusten vasemmalla puolella on luettelo sinun
+            tilauksia. Tässä voit valita tilauksen, jonka haluat lopettaa.</string>
 	</dict>
 	<dict>
-		<key>Jeg kan ikke se min egen posisjon.</key>
-		<string>Dette betyr at du ikke har gitt appen tilgang til gps funksjonen på telefonen. Gå til innstillinger på dine telefon og gi GPS Ping appen tilgang.</string>
+		<key>En näe omaa asentoani</key>
+        <string>Tämä tarkoittaa, että et ole myöntänyt sovellukselle pääsyä puhelimen GPS-ominaisuudelle.
+            Siirry puhelimen asetuksiin ja anna GPS Ping -ohjelman käyttöoikeus.</string>
 	</dict>
 	<dict>
-		<key>Jeg vil endre navn på trackeren</key>
-		<string>Gå på Trackere og trykk på din tracker. Edit tracker vil så åpne seg. Her kan du skrive inn navnet på trackeren under &quot;Navn&quot;</string>
+		<key>Haluan nimetä seuranta uudelleen</key>
+        <string>Siirry seuraajille ja napsauta seurantaasi. Muokkaa Tracker aukeaa.
+            Täällä voit syöttää trackerin nimen nimellä "Nimi"</string>
 	</dict>
 	<dict>
-		<key>Hvordan kan jeg se den daglige loggen til trackeren</key>
-		<string>Gå på  Logg og trykk på kalenderen oppe i høyre hjørne. Velg den aktuelle datoen og appen henter gps posisjonene for denne datoen.</string>
+		<key>Kuinka näen trackerin päivittäisen lokin</key>
+        <string>Siirry lokiin ja napauta kalenteri oikeassa yläkulmassa.
+            Valitse nykyinen päivämäärä ja sovellus noutaa kyseisen päivän GPS-sijainnit.</string>
 	</dict>
 	<dict>
-		<key>Hvordan finner jeg nord på kartet</key>
-		<string>Åpne Kart og tracking og legg to fingre på kartet og vri. Et kompass vil komme opp på venstre side av skjermen. Dette kompasset viser nord på kartet.</string>
+		<key>Miten löydän pohjoisen kartalta</key>
+        <string>Avaa kartta ja seuraa ja laita kaksi sormea kartalla ja kierrä. Kompassi tulee esille
+            näytön vasemmalla puolella. Tämä kompassi näyttää pohjoiseen kartalta.</string>
 	</dict>
 	<dict>
-		<key>Hva viser kompasset som alltid er på kartet.</key>
-		<string>Dette kompasset viser virkelig Nord.</string>
+		<key>Mikä näyttää kompassin, joka on aina kartalla.</key>
+		<string>Tämä kompassi näyttää todella pohjoisesta.</string>
 	</dict>
 	<dict>
-		<key>Hvor mange trackere kan jeg ha i appen</key>
-		<string>Du kan kjøpe og se så mange trackere som du vil.</string>
+		<key>Kuinka monta seurantaa voi olla sovelluksessa</key>
+		<string>Voit ostaa ja katsella niin monta seurata kuin haluat.</string>
 	</dict>
 	<dict>
-		<key>Hvordan er AV/PÅ knappen</key>
-		<string>Denne knappen er på kanten/siden av trackeren. Hold den inne i minst tre sekunder.</string>
+		<key>Miten ON / OFF-painike on</key>
+		<string>Tämä painike on seurannan reunalla / sivulla. Pidä se vähintään kolmen sekunnin ajan.</string>
 	</dict>
 	<dict>
-		<key>Hvordan ser jeg om trackeren har GPS Signal</key>
-		<string>Trykk på AV/PÅ Knappen for å få skjermen opp. Hvis du har en sirkel inne i hjulet på skjermen, da har du GPS Signal.</string>
+		<key>Kuinka näen onko trackerillä GPS-signaali</key>
+        <string>Avaa näyttö painamalla ON / OFF-painiketta. Jos sinulla on ympyrä pyörän sisällä
+            Näytöllä on GPS-signaali.</string>
 	</dict>
 	<dict>
 		<key>Hvordan kan jeg ringe til trackeren</key>
-		<string>Trykk på siste pos i kartet. Trykk på ringe ikonet.</string>
+		<string>Napauta viimeinen viesti kartassa. Kosketa puhelukuvaketta.</string>
 	</dict>
 </array>
 </plist>
