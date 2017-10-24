@@ -39,9 +39,11 @@ objection_requires(@keypath(ASSignInViewModel.new, apiController))
     
     @weakify(self);
     
-    return [[RACCommand alloc] initWithEnabled:isCorrect
-                                   signalBlock:^RACSignal *(id input)
-            {
+//    return [[RACCommand alloc] initWithEnabled:isCorrect
+//                                   signalBlock:^RACSignal *(id input)
+    
+    return      [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
+   
                 return [[self.apiController authUser:self.username password:self.password] then:^RACSignal *{
                     @strongify(self);
                     [[NSNotificationCenter defaultCenter] postNotificationName:kASDidLoginNotification object:nil];

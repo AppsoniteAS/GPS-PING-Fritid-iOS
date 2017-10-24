@@ -24,7 +24,7 @@ static const DDLogLevel ddLogLevel = DDLogLevelDebug;
 //#define BASE_URL_LOCAL      @"http://192.168.139.201/api/"
 //#define BASE_URL_LOCAL      @"https://industri.gpsping.no/api/"
 #define BASE_URL_LOCAL @"https://fritid.gpsping.no/api"
-
+#define timeoutForServer 2
 #define requestMethod @"GET"
 
 NSString* AGGpsPingBackendError                     = @"AGGpsPingBackendError";
@@ -590,8 +590,10 @@ objection_initializer(initWithConfiguration:);
                                                                          parameters:params
                                                                               error:&error];
         
+        [manager.requestSerializer setTimeoutInterval:timeoutForServer];
         DDLogDebug(@"API request: %@", request);
         DDLogVerbose(@"API request params: %@", params);
+        //[request setTimeoutInterval:timeoutForServer];
         AFHTTPRequestOperation* operation =
         [manager HTTPRequestOperationWithRequest:request
                                          success:^(AFHTTPRequestOperation *operation, id response)

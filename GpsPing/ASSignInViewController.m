@@ -8,6 +8,7 @@
 
 #import "ASSignInViewController.h"
 #import "ASSignInViewModel.h"
+#import "AGApiController.h"
 
 @interface ASSignInViewController ()
 @property (nonatomic, readonly) ASSignInViewModel     *viewModel;
@@ -30,9 +31,10 @@
     self.textFieldPassword.text   = self.viewModel.password;
     RAC(self.viewModel, password) = self.textFieldPassword.rac_textSignal;
     self.buttonSubmit.rac_command = self.viewModel.submit;
-    
-    [self rac_liftSelector:@selector(doSubmit:)
-               withSignals:self.buttonSubmit.rac_command.executionSignals.flatten, nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didLogin) name:kASDidLoginNotification object:nil];
+//
+//    [self rac_liftSelector:@selector(doSubmit:)
+//               withSignals:self.buttonSubmit.rac_command.executionSignals.flatten, nil];
     [self rac_liftSelector:@selector(onError:)
                withSignals:self.buttonSubmit.rac_command.errors, nil];
 }
@@ -47,6 +49,10 @@
 }
 
 #pragma mark - IBActions
+
+-(void)didLogin {
+    [self dismissViewControllerAnimated:true completion:nil];
+}
 
 -(IBAction)doSubmit:(id)sender {
     [self dismissViewControllerAnimated:true completion:nil];
