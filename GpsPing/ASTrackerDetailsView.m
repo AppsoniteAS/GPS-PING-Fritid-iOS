@@ -12,6 +12,15 @@
 #import <YYWebImage.h>
 #import "ASS3Manager.h"
 
+@interface ASTrackerDetailsView()
+@property (nonatomic) IBOutlet UILabel *labelLastSeenHeader;
+@property (nonatomic) IBOutlet UILabel *labelGrsmHeader;
+@property (nonatomic) IBOutlet UILabel *labelSpeedHeader;
+@property (nonatomic) IBOutlet UILabel *labelDistanceHeader;
+@property (nonatomic) IBOutlet UILabel *labelTravelledHeader;
+@property (nonatomic) IBOutlet UILabel *labelSignalStrengthHeader;
+@end;
+
 @implementation ASTrackerDetailsView
 
 - (void)awakeFromNib{
@@ -22,6 +31,20 @@
     [self.profileImageView.layer setMasksToBounds:true];
     self.profileImageView.layer.borderWidth = 2;
     self.profileImageView.layer.borderColor = [UIColor colorWithRed:139/255.0 green:195/255.0 blue:74/255.0 alpha:1.0].CGColor;
+    
+
+   self.labelLastSeenHeader.text = NSLocalizedString(@"tracker_last_seen", nil);
+  // self.labelGrsmHeader.text = NSLocalizedString(@"tracker_GRMS", nil);
+   self.labelSpeedHeader.text = NSLocalizedString(@"tracker_speed", nil);
+   self.labelDistanceHeader.text = NSLocalizedString(@"tracker_distance", nil);
+   self.labelTravelledHeader.text = NSLocalizedString(@"tracker_distance_travelled", nil);
+   self.labelSignalStrengthHeader.text = NSLocalizedString(@"tracker_signal_strength", nil);
+    
+    [self.btnMap setTitle:NSLocalizedString(@"tabbar_map", nil) forState:UIControlStateNormal];
+    [self.btnMap setTitle:NSLocalizedString(@"tabbar_map", nil) forState:UIControlStateSelected];
+    [self.btnEdit setTitle:NSLocalizedString(@"tracker_edit", nil) forState:UIControlStateNormal];
+    [self.btnEdit setTitle:NSLocalizedString(@"tracker_edit", nil) forState:UIControlStateSelected];
+
 }
 
 -(void)configWithOwner:(ASFriendModel*)owner

@@ -87,3 +87,11 @@
 "tabbar_history" = "Logg";
 "tabbar_trackers" = "Trackere";
 "tabbar_settings" = "Innstillinger";
+
+"tracker_last_seen" = "Sist sett";
+"tracker_GRMS" = "";
+"tracker_speed" = "Hastighet";
+"tracker_distance" = "Avstand";
+"tracker_distance_travelled" = "Avstand reist";
+"tracker_signal_strength" = "Signalstyrke";
+"tracker_edit" = "Redigere";
