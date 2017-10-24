@@ -15,6 +15,7 @@
 
 @interface ASFAQTrackersListViewController ()<UITableViewDelegate, UITableViewDataSource,ASFAQTrackerListCellProtocol>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UILabel *labelTableTitle;
 @property (strong, nonatomic) NSArray* trackers;
 
 @end
@@ -25,7 +26,11 @@
     [super viewDidLoad];
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     self.trackers = @[kASTrackerTypeTk909, kASTrackerTypeTkS1, kASTrackerTypeTkA9];
-    [self.tableView reloadData];}
+    [self.tableView reloadData];
+    
+    self.labelTableTitle.text = NSLocalizedString(@"select_your_tracker", nil);
+    
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

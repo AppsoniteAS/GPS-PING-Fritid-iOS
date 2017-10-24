@@ -82,3 +82,8 @@
 
 "reset_all" = "Du trenger å oppdatere appen med ny ip-adresse for at trackeren skal fungere. Trykk på knappen under og send SMS til trackeren for å oppdatere.";
 "reset_all_btn" = "Oppdater»";
+"select_your_tracker" = "Velg tracker";
+"tabbar_map" = "Kart";
+"tabbar_history" = "Logg";
+"tabbar_trackers" = "Trackere";
+"tabbar_settings" = "Innstillinger";

@@ -41,7 +41,7 @@ objection_requires(@keypath(ASTabBarController.new, apiController))
     
     UINavigationController* map = [[UIStoryboard mapStoryboard] instantiateInitialViewController];
     map.tabBarItem =
-    [[UITabBarItem alloc] initWithTitle:@"Map"
+    [[UITabBarItem alloc] initWithTitle:NSLocalizedString(@"tabbar_map", nil)
                                   image:[UIImage imageNamed:@"tabbar_maps"]
                                     tag:1];
     
@@ -50,19 +50,19 @@ objection_requires(@keypath(ASTabBarController.new, apiController))
     ASMapViewController* history = [historyNC childViewControllers][0];
     history.isHistoryMode = true;
     history.tabBarItem =
-    [[UITabBarItem alloc] initWithTitle:@"History"
+    [[UITabBarItem alloc] initWithTitle:NSLocalizedString(@"tabbar_history", nil)
                                   image:[UIImage imageNamed:@"tabbar_history"]
                                     tag:1];
     
     ASTrackersViewController* tracker =[[UIStoryboard trackerStoryboard] instantiateInitialViewController];
     tracker.tabBarItem =
-    [[UITabBarItem alloc] initWithTitle:@"Trackers"
+    [[UITabBarItem alloc] initWithTitle:NSLocalizedString(@"tabbar_trackers", nil)
                                   image:[UIImage imageNamed:@"tabbar_trackers"]
                                     tag:2];
     
     ASTrackersViewController* settings =[[UIStoryboard settingsStoryboard] instantiateInitialViewController];
     settings.tabBarItem =
-    [[UITabBarItem alloc] initWithTitle:@"Settings"
+    [[UITabBarItem alloc] initWithTitle:NSLocalizedString(@"tabbar_settings", nil)
                                   image:[UIImage imageNamed:@"tabbar_settings"]
                                     tag:3];
     
