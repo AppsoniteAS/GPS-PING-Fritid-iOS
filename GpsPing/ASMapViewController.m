@@ -32,6 +32,7 @@
 #import "ASDeviceModel.h"
 #import "ASPhotoAnnotationView.h"
 #import "ASTrackerConfigurationViewController.h"
+#import "ASSmsManager.h"
 #define QUERY_RATE_IN_SECONDS 15
 static const DDLogLevel ddLogLevel = DDLogLevelDebug;
 
@@ -165,7 +166,7 @@ objection_requires(@keypath(ASMapViewController.new, apiController), @keypath(AS
     
     self.trackers = [ASTrackerModel getTrackersFromUserDefaults];
     
-    
+        [self handleExistedTracker];
 }
 
 - (ASTrackerModel*) getTrackerByImei: (NSString*) imei{
@@ -958,6 +959,91 @@ objection_requires(@keypath(ASMapViewController.new, apiController), @keypath(AS
         UIAlertView* calert = [[UIAlertView alloc]initWithTitle:@"Alert" message:@"Call facility is not available!!!" delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
         [calert show];
     }
+}
+
+#pragma mark - Sms
+
+- (void) handleExistedTracker{
+    @weakify(self)
+    if (!self.apiController.userProfile.cookie){
+        return;
+    }
+    DDLogInfo(@"-->3");
+    
+    
+    if ([[NSUserDefaults standardUserDefaults] valueForKey:kASUserDefaultsKeyResetAll]){
+        return;
+    }
+    [[self.apiController getTrackers] subscribeNext:^(NSArray* trackers) {
+        if (!trackers || trackers.count == 0){
+            return;
+        }
+        
+        UIAlertController* alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"reset_all", nil)
+                                                                       message:nil
+                                                                preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction* okAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"reset_all_btn", nil) style:UIAlertActionStyleDefault
+                                                         handler:^(UIAlertAction * action) {
+                                                             
+                                                             
+                                                             
+                                                             __block NSArray<ASTrackerModel*>* trackerList;
+                                                             [[[self.apiController getTrackers] flattenMap:^id(NSArray *trackers)  {
+                                                                 NSMutableArray* result = [NSMutableArray array];
+                                                                 for (ASTrackerModel* tracker in trackers) {
+                                                                     if (!tracker.trackerPhoneNumber){
+                                                                         continue;
+                                                                     }
+                                                                     [result addObject:[tracker getSmsTextsForNewServer]];//[tracker getSmsTextsForActivation]];
+                                                                 }
+                                                                 trackerList = trackers;
+                                                                 return [RACSignal zip:result];
+                                                             }] subscribeNext:^(NSArray* listOfSMSList) {
+                                                                 
+                                                                 
+                                                                 NSMutableArray* arr = [NSMutableArray array];
+                                                                 
+                                                                 for (int i = 0; i < trackerList.count; i++) {
+                                                                     for (NSString* text in listOfSMSList[i]) {
+                                                                         [arr addObject:@{trackerList[i].trackerPhoneNumber : text}];
+                                                                     }
+                                                                 }
+                                                                 
+                                                                 
+                                                                 
+                                                                 @strongify(self)
+                                                                 RACSignal *signal = [RACSignal empty];
+                                                                 for (NSDictionary* dict in arr) {
+                                                                     signal = [signal then:^{
+                                                                         return [self as_sendSMS:dict.allValues[0] ToRecipient:dict.allKeys[0]];
+                                                                     }];
+                                                                 }
+                                                                 
+                                                                 [signal subscribeCompleted:^{
+                                                                     DDLogDebug(@"completed");
+                                                                     [[NSUserDefaults standardUserDefaults] setObject:@"updated"
+                                                                                                               forKey:kASUserDefaultsKeyResetAll];
+                                                                 }];
+                                                                 
+                                                                 
+                                                                 //
+                                                             }];
+                                                             
+                                                         }];
+        
+        
+        [alert addAction:okAction];
+        
+        //[alert.view setTintColor:[UIColor colorWithRed:22 / 255.0 green:189 / 255.0 blue:78/ 255.0 alpha:1.0]];
+        [self presentViewController:alert animated:YES completion:nil];
+        
+    }];
+    
+    
+    
+    
+    
 }
 
 @end
