@@ -845,6 +845,7 @@ objection_requires(@keypath(ASMapViewController.new, apiController), @keypath(AS
         ASDevicePointAnnotation *annotation = view.annotation;
         self.popedTracker = annotation.deviceObject.imei ? [self getTrackerByImei: annotation.deviceObject.imei] : nil;
         [self showTrackerView:true];
+        self.trackerView.btnEdit.enabled = (annotation.deviceObject.imei != nil);
         [self.trackerView configWithOwner:annotation.owner
                                    tracker:annotation.deviceObject
                                      point:annotation.pointObject
