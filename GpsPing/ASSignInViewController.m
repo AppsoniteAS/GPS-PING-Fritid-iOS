@@ -22,7 +22,7 @@
 -(void)viewDidLoad {
     [super viewDidLoad];
     
-    [self registerForKeyboardNotifications];
+  //  [self registerForKeyboardNotifications];
     
     self->_viewModel = [[ASSignInViewModel alloc] init];
     
