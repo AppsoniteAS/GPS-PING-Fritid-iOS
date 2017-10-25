@@ -557,7 +557,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="igY-om-RWR" customClass="ASTrackerDetailsView">
                                         <rect key="frame" x="0.0" y="0.0" width="284" height="340"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tracker name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vqg-bM-nuj">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tracker name" textAlignment="natural" lineBreakMode="clip" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Vqg-bM-nuj">
                                                 <rect key="frame" x="71" y="8" width="116.5" height="22.5"/>
                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="19"/>
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -735,6 +735,7 @@
                                             <constraint firstItem="qqt-Bf-ebv" firstAttribute="top" secondItem="Vqg-bM-nuj" secondAttribute="bottom" constant="6" id="2Yg-jj-QzC"/>
                                             <constraint firstItem="ciw-aX-Q01" firstAttribute="top" secondItem="i9a-19-f1r" secondAttribute="bottom" constant="3" id="2ZK-L9-c0G"/>
                                             <constraint firstItem="eFv-94-ObP" firstAttribute="centerY" secondItem="qqt-Bf-ebv" secondAttribute="centerY" id="3EN-wP-AyG"/>
+                                            <constraint firstItem="utT-Z4-h5G" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Vqg-bM-nuj" secondAttribute="trailing" constant="1" id="3GL-Ob-EiH"/>
                                             <constraint firstItem="gKK-ie-XXS" firstAttribute="leading" secondItem="ZHC-AQ-JHt" secondAttribute="leading" id="46g-o3-FY1"/>
                                             <constraint firstItem="5Zh-i1-2pi" firstAttribute="centerY" secondItem="1aY-6X-o29" secondAttribute="centerY" id="5Sm-JZ-ZwD"/>
                                             <constraint firstItem="eFv-94-ObP" firstAttribute="leading" secondItem="qqt-Bf-ebv" secondAttribute="trailing" constant="8" id="5gD-oq-mEh"/>
