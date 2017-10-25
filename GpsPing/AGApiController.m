@@ -25,7 +25,7 @@ static const DDLogLevel ddLogLevel = DDLogLevelDebug;
 //#define BASE_URL_LOCAL      @"https://industri.gpsping.no/api/"
 //#define BASE_URL_LOCAL @"http://54.77.4.166/api/"
 #define BASE_URL_LOCAL @"https://fritid.gpsping.no/api"
-
+#define timeoutForServer 10
 #define requestMethod @"GET"
 
 NSString* AGGpsPingBackendError                     = @"AGGpsPingBackendError";
@@ -33,6 +33,9 @@ NSString* AGGpsPingBackendError                     = @"AGGpsPingBackendError";
 NSInteger AGOpteumBackendResponseCodeSuccess       = 1;
 NSInteger AGOpteumBackendResponseCodeNotAuthorized = -1;
 NSInteger AGOpteumBackendResponseCodePhoneBlocked  = -4;
+
+NSString *kAuthSource = @"user/generate_auth_cookie";
+
 
 NSString *kASUserDefaultsKeyUsername = @"";
 NSString *kASUserDefaultsKeyPassword = @"";
@@ -114,7 +117,7 @@ objection_initializer(initWithConfiguration:);
 {
     DDLogDebug(@"%s", __PRETTY_FUNCTION__);
     NSDictionary *newUserDictionary = [MTLJSONAdapter JSONDictionaryFromModel:newUser error:nil];
-    return [[self performHttpRequestWithAttempts:requestMethod
+    return [[self performHttpRequest:requestMethod
                                        resource:@"user/register/"
                                      parameters:newUserDictionary] doNext:^(id x) {
         [[NSUserDefaults standardUserDefaults] setObject:newUser.username
@@ -129,8 +132,8 @@ objection_initializer(initWithConfiguration:);
 {
     DDLogDebug(@"%s", __PRETTY_FUNCTION__);
     @weakify(self)
-    return [[[[[self performHttpRequestWithAttempts:requestMethod
-                                          resource:@"user/generate_auth_cookie"
+    return [[[[[self performHttpRequest:requestMethod
+                                          resource:kAuthSource
                                         parameters:@{@"username":userName,
                                                      @"password":password,
                                                      @"seconds":@"999999999"}] unpackObjectOfClass:[ASUserProfileModel class]] deliverOnMainThread] doNext:^(ASUserProfileModel* profile)
@@ -678,7 +681,9 @@ objection_initializer(initWithConfiguration:);
                                                                           URLString:url.URL.absoluteString
                                                                          parameters:params
                                                                               error:&error];
-        
+        if ([resource isEqualToString:kAuthSource]){
+            [request setTimeoutInterval:timeoutForServer];
+        }
         DDLogDebug(@"API request: %@", request);
         DDLogVerbose(@"API request params: %@", params);
         AFHTTPRequestOperation* operation =

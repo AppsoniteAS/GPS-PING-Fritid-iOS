@@ -39,32 +39,24 @@ objection_requires(@keypath(ASSignInViewModel.new, apiController))
     
     @weakify(self);
     
-    return [[RACCommand alloc] initWithEnabled:isCorrect
-                                   signalBlock:^RACSignal *(id input)
-            {
-                return [[self.apiController authUser:self.username password:self.password] doNext:^(id x) {
-                    DDLogInfo(@"!!authenticated");
-                    [[NSNotificationCenter defaultCenter] postNotificationName:kASDidLoginNotification object:nil];
-                }];
-            }];
-    
 //    return [[RACCommand alloc] initWithEnabled:isCorrect
 //                                   signalBlock:^RACSignal *(id input)
-//            {
-//                return [[self.apiController authUser:self.username password:self.password] then:^RACSignal *{
-//                    @strongify(self);
-//                    DDLogInfo(@"!!authenticated");
-//                    [[NSNotificationCenter defaultCenter] postNotificationName:kASDidLoginNotification object:nil];
-//                    return [[self.apiController getTrackers] flattenMap:^RACStream *(NSArray *value) {
-//                        DDLogDebug(@"%@", value);
-//                        for (ASTrackerModel *tracker in value) {
-//                            [tracker saveInUserDefaults];
-//                        }
-//                        
-//                        return [RACSignal return:value];
-//                    }];
-//                }];;
-//            }];
+    
+    return      [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
+   
+                return [[self.apiController authUser:self.username password:self.password] then:^RACSignal *{
+                    @strongify(self);
+                    [[NSNotificationCenter defaultCenter] postNotificationName:kASDidLoginNotification object:nil];
+                    return [[self.apiController getTrackers] flattenMap:^RACStream *(NSArray *value) {
+                        DDLogDebug(@"%@", value);
+                        for (ASTrackerModel *tracker in value) {
+                            [tracker saveInUserDefaults];
+                        }
+                        
+                        return [RACSignal return:value];
+                    }];
+                }];;
+            }];
 }
 
 
