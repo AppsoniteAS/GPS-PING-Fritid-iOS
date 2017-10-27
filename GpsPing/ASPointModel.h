@@ -11,6 +11,10 @@
 @interface ASPointModel : MTLModel<MTLJSONSerializing>
 @property (nonatomic) NSNumber  *longitude;
 @property (nonatomic) NSNumber  *latitude;
+@property (nonatomic) NSNumber  *heading;
+
+@property (nonatomic) NSNumber  *speed;
+
 @property (nonatomic        ) NSDate   *timestamp;
 @property (nonatomic        ) NSDate   *creationTime;
 @end

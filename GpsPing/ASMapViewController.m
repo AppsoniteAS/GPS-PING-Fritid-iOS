@@ -616,7 +616,7 @@ objection_requires(@keypath(ASMapViewController.new, apiController), @keypath(AS
         ASLastPointAnnotation *deviceAnnotation = [[ASLastPointAnnotation alloc] initWithLocation:deviceCoord];
         deviceAnnotation.annotationColor = colorForUser;
         deviceAnnotation.colorName = colorNameForUser;
-
+        deviceAnnotation.pointObject = [deviceModel.points lastObject];
         deviceAnnotation.deviceObject = deviceModel;
         deviceAnnotation.owner = friendModel;
         [self.mapView addAnnotation:deviceAnnotation];
@@ -761,11 +761,13 @@ objection_requires(@keypath(ASMapViewController.new, apiController), @keypath(AS
         } else {
             pinView.annotation = annotation;
         }
-        
-        pinView.image =  [UIImage getPointAnnotationImageWithColorName:a.colorName andRotation:0.0f];//[UIImage getPointAnnotationImageWithColor:((ASPointAnnotation*)annotation).annotationColor];
+        CGFloat rotation = a.pointObject ? [a.pointObject.heading floatValue] : 0.0f;
+        pinView.image =  [UIImage getPointAnnotationImageWithColorName:a.colorName andRotation:rotation];//[UIImage getPointAnnotationImageWithColor:((ASPointAnnotation*)annotation).annotationColor];
         return pinView;
     } else if ([annotation isKindOfClass:[ASLastPointAnnotation class]]) {
         ASLastPointAnnotation* a = (ASLastPointAnnotation*) annotation;
+        CGFloat rotation = a.pointObject ? [a.pointObject.heading floatValue] : 0.0f;
+
         NSString* imageTracker = a.deviceObject.imageId;
         if (imageTracker){
             DDLogDebug(@"imageTracker %@ ", a.deviceObject.imei);
@@ -778,7 +780,7 @@ objection_requires(@keypath(ASMapViewController.new, apiController), @keypath(AS
             } else {
                 pinView.annotation = a;
             }
-            [pinView.marker handleByImageName:imageTracker arrowColor:a.annotationColor rotation:200.0f];
+            [pinView.marker handleByImageName:imageTracker arrowColor:a.annotationColor rotation:rotation];
             
             return pinView;
         }
@@ -795,7 +797,7 @@ objection_requires(@keypath(ASMapViewController.new, apiController), @keypath(AS
             pinView.annotation = annotation;
         }
 
-        pinView.image = [UIImage getLastPointAnnotationImageWithColorName:a.colorName andRotation:0.0f];// [UIImage getLastPointAnnotationImageWithColor:((ASLastPointAnnotation*)annotation).annotationColor];
+        pinView.image = [UIImage getLastPointAnnotationImageWithColorName:a.colorName andRotation:rotation];// [UIImage getLastPointAnnotationImageWithColor:((ASLastPointAnnotation*)annotation).annotationColor];
 
         return pinView;
     } else if ([annotation isKindOfClass:[ASFriendAnnotation class]]) {
@@ -841,6 +843,10 @@ objection_requires(@keypath(ASMapViewController.new, apiController), @keypath(AS
 
 -(void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view
 {
+    if ([view.annotation isKindOfClass:[MKUserLocation class]]){
+        return;
+    }
+    
     if ([view.annotation isKindOfClass:[ASDevicePointAnnotation class]]) {
         ASDevicePointAnnotation *annotation = view.annotation;
         self.popedTracker = annotation.deviceObject.imei ? [self getTrackerByImei: annotation.deviceObject.imei] : nil;
@@ -852,12 +858,16 @@ objection_requires(@keypath(ASMapViewController.new, apiController), @keypath(AS
                                      color:annotation.annotationColor];
     } else if ([view.annotation isKindOfClass:[ASFriendAnnotation class]]) {
         ASFriendAnnotation *annotation = view.annotation;
-        [self showTrackerView:true];
+        [self showTrackerView:false];
 
-        [self.trackerView configWithOwner:annotation.userObject
-                                   tracker:nil
-                                     point:nil
-                                     color:annotation.annotationColor];
+//        [self.trackerView configWithOwner:annotation.userObject
+//                                   tracker:nil
+//                                     point:nil
+//                                     color:annotation.annotationColor];
+        [self.poiView configWithPOI:nil withOwner:annotation.userObject color:annotation.annotationColor];
+        self.poiView.viewPOIRightColumn.hidden = YES;
+
+
     } else if ([view.annotation isKindOfClass:[ASPointOfInterestAnnotation class]]) {
         self.selectedAnnotation = view.annotation;
         [self showTrackerView:false];
