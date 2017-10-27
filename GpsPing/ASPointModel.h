@@ -15,6 +15,7 @@
 @property (nonatomic) NSNumber  *heading;
 
 @property (nonatomic) NSNumber  *speed;
+@property (nonatomic) ASAttributesModel  *attributes;
 
 @property (nonatomic        ) NSDate   *timestamp;
 @property (nonatomic        ) NSDate   *creationTime;

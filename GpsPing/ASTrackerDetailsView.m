@@ -11,6 +11,7 @@
 #import "MGRS.h"
 #import <YYWebImage.h>
 #import "ASS3Manager.h"
+#import "ASAttributesModel.h"
 
 @interface ASTrackerDetailsView()
 @property (nonatomic) IBOutlet UILabel *labelLastSeenHeader;
@@ -82,7 +83,9 @@
     if (pointModel) {
         self.labelLogTime.text   = [dateFormatter stringFromDate:pointModel.timestamp];
         self.labelSpeed.text = [NSString stringWithFormat:@"%@", pointModel.speed ?: @"No data"];
-        //self.labelSpeed.text = [NSString stringWithFormat:@"%@", pointModel.speed];
+        self.labelDistance.text = [NSString stringWithFormat:@"%@", [pointModel valueForKeyPath:@"attributes.distance"] ?: @"No data"];
+        self.labelDistanceTravelled.text = [NSString stringWithFormat:@"%@", [pointModel valueForKeyPath:@"attributes.totalDistance"] ?: @"No data"];
+        
 
     }
     
