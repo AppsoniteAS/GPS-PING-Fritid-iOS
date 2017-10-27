@@ -46,7 +46,7 @@
         }];
     
         self.imageViewArrow.alpha = arrowColor ? 1.0 : 0.0;
-    self.imageViewArrow.image = [[UIImage imageNamed:@"direction"] imageRotatedByDegrees:rotation];
+    self.imageViewArrow.image = [[UIImage imageNamed:@"direction2"] imageRotatedByDegrees:rotation];
     self.imageViewArrow.center = [self setPointToAngle:rotation - 90.0f center:self.center radius:CGRectGetWidth(self.imageViewPhoto.frame)/2.0];
     self.viewArrowContainer.center = self.imageViewArrow.center;
     self.viewArrowContainer.backgroundColor = arrowColor;

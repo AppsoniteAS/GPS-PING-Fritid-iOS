@@ -7,6 +7,7 @@
 //
 
 #import <Mantle/Mantle.h>
+#import "ASAttributesModel.h"
 
 @interface ASPointModel : MTLModel<MTLJSONSerializing>
 @property (nonatomic) NSNumber  *longitude;

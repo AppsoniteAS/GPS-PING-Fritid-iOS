@@ -506,6 +506,12 @@ objection_requires(@keypath(ASMapViewController.new, apiController), @keypath(AS
 -(void)loadTracks {
     NSDate *from;
     NSDate *to;
+    
+    from = [[NSDate date] dateBySubtractingYears:10];
+    to =[NSDate date];
+    [self loadTrackingPointsFrom:from to:to];
+    return;
+    
     if (!self.selectedDate) {
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         [defaults synchronize];
@@ -620,7 +626,9 @@ objection_requires(@keypath(ASMapViewController.new, apiController), @keypath(AS
         deviceAnnotation.deviceObject = deviceModel;
         deviceAnnotation.owner = friendModel;
         [self.mapView addAnnotation:deviceAnnotation];
-        for (ASPointModel *pointModel in deviceModel.points) {
+       // for (ASPointModel *pointModel in deviceModel.points) {
+        for (int i = 0; i < deviceModel.points.count - 1; i++) {
+            ASPointModel *pointModel = deviceModel.points[i];
             ASDevicePointAnnotation *annotation;
             CLLocationCoordinate2D coord = CLLocationCoordinate2DMake(pointModel.latitude.doubleValue, pointModel.longitude.doubleValue);
             annotation = [[ASPointAnnotation alloc] initWithLocation:coord];

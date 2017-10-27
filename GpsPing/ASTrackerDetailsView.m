@@ -81,7 +81,7 @@
     
     if (pointModel) {
         self.labelLogTime.text   = [dateFormatter stringFromDate:pointModel.timestamp];
-        self.labelSpeed.text = [NSString stringWithFormat:@"%@", pointModel.speed];
+        self.labelSpeed.text = [NSString stringWithFormat:@"%@", pointModel.speed ?: @"No data"];
         //self.labelSpeed.text = [NSString stringWithFormat:@"%@", pointModel.speed];
 
     }
