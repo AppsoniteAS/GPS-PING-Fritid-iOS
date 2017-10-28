@@ -47,7 +47,7 @@
                                                 <rect key="frame" x="22" y="22" width="276" height="227"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Lf-GL-fbP">
-                                                        <rect key="frame" x="20" y="20" width="64" height="31"/>
+                                                        <rect key="frame" x="20" y="20" width="65" height="31"/>
                                                         <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="26"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
@@ -529,7 +529,7 @@
                                                         <rect key="frame" x="20" y="428" width="236" height="68"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ZIP Code" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ALH-Is-KNg">
-                                                                <rect key="frame" x="0.0" y="10" width="57" height="17"/>
+                                                                <rect key="frame" x="0.0" y="10" width="59.5" height="17"/>
                                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                                                                 <color key="textColor" red="0.42745098040000001" green="0.42745098040000001" blue="0.42745098040000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
@@ -661,7 +661,7 @@
                                                         <rect key="frame" x="20" y="632" width="236" height="68"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Code" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PHw-VA-hnR">
-                                                                <rect key="frame" x="0.0" y="10" width="32.5" height="17"/>
+                                                                <rect key="frame" x="0.0" y="10" width="34" height="17"/>
                                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                                                                 <color key="textColor" red="0.42745098040000001" green="0.42745098040000001" blue="0.42745098040000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>

@@ -85,7 +85,44 @@
         self.labelSpeed.text = [NSString stringWithFormat:@"%@", pointModel.speed ?: @"No data"];
         self.labelDistance.text = [NSString stringWithFormat:@"%@", [pointModel valueForKeyPath:@"attributes.distance"] ?: @"No data"];
         self.labelDistanceTravelled.text = [NSString stringWithFormat:@"%@", [pointModel valueForKeyPath:@"attributes.totalDistance"] ?: @"No data"];
+
+        if (pointModel.gps){
+            NSInteger s = [pointModel.gps integerValue];
+            if (s >= 0 && s <= 5){
+                self.imageViewGPS.image = [UIImage imageNamed: [NSString stringWithFormat: @"signal-%d", (long) s]];
+            }
+        } else {
+            self.imageViewGPS.image = [UIImage imageNamed: @"signal-0"];
+        }
         
+        if (pointModel.gsm){
+            NSInteger s = [pointModel.gsm integerValue];
+            if (s >= 0 && s <= 5){
+                self.imageViewGSM.image = [UIImage imageNamed: [NSString stringWithFormat: @"signal-%d", (long) s]];
+            }
+        } else {
+            self.imageViewGSM.image = [UIImage imageNamed: @"signal-0"];
+        }
+        
+  
+        if ([pointModel valueForKeyPath:@"attributes.battery"]){
+            NSInteger v = [[pointModel valueForKeyPath:@"attributes.battery"] integerValue];
+            if (v > 0  && v <= 25){
+                self.imageViewBattery.image = [UIImage imageNamed: @"battery-25"];
+            } else if (v > 25  && v <= 50){
+                self.imageViewBattery.image = [UIImage imageNamed: @"battery-50"];
+            } else if (v > 50  && v <= 75){
+                self.imageViewBattery.image = [UIImage imageNamed: @"battery-75"];
+            } else if (v > 75  && v <= 100){
+                self.imageViewBattery.image = [UIImage imageNamed: @"battery-100"];
+            } else if (v == 0){
+                self.imageViewBattery.image = [UIImage imageNamed: @"battery-0"];
+            }
+            self.labelBatteryLevel.text = [NSString stringWithFormat: @"%d%%", v];
+        } else {
+            self.imageViewBattery.image = [UIImage imageNamed: @"battery-0"];
+            self.labelBatteryLevel.text = @"0%";
+        }
 
     }
     
