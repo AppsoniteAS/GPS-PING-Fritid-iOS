@@ -16,6 +16,8 @@
 
 @property (nonatomic) NSNumber  *longitude;
 @property (nonatomic) NSNumber  *latitude;
+@property (nonatomic) NSNumber  *trackDistance;
+
 @property (nonatomic        ) NSDate   *lastDate;
 @property (nonatomic        ) NSDate   *lastUpdate;
 @property (nonatomic        ) NSString *name;

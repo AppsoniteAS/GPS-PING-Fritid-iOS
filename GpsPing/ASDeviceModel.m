@@ -20,6 +20,8 @@ NSString* const kASDeviceLatitude      = @"device.last_lat";
 NSString* const kASDeviceLastDate      = @"device.last_time_stamp";
 NSString* const kASDeviceLastUpdate    = @"device.last_update";
 NSString* const kASDevicePoints        = @"points";
+NSString* const kASDeviceTrackDistance       = @"track_distance";
+
 NSString* const kASDeviceTrackerNumber = @"device.tracker_number";
 NSString* const kASDeviceImei          = @"device.imei_number";
 NSString* const kASDeviceImageId          = @"device.picUrl";
@@ -29,6 +31,8 @@ NSString* const kASDeviceImageId          = @"device.picUrl";
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
     return @{
              @keypath(ASDeviceModel.new, name) : kASDeviceName,
+              @keypath(ASDeviceModel.new, trackDistance) : kASDeviceTrackDistance,
+
               @keypath(ASDeviceModel.new, longitude) : kASDeviceLongitude,
               @keypath(ASDeviceModel.new, latitude) : kASDeviceLatitude,
               @keypath(ASDeviceModel.new, lastDate) : kASDeviceLastDate,

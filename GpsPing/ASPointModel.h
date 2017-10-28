@@ -13,6 +13,8 @@
 @property (nonatomic) NSNumber  *longitude;
 @property (nonatomic) NSNumber  *latitude;
 @property (nonatomic) NSNumber  *heading;
+@property (nonatomic) NSNumber  *gps;
+@property (nonatomic) NSNumber  *gsm;
 
 @property (nonatomic) NSNumber  *speed;
 @property (nonatomic) ASAttributesModel  *attributes;

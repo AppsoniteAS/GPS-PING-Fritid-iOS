@@ -19,6 +19,10 @@ NSString* const kASPointTimestamp    = @"timestamp";
 NSString* const kASPointCreationTime = @"creationTime";
 NSString* const kASPointHeading = @"heading";
 NSString* const kASPointSpeedKPH = @"speedKPH";
+NSString* const kASPointGPS = @"GPS_Signal";
+
+NSString* const kASPointGSM = @"GSM_Signal";
+
 NSString* const kASPointAttributes = @"attributes";
 
 
@@ -27,6 +31,8 @@ NSString* const kASPointAttributes = @"attributes";
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
     return @{@keypath(ASPointModel.new, latitude)     : kASPointLat,
              @keypath(ASPointModel.new, longitude)    : kASPointLon,
+              @keypath(ASPointModel.new, gps)     : kASPointGPS,
+              @keypath(ASPointModel.new, gsm)    : kASPointGSM,
               @keypath(ASPointModel.new, heading)     : kASPointHeading,
               @keypath(ASPointModel.new, speed)    : kASPointSpeedKPH,
               @keypath(ASPointModel.new, attributes)    : kASPointAttributes,
