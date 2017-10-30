@@ -498,21 +498,22 @@ objection_initializer(initWithConfiguration:);
                                      parameters:params] map:^id(id value) {
         DDLogVerbose(@"%@", value);
         NSMutableArray *resultArray = @[].mutableCopy;
-        for (NSDictionary *userDictionary in value[@"users"]) {
-            NSError *error;
-            NSArray *devicesArray = [MTLJSONAdapter modelsOfClass:[ASDeviceModel class]
-                                                    fromJSONArray:userDictionary[@"devices"]
-                                                            error:&error];
+        if ([value isKindOfClass:[NSDictionary class]] && value[@"users"]  ){
             
-            ASFriendModel *friendModel = [MTLJSONAdapter modelOfClass:[ASFriendModel class]
-                                                   fromJSONDictionary:userDictionary[@"user"]
+            for (NSDictionary *userDictionary in value[@"users"]) {
+                NSError *error;
+                NSArray *devicesArray = [MTLJSONAdapter modelsOfClass:[ASDeviceModel class]
+                                                        fromJSONArray:userDictionary[@"devices"]
                                                                 error:&error];
-            friendModel.devices = devicesArray;
-            [resultArray addObject:friendModel];
+                
+                ASFriendModel *friendModel = [MTLJSONAdapter modelOfClass:[ASFriendModel class]
+                                                       fromJSONDictionary:userDictionary[@"user"]
+                                                                    error:&error];
+                friendModel.devices = devicesArray;
+                [resultArray addObject:friendModel];
+            }
         }
-        
-//        NSError *error;
-//        NSArray *resultArray = [MTLJSONAdapter modelsOfClass:[ASFriendModel class] fromJSONArray:value[@"users"] error:&error];
+
         return resultArray;
     }];
 }
