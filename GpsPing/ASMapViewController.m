@@ -506,6 +506,12 @@ objection_requires(@keypath(ASMapViewController.new, apiController), @keypath(AS
 -(void)loadTracks {
     NSDate *from;
     NSDate *to;
+    
+    from = [[NSDate date] dateBySubtractingYears:10];
+    to =[NSDate date];
+    [self loadTrackingPointsFrom:from to:to];
+    return;
+    
     if (!self.selectedDate) {
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         [defaults synchronize];
@@ -620,31 +626,32 @@ objection_requires(@keypath(ASMapViewController.new, apiController), @keypath(AS
         deviceAnnotation.deviceObject = deviceModel;
         deviceAnnotation.owner = friendModel;
         [self.mapView addAnnotation:deviceAnnotation];
-       // for (ASPointModel *pointModel in deviceModel.points) {
-        for (int i = 0; i < deviceModel.points.count - 1; i++) {
-            ASPointModel *pointModel = deviceModel.points[i];
-            ASDevicePointAnnotation *annotation;
-            CLLocationCoordinate2D coord = CLLocationCoordinate2DMake(pointModel.latitude.doubleValue, pointModel.longitude.doubleValue);
-            annotation = [[ASPointAnnotation alloc] initWithLocation:coord];
-            
-            [annotation setAnnotationColor:colorForUser];
-            annotation.colorName = colorNameForUser;
-
-            annotation.deviceObject = deviceModel;
-            annotation.pointObject = pointModel;
-            annotation.owner = friendModel;
-            [self.mapView addAnnotation:annotation];
-            
-            if (self.isFirstLaunch &&
-                pointModel == deviceModel.points.lastObject) {
-                self.isFirstLaunch = NO;
-                if (deviceModel.latitude.integerValue == 0 && deviceModel.longitude.integerValue == 0){
-                    return;
+        if (deviceModel.points && deviceModel.points.count){
+            for (int i = 0; i < deviceModel.points.count - 1; i++) {
+                ASPointModel *pointModel = deviceModel.points[i];
+                ASDevicePointAnnotation *annotation;
+                CLLocationCoordinate2D coord = CLLocationCoordinate2DMake(pointModel.latitude.doubleValue, pointModel.longitude.doubleValue);
+                annotation = [[ASPointAnnotation alloc] initWithLocation:coord];
+                
+                [annotation setAnnotationColor:colorForUser];
+                annotation.colorName = colorNameForUser;
+                
+                annotation.deviceObject = deviceModel;
+                annotation.pointObject = pointModel;
+                annotation.owner = friendModel;
+                [self.mapView addAnnotation:annotation];
+                
+                if (self.isFirstLaunch &&
+                    pointModel == deviceModel.points.lastObject) {
+                    self.isFirstLaunch = NO;
+                    if (deviceModel.latitude.integerValue == 0 && deviceModel.longitude.integerValue == 0){
+                        return;
+                    }
+                    self.isUserLocationCentered = YES;
+                    MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(coord, 800, 800);
+                    [self.mapView setRegion:viewRegion animated:YES];
+                    
                 }
-                self.isUserLocationCentered = YES;
-                MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(coord, 800, 800);
-                [self.mapView setRegion:viewRegion animated:YES];
-
             }
         }
     }
@@ -852,6 +859,12 @@ objection_requires(@keypath(ASMapViewController.new, apiController), @keypath(AS
     if ([view.annotation isKindOfClass:[ASDevicePointAnnotation class]]) {
         ASDevicePointAnnotation *annotation = view.annotation;
         self.popedTracker = annotation.deviceObject.imei ? [self getTrackerByImei: annotation.deviceObject.imei] : nil;
+        if (self.popedTracker && self.popedTracker.trackerType && [self.popedTracker.trackerType isEqualToString:kASTrackerTypeTkS1]){
+            self.trackerView.callImageView.hidden = false;
+        } else{
+            self.trackerView.callImageView.hidden = true;
+        }
+        
         [self showTrackerView:true];
         self.trackerView.btnEdit.enabled = (annotation.deviceObject.imei != nil);
         [self.trackerView configWithOwner:annotation.owner
@@ -959,7 +972,7 @@ objection_requires(@keypath(ASMapViewController.new, apiController), @keypath(AS
 }
 
 - (IBAction)pressedCallBtn:(id)sender {
-    if (!self.popedTracker || ![self.popedTracker trackerPhoneNumber]){
+    if (!self.popedTracker || ![self.popedTracker trackerPhoneNumber] ){
         return;
     }
     

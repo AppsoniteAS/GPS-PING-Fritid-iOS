@@ -36,6 +36,8 @@
 @property (nonatomic) IBOutlet ASMapDetailsButton *btnMap;
 @property (nonatomic) IBOutlet ASMapDetailsButton *btnEdit;
 @property (nonatomic) IBOutlet UIImageView *profileImageView;
+@property (nonatomic) IBOutlet UIImageView *callImageView;
+
 @property (nonatomic) IBOutlet UIButton *callBtn;
 
 @property (nonatomic) IBOutlet UIView *separator1;

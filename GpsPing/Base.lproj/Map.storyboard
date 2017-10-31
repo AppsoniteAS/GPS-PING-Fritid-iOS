@@ -24,7 +24,7 @@
             <objects>
                 <navigationController storyboardIdentifier="ASMapViewControllerNav" useStoryboardIdentifierAsRestorationIdentifier="YES" id="PuK-Qn-jIC" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="4vn-0Q-tAC">
-                        <rect key="frame" x="0.0" y="20" width="320" height="48"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -48,7 +48,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="y6O-VD-VEg" customClass="ASMapView">
-                                <rect key="frame" x="0.0" y="68" width="320" height="451"/>
+                                <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                                 <gestureRecognizers/>
                                 <connections>
                                     <outlet property="delegate" destination="sw3-fk-UAu" id="EVl-mQ-BSm"/>
@@ -60,10 +60,10 @@
                                 <gestureRecognizers/>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="map_cursor" translatesAutoresizingMaskIntoConstraints="NO" id="M8s-by-y94">
-                                <rect key="frame" x="134.5" y="268.5" width="50" height="50"/>
+                                <rect key="frame" x="134.5" y="266.5" width="50" height="50"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hPV-uE-2fI" userLabel="upper plank">
-                                <rect key="frame" x="0.0" y="68" width="320" height="58"/>
+                                <rect key="frame" x="0.0" y="64" width="320" height="58"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="All" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RGG-T8-o5l">
                                         <rect key="frame" x="8" y="16" width="304" height="26"/>
@@ -124,13 +124,13 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xgH-Jq-BbT">
-                                                        <rect key="frame" x="96" y="15.5" width="0.0" height="0.0"/>
+                                                        <rect key="frame" x="95.5" y="15.5" width="0.0" height="0.0"/>
                                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="9"/>
                                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="annotation_user_icon" translatesAutoresizingMaskIntoConstraints="NO" id="Gt3-Gf-zDU">
-                                                        <rect key="frame" x="73" y="6" width="18" height="18"/>
+                                                        <rect key="frame" x="72.5" y="6" width="18" height="18"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="Gt3-Gf-zDU" secondAttribute="height" multiplier="1:1" id="9gD-NY-0XF"/>
                                                             <constraint firstAttribute="width" constant="18" id="kjn-Sv-Osa"/>
@@ -140,7 +140,7 @@
                                                         <rect key="frame" x="7" y="57" width="135" height="52"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" text="Tracker Number:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oJb-jj-nDP">
-                                                                <rect key="frame" x="0.0" y="0.0" width="59.5" height="9.5"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="59" height="9.5"/>
                                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="8"/>
                                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
@@ -161,7 +161,7 @@
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uSz-qT-Let">
-                                                                <rect key="frame" x="65.5" y="0.0" width="0.0" height="9.5"/>
+                                                                <rect key="frame" x="65" y="0.0" width="0.0" height="9.5"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="eb8-HV-2oj"/>
                                                                 </constraints>
@@ -175,7 +175,7 @@
                                                                 </variation>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d6l-I3-40b">
-                                                                <rect key="frame" x="65.5" y="9.5" width="0.0" height="10"/>
+                                                                <rect key="frame" x="65" y="9.5" width="0.0" height="10"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" id="we9-yQ-n7a"/>
                                                                 </constraints>
@@ -189,7 +189,7 @@
                                                                 </variation>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qv2-hE-vBy">
-                                                                <rect key="frame" x="65.5" y="19.5" width="0.0" height="9.5"/>
+                                                                <rect key="frame" x="65" y="19.5" width="0.0" height="9.5"/>
                                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="8"/>
                                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
@@ -797,6 +797,7 @@
                                             <outlet property="btnEdit" destination="KLn-SY-QPN" id="Kwi-mf-UUu"/>
                                             <outlet property="btnMap" destination="Yrr-Zh-WLC" id="dNS-5u-hpk"/>
                                             <outlet property="callBtn" destination="utT-Z4-h5G" id="fhM-2A-GhA"/>
+                                            <outlet property="callImageView" destination="SAr-ww-Nbe" id="j16-jq-78Q"/>
                                             <outlet property="imageViewBattery" destination="qqt-Bf-ebv" id="i5h-pK-uot"/>
                                             <outlet property="imageViewGPS" destination="0hD-SW-p93" id="7oj-F6-w32"/>
                                             <outlet property="imageViewGSM" destination="dOX-2T-Fif" id="R9G-4Z-w7r"/>
@@ -838,7 +839,7 @@
                                 </connections>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image_compass" translatesAutoresizingMaskIntoConstraints="NO" id="ret-Ku-nCK">
-                                <rect key="frame" x="264" y="134" width="48" height="48"/>
+                                <rect key="frame" x="264" y="130" width="48" height="48"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -873,7 +874,7 @@
                     <navigationItem key="navigationItem" id="1ed-VU-bE2">
                         <nil key="title"/>
                         <view key="titleView" contentMode="scaleToFill" id="gzy-Op-7ej">
-                            <rect key="frame" x="8" y="24" width="262" height="0.0"/>
+                            <rect key="frame" x="8" y="22" width="262" height="0.0"/>
                             <autoresizingMask key="autoresizingMask"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sCZ-8G-eLJ">
@@ -965,14 +966,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hRo-bz-CoZ" customClass="ASMapView">
-                                <rect key="frame" x="0.0" y="68" width="320" height="456"/>
+                                <rect key="frame" x="0.0" y="64" width="320" height="460"/>
                                 <gestureRecognizers/>
                                 <connections>
                                     <outlet property="delegate" destination="01S-Ts-0Lk" id="n5z-6D-khx"/>
                                 </connections>
                             </mapView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cYi-3x-o5J" userLabel="upper plank">
-                                <rect key="frame" x="0.0" y="68" width="320" height="58"/>
+                                <rect key="frame" x="0.0" y="64" width="320" height="58"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="All" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fnd-5A-EM2">
                                         <rect key="frame" x="8" y="16" width="304" height="26"/>
@@ -1043,7 +1044,7 @@
                                         <rect key="frame" x="7" y="57" width="135" height="52"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" text="Tracker Number:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gS6-IR-CcS">
-                                                <rect key="frame" x="0.0" y="0.0" width="59.5" height="9.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="59" height="9.5"/>
                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="8"/>
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -1064,7 +1065,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ypU-IC-Z5o">
-                                                <rect key="frame" x="65.5" y="0.0" width="0.0" height="9.5"/>
+                                                <rect key="frame" x="65" y="0.0" width="0.0" height="9.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="L9c-th-ipS"/>
                                                 </constraints>
@@ -1078,7 +1079,7 @@
                                                 </variation>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e9y-TZ-fqg">
-                                                <rect key="frame" x="65.5" y="9.5" width="0.0" height="10"/>
+                                                <rect key="frame" x="65" y="9.5" width="0.0" height="10"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" id="a49-FX-wmz"/>
                                                 </constraints>
@@ -1092,7 +1093,7 @@
                                                 </variation>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iay-dW-Ces">
-                                                <rect key="frame" x="65.5" y="19.5" width="0.0" height="9.5"/>
+                                                <rect key="frame" x="65" y="19.5" width="0.0" height="9.5"/>
                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="8"/>
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -1458,10 +1459,10 @@
                                 </connections>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image_compass" translatesAutoresizingMaskIntoConstraints="NO" id="ac4-Ij-LYT">
-                                <rect key="frame" x="264" y="134" width="48" height="48"/>
+                                <rect key="frame" x="264" y="130" width="48" height="48"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="map_cursor" translatesAutoresizingMaskIntoConstraints="NO" id="1tk-1K-Ar3">
-                                <rect key="frame" x="135" y="271" width="50" height="50"/>
+                                <rect key="frame" x="135" y="269" width="50" height="50"/>
                             </imageView>
                             <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C8b-hT-JWR" customClass="ASDashedLine">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
