@@ -20,6 +20,7 @@
 @property (nonatomic) IBOutlet UILabel *labelDistanceHeader;
 @property (nonatomic) IBOutlet UILabel *labelTravelledHeader;
 @property (nonatomic) IBOutlet UILabel *labelSignalStrengthHeader;
+@property (nonatomic, strong) NSNumberFormatter *numberFormatter;
 @end;
 
 @implementation ASTrackerDetailsView
@@ -46,6 +47,11 @@
     [self.btnEdit setTitle:NSLocalizedString(@"tracker_edit", nil) forState:UIControlStateNormal];
     [self.btnEdit setTitle:NSLocalizedString(@"tracker_edit", nil) forState:UIControlStateSelected];
 
+    
+    self.numberFormatter = [[NSNumberFormatter alloc]init];
+    self.numberFormatter.locale = [NSLocale currentLocale];// this ensures the right separator behavior
+    self.numberFormatter.numberStyle = NSNumberFormatterDecimalStyle;
+    [self.numberFormatter setUsesGroupingSeparator:NO];
 }
 
 -(void)configWithOwner:(ASFriendModel*)owner
@@ -80,11 +86,14 @@
         }
     }
     
+    
+    
+    
     if (pointModel) {
         self.labelLogTime.text   = [dateFormatter stringFromDate:pointModel.timestamp];
-        self.labelSpeed.text = [NSString stringWithFormat:@"%@", pointModel.speed ?: @"No data"];
-        self.labelDistance.text = [NSString stringWithFormat:@"%@", [pointModel valueForKeyPath:@"attributes.distance"] ?: @"No data"];
-        self.labelDistanceTravelled.text = [NSString stringWithFormat:@"%@", [pointModel valueForKeyPath:@"attributes.totalDistance"] ?: @"No data"];
+        self.labelSpeed.text = [NSString stringWithFormat:@"%@", pointModel.speed ? [self.numberFormatter stringForObjectValue:pointModel.speed] :  NSLocalizedString( @"No data", nil)];
+        self.labelDistance.text = [NSString stringWithFormat:@"%@", [pointModel valueForKeyPath:@"attributes.distance"] ? [self.numberFormatter stringForObjectValue:[pointModel valueForKeyPath:@"attributes.distance"] ] :  NSLocalizedString(@"No data", nil)];
+        self.labelDistanceTravelled.text = [NSString stringWithFormat:@"%@", [pointModel valueForKeyPath:@"attributes.totalDistance"]  ? [self.numberFormatter stringForObjectValue:[pointModel valueForKeyPath:@"attributes.totalDistance"] ] :  NSLocalizedString(@"No data", nil)];
 
         if (pointModel.gps){
             NSInteger s = [pointModel.gps integerValue];
@@ -107,15 +116,15 @@
   
         if ([pointModel valueForKeyPath:@"attributes.battery"]){
             NSInteger v = [[pointModel valueForKeyPath:@"attributes.battery"] integerValue];
-            if (v > 0  && v <= 25){
+            if (v > 10  && v <= 33){
                 self.imageViewBattery.image = [UIImage imageNamed: @"battery-25"];
-            } else if (v > 25  && v <= 50){
+            } else if (v > 33  && v <= 66){
                 self.imageViewBattery.image = [UIImage imageNamed: @"battery-50"];
-            } else if (v > 50  && v <= 75){
+            } else if (v > 66  && v <= 95){
                 self.imageViewBattery.image = [UIImage imageNamed: @"battery-75"];
-            } else if (v > 75  && v <= 100){
+            } else if (v > 95  && v <= 100){
                 self.imageViewBattery.image = [UIImage imageNamed: @"battery-100"];
-            } else if (v == 0){
+            } else if (v >= 0 && v <= 10){
                 self.imageViewBattery.image = [UIImage imageNamed: @"battery-0"];
             }
             self.labelBatteryLevel.text = [NSString stringWithFormat: @"%d%%", v];

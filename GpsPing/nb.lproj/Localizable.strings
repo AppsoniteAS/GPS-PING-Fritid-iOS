@@ -79,6 +79,7 @@
 "Restore" = "Gjenopprett kjøp";
 "Subscribe" = "Abonner";
 "Please subscribe" = "Vennligst abonner";
+"No data" = "Ingen data";
 
 "reset_all" = "Du trenger å oppdatere appen med ny ip-adresse for at trackeren skal fungere. Trykk på knappen under og send SMS til trackeren for å oppdatere.";
 "reset_all_btn" = "Oppdater»";
