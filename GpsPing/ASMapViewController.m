@@ -506,12 +506,6 @@ objection_requires(@keypath(ASMapViewController.new, apiController), @keypath(AS
 -(void)loadTracks {
     NSDate *from;
     NSDate *to;
-    
-    from = [[NSDate date] dateBySubtractingYears:10];
-    to =[NSDate date];
-    [self loadTrackingPointsFrom:from to:to];
-    return;
-    
     if (!self.selectedDate) {
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         [defaults synchronize];
