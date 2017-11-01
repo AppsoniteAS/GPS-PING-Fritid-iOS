@@ -925,6 +925,8 @@ objection_requires(@keypath(ASMapViewController.new, apiController), @keypath(AS
     
     self.bottomPlank.hidden = NO;
     //self.tapGestureDetails.enabled = YES;
+    
+    [self.mapView deselectAnnotation:view.annotation animated:false];
 }
 
 #pragma mark - UIPicker
