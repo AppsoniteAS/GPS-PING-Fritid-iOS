@@ -33,7 +33,7 @@
 #import "ASPhotoAnnotationView.h"
 #import "ASTrackerConfigurationViewController.h"
 #import "ASSmsManager.h"
-#define QUERY_RATE_IN_SECONDS 15
+#define QUERY_RATE_IN_SECONDS 20
 static const DDLogLevel ddLogLevel = DDLogLevelDebug;
 
 static NSString *const kASUserDefaultsKeyRemoveTrackersDate = @"kASUserDefaultsKeyRemoveTrackersDate";
@@ -109,6 +109,8 @@ objection_requires(@keypath(ASMapViewController.new, apiController), @keypath(AS
     self.mapView.userInteractionEnabled = YES;
     
     [self.mapView addGestureRecognizer:longPress];
+    self.tapGestureDetails.numberOfTapsRequired = 1;
+    self.tapGestureDetails.numberOfTouchesRequired = 1;
     [self.mapView addGestureRecognizer:self.tapGestureDetails];
 
     [self configFilter];
@@ -275,9 +277,33 @@ objection_requires(@keypath(ASMapViewController.new, apiController), @keypath(AS
     
 }
 
-- (void)tapHandle:(id)sender {
-    self.bottomPlank.hidden = YES;
-    self.tapGestureDetails.enabled = NO;
+- (void)tapHandle:(UITapGestureRecognizer *)sender {
+    DDLogInfo(@"tapHandle");
+
+    //self.tapGestureDetails.enabled = NO;
+    CGPoint p = [sender locationInView:self.mapView];
+    
+    UIView *v = [self.mapView hitTest:p withEvent:nil];
+    
+    id<MKAnnotation> ann = nil;
+    DDLogInfo(@"tapHandle %@", [v class]);
+
+    if ([v isKindOfClass:[MKAnnotationView class]])
+    {
+        DDLogInfo(@"tapHandle MKAnnotationView");
+
+        self.bottomPlank.hidden = NO;
+
+        //annotation view was tapped, select it...
+        ann = ((MKAnnotationView *)v).annotation;
+        [self.mapView selectAnnotation:ann animated:YES];
+    }
+    else
+    {
+        DDLogInfo(@"tapHandle NON MKAnnotationView");
+
+        self.bottomPlank.hidden = YES;
+    }
 }
 
 - (IBAction)editPOI:(id)sender {
@@ -317,7 +343,7 @@ objection_requires(@keypath(ASMapViewController.new, apiController), @keypath(AS
 - (IBAction)removePOI:(id)sender {
     [self.mapView removeAnnotation:self.selectedAnnotation];
     self.bottomPlank.hidden = YES;
-    self.tapGestureDetails.enabled = NO;
+   // self.tapGestureDetails.enabled = NO;
     ASPointOfInterestModel *pointOfInterestModel = self.selectedAnnotation.poiObject;
     [[[self.apiController removePOIWithId:pointOfInterestModel.identificator.integerValue] deliverOnMainThread] subscribeNext:^(id x) {
         [self loadPointsOfInterest];
@@ -801,7 +827,8 @@ objection_requires(@keypath(ASMapViewController.new, apiController), @keypath(AS
         }
 
         pinView.image = [UIImage getLastPointAnnotationImageWithColorName:a.colorName andRotation:rotation];// [UIImage getLastPointAnnotationImageWithColor:((ASLastPointAnnotation*)annotation).annotationColor];
-
+//        pinView.layer.borderColor  = [UIColor redColor].CGColor;
+//        pinView.layer.borderWidth = 1;
         return pinView;
     } else if ([annotation isKindOfClass:[ASFriendAnnotation class]]) {
         MKAnnotationView *pinView = (MKAnnotationView*)[mapView dequeueReusableAnnotationViewWithIdentifier:@"ASFriendAnnotation"];
@@ -846,11 +873,14 @@ objection_requires(@keypath(ASMapViewController.new, apiController), @keypath(AS
 
 -(void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view
 {
+    DDLogInfo(@"didSelectAnnotationView");
     if ([view.annotation isKindOfClass:[MKUserLocation class]]){
         return;
     }
     
     if ([view.annotation isKindOfClass:[ASDevicePointAnnotation class]]) {
+        DDLogInfo(@"didSelectAnnotationView ASDevicePointAnnotation");
+
         ASDevicePointAnnotation *annotation = view.annotation;
         self.popedTracker = annotation.deviceObject.imei ? [self getTrackerByImei: annotation.deviceObject.imei] : nil;
         if (self.popedTracker && self.popedTracker.trackerType && [self.popedTracker.trackerType isEqualToString:kASTrackerTypeTkS1]){
@@ -894,7 +924,7 @@ objection_requires(@keypath(ASMapViewController.new, apiController), @keypath(AS
     }
     
     self.bottomPlank.hidden = NO;
-    self.tapGestureDetails.enabled = YES;
+    //self.tapGestureDetails.enabled = YES;
 }
 
 #pragma mark - UIPicker
@@ -961,8 +991,10 @@ objection_requires(@keypath(ASMapViewController.new, apiController), @keypath(AS
     [self.navigationController pushViewController:configVC animated:true];
 }
 - (IBAction)pressedMapBtn:(UIButton *)sender {
-    [self.bottomPlank setHidden:true];
-    
+    DDLogInfo(@"pressedMapBtn");
+   // [self.bottomPlank setHidden:true];
+    self.bottomPlank.hidden = YES;
+   // self.tapGestureDetails.enabled = NO;
 }
 
 - (IBAction)pressedCallBtn:(id)sender {
