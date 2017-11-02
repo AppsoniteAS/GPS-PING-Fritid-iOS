@@ -130,7 +130,7 @@ objection_requires(@keypath(ASTrackerConfigurationViewController.new, apiControl
     [self jps_viewDidLoad];
 
     CAGradientLayer *layer = [CAGradientLayer layer];
-    layer.colors = @[(id)[UIColor whiteColor].CGColor, (id)[UIColor clearColor].CGColor];
+    layer.colors = @[(id)[UIColor whiteColor].CGColor, (id)[UIColor colorWithWhite:1 alpha:0].CGColor];
     layer.locations = @[@(0), @(0.5)];
     layer.frame = CGRectMake(0, 0, self.imageViewPhoto.frame.size.width, self.imageViewPhoto.frame.size.height);
     [self.imageViewPhoto.layer insertSublayer:layer atIndex:0];
