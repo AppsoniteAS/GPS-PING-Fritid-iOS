@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -195,8 +195,8 @@
                                                         </constraints>
                                                         <variation key="default">
                                                             <mask key="constraints">
-                                                                <exclude reference="oWZ-Fz-oxU"/>
                                                                 <exclude reference="cvT-Li-G89"/>
+                                                                <exclude reference="oWZ-Fz-oxU"/>
                                                                 <exclude reference="cEh-do-Kjd"/>
                                                                 <exclude reference="rc4-PD-ZOt"/>
                                                                 <exclude reference="YRK-wZ-qWR"/>
@@ -656,8 +656,8 @@
                                                                 </constraints>
                                                                 <variation key="default">
                                                                     <mask key="constraints">
-                                                                        <exclude reference="lOz-9k-Aj0"/>
                                                                         <exclude reference="c8b-cC-2DN"/>
+                                                                        <exclude reference="lOz-9k-Aj0"/>
                                                                         <exclude reference="n8f-CD-Xes"/>
                                                                         <exclude reference="Irf-HD-MQL"/>
                                                                     </mask>
@@ -695,8 +695,8 @@
                                                         <variation key="default">
                                                             <mask key="constraints">
                                                                 <exclude reference="Idw-bm-hpH"/>
-                                                                <exclude reference="bs5-lS-Zg3"/>
                                                                 <exclude reference="SbY-Li-lTG"/>
+                                                                <exclude reference="bs5-lS-Zg3"/>
                                                             </mask>
                                                         </variation>
                                                     </view>
@@ -1845,8 +1845,8 @@
                                                         </constraints>
                                                         <variation key="default">
                                                             <mask key="constraints">
-                                                                <exclude reference="ssB-NV-Hes"/>
                                                                 <exclude reference="ZxO-fC-LBn"/>
+                                                                <exclude reference="ssB-NV-Hes"/>
                                                                 <exclude reference="ZjB-Qg-ZFx"/>
                                                             </mask>
                                                         </variation>

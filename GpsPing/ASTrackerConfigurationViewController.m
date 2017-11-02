@@ -130,9 +130,9 @@ objection_requires(@keypath(ASTrackerConfigurationViewController.new, apiControl
     [self jps_viewDidLoad];
 
     CAGradientLayer *layer = [CAGradientLayer layer];
-    layer.colors = @[(id)[UIColor whiteColor].CGColor, (id)[UIColor colorWithWhite:1 alpha:0].CGColor];
-    layer.locations = @[@(0), @(0.5)];
-    layer.frame = CGRectMake(0, 0, self.imageViewPhoto.frame.size.width, self.imageViewPhoto.frame.size.height);
+    layer.colors = @[(id)[UIColor colorWithWhite:1 alpha:0.8].CGColor, (id)[UIColor colorWithWhite:1 alpha:0].CGColor];
+    layer.locations = @[@(0), @(1)];
+    layer.frame = CGRectMake(0, 0, self.imageViewPhoto.frame.size.width, self.imageViewPhoto.frame.size.height /4.0);
     [self.imageViewPhoto.layer insertSublayer:layer atIndex:0];
     
     if (self.trackerObject.trackerName) {
@@ -830,6 +830,10 @@ objection_requires(@keypath(ASTrackerConfigurationViewController.new, apiControl
             {
                 return [RACSignal return:nil];
             }];
+}
+
+- (void) scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
+    [self.view endEditing:true];
 }
 
 
