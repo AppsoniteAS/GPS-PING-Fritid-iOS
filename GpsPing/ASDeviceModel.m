@@ -25,7 +25,13 @@ NSString* const kASDeviceTrackDistance       = @"track_distance";
 NSString* const kASDeviceTrackerNumber = @"device.tracker_number";
 NSString* const kASDeviceImei          = @"device.imei_number";
 NSString* const kASDeviceImageId          = @"device.picUrl";
+NSString* const kASDeviceHeading = @"heading";
+NSString* const kASDeviceSpeedKPH = @"speedKPH";
+NSString* const kASDeviceGPS = @"GPS_Signal";
 
+NSString* const kASDeviceGSM = @"GSM_Signal";
+
+NSString* const kASDeviceAttributes = @"attributes";
 @implementation ASDeviceModel
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -41,6 +47,11 @@ NSString* const kASDeviceImageId          = @"device.picUrl";
               @keypath(ASDeviceModel.new, trackerNumber) : kASDeviceTrackerNumber,
               @keypath(ASDeviceModel.new, imei) : kASDeviceImei,
               @keypath(ASDeviceModel.new, imageId) : kASDeviceImageId,
+              @keypath(ASDeviceModel.new, gps)     : kASDeviceGPS,
+              @keypath(ASDeviceModel.new, gsm)    : kASDeviceGSM,
+              @keypath(ASDeviceModel.new, heading)     : kASDeviceHeading,
+              @keypath(ASDeviceModel.new, speed)    : kASDeviceSpeedKPH,
+              @keypath(ASDeviceModel.new, attributes)    : kASDeviceAttributes,
 
               };
 }

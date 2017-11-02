@@ -104,6 +104,14 @@ objection_requires(@keypath(ASProfileViewModel.new, apiController))
 }
 
 - (void)logOut {
+//    UITabBarController* target =  (UITabBarController*)[[[[UIApplication sharedApplication] delegate] window] rootViewController] ;
+//    ASMapViewController* map = [((UINavigationController*)[target childViewControllers][0]) childViewControllers][0];
+//    map.needRefresh = true;
+    [[NSUserDefaults standardUserDefaults] setObject:@"yes" forKey:@"need_refresh"];
+    [[NSUserDefaults standardUserDefaults] setObject:@"yes" forKey:@"need_refresh_history"];
+
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
     [[self.apiController logout] replay];
     self.username = nil;
     self.fullName = nil;
@@ -116,10 +124,8 @@ objection_requires(@keypath(ASProfileViewModel.new, apiController))
     self.zipCode = nil;
     
     
-   UITabBarController* target =  (UITabBarController*)[[[[UIApplication sharedApplication] delegate] window] rootViewController] ;
-    ASMapViewController* map = [((UINavigationController*)[target childViewControllers][0]) childViewControllers][0];
-    [map setNeedRefresh:true];
-    //[map refresh];
+
+   // [map refresh];
 }
 
 @end

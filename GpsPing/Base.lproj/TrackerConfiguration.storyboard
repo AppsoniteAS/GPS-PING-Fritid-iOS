@@ -418,7 +418,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="310"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view alpha="0.80000001192092896" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dDw-U8-Hfm" userLabel="TrackerView">
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dDw-U8-Hfm" userLabel="TrackerView">
                                                     <rect key="frame" x="23" y="20" width="329" height="286"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="trackers_photo" translatesAutoresizingMaskIntoConstraints="NO" id="2ZV-Cy-CVj">
@@ -1263,7 +1263,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="310"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view alpha="0.80000001192092896" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qTq-0U-aga" userLabel="TrackerView">
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qTq-0U-aga" userLabel="TrackerView">
                                                     <rect key="frame" x="23" y="20" width="329" height="286"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="trackers_photo" translatesAutoresizingMaskIntoConstraints="NO" id="JqR-ha-K66">
@@ -2344,7 +2344,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="310"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view alpha="0.80000001192092896" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D93-mb-3Wc" userLabel="TrackerView">
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D93-mb-3Wc" userLabel="TrackerView">
                                                     <rect key="frame" x="23" y="20" width="329" height="286"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="trackers_photo" translatesAutoresizingMaskIntoConstraints="NO" id="aft-lX-bQW">

@@ -33,7 +33,7 @@
 #import "ASPhotoAnnotationView.h"
 #import "ASTrackerConfigurationViewController.h"
 #import "ASSmsManager.h"
-#define QUERY_RATE_IN_SECONDS 20
+#define QUERY_RATE_IN_SECONDS 30
 static const DDLogLevel ddLogLevel = DDLogLevelDebug;
 
 static NSString *const kASUserDefaultsKeyRemoveTrackersDate = @"kASUserDefaultsKeyRemoveTrackersDate";
@@ -181,6 +181,7 @@ objection_requires(@keypath(ASMapViewController.new, apiController), @keypath(AS
 }
 
 - (void) refresh{
+    DDLogInfo(@"will be refreshed");
         self.isFirstLaunch = YES;
     
     if (!self.isHistoryMode) {
@@ -200,9 +201,27 @@ objection_requires(@keypath(ASMapViewController.new, apiController), @keypath(AS
 }
 
 - (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController{
-    if (self.needRefresh){
-        self.needRefresh = false;
-        [self refresh];
+    if (![viewController isKindOfClass:[UINavigationController class]]){
+        return;
+    }
+    if (![[viewController childViewControllers][0] isKindOfClass:[ASMapViewController class]]){
+        return;
+    }
+    ASMapViewController* t = [viewController childViewControllers][0];
+    NSString* need = [[NSUserDefaults standardUserDefaults] objectForKey: @"need_refresh"];
+    if (need && [need isEqualToString:@"yes"] && t.isHistoryMode == false){
+        DDLogInfo(@"refreshing 1");
+        [[NSUserDefaults standardUserDefaults] removeObjectForKey: @"need_refresh"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        [t refresh];
+    }
+    
+    NSString* need2 = [[NSUserDefaults standardUserDefaults] objectForKey: @"need_refresh_history"];
+    if (need2 && [need2 isEqualToString:@"yes"] && t.isHistoryMode == true){
+        DDLogInfo(@"refreshing 2");
+        [[NSUserDefaults standardUserDefaults] removeObjectForKey: @"need_refresh_history"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        [t refresh];
     }
 }
 

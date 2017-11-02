@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <Mantle/Mantle.h>
 #import <CoreLocation/CoreLocation.h>
+#import "ASAttributesModel.h"
 
 @interface ASDeviceModel : MTLModel<MTLJSONSerializing>
 
@@ -25,5 +26,11 @@
 @property (nonatomic        ) NSString *imei;
 @property (nonatomic, strong ) NSString *imageId;
 
+@property (nonatomic) ASAttributesModel  *attributes;
+@property (nonatomic) NSNumber  *gps;
+@property (nonatomic) NSNumber  *gsm;
+@property (nonatomic) NSNumber  *heading;
+
+@property (nonatomic) NSNumber  *speed;
 
 @end
