@@ -129,12 +129,23 @@ objection_requires(@keypath(ASTrackerConfigurationViewController.new, apiControl
     [[JSObjection defaultInjector] injectDependencies:self];
     [self jps_viewDidLoad];
 
+    CAGradientLayer *layer = [CAGradientLayer layer];
+    layer.colors = @[(id)[UIColor whiteColor].CGColor, (id)[UIColor clearColor].CGColor];
+    layer.locations = @[@(0), @(0.5)];
+    layer.frame = CGRectMake(0, 0, self.imageViewPhoto.frame.size.width, self.imageViewPhoto.frame.size.height);
+    [self.imageViewPhoto.layer insertSublayer:layer atIndex:0];
+    
     if (self.trackerObject.trackerName) {
         self.nameTextField.text = self.trackerObject.trackerName;
     }
+    RAC(self.trackerObject, trackerName) = self.nameTextField.rac_textSignal;
     
     self.trackerNumberTextField.text = self.trackerObject.trackerNumber;
     self.imeiTextField.text = self.trackerObject.imeiNumber;
+    
+   // self.nameTextField.enabled = false;
+    self.imeiTextField.enabled = false;
+    self.trackerNumberTextField.enabled = false;
 
     [self.dogInStandSwitcher setOn:self.trackerObject.dogInStand];
 
@@ -331,6 +342,20 @@ objection_requires(@keypath(ASTrackerConfigurationViewController.new, apiControl
     
 
 }
+
+
+- (IBAction)updateInfo:(id)sender {
+    CGFloat repeatTime = self.trackerObject.signalRateInSeconds.integerValue;
+
+    [[[self.apiController updateTracker:self.trackerObject.trackerName
+                              trackerId:self.trackerObject.imeiNumber
+                             repeatTime:repeatTime
+                          checkForStand:self.trackerObject.dogInStand] deliverOnMainThread] subscribeNext:^(id x) {
+        DDLogDebug(@"Tracker updated!");
+    }];
+    
+}
+
 
 - (IBAction)resetButtonTap:(id)sender {
     [self sendSmses];

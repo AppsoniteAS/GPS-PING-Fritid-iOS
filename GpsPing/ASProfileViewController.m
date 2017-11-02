@@ -43,6 +43,9 @@ static const DDLogLevel ddLogLevel = DDLogLevelDebug;
     
     self->_viewModel = [[ASProfileViewModel alloc] init];
     
+    self.textFieldEmail.enabled = false;
+    self.textFieldUsername.enabled = false;
+    
     @weakify(self);
     [[RACObserve(self.viewModel, username) distinctUntilChanged] subscribeNext:^(NSString* username) {
         @strongify(self);
