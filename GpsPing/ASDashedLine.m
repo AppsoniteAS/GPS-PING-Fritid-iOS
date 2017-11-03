@@ -23,7 +23,7 @@
     CGContextSetLineDash(cx, 0.0, ra, 2); // nb "2" == ra count
     
     
-    CGContextMoveToPoint(cx, self.center.x, self.center.y);
+    CGContextMoveToPoint(cx, self.center.x , self.center.y - self.frame.origin.y);
     CGContextAddLineToPoint(cx, self.userLocationPoint.x, self.userLocationPoint.y);
     CGContextStrokePath(cx);
 }
