@@ -138,7 +138,6 @@ objection_requires(@keypath(ASTrackerConfigurationViewController.new, apiControl
     if (self.trackerObject.trackerName) {
         self.nameTextField.text = self.trackerObject.trackerName;
     }
-    RAC(self.trackerObject, trackerName) = self.nameTextField.rac_textSignal;
     
     self.trackerNumberTextField.text = self.trackerObject.trackerNumber;
     self.imeiTextField.text = self.trackerObject.imeiNumber;
@@ -347,7 +346,7 @@ objection_requires(@keypath(ASTrackerConfigurationViewController.new, apiControl
 - (IBAction)updateInfo:(id)sender {
     CGFloat repeatTime = self.trackerObject.signalRateInSeconds.integerValue;
 
-    [[[self.apiController updateTracker:self.trackerObject.trackerName
+    [[[self.apiController updateTracker:self.nameTextField.text
                               trackerId:self.trackerObject.imeiNumber
                              repeatTime:repeatTime
                           checkForStand:self.trackerObject.dogInStand] deliverOnMainThread] subscribeNext:^(id x) {
