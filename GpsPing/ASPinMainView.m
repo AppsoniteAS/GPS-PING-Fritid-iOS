@@ -11,6 +11,7 @@
 #import "ASS3Manager.h"
 #import "UIImage+ASAnnotations.h"
 #define degreesToRadians(deg) (deg / 180.0 * M_PI)
+static const DDLogLevel ddLogLevel = DDLogLevelDebug;
 
 @interface ASPinMainView()
 @property (weak, nonatomic) IBOutlet UIImageView *imageViewArrow;
@@ -44,8 +45,11 @@
             if (from == YYWebImageFromDiskCache) {
             }
         }];
-    
-        self.imageViewArrow.alpha = arrowColor ? 1.0 : 0.0;
+    if (!arrowColor){
+        DDLogInfo(@"no arrowColor");
+    }
+    self.imageViewArrow.alpha = arrowColor ? 1.0 : 0.0;
+    self.viewArrowContainer.alpha = arrowColor ? 1.0 : 0.0;
     self.imageViewArrow.image = [[UIImage imageNamed:@"direction2"] imageRotatedByDegrees:rotation];
     self.imageViewArrow.center = [self setPointToAngle:rotation - 90.0f center:self.center radius:CGRectGetWidth(self.imageViewPhoto.frame)/2.0];
     self.viewArrowContainer.center = self.imageViewArrow.center;

@@ -183,7 +183,7 @@ objection_requires(@keypath(ASMapViewController.new, apiController), @keypath(AS
 - (void) refresh{
     DDLogInfo(@"will be refreshed");
         self.isFirstLaunch = YES;
-    
+    self.colorsDictionary = nil;
     if (!self.isHistoryMode) {
         self.timerForTrackQuery = [NSTimer scheduledTimerWithTimeInterval:QUERY_RATE_IN_SECONDS
                                                                    target:self
