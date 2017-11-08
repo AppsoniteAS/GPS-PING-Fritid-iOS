@@ -13,4 +13,6 @@
 @property (nonatomic        ) NSString  *ipAddress;
 @property (nonatomic        ) NSNumber  *distance;
 @property (nonatomic        ) NSNumber  *totalDistance;
+@property (nonatomic        ) NSNumber  *power;
+@property (nonatomic        ) NSNumber  *ignition;
 @end

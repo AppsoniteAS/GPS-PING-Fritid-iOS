@@ -33,6 +33,9 @@
 #import "ASPhotoAnnotationView.h"
 #import "ASTrackerConfigurationViewController.h"
 #import "ASSmsManager.h"
+#import "ASCashedTileOverlay.h"
+
+
 #define QUERY_RATE_IN_SECONDS 30
 static const DDLogLevel ddLogLevel = DDLogLevelDebug;
 
@@ -95,24 +98,24 @@ objection_requires(@keypath(ASMapViewController.new, apiController), @keypath(AS
 
 #pragma mark - view controller methods
 
-- (void)viewDidLoad{
-    [super viewDidLoad];
-    [[JSObjection defaultInjector] injectDependencies:self];
-
-    self.modifyingMap = NO;
+- (void) handleGestureRecognizers{
     UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc]      initWithTarget:self action:@selector(handleLongPress:)];
-    
-    
     self.tapGestureDetails = [[UITapGestureRecognizer alloc]      initWithTarget:self action:@selector(tapHandle:)];
     longPress.minimumPressDuration = 0.5;
     longPress.numberOfTapsRequired = 0;
     self.mapView.userInteractionEnabled = YES;
-    
     [self.mapView addGestureRecognizer:longPress];
     self.tapGestureDetails.numberOfTapsRequired = 1;
     self.tapGestureDetails.numberOfTouchesRequired = 1;
     [self.mapView addGestureRecognizer:self.tapGestureDetails];
+}
 
+- (void)viewDidLoad{
+    [super viewDidLoad];
+    [[JSObjection defaultInjector] injectDependencies:self];
+    self.modifyingMap = NO;
+
+    [self handleGestureRecognizers];
     [self configFilter];
     
     UIBarButtonItem *rightBBI;
@@ -125,26 +128,19 @@ objection_requires(@keypath(ASMapViewController.new, apiController), @keypath(AS
         rightBBI.image = [UIImage imageNamed:@"calendarIcon"];
     } else {
         rightBBI = nil;
-//        rightBBI = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Remove tracks", nil)
-//                                                    style:UIBarButtonItemStylePlain
-//                                                   target:self
-//                                                   action:@selector(removeTracksTap)];
     }
     
     self.navigationItem.rightBarButtonItem = rightBBI;
-    
     self.mapView.delegate = self;
     
     self.locationManager = [[CLLocationManager alloc] init];
    // [self.locationManager requestWhenInUseAuthorization];
     [self.locationManager requestAlwaysAuthorization];
     
-    [self changeMapType:1];
+    [self changeMapType:2];
 
     self.mapView.showsUserLocation = YES;
-    
     self.filterTextField.enabled = NO;
-    
     self.timer = [NSTimer scheduledTimerWithTimeInterval:0.016
                                                   target:self
                                                 selector:@selector(timerTick:)
@@ -152,7 +148,6 @@ objection_requires(@keypath(ASMapViewController.new, apiController), @keypath(AS
                                                  repeats:YES];
    
     self.compassController = [CompassController compassWithArrowImageView:self.compassImageView];
-    
     [RACObserve(self, locationTrackingService.isServiceRunning) subscribeNext:^(NSNumber *isRunning) {
         if (isRunning.boolValue) {
             [self.startLocateUserButton setImage:[[UIImage imageNamed:@"friend_list_icon_visible"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]
@@ -167,8 +162,7 @@ objection_requires(@keypath(ASMapViewController.new, apiController), @keypath(AS
     [self refresh];
     
     self.trackers = [ASTrackerModel getTrackersFromUserDefaults];
-    
-        [self handleExistedTracker];
+    [self handleExistedTracker];
 }
 
 - (ASTrackerModel*) getTrackerByImei: (NSString*) imei{
@@ -200,30 +194,6 @@ objection_requires(@keypath(ASMapViewController.new, apiController), @keypath(AS
     
 }
 
-- (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController{
-    if (![viewController isKindOfClass:[UINavigationController class]]){
-        return;
-    }
-    if (![[viewController childViewControllers][0] isKindOfClass:[ASMapViewController class]]){
-        return;
-    }
-    ASMapViewController* t = [viewController childViewControllers][0];
-    NSString* need = [[NSUserDefaults standardUserDefaults] objectForKey: @"need_refresh"];
-    if (need && [need isEqualToString:@"yes"] && t.isHistoryMode == false){
-        DDLogInfo(@"refreshing 1");
-        [[NSUserDefaults standardUserDefaults] removeObjectForKey: @"need_refresh"];
-        [[NSUserDefaults standardUserDefaults] synchronize];
-        [t refresh];
-    }
-    
-    NSString* need2 = [[NSUserDefaults standardUserDefaults] objectForKey: @"need_refresh_history"];
-    if (need2 && [need2 isEqualToString:@"yes"] && t.isHistoryMode == true){
-        DDLogInfo(@"refreshing 2");
-        [[NSUserDefaults standardUserDefaults] removeObjectForKey: @"need_refresh_history"];
-        [[NSUserDefaults standardUserDefaults] synchronize];
-        [t refresh];
-    }
-}
 
 -(void)viewWillAppear:(BOOL)animated
 {
@@ -238,6 +208,15 @@ objection_requires(@keypath(ASMapViewController.new, apiController), @keypath(AS
 //    [self.locationManager requestWhenInUseAuthorization];
 //    [self.locationManager requestAlwaysAuthorization];
 }
+
+-(void)viewDidDisappear:(BOOL)animated
+{
+    [self.timer invalidate];
+    [self.timerForTrackQuery invalidate];
+}
+
+
+
 #pragma mark - Getters & setters
 
 -(NSArray *)colorSetForUsers {
@@ -435,7 +414,7 @@ objection_requires(@keypath(ASMapViewController.new, apiController), @keypath(AS
         [self.mapView removeOverlays:self.mapView.overlays];
     } else {
         static NSString * const templateWorld = @"http://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}";
-        MKTileOverlay *overlayWorld = [[MKTileOverlay alloc] initWithURLTemplate:templateWorld];
+        ASCashedTileOverlay *overlayWorld = [[ASCashedTileOverlay alloc] initWithURLTemplate:templateWorld];
         overlayWorld.canReplaceMapContent = YES;
         [self.mapView addOverlay:overlayWorld
                            level:MKOverlayLevelAboveLabels];
@@ -453,7 +432,7 @@ objection_requires(@keypath(ASMapViewController.new, apiController), @keypath(AS
 //                           level:MKOverlayLevelAboveLabels];
 
         static NSString * const templateNorway = @"http://opencache.statkart.no/gatekeeper/gk/gk.open_gmaps?layers=topo2&zoom={z}&x={x}&y={y}&format=image/png";
-        MKTileOverlay *overlayNorway = [[MKTileOverlay alloc] initWithURLTemplate:templateNorway];
+        ASCashedTileOverlay *overlayNorway = [[ASCashedTileOverlay alloc] initWithURLTemplate:templateNorway];
         overlayNorway.canReplaceMapContent = YES;
         [self.mapView addOverlay:overlayNorway
                            level:MKOverlayLevelAboveLabels];
@@ -467,17 +446,7 @@ objection_requires(@keypath(ASMapViewController.new, apiController), @keypath(AS
     }
 }
 
-#pragma mark - MKMapViewDelegate
-
-- (MKOverlayRenderer *)mapView:(MKMapView *)mapView
-            rendererForOverlay:(id <MKOverlay>)overlay
-{
-    if ([overlay isKindOfClass:[MKTileOverlay class]]) {
-        return [[MKTileOverlayRenderer alloc] initWithTileOverlay:overlay];
-    }
-    
-    return nil;
-}
+#pragma mark - Refresh map by network
 
 -(void)doneTapped:(id)sender
 {
@@ -499,51 +468,7 @@ objection_requires(@keypath(ASMapViewController.new, apiController), @keypath(AS
     [self refreshLabel];
 }
 
--(void)refreshLabel {
-    CLLocation *locA = [[CLLocation alloc] initWithLatitude:self.mapView.userLocation.coordinate.latitude
-                                                  longitude:self.mapView.userLocation.coordinate.longitude];
-    CLLocation *locB = [[CLLocation alloc] initWithLatitude:self.mapView.region.center.latitude
-                                                  longitude:self.mapView.region.center.longitude];
-    
-    CLLocationDistance distance = [locA distanceFromLocation:locB];
-    if (distance >= 1000.0) {
-        self.distanceMetricLabel.text = @"km";
-        self.distanceLabel.text = [NSString stringWithFormat:@"%.03f", distance/1000];
-    } else {
-        self.distanceMetricLabel.text = @"m";
-        self.distanceLabel.text = [NSString stringWithFormat:@"%d", (int)distance];
-    }
 
-}
-
--(void)refreshLine {
-    CGPoint startPoint = [self.mapView convertCoordinate:self.mapView.userLocation.coordinate
-                                           toPointToView:self.mapView];
-    CGFloat newX = startPoint.x;
-    CGFloat newY = startPoint.y;
-    
-    if ([CLLocationManager locationServicesEnabled]) {
-        self.dashedLineView.hidden = ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusDenied) ? YES : NO;
-    }
-    if (startPoint.x > self.dashedLineView.frame.size.width) {
-        newX = self.dashedLineView.frame.size.width;
-        CGFloat k = newX/startPoint.x;
-        newY = startPoint.y*k;
-    } else if (startPoint.y > self.dashedLineView.frame.size.height) {
-        newY = self.dashedLineView.frame.size.height;
-        CGFloat k = newY/startPoint.y;
-        newX = startPoint.x*k;
-    }
-    
-    self.dashedLineView.userLocationPoint = CGPointMake(newX, newY);
-    [self.dashedLineView setNeedsDisplay];
-}
-
--(void)viewDidDisappear:(BOOL)animated
-{
-    [self.timer invalidate];
-    [self.timerForTrackQuery invalidate];
-}
 
 -(void)timerForQueryTick:(NSTimer*)timer {
     [self loadTracks];
@@ -552,6 +477,12 @@ objection_requires(@keypath(ASMapViewController.new, apiController), @keypath(AS
 -(void)loadTracks {
     NSDate *from;
     NSDate *to;
+    
+//    from = [[NSDate date] dateBySubtractingYears:10];
+//    to =[NSDate date];
+//    [self loadTrackingPointsFrom:from to:to];
+//    return;
+    
     if (!self.selectedDate) {
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         [defaults synchronize];
@@ -564,14 +495,16 @@ objection_requires(@keypath(ASMapViewController.new, apiController), @keypath(AS
             from =  [removeTracksDate isEarlierThanOrEqualTo:from] ? from : removeTracksDate;
         }
     } else {
+//        from = [self.selectedDate dateBySubtractingMinutes:60*12];
+//        to = [self.selectedDate dateByAddingMinutes:60*12*2];
         from = self.selectedDate;
         to = [self.selectedDate dateByAddingTimeInterval:60*60*24];
     }
-    
+    DDLogInfo(@"will search");
+    DDLogInfo(@"%@ - %@",from, to);
     [self loadTrackingPointsFrom:from to:to];
 }
 
-#pragma mark - Private methods
 -(void)loadPointsOfInterest {
     @weakify(self)
     [[self.apiController getPOI] subscribeNext:^(NSArray* pois) {
@@ -580,6 +513,7 @@ objection_requires(@keypath(ASMapViewController.new, apiController), @keypath(AS
         self.arrayPOIs = pois;
     }] ;
 }
+
 
 -(void)loadTrackingPointsFrom:(NSDate*)from to:(NSDate*)to {
     if (!self.apiController.userProfile.cookie){
@@ -749,7 +683,29 @@ objection_requires(@keypath(ASMapViewController.new, apiController), @keypath(AS
     self.filterTextField.inputAccessoryView = accessoryView;
 }
 
+
+- (void) showTrackerView:(bool) show{
+    [self.trackerView setHidden:!show];
+    [self.poiView setHidden:show];
+    
+    self.bottomViewHeight.constant = show ? 340.0 : 109.0;
+    [self.view layoutIfNeeded];
+}
+
+
+
 #pragma mark - MapView delegate
+
+- (MKOverlayRenderer *)mapView:(MKMapView *)mapView
+            rendererForOverlay:(id <MKOverlay>)overlay
+{
+    if ([overlay isKindOfClass:[MKTileOverlay class]]) {
+        return [[MKTileOverlayRenderer alloc] initWithTileOverlay:overlay];
+    }
+    
+    return nil;
+}
+
 
 -(void)mapView:(MKMapView *)mapView regionWillChangeAnimated:(BOOL)animated
 {
@@ -881,14 +837,6 @@ objection_requires(@keypath(ASMapViewController.new, apiController), @keypath(AS
     }
     
     return nil;
-}
-
-- (void) showTrackerView:(bool) show{
-    [self.trackerView setHidden:!show];
-    [self.poiView setHidden:show];
-    
-    self.bottomViewHeight.constant = show ? 340.0 : 109.0;
-    [self.view layoutIfNeeded];
 }
 
 -(void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view
@@ -1119,5 +1067,76 @@ objection_requires(@keypath(ASMapViewController.new, apiController), @keypath(AS
     
     
 }
+
+#pragma mark - Support
+
+-(void)refreshLabel {
+    CLLocation *locA = [[CLLocation alloc] initWithLatitude:self.mapView.userLocation.coordinate.latitude
+                                                  longitude:self.mapView.userLocation.coordinate.longitude];
+    CLLocation *locB = [[CLLocation alloc] initWithLatitude:self.mapView.region.center.latitude
+                                                  longitude:self.mapView.region.center.longitude];
+    
+    CLLocationDistance distance = [locA distanceFromLocation:locB];
+    if (distance >= 1000.0) {
+        self.distanceMetricLabel.text = @"km";
+        self.distanceLabel.text = [NSString stringWithFormat:@"%.03f", distance/1000];
+    } else {
+        self.distanceMetricLabel.text = @"m";
+        self.distanceLabel.text = [NSString stringWithFormat:@"%d", (int)distance];
+    }
+    
+}
+
+-(void)refreshLine {
+    CGPoint startPoint = [self.mapView convertCoordinate:self.mapView.userLocation.coordinate
+                                           toPointToView:self.mapView];
+    CGFloat newX = startPoint.x;
+    CGFloat newY = startPoint.y;
+    
+    if ([CLLocationManager locationServicesEnabled]) {
+        self.dashedLineView.hidden = ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusDenied) ? YES : NO;
+    }
+    if (startPoint.x > self.dashedLineView.frame.size.width) {
+        newX = self.dashedLineView.frame.size.width;
+        CGFloat k = newX/startPoint.x;
+        newY = startPoint.y*k;
+    } else if (startPoint.y > self.dashedLineView.frame.size.height) {
+        newY = self.dashedLineView.frame.size.height;
+        CGFloat k = newY/startPoint.y;
+        newX = startPoint.x*k;
+    }
+    
+    self.dashedLineView.userLocationPoint = CGPointMake(newX, newY);
+    [self.dashedLineView setNeedsDisplay];
+}
+
+#pragma mark - Tab bar delegate
+
+
+- (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController{
+    if (![viewController isKindOfClass:[UINavigationController class]]){
+        return;
+    }
+    if (![[viewController childViewControllers][0] isKindOfClass:[ASMapViewController class]]){
+        return;
+    }
+    ASMapViewController* t = [viewController childViewControllers][0];
+    NSString* need = [[NSUserDefaults standardUserDefaults] objectForKey: @"need_refresh"];
+    if (need && [need isEqualToString:@"yes"] && t.isHistoryMode == false){
+        DDLogInfo(@"refreshing 1");
+        [[NSUserDefaults standardUserDefaults] removeObjectForKey: @"need_refresh"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        [t refresh];
+    }
+    
+    NSString* need2 = [[NSUserDefaults standardUserDefaults] objectForKey: @"need_refresh_history"];
+    if (need2 && [need2 isEqualToString:@"yes"] && t.isHistoryMode == true){
+        DDLogInfo(@"refreshing 2");
+        [[NSUserDefaults standardUserDefaults] removeObjectForKey: @"need_refresh_history"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        [t refresh];
+    }
+}
+
 
 @end

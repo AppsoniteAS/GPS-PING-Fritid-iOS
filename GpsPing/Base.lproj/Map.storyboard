@@ -24,7 +24,7 @@
             <objects>
                 <navigationController storyboardIdentifier="ASMapViewControllerNav" useStoryboardIdentifierAsRestorationIdentifier="YES" id="PuK-Qn-jIC" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="4vn-0Q-tAC">
-                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="48"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -47,20 +47,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="y6O-VD-VEg" customClass="ASMapView">
-                                <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="y6O-VD-VEg" customClass="ASMapView">
+                                <rect key="frame" x="0.0" y="68" width="320" height="451"/>
                                 <gestureRecognizers/>
                                 <connections>
                                     <outlet property="delegate" destination="sw3-fk-UAu" id="EVl-mQ-BSm"/>
                                 </connections>
                             </mapView>
-                            <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ni7-Ru-box" customClass="ASDashedLine">
-                                <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                            <view userInteractionEnabled="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ni7-Ru-box" customClass="ASDashedLine">
+                                <rect key="frame" x="0.0" y="68" width="320" height="451"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <gestureRecognizers/>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="map_cursor" translatesAutoresizingMaskIntoConstraints="NO" id="M8s-by-y94">
-                                <rect key="frame" x="134.5" y="266.5" width="50" height="50"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="map_cursor" translatesAutoresizingMaskIntoConstraints="NO" id="M8s-by-y94">
+                                <rect key="frame" x="134.5" y="268.5" width="50" height="50"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hPV-uE-2fI" userLabel="upper plank">
                                 <rect key="frame" x="0.0" y="64" width="320" height="58"/>
@@ -874,7 +874,7 @@
                     <navigationItem key="navigationItem" id="1ed-VU-bE2">
                         <nil key="title"/>
                         <view key="titleView" contentMode="scaleToFill" ambiguous="YES" id="gzy-Op-7ej">
-                            <rect key="frame" x="8" y="22" width="262" height="0.0"/>
+                            <rect key="frame" x="8" y="24" width="262" height="0.0"/>
                             <autoresizingMask key="autoresizingMask"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sCZ-8G-eLJ">
@@ -885,7 +885,7 @@
                                         <action selector="startServiceTap:" destination="sw3-fk-UAu" eventType="touchUpInside" id="Mup-kY-NcB"/>
                                     </connections>
                                 </button>
-                                <segmentedControl opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="top" apportionsSegmentWidthsByContent="YES" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="crt-P2-2iW" userLabel="IISatellite, Standard, Topo">
+                                <segmentedControl opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="top" apportionsSegmentWidthsByContent="YES" segmentControlStyle="plain" selectedSegmentIndex="2" translatesAutoresizingMaskIntoConstraints="NO" id="crt-P2-2iW" userLabel="IISatellite, Standard, Topo">
                                     <rect key="frame" x="35" y="-14" width="192" height="29"/>
                                     <segments>
                                         <segment title="Satellite"/>
@@ -965,8 +965,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hRo-bz-CoZ" customClass="ASMapView">
-                                <rect key="frame" x="0.0" y="64" width="320" height="460"/>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hRo-bz-CoZ" customClass="ASMapView">
+                                <rect key="frame" x="0.0" y="68" width="320" height="456"/>
                                 <gestureRecognizers/>
                                 <connections>
                                     <outlet property="delegate" destination="01S-Ts-0Lk" id="n5z-6D-khx"/>
@@ -1461,8 +1461,8 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image_compass" translatesAutoresizingMaskIntoConstraints="NO" id="ac4-Ij-LYT">
                                 <rect key="frame" x="264" y="130" width="48" height="48"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="map_cursor" translatesAutoresizingMaskIntoConstraints="NO" id="1tk-1K-Ar3">
-                                <rect key="frame" x="135" y="269" width="50" height="50"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="map_cursor" translatesAutoresizingMaskIntoConstraints="NO" id="1tk-1K-Ar3">
+                                <rect key="frame" x="135" y="271" width="50" height="50"/>
                             </imageView>
                             <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C8b-hT-JWR" customClass="ASDashedLine">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
