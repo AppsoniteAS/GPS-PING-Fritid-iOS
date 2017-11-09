@@ -28,7 +28,7 @@
     NSData *cachedData = [[ESCache sharedCache] objectForKey: [[self URLForTilePath:path] absoluteString]];
     if (cachedData)
     {
-        NSLog(@"use cached");
+        //NSLog(@"use cached");
         result(cachedData, nil);
     }
     else
