@@ -17,6 +17,8 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UILabel *labelTableTitle;
 @property (strong, nonatomic) NSArray* trackers;
+@property (strong, nonatomic) NSArray* trackersName;
+
 
 @end
 
@@ -26,6 +28,7 @@
     [super viewDidLoad];
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     self.trackers = @[kASTrackerTypeTk909, kASTrackerTypeTkS1, kASTrackerTypeTkA9];
+    self.trackersName = @[@"Original GPS Tracker", @"GPS Ping Marcel", @"GPS Ping Isabella"];
     [self.tableView reloadData];
     
     self.labelTableTitle.text = NSLocalizedString(@"select_your_tracker", nil);
@@ -50,7 +53,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     ASFAQTrackerListCell* cell = [tableView dequeueReusableCellWithIdentifier:@"ASFAQTrackerListCell" forIndexPath:indexPath];
-    [cell handleBtTrackerName:self.trackers[indexPath.row] forcedName: (indexPath.row == 0 ? @"Original GPS Tracker" :  self.trackers[indexPath.row])];
+    [cell handleBtTrackerName:self.trackers[indexPath.row] forcedName:  self.trackersName[indexPath.row]];
     cell.delegate = self;
     return cell;
 }
