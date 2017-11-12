@@ -73,7 +73,7 @@ static NSString * const kASUserDefaultsTrackersKey   = @"kASUserDefaultsTrackers
 +(void)removeTrackerWithNumber:(NSString*)trackerNumber;
 
 -(void)saveInUserDefaults;
-
+-(NSString*)getSmsTextForShutdown;
 -(RACSignal*)getSmsTextsForActivation;
 -(NSString*)getSmsTextsForTrackerUpdate;
 -(NSString*)getSmsTextsForTrackerLaunch:(BOOL)isOn;

@@ -475,6 +475,15 @@ NSString* const kASDogSleepModeIsOn   = @"kASDogSleepModeIsOn";
     return @"G123456#";
 }
 
+-(NSString*)getSmsTextForShutdown {
+    NSString* t = self.trackerType ;
+    if ([t isEqualToString:kASTrackerTypeTkS1] || [t isEqualToString:kASTrackerTypeTkA9]){
+        return @"pw,123456,poweroff#";
+    }
+    return nil;
+}
+
+
 -(NSString *)trackerPhoneNumber {
     AGApiController *ctl = [[JSObjection defaultInjector] getObject:AGApiController.class];
     NSString *code = ctl.userProfile.phoneCode;

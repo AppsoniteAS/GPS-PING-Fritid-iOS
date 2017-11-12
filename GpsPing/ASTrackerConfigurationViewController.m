@@ -28,6 +28,8 @@ static NSString *const kASUserDefaultsKeyBikeShockAlarm = @"kASUserDefaultsKeyBi
 static NSString *const kASUserDefaultsKeyBikeFlashAlarm = @"kASUserDefaultsKeyBikeFlashAlarm";
 
 @interface ASTrackerConfigurationViewController()<UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate, MFMailComposeViewControllerDelegate>
+@property (weak, nonatomic) IBOutlet UITableViewCell *shutdownCell;
+@property (weak, nonatomic) IBOutlet UITableViewCell *nonShutdownCell;
 
 @property (weak, nonatomic) IBOutlet UIView      *outerWrapperView;
 @property (weak, nonatomic) IBOutlet UITextField *nameTextField;
@@ -47,6 +49,7 @@ static NSString *const kASUserDefaultsKeyBikeFlashAlarm = @"kASUserDefaultsKeyBi
 @property (weak, nonatomic) IBOutlet ASButton *buttonCheckBattery;
 @property (weak, nonatomic) IBOutlet UIButton *startStopButton;
 @property (weak, nonatomic) IBOutlet UIView *photoContainer;
+@property (weak, nonatomic) IBOutlet ASButton *shutdownBtn;
 
 @property (weak, nonatomic) IBOutlet UIImageView *imageViewPlaceholder;
 @property (weak, nonatomic) IBOutlet UIImageView *imageViewPhoto;
@@ -84,7 +87,7 @@ static NSString *const kASUserDefaultsKeyBikeFlashAlarm = @"kASUserDefaultsKeyBi
 //signal
 @property (nonatomic, weak    ) IBOutlet UITextField  *textFieldYards;
 @property (nonatomic, weak    ) IBOutlet UIButton     *buttonGeofence;
-
+@property (nonatomic, assign) bool isS1;
 @property (weak, nonatomic) IBOutlet UITextField *signalRateTextField;
 
 @end
@@ -204,7 +207,7 @@ objection_requires(@keypath(ASTrackerConfigurationViewController.new, apiControl
     
     [self configPickers];
     
-    
+    self.isS1 = [self.trackerObject.trackerType isEqualToString:kASTrackerTypeTkA9] || [self.trackerObject.trackerType isEqualToString:kASTrackerTypeTkS1];
     
     self.textFieldYards.text      = self.yards;
     RAC(self, yards)    = self.textFieldYards.rac_textSignal;
@@ -270,6 +273,21 @@ objection_requires(@keypath(ASTrackerConfigurationViewController.new, apiControl
 -(void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     [self jps_viewDidDisappear:animated];
+}
+
+#pragma mark - Table view delegate
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    UITableViewCell* cell = [super tableView:tableView cellForRowAtIndexPath:indexPath];
+    
+    if ([cell isEqual:self.nonShutdownCell]){
+        return self.isS1 ? CGFLOAT_MIN : [super tableView:tableView heightForRowAtIndexPath:indexPath];
+    }
+    
+    if ([cell isEqual:self.shutdownCell]){
+        return self.isS1 ?  [super tableView:tableView heightForRowAtIndexPath:indexPath] : CGFLOAT_MIN;
+    }
+    return  [super tableView:tableView heightForRowAtIndexPath:indexPath];
 }
 
 #pragma mark - UIPickerView delegate & datasource
@@ -360,6 +378,9 @@ objection_requires(@keypath(ASTrackerConfigurationViewController.new, apiControl
     [self sendSmses];
 }
 
+- (IBAction)shutdownButtonTap:(ASButton *)sender {
+    [self sendShutdownSmses];
+}
 
 - (IBAction)cancelButtonTap:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
@@ -378,6 +399,20 @@ objection_requires(@keypath(ASTrackerConfigurationViewController.new, apiControl
     } else {
         [self checkSmsCount];
     }
+}
+
+
+- (void) sendShutdownSmses{
+    NSString* sms = [self.trackerObject getSmsTextForShutdown];
+    if (!sms){
+        return;
+    }
+    [[self as_sendSMS: sms
+          ToRecipient:self.trackerObject.trackerPhoneNumber] subscribeNext:^(id x) {
+
+    } error:^(NSError *error) {
+        ;
+    }];
 }
 
 -(void)checkSmsCount{
