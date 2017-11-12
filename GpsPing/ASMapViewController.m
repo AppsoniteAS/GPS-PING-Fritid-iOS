@@ -536,18 +536,6 @@ objection_requires(@keypath(ASMapViewController.new, apiController), @keypath(AS
     }] ;
 }
 
--(void)fillColorsDictionaryWithUsers:(NSArray *)users {
-    NSMutableDictionary *result = @{}.mutableCopy;
-    NSMutableDictionary *resultName = @{}.mutableCopy;
-    for (ASFriendModel *user in users) {
-        NSInteger indexOfColorInSet = [users indexOfObject:user] % self.colorSetForUsers.count;
-        result[user.userName] = self.colorSetForUsers[indexOfColorInSet];
-        resultName[user.userName] = self.colorNameSetForUsers[indexOfColorInSet];
-    }
-    
-    self.colorsDictionary = result;
-    self.colorsNameDictionary = resultName;
-}
 
 -(void)showAllPointsForUsers:(NSArray*)users filterFor:(ASFriendModel*)user
 {
@@ -578,6 +566,20 @@ objection_requires(@keypath(ASMapViewController.new, apiController), @keypath(AS
     }
 }
 
+-(void)fillColorsDictionaryWithUsers:(NSArray *)users {
+    NSMutableDictionary *result = @{}.mutableCopy;
+    NSMutableDictionary *resultName = @{}.mutableCopy;
+    for (ASFriendModel *user in users) {
+        NSInteger indexOfColorInSet = [users indexOfObject:user] % self.colorSetForUsers.count;
+        result[user.userName] = self.colorSetForUsers[indexOfColorInSet];
+        resultName[user.userName] = self.colorNameSetForUsers[indexOfColorInSet];
+    }
+    
+    self.colorsDictionary = result;
+    self.colorsNameDictionary = resultName;
+}
+
+
 -(void)showPointsForUser:(ASFriendModel*)friendModel
 {
     UIColor *colorForUser = self.colorsDictionary[friendModel.userName];
@@ -594,8 +596,13 @@ objection_requires(@keypath(ASMapViewController.new, apiController), @keypath(AS
     for (ASDeviceModel *deviceModel in friendModel.devices) {
         CLLocationCoordinate2D deviceCoord = CLLocationCoordinate2DMake(deviceModel.latitude.doubleValue, deviceModel.longitude.doubleValue);
         ASLastPointAnnotation *deviceAnnotation = [[ASLastPointAnnotation alloc] initWithLocation:deviceCoord];
-        deviceAnnotation.annotationColor = colorForUser;
-        deviceAnnotation.colorName = colorNameForUser;
+        
+        NSInteger indexOfColorInSet = [friendModel.devices indexOfObject:deviceModel] % self.colorSetForUsers.count;
+        deviceAnnotation.annotationColor =  self.colorSetForUsers[indexOfColorInSet];
+        deviceAnnotation.colorName = self.colorNameSetForUsers[indexOfColorInSet];
+        
+//        deviceAnnotation.annotationColor = colorForUser;
+//        deviceAnnotation.colorName = colorNameForUser;
         deviceAnnotation.pointObject = [deviceModel.points lastObject];
         deviceAnnotation.deviceObject = deviceModel;
         deviceAnnotation.owner = friendModel;
@@ -607,8 +614,10 @@ objection_requires(@keypath(ASMapViewController.new, apiController), @keypath(AS
                 CLLocationCoordinate2D coord = CLLocationCoordinate2DMake(pointModel.latitude.doubleValue, pointModel.longitude.doubleValue);
                 annotation = [[ASPointAnnotation alloc] initWithLocation:coord];
                 
-                [annotation setAnnotationColor:colorForUser];
-                annotation.colorName = colorNameForUser;
+                deviceAnnotation.annotationColor =  self.colorSetForUsers[indexOfColorInSet];
+                deviceAnnotation.colorName = self.colorNameSetForUsers[indexOfColorInSet];
+//                [annotation setAnnotationColor:colorForUser];
+//                annotation.colorName = colorNameForUser;
                 
                 annotation.deviceObject = deviceModel;
                 annotation.pointObject = pointModel;
