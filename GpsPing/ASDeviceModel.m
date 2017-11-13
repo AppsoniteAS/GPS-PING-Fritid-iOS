@@ -20,18 +20,27 @@ NSString* const kASDeviceLatitude      = @"device.last_lat";
 NSString* const kASDeviceLastDate      = @"device.last_time_stamp";
 NSString* const kASDeviceLastUpdate    = @"device.last_update";
 NSString* const kASDevicePoints        = @"points";
-NSString* const kASDeviceTrackDistance       = @"track_distance";
+NSString* const kASDeviceTrackDistance       = @"device.track_distance";
 
 NSString* const kASDeviceTrackerNumber = @"device.tracker_number";
 NSString* const kASDeviceImei          = @"device.imei_number";
 NSString* const kASDeviceImageId          = @"device.picUrl";
-NSString* const kASDeviceHeading = @"heading";
-NSString* const kASDeviceSpeedKPH = @"speedKPH";
-NSString* const kASDeviceGPS = @"GPS_Signal";
+NSString* const kASDeviceHeading = @"device.heading";
+NSString* const kASDeviceSpeedKPH = @"device.speedKPH";
+NSString* const kASDeviceGPS = @"device.GPS_Signal";
 
-NSString* const kASDeviceGSM = @"GSM_Signal";
+NSString* const kASDeviceGSM = @"device.GSM_Signal";
 
 NSString* const kASDeviceAttributes = @"attributes";
+
+
+NSString* const kASAttributesBatteryD          = @"device.attributes.battery";
+NSString* const kASAttributesPowerD          = @"device.attributes.power";
+NSString* const kASAttributesIngnitionD          = @"device.attributes.ignition";
+
+NSString* const kASAttributesIPD         = @"device.attributes.ip";
+NSString* const kASAttributesDistanceD    = @"device.attributes.distance";
+NSString* const kASAttributesTotalDistanceD = @"device.attributes.totalDistance";
 @implementation ASDeviceModel
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -51,8 +60,12 @@ NSString* const kASDeviceAttributes = @"attributes";
               @keypath(ASDeviceModel.new, gsm)    : kASDeviceGSM,
               @keypath(ASDeviceModel.new, heading)     : kASDeviceHeading,
               @keypath(ASDeviceModel.new, speed)    : kASDeviceSpeedKPH,
-              @keypath(ASDeviceModel.new, attributes)    : kASDeviceAttributes,
-
+            //  @keypath(ASDeviceModel.new, attributes)    : kASDeviceAttributes,
+              
+              @keypath(ASDeviceModel.new, battery)     : kASAttributesBatteryD,
+              @keypath(ASDeviceModel.new, ipAddress)    : kASAttributesIPD,
+              @keypath(ASDeviceModel.new, distance)     : kASAttributesDistanceD,
+              @keypath(ASDeviceModel.new, totalDistance)    : kASAttributesTotalDistanceD,
               };
 }
 

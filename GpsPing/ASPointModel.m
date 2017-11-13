@@ -24,7 +24,13 @@ NSString* const kASPointGPS = @"GPS_Signal";
 NSString* const kASPointGSM = @"GSM_Signal";
 
 NSString* const kASPointAttributes = @"attributes";
+NSString* const kASAttributesBatteryP          = @"attributes.battery";
+//NSString* const kASAttributesPowerP          = @"attributes.power";
+//NSString* const kASAttributesIngnitionP          = @"attributes.ignition";
 
+NSString* const kASAttributesIPP         = @"attributes.ip";
+NSString* const kASAttributesDistanceP    = @"attributes.distance";
+NSString* const kASAttributesTotalDistanceP = @"attributes.totalDistance";
 
 @implementation ASPointModel
 
@@ -35,8 +41,11 @@ NSString* const kASPointAttributes = @"attributes";
               @keypath(ASPointModel.new, gsm)    : kASPointGSM,
               @keypath(ASPointModel.new, heading)     : kASPointHeading,
               @keypath(ASPointModel.new, speed)    : kASPointSpeedKPH,
-              @keypath(ASPointModel.new, attributes)    : kASPointAttributes,
-
+            //  @keypath(ASPointModel.new, attributes)    : kASPointAttributes,
+              @keypath(ASPointModel.new, battery)     : kASAttributesBatteryP,
+              @keypath(ASPointModel.new, ipAddress)    : kASAttributesIPP,
+              @keypath(ASPointModel.new, distance)     : kASAttributesDistanceP,
+              @keypath(ASPointModel.new, totalDistance)    : kASAttributesTotalDistanceP,
              @keypath(ASPointModel.new, timestamp)    : kASPointTimestamp,
              @keypath(ASPointModel.new, creationTime) : kASPointCreationTime};
 }

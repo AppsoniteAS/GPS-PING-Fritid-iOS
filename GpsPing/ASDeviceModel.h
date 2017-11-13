@@ -13,24 +13,31 @@
 
 @interface ASDeviceModel : MTLModel<MTLJSONSerializing>
 
-@property (nonatomic        ) NSArray  *points;
+@property (nonatomic , strong       ) NSArray  *points;
 
-@property (nonatomic) NSNumber  *longitude;
-@property (nonatomic) NSNumber  *latitude;
-@property (nonatomic) NSNumber  *trackDistance;
+@property (nonatomic, strong) NSNumber  *longitude;
+@property (nonatomic, strong) NSNumber  *latitude;
+@property (nonatomic, strong) NSNumber  *trackDistance;
 
-@property (nonatomic        ) NSDate   *lastDate;
-@property (nonatomic        ) NSDate   *lastUpdate;
-@property (nonatomic        ) NSString *name;
-@property (nonatomic        ) NSString *trackerNumber;
-@property (nonatomic        ) NSString *imei;
+@property (nonatomic , strong       ) NSDate   *lastDate;
+@property (nonatomic , strong       ) NSDate   *lastUpdate;
+@property (nonatomic , strong       ) NSString *name;
+@property (nonatomic , strong       ) NSString *trackerNumber;
+@property (nonatomic , strong       ) NSString *imei;
 @property (nonatomic, strong ) NSString *imageId;
 
-@property (nonatomic) ASAttributesModel  *attributes;
-@property (nonatomic) NSNumber  *gps;
-@property (nonatomic) NSNumber  *gsm;
-@property (nonatomic) NSNumber  *heading;
+//@property (nonatomic, strong) ASAttributesModel  *attributes;
+@property (nonatomic, strong) NSNumber  *gps;
+@property (nonatomic, strong) NSNumber  *gsm;
+@property (nonatomic, strong) NSNumber  *heading;
 
-@property (nonatomic) NSNumber  *speed;
+@property (nonatomic, strong) NSNumber  *speed;
+@property (nonatomic, strong        ) NSNumber  *  power;
+
+
+@property (nonatomic, strong        ) NSNumber  *  battery;
+@property (nonatomic , strong        ) NSString  *ipAddress;
+@property (nonatomic , strong        ) NSNumber  *distance;
+@property (nonatomic , strong        ) NSNumber  *totalDistance;
 
 @end

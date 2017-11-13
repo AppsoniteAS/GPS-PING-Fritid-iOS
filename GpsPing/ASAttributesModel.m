@@ -14,8 +14,8 @@
 static DDLogLevel ddLogLevel               = DDLogLevelDebug;
 
 NSString* const kASAttributesBattery          = @"battery";
-NSString* const kASAttributesPower          = @"power";
-NSString* const kASAttributesIngnition          = @"ignition";
+//NSString* const kASAttributesPower          = @"power";
+//NSString* const kASAttributesIngnition          = @"ignition";
 
 NSString* const kASAttributesIP          = @"ip";
 NSString* const kASAttributesDistance    = @"distance";
@@ -25,9 +25,10 @@ NSString* const kASAttributesTotalDistance = @"totalDistance";
 
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
-    return @{@keypath(ASAttributesModel.new, battery)     : kASAttributesBattery,
-              @keypath(ASAttributesModel.new, power)    : kASAttributesPower,
-              @keypath(ASAttributesModel.new, ignition)     : kASAttributesIngnition,
+    return @{
+             @keypath(ASAttributesModel.new, battery)     : kASAttributesBattery,
+            //  @keypath(ASAttributesModel.new, power)    : kASAttributesPower,
+              //@keypath(ASAttributesModel.new, ignition)     : kASAttributesIngnition,
               @keypath(ASAttributesModel.new, distance)    : kASAttributesDistance,
               @keypath(ASAttributesModel.new, totalDistance)     : kASAttributesTotalDistance,
               @keypath(ASAttributesModel.new, ipAddress)    : kASAttributesIP};

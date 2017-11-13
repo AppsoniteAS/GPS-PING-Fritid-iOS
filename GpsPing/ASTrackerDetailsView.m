@@ -92,8 +92,8 @@
     if (pointModel) {
         self.labelLogTime.text   = [dateFormatter stringFromDate:pointModel.timestamp];
         self.labelSpeed.text = [NSString stringWithFormat:@"%@", pointModel.speed ? [self.numberFormatter stringForObjectValue:pointModel.speed] :  NSLocalizedString( @"No data", nil)];
-        self.labelDistance.text = [self handleDistance:[deviceModel valueForKeyPath:@"attributes.distance"]];
-        self.labelDistanceTravelled.text = [self handleDistance:[deviceModel valueForKeyPath:@"attributes.totalDistance"] ];
+        self.labelDistance.text = [self handleDistance:[deviceModel valueForKeyPath:@"distance"]];
+        self.labelDistanceTravelled.text = [self handleDistance:[deviceModel valueForKeyPath:@"totalDistance"] ];
 
         if (pointModel.gps){
             NSInteger s = [pointModel.gps integerValue];
@@ -114,8 +114,8 @@
         }
         
   
-        if ([pointModel valueForKeyPath:@"attributes.battery"]){
-            NSInteger v = [[pointModel valueForKeyPath:@"attributes.battery"] integerValue];
+        if ([pointModel valueForKeyPath:@"battery"]){
+            NSInteger v = [[pointModel valueForKeyPath:@"battery"] integerValue];
             if (v > 10  && v <= 33){
                 self.imageViewBattery.image = [UIImage imageNamed: @"battery-25"];
             } else if (v > 33  && v <= 66){
@@ -135,8 +135,8 @@
 
     } else {
         self.labelSpeed.text = [NSString stringWithFormat:@"%@", deviceModel.speed ? [self.numberFormatter stringForObjectValue:deviceModel.speed] :  NSLocalizedString( @"No data", nil)];
-        self.labelDistance.text = [self handleDistance:[deviceModel valueForKeyPath:@"attributes.distance"]];
-        self.labelDistanceTravelled.text = [self handleDistance:[deviceModel valueForKeyPath:@"attributes.totalDistance"] ];
+        self.labelDistance.text = [self handleDistance:[deviceModel valueForKeyPath:@"distance"]];
+        self.labelDistanceTravelled.text = [self handleDistance:[deviceModel valueForKeyPath:@"totalDistance"] ];
         
         if (deviceModel.gps){
             NSInteger s = [deviceModel.gps integerValue];
@@ -157,8 +157,8 @@
         }
         
         
-        if ([deviceModel valueForKeyPath:@"attributes.battery"]){
-            NSInteger v = [[deviceModel valueForKeyPath:@"attributes.battery"] integerValue];
+        if ([deviceModel valueForKeyPath:@"battery"]){
+            NSInteger v = [[deviceModel valueForKeyPath:@"battery"] integerValue];
             if (v > 10  && v <= 33){
                 self.imageViewBattery.image = [UIImage imageNamed: @"battery-25"];
             } else if (v > 33  && v <= 66){
@@ -200,9 +200,9 @@
     }
     CGFloat v = [value floatValue];
     if (v < 1000){
-        return [NSString stringWithFormat:@"%f m", v];
+        return [NSString stringWithFormat:@"%.02f m", v];
     } else {
-        return [NSString stringWithFormat:@"%f km", v/1000.0];
+        return [NSString stringWithFormat:@"%.02f km", v/1000.0];
     }
 }
 
