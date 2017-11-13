@@ -92,8 +92,8 @@
     if (pointModel) {
         self.labelLogTime.text   = [dateFormatter stringFromDate:pointModel.timestamp];
         self.labelSpeed.text = [NSString stringWithFormat:@"%@", pointModel.speed ? [self.numberFormatter stringForObjectValue:pointModel.speed] :  NSLocalizedString( @"No data", nil)];
-        self.labelDistance.text = [NSString stringWithFormat:@"%@", [pointModel valueForKeyPath:@"attributes.distance"] ? [self.numberFormatter stringForObjectValue:[pointModel valueForKeyPath:@"attributes.distance"] ] :  NSLocalizedString(@"No data", nil)];
-        self.labelDistanceTravelled.text = [NSString stringWithFormat:@"%@", [pointModel valueForKeyPath:@"attributes.totalDistance"]  ? [self.numberFormatter stringForObjectValue:[pointModel valueForKeyPath:@"attributes.totalDistance"] ] :  NSLocalizedString(@"No data", nil)];
+        self.labelDistance.text = [self handleDistance:[deviceModel valueForKeyPath:@"attributes.distance"]];
+        self.labelDistanceTravelled.text = [self handleDistance:[deviceModel valueForKeyPath:@"attributes.totalDistance"] ];
 
         if (pointModel.gps){
             NSInteger s = [pointModel.gps integerValue];
@@ -135,8 +135,8 @@
 
     } else {
         self.labelSpeed.text = [NSString stringWithFormat:@"%@", deviceModel.speed ? [self.numberFormatter stringForObjectValue:deviceModel.speed] :  NSLocalizedString( @"No data", nil)];
-        self.labelDistance.text = [NSString stringWithFormat:@"%@", [deviceModel valueForKeyPath:@"attributes.distance"] ? [self.numberFormatter stringForObjectValue:[deviceModel valueForKeyPath:@"attributes.distance"] ] :  NSLocalizedString(@"No data", nil)];
-        self.labelDistanceTravelled.text = [NSString stringWithFormat:@"%@", [deviceModel valueForKeyPath:@"attributes.totalDistance"]  ? [self.numberFormatter stringForObjectValue:[deviceModel valueForKeyPath:@"attributes.totalDistance"] ] :  NSLocalizedString(@"No data", nil)];
+        self.labelDistance.text = [self handleDistance:[deviceModel valueForKeyPath:@"attributes.distance"]];
+        self.labelDistanceTravelled.text = [self handleDistance:[deviceModel valueForKeyPath:@"attributes.totalDistance"] ];
         
         if (deviceModel.gps){
             NSInteger s = [deviceModel.gps integerValue];
@@ -193,6 +193,18 @@
 }
 
 
+
+- (NSString*) handleDistance: (NSString*) value{
+    if (!value){
+        return NSLocalizedString(@"No data", nil);
+    }
+    CGFloat v = [value floatValue];
+    if (v < 1000){
+        return [NSString stringWithFormat:@"%f m", v];
+    } else {
+        return [NSString stringWithFormat:@"%f km", v/1000.0];
+    }
+}
 
 
 -(void)configCoordinateLabelsWithLatitude:(double)latitude
