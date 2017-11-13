@@ -91,9 +91,9 @@
     
     if (pointModel) {
         self.labelLogTime.text   = [dateFormatter stringFromDate:pointModel.timestamp];
-        self.labelSpeed.text = [NSString stringWithFormat:@"%@", pointModel.speed ? [self.numberFormatter stringForObjectValue:pointModel.speed] :  NSLocalizedString( @"No data", nil)];
-        self.labelDistance.text = [self handleDistance:[deviceModel valueForKeyPath:@"distance"]];
-        self.labelDistanceTravelled.text = [self handleDistance:[deviceModel valueForKeyPath:@"totalDistance"] ];
+        self.labelSpeed.text =  [self handleSpeed: deviceModel.speed];
+        self.labelDistance.text = [self handleDistance: deviceModel.distance];
+        self.labelDistanceTravelled.text = [self handleDistance:deviceModel.totalDistance ];
 
         if (pointModel.gps){
             NSInteger s = [pointModel.gps integerValue];
@@ -134,9 +134,9 @@
         }
 
     } else {
-        self.labelSpeed.text = [NSString stringWithFormat:@"%@", deviceModel.speed ? [self.numberFormatter stringForObjectValue:deviceModel.speed] :  NSLocalizedString( @"No data", nil)];
-        self.labelDistance.text = [self handleDistance:[deviceModel valueForKeyPath:@"distance"]];
-        self.labelDistanceTravelled.text = [self handleDistance:[deviceModel valueForKeyPath:@"totalDistance"] ];
+        self.labelSpeed.text =  [self handleSpeed: deviceModel.speed];
+        self.labelDistance.text = [self handleDistance: deviceModel.distance];
+        self.labelDistanceTravelled.text = [self handleDistance:deviceModel.totalDistance ];
         
         if (deviceModel.gps){
             NSInteger s = [deviceModel.gps integerValue];
@@ -194,7 +194,7 @@
 
 
 
-- (NSString*) handleDistance: (NSString*) value{
+- (NSString*) handleDistance: (NSNumber*) value{
     if (!value){
         return NSLocalizedString(@"No data", nil);
     }
@@ -204,6 +204,15 @@
     } else {
         return [NSString stringWithFormat:@"%.02f km", v/1000.0];
     }
+}
+
+- (NSString*) handleSpeed: (NSNumber*) value{
+    if (!value){
+        return NSLocalizedString(@"No data", nil);
+    }
+    CGFloat v = [value floatValue];
+    return [NSString stringWithFormat:@"%.02f m/s", v];
+
 }
 
 

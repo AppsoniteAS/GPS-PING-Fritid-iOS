@@ -61,7 +61,8 @@ NSString* const kASAttributesTotalDistanceD = @"device.attributes.totalDistance"
               @keypath(ASDeviceModel.new, heading)     : kASDeviceHeading,
               @keypath(ASDeviceModel.new, speed)    : kASDeviceSpeedKPH,
             //  @keypath(ASDeviceModel.new, attributes)    : kASDeviceAttributes,
-              
+              @keypath(ASDeviceModel.new, power)     : kASAttributesPowerD,
+
               @keypath(ASDeviceModel.new, battery)     : kASAttributesBatteryD,
               @keypath(ASDeviceModel.new, ipAddress)    : kASAttributesIPD,
               @keypath(ASDeviceModel.new, distance)     : kASAttributesDistanceD,
