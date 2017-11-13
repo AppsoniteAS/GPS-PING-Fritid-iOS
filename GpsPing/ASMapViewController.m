@@ -114,7 +114,6 @@ objection_requires(@keypath(ASMapViewController.new, apiController), @keypath(AS
     [super viewDidLoad];
     [[JSObjection defaultInjector] injectDependencies:self];
     self.modifyingMap = NO;
-
     [self handleGestureRecognizers];
     [self configFilter];
     
@@ -579,7 +578,7 @@ objection_requires(@keypath(ASMapViewController.new, apiController), @keypath(AS
     self.colorsNameDictionary = resultName;
 }
 
-
+//!!
 -(void)showPointsForUser:(ASFriendModel*)friendModel
 {
     UIColor *colorForUser = self.colorsDictionary[friendModel.userName];
@@ -614,8 +613,8 @@ objection_requires(@keypath(ASMapViewController.new, apiController), @keypath(AS
                 CLLocationCoordinate2D coord = CLLocationCoordinate2DMake(pointModel.latitude.doubleValue, pointModel.longitude.doubleValue);
                 annotation = [[ASPointAnnotation alloc] initWithLocation:coord];
                 
-                deviceAnnotation.annotationColor =  self.colorSetForUsers[indexOfColorInSet];
-                deviceAnnotation.colorName = self.colorNameSetForUsers[indexOfColorInSet];
+                annotation.annotationColor =  self.colorSetForUsers[indexOfColorInSet];
+                annotation.colorName = self.colorNameSetForUsers[indexOfColorInSet];
 //                [annotation setAnnotationColor:colorForUser];
 //                annotation.colorName = colorNameForUser;
                 
