@@ -91,9 +91,9 @@
     
     if (pointModel) {
         self.labelLogTime.text   = [dateFormatter stringFromDate:pointModel.timestamp];
-        self.labelSpeed.text =  [self handleSpeed: deviceModel.speed];
-        self.labelDistance.text = [self handleDistance: deviceModel.distance];
-        self.labelDistanceTravelled.text = [self handleDistance:deviceModel.totalDistance ];
+        self.labelSpeed.text =  [self handleSpeed: pointModel.speed];
+        self.labelDistance.text = [self handleDistance: pointModel.distance];
+        self.labelDistanceTravelled.text = [self handleDistance:pointModel.totalDistance ];
 
         if (pointModel.gps){
             NSInteger s = [pointModel.gps integerValue];

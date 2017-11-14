@@ -29,8 +29,12 @@ NSString* const kASAttributesBatteryP          = @"attributes.battery";
 //NSString* const kASAttributesIngnitionP          = @"attributes.ignition";
 
 NSString* const kASAttributesIPP         = @"attributes.ip";
-NSString* const kASAttributesDistanceP    = @"attributes.distance";
-NSString* const kASAttributesTotalDistanceP = @"attributes.totalDistance";
+//NSString* const kASAttributesDistanceP    = @"attributes.distance";
+//NSString* const kASAttributesTotalDistanceP = @"attributes.totalDistance";
+
+NSString* const kASAttributesDistanceP    = @"real_dist";
+NSString* const kASAttributesTotalDistanceP = @"t_distance";
+
 
 @implementation ASPointModel
 

@@ -39,8 +39,12 @@ NSString* const kASAttributesPowerD          = @"device.attributes.power";
 NSString* const kASAttributesIngnitionD          = @"device.attributes.ignition";
 
 NSString* const kASAttributesIPD         = @"device.attributes.ip";
-NSString* const kASAttributesDistanceD    = @"device.attributes.distance";
-NSString* const kASAttributesTotalDistanceD = @"device.attributes.totalDistance";
+//NSString* const kASAttributesDistanceD    = @"device.attributes.distance";
+//NSString* const kASAttributesTotalDistanceD = @"device.attributes.totalDistance";
+
+NSString* const kASAttributesDistanceD    = @"device.real_dist";
+NSString* const kASAttributesTotalDistanceD = @"device.t_distance";
+
 @implementation ASDeviceModel
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
