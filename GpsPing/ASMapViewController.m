@@ -161,7 +161,7 @@ objection_requires(@keypath(ASMapViewController.new, apiController), @keypath(AS
     [self refresh];
     
     self.trackers = [ASTrackerModel getTrackersFromUserDefaults];
-    [self handleExistedTracker];
+   // [self handleExistedTracker];
 }
 
 - (ASTrackerModel*) getTrackerByImei: (NSString*) imei{
@@ -214,8 +214,9 @@ objection_requires(@keypath(ASMapViewController.new, apiController), @keypath(AS
 
 -(void)viewDidDisappear:(BOOL)animated
 {
-    [self.timer invalidate];
-    [self.timerForTrackQuery invalidate];
+    [super viewDidDisappear:animated];
+//    [self.timer invalidate];
+//    [self.timerForTrackQuery invalidate];
 }
 
 

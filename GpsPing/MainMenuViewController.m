@@ -59,7 +59,7 @@ objection_requires(@keypath(MainMenuViewController.new, apiController))
         ;
     }];
     
-    [self handleExistedTracker];
+   // [self handleExistedTracker];
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -75,7 +75,7 @@ objection_requires(@keypath(MainMenuViewController.new, apiController))
 - (void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
     if (self.willShow){
-        [self handleExistedTracker];
+       // [self handleExistedTracker];
         self.willShow = false;
     }
 }

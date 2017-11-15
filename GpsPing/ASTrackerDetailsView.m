@@ -96,9 +96,9 @@
         self.labelDistanceTravelled.text = [self handleDistance:pointModel.totalDistance ];
        // [self handleSignalGPS:pointModel.gps andGPRS:pointModel.gsm];
         [self handleBattery:pointModel.battery];
-        if (!pointModel.battery && pointModel.power){
-            [self handlePower:pointModel.power];
-        }
+//        if (!pointModel.battery && pointModel.power){
+//            [self handlePower:pointModel.power];
+//        }
     } else {
         self.labelSpeed.text =  [self handleSpeed: deviceModel.speed];
         self.labelDistance.text = [self handleDistance: deviceModel.distance];
@@ -106,9 +106,9 @@
         //[self handleSignalGPS:deviceModel.gps andGPRS:deviceModel.gsm];
         [self handleBattery:deviceModel.battery];
         
-        if (!deviceModel.battery && deviceModel.power){
-            [self handlePower:deviceModel.power];
-        }
+//        if (!deviceModel.battery && deviceModel.power){
+//            [self handlePower:deviceModel.power];
+//        }
     }
     
     if (pointModel.longitude != 0 && pointModel.latitude != 0) {
@@ -214,7 +214,7 @@
         return NSLocalizedString(@"No data", nil);
     }
     CGFloat v = [value floatValue];
-    return [NSString stringWithFormat:@"%.02f m/s", v];
+    return [NSString stringWithFormat:@"%.02f km/h", v];
 
 }
 
