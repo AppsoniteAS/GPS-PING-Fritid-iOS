@@ -21,6 +21,7 @@
 
 @property (nonatomic, strong        ) NSDate   *timestamp;
 @property (nonatomic , strong       ) NSDate   *creationTime;
+@property (nonatomic, strong        ) NSNumber  *  power;
 
 @property (nonatomic, strong        ) NSNumber  *  battery;
 @property (nonatomic , strong        ) NSString  *ipAddress;

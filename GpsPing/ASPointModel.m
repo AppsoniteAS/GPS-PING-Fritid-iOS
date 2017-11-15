@@ -25,7 +25,7 @@ NSString* const kASPointGSM = @"GSM_Signal";
 
 NSString* const kASPointAttributes = @"attributes";
 NSString* const kASAttributesBatteryP          = @"attributes.battery";
-//NSString* const kASAttributesPowerP          = @"attributes.power";
+NSString* const kASAttributesPowerP          = @"attributes.power";
 //NSString* const kASAttributesIngnitionP          = @"attributes.ignition";
 
 NSString* const kASAttributesIPP         = @"attributes.ip";
@@ -46,6 +46,8 @@ NSString* const kASAttributesTotalDistanceP = @"t_distance";
               @keypath(ASPointModel.new, heading)     : kASPointHeading,
               @keypath(ASPointModel.new, speed)    : kASPointSpeedKPH,
             //  @keypath(ASPointModel.new, attributes)    : kASPointAttributes,
+              @keypath(ASPointModel.new, power)     : kASAttributesPowerP,
+
               @keypath(ASPointModel.new, battery)     : kASAttributesBatteryP,
               @keypath(ASPointModel.new, ipAddress)    : kASAttributesIPP,
               @keypath(ASPointModel.new, distance)     : kASAttributesDistanceP,

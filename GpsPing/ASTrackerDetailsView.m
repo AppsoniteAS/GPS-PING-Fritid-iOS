@@ -94,86 +94,20 @@
         self.labelSpeed.text =  [self handleSpeed: pointModel.speed];
         self.labelDistance.text = [self handleDistance: pointModel.distance];
         self.labelDistanceTravelled.text = [self handleDistance:pointModel.totalDistance ];
-
-        if (pointModel.gps){
-            NSInteger s = [pointModel.gps integerValue];
-            if (s >= 0 && s <= 5){
-                self.imageViewGPS.image = [UIImage imageNamed: [NSString stringWithFormat: @"signal-%d", (long) s]];
-            }
-        } else {
-            self.imageViewGPS.image = [UIImage imageNamed: @"signal-0"];
+       // [self handleSignalGPS:pointModel.gps andGPRS:pointModel.gsm];
+        [self handleBattery:pointModel.battery];
+        if (!pointModel.battery && pointModel.power){
+            [self handlePower:pointModel.power];
         }
-        
-        if (pointModel.gsm){
-            NSInteger s = [pointModel.gsm integerValue];
-            if (s >= 0 && s <= 5){
-                self.imageViewGSM.image = [UIImage imageNamed: [NSString stringWithFormat: @"signal-%d", (long) s]];
-            }
-        } else {
-            self.imageViewGSM.image = [UIImage imageNamed: @"signal-0"];
-        }
-        
-  
-        if ([pointModel valueForKeyPath:@"battery"]){
-            NSInteger v = [[pointModel valueForKeyPath:@"battery"] integerValue];
-            if (v > 10  && v <= 33){
-                self.imageViewBattery.image = [UIImage imageNamed: @"battery-25"];
-            } else if (v > 33  && v <= 66){
-                self.imageViewBattery.image = [UIImage imageNamed: @"battery-50"];
-            } else if (v > 66  && v <= 95){
-                self.imageViewBattery.image = [UIImage imageNamed: @"battery-75"];
-            } else if (v > 95  && v <= 100){
-                self.imageViewBattery.image = [UIImage imageNamed: @"battery-100"];
-            } else if (v >= 0 && v <= 10){
-                self.imageViewBattery.image = [UIImage imageNamed: @"battery-0"];
-            }
-            self.labelBatteryLevel.text = [NSString stringWithFormat: @"%d%%", v];
-        } else {
-            self.imageViewBattery.image = [UIImage imageNamed: @"battery-0"];
-            self.labelBatteryLevel.text = @"0%";
-        }
-
     } else {
         self.labelSpeed.text =  [self handleSpeed: deviceModel.speed];
         self.labelDistance.text = [self handleDistance: deviceModel.distance];
         self.labelDistanceTravelled.text = [self handleDistance:deviceModel.totalDistance ];
+        //[self handleSignalGPS:deviceModel.gps andGPRS:deviceModel.gsm];
+        [self handleBattery:deviceModel.battery];
         
-        if (deviceModel.gps){
-            NSInteger s = [deviceModel.gps integerValue];
-            if (s >= 0 && s <= 5){
-                self.imageViewGPS.image = [UIImage imageNamed: [NSString stringWithFormat: @"signal-%d", (long) s]];
-            }
-        } else {
-            self.imageViewGPS.image = [UIImage imageNamed: @"signal-0"];
-        }
-        
-        if (deviceModel.gsm){
-            NSInteger s = [deviceModel.gsm integerValue];
-            if (s >= 0 && s <= 5){
-                self.imageViewGSM.image = [UIImage imageNamed: [NSString stringWithFormat: @"signal-%d", (long) s]];
-            }
-        } else {
-            self.imageViewGSM.image = [UIImage imageNamed: @"signal-0"];
-        }
-        
-        
-        if ([deviceModel valueForKeyPath:@"battery"]){
-            NSInteger v = [[deviceModel valueForKeyPath:@"battery"] integerValue];
-            if (v > 10  && v <= 33){
-                self.imageViewBattery.image = [UIImage imageNamed: @"battery-25"];
-            } else if (v > 33  && v <= 66){
-                self.imageViewBattery.image = [UIImage imageNamed: @"battery-50"];
-            } else if (v > 66  && v <= 95){
-                self.imageViewBattery.image = [UIImage imageNamed: @"battery-75"];
-            } else if (v > 95  && v <= 100){
-                self.imageViewBattery.image = [UIImage imageNamed: @"battery-100"];
-            } else if (v >= 0 && v <= 10){
-                self.imageViewBattery.image = [UIImage imageNamed: @"battery-0"];
-            }
-            self.labelBatteryLevel.text = [NSString stringWithFormat: @"%d%%", v];
-        } else {
-            self.imageViewBattery.image = [UIImage imageNamed: @"battery-0"];
-            self.labelBatteryLevel.text = @"0%";
+        if (!deviceModel.battery && deviceModel.power){
+            [self handlePower:deviceModel.power];
         }
     }
     
@@ -193,6 +127,75 @@
 }
 
 
+- (void) handleBattery: (NSNumber*) battery{
+    if (battery){
+        NSInteger v = [battery integerValue];
+        if (v > 10  && v <= 33){
+            self.imageViewBattery.image = [UIImage imageNamed: @"battery-25"];
+        } else if (v > 33  && v <= 66){
+            self.imageViewBattery.image = [UIImage imageNamed: @"battery-50"];
+        } else if (v > 66  && v <= 95){
+            self.imageViewBattery.image = [UIImage imageNamed: @"battery-75"];
+        } else if (v > 95  && v <= 100){
+            self.imageViewBattery.image = [UIImage imageNamed: @"battery-100"];
+        } else if (v >= 0 && v <= 10){
+            self.imageViewBattery.image = [UIImage imageNamed: @"battery-0"];
+        }
+        self.labelBatteryLevel.text = [NSString stringWithFormat: @"%d%%", v];
+    } else {
+        self.imageViewBattery.image = [UIImage imageNamed: @"battery-0"];
+        self.labelBatteryLevel.text = @"0%";
+    }
+}
+
+
+- (void) handlePower: (NSNumber*) power{
+    if (power){
+        NSInteger v = [power integerValue];
+        NSInteger s = 0;
+        if (v == 1){
+            self.imageViewBattery.image = [UIImage imageNamed: @"battery-25"];
+            s = 25;
+        } else if (v == 2 || v == 3){
+            self.imageViewBattery.image = [UIImage imageNamed: @"battery-50"];
+            s = 50;
+        } else if (v == 4){
+            self.imageViewBattery.image = [UIImage imageNamed: @"battery-75"];
+            s = 75;
+        } else if (v > 4){
+            self.imageViewBattery.image = [UIImage imageNamed: @"battery-100"];
+            s = 100;
+        } else if (v== 0){
+            self.imageViewBattery.image = [UIImage imageNamed: @"battery-0"];
+            s = 0;
+        }
+        self.labelBatteryLevel.text = [NSString stringWithFormat: @"%d%%", s];
+    } else {
+        self.imageViewBattery.image = [UIImage imageNamed: @"battery-0"];
+        self.labelBatteryLevel.text = @"0%";
+    }
+}
+
+- (void) handleSignalGPS: (NSNumber*) gps  andGPRS: (NSNumber*) gsm{
+    if (gps){
+        NSInteger s = [gps integerValue];
+        if (s >= 0 && s <= 5){
+            self.imageViewGPS.image = [UIImage imageNamed: [NSString stringWithFormat: @"signal-%d", (long) s]];
+        }
+    } else {
+        self.imageViewGPS.image = [UIImage imageNamed: @"signal-0"];
+    }
+    
+    if (gsm){
+        NSInteger s = [gsm integerValue];
+        if (s >= 0 && s <= 5){
+            self.imageViewGSM.image = [UIImage imageNamed: [NSString stringWithFormat: @"signal-%d", (long) s]];
+        }
+    } else {
+        self.imageViewGSM.image = [UIImage imageNamed: @"signal-0"];
+    }
+    
+}
 
 - (NSString*) handleDistance: (NSNumber*) value{
     if (!value){

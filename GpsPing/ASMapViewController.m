@@ -35,7 +35,7 @@
 #import "ASSmsManager.h"
 #import "ASCashedTileOverlay.h"
 
-
+#define bottomHeight 252.0 //340.0
 #define QUERY_RATE_IN_SECONDS 30
 static const DDLogLevel ddLogLevel = DDLogLevelDebug;
 
@@ -174,10 +174,12 @@ objection_requires(@keypath(ASMapViewController.new, apiController), @keypath(AS
 }
 
 - (void) refresh{
-    DDLogInfo(@"will be refreshed");
+
         self.isFirstLaunch = YES;
     self.colorsDictionary = nil;
     if (!self.isHistoryMode) {
+        DDLogInfo(@"will be refreshed - non history");
+
         self.timerForTrackQuery = [NSTimer scheduledTimerWithTimeInterval:QUERY_RATE_IN_SECONDS
                                                                    target:self
                                                                  selector:@selector(timerForQueryTick:)
@@ -185,6 +187,8 @@ objection_requires(@keypath(ASMapViewController.new, apiController), @keypath(AS
                                                                   repeats:YES];
         [self.timerForTrackQuery fire];
     } else {
+        DDLogInfo(@"will be refreshed - history");
+
         [self loadTracks];
     }
     if (!(self.isHistoryMode && self.selectedTracker)){
@@ -696,7 +700,7 @@ objection_requires(@keypath(ASMapViewController.new, apiController), @keypath(AS
     [self.trackerView setHidden:!show];
     [self.poiView setHidden:show];
     
-    self.bottomViewHeight.constant = show ? 340.0 : 109.0;
+    self.bottomViewHeight.constant = show ? bottomHeight : 109.0;
     [self.view layoutIfNeeded];
 }
 
@@ -850,6 +854,8 @@ objection_requires(@keypath(ASMapViewController.new, apiController), @keypath(AS
 -(void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view
 {
     DDLogInfo(@"didSelectAnnotationView");
+    self.trackers = [ASTrackerModel getTrackersFromUserDefaults];
+
     if ([view.annotation isKindOfClass:[MKUserLocation class]]){
         return;
     }
@@ -1144,6 +1150,8 @@ objection_requires(@keypath(ASMapViewController.new, apiController), @keypath(AS
         [[NSUserDefaults standardUserDefaults] synchronize];
         [t refresh];
     }
+    
+
 }
 
 
