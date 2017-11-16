@@ -656,10 +656,10 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yrr-Zh-WLC" customClass="ASMapDetailsButton">
-                                                <rect key="frame" x="37" y="200" width="80" height="34"/>
+                                                <rect key="frame" x="22" y="200" width="110" height="34"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="80" id="EKv-Xb-Fjj"/>
+                                                    <constraint firstAttribute="width" constant="110" id="EKv-Xb-Fjj"/>
                                                 </constraints>
                                                 <state key="normal" title="Map">
                                                     <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -669,10 +669,10 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KLn-SY-QPN" customClass="ASMapDetailsButton">
-                                                <rect key="frame" x="157" y="200" width="80" height="34"/>
+                                                <rect key="frame" x="152" y="200" width="110" height="34"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="80" id="mpg-Ce-ObJ"/>
+                                                    <constraint firstAttribute="width" constant="110" id="mpg-Ce-ObJ"/>
                                                 </constraints>
                                                 <state key="normal" title="Edit">
                                                     <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -750,7 +750,7 @@
                                             <constraint firstAttribute="trailing" secondItem="0hD-SW-p93" secondAttribute="trailing" constant="25" id="Flb-Kd-15a"/>
                                             <constraint firstItem="0hD-SW-p93" firstAttribute="leading" secondItem="T0l-53-lQI" secondAttribute="trailing" constant="9" id="IfX-M7-RS7"/>
                                             <constraint firstAttribute="trailing" secondItem="utT-Z4-h5G" secondAttribute="trailing" constant="20" id="KQT-F1-aFB"/>
-                                            <constraint firstAttribute="trailing" secondItem="KLn-SY-QPN" secondAttribute="trailing" constant="47" id="LHS-16-X8p"/>
+                                            <constraint firstAttribute="trailing" secondItem="KLn-SY-QPN" secondAttribute="trailing" constant="22" id="LHS-16-X8p"/>
                                             <constraint firstItem="ZHC-AQ-JHt" firstAttribute="centerX" secondItem="igY-om-RWR" secondAttribute="centerX" constant="-20" id="LiE-Sj-ZzK"/>
                                             <constraint firstItem="wld-xk-R1s" firstAttribute="leading" secondItem="At1-EQ-5XQ" secondAttribute="leading" id="MJz-fj-5CT"/>
                                             <constraint firstAttribute="trailing" secondItem="i9a-19-f1r" secondAttribute="trailing" priority="900" constant="16" id="T5M-mu-S4i"/>
@@ -762,7 +762,7 @@
                                             <constraint firstItem="LiS-ic-Vs2" firstAttribute="leading" secondItem="igY-om-RWR" secondAttribute="leading" constant="17" id="a4z-lR-BEp"/>
                                             <constraint firstItem="ciw-aX-Q01" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="gKK-ie-XXS" secondAttribute="trailing" constant="4" id="bMN-zn-feL"/>
                                             <constraint firstAttribute="bottom" secondItem="HRj-be-kYs" secondAttribute="bottom" constant="70" id="bNt-1T-6dm"/>
-                                            <constraint firstItem="Yrr-Zh-WLC" firstAttribute="leading" secondItem="igY-om-RWR" secondAttribute="leading" constant="37" id="bSo-CT-HSW"/>
+                                            <constraint firstItem="Yrr-Zh-WLC" firstAttribute="leading" secondItem="igY-om-RWR" secondAttribute="leading" constant="22" id="bSo-CT-HSW"/>
                                             <constraint firstItem="qQ0-8a-PKb" firstAttribute="leading" secondItem="iW8-4G-eXm" secondAttribute="trailing" constant="7.5" id="bbD-fb-vbb"/>
                                             <constraint firstItem="At1-EQ-5XQ" firstAttribute="centerY" secondItem="ZHC-AQ-JHt" secondAttribute="centerY" id="bxq-bF-woa"/>
                                             <constraint firstItem="KLn-SY-QPN" firstAttribute="centerY" secondItem="Yrr-Zh-WLC" secondAttribute="centerY" id="cFa-lD-Vyn"/>
@@ -1855,9 +1855,9 @@
                                                         <variation key="default">
                                                             <mask key="constraints">
                                                                 <exclude reference="gSs-OV-ksK"/>
+                                                                <exclude reference="Dv7-qP-kcX"/>
                                                                 <exclude reference="aJa-qK-y48"/>
                                                                 <exclude reference="bb9-Mz-hnV"/>
-                                                                <exclude reference="Dv7-qP-kcX"/>
                                                                 <exclude reference="dYF-RS-vLd"/>
                                                             </mask>
                                                         </variation>
@@ -2030,8 +2030,8 @@
                                                         </constraints>
                                                         <variation key="default">
                                                             <mask key="constraints">
-                                                                <exclude reference="PtF-Zr-jeN"/>
                                                                 <exclude reference="FQe-dR-K8T"/>
+                                                                <exclude reference="PtF-Zr-jeN"/>
                                                                 <exclude reference="dWi-o4-BoB"/>
                                                                 <exclude reference="ebe-gw-6a0"/>
                                                             </mask>
@@ -2078,8 +2078,8 @@
                                                     <mask key="constraints">
                                                         <exclude reference="Udo-Tf-R06"/>
                                                         <exclude reference="DLP-cy-ajZ"/>
-                                                        <exclude reference="qUO-AG-ZBi"/>
                                                         <exclude reference="dXK-1U-YnT"/>
+                                                        <exclude reference="qUO-AG-ZBi"/>
                                                         <exclude reference="cu4-ol-EFl"/>
                                                         <exclude reference="WPK-ru-7qP"/>
                                                         <exclude reference="eB4-zf-awv"/>
