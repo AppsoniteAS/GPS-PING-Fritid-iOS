@@ -80,6 +80,16 @@ NSString* const kASAttributesTotalDistanceD = @"device.t_distance";
     }];
 }
 
++ (NSValueTransformer *)batteryJSONTransformer {
+    return [MTLValueTransformer transformerUsingForwardBlock:^id(id battery, BOOL *success, NSError *__autoreleasing *error) {
+        if ([battery isKindOfClass:[NSString class] ]){
+            return @([battery integerValue]);
+        }
+        return battery;
+    }];
+}
+
+
 + (NSValueTransformer *)lastDateJSONTransformer {
     return [MTLValueTransformer transformerUsingForwardBlock:^id(NSString *timestamp, BOOL *success, NSError *__autoreleasing *error) {
         return [NSDate dateWithTimeIntervalSince1970:timestamp.doubleValue];
