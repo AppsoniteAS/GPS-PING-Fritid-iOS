@@ -39,7 +39,7 @@
 @property (nonatomic) IBOutlet UIImageView *callImageView;
 
 @property (nonatomic) IBOutlet UIButton *callBtn;
-
+@property (strong, nonatomic) CLLocation* me;
 @property (nonatomic) IBOutlet UIView *separator1;
 @property (nonatomic) IBOutlet UIView *separator2;
 @property (nonatomic) IBOutlet UIView *separator3;

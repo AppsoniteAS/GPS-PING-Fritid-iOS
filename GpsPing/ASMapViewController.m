@@ -855,6 +855,8 @@ objection_requires(@keypath(ASMapViewController.new, apiController), @keypath(AS
 -(void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view
 {
     DDLogInfo(@"didSelectAnnotationView");
+    CLLocation* me = [[CLLocation alloc] initWithLatitude:self.mapView.userLocation.coordinate.latitude longitude: self.mapView.userLocation.coordinate.longitude];
+    
     self.trackers = [ASTrackerModel getTrackersFromUserDefaults];
 
     if ([view.annotation isKindOfClass:[MKUserLocation class]]){
@@ -873,6 +875,7 @@ objection_requires(@keypath(ASMapViewController.new, apiController), @keypath(AS
         }
         
         [self showTrackerView:true];
+        self.trackerView.me = me;
         self.trackerView.btnEdit.enabled = (annotation.deviceObject.imei != nil);
         [self.trackerView configWithOwner:annotation.owner
                                    tracker:annotation.deviceObject

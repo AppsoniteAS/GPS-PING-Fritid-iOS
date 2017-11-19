@@ -12,6 +12,7 @@
 #import <YYWebImage.h>
 #import "ASS3Manager.h"
 #import "ASAttributesModel.h"
+#import "ASLocationTrackingService.h"
 
 @interface ASTrackerDetailsView()
 @property (nonatomic) IBOutlet UILabel *labelLastSeenHeader;
@@ -92,7 +93,7 @@
     if (pointModel) {
         self.labelLogTime.text   = [dateFormatter stringFromDate:pointModel.timestamp];
         self.labelSpeed.text =  [self handleSpeed: pointModel.speed];
-        self.labelDistance.text = [self handleDistance: pointModel.distance];
+        self.labelDistance.text =  [self handleDistanceForLat:pointModel.latitude forLon:pointModel.longitude]; // [self handleDistance: pointModel.distance];
         self.labelDistanceTravelled.text = [self handleDistance:pointModel.totalDistance ];
        // [self handleSignalGPS:pointModel.gps andGPRS:pointModel.gsm];
         [self handleBattery:pointModel.battery];
@@ -101,7 +102,7 @@
 //        }
     } else {
         self.labelSpeed.text =  [self handleSpeed: deviceModel.speed];
-        self.labelDistance.text = [self handleDistance: deviceModel.distance];
+        self.labelDistance.text = [self handleDistanceForLat:deviceModel.latitude forLon:deviceModel.longitude]; //[self handleDistance: deviceModel.distance];
         self.labelDistanceTravelled.text = [self handleDistance:deviceModel.totalDistance ];
         //[self handleSignalGPS:deviceModel.gps andGPRS:deviceModel.gsm];
         [self handleBattery:deviceModel.battery];
@@ -195,6 +196,16 @@
         self.imageViewGSM.image = [UIImage imageNamed: @"signal-0"];
     }
     
+}
+
+- (NSString*) handleDistanceForLat: (NSNumber*) lat forLon: (NSNumber*)lon {
+    if (!lat || !lon || !self.me){
+        return [self handleDistance:nil];
+    }
+    
+    CLLocation* target = [[CLLocation alloc] initWithLatitude:[lat floatValue] longitude:[lon floatValue]];
+    CLLocationDistance distance = [self.me distanceFromLocation:target];
+    return [self handleDistance:@(distance)];
 }
 
 - (NSString*) handleDistance: (NSNumber*) value{
