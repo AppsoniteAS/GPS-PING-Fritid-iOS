@@ -43,7 +43,7 @@ NSString* const kASAttributesIPD         = @"device.attributes.ip";
 //NSString* const kASAttributesTotalDistanceD = @"device.attributes.totalDistance";
 
 NSString* const kASAttributesDistanceD    = @"device.real_dist";
-NSString* const kASAttributesTotalDistanceD = @"device.t_distance";
+NSString* const kASAttributesTotalDistanceD = @"device.daily_track";// @"device.t_distance";
 
 @implementation ASDeviceModel
 

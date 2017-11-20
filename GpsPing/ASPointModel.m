@@ -33,7 +33,7 @@ NSString* const kASAttributesIPP         = @"attributes.ip";
 //NSString* const kASAttributesTotalDistanceP = @"attributes.totalDistance";
 
 NSString* const kASAttributesDistanceP    = @"real_dist";
-NSString* const kASAttributesTotalDistanceP = @"t_distance";
+NSString* const kASAttributesTotalDistanceP = @"daily_track";//@"t_distance";
 
 
 @implementation ASPointModel
