@@ -73,6 +73,7 @@ static NSString *const kASUserDefaultsKeyRemoveTrackersDate = @"kASUserDefaultsK
 
 @property (nonatomic        ) ASFriendModel              *userToFilter;
 
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *constraintTopTrackerTitle;
 @property (nonatomic        ) NSDictionary *colorsDictionary;
 @property (nonatomic        ) NSDictionary *colorsNameDictionary;
 
@@ -872,6 +873,16 @@ objection_requires(@keypath(ASMapViewController.new, apiController), @keypath(AS
             self.trackerView.callImageView.hidden = false;
         } else{
             self.trackerView.callImageView.hidden = true;
+        }
+        
+        if (self.popedTracker && self.popedTracker.trackerType && [self.popedTracker.trackerType isEqualToString:kASTrackerTypeTkStarPet]){
+            self.trackerView.labelBatteryLevel.hidden = true;
+            self.trackerView.imageViewBattery.hidden = true;
+            self.constraintTopTrackerTitle.constant = 22;
+        } else {
+            self.trackerView.labelBatteryLevel.hidden = false;
+            self.trackerView.imageViewBattery.hidden = false;
+            self.constraintTopTrackerTitle.constant = 8;
         }
         
         [self showTrackerView:true];

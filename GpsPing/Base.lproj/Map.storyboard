@@ -940,6 +940,7 @@
                         <outlet property="bottomPlank" destination="1xD-Dc-EO1" id="tYs-Aa-V4z"/>
                         <outlet property="bottomViewHeight" destination="6jv-ak-mLF" id="EOU-OR-Gxw"/>
                         <outlet property="compassImageView" destination="ret-Ku-nCK" id="dey-Fw-WXX"/>
+                        <outlet property="constraintTopTrackerTitle" destination="cb1-UL-3fb" id="tCL-5D-6H0"/>
                         <outlet property="dashedLineView" destination="ni7-Ru-box" id="VPL-VE-xue"/>
                         <outlet property="distanceLabel" destination="IYc-b2-PSW" id="w22-YI-eNK"/>
                         <outlet property="distanceMetricLabel" destination="sB5-ze-bMx" id="E6H-z7-KVS"/>
