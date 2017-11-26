@@ -875,14 +875,17 @@ objection_requires(@keypath(ASMapViewController.new, apiController), @keypath(AS
             self.trackerView.callImageView.hidden = true;
         }
         
-        if (self.popedTracker && self.popedTracker.trackerType && [self.popedTracker.trackerType isEqualToString:kASTrackerTypeTkStarPet]){
+        if (self.popedTracker && self.popedTracker.trackerType && ([self.popedTracker.trackerType isEqualToString:kASTrackerTypeTkStar] || [self.popedTracker.trackerType  isEqualToString:kASTrackerTypeTkStarPet] )){
             self.trackerView.labelBatteryLevel.hidden = true;
             self.trackerView.imageViewBattery.hidden = true;
             self.constraintTopTrackerTitle.constant = 22;
+            [self.trackerView layoutIfNeeded ];
+
         } else {
             self.trackerView.labelBatteryLevel.hidden = false;
             self.trackerView.imageViewBattery.hidden = false;
             self.constraintTopTrackerTitle.constant = 8;
+            [self.trackerView layoutIfNeeded ];
         }
         
         [self showTrackerView:true];
