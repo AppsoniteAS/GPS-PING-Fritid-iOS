@@ -28,5 +28,5 @@
 @property (strong, nonatomic) NSString* confirmPassword;
 
 @property (readonly, nonatomic) RACCommand* submit;
-
+- (RACSignal*) registerSignal;
 @end

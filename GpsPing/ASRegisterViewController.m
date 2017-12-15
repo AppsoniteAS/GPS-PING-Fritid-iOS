@@ -12,6 +12,9 @@
 #import "ASNewTrackerViewController.h"
 #import <JPSKeyboardLayoutGuideViewController.h>
 #import "Masonry.h"
+#import "ASButton.h"
+#import <CocoaLumberjack/CocoaLumberjack.h>
+static const DDLogLevel ddLogLevel = DDLogLevelDebug;
 
 @interface ASRegisterViewController ()
 
@@ -78,14 +81,13 @@
     
     self.textFieldConfirmPassword.text   = self.viewModel.confirmPassword;
     RAC(self.viewModel, confirmPassword) = self.textFieldConfirmPassword.rac_textSignal;
+   // self.buttonSubmit.rac_command = self.viewModel.submit;
     
-    self.buttonSubmit.rac_command = self.viewModel.submit;
-    
-    [self rac_liftSelector:@selector(doSubmit:)
-               withSignals:self.buttonSubmit.rac_command.executionSignals.flatten, nil];
-
-    [self rac_liftSelector:@selector(onError:)
-               withSignals:self.buttonSubmit.rac_command.errors, nil];
+//    [self rac_liftSelector:@selector(doSubmit:)
+//               withSignals:self.buttonSubmit.rac_command.executionSignals.flatten, nil];
+//
+//    [self rac_liftSelector:@selector(onError:)
+//               withSignals:self.buttonSubmit.rac_command.errors, nil];
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -114,6 +116,69 @@
 }
 
 #pragma mark - IBActions
+
+- (IBAction)pressedRegister:(ASButton *)sender {
+    @weakify(self)
+    
+    NSString* vempty = [self validateEmpty];
+    if (vempty){
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Error", nil)
+                                                        message:vempty
+                                                       delegate:self
+                                              cancelButtonTitle:NSLocalizedString(@"OK", nil)
+                                              otherButtonTitles:nil];
+        [alert show];
+        return;
+    }
+    
+    NSString* vequal = [self validatePassword];
+    if (vequal){
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Error", nil)
+                                                        message:vequal
+                                                       delegate:self
+                                              cancelButtonTitle:NSLocalizedString(@"OK", nil)
+                                              otherButtonTitles:nil];
+        [alert show];
+        return;
+    }
+    
+    [self.viewModel.registerSignal subscribeNext:^(id x) {
+        DDLogDebug(@"registered!");
+    } error:^(NSError *error) {
+        [self onError:error];
+    }];
+    
+    
+}
+
+- (NSString*) validateEmpty{
+    NSArray* list = @[self.viewModel.username,
+                                                                           self.viewModel.fullName,
+                                                                            self.viewModel.password,
+                                                                            self.viewModel.confirmPassword,
+                                                                            self.viewModel.phoneCode,
+                                                                            self.viewModel.phoneNumber,
+                                                                           self.viewModel.address,
+                                                                            self.viewModel.city,
+                                                                            self.viewModel.country,
+                                                                            self.viewModel.zipCode,
+                      self.viewModel.email];
+    for (NSString* v in list){
+        if (!v || [v isEqualToString:@""]){
+            return @"All fields should be fullfilled";
+        }
+    }
+    
+    return nil;
+}
+
+
+- (NSString*) validatePassword{
+    if (![self.viewModel.password isEqualToString:self.viewModel.confirmPassword]){
+        return @"Password field should be equal to Confirm password field";
+    }
+    return nil;
+}
 
 -(IBAction)doSubmit:(id)sender {
 }
