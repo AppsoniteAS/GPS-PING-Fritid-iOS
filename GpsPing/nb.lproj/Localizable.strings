@@ -96,3 +96,5 @@
 "tracker_distance_travelled" = "Avstand reist";
 "tracker_signal_strength" = "Signalstyrke";
 "tracker_edit" = "Redigere";
+"enter_all_fields" = "Alle felt skal skrives inn";
+"not_equals_passwords" = "'Passord' skal være lik 'Bekreft passord'";

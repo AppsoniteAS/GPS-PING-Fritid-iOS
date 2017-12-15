@@ -165,7 +165,7 @@ static const DDLogLevel ddLogLevel = DDLogLevelDebug;
                       self.viewModel.email];
     for (NSString* v in list){
         if (!v || [v isEqualToString:@""]){
-            return @"All fields should be fullfilled";
+            return NSLocalizedString(@"enter_all_fields", nil);
         }
     }
     
@@ -175,7 +175,7 @@ static const DDLogLevel ddLogLevel = DDLogLevelDebug;
 
 - (NSString*) validatePassword{
     if (![self.viewModel.password isEqualToString:self.viewModel.confirmPassword]){
-        return @"Password field should be equal to Confirm password field";
+        return  NSLocalizedString(@"not_equals_passwords", nil);
     }
     return nil;
 }
