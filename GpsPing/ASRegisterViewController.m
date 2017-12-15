@@ -119,66 +119,23 @@ static const DDLogLevel ddLogLevel = DDLogLevelDebug;
 
 - (IBAction)pressedRegister:(ASButton *)sender {
     @weakify(self)
-    
-    NSString* vempty = [self validateEmpty];
-    if (vempty){
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Error", nil)
-                                                        message:vempty
-                                                       delegate:self
-                                              cancelButtonTitle:NSLocalizedString(@"OK", nil)
-                                              otherButtonTitles:nil];
-        [alert show];
+             
+    if (![self.viewModel validateFields]){
         return;
-    }
+    };
     
-    NSString* vequal = [self validatePassword];
-    if (vequal){
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Error", nil)
-                                                        message:vequal
-                                                       delegate:self
-                                              cancelButtonTitle:NSLocalizedString(@"OK", nil)
-                                              otherButtonTitles:nil];
-        [alert show];
-        return;
-    }
+
     
     [self.viewModel.registerSignal subscribeNext:^(id x) {
         DDLogDebug(@"registered!");
     } error:^(NSError *error) {
+        @strongify(self)
         [self onError:error];
     }];
     
     
 }
 
-- (NSString*) validateEmpty{
-    NSArray* list = @[self.viewModel.username,
-                                                                           self.viewModel.fullName,
-                                                                            self.viewModel.password,
-                                                                            self.viewModel.confirmPassword,
-                                                                            self.viewModel.phoneCode,
-                                                                            self.viewModel.phoneNumber,
-                                                                           self.viewModel.address,
-                                                                            self.viewModel.city,
-                                                                            self.viewModel.country,
-                                                                            self.viewModel.zipCode,
-                      self.viewModel.email];
-    for (NSString* v in list){
-        if (!v || [v isEqualToString:@""]){
-            return NSLocalizedString(@"enter_all_fields", nil);
-        }
-    }
-    
-    return nil;
-}
-
-
-- (NSString*) validatePassword{
-    if (![self.viewModel.password isEqualToString:self.viewModel.confirmPassword]){
-        return  NSLocalizedString(@"not_equals_passwords", nil);
-    }
-    return nil;
-}
 
 -(IBAction)doSubmit:(id)sender {
 }

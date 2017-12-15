@@ -155,4 +155,62 @@ objection_requires(@keypath(ASRegisterViewModel.new, apiController))
 //            }];
 }
 
+- (NSString*) validateEmpty{
+    NSArray* list = @[self.username,
+                      self.fullName,
+                      self.password,
+                      self.confirmPassword,
+                      self.phoneCode,
+                      self.phoneNumber,
+                      self.address,
+                      self.city,
+                      self.country,
+                      self.zipCode,
+                      self.email];
+    for (NSString* v in list){
+        if (!v || [v isEqualToString:@""]){
+            return NSLocalizedString(@"enter_all_fields", nil);
+        }
+    }
+    
+    return nil;
+}
+
+
+- (NSString*) validatePassword{
+    if (![self.password isEqualToString:self.confirmPassword]){
+        return  NSLocalizedString(@"not_equals_passwords", nil);
+    }
+    return nil;
+}
+
+
+- (bool) validateFields{
+    NSString* vempty = [self validateEmpty];
+    if (vempty){
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Error", nil)
+                                                        message:vempty
+                                                       delegate:self
+                                              cancelButtonTitle:NSLocalizedString(@"OK", nil)
+                                              otherButtonTitles:nil];
+        [alert show];
+        return false;
+    }
+    
+    NSString* vequal = [self validatePassword];
+    if (vequal){
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Error", nil)
+                                                        message:vequal
+                                                       delegate:self
+                                              cancelButtonTitle:NSLocalizedString(@"OK", nil)
+                                              otherButtonTitles:nil];
+        [alert show];
+        return false;
+    }
+    
+    return true;
+}
+
+
+
 @end

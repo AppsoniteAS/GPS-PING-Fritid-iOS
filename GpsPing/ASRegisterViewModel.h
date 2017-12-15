@@ -29,4 +29,7 @@
 
 @property (readonly, nonatomic) RACCommand* submit;
 - (RACSignal*) registerSignal;
+- (NSString*) validateEmpty;
+- (NSString*) validatePassword;
+-(bool) validateFields;
 @end
