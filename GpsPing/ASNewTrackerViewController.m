@@ -36,7 +36,7 @@ static const DDLogLevel ddLogLevel = DDLogLevelVerbose;
 @property (weak, nonatomic) IBOutlet UILabel *labelAddingATracker;
 @property (weak, nonatomic) IBOutlet UILabel *labelIhaveRead;
 @property (weak, nonatomic) IBOutlet BEMCheckBox *checkBox;
-
+@property (strong, nonatomic) RACSubject* checkboxSignal;
 @end
 
 @implementation ASNewTrackerViewController
@@ -45,12 +45,13 @@ objection_requires(@keypath(ASNewTrackerViewController.new, apiController))
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.checkboxSignal = [RACSubject new];
     [[JSObjection defaultInjector] injectDependencies:self];
     [self jps_viewDidLoad];
     self.smsCount = 0;
-    RACSignal *inputFieldsSignal = [RACSignal combineLatest:@[self.imeiTextField.rac_textSignal, self.trackerNumberTextField.rac_textSignal]
-                                                     reduce:^id (NSString *imei, NSString *number){
-        return @(imei && imei.length && number && number.length == 4);
+    RACSignal *inputFieldsSignal = [RACSignal combineLatest:@[self.imeiTextField.rac_textSignal, self.trackerNumberTextField.rac_textSignal, self.checkboxSignal]
+                                                     reduce:^id (NSString *imei, NSString *number, NSNumber* checked){
+        return @(imei && imei.length && number && number.length == 4 && checked && [checked boolValue]);
     }];
     
     RAC(self.completeButton, enabled) = inputFieldsSignal;
@@ -186,7 +187,7 @@ objection_requires(@keypath(ASNewTrackerViewController.new, apiController))
 //MARK: - Checkbox delegate
 
 - (void)didTapCheckBox:(BEMCheckBox *)checkBox{
-    self.completeButton.enabled = checkBox.on;
+    [self.checkboxSignal sendNext:@(checkBox.on)];
 }
 
 @end
