@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="fLb-Kq-pOw">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="fLb-Kq-pOw">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -55,7 +55,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="{Julie}" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="7Lp-uA-TJo" userLabel="name">
-                                                    <rect key="frame" x="76" y="12" width="196" height="24"/>
+                                                    <rect key="frame" x="76" y="12" width="189" height="24"/>
                                                     <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="20"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -168,7 +168,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="{Julie}" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="PgP-Jq-vnV" userLabel="name">
-                                                    <rect key="frame" x="76" y="18" width="196" height="24"/>
+                                                    <rect key="frame" x="76" y="18" width="189" height="24"/>
                                                     <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="20"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -311,7 +311,7 @@
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose Tracker" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YBk-2q-iKw" userLabel="name">
-                                            <rect key="frame" x="55.5" y="22.5" width="211" height="35"/>
+                                            <rect key="frame" x="57" y="22.5" width="206.5" height="35"/>
                                             <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="30"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
@@ -416,14 +416,14 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q42-DD-MlQ" userLabel="OuterWrapper">
                                 <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                                 <subviews>
-                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bXG-lX-VY2">
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bXG-lX-VY2" customClass="TPKeyboardAvoidingScrollView">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JKV-Oi-dqD" userLabel="InnerWrapper">
-                                                <rect key="frame" x="0.0" y="0.0" width="320" height="353"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="320" height="413"/>
                                                 <subviews>
                                                     <view alpha="0.80000001192092896" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="voC-fO-nMq" userLabel="TrackerView">
-                                                        <rect key="frame" x="22" y="16" width="276" height="218"/>
+                                                        <rect key="frame" x="22" y="16" width="276" height="279"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tracker" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EyD-xO-8dj">
                                                                 <rect key="frame" x="20" y="20" width="112" height="33"/>
@@ -464,7 +464,7 @@
                                                                 <rect key="frame" x="20" y="120" width="236" height="58"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tracker Number last 4 digits" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Di6-ls-fvH">
-                                                                        <rect key="frame" x="0.0" y="10" width="176" height="17"/>
+                                                                        <rect key="frame" x="0.0" y="10" width="177.5" height="17"/>
                                                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                                                                         <color key="textColor" red="0.42745098040000001" green="0.42745098040000001" blue="0.42745098040000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <nil key="highlightedColor"/>
@@ -507,27 +507,67 @@
                                                                     </mask>
                                                                 </variation>
                                                             </view>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Adding a tracker triggers a sim card subscription order" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J3M-SZ-bew">
+                                                                <rect key="frame" x="20" y="186" width="252" height="16.5"/>
+                                                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
+                                                                <color key="textColor" red="0.42745098040000001" green="0.42745098040000001" blue="0.42745098040000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I have read and accept the subscription conditions." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wBN-8h-tJh">
+                                                                <rect key="frame" x="52" y="210" width="220" height="17"/>
+                                                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
+                                                                <color key="textColor" red="0.42745098040000001" green="0.42745098040000001" blue="0.42745098040000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QiC-QN-lxL" customClass="BEMCheckBox">
+                                                                <rect key="frame" x="20" y="210" width="20" height="20"/>
+                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="20" id="Tu9-op-CpR"/>
+                                                                    <constraint firstAttribute="width" constant="20" id="ZVY-6e-pf6"/>
+                                                                </constraints>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="on" value="NO"/>
+                                                                    <userDefinedRuntimeAttribute type="color" keyPath="onTintColor">
+                                                                        <color key="value" red="0.33333333329999998" green="0.5450980392" blue="0.1843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="color" keyPath="onCheckColor">
+                                                                        <color key="value" red="0.33333333329999998" green="0.5450980392" blue="0.1843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="lineWidth">
+                                                                        <real key="value" value="1"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </view>
                                                         </subviews>
                                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="trailing" secondItem="58v-Vb-eFq" secondAttribute="trailing" constant="20" id="04I-PU-r2Z"/>
                                                             <constraint firstItem="EyD-xO-8dj" firstAttribute="centerX" secondItem="voC-fO-nMq" secondAttribute="centerX" id="0Fe-yr-huJ"/>
+                                                            <constraint firstItem="J3M-SZ-bew" firstAttribute="leading" secondItem="Di6-ls-fvH" secondAttribute="leading" id="1qH-bU-3In"/>
                                                             <constraint firstItem="58v-Vb-eFq" firstAttribute="bottom" secondItem="GIa-yb-sGf" secondAttribute="top" id="3rn-M0-wvC"/>
+                                                            <constraint firstItem="wBN-8h-tJh" firstAttribute="top" secondItem="QiC-QN-lxL" secondAttribute="top" id="6bF-re-qeU"/>
                                                             <constraint firstItem="GIa-yb-sGf" firstAttribute="leading" secondItem="voC-fO-nMq" secondAttribute="leading" constant="20" id="8d1-Ax-TfX"/>
+                                                            <constraint firstAttribute="trailing" secondItem="wBN-8h-tJh" secondAttribute="trailing" constant="4" id="8jY-1z-QFq"/>
                                                             <constraint firstItem="i7P-U5-doB" firstAttribute="top" secondItem="EyD-xO-8dj" secondAttribute="bottom" constant="10" id="9su-UD-I9U"/>
+                                                            <constraint firstAttribute="trailing" secondItem="J3M-SZ-bew" secondAttribute="trailing" constant="4" id="ABT-FU-4z1"/>
                                                             <constraint firstAttribute="height" constant="298" id="E2Y-ah-G5m"/>
                                                             <constraint firstItem="Q2a-kx-vNR" firstAttribute="top" secondItem="i7P-U5-doB" secondAttribute="bottom" id="HEc-aJ-mN9"/>
                                                             <constraint firstItem="Q2a-kx-vNR" firstAttribute="leading" secondItem="voC-fO-nMq" secondAttribute="leading" constant="20" id="HLk-NG-TJL"/>
+                                                            <constraint firstItem="wBN-8h-tJh" firstAttribute="leading" secondItem="QiC-QN-lxL" secondAttribute="trailing" constant="12" id="K2a-sP-SVI"/>
                                                             <constraint firstAttribute="width" constant="276" id="Mva-qB-pRQ"/>
+                                                            <constraint firstItem="QiC-QN-lxL" firstAttribute="top" secondItem="J3M-SZ-bew" secondAttribute="bottom" constant="7.5" id="Roc-oh-ar6"/>
                                                             <constraint firstItem="i7P-U5-doB" firstAttribute="leading" secondItem="voC-fO-nMq" secondAttribute="leading" constant="20" id="S7T-Uq-kSU"/>
                                                             <constraint firstItem="EyD-xO-8dj" firstAttribute="top" secondItem="voC-fO-nMq" secondAttribute="top" constant="20" id="XSe-jv-lN9"/>
+                                                            <constraint firstItem="QiC-QN-lxL" firstAttribute="leading" secondItem="J3M-SZ-bew" secondAttribute="leading" id="jwL-2m-HSw"/>
                                                             <constraint firstAttribute="bottom" secondItem="58v-Vb-eFq" secondAttribute="bottom" constant="40" id="kVt-ru-9CC"/>
                                                             <constraint firstItem="EyD-xO-8dj" firstAttribute="leading" secondItem="voC-fO-nMq" secondAttribute="leading" constant="20" id="oY0-EO-gie"/>
-                                                            <constraint firstAttribute="bottom" secondItem="GIa-yb-sGf" secondAttribute="bottom" constant="40" id="rE4-ha-fpb"/>
                                                             <constraint firstItem="58v-Vb-eFq" firstAttribute="top" secondItem="Q2a-kx-vNR" secondAttribute="bottom" id="sSy-9S-FnN"/>
+                                                            <constraint firstAttribute="bottom" secondItem="wBN-8h-tJh" secondAttribute="bottom" constant="15" id="tnX-Eb-Sss"/>
                                                             <constraint firstItem="58v-Vb-eFq" firstAttribute="leading" secondItem="voC-fO-nMq" secondAttribute="leading" constant="20" id="tyh-N1-lwf"/>
                                                             <constraint firstAttribute="trailing" secondItem="Q2a-kx-vNR" secondAttribute="trailing" constant="20" id="uEV-JP-PPq"/>
                                                             <constraint firstAttribute="trailing" secondItem="GIa-yb-sGf" secondAttribute="trailing" constant="20" id="vcw-WL-ezD"/>
+                                                            <constraint firstItem="J3M-SZ-bew" firstAttribute="top" secondItem="0N0-MQ-OAH" secondAttribute="bottom" id="yfV-xv-hMK"/>
                                                         </constraints>
                                                         <variation key="default">
                                                             <mask key="constraints">
@@ -539,7 +579,7 @@
                                                         </variation>
                                                     </view>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BZP-Pd-3a5" customClass="ASButton">
-                                                        <rect key="frame" x="60.5" y="254" width="200" height="40"/>
+                                                        <rect key="frame" x="60.5" y="315" width="200" height="40"/>
                                                         <color key="backgroundColor" red="0.33333333329999998" green="0.5450980392" blue="0.1843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="200" id="gct-9G-vnM"/>
@@ -559,7 +599,7 @@
                                                 <constraints>
                                                     <constraint firstItem="voC-fO-nMq" firstAttribute="centerX" secondItem="JKV-Oi-dqD" secondAttribute="centerX" id="0Ny-Oz-G5y"/>
                                                     <constraint firstItem="voC-fO-nMq" firstAttribute="centerY" secondItem="JKV-Oi-dqD" secondAttribute="centerY" id="4qC-e7-9TL"/>
-                                                    <constraint firstAttribute="bottom" secondItem="BZP-Pd-3a5" secondAttribute="bottom" constant="58.5" id="EA6-7e-yZs"/>
+                                                    <constraint firstAttribute="bottom" secondItem="BZP-Pd-3a5" secondAttribute="bottom" constant="58" id="EA6-7e-yZs"/>
                                                     <constraint firstItem="BZP-Pd-3a5" firstAttribute="top" secondItem="voC-fO-nMq" secondAttribute="bottom" constant="20" id="JSa-HZ-Smu"/>
                                                     <constraint firstItem="voC-fO-nMq" firstAttribute="width" secondItem="JKV-Oi-dqD" secondAttribute="width" multiplier="0.86" id="Lrh-ua-soj"/>
                                                     <constraint firstAttribute="width" constant="320" id="QPs-1Q-t78"/>
@@ -680,8 +720,11 @@ Tracker Number and IMEI?</string>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="checkBox" destination="QiC-QN-lxL" id="MJQ-Yn-Wff"/>
                         <outlet property="completeButton" destination="BZP-Pd-3a5" id="iYb-Bc-8LV"/>
                         <outlet property="imeiTextField" destination="Q2a-kx-vNR" id="3Hk-Hp-gg0"/>
+                        <outlet property="labelAddingATracker" destination="J3M-SZ-bew" id="hak-8A-fDK"/>
+                        <outlet property="labelIhaveRead" destination="wBN-8h-tJh" id="OjA-1P-Cgi"/>
                         <outlet property="outerWrapperView" destination="Q42-DD-MlQ" id="jdw-rM-nD6"/>
                         <outlet property="trackerNumberTextField" destination="0N0-MQ-OAH" id="P2J-EP-7bR"/>
                     </connections>
@@ -693,7 +736,7 @@ Tracker Number and IMEI?</string>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2886" y="314"/>
+            <point key="canvasLocation" x="2885.625" y="313.73239436619718"/>
         </scene>
     </scenes>
     <resources>

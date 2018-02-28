@@ -98,3 +98,5 @@
 "tracker_edit" = "Redigere";
 "enter_all_fields" = "Alle felt skal skrives inn";
 "not_equals_passwords" = "'Passord' skal være lik 'Bekreft passord'";
+"adding_a_tracker" = "Når du legger til en tracker starter du et simkort abonnement til 99kr pr måned";
+"I_have_read" = "Jeg har lest og godtatt abonnements vilkårene";

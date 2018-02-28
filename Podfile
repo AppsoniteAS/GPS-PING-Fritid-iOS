@@ -21,7 +21,7 @@ target :GpsPing do
 
     pod 'UIImage-ResizeMagick', :git => 'https://github.com/lazarev/UIImage-ResizeMagick'
     pod 'JPSKeyboardLayoutGuide', :git => 'https://github.com/jpsim/JPSKeyboardLayoutGuide.git'
-    
+    pod 'BEMCheckBox', '~> 1.4'
     pod 'Mantle', '~> 2.0.6'
     pod 'Underscore.m', '~> 0.2.1'
     pod 'THCalendarDatePicker', '~> 1.2.5'

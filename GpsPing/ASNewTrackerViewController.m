@@ -18,10 +18,10 @@
 
 #import <CocoaLumberjack/CocoaLumberjack.h>
 #import <FCOverlay/FCOverlay.h>
-
+#import <BEMCheckBox.h>
 static const DDLogLevel ddLogLevel = DDLogLevelVerbose;
 
-@interface ASNewTrackerViewController ()
+@interface ASNewTrackerViewController ()<BEMCheckBoxDelegate>
 
 @property (weak, nonatomic) IBOutlet UIView      *outerWrapperView;
 @property (weak, nonatomic) IBOutlet UITextField *imeiTextField;
@@ -33,6 +33,9 @@ static const DDLogLevel ddLogLevel = DDLogLevelVerbose;
 @property (nonatomic, assign) NSInteger smsCount;
 @property (nonatomic, strong) AGApiController   *apiController;
 - (IBAction)helpTap:(id)sender;
+@property (weak, nonatomic) IBOutlet UILabel *labelAddingATracker;
+@property (weak, nonatomic) IBOutlet UILabel *labelIhaveRead;
+@property (weak, nonatomic) IBOutlet BEMCheckBox *checkBox;
 
 @end
 
@@ -51,6 +54,12 @@ objection_requires(@keypath(ASNewTrackerViewController.new, apiController))
     }];
     
     RAC(self.completeButton, enabled) = inputFieldsSignal;
+    self.checkBox.delegate = self;
+    self.completeButton.enabled = self.checkBox.on;
+    self.checkBox.animationDuration = 0.4;
+    self.checkBox.lineWidth = 1.5;
+    self.labelAddingATracker.text = NSLocalizedString(@"adding_a_tracker", nil);
+    self.labelIhaveRead.text = NSLocalizedString(@"I_have_read", nil);
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -173,4 +182,11 @@ objection_requires(@keypath(ASNewTrackerViewController.new, apiController))
     viewController.transitioningDelegate = self.transitioningDelegate;
     [FCOverlay presentOverlayWithViewController:viewController windowLevel:UIWindowLevelNormal animated:YES completion:nil];
 }
+
+//MARK: - Checkbox delegate
+
+- (void)didTapCheckBox:(BEMCheckBox *)checkBox{
+    self.completeButton.enabled = checkBox.on;
+}
+
 @end
