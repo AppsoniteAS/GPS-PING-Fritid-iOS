@@ -60,7 +60,13 @@ objection_requires(@keypath(ASNewTrackerViewController.new, apiController))
     self.checkBox.animationDuration = 0.4;
     self.checkBox.lineWidth = 1.5;
     self.labelAddingATracker.text = NSLocalizedString(@"adding_a_tracker", nil);
-    self.labelIhaveRead.text = NSLocalizedString(@"I_have_read", nil);
+    
+    NSMutableAttributedString *attributeString = [[NSMutableAttributedString alloc] initWithString:NSLocalizedString(@"I_have_read", nil)];
+    [attributeString addAttribute:NSUnderlineStyleAttributeName
+                            value:[NSNumber numberWithInt:1]
+                            range:(NSRange){0,[attributeString length]}];
+    self.labelIhaveRead.attributedText = attributeString;
+
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -182,6 +188,12 @@ objection_requires(@keypath(ASNewTrackerViewController.new, apiController))
     UIViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:@"HelpPopup"];
     viewController.transitioningDelegate = self.transitioningDelegate;
     [FCOverlay presentOverlayWithViewController:viewController windowLevel:UIWindowLevelNormal animated:YES completion:nil];
+}
+- (IBAction)presedBtnTerms:(UIButton *)sender {
+    NSURL *url = [NSURL URLWithString:@"https://amazon.com"];
+    if ([[UIApplication sharedApplication] canOpenURL:url]) {
+        [[UIApplication sharedApplication] openURL:url];
+    }
 }
 
 //MARK: - Checkbox delegate
