@@ -21,6 +21,8 @@
 #import <BEMCheckBox.h>
 static const DDLogLevel ddLogLevel = DDLogLevelVerbose;
 
+
+
 @interface ASNewTrackerViewController ()<BEMCheckBoxDelegate>
 
 @property (weak, nonatomic) IBOutlet UIView      *outerWrapperView;
@@ -190,7 +192,7 @@ objection_requires(@keypath(ASNewTrackerViewController.new, apiController))
     [FCOverlay presentOverlayWithViewController:viewController windowLevel:UIWindowLevelNormal animated:YES completion:nil];
 }
 - (IBAction)presedBtnTerms:(UIButton *)sender {
-    NSURL *url = [NSURL URLWithString:@"https://amazon.com"];
+    NSURL *url = [NSURL URLWithString:@"https://shop.gpsping.no/terms-and-conditions/"];
     if ([[UIApplication sharedApplication] canOpenURL:url]) {
         [[UIApplication sharedApplication] openURL:url];
     }
