@@ -192,7 +192,7 @@ objection_requires(@keypath(ASNewTrackerViewController.new, apiController))
     [FCOverlay presentOverlayWithViewController:viewController windowLevel:UIWindowLevelNormal animated:YES completion:nil];
 }
 - (IBAction)presedBtnTerms:(UIButton *)sender {
-    NSURL *url = [NSURL URLWithString:@"https://shop.gpsping.no/terms-and-conditions/"];
+    NSURL *url = [NSURL URLWithString:@"https://fritid.gpsping.no/subscription_agreement/"];
     if ([[UIApplication sharedApplication] canOpenURL:url]) {
         [[UIApplication sharedApplication] openURL:url];
     }
