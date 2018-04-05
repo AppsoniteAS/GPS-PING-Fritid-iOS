@@ -11,6 +11,16 @@
 #import <FCOverlay/FCOverlay.h>
 
 @interface ASIntroViewController ()
+@property (weak, nonatomic) IBOutlet UILabel *label1;
+@property (weak, nonatomic) IBOutlet UILabel *label2;
+@property (weak, nonatomic) IBOutlet UILabel *label3;
+@property (weak, nonatomic) IBOutlet UILabel *label4;
+@property (weak, nonatomic) IBOutlet UILabel *label5;
+@property (weak, nonatomic) IBOutlet UIImageView *iv1;
+@property (weak, nonatomic) IBOutlet UIImageView *iv2;
+@property (weak, nonatomic) IBOutlet UIImageView *iv3;
+@property (weak, nonatomic) IBOutlet UIImageView *iv4;
+@property (weak, nonatomic) IBOutlet UIImageView *iv5;
 
 @end
 
@@ -19,6 +29,20 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    self.iv1.image = [ UIImage imageNamed: NSLocalizedString( @"into_1", nil)] ;
+    self.iv2.image = [ UIImage imageNamed: NSLocalizedString( @"into_2", nil)] ;
+    self.iv3.image = [ UIImage imageNamed: NSLocalizedString( @"into_3", nil)] ;
+    self.iv4.image = [ UIImage imageNamed: NSLocalizedString( @"into_4", nil)] ;
+    self.iv5.image = [ UIImage imageNamed: NSLocalizedString( @"into_5", nil)] ;
+
+    
+    self.label1.hidden = true;
+    self.label2.hidden = true;
+    self.label3.hidden = true;
+    self.label4.hidden = true;
+    self.label5.hidden = true;
+
 }
 
 -(void)viewDidAppear:(BOOL)animated {
