@@ -24,6 +24,8 @@ static const DDLogLevel ddLogLevel = DDLogLevelVerbose;
 
 
 @interface ASNewTrackerViewController ()<BEMCheckBoxDelegate>
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *helpHeight; // 68
+@property (weak, nonatomic) IBOutlet UIButton *btnBasicTracker;
 
 @property (weak, nonatomic) IBOutlet UIView      *outerWrapperView;
 @property (weak, nonatomic) IBOutlet UITextField *imeiTextField;
@@ -69,6 +71,8 @@ objection_requires(@keypath(ASNewTrackerViewController.new, apiController))
                             range:(NSRange){0,[attributeString length]}];
     self.labelIhaveRead.attributedText = attributeString;
 
+    
+    self.helpHeight.constant = 68;
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -186,16 +190,40 @@ objection_requires(@keypath(ASNewTrackerViewController.new, apiController))
 }
 
 - (IBAction)helpTap:(id)sender {
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"HelpPopup" bundle:[NSBundle mainBundle]];
-    UIViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:@"HelpPopup"];
-    viewController.transitioningDelegate = self.transitioningDelegate;
-    [FCOverlay presentOverlayWithViewController:viewController windowLevel:UIWindowLevelNormal animated:YES completion:nil];
+    [self.view layoutIfNeeded];
+
+    if (self.helpHeight.constant < 100){
+        [UIView animateWithDuration:0.4 animations:^{
+            self.helpHeight.constant = 200;
+            [self.view layoutIfNeeded];
+        }];
+    } else {
+        [UIView animateWithDuration:0.4 animations:^{
+            self.helpHeight.constant = 68;
+            [self.view layoutIfNeeded];
+        }];
+    }
+
 }
 - (IBAction)presedBtnTerms:(UIButton *)sender {
     NSURL *url = [NSURL URLWithString:@"https://fritid.gpsping.no/subscription_agreement/"];
     if ([[UIApplication sharedApplication] canOpenURL:url]) {
         [[UIApplication sharedApplication] openURL:url];
     }
+}
+
+- (IBAction)pressedBtnBasicTracker:(UIButton *)sender {
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"HelpPopup" bundle:[NSBundle mainBundle]];
+        UIViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:@"HelpPopup"];
+        viewController.transitioningDelegate = self.transitioningDelegate;
+        [FCOverlay presentOverlayWithViewController:viewController windowLevel:UIWindowLevelNormal animated:YES completion:nil];
+}
+
+- (IBAction)pressedBtnMarcelTracker:(UIButton *)sender {
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"HelpPopup" bundle:[NSBundle mainBundle]];
+    UIViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:@"HelpPopupMarcel"];
+    viewController.transitioningDelegate = self.transitioningDelegate;
+    [FCOverlay presentOverlayWithViewController:viewController windowLevel:UIWindowLevelNormal animated:YES completion:nil];
 }
 
 //MARK: - Checkbox delegate

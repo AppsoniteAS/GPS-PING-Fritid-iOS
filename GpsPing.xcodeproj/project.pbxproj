@@ -10,6 +10,7 @@
 		218B1EB81D757C8F00E19FD7 /* ASHelpPopupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 218B1EB71D757C8F00E19FD7 /* ASHelpPopupViewController.m */; };
 		4042A7D11D2CEFBD009D2332 /* CompassController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4042A7D01D2CEFBD009D2332 /* CompassController.m */; };
 		4042A7D41D2D0712009D2332 /* WMSTileOverlay.m in Sources */ = {isa = PBXBuildFile; fileRef = 4042A7D31D2D0712009D2332 /* WMSTileOverlay.m */; };
+		44FA0C5520764C3C00F58110 /* ASMarcelPopupController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44FA0C5420764C3C00F58110 /* ASMarcelPopupController.m */; };
 		7827F722326EC4278C597BBB /* libPods-GpsPing.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4851A107D6080063732BC1BC /* libPods-GpsPing.a */; };
 		A603CED51C58D5C2001D56A4 /* ASMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A603CED41C58D5C2001D56A4 /* ASMapViewController.m */; };
 		A603CED81C5900CE001D56A4 /* ASDeviceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A603CED71C5900CE001D56A4 /* ASDeviceModel.m */; };
@@ -171,6 +172,8 @@
 		4042A7D21D2D0712009D2332 /* WMSTileOverlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMSTileOverlay.h; sourceTree = "<group>"; };
 		4042A7D31D2D0712009D2332 /* WMSTileOverlay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMSTileOverlay.m; sourceTree = "<group>"; };
 		4042A7D51D2D0738009D2332 /* MapViewUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewUtils.h; sourceTree = "<group>"; };
+		44FA0C5320764C3C00F58110 /* ASMarcelPopupController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ASMarcelPopupController.h; sourceTree = "<group>"; };
+		44FA0C5420764C3C00F58110 /* ASMarcelPopupController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ASMarcelPopupController.m; sourceTree = "<group>"; };
 		4851A107D6080063732BC1BC /* libPods-GpsPing.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GpsPing.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		52B8C3A7A4AC1008FD79C14A /* Pods-GpsPing.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GpsPing.release.xcconfig"; path = "Pods/Target Support Files/Pods-GpsPing/Pods-GpsPing.release.xcconfig"; sourceTree = "<group>"; };
 		A603CED31C58D5C2001D56A4 /* ASMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASMapViewController.h; sourceTree = "<group>"; };
@@ -530,6 +533,8 @@
 				A6198B861D7EE453000E01EE /* HelpPopup.storyboard */,
 				218B1EB61D757C8F00E19FD7 /* ASHelpPopupViewController.h */,
 				218B1EB71D757C8F00E19FD7 /* ASHelpPopupViewController.m */,
+				44FA0C5320764C3C00F58110 /* ASMarcelPopupController.h */,
+				44FA0C5420764C3C00F58110 /* ASMarcelPopupController.m */,
 			);
 			name = Help;
 			sourceTree = "<group>";
@@ -1408,6 +1413,7 @@
 				A6F6A74E1C51742A0009579A /* ASSelectTrackerViewController.m in Sources */,
 				A6F6A7541C524E680009579A /* AGApiController.m in Sources */,
 				E98C98581F811B1C00A028DC /* ASPOIDetailsView.m in Sources */,
+				44FA0C5520764C3C00F58110 /* ASMarcelPopupController.m in Sources */,
 				AB54280F1C5BA1C800F33E8B /* ASAddFriendViewModel.m in Sources */,
 				AB5428121C5BA1F000F33E8B /* ASSearchBar.m in Sources */,
 				4042A7D41D2D0712009D2332 /* WMSTileOverlay.m in Sources */,

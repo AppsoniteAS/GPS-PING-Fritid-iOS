@@ -1,20 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="fLb-Kq-pOw">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="fLb-Kq-pOw">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="HelveticaNeue.ttc">
-            <string>HelveticaNeue</string>
-        </array>
         <array key="Roboto-Light.ttf">
             <string>Roboto-Light</string>
         </array>
@@ -311,7 +308,7 @@
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose Tracker" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YBk-2q-iKw" userLabel="name">
-                                            <rect key="frame" x="57" y="22.5" width="206.5" height="35"/>
+                                            <rect key="frame" x="57.5" y="22.5" width="206.5" height="35"/>
                                             <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="30"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
@@ -420,10 +417,10 @@
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JKV-Oi-dqD" userLabel="InnerWrapper">
-                                                <rect key="frame" x="0.0" y="0.0" width="320" height="413"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="320" height="420"/>
                                                 <subviews>
                                                     <view alpha="0.80000001192092896" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="voC-fO-nMq" userLabel="TrackerView">
-                                                        <rect key="frame" x="22" y="16" width="276" height="279"/>
+                                                        <rect key="frame" x="22" y="16" width="276" height="286"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tracker" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EyD-xO-8dj">
                                                                 <rect key="frame" x="20" y="20" width="112" height="33"/>
@@ -463,13 +460,13 @@
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GIa-yb-sGf" userLabel="Tracker Number">
                                                                 <rect key="frame" x="20" y="120" width="236" height="58"/>
                                                                 <subviews>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Tracker Number last 4 digits" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Di6-ls-fvH">
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tracker Number last 4 digits" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Di6-ls-fvH">
                                                                         <rect key="frame" x="0.0" y="10" width="177.5" height="17"/>
                                                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                                                                         <color key="textColor" red="0.42745098040000001" green="0.42745098040000001" blue="0.42745098040000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
-                                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="0N0-MQ-OAH">
+                                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="0N0-MQ-OAH">
                                                                         <rect key="frame" x="0.0" y="26" width="236" height="40"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="40" id="evb-Fn-3ph"/>
@@ -507,27 +504,27 @@
                                                                     </mask>
                                                                 </variation>
                                                             </view>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Adding a tracker triggers a sim card subscription order" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="J3M-SZ-bew">
-                                                                <rect key="frame" x="20" y="186" width="248" height="16.5"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Adding a tracker triggers a sim card subscription order" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="J3M-SZ-bew">
+                                                                <rect key="frame" x="20" y="191" width="248" height="33"/>
                                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                                                                 <color key="textColor" red="0.42745098040000001" green="0.42745098040000001" blue="0.42745098040000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I have read and accept the subscription conditions." lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="wBN-8h-tJh">
-                                                                <rect key="frame" x="52" y="231" width="216" height="33"/>
+                                                                <rect key="frame" x="52" y="238" width="216" height="33"/>
                                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                                                                 <color key="textColor" red="0.42745098040000001" green="0.42745098040000001" blue="0.42745098040000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1cl-yj-8SS">
-                                                                <rect key="frame" x="52" y="231" width="216" height="33"/>
+                                                                <rect key="frame" x="52" y="238" width="216" height="33"/>
                                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                                                                 <connections>
                                                                     <action selector="presedBtnTerms:" destination="4HN-DH-Iqs" eventType="touchUpInside" id="xnw-w0-X1t"/>
                                                                 </connections>
                                                             </button>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QiC-QN-lxL" customClass="BEMCheckBox">
-                                                                <rect key="frame" x="20" y="237" width="20" height="20"/>
+                                                                <rect key="frame" x="20" y="244" width="20" height="20"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="20" id="Tu9-op-CpR"/>
@@ -590,7 +587,7 @@
                                                         </variation>
                                                     </view>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BZP-Pd-3a5" customClass="ASButton">
-                                                        <rect key="frame" x="60.5" y="315" width="200" height="40"/>
+                                                        <rect key="frame" x="60.5" y="322" width="200" height="40"/>
                                                         <color key="backgroundColor" red="0.33333333329999998" green="0.5450980392" blue="0.1843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="200" id="gct-9G-vnM"/>
@@ -647,7 +644,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c2H-kG-2LN" userLabel="HelpContainer">
-                                <rect key="frame" x="24" y="500" width="271" height="68"/>
+                                <rect key="frame" x="24" y="400" width="271" height="168"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="help" translatesAutoresizingMaskIntoConstraints="NO" id="mLE-YS-lCG">
                                         <rect key="frame" x="20" y="15" width="38" height="38"/>
@@ -670,16 +667,42 @@ Tracker Number and IMEI?</string>
                                             </mask>
                                         </variation>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fj2-Ky-Odz">
+                                        <rect key="frame" x="20" y="40" width="100" height="100"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="100" id="EVL-Gt-7OJ"/>
+                                            <constraint firstAttribute="width" constant="100" id="fMm-5q-xNq"/>
+                                        </constraints>
+                                        <state key="normal" title="Button" image="basic-tracker"/>
+                                        <connections>
+                                            <action selector="pressedBtnBasicTracker:" destination="4HN-DH-Iqs" eventType="touchUpInside" id="N9n-Fo-ovL"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a0p-VE-wBQ">
+                                        <rect key="frame" x="151" y="46" width="100" height="100"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="100" id="9Cb-mR-Hzj"/>
+                                            <constraint firstAttribute="width" constant="100" id="ga5-pG-ARj"/>
+                                        </constraints>
+                                        <state key="normal" title="Button" image="marcel-tracker"/>
+                                        <connections>
+                                            <action selector="pressedBtnMarcelTracker:" destination="4HN-DH-Iqs" eventType="touchUpInside" id="bOl-d8-3m3"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.80078125" colorSpace="custom" customColorSpace="sRGB"/>
                                 <gestureRecognizers/>
                                 <constraints>
-                                    <constraint firstItem="mLE-YS-lCG" firstAttribute="centerY" secondItem="c2H-kG-2LN" secondAttribute="centerY" id="5TW-JI-l7z"/>
+                                    <constraint firstItem="Fj2-Ky-Odz" firstAttribute="leading" secondItem="c2H-kG-2LN" secondAttribute="leading" constant="20" id="262-4j-R8v"/>
+                                    <constraint firstAttribute="trailing" secondItem="a0p-VE-wBQ" secondAttribute="trailing" constant="20" id="Aj3-kD-ep0"/>
                                     <constraint firstItem="1Ie-fK-DrG" firstAttribute="centerY" secondItem="mLE-YS-lCG" secondAttribute="centerY" id="Plm-BI-aeG"/>
                                     <constraint firstAttribute="trailing" secondItem="1Ie-fK-DrG" secondAttribute="trailing" constant="20" id="RN1-tj-RGF"/>
+                                    <constraint firstItem="Fj2-Ky-Odz" firstAttribute="centerY" secondItem="a0p-VE-wBQ" secondAttribute="centerY" id="TRv-1G-6xd"/>
                                     <constraint firstItem="1Ie-fK-DrG" firstAttribute="centerX" secondItem="c2H-kG-2LN" secondAttribute="centerX" constant="-91.5" id="U34-f8-178"/>
                                     <constraint firstItem="mLE-YS-lCG" firstAttribute="top" secondItem="c2H-kG-2LN" secondAttribute="top" constant="8" id="YrK-gr-SfM"/>
-                                    <constraint firstAttribute="height" constant="68" id="noN-ee-bUb"/>
+                                    <constraint firstItem="Fj2-Ky-Odz" firstAttribute="top" secondItem="1Ie-fK-DrG" secondAttribute="bottom" constant="20" id="dai-V8-XET"/>
+                                    <constraint firstAttribute="height" constant="200" id="noN-ee-bUb"/>
+                                    <constraint firstItem="mLE-YS-lCG" firstAttribute="top" secondItem="c2H-kG-2LN" secondAttribute="top" constant="15" id="oXG-GX-B7J"/>
                                     <constraint firstItem="1Ie-fK-DrG" firstAttribute="leading" secondItem="mLE-YS-lCG" secondAttribute="trailing" constant="20" id="pVA-9o-gyt"/>
                                     <constraint firstItem="mLE-YS-lCG" firstAttribute="leading" secondItem="c2H-kG-2LN" secondAttribute="leading" constant="16" id="qsd-cp-etx"/>
                                     <constraint firstItem="mLE-YS-lCG" firstAttribute="leading" secondItem="c2H-kG-2LN" secondAttribute="leading" constant="20" id="vC1-Mp-a6B"/>
@@ -731,8 +754,10 @@ Tracker Number and IMEI?</string>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="btnBasicTracker" destination="Fj2-Ky-Odz" id="Bv9-8M-7Oy"/>
                         <outlet property="checkBox" destination="QiC-QN-lxL" id="MJQ-Yn-Wff"/>
                         <outlet property="completeButton" destination="BZP-Pd-3a5" id="iYb-Bc-8LV"/>
+                        <outlet property="helpHeight" destination="noN-ee-bUb" id="IyM-Pv-qIw"/>
                         <outlet property="imeiTextField" destination="Q2a-kx-vNR" id="3Hk-Hp-gg0"/>
                         <outlet property="labelAddingATracker" destination="J3M-SZ-bew" id="hak-8A-fDK"/>
                         <outlet property="labelIhaveRead" destination="wBN-8h-tJh" id="OjA-1P-Cgi"/>
@@ -755,8 +780,10 @@ Tracker Number and IMEI?</string>
         <image name="TK_STAR_PET" width="158" height="158"/>
         <image name="addIcon" width="20" height="20"/>
         <image name="background" width="414" height="736"/>
+        <image name="basic-tracker" width="240" height="240"/>
         <image name="chooseIndicator" width="18" height="18"/>
         <image name="chooseIndicator_u" width="18" height="18"/>
         <image name="help" width="38" height="38"/>
+        <image name="marcel-tracker" width="240" height="240"/>
     </resources>
 </document>
