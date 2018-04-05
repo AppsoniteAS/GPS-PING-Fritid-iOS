@@ -369,6 +369,21 @@ objection_requires(@keypath(ASTrackerConfigurationViewController.new, apiControl
                              repeatTime:repeatTime
                           checkForStand:self.trackerObject.dogInStand] deliverOnMainThread] subscribeNext:^(id x) {
         DDLogDebug(@"Tracker updated!");
+        UIAlertController *alertController = [UIAlertController
+                                              alertControllerWithTitle:nil
+                                              message:NSLocalizedString(@"tracker_updated", nil)
+                                              preferredStyle:UIAlertControllerStyleAlert];
+
+        UIAlertAction *okAction = [UIAlertAction
+                                   actionWithTitle:NSLocalizedString(@"OK", @"OK action")
+                                   style:UIAlertActionStyleDefault
+                                   handler:^(UIAlertAction *action)
+                                   {
+          
+                                   }];
+
+        [alertController addAction:okAction];
+        [self presentViewController:alertController animated:YES completion:nil];
     }];
     
 }
@@ -866,7 +881,11 @@ objection_requires(@keypath(ASTrackerConfigurationViewController.new, apiControl
             }];
 }
 
-- (void) scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
+//- (void) scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
+//    [self.view endEditing:true];
+//}
+
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
     [self.view endEditing:true];
 }
 

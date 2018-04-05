@@ -228,16 +228,18 @@ objection_requires(@keypath(ASMapViewController.new, apiController), @keypath(AS
     return @[[UIColor redColor],
            //  [UIColor blueColor],
              [UIColor orangeColor],
-             [UIColor yellowColor],
-             [UIColor greenColor]];
+//             [UIColor yellowColor],
+//             [UIColor greenColor]
+             ];
 }
 
 -(NSArray *)colorNameSetForUsers {
     return @[@"red",
 
              @"orange",
-             @"yellow",
-             @"green"];
+//             @"yellow",
+//             @"green"
+             ];
 }
 
 #pragma mark - IBActions and Handlers

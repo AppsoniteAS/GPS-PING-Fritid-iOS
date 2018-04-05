@@ -128,6 +128,18 @@ objection_initializer(initWithConfiguration:);
     }];
 }
 
+-(RACSignal *)restorePasswordBy:(NSString*)name
+{
+    DDLogDebug(@"%s", __PRETTY_FUNCTION__);
+
+    return [[self performHttpRequest:requestMethod
+                            resource:@"user/retrieve_password/"
+                          parameters:@{@"user_login":name}] doNext:^(id x) {
+
+    }];
+}
+
+
 -(RACSignal *)authUser:(NSString*)userName password:(NSString*)password
 {
     DDLogDebug(@"%s", __PRETTY_FUNCTION__);

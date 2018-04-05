@@ -45,7 +45,7 @@ extern NSString *kASUserDefaultsKeyResetAll;
 -(RACSignal *)logout;
 -(RACSignal*)submitUserMetaData:(ASUserProfileModel *)profile;
 -(RACSignal*)fetchProfile;
-
+-(RACSignal *)restorePasswordBy:(NSString*)name;
 #pragma mark - Tracker
 -(RACSignal *)bindTrackerImei:(NSString*)imei
                        number:(NSString*)number;
