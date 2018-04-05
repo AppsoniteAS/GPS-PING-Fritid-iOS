@@ -21,7 +21,7 @@
 "MdX-Bd-4uL.title" = "Tilmeld";
 
 /* Class = "UILabel"; text = "Kode"; ObjectID = "PHw-VA-hnR"; */
-"PHw-VA-hnR.text" = "Kode";
+"PHw-VA-hnR.text" = "Land kode.";
 
 /* Class = "UIButton"; normalTitle = "Log ind"; ObjectID = "QJ3-OB-xJO"; */
 "QJ3-OB-xJO.normalTitle" = "Log ind";

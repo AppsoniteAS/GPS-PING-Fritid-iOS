@@ -41,7 +41,7 @@
 "F3n-wT-Ysf.text" = "Telefon nummer";
 
 /* Class = "UILabel"; text = "Code"; ObjectID = "PHw-VA-hnR"; */
-"PHw-VA-hnR.text" = "Kode";
+"PHw-VA-hnR.text" = "Land kode";
 
 /* Class = "UILabel"; text = "Country"; ObjectID = "dQq-zX-mai"; */
 "dQq-zX-mai.text" = "Land";

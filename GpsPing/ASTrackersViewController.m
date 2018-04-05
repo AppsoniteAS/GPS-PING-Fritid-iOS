@@ -109,6 +109,10 @@ objection_requires(@keypath(ASTrackersViewController.new, apiController))
     return YES;
 }
 
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 60;
+}
 -(void)trackerCell:(ASTrackerCell *)cell didTapShowOnMap:(BOOL)needToShow forModel:(ASTrackerModel *)model
 {
     if (!needToShow) {
