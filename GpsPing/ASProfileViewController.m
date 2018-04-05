@@ -30,6 +30,18 @@ static const DDLogLevel ddLogLevel = DDLogLevelDebug;
 
 @property (weak, nonatomic) IBOutlet UIButton    *buttonSubmit;
 
+@property (weak, nonatomic) IBOutlet UILabel *labelProfile;
+@property (weak, nonatomic) IBOutlet UILabel *labelUserName;
+@property (weak, nonatomic) IBOutlet UILabel *labelFullName;
+@property (weak, nonatomic) IBOutlet UILabel *labelAddress;
+@property (weak, nonatomic) IBOutlet UILabel *labelPostcode;
+@property (weak, nonatomic) IBOutlet UILabel *labelCity;
+@property (weak, nonatomic) IBOutlet UILabel *labelCountry;
+@property (weak, nonatomic) IBOutlet UILabel *labelCode;
+@property (weak, nonatomic) IBOutlet UILabel *labelPhoneNumber;
+@property (weak, nonatomic) IBOutlet UILabel *labelEmail;
+
+
 @end
 
 @implementation ASProfileViewController

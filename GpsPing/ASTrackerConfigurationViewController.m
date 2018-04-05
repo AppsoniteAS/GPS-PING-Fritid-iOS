@@ -49,7 +49,6 @@ static NSString *const kASUserDefaultsKeyBikeFlashAlarm = @"kASUserDefaultsKeyBi
 @property (weak, nonatomic) IBOutlet ASButton *buttonCheckBattery;
 @property (weak, nonatomic) IBOutlet UIButton *startStopButton;
 @property (weak, nonatomic) IBOutlet UIView *photoContainer;
-@property (weak, nonatomic) IBOutlet ASButton *shutdownBtn;
 
 @property (weak, nonatomic) IBOutlet UIImageView *imageViewPlaceholder;
 @property (weak, nonatomic) IBOutlet UIImageView *imageViewPhoto;
@@ -89,6 +88,23 @@ static NSString *const kASUserDefaultsKeyBikeFlashAlarm = @"kASUserDefaultsKeyBi
 @property (nonatomic, weak    ) IBOutlet UIButton     *buttonGeofence;
 @property (nonatomic, assign) bool isS1;
 @property (weak, nonatomic) IBOutlet UITextField *signalRateTextField;
+
+
+@property (weak, nonatomic) IBOutlet UILabel *labelTracker;
+@property (weak, nonatomic) IBOutlet UILabel *labelName;
+@property (weak, nonatomic) IBOutlet UILabel *labelIMEINumber;
+@property (weak, nonatomic) IBOutlet UILabel *labelTrackerNumber;
+@property (weak, nonatomic) IBOutlet UILabel *labelSignal;
+@property (weak, nonatomic) IBOutlet UILabel *labelReceiveSignal;
+@property (weak, nonatomic) IBOutlet UILabel *labelPhoto;
+@property (weak, nonatomic) IBOutlet UILabel *labelTrackingHistory;
+@property (weak, nonatomic) IBOutlet UILabel *labelShowOn;
+@property (weak, nonatomic) IBOutlet UILabel *labelHistory;
+@property (weak, nonatomic) IBOutlet ASButton *btnView;
+@property (weak, nonatomic) IBOutlet ASButton *btnReset;
+@property (weak, nonatomic) IBOutlet ASButton *btnReset2;
+@property (weak, nonatomic) IBOutlet ASButton *shutdownBtn;
+
 
 @end
 

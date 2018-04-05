@@ -30,7 +30,6 @@ static const DDLogLevel ddLogLevel = DDLogLevelVerbose;
 @property (weak, nonatomic) IBOutlet UIView      *outerWrapperView;
 @property (weak, nonatomic) IBOutlet UITextField *imeiTextField;
 @property (weak, nonatomic) IBOutlet UITextField *trackerNumberTextField;
-@property (weak, nonatomic) IBOutlet ASButton    *completeButton;
 
 @property (nonatomic) NSArray *smsesForActivation;
 @property (nonatomic) ASTrackerModel *trackerObject;
@@ -41,6 +40,15 @@ static const DDLogLevel ddLogLevel = DDLogLevelVerbose;
 @property (weak, nonatomic) IBOutlet UILabel *labelIhaveRead;
 @property (weak, nonatomic) IBOutlet BEMCheckBox *checkBox;
 @property (strong, nonatomic) RACSubject* checkboxSignal;
+
+@property (weak, nonatomic) IBOutlet UILabel *labelTracker;
+@property (weak, nonatomic) IBOutlet UILabel *labelIMEI;
+@property (weak, nonatomic) IBOutlet UILabel *labelTrackerNUmber;
+@property (weak, nonatomic) IBOutlet UILabel *labelAdding;
+@property (weak, nonatomic) IBOutlet UILabel *labelIHaveRead;
+@property (weak, nonatomic) IBOutlet ASButton    *completeButton;
+
+
 @end
 
 @implementation ASNewTrackerViewController

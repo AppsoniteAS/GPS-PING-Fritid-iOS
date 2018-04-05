@@ -308,7 +308,7 @@
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose Tracker" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YBk-2q-iKw" userLabel="name">
-                                            <rect key="frame" x="57.5" y="22.5" width="206.5" height="35"/>
+                                            <rect key="frame" x="57" y="22.5" width="206.5" height="35"/>
                                             <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="30"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
@@ -644,7 +644,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c2H-kG-2LN" userLabel="HelpContainer">
-                                <rect key="frame" x="24" y="400" width="271" height="168"/>
+                                <rect key="frame" x="24" y="368" width="271" height="200"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="help" translatesAutoresizingMaskIntoConstraints="NO" id="mLE-YS-lCG">
                                         <rect key="frame" x="20" y="15" width="38" height="38"/>
@@ -759,8 +759,13 @@ Tracker Number and IMEI?</string>
                         <outlet property="completeButton" destination="BZP-Pd-3a5" id="iYb-Bc-8LV"/>
                         <outlet property="helpHeight" destination="noN-ee-bUb" id="IyM-Pv-qIw"/>
                         <outlet property="imeiTextField" destination="Q2a-kx-vNR" id="3Hk-Hp-gg0"/>
+                        <outlet property="labelAdding" destination="J3M-SZ-bew" id="9uu-3T-TeM"/>
                         <outlet property="labelAddingATracker" destination="J3M-SZ-bew" id="hak-8A-fDK"/>
+                        <outlet property="labelIHaveRead" destination="wBN-8h-tJh" id="jhH-IY-Dlm"/>
+                        <outlet property="labelIMEI" destination="i7P-U5-doB" id="taa-1l-DCT"/>
                         <outlet property="labelIhaveRead" destination="wBN-8h-tJh" id="OjA-1P-Cgi"/>
+                        <outlet property="labelTracker" destination="EyD-xO-8dj" id="KL7-E4-itN"/>
+                        <outlet property="labelTrackerNUmber" destination="Di6-ls-fvH" id="OT0-1T-oIs"/>
                         <outlet property="outerWrapperView" destination="Q42-DD-MlQ" id="jdw-rM-nD6"/>
                         <outlet property="trackerNumberTextField" destination="0N0-MQ-OAH" id="P2J-EP-7bR"/>
                     </connections>

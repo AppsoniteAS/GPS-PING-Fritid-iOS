@@ -1,18 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="0GO-CE-6Kd">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="0GO-CE-6Kd">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="HelveticaNeueLights.ttc">
-            <string>HelveticaNeue-Light</string>
-        </array>
         <array key="Roboto-Light.ttf">
             <string>Roboto-Light</string>
         </array>
@@ -446,11 +443,11 @@
                                         <rect key="frame" x="0.0" y="610" width="375" height="68"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="N9L-u3-gDq" id="sag-YA-nfS">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="68"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="67.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uHO-Dz-Gg1" customClass="ASButton">
-                                                    <rect key="frame" x="44" y="14" width="287" height="40"/>
+                                                    <rect key="frame" x="44" y="13.5" width="287" height="40"/>
                                                     <color key="backgroundColor" red="0.33333333329999998" green="0.5450980392" blue="0.1843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="40" id="FEZ-bS-IOu"/>
@@ -490,6 +487,16 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="buttonSubmit" destination="uHO-Dz-Gg1" id="SOj-Q4-4rw"/>
+                        <outlet property="labelAddress" destination="5ap-WB-3S5" id="81F-Go-vNL"/>
+                        <outlet property="labelCity" destination="ffk-Ih-09N" id="PXw-r1-yc1"/>
+                        <outlet property="labelCode" destination="7yl-WB-DwW" id="KR7-r6-rgG"/>
+                        <outlet property="labelCountry" destination="GhE-Mc-Zgq" id="o2m-o8-hWl"/>
+                        <outlet property="labelEmail" destination="wG8-6c-Bdj" id="vZr-a0-mqZ"/>
+                        <outlet property="labelFullName" destination="gqj-xb-N6k" id="bQY-Q6-8ed"/>
+                        <outlet property="labelPhoneNumber" destination="ZVF-kp-fQx" id="EDz-qS-CaQ"/>
+                        <outlet property="labelPostcode" destination="HqS-0u-kQc" id="2sE-dv-JL3"/>
+                        <outlet property="labelProfile" destination="m1B-WP-A6A" id="Iq2-e1-gjd"/>
+                        <outlet property="labelUserName" destination="HaL-tj-6ED" id="Myd-Ia-r8c"/>
                         <outlet property="textFieldAddress" destination="e99-D5-XWl" id="VOu-NW-Rv4"/>
                         <outlet property="textFieldCity" destination="jXW-0D-zxf" id="tTg-94-E4o"/>
                         <outlet property="textFieldCountry" destination="OHJ-2y-57k" id="Raz-Xo-OPc"/>
@@ -719,7 +726,7 @@
                                                         <rect key="frame" x="20" y="323" width="236" height="68"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ZIP Code" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s5o-ST-TK9">
-                                                                <rect key="frame" x="0.0" y="10" width="59.5" height="17"/>
+                                                                <rect key="frame" x="0.0" y="10" width="57" height="17"/>
                                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                                                                 <color key="textColor" red="0.42745098040000001" green="0.42745098040000001" blue="0.42745098040000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
@@ -851,7 +858,7 @@
                                                         <rect key="frame" x="20" y="527" width="236" height="68"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Code" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bSi-1w-SEz">
-                                                                <rect key="frame" x="0.0" y="10" width="34" height="17"/>
+                                                                <rect key="frame" x="0.0" y="10" width="32.5" height="17"/>
                                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                                                                 <color key="textColor" red="0.42745098040000001" green="0.42745098040000001" blue="0.42745098040000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
