@@ -37,6 +37,10 @@
     RAC(self.viewModel, email) = self.textFieldEmail.rac_textSignal;
     self.btnRestore.rac_command = self.viewModel.restore;
 
+    [self rac_liftSelector:@selector(doSubmit:)
+               withSignals:self.btnRestore.rac_command.executionSignals.flatten, nil];
+
+    
     [self rac_liftSelector:@selector(onError:)
                withSignals:self.btnRestore.rac_command.errors, nil];
     
@@ -58,6 +62,27 @@
     [alert show];
 }
 
+-(void) doSubmit:(id)sender {
+    UIAlertController *alertController = [UIAlertController
+                                          alertControllerWithTitle:nil
+                                          message:NSLocalizedString(@"restore_success", nil)
+                                          preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction *okAction = [UIAlertAction
+                               actionWithTitle:NSLocalizedString(@"OK", @"OK action")
+                               style:UIAlertActionStyleDefault
+                               handler:^(UIAlertAction *action)
+                               {
+                                   [self.navigationController popViewControllerAnimated:true];
+                               }];
+    
+    [alertController addAction:okAction];
+    [self presentViewController:alertController animated:YES completion:nil];
+}
+
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
+    [self.view endEditing:true];
+}
 
 
 @end
