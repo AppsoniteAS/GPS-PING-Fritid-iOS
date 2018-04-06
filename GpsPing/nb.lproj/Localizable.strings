@@ -119,5 +119,7 @@
 "profile_save" = "Lagre";
 "profile_logout" = "Logg ut";
 "profile_title" = "Profil";
-
+"trackers_add_tracker" = "Legg til";
+"trackers_imei" = "IMEI Nummer";
+"trackers_number" = "Siste fire siffer i tracker simkort nr";
 

@@ -81,6 +81,8 @@ objection_requires(@keypath(ASNewTrackerViewController.new, apiController))
 
     
     self.helpHeight.constant = 68;
+    
+    [self localizeAll];
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -238,6 +240,20 @@ objection_requires(@keypath(ASNewTrackerViewController.new, apiController))
 
 - (void)didTapCheckBox:(BEMCheckBox *)checkBox{
     [self.checkboxSignal sendNext:@(checkBox.on)];
+}
+
+
+- (void) localizeAll{
+ 
+    NSString* addTracker = NSLocalizedString(@"trackers_add_tracker", nil);
+ 
+    [_completeButton setTitle:addTracker forState:UIControlStateNormal];
+    [_completeButton setTitle:addTracker forState:UIControlStateSelected];
+    [_completeButton setTitle:addTracker forState:UIControlStateHighlighted];
+    self.title =  NSLocalizedString(addTracker, nil);
+    //self.labelTracker.text = NSLocalizedString(@"profile_title", nil);
+    self.labelIMEI.text = NSLocalizedString(@"trackers_imei", nil);
+    self.labelTrackerNUmber.text = NSLocalizedString(@"trackers_number", nil);
 }
 
 @end
