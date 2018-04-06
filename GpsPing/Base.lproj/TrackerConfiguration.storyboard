@@ -898,6 +898,8 @@
                     <connections>
                         <outlet property="btnReset" destination="G8E-1a-vYi" id="xBf-R0-BIc"/>
                         <outlet property="btnReset2" destination="VpM-uC-b9J" id="1Kj-Ku-txe"/>
+                        <outlet property="btnUpdate" destination="c4s-vY-fPv" id="s8U-XX-HtN"/>
+                        <outlet property="btnUpdate1" destination="3Sb-9R-QNY" id="dt7-qA-jBW"/>
                         <outlet property="btnView" destination="QFz-YK-T6R" id="lF5-zz-tY1"/>
                         <outlet property="buttonPhoto" destination="5Vy-SC-bxa" id="2aN-2H-fSG"/>
                         <outlet property="durationTextField" destination="8sC-Ql-R96" id="581-oG-WCN"/>
@@ -1794,7 +1796,7 @@
                                         <rect key="frame" x="0.0" y="1663" width="375" height="180"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="BWi-c1-ihN" id="Ub9-qA-pVQ">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="179.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="180"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZKq-Nq-aGv" userLabel="Tracking History">
@@ -1873,7 +1875,7 @@
                                         <rect key="frame" x="0.0" y="1843" width="375" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="jsZ-YP-Yyv" id="9dN-vh-X5Y">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="79.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JVe-2I-q15">
@@ -1949,6 +1951,10 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <size key="freeformSize" width="375" height="1667"/>
                     <connections>
+                        <outlet property="btnReset" destination="Iwp-uf-jXE" id="fBJ-IN-3Po"/>
+                        <outlet property="btnUpdate" destination="vGg-A4-rYI" id="Bdq-b0-jtm"/>
+                        <outlet property="btnUpdate1" destination="af5-YF-TPg" id="Zoo-Dq-0c5"/>
+                        <outlet property="btnView" destination="IIg-aP-mSA" id="zN6-Qg-IxI"/>
                         <outlet property="buttonBikeFlashAlarm" destination="3NU-lb-fKh" id="vME-75-cE0"/>
                         <outlet property="buttonBikeLEDLight" destination="gCo-cb-axU" id="qct-SG-uDL"/>
                         <outlet property="buttonBikeShockAlarm" destination="znB-ke-gLM" id="pd9-6M-ola"/>
@@ -1957,9 +1963,19 @@
                         <outlet property="imageViewPhoto" destination="byD-X7-Apt" id="VNa-aI-mA3"/>
                         <outlet property="imageViewPlaceholder" destination="JqR-ha-K66" id="gda-4V-M0w"/>
                         <outlet property="imeiTextField" destination="ezg-DY-1XH" id="YnM-jH-Xm2"/>
+                        <outlet property="labelHistory" destination="4uS-Yx-jSl" id="bBQ-KI-dyk"/>
+                        <outlet property="labelIMEINumber" destination="X3d-EY-7D0" id="iN3-2N-VNz"/>
+                        <outlet property="labelName" destination="qpx-DL-wU0" id="szv-c9-H3w"/>
+                        <outlet property="labelPhoto" destination="b2S-E8-eaI" id="rZX-fN-5MZ"/>
+                        <outlet property="labelReceiveSignal" destination="mht-jq-9qf" id="pig-th-2ye"/>
+                        <outlet property="labelShowOn" destination="Lhv-8n-AZW" id="Nas-qd-KwC"/>
+                        <outlet property="labelSignal" destination="YiP-8S-uYi" id="dNp-ht-v1z"/>
                         <outlet property="labelStatusBikeFlashAlarm" destination="Gns-8m-Fd8" id="o02-Aq-xNZ"/>
                         <outlet property="labelStatusBikeLEDLight" destination="4xy-PO-yQg" id="27z-M5-TQF"/>
                         <outlet property="labelStatusBikeShockAlarm" destination="xW4-uS-fzn" id="NyH-WF-FWM"/>
+                        <outlet property="labelTracker" destination="fEo-99-9iF" id="3Dc-qK-X4A"/>
+                        <outlet property="labelTrackerNumber" destination="vFg-m2-cba" id="HUx-CL-0b8"/>
+                        <outlet property="labelTrackingHistory" destination="MzU-7t-r6y" id="avp-Te-U4M"/>
                         <outlet property="nameTextField" destination="a7D-yY-NCd" id="3aF-oy-OIm"/>
                         <outlet property="photoContainer" destination="qTq-0U-aga" id="iMY-x9-HC8"/>
                         <outlet property="signalRateTextField" destination="o94-rX-wUr" id="3sk-bB-vmi"/>
@@ -2762,7 +2778,7 @@
                                         <rect key="frame" x="0.0" y="1691" width="375" height="270"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="TiN-Jr-duS" id="XdP-hk-jk7">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="269.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="270"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view alpha="0.80000001192092896" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pce-Y1-OwT" userLabel="Geofence">
@@ -2883,7 +2899,7 @@
                                         <rect key="frame" x="0.0" y="1961" width="375" height="215"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Fwt-xZ-Ga5" id="qpX-L8-YsC">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="214.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="215"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6v1-mQ-RJB" userLabel="Additional settings">
@@ -3105,6 +3121,10 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <size key="freeformSize" width="375" height="1667"/>
                     <connections>
+                        <outlet property="btnReset" destination="rz0-Yl-Mkt" id="KGr-aV-1Ih"/>
+                        <outlet property="btnUpdate" destination="En8-Uh-c2J" id="G17-d8-UHZ"/>
+                        <outlet property="btnUpdate1" destination="asj-6h-vIb" id="Iwh-ug-bUT"/>
+                        <outlet property="btnView" destination="PvC-Gq-2JR" id="oG7-rM-4Sf"/>
                         <outlet property="buttonCheckBattery" destination="40G-HX-hf2" id="sgV-3W-Xge"/>
                         <outlet property="buttonDogSleepMode" destination="x5O-MR-ygS" id="zNY-Jj-Vcu"/>
                         <outlet property="buttonGeofence" destination="dF1-dS-YGK" id="dqP-bF-fiN"/>
@@ -3114,7 +3134,17 @@
                         <outlet property="imageViewPhoto" destination="ZFR-fa-2BR" id="K25-3I-Keq"/>
                         <outlet property="imageViewPlaceholder" destination="aft-lX-bQW" id="Pjn-9T-T11"/>
                         <outlet property="imeiTextField" destination="FYR-c9-oGy" id="EiL-ak-ipJ"/>
+                        <outlet property="labelHistory" destination="tb2-7P-lQ4" id="97z-xp-0se"/>
+                        <outlet property="labelIMEINumber" destination="yLb-tf-VVM" id="dUi-EF-CRb"/>
+                        <outlet property="labelName" destination="Cqx-WR-824" id="A6P-kJ-YRM"/>
+                        <outlet property="labelPhoto" destination="OfZ-Oa-B1y" id="GZx-jt-lzz"/>
+                        <outlet property="labelReceiveSignal" destination="Z1i-eE-wKW" id="QE9-Dk-u0x"/>
+                        <outlet property="labelShowOn" destination="QQx-a9-v2B" id="a2q-vY-m3f"/>
+                        <outlet property="labelSignal" destination="6cO-jk-HLQ" id="64i-of-04d"/>
                         <outlet property="labelStatusSleepMode" destination="Cef-CX-mE8" id="Fx9-Oy-dQy"/>
+                        <outlet property="labelTracker" destination="Vbg-2v-MSi" id="YHy-Sy-u4O"/>
+                        <outlet property="labelTrackerNumber" destination="fn6-wl-Wp3" id="bBA-Qk-gIK"/>
+                        <outlet property="labelTrackingHistory" destination="3ct-qT-sfN" id="I5e-5Z-8Eq"/>
                         <outlet property="nameTextField" destination="7Bf-Z2-EGo" id="FCs-NN-sLU"/>
                         <outlet property="photoContainer" destination="D93-mb-3Wc" id="unE-GO-DJn"/>
                         <outlet property="signalRateTextField" destination="6hq-hx-fap" id="ZtP-8s-q0H"/>

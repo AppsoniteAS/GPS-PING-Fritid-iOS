@@ -49,6 +49,8 @@ static NSString *const kASUserDefaultsKeyBikeFlashAlarm = @"kASUserDefaultsKeyBi
 @property (weak, nonatomic) IBOutlet ASButton *buttonCheckBattery;
 @property (weak, nonatomic) IBOutlet UIButton *startStopButton;
 @property (weak, nonatomic) IBOutlet UIView *photoContainer;
+@property (weak, nonatomic) IBOutlet ASButton *btnUpdate;
+@property (weak, nonatomic) IBOutlet ASButton *btnUpdate1;
 
 @property (weak, nonatomic) IBOutlet UIImageView *imageViewPlaceholder;
 @property (weak, nonatomic) IBOutlet UIImageView *imageViewPhoto;
@@ -176,8 +178,11 @@ objection_requires(@keypath(ASTrackerConfigurationViewController.new, apiControl
     
     
     NSString *newResetTitle = NSLocalizedString(@"Reset: step %ld", nil);
-    [self.resetButton setTitle:[NSString stringWithFormat:newResetTitle, (long)self.smsCount + 1]
+    [self.btnReset setTitle:[NSString stringWithFormat:newResetTitle, (long)self.smsCount + 1]
                          forState:UIControlStateNormal];
+    [self.btnReset2 setTitle:[NSString stringWithFormat:newResetTitle, (long)self.smsCount + 1]
+                   forState:UIControlStateNormal];
+    
     
     self.buttonBikeLEDLight.titleLabel.font = [UIFont fontWithName:@"Roboto-Bold" size:9];
     self.buttonBikeFlashAlarm.titleLabel.font = [UIFont fontWithName:@"Roboto-Bold" size:9];
@@ -240,7 +245,8 @@ objection_requires(@keypath(ASTrackerConfigurationViewController.new, apiControl
     self.tableView.backgroundView = tempImageView;
     
     self.navigationItem.rightBarButtonItem = nil;
-    
+    [self localizeAll];
+
     if (self.trackerObject.imageId){
         [self.imageViewPhoto yy_setImageWithURL:[ [ASS3Manager sharedInstance] getURLByImageIdentifier: self.trackerObject.imageId ]placeholder:nil options:YYWebImageOptionSetImageWithFadeAnimation completion:^(UIImage * _Nullable image, NSURL * _Nonnull url, YYWebImageFromType from, YYWebImageStage stage, NSError * _Nullable error) {
             if (from == YYWebImageFromDiskCache) {
@@ -453,8 +459,10 @@ objection_requires(@keypath(ASTrackerConfigurationViewController.new, apiControl
         [[self as_sendSMS:self.smsesForActivation[self.smsCount]
               ToRecipient:self.trackerObject.trackerPhoneNumber] subscribeNext:^(id x) {
             self.smsCount++;
-            [self.resetButton setTitle:[self newTitleForReset:self.smsCount]
+            [self.btnReset setTitle:[self newTitleForReset:self.smsCount]
                               forState:UIControlStateNormal];
+            [self.btnReset2 setTitle:[self newTitleForReset:self.smsCount]
+                           forState:UIControlStateNormal];
         } error:^(NSError *error) {
             ;
         }];
@@ -905,5 +913,71 @@ objection_requires(@keypath(ASTrackerConfigurationViewController.new, apiControl
     [self.view endEditing:true];
 }
 
+
+/*
+ @property (weak, nonatomic) IBOutlet UILabel *labelTracker;
+ @property (weak, nonatomic) IBOutlet UILabel *labelName;
+ @property (weak, nonatomic) IBOutlet UILabel *labelIMEINumber;
+ @property (weak, nonatomic) IBOutlet UILabel *labelTrackerNumber;
+ @property (weak, nonatomic) IBOutlet UILabel *labelSignal;
+ @property (weak, nonatomic) IBOutlet UILabel *labelReceiveSignal;
+ @property (weak, nonatomic) IBOutlet UILabel *labelPhoto;
+ @property (weak, nonatomic) IBOutlet UILabel *labelTrackingHistory;
+ @property (weak, nonatomic) IBOutlet UILabel *labelShowOn;
+ @property (weak, nonatomic) IBOutlet UILabel *labelHistory;
+ @property (weak, nonatomic) IBOutlet ASButton *btnView;
+ @property (weak, nonatomic) IBOutlet ASButton *btnReset;
+ @property (weak, nonatomic) IBOutlet ASButton *btnReset2;
+ @property (weak, nonatomic) IBOutlet ASButton *shutdownBtn;
+ 
+ 
+ 
+ */
+
+- (void) localizeAll{
+    self.title =  NSLocalizedString(@"conf_edit_tracker", nil);
+
+    self.labelTracker.text = NSLocalizedString(@"conf_tracker", nil);
+    self.labelName.text = NSLocalizedString(@"conf_name", nil);
+    self.labelIMEINumber.text = NSLocalizedString(@"conf_imei", nil);
+    self.labelTrackerNumber.text = NSLocalizedString(@"conf_number", nil);
+    self.labelSignal.text = NSLocalizedString(@"conf_singal", nil);
+    self.labelReceiveSignal.text = NSLocalizedString(@"conf_receive", nil);
+    self.labelPhoto.text = NSLocalizedString(@"conf_photo", nil);
+    self.labelTrackingHistory.text = NSLocalizedString(@"conf_tracking_history", nil);
+    self.labelShowOn.text = NSLocalizedString(@"conf_showon", nil);
+    self.labelHistory.text = NSLocalizedString(@"conf_history", nil);
+
+    NSString* tView = NSLocalizedString(@"conf_view", nil);
+    NSString* tReset = NSLocalizedString(@"conf_reset", nil);
+    NSString* tShutdown = NSLocalizedString(@"conf_shutdown", nil);
+    NSString* tUpdate = NSLocalizedString(@"conf_update", nil);
+
+    [_btnUpdate setTitle:tUpdate forState:UIControlStateNormal];
+    [_btnUpdate setTitle:tUpdate forState:UIControlStateSelected];
+    [_btnUpdate setTitle:tUpdate forState:UIControlStateHighlighted];
+    
+    [_btnUpdate1 setTitle:tUpdate forState:UIControlStateNormal];
+    [_btnUpdate1 setTitle:tUpdate forState:UIControlStateSelected];
+    [_btnUpdate1 setTitle:tUpdate forState:UIControlStateHighlighted];
+    
+    [_btnView setTitle:tView forState:UIControlStateNormal];
+    [_btnView setTitle:tView forState:UIControlStateSelected];
+    [_btnView setTitle:tView forState:UIControlStateHighlighted];
+    
+    [_btnReset setTitle:tReset forState:UIControlStateNormal];
+    [_btnReset setTitle:tReset forState:UIControlStateSelected];
+    [_btnReset setTitle:tReset forState:UIControlStateHighlighted];
+    
+    [_btnReset2 setTitle:tReset forState:UIControlStateNormal];
+    [_btnReset2 setTitle:tReset forState:UIControlStateSelected];
+    [_btnReset2 setTitle:tReset forState:UIControlStateHighlighted];
+    
+    [_shutdownBtn setTitle:tShutdown forState:UIControlStateNormal];
+    [_shutdownBtn setTitle:tShutdown forState:UIControlStateSelected];
+    [_shutdownBtn setTitle:tShutdown forState:UIControlStateHighlighted];
+    
+   
+}
 
 @end

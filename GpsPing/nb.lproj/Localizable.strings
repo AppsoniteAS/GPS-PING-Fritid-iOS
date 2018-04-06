@@ -123,3 +123,18 @@
 "trackers_imei" = "IMEI Nummer";
 "trackers_number" = "Siste fire siffer i tracker simkort nr";
 
+"conf_edit_tracker" = "Edit Tracker";
+"conf_tracker" = "Tracker";
+"conf_name" = "Navn";
+"conf_imei" = "IMEI nummer";
+"conf_number" = "Tracker nummer";
+"conf_singal" = "Signal";
+"conf_receive" = "Motta signal hvert";
+"conf_photo" = "Bilde";
+"conf_tracking_history" = "Spor Lengde";
+"conf_showon" = "Vis spor på aktiv kart i:";
+"conf_history" = "Logg";
+"conf_view" = "Logg";
+"conf_reset" = "Resett";
+"conf_shutdown" = "Skru av";
+"conf_update" = "Oppdater";
