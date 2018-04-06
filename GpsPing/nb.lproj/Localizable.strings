@@ -102,8 +102,8 @@
 "I_have_read" = "Jeg har lest og godtatt abonnements vilkårene";
 
 
-"marcel_popup_1" = "IMEI  and tracker number";
-"marcel_popup_2" = "can be found on a sticker on the box side:";
+"marcel_popup_1" = "IMEI og tracker nummer";
+"marcel_popup_2" = "kan finnes på et klistremerke på boksens side:";
 "retore_password" = "Legg inn epost adresse så sender vi deg passor reset instruksjoner";
 "tracker_updated" = "Din tracker er oppdatert.";
 
