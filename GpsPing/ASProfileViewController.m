@@ -40,6 +40,7 @@ static const DDLogLevel ddLogLevel = DDLogLevelDebug;
 @property (weak, nonatomic) IBOutlet UILabel *labelCode;
 @property (weak, nonatomic) IBOutlet UILabel *labelPhoneNumber;
 @property (weak, nonatomic) IBOutlet UILabel *labelEmail;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *btnLogout;
 
 
 @end
@@ -123,7 +124,9 @@ static const DDLogLevel ddLogLevel = DDLogLevelDebug;
 //
     
 //    [self rac_liftSelector:@selector(doSubmit:)
-//               withSignals:self.buttonSubmit.rac_command.executing, nil];    
+//               withSignals:self.buttonSubmit.rac_command.executing, nil];
+    
+    [self localizeAll];
 }
 
 -(void)onError:(NSError*)error {
@@ -151,6 +154,27 @@ static const DDLogLevel ddLogLevel = DDLogLevelDebug;
     [self.viewModel logOut];
     self.navigationItem.backBarButtonItem.enabled = true;
 
+}
+
+- (void) localizeAll{
+    self.labelUserName.text = NSLocalizedString(@"profile_username", nil);
+    self.labelFullName.text = NSLocalizedString(@"profile_fullname", nil);
+    self.labelAddress.text = NSLocalizedString(@"profile_address", nil);
+    self.labelPostcode.text = NSLocalizedString(@"profile_postcode", nil);
+    self.labelCity.text = NSLocalizedString(@"profile_city", nil);
+    self.labelCountry.text = NSLocalizedString(@"profile_country", nil);
+    self.labelCode.text = NSLocalizedString(@"profile_code", nil);
+    self.labelPhoneNumber.text = NSLocalizedString(@"profile_phonenumber", nil);
+    self.labelEmail.text = NSLocalizedString(@"profile_email", nil);
+
+    NSString* save = NSLocalizedString(@"profile_save", nil);
+    NSString* logout = NSLocalizedString(@"profile_logout", nil);
+    [self.btnLogout setTitle:logout];
+    [_buttonSubmit setTitle:save forState:UIControlStateNormal];
+    [_buttonSubmit setTitle:save forState:UIControlStateSelected];
+    [_buttonSubmit setTitle:save forState:UIControlStateHighlighted];
+    self.title =  NSLocalizedString(@"tabbar_settings", nil);
+    self.labelProfile.text = NSLocalizedString(@"profile_title", nil);
 }
 
 @end

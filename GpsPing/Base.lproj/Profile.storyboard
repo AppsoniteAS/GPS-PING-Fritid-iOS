@@ -486,7 +486,8 @@
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
-                        <outlet property="buttonSubmit" destination="uHO-Dz-Gg1" id="SOj-Q4-4rw"/>
+                        <outlet property="btnLogout" destination="sUe-Ua-DRF" id="ERL-ih-lT9"/>
+                        <outlet property="buttonSubmit" destination="uHO-Dz-Gg1" id="GiK-di-mEl"/>
                         <outlet property="labelAddress" destination="5ap-WB-3S5" id="81F-Go-vNL"/>
                         <outlet property="labelCity" destination="ffk-Ih-09N" id="PXw-r1-yc1"/>
                         <outlet property="labelCode" destination="7yl-WB-DwW" id="KR7-r6-rgG"/>
@@ -1088,7 +1089,6 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="737"/>
                     <connections>
-                        <outlet property="buttonSubmit" destination="uHO-Dz-Gg1" id="O77-eq-vRS"/>
                         <outlet property="scrollView" destination="rjr-uG-K3o" id="sMP-ia-0LH"/>
                         <outlet property="textFieldAddress" destination="25N-Lc-TPa" id="kCK-F6-9YT"/>
                         <outlet property="textFieldCity" destination="ctd-kA-7tS" id="liV-SW-BnT"/>

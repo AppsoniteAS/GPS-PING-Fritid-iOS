@@ -106,3 +106,18 @@
 "marcel_popup_2" = "can be found on a sticker on the box side:";
 "retore_password" = "Legg inn epost adresse så sender vi deg passor reset instruksjoner";
 "tracker_updated" = "Din tracker er oppdatert.";
+
+"profile_username" = "Brukernavn";
+"profile_fullname" = "Navn";
+"profile_address" = "Adresse";
+"profile_postcode" = "Post sted";
+"profile_city" = "Sted";
+"profile_country" = "Land";
+"profile_code" = "Land kode";
+"profile_phonenumber" = "Telefon";
+"profile_email" = "Epost";
+"profile_save" = "Lagre";
+"profile_logout" = "Logg ut";
+"profile_title" = "Profil";
+
+
