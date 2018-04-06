@@ -78,8 +78,8 @@ objection_requires(@keypath(ASProfileViewModel.new, apiController))
                                 (phoneCode.length > 0) &&
                                 (phoneNumber.length > 0) &&
                                 (address.length > 0) &&
-                          //      (city.length > 0) &&
-                            //    (country.length > 0) &&
+                                (city.length > 0) &&
+                                (country.length > 0) &&
                                 (zipCode.length > 0) &&
                                 (email.length > 0));
                             }];
