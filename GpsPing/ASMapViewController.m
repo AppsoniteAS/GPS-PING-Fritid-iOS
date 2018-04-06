@@ -436,7 +436,11 @@ objection_requires(@keypath(ASMapViewController.new, apiController), @keypath(AS
 //        [self.mapView addOverlay:overlayFinland
 //                           level:MKOverlayLevelAboveLabels];
 
-        static NSString * const templateNorway = @"http://opencache.statkart.no/gatekeeper/gk/gk.open_gmaps?layers=topo2&zoom={z}&x={x}&y={y}&format=image/png";
+//        static NSString * const templateNorway2 = @"http://opencache.statkart.no/gatekeeper/gk/gk.open_gmaps?layers=topo2&zoom={z}&x={x}&y={y}&format=image/png";
+        
+        static NSString * const templateNorway = @"http://opencache.statkart.no/gatekeeper/gk/gk.open_wmts?&layer=topo4&style=default&tilematrixset=EPSG:3857&Service=WMTS&Request=GetTile&Version=1.0.0&Format=image/png&TileMatrix=EPSG:3857:{z}&TileCol={x}&TileRow={y}";
+
+        
         ASCashedTileOverlay *overlayNorway = [[ASCashedTileOverlay alloc] initWithURLTemplate:templateNorway];
         overlayNorway.canReplaceMapContent = YES;
         [self.mapView addOverlay:overlayNorway
