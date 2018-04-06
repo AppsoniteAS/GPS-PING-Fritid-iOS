@@ -9,12 +9,13 @@
 #import "ASSignInViewController.h"
 #import "ASSignInViewModel.h"
 #import "AGApiController.h"
-
+#import "ASButton.h"
 @interface ASSignInViewController ()
 @property (nonatomic, readonly) ASSignInViewModel     *viewModel;
 @property (nonatomic, weak    ) IBOutlet UITextField  *textFieldUsername;
 @property (nonatomic, weak    ) IBOutlet UITextField  *textFieldPassword;
 @property (nonatomic, weak    ) IBOutlet UIButton     *buttonSubmit;
+@property (weak, nonatomic) IBOutlet ASButton *btnRestore;
 @end
 
 @implementation ASSignInViewController
@@ -37,6 +38,12 @@
 //               withSignals:self.buttonSubmit.rac_command.executionSignals.flatten, nil];
     [self rac_liftSelector:@selector(onError:)
                withSignals:self.buttonSubmit.rac_command.errors, nil];
+    
+    
+    NSString* restore  = NSLocalizedString(@"restore_password", nil);
+    [self.btnRestore setTitle:restore forState:UIControlStateNormal];
+    [self.btnRestore setTitle:restore forState:UIControlStateSelected];
+    [self.btnRestore setTitle:restore forState:UIControlStateHighlighted];
 }
 
 -(void)onError:(NSError*)error {

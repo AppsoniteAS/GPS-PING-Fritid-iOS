@@ -10,6 +10,8 @@
 		218B1EB81D757C8F00E19FD7 /* ASHelpPopupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 218B1EB71D757C8F00E19FD7 /* ASHelpPopupViewController.m */; };
 		4042A7D11D2CEFBD009D2332 /* CompassController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4042A7D01D2CEFBD009D2332 /* CompassController.m */; };
 		4042A7D41D2D0712009D2332 /* WMSTileOverlay.m in Sources */ = {isa = PBXBuildFile; fileRef = 4042A7D31D2D0712009D2332 /* WMSTileOverlay.m */; };
+		44E25E302077D2FA009A3BC0 /* ASRestorePasswordController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44E25E2F2077D2FA009A3BC0 /* ASRestorePasswordController.m */; };
+		44E25E332077DEB7009A3BC0 /* ASRestoreViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 44E25E322077DEB7009A3BC0 /* ASRestoreViewModel.m */; };
 		44FA0C5520764C3C00F58110 /* ASMarcelPopupController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44FA0C5420764C3C00F58110 /* ASMarcelPopupController.m */; };
 		7827F722326EC4278C597BBB /* libPods-GpsPing.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4851A107D6080063732BC1BC /* libPods-GpsPing.a */; };
 		A603CED51C58D5C2001D56A4 /* ASMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A603CED41C58D5C2001D56A4 /* ASMapViewController.m */; };
@@ -172,6 +174,10 @@
 		4042A7D21D2D0712009D2332 /* WMSTileOverlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMSTileOverlay.h; sourceTree = "<group>"; };
 		4042A7D31D2D0712009D2332 /* WMSTileOverlay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMSTileOverlay.m; sourceTree = "<group>"; };
 		4042A7D51D2D0738009D2332 /* MapViewUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewUtils.h; sourceTree = "<group>"; };
+		44E25E2E2077D2FA009A3BC0 /* ASRestorePasswordController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ASRestorePasswordController.h; sourceTree = "<group>"; };
+		44E25E2F2077D2FA009A3BC0 /* ASRestorePasswordController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ASRestorePasswordController.m; sourceTree = "<group>"; };
+		44E25E312077DEB7009A3BC0 /* ASRestoreViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ASRestoreViewModel.h; sourceTree = "<group>"; };
+		44E25E322077DEB7009A3BC0 /* ASRestoreViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ASRestoreViewModel.m; sourceTree = "<group>"; };
 		44FA0C5320764C3C00F58110 /* ASMarcelPopupController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ASMarcelPopupController.h; sourceTree = "<group>"; };
 		44FA0C5420764C3C00F58110 /* ASMarcelPopupController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ASMarcelPopupController.m; sourceTree = "<group>"; };
 		4851A107D6080063732BC1BC /* libPods-GpsPing.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GpsPing.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -990,6 +996,10 @@
 				AB8946861C4F31CF002E86C8 /* ASRegisterViewController.m */,
 				AB89468B1C4F3203002E86C8 /* ASRegisterViewModel.h */,
 				AB89468C1C4F3203002E86C8 /* ASRegisterViewModel.m */,
+				44E25E2E2077D2FA009A3BC0 /* ASRestorePasswordController.h */,
+				44E25E2F2077D2FA009A3BC0 /* ASRestorePasswordController.m */,
+				44E25E312077DEB7009A3BC0 /* ASRestoreViewModel.h */,
+				44E25E322077DEB7009A3BC0 /* ASRestoreViewModel.m */,
 			);
 			name = Auth;
 			sourceTree = "<group>";
@@ -1382,6 +1392,7 @@
 				E94127E61F7D631600190D8E /* ASTrackerDetailsView.m in Sources */,
 				AB8946961C50D6B0002E86C8 /* ASProfileViewController.m in Sources */,
 				AB5428061C5BA1B300F33E8B /* ASAddFriendModel.m in Sources */,
+				44E25E332077DEB7009A3BC0 /* ASRestoreViewModel.m in Sources */,
 				A6F6A74B1C5122210009579A /* ASSmsManager.m in Sources */,
 				E98C985B1F815A1F00A028DC /* ASMapDetailsButton.m in Sources */,
 				E9A89C601FB3591200408AA7 /* ASCashedTileOverlay.m in Sources */,
@@ -1398,6 +1409,7 @@
 				A6AB682A1D3776A500F470D2 /* ASNewTrackerViewController.m in Sources */,
 				A603CEEE1C5B761C001D56A4 /* ASDevicePointAnnotation.m in Sources */,
 				A6D1E7781D3D01B300D847EC /* NSString+ASNameComponents.m in Sources */,
+				44E25E302077D2FA009A3BC0 /* ASRestorePasswordController.m in Sources */,
 				4042A7D11D2CEFBD009D2332 /* CompassController.m in Sources */,
 				A68C1B921C4E38D6000E2BA6 /* ASTrackerCell.m in Sources */,
 				AB8946AB1C549E9F002E86C8 /* RACSignal+BackendHelpers.m in Sources */,

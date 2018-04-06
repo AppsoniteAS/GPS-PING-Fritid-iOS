@@ -138,3 +138,5 @@
 "conf_reset" = "Resett";
 "conf_shutdown" = "Skru av";
 "conf_update" = "Oppdater";
+
+"restore_password" = "Gjenopprett passord";
