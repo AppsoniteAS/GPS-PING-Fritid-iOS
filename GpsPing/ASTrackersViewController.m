@@ -18,7 +18,7 @@
 @interface ASTrackersViewController () <ASTrackerCellProtocol>
 
 @property (nonatomic, strong) AGApiController   *apiController;
-
+@property (nonatomic, assign) bool isLoading;
 @end
 
 @implementation ASTrackersViewController
@@ -37,7 +37,10 @@ objection_requires(@keypath(ASTrackersViewController.new, apiController))
 }
 
 - (void) fetchFromServer{
+    @weakify(self)
+    self.isLoading = true;
     [[self.apiController getTrackers] subscribeNext:^(NSArray *trackers) {
+        @strongify(self)
         NSArray *memoryTrackers = [ASTrackerModel getTrackersFromUserDefaults];
         for (ASTrackerModel *tracker in trackers) {
             for(ASTrackerModel *memoryTracker in memoryTrackers){
@@ -48,9 +51,12 @@ objection_requires(@keypath(ASTrackersViewController.new, apiController))
             }
             [tracker saveInUserDefaults];
             [self reloadTrackers];
+            
         }
+        self.isLoading = false;
     } error:^(NSError *error) {
-        ;
+        @strongify(self)
+        self.isLoading = false;
     }];
 }
 
@@ -106,7 +112,7 @@ objection_requires(@keypath(ASTrackersViewController.new, apiController))
 
 -(BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return YES;
+    return self.isLoading ? NO : YES;
 }
 
 
