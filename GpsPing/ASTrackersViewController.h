@@ -7,7 +7,11 @@
 //
 
 #import <DTTableViewManager/DTTableViewManager.h>
+@protocol ASTrackersViewControllerProtocol <NSObject>
 
+- (void) fetchFromServer;
+
+@end
 @interface ASTrackersViewController : DTTableViewController
 
 @end

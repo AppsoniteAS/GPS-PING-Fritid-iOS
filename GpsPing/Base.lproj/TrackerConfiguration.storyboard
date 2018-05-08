@@ -4075,6 +4075,7 @@
                     <connections>
                         <outlet property="btnReset" destination="x7v-QT-C4s" id="pVY-V1-zAx"/>
                         <outlet property="btnReset2" destination="kGw-Aa-w70" id="HTF-Tu-U8E"/>
+                        <outlet property="btnUpdate" destination="c9e-k0-oxp" id="ERx-I1-F9z"/>
                         <outlet property="btnUpdate1" destination="NKw-OZ-4vj" id="ypv-z5-0Dl"/>
                         <outlet property="btnView" destination="s66-kW-bdu" id="coC-mh-Nwa"/>
                         <outlet property="buttonPhoto" destination="Ku6-gw-Bvr" id="fls-cS-1HH"/>

@@ -15,7 +15,10 @@
 #import "ASSimpleTrackerCell.h"
 #import <CocoaLumberjack/CocoaLumberjack.h>
 
-@interface ASTrackersViewController () <ASTrackerCellProtocol>
+
+
+
+@interface ASTrackersViewController () <ASTrackerCellProtocol, ASTrackersViewControllerProtocol>
 
 @property (nonatomic, strong) AGApiController   *apiController;
 @property (nonatomic, assign) bool isLoading;
@@ -92,6 +95,8 @@ objection_requires(@keypath(ASTrackersViewController.new, apiController))
     if (!configVC){
         return;
     }
+    configVC.delegate = self;
+
     [self.navigationController pushViewController:configVC animated:true];
     return;
     

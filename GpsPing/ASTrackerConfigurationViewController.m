@@ -5,7 +5,6 @@
 //  Created by Pavel Ivanov on 20/01/16.
 //  Copyright © 2016 Robin Grønvold. All rights reserved.
 //
-
 #import "ASTrackerConfigurationViewController.h"
 #import "UIStoryboard+ASHelper.h"
 #import <JPSKeyboardLayoutGuideViewController.h>
@@ -382,7 +381,26 @@ objection_requires(@keypath(ASTrackerConfigurationViewController.new, apiControl
                                  repeatTime:repeatTime
                               checkForStand:self.trackerObject.dogInStand] deliverOnMainThread] subscribeNext:^(id x) {
             DDLogDebug(@"Tracker updated!");
-            [self dismissViewControllerAnimated:YES completion:nil];
+           // [self dismissViewControllerAnimated:YES completion:nil];
+            if ([self.delegate respondsToSelector:@selector(fetchFromServer)]){
+                [self.delegate fetchFromServer];
+            }
+            
+            UIAlertController *alertController = [UIAlertController
+                                                  alertControllerWithTitle:nil
+                                                  message:NSLocalizedString(@"tracker_updated", nil)
+                                                  preferredStyle:UIAlertControllerStyleAlert];
+            
+            UIAlertAction *okAction = [UIAlertAction
+                                       actionWithTitle:NSLocalizedString(@"OK", @"OK action")
+                                       style:UIAlertActionStyleDefault
+                                       handler:^(UIAlertAction *action)
+                                       {
+                                           
+                                       }];
+            
+            [alertController addAction:okAction];
+            [self presentViewController:alertController animated:YES completion:nil];
         }];
     }];
     
@@ -398,6 +416,9 @@ objection_requires(@keypath(ASTrackerConfigurationViewController.new, apiControl
                              repeatTime:repeatTime
                           checkForStand:self.trackerObject.dogInStand] deliverOnMainThread] subscribeNext:^(id x) {
         DDLogDebug(@"Tracker updated!");
+        if ([self.delegate respondsToSelector:@selector(fetchFromServer)]){
+            [self.delegate fetchFromServer];
+        }
         UIAlertController *alertController = [UIAlertController
                                               alertControllerWithTitle:nil
                                               message:NSLocalizedString(@"tracker_updated", nil)
