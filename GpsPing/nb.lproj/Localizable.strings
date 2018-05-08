@@ -138,6 +138,7 @@
 "conf_reset" = "Resett";
 "conf_shutdown" = "Skru av";
 "conf_update" = "Oppdater";
+"conf_dog" = "Slå på standvarsler";
 
 "restore_password" = "Gjenopprett passord";
 "restore_success" = "Suksess";

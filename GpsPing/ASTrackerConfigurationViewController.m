@@ -107,6 +107,7 @@ static NSString *const kASUserDefaultsKeyBikeFlashAlarm = @"kASUserDefaultsKeyBi
 @property (weak, nonatomic) IBOutlet ASButton *btnReset2;
 @property (weak, nonatomic) IBOutlet ASButton *shutdownBtn;
 
+@property (weak, nonatomic) IBOutlet UILabel *labelDog;
 
 @end
 
@@ -953,6 +954,7 @@ objection_requires(@keypath(ASTrackerConfigurationViewController.new, apiControl
     self.labelTrackingHistory.text = NSLocalizedString(@"conf_tracking_history", nil);
     self.labelShowOn.text = NSLocalizedString(@"conf_showon", nil);
     self.labelHistory.text = NSLocalizedString(@"conf_history", nil);
+    self.labelDog.text = NSLocalizedString(@"conf_dog", nil);
 
     NSString* tView = NSLocalizedString(@"conf_view", nil);
     NSString* tReset = NSLocalizedString(@"conf_reset", nil);
