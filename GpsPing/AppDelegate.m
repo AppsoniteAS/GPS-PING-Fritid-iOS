@@ -19,12 +19,14 @@
 #import <Fabric/Fabric.h>
 #import <Crashlytics/Crashlytics.h>
 #import "ASS3Manager.h"
+#import "ASInAppPurchaseManager.h"
 DDLogLevel ddLogLevel = DDLogLevelError;
 
 @interface AppDelegate ()
 @property(nonatomic, strong) void (^registrationHandler)
 (NSString *registrationToken, NSError *error);
 @property(nonatomic, strong) NSString* registrationToken;
+@property(nonatomic, strong) ASInAppPurchaseManager *inAppPurchaseManager;
 
 @end
 
@@ -37,7 +39,10 @@ DDLogLevel ddLogLevel = DDLogLevelError;
         _messageKey = @"onMessageReceived";
         [self initializeLogginig];
         [self initializeDependencyInjection];
+        self.inAppPurchaseManager = [ASInAppPurchaseManager new];
+        [self.inAppPurchaseManager getSubscriptionPeriod];
     }
+    
     return self;
 }
 

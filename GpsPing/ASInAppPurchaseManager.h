@@ -17,7 +17,7 @@
 @property (assign, nonatomic) BOOL areSubscribed;
 
 @property (nonatomic, weak)  id <ASInAppPurchaseDelegate> delegate;
-
+-(void)getSubscriptionPeriod;
 - (void)subscribe;
 - (void)restore;
 @end

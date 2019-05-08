@@ -1,4 +1,4 @@
-NSLocationAlwaysUsageDescription = "Henter din lokasjon når appen er aktiv eller går i bakgrunnen";
+NSLocationAlwaysUsageDescription = "Vi bruker din lokasjon for å måle distansen mellom deg og din tracker, samt dele lokasjonen med vennene dine som du har koblet deg opp til";
 NSLocationUsageDescription = "Henter din lokasjon";
 NSLocationWhenInUseUsageDescription = "Henter din lokasjon når appen er aktiv";
-NSLocationAlwaysAndWhenInUseUsageDescription = "Henter din lokasjon når appen er aktiv eller går i bakgrunnen";
+NSLocationAlwaysAndWhenInUseUsageDescription = "Vi bruker din lokasjon for å måle distansen mellom deg og din tracker, samt dele lokasjonen med vennene dine som du har koblet deg opp til";

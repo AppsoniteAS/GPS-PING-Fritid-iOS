@@ -1,19 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BjH-A3-v7a">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BjH-A3-v7a">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Intro View Controller-->
         <scene sceneID="Nhe-Ps-YGh">
             <objects>
-                <viewController id="BjH-A3-v7a" customClass="ASIntroViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ASIntroViewController" id="BjH-A3-v7a" customClass="ASIntroViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="AcS-qX-rFl"/>
                         <viewControllerLayoutGuide type="bottom" id="Whh-SL-xGR"/>
@@ -367,7 +366,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ea4-t3-C3d" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1813" y="417"/>
+            <point key="canvasLocation" x="1806" y="446"/>
         </scene>
     </scenes>
     <resources>
@@ -377,6 +376,6 @@
         <image name="04" width="414" height="736"/>
         <image name="05" width="414" height="736"/>
         <image name="1en" width="414" height="736"/>
-        <image name="ic_action_navigation_close" width="42" height="42"/>
+        <image name="ic_action_navigation_close" width="42.666667938232422" height="42.666667938232422"/>
     </resources>
 </document>

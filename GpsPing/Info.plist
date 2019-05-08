@@ -19,7 +19,7 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>42</string>
+	<string>50</string>
 	<key>Fabric</key>
 	<dict>
 		<key>APIKey</key>
@@ -101,13 +101,13 @@
 	<key>NSCameraUsageDescription</key>
 	<string>Accesing camera to save tracker photo</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>Accessing location to determine your address</string>
+	<string>We will use your location to detect distance to your trackers, and share location with friends, who are subscribed on you</string>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string>Accessing location to determine your address</string>
+	<string>We will use your location to detect distance to your trackers, and share location with friends, who are subscribed on you</string>
 	<key>NSLocationUsageDescription</key>
-	<string>Accessing location to determine your address</string>
+	<string>We will use your location to detect distance to your trackers, and share location with friends, who are subscribed on you</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Accessing location to determine your address</string>
+	<string>We will use your location to detect distance to your trackers, and share location with friends, who are subscribed on you</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
 	<string>Accesing photo library to save screenshots</string>
 	<key>NSPhotoLibraryUsageDescription</key>

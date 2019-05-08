@@ -22,3 +22,9 @@
 
 /* Class = "UIButton"; normalTitle = "FAQ"; ObjectID = "LPc-gy-waf"; */
 "LPc-gy-waf.normalTitle" = "Problem løsing";
+
+
+/* Class = "UIButton"; normalTitle = "Mounthly Subscription"; ObjectID = "EDT-Yk-wnn"; */
+
+"EDT-Yk-wnn.normalTitle" = "Månedlig abonnement";
+

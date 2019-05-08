@@ -1,0 +1,9 @@
+
+/* Class = "UINavigationItem"; title = "Mounthly Subscription"; ObjectID = "ley-cG-1Ey"; */
+"ley-cG-1Ey.title" = "Månedlig abonnement";
+
+/* Class = "UILabel"; text = "Monthly Subscription - $2.99"; ObjectID = "jVG-pN-2aB"; */
+"jVG-pN-2aB.text" = "Månedlig abonnement - 33 NOK";
+
+/* Class = "UILabel"; text = "Your subscription is valid until"; ObjectID = "Onj-bt-YdU"; */
+"Onj-bt-YdU.text" = "Ditt abonnement er åpent til";

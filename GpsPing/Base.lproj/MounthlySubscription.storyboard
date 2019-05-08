@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BeL-bD-gFF">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Mounthly Subscription-->
+        <scene sceneID="Jjq-jT-jCh">
+            <objects>
+                <viewController storyboardIdentifier="ASMounthlySubscriptionViewController" id="BeL-bD-gFF" customClass="ASMounthlySubscriptionViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Yqs-P9-pRS"/>
+                        <viewControllerLayoutGuide type="bottom" id="78O-ph-X5f"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="SD0-LU-6r4">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" indicatorStyle="white" translatesAutoresizingMaskIntoConstraints="NO" id="tGO-uK-Gq2">
+                                <rect key="frame" x="16" y="20" width="288" height="548"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gNH-gR-toj">
+                                        <rect key="frame" x="0.0" y="0.0" width="288" height="600"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Monthly Subscription - $2.99" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jVG-pN-2aB">
+                                                <rect key="frame" x="8" y="8" width="272" height="21"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="NcE-xs-wbp">
+                                                <rect key="frame" x="8" y="37" width="272" height="250"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="250" id="adc-Rz-l6y"/>
+                                                </constraints>
+                                                <string key="text">Monthly subscription to friends trackers and position.   • Payment will be charged to iTunes  Account at confirmation of purchase.   • Subscription automatically renews unless auto-renew is turned off at least 24-hours before the end of the current period.   • Account will be charged for renewal within 24-hours prior to the end of the current period.   • Subscriptions may be managed by the user and auto-renewal may be turned off after purchase. </string>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your subscription is valid until" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Onj-bt-YdU">
+                                                <rect key="frame" x="8" y="295" width="169" height="15"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N7n-hz-IW1">
+                                                <rect key="frame" x="254" y="295" width="26" height="15"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I8B-e5-3gJ" customClass="ASButton">
+                                                <rect key="frame" x="0.0" y="350" width="288" height="65"/>
+                                                <color key="backgroundColor" red="0.33333333329999998" green="0.5450980392" blue="0.1843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="65" id="mF6-w1-wbu"/>
+                                                </constraints>
+                                                <state key="normal" title="Button">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="onTuchSubscriptionButton:" destination="BeL-bD-gFF" eventType="touchUpInside" id="4qy-Qx-Ymb"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u1v-KT-4ke" customClass="ASButton">
+                                                <rect key="frame" x="0.0" y="423" width="288" height="65"/>
+                                                <color key="backgroundColor" red="0.33333333329999998" green="0.5450980392" blue="0.1843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <state key="normal" title="Restore subscription">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="onTuchRestoreSubscriptionButton:" destination="BeL-bD-gFF" eventType="touchUpInside" id="Aoa-2J-5y5"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qtr-Ir-73V">
+                                                <rect key="frame" x="69" y="496" width="150" height="30"/>
+                                                <state key="normal" title="Terms and Conditions">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="openTermsAndConditions:" destination="BeL-bD-gFF" eventType="touchUpInside" id="art-Y3-9qe"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F9M-ny-dFH">
+                                                <rect key="frame" x="96.5" y="534" width="95" height="30"/>
+                                                <state key="normal" title="Privacy Policy">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="openPrivacyPolicy:" destination="BeL-bD-gFF" eventType="touchUpInside" id="esd-1p-fex"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="u1v-KT-4ke" firstAttribute="top" secondItem="I8B-e5-3gJ" secondAttribute="bottom" constant="8" id="63E-95-Lmd"/>
+                                            <constraint firstAttribute="trailing" secondItem="NcE-xs-wbp" secondAttribute="trailing" constant="8" id="9af-O7-KXi"/>
+                                            <constraint firstItem="I8B-e5-3gJ" firstAttribute="top" secondItem="Onj-bt-YdU" secondAttribute="bottom" constant="40" id="BRh-zN-tZW"/>
+                                            <constraint firstItem="u1v-KT-4ke" firstAttribute="leading" secondItem="gNH-gR-toj" secondAttribute="leading" id="Erm-Rh-BgX"/>
+                                            <constraint firstAttribute="trailing" secondItem="jVG-pN-2aB" secondAttribute="trailing" constant="8" id="HaL-w6-KJP"/>
+                                            <constraint firstItem="NcE-xs-wbp" firstAttribute="top" secondItem="jVG-pN-2aB" secondAttribute="bottom" constant="8" id="LtP-V9-CKJ"/>
+                                            <constraint firstItem="N7n-hz-IW1" firstAttribute="top" secondItem="NcE-xs-wbp" secondAttribute="bottom" constant="8" id="OKA-0V-WM6"/>
+                                            <constraint firstAttribute="trailing" secondItem="u1v-KT-4ke" secondAttribute="trailing" id="OQq-HU-Zmw"/>
+                                            <constraint firstItem="u1v-KT-4ke" firstAttribute="width" secondItem="I8B-e5-3gJ" secondAttribute="width" id="Ot9-WI-4wh"/>
+                                            <constraint firstItem="jVG-pN-2aB" firstAttribute="leading" secondItem="gNH-gR-toj" secondAttribute="leading" constant="8" id="PQw-4p-3vz"/>
+                                            <constraint firstItem="I8B-e5-3gJ" firstAttribute="centerX" secondItem="gNH-gR-toj" secondAttribute="centerX" id="QpY-ke-Q4m"/>
+                                            <constraint firstItem="jVG-pN-2aB" firstAttribute="top" secondItem="gNH-gR-toj" secondAttribute="top" constant="8" id="R3O-v0-9pl"/>
+                                            <constraint firstAttribute="height" constant="600" id="RhB-uw-qc4"/>
+                                            <constraint firstItem="Qtr-Ir-73V" firstAttribute="top" secondItem="u1v-KT-4ke" secondAttribute="bottom" constant="8" id="ZHA-bf-1GX"/>
+                                            <constraint firstItem="F9M-ny-dFH" firstAttribute="top" secondItem="Qtr-Ir-73V" secondAttribute="bottom" constant="8" id="aIw-di-wcf"/>
+                                            <constraint firstAttribute="trailing" secondItem="N7n-hz-IW1" secondAttribute="trailing" constant="8" id="aTD-6g-MtD"/>
+                                            <constraint firstItem="F9M-ny-dFH" firstAttribute="centerX" secondItem="gNH-gR-toj" secondAttribute="centerX" id="bSs-sr-OPf"/>
+                                            <constraint firstItem="I8B-e5-3gJ" firstAttribute="leading" secondItem="gNH-gR-toj" secondAttribute="leading" id="cNd-53-R2s"/>
+                                            <constraint firstItem="Onj-bt-YdU" firstAttribute="leading" secondItem="gNH-gR-toj" secondAttribute="leading" constant="8" id="fqv-zR-LWx"/>
+                                            <constraint firstItem="Qtr-Ir-73V" firstAttribute="centerX" secondItem="gNH-gR-toj" secondAttribute="centerX" id="gZh-Ra-v9n"/>
+                                            <constraint firstItem="NcE-xs-wbp" firstAttribute="leading" secondItem="gNH-gR-toj" secondAttribute="leading" constant="8" id="oXu-aJ-IXW"/>
+                                            <constraint firstItem="u1v-KT-4ke" firstAttribute="height" secondItem="I8B-e5-3gJ" secondAttribute="height" id="s3z-OI-YB2"/>
+                                            <constraint firstItem="Onj-bt-YdU" firstAttribute="top" secondItem="NcE-xs-wbp" secondAttribute="bottom" constant="8" id="tve-7D-sq3"/>
+                                            <constraint firstAttribute="trailing" secondItem="I8B-e5-3gJ" secondAttribute="trailing" id="uGM-YE-jzd"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="gNH-gR-toj" firstAttribute="leading" secondItem="tGO-uK-Gq2" secondAttribute="leading" id="3PH-FT-Xil"/>
+                                    <constraint firstItem="gNH-gR-toj" firstAttribute="top" secondItem="tGO-uK-Gq2" secondAttribute="top" id="lc5-mR-aXz"/>
+                                    <constraint firstAttribute="trailing" secondItem="gNH-gR-toj" secondAttribute="trailing" id="n4s-p7-NID"/>
+                                    <constraint firstAttribute="bottom" secondItem="gNH-gR-toj" secondAttribute="bottom" id="uvL-h3-UWp"/>
+                                    <constraint firstItem="gNH-gR-toj" firstAttribute="width" secondItem="tGO-uK-Gq2" secondAttribute="width" id="w3D-Cc-f18"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="tGO-uK-Gq2" firstAttribute="top" secondItem="Yqs-P9-pRS" secondAttribute="bottom" id="Mbc-jd-gtU"/>
+                            <constraint firstItem="tGO-uK-Gq2" firstAttribute="leading" secondItem="SD0-LU-6r4" secondAttribute="leadingMargin" id="lq9-3j-5I8"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="tGO-uK-Gq2" secondAttribute="bottom" id="tdo-7i-NJv"/>
+                            <constraint firstItem="tGO-uK-Gq2" firstAttribute="trailing" secondItem="SD0-LU-6r4" secondAttribute="trailingMargin" id="zhu-A7-DbM"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Mounthly Subscription" id="ley-cG-1Ey"/>
+                    <connections>
+                        <outlet property="dateSubscription" destination="N7n-hz-IW1" id="M2Z-2O-APo"/>
+                        <outlet property="privacyPolicyButton" destination="F9M-ny-dFH" id="u8J-b1-f9C"/>
+                        <outlet property="restoreSubscriptionButton" destination="u1v-KT-4ke" id="xpF-qQ-soL"/>
+                        <outlet property="subscriptionButton" destination="I8B-e5-3gJ" id="eRg-Fq-oKg"/>
+                        <outlet property="subscriptionTextView" destination="NcE-xs-wbp" id="6zu-ZJ-cPS"/>
+                        <outlet property="termsAndConditionsButton" destination="Qtr-Ir-73V" id="02J-nI-nwa"/>
+                        <outlet property="validSubscriptionLabel" destination="Onj-bt-YdU" id="YFI-MA-n3B"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZWf-vC-EF5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="136.875" y="67.605633802816897"/>
+        </scene>
+    </scenes>
+</document>

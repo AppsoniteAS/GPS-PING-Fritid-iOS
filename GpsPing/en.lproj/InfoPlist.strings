@@ -1,4 +1,4 @@
-NSLocationAlwaysUsageDescription = "Accessing location to determine your address while the app is active or in background";
+NSLocationAlwaysUsageDescription = "We will use your location to detect distance to your trackers, and share location with friends, who are subscribed on you";
 NSLocationUsageDescription = "Accessing location to determine your address";
 NSLocationWhenInUseUsageDescription = "Accessing location to determine your address while the app is active";
-NSLocationAlwaysAndWhenInUseUsageDescription = "Accessing location to determine your address while the app is active or in background";
+NSLocationAlwaysAndWhenInUseUsageDescription = "We will use your location to detect distance to your trackers, and share location with friends, who are subscribed on you";

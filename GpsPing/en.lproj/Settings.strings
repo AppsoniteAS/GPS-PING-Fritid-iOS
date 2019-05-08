@@ -22,3 +22,7 @@
 
 /* Class = "UIButton"; normalTitle = "About"; ObjectID = "zhj-4V-9NB"; */
 "zhj-4V-9NB.normalTitle" = "About";
+
+/* Class = "UIButton"; normalTitle = "Mounthly Subscription"; ObjectID = "EDT-Yk-wnn"; */
+
+"EDT-Yk-wnn.normalTitle" = "Mounthly Subscription";

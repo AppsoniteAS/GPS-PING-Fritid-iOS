@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2135D6682270484D007CD09E /* MounthlySubscription.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2135D66A2270484D007CD09E /* MounthlySubscription.storyboard */; };
 		218B1EB81D757C8F00E19FD7 /* ASHelpPopupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 218B1EB71D757C8F00E19FD7 /* ASHelpPopupViewController.m */; };
+		21B4A432226F534E00179E20 /* ASMounthlySubscriptionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21B4A431226F534E00179E20 /* ASMounthlySubscriptionViewController.m */; };
 		4042A7D11D2CEFBD009D2332 /* CompassController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4042A7D01D2CEFBD009D2332 /* CompassController.m */; };
 		4042A7D41D2D0712009D2332 /* WMSTileOverlay.m in Sources */ = {isa = PBXBuildFile; fileRef = 4042A7D31D2D0712009D2332 /* WMSTileOverlay.m */; };
 		44E25E302077D2FA009A3BC0 /* ASRestorePasswordController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44E25E2F2077D2FA009A3BC0 /* ASRestorePasswordController.m */; };
@@ -165,10 +167,18 @@
 
 /* Begin PBXFileReference section */
 		1173EA6874AD60AE6C7B3250 /* Pods-GpsPing.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GpsPing.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GpsPing/Pods-GpsPing.debug.xcconfig"; sourceTree = "<group>"; };
+		2135D6692270484D007CD09E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MounthlySubscription.storyboard; sourceTree = "<group>"; };
+		2135D66C22704857007CD09E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/MounthlySubscription.strings; sourceTree = "<group>"; };
+		2135D66E2270485D007CD09E /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/MounthlySubscription.strings; sourceTree = "<group>"; };
+		2135D6702270485F007CD09E /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/MounthlySubscription.strings; sourceTree = "<group>"; };
+		2135D67222704861007CD09E /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/MounthlySubscription.strings; sourceTree = "<group>"; };
+		2135D67422704862007CD09E /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/MounthlySubscription.strings; sourceTree = "<group>"; };
 		218B1EB01D745D1D00E19FD7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Profile.strings; sourceTree = "<group>"; };
 		218B1EB21D745FC000E19FD7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Auth.strings; sourceTree = "<group>"; };
 		218B1EB61D757C8F00E19FD7 /* ASHelpPopupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASHelpPopupViewController.h; sourceTree = "<group>"; };
 		218B1EB71D757C8F00E19FD7 /* ASHelpPopupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASHelpPopupViewController.m; sourceTree = "<group>"; };
+		21B4A430226F534E00179E20 /* ASMounthlySubscriptionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ASMounthlySubscriptionViewController.h; sourceTree = "<group>"; };
+		21B4A431226F534E00179E20 /* ASMounthlySubscriptionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ASMounthlySubscriptionViewController.m; sourceTree = "<group>"; };
 		4042A7CF1D2CEFBD009D2332 /* CompassController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompassController.h; sourceTree = "<group>"; };
 		4042A7D01D2CEFBD009D2332 /* CompassController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompassController.m; sourceTree = "<group>"; };
 		4042A7D21D2D0712009D2332 /* WMSTileOverlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMSTileOverlay.h; sourceTree = "<group>"; };
@@ -543,6 +553,16 @@
 				44FA0C5420764C3C00F58110 /* ASMarcelPopupController.m */,
 			);
 			name = Help;
+			sourceTree = "<group>";
+		};
+		21B4A42A226F51A600179E20 /* Mounthly Subscribtion */ = {
+			isa = PBXGroup;
+			children = (
+				2135D66A2270484D007CD09E /* MounthlySubscription.storyboard */,
+				21B4A430226F534E00179E20 /* ASMounthlySubscriptionViewController.h */,
+				21B4A431226F534E00179E20 /* ASMounthlySubscriptionViewController.m */,
+			);
+			name = "Mounthly Subscribtion";
 			sourceTree = "<group>";
 		};
 		6B999BB8841C694C542AA283 /* Pods */ = {
@@ -966,6 +986,7 @@
 		AB89467E1C4E6B2B002E86C8 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				21B4A42A226F51A600179E20 /* Mounthly Subscribtion */,
 				A6D194EC1D816FF800394F31 /* FAQ */,
 				218B1EB31D755B8900E19FD7 /* Help */,
 				A68C1BA01C4E4788000E2BA6 /* Main screen */,
@@ -1036,9 +1057,7 @@
 				A68C1B2A1C4CE460000E2BA6 /* Sources */,
 				A68C1B2B1C4CE460000E2BA6 /* Frameworks */,
 				A68C1B2C1C4CE460000E2BA6 /* Resources */,
-				A5C41E725E322862948ACD98 /* [CP] Embed Pods Frameworks */,
 				75093ACCB7993C6C42A400E9 /* [CP] Copy Pods Resources */,
-				3C62225C9A682B9AC226CE51 /* 📦 Embed Pods Frameworks */,
 				1726F7192A967D2007F78BD3 /* 📦 Copy Pods Resources */,
 				E9B93A161F6AD25100653A8E /* ShellScript */,
 			);
@@ -1134,6 +1153,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 				nb,
@@ -1181,6 +1201,7 @@
 				A6624DF71D37D90900CDA336 /* TrackerConfiguration.storyboard in Resources */,
 				A68C1B761C4D24DC000E2BA6 /* Roboto-BlackItalic.ttf in Resources */,
 				ABA221501C79E58100AE6F87 /* Geofence.storyboard in Resources */,
+				2135D6682270484D007CD09E /* MounthlySubscription.storyboard in Resources */,
 				A68C1B7E1C4D24DC000E2BA6 /* Roboto-Light.ttf in Resources */,
 				E9CFA3721F6144BD00516EE2 /* Home.gpx in Resources */,
 				A68C1B811C4D24DC000E2BA6 /* Roboto-MediumItalic.ttf in Resources */,
@@ -1240,21 +1261,6 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GpsPing/Pods-GpsPing-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		3C62225C9A682B9AC226CE51 /* 📦 Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "📦 Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GpsPing/Pods-GpsPing-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		51987DA7A85E487CD8D58EA7 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1276,13 +1282,13 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-GpsPing/Pods-GpsPing-resources.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-GpsPing/Pods-GpsPing-resources.sh",
 				"${PODS_ROOT}/DateTools/DateTools/DateTools.bundle",
 				"${PODS_ROOT}/ErrorKit/ErrorKit/Core/ErrorKit.bundle",
 				"${PODS_ROOT}/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle",
 				"${PODS_ROOT}/THCalendarDatePicker/THCalendarDatePicker/THDateDay.xib",
 				"${PODS_ROOT}/THCalendarDatePicker/THCalendarDatePicker/THDatePickerViewController.xib",
-				"${PODS_ROOT}/THCalendarDatePicker/THCalendarDatePicker/Images.xcassets",
+				"${PODS_CONFIGURATION_BUILD_DIR}/THCalendarDatePicker/THCalendarDatePicker.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/mgrs/mgrs.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
@@ -1292,12 +1298,12 @@
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SVProgressHUD.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/THDateDay.nib",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/THDatePickerViewController.nib",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Images.xcassets",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/THCalendarDatePicker.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/mgrs.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GpsPing/Pods-GpsPing-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GpsPing/Pods-GpsPing-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		85679F19064FAB0AB0FE3096 /* [CP] Check Pods Manifest.lock */ = {
@@ -1316,21 +1322,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		A5C41E725E322862948ACD98 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GpsPing/Pods-GpsPing-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		E9B93A161F6AD25100653A8E /* ShellScript */ = {
@@ -1394,6 +1385,7 @@
 				AB5428061C5BA1B300F33E8B /* ASAddFriendModel.m in Sources */,
 				44E25E332077DEB7009A3BC0 /* ASRestoreViewModel.m in Sources */,
 				A6F6A74B1C5122210009579A /* ASSmsManager.m in Sources */,
+				21B4A432226F534E00179E20 /* ASMounthlySubscriptionViewController.m in Sources */,
 				E98C985B1F815A1F00A028DC /* ASMapDetailsButton.m in Sources */,
 				E9A89C601FB3591200408AA7 /* ASCashedTileOverlay.m in Sources */,
 				AB8946A81C549516002E86C8 /* ASUserProfileModel.m in Sources */,
@@ -1473,6 +1465,19 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		2135D66A2270484D007CD09E /* MounthlySubscription.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2135D6692270484D007CD09E /* Base */,
+				2135D66C22704857007CD09E /* en */,
+				2135D66E2270485D007CD09E /* nb */,
+				2135D6702270485F007CD09E /* fi */,
+				2135D67222704861007CD09E /* da */,
+				2135D67422704862007CD09E /* sv */,
+			);
+			name = MounthlySubscription.storyboard;
+			sourceTree = "<group>";
+		};
 		A60C46971D8035A800141ED3 /* Intro.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -1856,7 +1861,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = GpsPing/GpsPing.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -1870,7 +1875,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.gpsping.tracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "af0e5735-8cd3-402f-b3af-8aaf5245fcdd";
-				PROVISIONING_PROFILE_SPECIFIER = appdev2;
+				PROVISIONING_PROFILE_SPECIFIER = GpsPingDevV2;
 			};
 			name = Debug;
 		};
@@ -1893,7 +1898,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.gpsping.tracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "eb75fe45-9d46-4592-a60d-e433216aa9e7";
-				PROVISIONING_PROFILE_SPECIFIER = "App Store_eu_1";
+				PROVISIONING_PROFILE_SPECIFIER = GpsPingDistribution;
 			};
 			name = Release;
 		};

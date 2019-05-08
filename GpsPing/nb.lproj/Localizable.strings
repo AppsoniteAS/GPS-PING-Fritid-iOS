@@ -78,6 +78,13 @@
 "Add tracker" = "Legg til tracker";
 "Restore" = "Gjenopprett kjøp";
 "Subscribe" = "Abonner";
+"cancel_subscription" = "Stopp abonnement";
+"valid_subscription" = "Ditt abonnement er åpent til";
+"subscription_text_view" = "Månedelig abonnement for å se dine venners trackere.   • Betaling vil bli belastet din iTunes konto.   • Abonnementet fornyes automatisk hvis du ikke slår av auto-forny minst 24 timer før neste periode.   • Kontoen vil ble belastet for fornying av abonementet innenfor en 24 timers periode I slutten av gjeldende periode.   • Abonnementet kan bli administrert av brukeren og auto-forny kan bli slått av ved å gå på innstillinger etter at kjøpet er gjort. ";
+
+
+"privacy_policy" = "Personvernregler";
+"terms_and_Conditions" = "Avtalevilkår";
 "Please subscribe" = "Vennligst abonner";
 "No data" = "Ingen data";
 
@@ -142,3 +149,10 @@
 
 "restore_password" = "Gjenopprett passord";
 "restore_success" = "Suksess";
+
+
+"into_1" = "1nb";
+"into_2" = "2nb";
+"into_3" = "3nb";
+"into_4" = "4nb";
+"into_5" = "5nb";

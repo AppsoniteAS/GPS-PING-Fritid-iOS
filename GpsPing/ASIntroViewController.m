@@ -30,11 +30,11 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.iv1.image = [ UIImage imageNamed: NSLocalizedString( @"into_1", nil)] ;
-    self.iv2.image = [ UIImage imageNamed: NSLocalizedString( @"into_2", nil)] ;
-    self.iv3.image = [ UIImage imageNamed: NSLocalizedString( @"into_3", nil)] ;
-    self.iv4.image = [ UIImage imageNamed: NSLocalizedString( @"into_4", nil)] ;
-    self.iv5.image = [ UIImage imageNamed: NSLocalizedString( @"into_5", nil)] ;
+    self.iv1.image = [ UIImage imageNamed: NSLocalizedString( @"into_1", @"1en")] ;
+    self.iv2.image = [ UIImage imageNamed: NSLocalizedString( @"into_2", @"2en")] ;
+    self.iv3.image = [ UIImage imageNamed: NSLocalizedString( @"into_3", @"3en")] ;
+    self.iv4.image = [ UIImage imageNamed: NSLocalizedString( @"into_4", @"4en")] ;
+    self.iv5.image = [ UIImage imageNamed: NSLocalizedString( @"into_5", @"5en")] ;
 
     
     self.label1.hidden = true;

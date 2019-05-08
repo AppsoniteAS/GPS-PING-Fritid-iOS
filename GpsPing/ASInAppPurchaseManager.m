@@ -10,13 +10,13 @@
 #import <StoreKit/StoreKit.h>
 #import <CocoaLumberjack.h>
 #import "NSDate+DateTools.h"
+#import "ASMounthlySubscriptionViewController.h"
 
 static DDLogLevel ddLogLevel = DDLogLevelDebug;
-
 #define kYearlySubscriptionProductIdentifier @"Monthly_Sub"
 
 @interface ASInAppPurchaseManager() <SKProductsRequestDelegate, SKPaymentTransactionObserver>
-
+@property ASMounthlySubscriptionViewController* mounthlyViewController;
 @end
 
 @implementation ASInAppPurchaseManager
@@ -25,20 +25,31 @@ static DDLogLevel ddLogLevel = DDLogLevelDebug;
     self = [super init];
     if (self) {
        // [self initialize];
+        [[SKPaymentQueue defaultQueue] addTransactionObserver:self];
     }
     return self;
 }
 
-- (void)initialize {
-    NSDate *date = [[NSUserDefaults standardUserDefaults] objectForKey:@"areSubscribedAtDate"];
-    [[NSUserDefaults standardUserDefaults] synchronize];
-    self.areSubscribed = [[[NSDate date] dateBySubtractingYears:1] isEarlierThan:date];
+
+//- (void)initialize {
+//    NSDate *date = [[NSUserDefaults standardUserDefaults] objectForKey:@"areSubscribedAtDate"];
+//    [[NSUserDefaults standardUserDefaults] synchronize];
+//    self.areSubscribed = [[[NSDate date] dateBySubtractingYears:1] isEarlierThan:date];
+//}
+
+
+-(void)getSubscriptionPeriod{
+    [[SKPaymentQueue defaultQueue] restoreCompletedTransactions];
 }
 
 - (BOOL)areSubscribed{
-    NSDate *date = [[NSUserDefaults standardUserDefaults] objectForKey:@"areSubscribedAtDate"];
+    
+    
+    
+    
+    NSDate *date = [[NSUserDefaults standardUserDefaults] objectForKey:@"subscriptionExpired"];
     [[NSUserDefaults standardUserDefaults] synchronize];
-    return [[[NSDate date] dateBySubtractingYears:1] isEarlierThan:date];
+    return [[NSDate date] isEarlierThan:date];
 }
 
 - (void)subscribe {
@@ -60,7 +71,6 @@ static DDLogLevel ddLogLevel = DDLogLevelDebug;
 - (void)restore {
     DDLogDebug(@"User requests to restore subscribtion");
     
-    [[SKPaymentQueue defaultQueue] addTransactionObserver:self];
     [[SKPaymentQueue defaultQueue] restoreCompletedTransactions];
 }
 
@@ -79,15 +89,35 @@ static DDLogLevel ddLogLevel = DDLogLevelDebug;
 
 - (void)purchase:(SKProduct *)product{
     SKPayment *payment = [SKPayment paymentWithProduct:product];
-    [[SKPaymentQueue defaultQueue] addTransactionObserver:self];
     [[SKPaymentQueue defaultQueue] addPayment:payment];
+    
 }
 
 - (void)doSubcribeWithDate:(NSDate*)date {
-    [[NSUserDefaults standardUserDefaults] setObject:date forKey:@"areSubscribedAtDate"];
-    [[NSUserDefaults standardUserDefaults] synchronize];
-    [[NSUbiquitousKeyValueStore defaultStore] setObject:date forKey:@"areSubscribedAtDate"];
-    [self.delegate openConnect];
+    //currentMunt
+    ///date = date dateByAddingMonths: 
+    //[date dateByAddingMonths:<#(NSInteger)#>]
+//
+//    [[NSUserDefaults standardUserDefaults] setObject:date forKey:@"areSubscribedAtDate"];
+//    [[NSUserDefaults standardUserDefaults] synchronize];
+//    [[NSUbiquitousKeyValueStore defaultStore] setObject:date forKey:@"areSubscribedAtDate"];
+    //[self.delegate openConnect];
+}
+
+-(void)updateNextSubscriptionDate:(NSDate*)transactionDate {
+    NSDate *date = [NSDate date];
+    NSDateComponents* comps = [[NSDateComponents alloc]init];
+    comps.year = date.year;
+    comps.month = date.month;
+    comps.day = date.day;
+    if(date.day >= transactionDate.day) {
+        comps.month++;
+    }
+    comps.day =transactionDate.day;
+    NSCalendar* calendar = [NSCalendar currentCalendar];
+    date = [calendar dateFromComponents:comps];
+    [[NSUserDefaults standardUserDefaults] setObject:date forKey:@"subscriptionExpired"];
+    
 }
 
 #pragma mark - SKPaymentTransactionObserver
@@ -96,8 +126,12 @@ static DDLogLevel ddLogLevel = DDLogLevelDebug;
     bool restored = false;
     for(SKPaymentTransaction *transaction in queue.transactions){
         if(transaction.transactionState == SKPaymentTransactionStateRestored || transaction.transactionState == SKPaymentTransactionStatePurchased){
-            DDLogDebug(@"Transaction state -> Restored");
-            [self doSubcribeWithDate:[[NSUbiquitousKeyValueStore defaultStore] objectForKey:@"areSubscribedAtDate"]];
+//            DDLogDebug(@"Transaction state -> Restored");
+           // [self doSubcribeWithDate:[[NSUbiquitousKeyValueStore defaultStore] objectForKey:@"areSubscribedAtDate"]];
+            //transaction.transactionDate
+            
+            [self updateNextSubscriptionDate: transaction.transactionDate];
+            
             [[SKPaymentQueue defaultQueue] finishTransaction:transaction];
             restored = true;
             break;
@@ -120,13 +154,15 @@ static DDLogLevel ddLogLevel = DDLogLevelDebug;
             case SKPaymentTransactionStatePurchasing: DDLogDebug(@"Transaction state -> Purchasing");
                 break;
             case SKPaymentTransactionStatePurchased:
-                [self doSubcribeWithDate:[NSDate date]];
+                    [self updateNextSubscriptionDate: [NSDate date]];
                 [[SKPaymentQueue defaultQueue] finishTransaction:transaction];
+
                 DDLogDebug(@"Transaction state -> Purchased");
                 break;
             case SKPaymentTransactionStateRestored:
                 DDLogDebug(@"Transaction state -> Restored");
                 [[SKPaymentQueue defaultQueue] finishTransaction:transaction];
+
                 break;
             case SKPaymentTransactionStateFailed:
                 if(transaction.error.code == SKErrorPaymentCancelled){
