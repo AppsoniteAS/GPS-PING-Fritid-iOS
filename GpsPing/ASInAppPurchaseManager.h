@@ -13,10 +13,16 @@
 -(void)openConnect;
 @end
 
+@protocol ASInAppPurchaseUIDelegate <NSObject>
+@required
+-(void)updateUI2;
+@end
+
 @interface ASInAppPurchaseManager : NSObject
 @property (assign, nonatomic) BOOL areSubscribed;
 
 @property (nonatomic, weak)  id <ASInAppPurchaseDelegate> delegate;
+@property (nonatomic, weak)  id <ASInAppPurchaseUIDelegate> uiDelegate;
 -(void)getSubscriptionPeriod;
 - (void)subscribe;
 - (void)restore;

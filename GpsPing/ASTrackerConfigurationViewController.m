@@ -118,7 +118,7 @@ objection_requires(@keypath(ASTrackerConfigurationViewController.new, apiControl
 {
     NSString *className;
     NSString* t = [trackerModel.trackerType stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-    if ([t isEqualToString:kASTrackerTypeLK209] || [t isEqualToString:kASTrackerTypeVT600] || [t isEqualToString:kASTrackerTypeLK330]  || [t isEqualToString:kASTrackerTypeTkA9]){
+    if ([t isEqualToString:kASTrackerTypeLK209] || [t isEqualToString:kASTrackerTypeVT600] || [t isEqualToString:kASTrackerTypeLK330]  || [t isEqualToString:kASTrackerTypeTkA9] || [t isEqualToString:kASTrackerTypeD79]){
         className = @"ASTrackerConfigurationViewController_Industry";
     } else if ([t isEqualToString:kASTrackerTypeTkStarBike] ||  [t isEqualToString:kASTrackerTypeTkStarPet]){
             className = [NSString stringWithFormat:@"%@_%@", NSStringFromClass([ASTrackerConfigurationViewController class]),

@@ -156,13 +156,23 @@ static DDLogLevel ddLogLevel = DDLogLevelDebug;
             case SKPaymentTransactionStatePurchased:
                     [self updateNextSubscriptionDate: [NSDate date]];
                 [[SKPaymentQueue defaultQueue] finishTransaction:transaction];
-
+                if(self.uiDelegate != nil){
+                    
+//                    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+//                        dispatch_async(dispatch_get_main_queue(), ^{
+                            [self.uiDelegate updateUI2];
+//                        });s
+//                    });
+                    
+                }
                 DDLogDebug(@"Transaction state -> Purchased");
                 break;
             case SKPaymentTransactionStateRestored:
                 DDLogDebug(@"Transaction state -> Restored");
                 [[SKPaymentQueue defaultQueue] finishTransaction:transaction];
-
+                if(self.uiDelegate != nil){
+                    [self.uiDelegate updateUI2];
+                }
                 break;
             case SKPaymentTransactionStateFailed:
                 if(transaction.error.code == SKErrorPaymentCancelled){
