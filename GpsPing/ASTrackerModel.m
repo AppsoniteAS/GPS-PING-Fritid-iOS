@@ -293,9 +293,9 @@ NSString* const kASDogSleepModeIsOn   = @"kASDogSleepModeIsOn";
             result = @[@"pw,123456,apn,internet.ts.m2m,,,23820#",
                        [NSString stringWithFormat:@"pw,123456,ip,%s,5093#", buff]];
         } else if([self.trackerType isEqualToString:kASTrackerTypeD79]) {
-            
+            //todo if needed koma ater ip
             result = @[@"pw,123456,apn,telenor#",
-                       [NSString stringWithFormat:@"pw,123456,ip,%s,5093#", buff]];
+                       [NSString stringWithFormat:@"pw,123456,ip %s,5093#", buff]];
             
         } else if([self.trackerType isEqualToString:kASTrackerTypeTkNew]){
             
@@ -471,6 +471,8 @@ NSString* const kASDogSleepModeIsOn   = @"kASDogSleepModeIsOn";
         return [NSString stringWithFormat:@"Upload123456 %03d", (int)signalRate];
     } else if ([t isEqualToString:kASTrackerTypeTkS1] || [self.trackerType isEqualToString:kASTrackerTypeTkA9]){
         return [NSString stringWithFormat:@"pw,123456,upload,%03d#", (int)signalRate];
+    }else if([t isEqualToString:kASTrackerTypeD79]){
+        return [NSString stringWithFormat:@"pw,123456,upload,%03d#", (int)signalRate];
     }
     return nil;
 }
@@ -522,7 +524,7 @@ NSString* const kASDogSleepModeIsOn   = @"kASDogSleepModeIsOn";
 
 -(NSString*)getSmsTextForShutdown {
     NSString* t = self.trackerType ;
-    if ([t isEqualToString:kASTrackerTypeTkS1] || [t isEqualToString:kASTrackerTypeTkA9]){
+    if ([t isEqualToString:kASTrackerTypeTkS1] || [t isEqualToString:kASTrackerTypeTkA9] || [t isEqualToString:kASTrackerTypeD79]){
         return @"pw,123456,poweroff#";
     }
     return nil;

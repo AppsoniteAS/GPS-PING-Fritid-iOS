@@ -234,7 +234,7 @@ objection_requires(@keypath(ASTrackerConfigurationViewController.new, apiControl
     
     [self configPickers];
     
-    self.isS1 = [self.trackerObject.trackerType isEqualToString:kASTrackerTypeTkA9] || [self.trackerObject.trackerType isEqualToString:kASTrackerTypeTkS1];
+    self.isS1 = [self.trackerObject.trackerType isEqualToString:kASTrackerTypeTkA9] || [self.trackerObject.trackerType isEqualToString:kASTrackerTypeTkS1] || [self.trackerObject.trackerType isEqualToString:kASTrackerTypeD79];
     
     self.textFieldYards.text      = self.yards;
     RAC(self, yards)    = self.textFieldYards.rac_textSignal;
