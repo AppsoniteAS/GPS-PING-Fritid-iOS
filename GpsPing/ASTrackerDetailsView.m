@@ -58,7 +58,8 @@
 -(void)configWithOwner:(ASFriendModel*)owner
                tracker:(ASDeviceModel*)deviceModel
                  point:(ASPointModel*)pointModel
-                 color:(UIColor*)color {
+                 color:(UIColor*)color
+                trackerType:(NSString*)type{
     if (owner && !deviceModel && !pointModel){
         self.labelTrackerName.text = owner.userName;
         self.profileImageView.image = [UIImage getUserAnnotationImageWithColor:color];
@@ -87,7 +88,14 @@
         }
     }
     
-    
+    NSString* tracker = [type stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    if([tracker isEqualToString:kASTrackerTypeTkS1] || [tracker isEqualToString:kASTrackerTypeD79]){
+        self.callBtn.enabled = YES;
+        [self.callBtn setAlpha:1];
+    }else{
+        self.callBtn.enabled = NO;
+        [self.callBtn setAlpha:0];
+    }
     
     
     if (pointModel) {
@@ -240,5 +248,4 @@
     location.longitude = longitude;
     self.labelGrsm.text = [MGRS MGRSfromCoordinate:location];
 }
-
 @end

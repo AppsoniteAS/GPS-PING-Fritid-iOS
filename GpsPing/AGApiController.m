@@ -314,9 +314,12 @@ objection_initializer(initWithConfiguration:);
     NSDictionary *params = @{@"imageName":name,
                              @"imei_number":trackerId};
     params = [self addAuthParamsByUpdatingParams:params];
+    NSLog(@"Request params: \n %@", params);
+
     return [self performHttpRequestWithAttempts:requestMethod
                                        resource:@"tracker/update_image"
                                      parameters:params];
+
 }
 
 -(RACSignal *)removeImageForTrackerId:(NSString*)trackerId

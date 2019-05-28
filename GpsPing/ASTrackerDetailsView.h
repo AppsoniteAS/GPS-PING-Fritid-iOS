@@ -33,6 +33,7 @@
 
 @property (nonatomic) IBOutlet UIImageView *imageViewGSM;
 @property (nonatomic) IBOutlet UIImageView *imageViewGPS;
+
 @property (nonatomic) IBOutlet ASMapDetailsButton *btnMap;
 @property (nonatomic) IBOutlet ASMapDetailsButton *btnEdit;
 @property (nonatomic) IBOutlet UIImageView *profileImageView;
@@ -57,6 +58,7 @@
 -(void)configWithOwner:(ASFriendModel*)owner
                tracker:(ASDeviceModel*)deviceModel
                  point:(ASPointModel*)pointModel
-                 color:(UIColor*)color;
+                 color:(UIColor*)color
+                 trackerType:(NSString*)type;
 
 @end

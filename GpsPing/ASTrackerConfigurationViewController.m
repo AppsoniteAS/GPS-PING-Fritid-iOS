@@ -118,12 +118,12 @@ objection_requires(@keypath(ASTrackerConfigurationViewController.new, apiControl
 {
     NSString *className;
     NSString* t = [trackerModel.trackerType stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-    if ([t isEqualToString:kASTrackerTypeLK209] || [t isEqualToString:kASTrackerTypeVT600] || [t isEqualToString:kASTrackerTypeLK330]  || [t isEqualToString:kASTrackerTypeTkA9] || [t isEqualToString:kASTrackerTypeD79]){
+    if ([t isEqualToString:kASTrackerTypeLK209] || [t isEqualToString:kASTrackerTypeVT600] || [t isEqualToString:kASTrackerTypeLK330]  || [t isEqualToString:kASTrackerTypeTkA9]){
         className = @"ASTrackerConfigurationViewController_Industry";
     } else if ([t isEqualToString:kASTrackerTypeTkStarBike] ||  [t isEqualToString:kASTrackerTypeTkStarPet]){
             className = [NSString stringWithFormat:@"%@_%@", NSStringFromClass([ASTrackerConfigurationViewController class]),
                                                               t];
-    } else if ([t isEqualToString:kASTrackerTypeTkS1]){
+    } else if ([t isEqualToString:kASTrackerTypeTkS1] || [t isEqualToString:kASTrackerTypeD79]){
         className = @"ASTrackerConfigurationViewController_S1";
         DDLogInfo(@"-->> S1");
     }
@@ -814,6 +814,7 @@ objection_requires(@keypath(ASTrackerConfigurationViewController.new, apiControl
         return [self.apiController updateImage:imageIdentifier forTrackerId:self.trackerObject.imeiNumber];
     }] subscribeNext:^(id x) {
         DDLogInfo(@"succefull upload!");
+        NSLog(@"SYUDA -n %@", x);
         //self.photoContainer.backgroundColor = [UIColor clearColor];
         self.imageViewPlaceholder.alpha = 0;
         self.imageViewPhoto.image  = selectedImage;

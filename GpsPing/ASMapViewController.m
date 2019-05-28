@@ -163,6 +163,7 @@ objection_requires(@keypath(ASMapViewController.new, apiController), @keypath(AS
     
     self.trackers = [ASTrackerModel getTrackersFromUserDefaults];
    // [self handleExistedTracker];
+    
 }
 
 - (ASTrackerModel*) getTrackerByImei: (NSString*) imei{
@@ -900,7 +901,8 @@ objection_requires(@keypath(ASMapViewController.new, apiController), @keypath(AS
         [self.trackerView configWithOwner:annotation.owner
                                    tracker:annotation.deviceObject
                                      point:annotation.pointObject
-                                     color:annotation.annotationColor];
+                                     color:annotation.annotationColor
+                                    trackerType:self.popedTracker.trackerType];
     } else if ([view.annotation isKindOfClass:[ASFriendAnnotation class]]) {
         ASFriendAnnotation *annotation = view.annotation;
         [self showTrackerView:false];
