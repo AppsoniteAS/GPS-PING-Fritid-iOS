@@ -123,9 +123,12 @@ objection_requires(@keypath(ASTrackerConfigurationViewController.new, apiControl
     } else if ([t isEqualToString:kASTrackerTypeTkStarBike] ||  [t isEqualToString:kASTrackerTypeTkStarPet]){
             className = [NSString stringWithFormat:@"%@_%@", NSStringFromClass([ASTrackerConfigurationViewController class]),
                                                               t];
-    } else if ([t isEqualToString:kASTrackerTypeTkS1] || [t isEqualToString:kASTrackerTypeD79]){
+    } else if ([t isEqualToString:kASTrackerTypeTkS1]){
         className = @"ASTrackerConfigurationViewController_S1";
         DDLogInfo(@"-->> S1");
+    }else if([t isEqualToString:kASTrackerTypeD79]){
+        className = @"ASTrackerConfigurationViewController_S1";//If client will decide delete tracking history, change S1 to D79
+        DDLogInfo(@"-->> D79");
     }
     
     
@@ -161,7 +164,6 @@ objection_requires(@keypath(ASTrackerConfigurationViewController.new, apiControl
     layer.locations = @[@(0), @(1)];
     layer.frame = CGRectMake(0, 0, self.imageViewPhoto.frame.size.width, self.imageViewPhoto.frame.size.height /4.0);
     [self.imageViewPhoto.layer insertSublayer:layer atIndex:0];
-    
     if (self.trackerObject.trackerName) {
         self.nameTextField.text = self.trackerObject.trackerName;
     }

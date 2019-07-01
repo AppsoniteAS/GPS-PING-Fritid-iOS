@@ -259,10 +259,10 @@ NSString* const kASDogSleepModeIsOn   = @"kASDogSleepModeIsOn";
         phoneCode = [NSString stringWithFormat:@"%@%@", @"00", phoneCode];
         
         if ([self.trackerType isEqualToString:kASTrackerTypeTkStarPet]) {
-            result = @[[NSString stringWithFormat:@"admin123456 %@%@", phoneCode, profileModel.phoneNumber],
-                       @"apn123456 internet.ts.m2m",
-                       [NSString stringWithFormat: @"adminip123456 %@ 5013", ipAddress],
-                       @"sleep123456 off"];
+            
+            result = @[@"apn123456 apn,internet.ts.m2m",
+                       [NSString stringWithFormat: @"adminip123456 %s 5013", buff]];
+            
         }  else if ([self.trackerType isEqualToString:kASTrackerTypeLK330]) {
             ASUserProfileModel *profileModel = [ASUserProfileModel loadSavedProfileInfo];
             
@@ -294,8 +294,8 @@ NSString* const kASDogSleepModeIsOn   = @"kASDogSleepModeIsOn";
                        [NSString stringWithFormat:@"pw,123456,ip,%s,5093#", buff]];
         } else if([self.trackerType isEqualToString:kASTrackerTypeD79]) {
             //todo if needed koma ater ip
-            result = @[@"pw,123456,apn,telenor#",
-                       [NSString stringWithFormat:@"pw,123456,ip %s,5093#", buff]];
+            result = @[@"pw,123456,apn,telenor.smart#",
+                       [NSString stringWithFormat:@"pw,123456,ip,%s#", buff]];
             
         } else if([self.trackerType isEqualToString:kASTrackerTypeTkNew]){
             
@@ -312,7 +312,7 @@ NSString* const kASDogSleepModeIsOn   = @"kASDogSleepModeIsOn";
             
         }else if([self.trackerType isEqualToString:kASTrackerTypeTkStar]){
             result = @[
-                       @"apn123456 apn,telenor",
+                       @"apn123456 apn,telenor.smart",
                        [NSString stringWithFormat:@"adminip123456 %s 5093", buff]
                        ];
         } else {
@@ -413,14 +413,15 @@ NSString* const kASDogSleepModeIsOn   = @"kASDogSleepModeIsOn";
      }
      return [NSString stringWithFormat:@"upload123456 %03d", (int)signalRate];
      */
-    if ([self.trackerType isEqualToString:kASTrackerTypeTkStarPet] ||
-        [self.trackerType isEqualToString:kASTrackerTypeTkStarBike]) {
+    if ([self.trackerType isEqualToString:kASTrackerTypeTkStarBike]) {
         return @"gprs123456";
     } else  if ([self.trackerType isEqualToString:kASTrackerTypeLK330]) {
         NSInteger timeHours = self.signalRate / 60;
         
         return [NSString stringWithFormat:@"DW005,%02d", (int) timeHours];
         
+    }else if([self.trackerType isEqualToString:kASTrackerTypeTkStarPet]){
+        return [NSString stringWithFormat:@"upload123456 %03d", [self convertMinutesInSeconds]];
     }else if([self.trackerType isEqualToString:kASTrackerTypeLK330]){
         return [NSString stringWithFormat:@"upload123456 %03d", [self convertMinutesInSeconds]];
         
@@ -442,7 +443,9 @@ NSString* const kASDogSleepModeIsOn   = @"kASDogSleepModeIsOn";
     }else if([self.trackerType isEqualToString:kASTrackerTypeD79]){
         return [NSString stringWithFormat:@"pw,123456,upload,%03d#", [self convertMinutesInSeconds]];
     }else if([self.trackerType isEqualToString:kASTrackerTypeTkStar]){
-        return [NSString stringWithFormat:@"Upload123456 %03d#", [self convertMinutesInSeconds]];
+        return [NSString stringWithFormat:@"upload123456 %03d", [self convertMinutesInSeconds]];
+    }else if([self.trackerType isEqualToString:kASTrackerTypeLK209]){
+        return [NSString stringWithFormat:@"upload123456 %03d", [self convertMinutesInSeconds]];
     } else {
         NSString *rateMetric = [self.signalRateMetric isEqualToString:kASSignalMetricTypeMinutes] ?
         @"m" : @"s";

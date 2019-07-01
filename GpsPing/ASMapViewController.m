@@ -1040,7 +1040,6 @@ objection_requires(@keypath(ASMapViewController.new, apiController), @keypath(AS
         if (!trackers || trackers.count == 0){
             return;
         }
-        
         UIAlertController* alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"reset_all", nil)
                                                                        message:nil
                                                                 preferredStyle:UIAlertControllerStyleAlert];
