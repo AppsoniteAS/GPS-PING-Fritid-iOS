@@ -121,8 +121,9 @@ objection_requires(@keypath(ASTrackerConfigurationViewController.new, apiControl
     if ([t isEqualToString:kASTrackerTypeLK209] || [t isEqualToString:kASTrackerTypeVT600] || [t isEqualToString:kASTrackerTypeLK330]  || [t isEqualToString:kASTrackerTypeTkA9]){
         className = @"ASTrackerConfigurationViewController_Industry";
     } else if ([t isEqualToString:kASTrackerTypeTkStarBike] ||  [t isEqualToString:kASTrackerTypeTkStarPet]){
-            className = [NSString stringWithFormat:@"%@_%@", NSStringFromClass([ASTrackerConfigurationViewController class]),
-                                                              t];
+            className = [NSString stringWithFormat:@"%@_%@", NSStringFromClass([ASTrackerConfigurationViewController class]),t];
+    }else if([t isEqualToString:kASTrackerTypeTkStar]){
+         className = @"ASTrackerConfigurationViewController_TK_STAR_PET";
     } else if ([t isEqualToString:kASTrackerTypeTkS1]){
         className = @"ASTrackerConfigurationViewController_S1";
         DDLogInfo(@"-->> S1");
