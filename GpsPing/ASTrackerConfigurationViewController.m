@@ -124,6 +124,7 @@ objection_requires(@keypath(ASTrackerConfigurationViewController.new, apiControl
             className = [NSString stringWithFormat:@"%@_%@", NSStringFromClass([ASTrackerConfigurationViewController class]),t];
     }else if([t isEqualToString:kASTrackerTypeTkStar]){
          className = @"ASTrackerConfigurationViewController_TK_STAR";
+        DDLogInfo(@"-->> TK_STAR");
     } else if ([t isEqualToString:kASTrackerTypeTkS1]){
         className = @"ASTrackerConfigurationViewController_S1";
         DDLogInfo(@"-->> S1");

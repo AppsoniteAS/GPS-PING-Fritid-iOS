@@ -61,8 +61,8 @@
          queue:[NSOperationQueue mainQueue]
          completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
                              if (error) {
-                                 NSLog(@"Error downloading tile ! \n");
-                                 NSLog(@"Error: %@ \n", error);
+//                                 NSLog(@"Error downloading tile ! \n");
+//                                 NSLog(@"Error: %@ \n", error);
                                  result(nil, error);
                                  
                              }

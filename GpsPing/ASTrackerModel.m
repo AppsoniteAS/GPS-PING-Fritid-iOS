@@ -261,7 +261,7 @@ NSString* const kASDogSleepModeIsOn   = @"kASDogSleepModeIsOn";
         if ([self.trackerType isEqualToString:kASTrackerTypeTkStarPet]) {
             
             result = @[@"apn123456 apn,internet.ts.m2m",
-                       [NSString stringWithFormat: @"adminip123456 %s 5013", buff]];
+                       [NSString stringWithFormat: @"adminip123456 %s 5093", buff]];
             
         }  else if ([self.trackerType isEqualToString:kASTrackerTypeLK330]) {
             ASUserProfileModel *profileModel = [ASUserProfileModel loadSavedProfileInfo];
@@ -293,9 +293,8 @@ NSString* const kASDogSleepModeIsOn   = @"kASDogSleepModeIsOn";
             result = @[@"pw,123456,apn,internet.ts.m2m,,,23820#",
                        [NSString stringWithFormat:@"pw,123456,ip,%s,5093#", buff]];
         } else if([self.trackerType isEqualToString:kASTrackerTypeD79]) {
-            //todo if needed koma ater ip
             result = @[@"pw,123456,apn,telenor.smart#",
-                       [NSString stringWithFormat:@"pw,123456,ip,%s#", buff]];
+                       [NSString stringWithFormat:@"pw,123456,ip,%s,5093#", buff]];
             
         } else if([self.trackerType isEqualToString:kASTrackerTypeTkNew]){
             
