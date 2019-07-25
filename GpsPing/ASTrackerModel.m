@@ -521,7 +521,7 @@ NSString* const kASDogSleepModeIsOn   = @"kASDogSleepModeIsOn";
 }
 
 +(NSString*)getSmsTextForCheckBattery {
-    return @"G123456#";
+    return @"pw,123456,ts#";
 }
 
 -(NSString*)getSmsTextForShutdown {
