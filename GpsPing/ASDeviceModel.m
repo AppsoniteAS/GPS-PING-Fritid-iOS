@@ -34,7 +34,7 @@ NSString* const kASDeviceGSM = @"device.GSM_Signal";
 NSString* const kASDeviceAttributes = @"attributes";
 
 
-NSString* const kASAttributesBatteryD          = @"device.attributes.battery";
+NSString* const kASAttributesBatteryD          = @"device.battery";
 NSString* const kASAttributesPowerD          = @"device.attributes.power";
 NSString* const kASAttributesIngnitionD          = @"device.attributes.ignition";
 

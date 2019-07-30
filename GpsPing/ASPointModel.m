@@ -24,7 +24,7 @@ NSString* const kASPointGPS = @"GPS_Signal";
 NSString* const kASPointGSM = @"GSM_Signal";
 
 NSString* const kASPointAttributes = @"attributes";
-NSString* const kASAttributesBatteryP          = @"attributes.battery";
+NSString* const kASAttributesBatteryP          = @"battery";
 NSString* const kASAttributesPowerP          = @"attributes.power";
 //NSString* const kASAttributesIngnitionP          = @"attributes.ignition";
 
@@ -62,14 +62,14 @@ NSString* const kASAttributesTotalDistanceP = @"daily_track";//@"t_distance";
     }];
 }
 
-+ (NSValueTransformer *)batteryJSONTransformer {
-    return [MTLValueTransformer transformerUsingForwardBlock:^id(id battery, BOOL *success, NSError *__autoreleasing *error) {
-        if ([battery isKindOfClass:[NSString class] ]){
-            return @([battery integerValue]);
-        }
-        return battery;
-    }];
-}
+//+ (NSValueTransformer *)batteryJSONTransformer {
+//    return [MTLValueTransformer transformerUsingForwardBlock:^id(id battery, BOOL *success, NSError *__autoreleasing *error) {
+//        if ([battery isKindOfClass:[NSString class] ]){
+//            return @([battery integerValue]);
+//        }
+//        return battery;
+//    }];
+//}
 
 + (NSValueTransformer *)creationTimeJSONTransformer {
     return [MTLValueTransformer transformerUsingForwardBlock:^id(NSString *timestamp, BOOL *success, NSError *__autoreleasing *error) {

@@ -104,7 +104,7 @@
         self.labelDistance.text =  [self handleDistanceForLat:pointModel.latitude forLon:pointModel.longitude]; // [self handleDistance: pointModel.distance];
         self.labelDistanceTravelled.text = [self handleDistance:pointModel.totalDistance ];
        // [self handleSignalGPS:pointModel.gps andGPRS:pointModel.gsm];
-        [self handleBattery:pointModel.battery];
+        [self handleBattery:deviceModel.battery];
 //        if (!pointModel.battery && pointModel.power){
 //            [self handlePower:pointModel.power];
 //        }
@@ -150,7 +150,7 @@
         } else if (v >= 0 && v <= 10){
             self.imageViewBattery.image = [UIImage imageNamed: @"battery-0"];
         }
-        self.labelBatteryLevel.text = [NSString stringWithFormat: @"%d%%", v];
+        self.labelBatteryLevel.text = [NSString stringWithFormat: @"%ld%%", (long)v];
     } else {
         self.imageViewBattery.image = [UIImage imageNamed: @"battery-0"];
         self.labelBatteryLevel.text = @"0%";
