@@ -1011,9 +1011,13 @@ objection_requires(@keypath(ASMapViewController.new, apiController), @keypath(AS
     if (!self.popedTracker || ![self.popedTracker trackerPhoneNumber] ){
         return;
     }
-    
-    NSURL *phoneUrl = [NSURL URLWithString:[NSString  stringWithFormat:@"telprompt:%@",[self.popedTracker trackerPhoneNumber]]];
-    
+    NSString *phone = [self.popedTracker trackerPhoneNumber];
+    [phone stringByReplacingOccurrencesOfString:@" " withString:@""];
+     [phone stringByReplacingOccurrencesOfString:@")" withString:@""];
+     [phone stringByReplacingOccurrencesOfString:@"(" withString:@""];
+     [phone stringByReplacingOccurrencesOfString:@"+" withString:@""];
+    NSURL *phoneUrl = [NSURL URLWithString:[NSString  stringWithFormat:@"telprompt://\(%@)",phone]];
+    NSLog(@"Phone URL: %@", phoneUrl);
     if ([[UIApplication sharedApplication] canOpenURL:phoneUrl]) {
         [[UIApplication sharedApplication] openURL:phoneUrl];
     } else

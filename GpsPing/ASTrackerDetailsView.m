@@ -178,7 +178,7 @@
             self.imageViewBattery.image = [UIImage imageNamed: @"battery-0"];
             s = 0;
         }
-        self.labelBatteryLevel.text = [NSString stringWithFormat: @"%d%%", s];
+        self.labelBatteryLevel.text = [NSString stringWithFormat: @"%ld%%", (long)s];
     } else {
         self.imageViewBattery.image = [UIImage imageNamed: @"battery-0"];
         self.labelBatteryLevel.text = @"0%";
@@ -189,7 +189,7 @@
     if (gps){
         NSInteger s = [gps integerValue];
         if (s >= 0 && s <= 5){
-            self.imageViewGPS.image = [UIImage imageNamed: [NSString stringWithFormat: @"signal-%d", (long) s]];
+            self.imageViewGPS.image = [UIImage imageNamed: [NSString stringWithFormat: @"signal-%ld", (long) s]];
         }
     } else {
         self.imageViewGPS.image = [UIImage imageNamed: @"signal-0"];
@@ -198,7 +198,7 @@
     if (gsm){
         NSInteger s = [gsm integerValue];
         if (s >= 0 && s <= 5){
-            self.imageViewGSM.image = [UIImage imageNamed: [NSString stringWithFormat: @"signal-%d", (long) s]];
+            self.imageViewGSM.image = [UIImage imageNamed: [NSString stringWithFormat: @"signal-%ld", (long) s]];
         }
     } else {
         self.imageViewGSM.image = [UIImage imageNamed: @"signal-0"];
