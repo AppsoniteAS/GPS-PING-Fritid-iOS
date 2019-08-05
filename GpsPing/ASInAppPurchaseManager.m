@@ -138,7 +138,7 @@ static DDLogLevel ddLogLevel = DDLogLevelDebug;
         }
     }
     if (!restored){
-        [[[UIAlertView alloc] initWithTitle: NSLocalizedString( @"You don't have any subscription", nil) message: NSLocalizedString(@"Please subscribe", nil) delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil] show];
+//        [[[UIAlertView alloc] initWithTitle: NSLocalizedString( @"You don't have any subscription", nil) message: NSLocalizedString(@"Please subscribe", nil) delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil] show];
 
     }
 }
